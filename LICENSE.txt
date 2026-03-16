@@ -1,7 +1,7 @@
 PROPRIETARY SOFTWARE LICENSE
 ════════════════════════════════════════════════════════════════
 
-Copyright © 2026 Reborn Vision — Seymoon. All rights reserved.
+Copyright © 2026 Reborn Assistant — Seymoon. All rights reserved.
 
 This website and all its contents — including but not limited to
 HTML, CSS, JavaScript, translations, design, layout, text,
