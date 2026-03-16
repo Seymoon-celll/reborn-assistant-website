@@ -1,0 +1,32 @@
+PROPRIETARY SOFTWARE LICENSE
+════════════════════════════════════════════════════════════════
+
+Copyright © 2026 Reborn Vision — Seymoon. All rights reserved.
+
+This website and all its contents — including but not limited to
+HTML, CSS, JavaScript, translations, design, layout, text,
+graphics, and any associated files — are the exclusive intellectual
+property of Seymoon (contact: seymoon.cell@gmail.com).
+
+STRICTLY PROHIBITED WITHOUT PRIOR WRITTEN AUTHORIZATION:
+─────────────────────────────────────────────────────────
+  • Copying, reproducing, or duplicating any part of this work
+  • Modifying, adapting, or creating derivative works
+  • Distributing, publishing, or making available to third parties
+  • Using for commercial or personal projects
+  • Reverse engineering or extracting source code for reuse
+  • Hosting or deploying a copy of this site on any platform
+
+THIS SOFTWARE IS NOT OPEN SOURCE.
+No license is granted to any person or entity to use, copy,
+modify, merge, publish, distribute, sublicense, or sell copies
+of this software.
+
+Any unauthorized use constitutes copyright infringement and may
+result in civil and/or criminal penalties under applicable law.
+
+Website: reborn-vision.com
+Contact: seymoon.cell@gmail.com
+
+════════════════════════════════════════════════════════════════
+© 2026 Reborn Vision. All rights reserved.
