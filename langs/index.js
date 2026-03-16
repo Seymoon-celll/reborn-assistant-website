@@ -1,3 +1,4 @@
+// © 2026 Reborn Assistant — All rights reserved. Unauthorized copying, modification or distribution is strictly prohibited. https://reborn-assistant.com
 /* ── Reborn Assistant — i18n loader ── */
 
 /* Inject lang-select dropdown CSS */
