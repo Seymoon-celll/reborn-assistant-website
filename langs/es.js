@@ -92,7 +92,7 @@ export default {
     q5: "¿Cómo contactar con el soporte?",
     a5: "Contáctanos por correo electrónico en seymoon.cell@gmail.com o en Discord (Seymoon). Los suscriptores premium reciben respuesta prioritaria.",
     q6: "¿Reborn Assistant es un bot?",
-    a6: "En sentido estricto, Reborn Assistant no es un bot convencional. Es una extensión de macros configurables que automatiza secuencias de teclas que tú mismo defines. Sin inteligencia artificial, sin interacción con el servidor del juego, sin lectura de memoria. La extensión no lee ni modifica los datos del juego: solo simula las teclas que pulsarías manualmente. Es tu responsabilidad cumplir con los Términos de Servicio.",
+    a6: "No, Reborn Assistant no es un bot. Es una extensión de macros configurables que automatiza secuencias de teclas que tú mismo defines. Sin inteligencia artificial, sin interacción con el servidor del juego, sin lectura de memoria. La extensión no lee ni modifica los datos del juego: solo simula las teclas que pulsarías manualmente. Debes permanecer frente a tu ordenador para jugar: Reborn Assistant no resuelve los captcha, no resucita a tu personaje y no te lleva de vuelta al spot tras una muerte. Es una herramienta para simplificarte el juego, no para reemplazarte.",
   },
   footer: {
     privacy:   "Privacidad",

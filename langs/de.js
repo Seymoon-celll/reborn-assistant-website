@@ -92,7 +92,7 @@ export default {
     q5: "Wie erreiche ich den Support?",
     a5: "Kontaktieren Sie uns per E-Mail unter seymoon.cell@gmail.com oder auf Discord (Seymoon). Premium-Abonnenten erhalten bevorzugte Antworten.",
     q6: "Ist Reborn Assistant ein Bot?",
-    a6: "Streng genommen ist Reborn Assistant kein herkömmlicher Bot. Es ist eine Erweiterung mit konfigurierbaren Makros, die von Ihnen selbst definierte Tastensequenzen automatisiert. Keine künstliche Intelligenz, keine Interaktion mit dem Spielserver, keine Speicherauslesung. Die Erweiterung liest oder modifiziert keine Spieldaten — sie simuliert nur die Tasten, die Sie manuell drücken würden. Sie sind dafür verantwortlich, die Nutzungsbedingungen einzuhalten.",
+    a6: "Nein, Reborn Assistant ist kein Bot. Es ist eine Erweiterung mit konfigurierbaren Makros, die von Ihnen selbst definierte Tastensequenzen automatisiert. Keine künstliche Intelligenz, keine Interaktion mit dem Spielserver, keine Speicherauslesung. Die Erweiterung liest oder modifiziert keine Spieldaten — sie simuliert nur die Tasten, die Sie manuell drücken würden. Sie müssen vor Ihrem Computer bleiben, um zu spielen: Reborn Assistant löst keine Captchas, belebt Ihren Charakter nicht wieder und bringt Sie nach dem Tod nicht zurück zum Spot. Es ist ein Werkzeug, um Ihnen das Spiel zu erleichtern, nicht um Sie zu ersetzen.",
   },
   footer: {
     privacy:   "Datenschutz",

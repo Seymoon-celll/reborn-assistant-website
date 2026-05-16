@@ -92,7 +92,7 @@ export default {
     q5: "Destekle nasıl iletişime geçebilirim?",
     a5: "seymoon.cell@gmail.com e-posta adresinden veya Discord'da (Seymoon) bizimle iletişime geçin. Premium aboneler öncelikli yanıt alır.",
     q6: "Reborn Assistant bir bot mu?",
-    a6: "Kesin anlamda Reborn Assistant geleneksel bir bot değildir. Kendi tanımladığınız tuş dizilerini otomatikleştiren, yapılandırılabilir makrolar içeren bir uzantıdır. Yapay zeka yok, oyun sunucusuyla etkileşim yok, bellek okuma yok. Uzantı oyun verilerini ne okur ne de değiştirir — yalnızca manuel olarak basacağınız tuşları simüle eder. Kullandığınız hizmetlerin Hizmet Koşullarına uymak sizin sorumluluğunuzdur.",
+    a6: "Hayır, Reborn Assistant bir bot değildir. Kendi tanımladığınız tuş dizilerini otomatikleştiren, yapılandırılabilir makrolar içeren bir uzantıdır. Yapay zeka yok, oyun sunucusuyla etkileşim yok, bellek okuma yok. Uzantı oyun verilerini ne okur ne de değiştirir — yalnızca manuel olarak basacağınız tuşları simüle eder. Oynamak için bilgisayarınızın başında kalmalısınız: Reborn Assistant captcha çözmez, karakterinizi diriltmez ve öldükten sonra sizi spota geri götürmez. Sizi yerinize koymak için değil, oyununuzu kolaylaştırmak için bir araçtır.",
   },
   footer: {
     privacy:   "Gizlilik",

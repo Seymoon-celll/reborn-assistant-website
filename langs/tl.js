@@ -92,7 +92,7 @@ export default {
     q5: "Paano makipag-ugnayan sa suporta?",
     a5: "Makipag-ugnayan sa amin sa pamamagitan ng email sa seymoon.cell@gmail.com o Discord (Seymoon). Ang mga premium subscriber ay nakakatanggap ng priority na tugon.",
     q6: "Bot ba ang Reborn Assistant?",
-    a6: "Sa mahigpit na kahulugan, ang Reborn Assistant ay hindi isang conventional bot. Ito ay isang extension ng configurable macros na nag-automate ng key sequences na ikaw mismo ang nag-define. Walang artificial intelligence, walang interaction sa game server, walang memory reading. Hindi nababasa o binabago ng extension ang game data — sinisimulate lamang nito ang mga keys na pinipindot mo nang manu-mano. Responsibilidad mo na sumunod sa Terms of Service.",
+    a6: "Hindi, ang Reborn Assistant ay hindi isang bot. Ito ay isang extension ng configurable macros na nag-automate ng key sequences na ikaw mismo ang nag-define. Walang artificial intelligence, walang interaction sa game server, walang memory reading. Hindi nababasa o binabago ng extension ang game data — sinisimulate lamang nito ang mga keys na pinipindot mo nang manu-mano. Kailangan mong manatili sa harap ng iyong computer para maglaro: ang Reborn Assistant ay hindi nilulutas ang captcha, hindi binubuhay muli ang iyong character, at hindi ka ibinabalik sa spot pagkatapos ng kamatayan. Ito ay isang tool para gawing mas simple ang iyong laro, hindi para palitan ka.",
   },
   footer: {
     privacy:   "Privacy",

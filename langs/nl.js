@@ -92,7 +92,7 @@ export default {
     q5: "Hoe contact opnemen met de ondersteuning?",
     a5: "Contacteer ons via e-mail op seymoon.cell@gmail.com of op Discord (Seymoon). Premium-abonnees ontvangen een prioritaire reactie.",
     q6: "Is Reborn Assistant een bot?",
-    a6: "Strikt genomen is Reborn Assistant geen conventionele bot. Het is een extensie met configureerbare macro's die toetsenreeksen automatiseert die je zelf definieert. Geen kunstmatige intelligentie, geen interactie met de gameserver, geen geheugen lezen. De extensie leest of wijzigt geen spelgegevens — het simuleert alleen de toetsen die je handmatig zou indrukken. Het is jouw verantwoordelijkheid om te voldoen aan de gebruiksvoorwaarden.",
+    a6: "Nee, Reborn Assistant is geen bot. Het is een extensie met configureerbare macro's die toetsenreeksen automatiseert die je zelf definieert. Geen kunstmatige intelligentie, geen interactie met de gameserver, geen geheugen lezen. De extensie leest of wijzigt geen spelgegevens — het simuleert alleen de toetsen die je handmatig zou indrukken. Je moet bij je computer blijven om te spelen: Reborn Assistant lost geen captcha's op, brengt je personage niet weer tot leven en brengt je na een dood niet terug naar de spot. Het is een tool om je gameplay te vereenvoudigen, niet om jou te vervangen.",
   },
   footer: {
     privacy:   "Privacy",
