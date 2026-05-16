@@ -99,7 +99,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "Ringmaster Flyff Universe — Guide Complet 2026",
+      "headline": "Flyff Universe Ringmaster — 2026年完全ガイド",
       "description": "Guide complet du Ringmaster sur Flyff Universe : rôle, buffs essentiels, builds STA/INT, équipement, rotation, automatisation.",
       "image": "https://reborn-assistance.fr/og-image.png",
       "author": { "@type": "Person", "name": "Seymoon" },
@@ -119,188 +119,188 @@
 </head>
 <body>
     <div class="container">
-        <a href="/ja/docs/index.html" class="back-link">← Retour aux docs</a>
+        <a href="/ja/docs/index.html" class="back-link">← ドキュメントに戻る</a>
         <div class="breadcrumb" style="margin-top:24px;">
-            <a href="../index.html">Accueil</a> › <a href="/ja/docs/index.html">Documentation</a> › Guide Ringmaster
+            <a href="../index.html">ホーム</a> › <a href="/ja/docs/index.html">ドキュメント</a> › Ringmaster ガイド
         </div>
 
-        <h1>Ringmaster Flyff Universe — Guide Complet 2026</h1>
-        <p class="subtitle">Rôle, buffs, builds, équipement, rotation : tout ce qu'il faut savoir pour jouer Ringmaster sur Flyff Universe en 2026, du palier 60 jusqu'à l'end-game.</p>
+        <h1>Flyff Universe Ringmaster — 2026年完全ガイド</h1>
+        <p class="subtitle">役割、バフ、ビルド、装備、ローテーション。レベル60帯からエンドゲームまで、2026年の Flyff Universe で Ringmaster をプレイするために知っておくべきすべて。</p>
 
-        <h2>Qu'est-ce qu'un Ringmaster ?</h2>
-        <p>Le <strong>Ringmaster</strong> (RM) est l'avancement final de la branche Assist sur Flyff Universe. C'est <strong>la classe support du jeu</strong> : son rôle principal n'est pas d'infliger des dégâts, mais de <em>maintenir un groupe en vie et de le rendre plus puissant</em> via des buffs longue durée et un heal AOE en boucle. Sans Ringmaster, un groupe end-game prend deux à trois fois plus de temps à clear une zone — et survit beaucoup moins bien aux pulls accidentels.</p>
+        <h2>Ringmaster とは?</h2>
+        <p><strong>Ringmaster</strong>(RM)は Flyff Universe の Assist 系統の最終転職先です。<strong>ゲームのサポートクラス</strong>であり、主な役割はダメージを与えることではなく、長時間バフと AOE ヒールのループによって <em>パーティを生存させ強化すること</em>です。Ringmaster がいないと、エンドゲームのパーティは1ゾーンをクリアするのに2〜3倍の時間がかかり、不測の pull にも遥かに弱くなります。</p>
 
-        <p>Quelques caractéristiques qui définissent la classe :</p>
+        <p>クラスを定義するいくつかの特徴。</p>
         <ul>
-            <li><strong>Buffs longue durée</strong> (5 à 30 minutes) qui boostent les stats du groupe : attaque, défense, vitesse, dodge</li>
-            <li><strong>Heal Rain</strong>, une AOE qui soigne sur la durée tous les alliés dans un rayon de ~12-15m</li>
-            <li><strong>Résurrection</strong> de joueur mort sans pénalité d'expérience</li>
-            <li><strong>Très faible burst damage personnel</strong> — le RM ne tue rien tout seul efficacement</li>
-            <li><strong>Demande presque toujours d'être en groupe</strong> ou bien d'avoir un alt à buffer/soigner</li>
+            <li><strong>長時間バフ</strong>(5〜30分)でパーティのステータスを底上げ: 攻撃、防御、速度、回避</li>
+            <li><strong>Heal Rain</strong>、半径約12〜15m 内のすべての味方を継続回復する AOE</li>
+            <li>経験値ペナルティなしで死亡プレイヤーを <strong>Resurrection</strong></li>
+            <li><strong>個人のバーストダメージは非常に低い</strong> — RM 単独では効率よく敵を倒せません</li>
+            <li><strong>ほぼ常にパーティでのプレイが前提</strong>、もしくはバフ・回復対象のサブキャラが必要</li>
         </ul>
 
-        <h2>Le rôle du Ringmaster en groupe</h2>
-        <p>Trois rôles principaux selon le contexte de jeu :</p>
+        <h2>パーティ内での Ringmaster の役割</h2>
+        <p>プレイ状況に応じた3つの主な役割。</p>
 
         <div class="role-card">
             <div class="role-icon">⚔️</div>
-            <h3 style="margin-top:0;">Farm rapide (PvE classique)</h3>
-            <p>Vous accompagnez un ou plusieurs DPS sur un spot de farm. Votre travail : rebuff toutes les 5 minutes, lancer Heal Rain en continu, surveiller les FP. Très répétitif — c'est exactement la situation où l'automatisation prend tout son sens.</p>
+            <h3 style="margin-top:0;">高速ファーム(通常 PvE)</h3>
+            <p>1人または複数の DPS をファームスポットでサポートします。仕事は5分ごとのリバフ、Heal Rain の継続詠唱、FP の監視です。とても反復的で、まさに自動化が真価を発揮する場面です。</p>
         </div>
 
         <div class="role-card">
             <div class="role-icon">🐉</div>
-            <h3 style="margin-top:0;">Raids & boss</h3>
-            <p>Boss avec gros burst damage type Glaphan, Bang, Aibatt. Le rythme change : moins de heal périodique, plus de heals burst manuels, parfois Resurrection à anticiper. L'automatisation passe en second plan ici — vous devez garder la main.</p>
+            <h3 style="margin-top:0;">レイドとボス</h3>
+            <p>Glaphan、Bang、Aibatt のように大きなバーストダメージを持つボス。リズムが変わります。定期ヒールは減り、手動のバーストヒールが増え、ときには Resurrection を予測する必要も。ここでは自動化は二次的で、自分で操作を握る必要があります。</p>
         </div>
 
         <div class="role-card">
             <div class="role-icon">🏆</div>
-            <h3 style="margin-top:0;">FWC (Flyff World Championships)</h3>
-            <p>Compétition organisée, métagame ultra-précis. Les RM ne sont plus juste un service utility : ils contribuent à des compos optimisées avec timings de buffs synchronisés. Connaître les rotations par cœur devient critique. L'automatisation peut être bannie selon les règles d'un tournoi — toujours vérifier.</p>
+            <h3 style="margin-top:0;">FWC(Flyff World Championships)</h3>
+            <p>公式大会、超精密なメタゲーム。RM は単なるユーティリティ要員ではなく、バフタイミングを同期させた最適化編成に貢献します。ローテーションを暗記しているかどうかが重要になります。大会のルールによっては自動化が禁止されることがあるので、必ず確認してください。</p>
         </div>
 
-        <h2>Les buffs essentiels du Ringmaster</h2>
-        <p>Voici les buffs que vous devez maîtriser et inclure dans votre rotation, classés par priorité :</p>
+        <h2>Ringmaster の必須バフ</h2>
+        <p>優先度順に、習得してローテーションに組み込むべきバフはこちらです。</p>
 
         <div class="buff-grid">
             <div class="buff-card priority">
                 <div class="buff-name">Heart of Power (HoP)</div>
-                <div class="buff-meta">★ Priorité absolue · 30 min</div>
-                <p class="buff-desc">Boost STA + attaque pour tout le groupe. Le buff signature du Ringmaster, à activer en premier de la rotation.</p>
+                <div class="buff-meta">★ 最優先 · 30分</div>
+                <p class="buff-desc">パーティ全員に STA と攻撃力ブースト。Ringmaster の代名詞バフで、ローテーションの最初に発動します。</p>
             </div>
 
             <div class="buff-card priority">
                 <div class="buff-name">Beef Up</div>
-                <div class="buff-meta">★ Priorité haute · 15 min</div>
-                <p class="buff-desc">Augmente le HP max du groupe. Critique sur les zones où un wipe est possible si un membre n'a pas son cap HP.</p>
+                <div class="buff-meta">★ 高優先度 · 15分</div>
+                <p class="buff-desc">パーティの最大 HP を増やします。1人でも HP キャップに達していないと崩壊しうるゾーンでは必須です。</p>
             </div>
 
             <div class="buff-card priority">
                 <div class="buff-name">Mental Sign</div>
-                <div class="buff-meta">★ Priorité haute · 15 min</div>
-                <p class="buff-desc">Boost INT du groupe. Énorme pour les Mages, Knights AOE, et les Rangers qui utilisent des skills à scaling magique.</p>
+                <div class="buff-meta">★ 高優先度 · 15分</div>
+                <p class="buff-desc">パーティの INT ブースト。Mage、AOE Knight、魔法スケールのスキルを使う Ranger には絶大な効果。</p>
             </div>
 
             <div class="buff-card">
                 <div class="buff-name">Speed Pep</div>
-                <div class="buff-meta">15 min</div>
-                <p class="buff-desc">Augmente l'attack speed. Game-changer pour Blades et Rangers ; moins critique pour Mages.</p>
+                <div class="buff-meta">15分</div>
+                <p class="buff-desc">攻撃速度を上昇。Blade と Ranger には game-changer、Mage にはそれほど重要ではありません。</p>
             </div>
 
             <div class="buff-card">
                 <div class="buff-name">Cat's Reflex</div>
-                <div class="buff-meta">15 min</div>
-                <p class="buff-desc">Boost de dodge. Utile sur les zones où les mobs ont beaucoup d'attaques physiques rapides.</p>
+                <div class="buff-meta">15分</div>
+                <p class="buff-desc">回避ブースト。素早い物理攻撃を多く持つ mob のゾーンで役立ちます。</p>
             </div>
 
             <div class="buff-card">
                 <div class="buff-name">Heal Rain</div>
-                <div class="buff-meta">AOE · ~15 sec</div>
-                <p class="buff-desc">L'AOE soin centrée sur vous. À relancer en boucle pendant tout le farm. Couvre tous les alliés dans un rayon de 12-15m.</p>
+                <div class="buff-meta">AOE · 約15秒</div>
+                <p class="buff-desc">あなたを中心とした AOE ヒール。ファーム中ずっとループで再詠唱します。半径12〜15m 以内の味方全員をカバーします。</p>
             </div>
         </div>
 
-        <h2>Build STA vs INT — Quel build choisir ?</h2>
-        <p>Deux écoles principales en 2026 :</p>
+        <h2>STA ビルド vs INT ビルド — どちらを選ぶ?</h2>
+        <p>2026年の主流は2つの流派です。</p>
 
         <table class="stats-table">
             <thead>
                 <tr>
-                    <th>Critère</th>
-                    <th>Build STA Full</th>
-                    <th>Build INT Hybrid</th>
+                    <th>基準</th>
+                    <th>STA フルビルド</th>
+                    <th>INT ハイブリッドビルド</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>Stats principaux</strong></td>
-                    <td>Full STA, INT minimum requis pour les buffs</td>
-                    <td>~50/50 STA/INT, parfois 30/70 selon le niveau</td>
+                    <td><strong>メインステータス</strong></td>
+                    <td>STA フル、INT はバフ発動に必要な最低限</td>
+                    <td>STA/INT 約50/50、レベルにより30/70になることも</td>
                 </tr>
                 <tr>
-                    <td><strong>HP / Survie</strong></td>
-                    <td>Excellent — pool énorme, survit aux pulls accidentels</td>
-                    <td>Moyen — exige plus d'attention du joueur</td>
+                    <td><strong>HP / 生存性</strong></td>
+                    <td>優秀 — プールが大きく、不測の pull でも生存</td>
+                    <td>普通 — プレイヤーの注意力をより要求</td>
                 </tr>
                 <tr>
-                    <td><strong>Puissance des heals</strong></td>
-                    <td>Correct — suffit pour la plupart des situations</td>
-                    <td>Excellent — Heal Rain et autres heals scalent fort sur INT</td>
+                    <td><strong>ヒール威力</strong></td>
+                    <td>十分 — 大半の状況には足ります</td>
+                    <td>優秀 — Heal Rain などのヒールは INT に強くスケール</td>
                 </tr>
                 <tr>
-                    <td><strong>FP pool</strong></td>
-                    <td>Faible — nécessite plus de potions</td>
-                    <td>Élevé — gestion FP plus confortable</td>
+                    <td><strong>FP プール</strong></td>
+                    <td>低い — より多くのポーションが必要</td>
+                    <td>高い — FP 管理がより楽</td>
                 </tr>
                 <tr>
-                    <td><strong>Recommandé pour</strong></td>
-                    <td>Joueurs débutants, farm peu dangereux, RM solo-utility</td>
-                    <td>Joueurs expérimentés, raids difficiles, FWC, end-game</td>
+                    <td><strong>推奨対象</strong></td>
+                    <td>初心者、危険の少ないファーム、ソロユーティリティ RM</td>
+                    <td>経験者、難関レイド、FWC、エンドゲーム</td>
                 </tr>
             </tbody>
         </table>
 
-        <p>Le build STA Full reste le plus pardonnant et le plus joué. Le build INT Hybrid est plus exigeant mais récompense par un heal output significativement supérieur — un must pour le contenu compétitif.</p>
+        <p>STA フルビルドは最も寛容で最も普及している型です。INT ハイブリッドは要求が高い反面、ヒール出力で大きな見返りがあります — 競技コンテンツには必須です。</p>
 
-        <h2>Équipement recommandé</h2>
-        <h3>Armes</h3>
+        <h2>推奨装備</h2>
+        <h3>武器</h3>
         <ul>
-            <li><strong>Staff (bâton)</strong> — meilleur scaling INT, recommandé pour build INT Hybrid</li>
-            <li><strong>Stick (canne)</strong> — équilibré, polyvalent</li>
-            <li><strong>Shield (bouclier)</strong> en off-hand — gain de defense, fortement recommandé en STA Full</li>
+            <li><strong>Staff(杖)</strong> — INT スケールが最高、INT ハイブリッドビルド向け</li>
+            <li><strong>Stick(ステッキ)</strong> — バランス型、汎用</li>
+            <li>オフハンドに <strong>Shield(盾)</strong> — 防御力アップ、STA フルでは強く推奨</li>
         </ul>
 
-        <h3>Armure</h3>
+        <h3>防具</h3>
         <ul>
-            <li><strong>Set jewelry STA</strong> pour le build STA Full (Tinerbol, Lord, etc. selon palier)</li>
-            <li><strong>Set jewelry INT</strong> ou hybride STA/INT pour le build Hybrid</li>
-            <li><strong>Toujours privilégier le set complet</strong> pour le bonus 2/4/6 pièces</li>
+            <li>STA フル向けの <strong>STA セット jewelry</strong>(Tinerbol、Lord などレベル帯に応じて)</li>
+            <li>ハイブリッド向けの <strong>INT セット jewelry</strong>、もしくは STA/INT 混合</li>
+            <li>2/4/6ピースのセットボーナスを得るため、<strong>常に完全セットを優先</strong></li>
         </ul>
 
-        <h3>Bijoux (jewelry)</h3>
-        <p>L'optimisation des bijoux est où le RM passe du correct à l'excellent. Utilisez un calculateur (voir <a href="/ja/docs/saikou-no-flyff-universe-tools-2026.html">notre comparatif d'outils</a>) pour identifier la combinaison qui maximise votre stat prioritaire selon le palier.</p>
+        <h3>アクセサリ(jewelry)</h3>
+        <p>jewelry の最適化が RM を「十分」から「優秀」へ引き上げる場所です。レベル帯に応じて優先ステータスを最大化する組み合わせを特定するには、計算機をご利用ください(<a href="/ja/docs/saikou-no-flyff-universe-tools-2026.html">ツール比較記事</a>参照)。</p>
 
-        <h2>Rotation et gestion du rythme</h2>
-        <p>Une rotation efficace en farm classique tient en 3 timings :</p>
+        <h2>ローテーションとリズム管理</h2>
+        <p>通常ファームでの効率的なローテーションは3つのタイミングで成り立ちます。</p>
         <ul>
-            <li><strong>Toutes les 5 minutes</strong> — rebuff complet du groupe (HoP → Beef Up → Mental Sign → Speed Pep → Cat's Reflex)</li>
-            <li><strong>Toutes les 12-15 secondes</strong> — Heal Rain</li>
-            <li><strong>Continu</strong> — surveillance des HP individuels pour heals burst d'urgence</li>
+            <li><strong>5分ごと</strong> — パーティの完全リバフ(HoP → Beef Up → Mental Sign → Speed Pep → Cat's Reflex)</li>
+            <li><strong>12〜15秒ごと</strong> — Heal Rain</li>
+            <li><strong>常時</strong> — 緊急バーストヒールに備えて個別 HP を監視</li>
         </ul>
 
-        <p>Les deux premiers timings sont mécaniques et parfaits pour <strong>l'automatisation</strong>. Le troisième demande votre attention humaine. C'est l'arbitrage clé du Ringmaster moderne : automatiser ce qui est répétitif pour <strong>garder votre énergie pour les moments décisifs</strong>.</p>
+        <p>最初の2つのタイミングは機械的で <strong>自動化</strong>に最適。3つ目は人間の注意力を要求します。これが現代の Ringmaster の鍵となる判断です。反復作業を自動化して、<strong>決定的な瞬間にエネルギーを残す</strong>ことです。</p>
 
         <div class="callout">
-            <strong>💡 Tutoriel pratique disponible</strong>
-            Nous avons rédigé un <a href="/ja/docs/ringmaster-jidoka-flyff-universe.html" style="color:var(--gold);">tutoriel pas à pas pour automatiser votre Ringmaster</a> avec Reborn Assistant : configuration des rotations, intervalle entre cycles, macro Heal Rain et erreurs à éviter.
+            <strong>💡 実践チュートリアルあり</strong>
+            Reborn Assistant で <a href="/ja/docs/ringmaster-jidoka-flyff-universe.html" style="color:var(--gold);">Ringmaster を自動化するためのステップバイステップ チュートリアル</a>を用意しました。ローテーション設定、サイクル間隔、Heal Rain マクロ、避けるべきミスまで網羅しています。
         </div>
 
-        <h2>Ringmaster vs Mentalist — Quelle différence ?</h2>
-        <p>Deux classes de la branche Assist, souvent confondues par les débutants :</p>
+        <h2>Ringmaster vs Mentalist — 何が違う?</h2>
+        <p>Assist 系統の2クラスで、初心者によく混同されます。</p>
         <ul>
-            <li><strong>Ringmaster</strong> = full support, faible damage personnel, indispensable en groupe, peu efficace en solo</li>
-            <li><strong>Mentalist</strong> = orientation DPS magique, peut farmer en solo, perd une partie des buffs longue durée du RM</li>
+            <li><strong>Ringmaster</strong> = フルサポート、個人ダメージは低い、パーティでは必須、ソロでは非効率</li>
+            <li><strong>Mentalist</strong> = 魔法 DPS 寄り、ソロでファーム可能、RM の長時間バフの一部を失う</li>
         </ul>
-        <p>Si votre intent est de jouer en groupe, jouer FWC, ou être le "pilier" d'une guilde → Ringmaster. Si vous voulez une classe Assist plus autonome en solo → Mentalist.</p>
+        <p>パーティプレイ、FWC、ギルドの「柱」になりたいなら → Ringmaster。ソロで自立した Assist 系クラスが欲しいなら → Mentalist。</p>
 
-        <h2>Erreurs courantes de débutant Ringmaster</h2>
+        <h2>Ringmaster 初心者によくあるミス</h2>
         <ul>
-            <li><strong>Ne pas rebuff régulièrement</strong> — un buff manquant après 5 minutes coûte parfois plus que la vie entière du DPS</li>
-            <li><strong>Bouger pendant Heal Rain</strong> — l'AOE ne suit pas, les alliés sortent du rayon</li>
-            <li><strong>Build full INT trop tôt</strong> — sans pool HP suffisant, vous mourez avant d'avoir lancé Heal Rain</li>
-            <li><strong>Ignorer les potions FP</strong> — un RM sans FP est un RM inutile</li>
-            <li><strong>Tenter de DPS</strong> — vous perdez du temps mieux investi dans le heal et les buffs</li>
+            <li><strong>定期的にリバフしない</strong> — 5分経過後の欠けたバフが、DPS の一生分より高くつくことがあります</li>
+            <li><strong>Heal Rain 中に動く</strong> — AOE は追従せず、味方が範囲外に出ます</li>
+            <li><strong>早すぎる INT フルビルド</strong> — HP プールが足りないと、Heal Rain を撃つ前に死にます</li>
+            <li><strong>FP ポーションを無視する</strong> — FP のない RM は役立たずの RM</li>
+            <li><strong>DPS をしようとする</strong> — ヒールとバフに使うべき時間を浪費するだけです</li>
         </ul>
 
         <div class="cta-box">
-            <h3>Optimisez votre Ringmaster avec Reborn Assistant</h3>
-            <p>L'extension premium pour automatiser la rotation de buffs, le Heal Rain périodique et vos macros personnalisées. 7 jours d'essai gratuit sans carte bancaire.</p>
-            <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" rel="noopener" class="btn-cta">Installer Reborn Assistant</a>
+            <h3>Reborn Assistant で Ringmaster を最適化</h3>
+            <p>バフローテーション、定期 Heal Rain、カスタムマクロを自動化するプレミアム拡張機能。クレジットカード不要、7日間無料トライアル。</p>
+            <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" rel="noopener" class="btn-cta">Reborn Assistant をインストール</a>
         </div>
 
         <p style="margin-top:48px;text-align:center;color:var(--text-dim);font-size:14px;">
-            Guide mis à jour le 16 mai 2026 — Flyff Universe (Gala Lab).
+            ガイド更新日: 2026年5月16日 — Flyff Universe (Gala Lab)。
         </p>
     </div>
 </body>

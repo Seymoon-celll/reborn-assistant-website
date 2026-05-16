@@ -110,7 +110,7 @@ export default {
 
   // ── docs/index.html ───────────────────────────────────────────────
   docsHome: {
-    version:              "VERSION 1.3 · DOCUMENTATION COMPLÈTE",
+    version:              "VERSION 1.3.3 · DOCUMENTATION COMPLÈTE",
     userGuide:            "Guide d'utilisation",
     support:              "Support",
     legal:                "Informations légales",

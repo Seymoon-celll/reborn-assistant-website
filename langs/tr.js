@@ -108,7 +108,7 @@ export default {
   },
 
   docsHome: {
-    version:              "SÜRÜM 1.3 · TAM BELGELER",
+    version:              "SÜRÜM 1.3.3 · TAM BELGELER",
     userGuide:            "Kullanıcı kılavuzu",
     support:              "Destek",
     legal:                "Hukuki bilgiler",

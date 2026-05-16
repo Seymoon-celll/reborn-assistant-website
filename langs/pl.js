@@ -108,7 +108,7 @@ export default {
   },
 
   docsHome: {
-    version:              "WERSJA 1.3 · PEŁNA DOKUMENTACJA",
+    version:              "WERSJA 1.3.3 · PEŁNA DOKUMENTACJA",
     userGuide:            "Przewodnik użytkownika",
     support:              "Wsparcie",
     legal:                "Informacje prawne",

@@ -132,11 +132,11 @@
             { "@type": "HowToTool", "name": "Navigateur Chromium (Chrome, Edge, Brave)" }
           ],
           "step": [
-            { "@type": "HowToStep", "name": "Installer Reborn Assistant", "text": "Ajoutez l'extension Reborn Assistant depuis le Chrome Web Store et épinglez-la dans la barre d'outils." },
-            { "@type": "HowToStep", "name": "Identifier vos séquences Ringmaster", "text": "Recensez vos séquences clés : Heart of Power (HoP), Beef Up, Mental Sign, Speed Pep, et l'AOE Heal (Heal Rain)." },
-            { "@type": "HowToStep", "name": "Configurer la rotation de séquences", "text": "Dans Reborn Assistant, activez la rotation F2 → 1-9 → 0 → F1 avec un intervalle de 5 minutes (durée typique de vos buffs)." },
-            { "@type": "HowToStep", "name": "Programmer le Heal périodique", "text": "Activez la macro périodique pour déclencher Heal Rain toutes les 15 secondes en groupe." },
-            { "@type": "HowToStep", "name": "Lancer l'automatisation", "text": "Démarrez avec CTRL+A, surveillez le log d'activité, ajustez les délais selon les animations de vos séquences." }
+            { "@type": "HowToStep", "name": "Zainstaluj Reborn Assistant", "text": "Dodaj rozszerzenie Reborn Assistant z Chrome Web Store i przypnij je do paska narzędzi." },
+            { "@type": "HowToStep", "name": "Zidentyfikuj swoje sekwencje Ringmastera", "text": "Spisz swoje kluczowe sekwencje: Heart of Power (HoP), Beef Up, Mental Sign, Speed Pep i AOE Heal (Heal Rain)." },
+            { "@type": "HowToStep", "name": "Skonfiguruj rotację sekwencji", "text": "Dans Reborn Assistant, activez la rotation F2 → 1-9 → F1 avec un intervalle de 5 minutes (durée typique de vos buffs)." },
+            { "@type": "HowToStep", "name": "Programmer le Heal automatique", "text": "Assignez Heal Rain à une touche libre, reportez-la dans la section SOIN du panneau Reborn, réglez l'intervalle sur 12-15 secondes et activez le toggle ON." },
+            { "@type": "HowToStep", "name": "Uruchom automatyzację", "text": "Wystartuj skrótem CTRL+A, obserwuj log aktywności, dopasuj opóźnienia do animacji swoich sekwencji." }
           ]
         }
       ]
@@ -146,160 +146,170 @@
 </head>
 <body>
     <div class="container">
-        <a href="/pl/docs/index.html" class="back-link">← Retour aux docs</a>
+        <a href="/pl/docs/index.html" class="back-link">← Powrót do dokumentacji</a>
         <div class="breadcrumb" style="margin-top:24px;">
-            <a href="../index.html">Accueil</a> › <a href="/pl/docs/index.html">Documentation</a> › Automatiser son Ringmaster
+            <a href="../index.html">Strona główna</a> › <a href="/pl/docs/index.html">Dokumentacja</a> › Automatyzacja Ringmastera
         </div>
 
-        <h1>Automatiser son Ringmaster sur Flyff Universe — Guide complet 2026</h1>
-        <p class="subtitle">Buffs, séquences, AOE heal, gestion HP/FP : le tutoriel pas à pas pour transformer votre Ringmaster en pilier de groupe sans y laisser la main.</p>
+        <h1>Automatyzacja Ringmastera w Flyff Universe — Kompletny poradnik 2026</h1>
+        <p class="subtitle">Buffy, sekwencje, AOE heal, zarządzanie HP/FP: krok po kroku jak zmienić swojego Ringmastera w filar drużyny, nie zarabiając się na śmierć.</p>
 
         <div class="toc">
-            <div class="toc-title">◆ Sommaire</div>
+            <div class="toc-title">◆ Spis treści</div>
             <ol>
-                <li><a href="#pourquoi">Pourquoi automatiser son Ringmaster</a></li>
-                <li><a href="#prerequis">Prérequis avant d'automatiser</a></li>
-                <li><a href="#sequences">Identifier vos séquences Ringmaster</a></li>
-                <li><a href="#rotation">Configurer la rotation de buffs</a></li>
-                <li><a href="#heal">Programmer le Heal périodique</a></li>
-                <li><a href="#macros">Macros personnalisées (DPS, support, urgence)</a></li>
-                <li><a href="#optimisation">Optimisation et erreurs courantes</a></li>
-                <li><a href="#legal">Aspect légal — ce qu'il faut savoir</a></li>
+                <li><a href="#pourquoi">Dlaczego warto automatyzować Ringmastera</a></li>
+                <li><a href="#prerequis">Wymagania wstępne przed automatyzacją</a></li>
+                <li><a href="#sequences">Zidentyfikuj swoje sekwencje Ringmastera</a></li>
+                <li><a href="#rotation">Skonfiguruj rotację buffów</a></li>
+                <li><a href="#heal">Zaprogramuj okresowy Heal</a></li>
+                <li><a href="#macros">Macros, Familier, Suivre, Auto-clic</a></li>
+                <li><a href="#optimisation">Optymalizacja i częste błędy</a></li>
+                <li><a href="#legal">Aspekt prawny — co warto wiedzieć</a></li>
             </ol>
         </div>
 
-        <h2 id="pourquoi">Pourquoi automatiser son Ringmaster</h2>
-        <p>Le Ringmaster (souvent abrégé <strong>RM</strong>) est la classe support emblématique de Flyff Universe. Son rôle est clair : maintenir le groupe en vie via des buffs (Heart of Power, Beef Up, Mental Sign…) qui durent entre 5 et 30 minutes selon le niveau, et soigner les dégâts via Heal Rain en AOE. Sur le papier, c'est limpide. En pratique, c'est l'une des classes les plus fatigantes à jouer en farm prolongé : vous passez 80% de votre temps à <strong>rebuff toutes les 5 minutes</strong>, à <strong>relancer Heal Rain toutes les 10-15 secondes</strong> et à <strong>maintenir un œil sur les barres FP</strong> de chaque membre du groupe.</p>
-        <p>L'automatisation ne remplace pas votre jugement. Elle décharge votre clavier des routines mécaniques : la séquence de rebuff complète, le heal périodique, l'utilisation des potions FP. Vous gardez les mains libres pour les <strong>moments où ça compte vraiment</strong> : un wipe imminent, un wave qui dérape, un boss qui shoot le RM en premier.</p>
+        <h2 id="pourquoi">Dlaczego warto automatyzować Ringmastera</h2>
+        <p>Ringmaster (często skracany do <strong>RM</strong>) to ikoniczna klasa supportowa w Flyff Universe. Jego rola jest jasna: utrzymywać drużynę przy życiu dzięki buffom (Heart of Power, Beef Up, Mental Sign…), które trwają od 5 do 30 minut w zależności od poziomu, oraz leczyć obrażenia za pomocą Heal Rain w AOE. Na papierze prosta sprawa. W praktyce to jedna z najbardziej męczących klas podczas długiego farmienia: 80% czasu spędzasz na <strong>rebuffowaniu co 5 minut</strong>, <strong>ponawianiu Heal Rain co 10-15 sekund</strong> i <strong>pilnowaniu pasków FP</strong> każdego członka drużyny.</p>
+        <p>Automatyzacja nie zastępuje twojego osądu. Odciąża twoją klawiaturę od mechanicznych rutyn: pełnej sekwencji rebuffu, okresowego heala, używania mikstur FP. Zostawia ci wolne ręce na <strong>momenty, w których naprawdę się to liczy</strong>: nadciągający wipe, wave, który wymyka się spod kontroli, boss, który celuje najpierw w RM.</p>
 
         <div class="callout">
-            <strong>💡 Cas d'usage typique</strong>
-            Vous lancez un farm de 4 heures sur Glaphan ou Asteria. Sans automatisation : 240 minutes ÷ 5 minutes = 48 cycles de rebuff manuel. Avec Reborn Assistant configuré : 1 cycle, le reste tourne en arrière-plan. Vous reprenez la main uniquement si la composition change ou si un membre meurt.
+            <strong>💡 Typowy przypadek użycia</strong>
+            Odpalasz 4-godzinny farm na Glaphan lub Asteria. Bez automatyzacji: 240 minut ÷ 5 minut = 48 cykli ręcznego rebuffu. Z odpowiednio skonfigurowanym Reborn Assistant: 1 cykl, reszta dzieje się w tle. Przejmujesz kontrolę tylko wtedy, gdy zmienia się skład albo ktoś umiera.
         </div>
 
-        <h2 id="prerequis">Prérequis avant d'automatiser</h2>
-        <p>Avant d'activer quoi que ce soit, posez les bases solides :</p>
+        <h2 id="prerequis">Wymagania wstępne przed automatyzacją</h2>
+        <p>Zanim cokolwiek włączysz, postaw solidne fundamenty:</p>
         <ul>
-            <li><strong>Reborn Assistant Premium</strong> installé (la version gratuite ne couvre que la macro soin de base). Voir le <a href="quickstart.html">guide d'installation</a>.</li>
-            <li><strong>Vos buffs Ringmaster assignés aux touches F2 → 0</strong> en suivant un ordre logique (Heart of Power d'abord, AOE buffs ensuite, single-target en dernier).</li>
-            <li><strong>Heal Rain sur la touche § (ou autre touche dédiée)</strong> — c'est la touche que Reborn Assistant déclenchera en boucle.</li>
-            <li><strong>Une pile de potions FP</strong> dans l'inventaire — l'automatisation n'invente pas les ressources.</li>
-            <li><strong>Une zone de farm stable</strong> : éviter les zones avec téléportations forcées ou mobs qui repoussent (ça décale les positions et casse l'AOE).</li>
+            <li><strong>Reborn Assistant Premium</strong> zainstalowany (wersja darmowa obejmuje tylko podstawowe makro leczenia). Zobacz <a href="quickstart.html">poradnik instalacji</a>.</li>
+            <li><strong>Twoje buffy Ringmastera przypisane do klawiszy F2 → 0</strong> w logicznej kolejności (najpierw Heart of Power, potem AOE buffy, na końcu single-target).</li>
+            <li><strong>Heal Rain sur une touche libre</strong> de votre choix (par exemple <code>R</code>, <code>T</code>, <code>E</code>) — c'est la touche que Reborn Assistant déclenchera en boucle.</li>
+            <li><strong>Stosik mikstur FP</strong> w ekwipunku — automatyzacja nie wyczaruje zasobów.</li>
+            <li><strong>Stabilna strefa farmienia</strong>: unikaj stref z wymuszonymi teleportami albo mobami odpychającymi (rozjeżdżają pozycje i psują AOE).</li>
         </ul>
 
-        <h2 id="sequences">Identifier vos séquences Ringmaster</h2>
-        <p>Toutes les séquences ne sont pas égales. Voici la hiérarchie typique d'un build RM full support :</p>
-        <h3>Séquences essentielles (rotation toutes les 5 min)</h3>
+        <h2 id="sequences">Zidentyfikuj swoje sekwencje Ringmastera</h2>
+        <p>Nie wszystkie sekwencje są sobie równe. Oto typowa hierarchia builda RM full support:</p>
+        <h3>Sekwencje kluczowe (rotacja co 5 min)</h3>
         <ul>
-            <li><strong>Heart of Power (HoP)</strong> — boost STA + attaque, indispensable</li>
-            <li><strong>Beef Up</strong> — STA flat, augmente HP max du groupe</li>
-            <li><strong>Mental Sign</strong> — INT + boost magique pour les Mages / Knights AOE</li>
-            <li><strong>Speed Pep</strong> — attack speed, énorme pour les Blades / Rangers</li>
-            <li><strong>Cat's Reflex</strong> — DODGE, utile en zone difficile</li>
+            <li><strong>Heart of Power (HoP)</strong> — boost STA + atak, niezbędny</li>
+            <li><strong>Beef Up</strong> — płaska STA, zwiększa maksymalne HP drużyny</li>
+            <li><strong>Mental Sign</strong> — INT + boost magiczny dla Mage'ów / Knightów AOE</li>
+            <li><strong>Speed Pep</strong> — attack speed, ogromny dla Blade'ów / Rangerów</li>
+            <li><strong>Cat's Reflex</strong> — DODGE, przydatny w trudnych strefach</li>
         </ul>
-        <h3>Séquences situationnelles (à activer manuellement)</h3>
+        <h3>Sekwencje sytuacyjne (włączane ręcznie)</h3>
         <ul>
-            <li><strong>Resurrection</strong> — jamais en auto, situation par situation</li>
-            <li><strong>Holy Cross</strong> — bonus dégâts élémentaires, optionnel selon le contexte</li>
+            <li><strong>Resurrection</strong> — nigdy na auto, każdorazowo decyzja</li>
+            <li><strong>Holy Cross</strong> — bonus obrażeń żywiołowych, opcjonalny zależnie od kontekstu</li>
         </ul>
 
-        <h2 id="rotation">Configurer la rotation de buffs</h2>
-        <p>C'est le cœur du système. Reborn Assistant peut appuyer sur une séquence fixe <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 0 → F1</code> à intervalle régulier. Voici comment l'aligner avec votre RM :</p>
+        <h2 id="rotation">Skonfiguruj rotację buffów</h2>
+        <p>C'est le cœur du système. Reborn Assistant peut appuyer sur une séquence fixe <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → F1</code> à intervalle régulier. F2 ouvre votre panneau de buffs, 1 à 9 déclenchent vos séquences, F1 revient à la barre de combat. Voici comment l'aligner avec votre RM :</p>
 
         <div class="step">
             <div class="step-number">1</div>
-            <div class="step-title">Préparer vos slots de séquences</div>
-            <p>Glissez vos séquences depuis la barre de séquences vers la barre de raccourcis Flyff dans cet ordre :</p>
+            <div class="step-title">Przygotuj sloty na sekwencje</div>
+            <p>Przeciągnij swoje sekwencje z paska sekwencji na pasek skrótów Flyffa w tej kolejności:</p>
             <ul>
-                <li>Touche 1 → Heart of Power</li>
-                <li>Touche 2 → Beef Up</li>
-                <li>Touche 3 → Mental Sign</li>
-                <li>Touche 4 → Speed Pep</li>
-                <li>Touche 5 → Cat's Reflex</li>
-                <li>Touches 6 à 0 → vos autres buffs disponibles ou vide</li>
+                <li>Klawisz 1 → Heart of Power</li>
+                <li>Klawisz 2 → Beef Up</li>
+                <li>Klawisz 3 → Mental Sign</li>
+                <li>Klawisz 4 → Speed Pep</li>
+                <li>Klawisz 5 → Cat's Reflex</li>
+                <li>Touches 6 à 9 → vos autres buffs disponibles ou vide</li>
             </ul>
         </div>
 
         <div class="step">
             <div class="step-number">2</div>
-            <div class="step-title">Activer la rotation dans Reborn Assistant</div>
-            <p>Dans le panneau Reborn, onglet Premium :</p>
+            <div class="step-title">Włącz rotację w Reborn Assistant</div>
+            <p>W panelu Reborn, zakładka Premium:</p>
             <ul>
-                <li>Activez le toggle <strong>« Rotation Séquences »</strong></li>
-                <li>Réglez <strong>l'intervalle entre cycles</strong> sur la durée du buff le plus court (typiquement 5 min)</li>
-                <li>Réglez <strong>le délai entre touches</strong> sur 1 seconde (laisse le temps à l'animation de séquence de se jouer)</li>
+                <li>Włącz przełącznik <strong>„Rotacja sekwencji"</strong></li>
+                <li>Ustaw <strong>interwał między cyklami</strong> na czas trwania najkrótszego buffa (zwykle 5 min)</li>
+                <li>Ustaw <strong>opóźnienie między klawiszami</strong> na 1 sekundę (daje czas na odtworzenie animacji sekwencji)</li>
             </ul>
         </div>
 
         <div class="step">
             <div class="step-number">3</div>
-            <div class="step-title">Tester un cycle complet</div>
-            <p>Lancez avec <code>CTRL+A</code>. Surveillez le log d'activité : vous devez voir <em>F2 pressed → 1 pressed → 2 pressed…</em> séquentiellement, avec ~1 seconde entre chaque. Si une séquence ne se lance pas, c'est probablement un cooldown ou une absence de FP — vérifiez visuellement en jeu.</p>
+            <div class="step-title">Przetestuj pełny cykl</div>
+            <p>Uruchom skrótem <code>CTRL+A</code>. Obserwuj log aktywności: powinieneś widzieć <em>F2 pressed → 1 pressed → 2 pressed…</em> po kolei, z ~1 sekundą przerwy. Jeśli któraś sekwencja się nie odpala, to najpewniej cooldown albo brak FP — sprawdź wizualnie w grze.</p>
         </div>
 
-        <h2 id="heal">Programmer le Heal périodique</h2>
-        <p>Le Heal Rain doit tourner en parallèle de la rotation des buffs. Reborn Assistant propose une macro périodique fixe à 15 secondes, parfaitement calibrée pour la zone AOE de Heal Rain (qui dure environ 12-15 secondes).</p>
+        <h2 id="heal">Programmer le Heal automatique</h2>
+        <p>Heal Rain doit tourner en parallèle de la rotation des buffs. Reborn Assistant propose une section <strong>SOIN</strong> dédiée dans le panneau, avec touche et intervalle entièrement configurables.</p>
 
         <div class="step">
             <div class="step-number">1</div>
-            <div class="step-title">Assigner Heal Rain à la touche §</div>
-            <p>Par défaut, la macro périodique de Reborn Assistant déclenche la touche <code>§</code>. Glissez Heal Rain sur cette touche dans Flyff.</p>
+            <div class="step-title">Assigner Heal Rain à une touche</div>
+            <p>Choisissez une touche libre dans Flyff (par exemple <code>R</code>, <code>T</code> ou n'importe quelle touche disponible) et glissez Heal Rain dessus. Reportez ensuite cette même touche dans le champ « Touche » de la section SOIN du panneau Reborn.</p>
         </div>
 
         <div class="step">
             <div class="step-number">2</div>
-            <div class="step-title">Activer la macro périodique</div>
-            <p>Toggle <strong>« Macro périodique »</strong> dans le panneau Premium. Le système appellera Heal Rain toutes les 15 secondes, avec stockage automatique.</p>
+            <div class="step-title">Configurer l'intervalle puis activer</div>
+            <p>Réglez l'intervalle de la section SOIN sur la durée typique de votre Heal Rain (généralement 12 à 15 secondes). Basculez le toggle <strong>ON</strong>. L'extension déclenchera votre touche toutes les X secondes, en parallèle de la rotation de buffs et des autres systèmes.</p>
         </div>
 
         <div class="callout warning">
-            <strong>⚠️ Attention au positionnement</strong>
-            Heal Rain est une AOE centrée sur vous. Si vous bougez constamment (kite ou repositionnement), votre Heal Rain ne couvrira pas vos DPS. Restez statique ou définissez un point de rallye fixe pour le groupe.
+            <strong>⚠️ Uwaga na pozycję</strong>
+            Heal Rain est une AOE centrée sur vous. Si vous bougez constamment (kite ou repositionnement), Heal Rain ne couvrira pas votre groupe. Restez statique ou définissez un point de rallye fixe pour vos alliés.
         </div>
 
-        <h2 id="macros">Macros personnalisées (DPS, support, urgence)</h2>
-        <p>En plus de la rotation et du heal, Reborn Assistant Premium offre <strong>3 macros indépendantes</strong>. Voici comment les exploiter pour un Ringmaster :</p>
+        <h2 id="macros">Macros, Familier, Suivre, Auto-clic</h2>
+        <p>En plus de la rotation de buffs et du soin, Reborn Assistant Premium offre quatre systèmes complémentaires que vous activez indépendamment selon vos besoins.</p>
 
-        <h3>Macro 1 — Pet feeding</h3>
-        <p>Si vous avez un familier qui demande à manger régulièrement, programmez une séquence type <code>k,h</code> (touche pet panel + heal pet) toutes les 30 secondes. Évite que votre pet meure pendant que vous farmez.</p>
-
-        <h3>Macro 2 — Stack de FP potions</h3>
-        <p>Configurez une séquence type <code>y</code> (touche FP potion) toutes les 20 secondes pour maintenir votre FP au-dessus de 80%. Ajustez selon votre consommation et la cadence de Heal Rain.</p>
-
-        <h3>Macro 3 — Anti-AFK</h3>
-        <p>Une séquence type <code>up,down</code> ou <code>space</code> toutes les 4-5 minutes permet d'éviter une déconnexion AFK pendant un farm long en cas de période calme. À utiliser avec discernement.</p>
-
-        <h2 id="optimisation">Optimisation et erreurs courantes</h2>
+        <h3>3 Macros personnalisables</h3>
+        <p>Chaque macro déclenche <strong>une seule touche</strong> à un <strong>intervalle configurable</strong> (secondes ou minutes). Une macro = une touche, pas une séquence. Pour combiner plusieurs touches dans l'ordre, utilisez la rotation de buffs principale.</p>
+        <p>Cas d'usage typiques pour un Ringmaster :</p>
         <ul>
-            <li><strong>Délai entre touches trop court</strong> — si vos séquences sautent, augmentez le délai entre touches à 1,5 ou 2 secondes. Mieux vaut un cycle un peu plus lent mais qui passe à 100%.</li>
-            <li><strong>Cooldown global à ne pas dépasser</strong> — Flyff a un GCD (global cooldown). Si vous spammez trop vite, des séquences sont absorbées dans le vide. Le délai de 1s par défaut respecte ce GCD.</li>
-            <li><strong>FP qui sèche au milieu d'un cycle</strong> — votre rotation s'arrête silencieusement. Activez la macro FP potion ou augmentez votre INT/MP.</li>
-            <li><strong>Membres du groupe hors zone AOE</strong> — le heal périodique ne soigne que les joueurs dans le rayon de Heal Rain (~12-15m). Communiquez avec le groupe : ils doivent rester à portée.</li>
-            <li><strong>Cible perdue après mort d'un mob</strong> — pas grave pour le RM, mais surveillez vos targets si vous avez aussi des séquences single-target en rotation.</li>
+            <li><strong>Macro 1</strong> — touche d'une potion FP toutes les 20-30 secondes pour maintenir votre pool de FP au-dessus de 80%</li>
+            <li><strong>Macro 2</strong> — touche d'un buff longue durée (15-30 min) hors rotation principale</li>
+            <li><strong>Macro 3</strong> — touche d'une potion HP d'urgence toutes les 60 secondes, en backup du SOIN principal</li>
+        </ul>
+        <p>Si une macro était prévue pendant une séquence de buffs, elle s'exécutera automatiquement à la fin du cycle de buffs, une par une, avec le même délai que vos buffs.</p>
+
+        <h3>Familier automatique (Premium)</h3>
+        <p>L'extension sort votre familier <strong>avant</strong> chaque cycle de buffs et le range <strong>après</strong>. Pratique pour ne jamais oublier les buffs de pet pendant un farm long, sans ajouter de touche manuelle à votre rotation.</p>
+
+        <h3>Suivre automatique (Premium)</h3>
+        <p>Appui répété sur une touche dédiée (par défaut <code>F</code>) toutes les 5 secondes. Idéal pour suivre un autre personnage en mode follow pendant que vous bufez et heal sans risque de perdre le lock. Seule la touche est configurable, l'intervalle de 5 secondes est fixe.</p>
+
+        <h3>Auto-clic souris (Premium)</h3>
+        <p>Clic à une position fixe de l'écran toutes les 2 secondes. Activez en cliquant sur l'icône <strong>🖱</strong> dans l'en-tête du panneau, puis cliquez sur l'endroit où vous voulez que les clics se déclenchent. Un point rouge clignotant indique la position active. Cliquez le ✕ à côté du point pour arrêter.</p>
+
+        <h2 id="optimisation">Optymalizacja i częste błędy</h2>
+        <ul>
+            <li><strong>Zbyt krótkie opóźnienie między klawiszami</strong> — jeśli sekwencje są pomijane, zwiększ opóźnienie do 1,5 lub 2 sekund. Lepszy nieco wolniejszy cykl, ale przechodzący w 100%.</li>
+            <li><strong>Nie przekraczaj globalnego cooldownu</strong> — Flyff ma GCD (global cooldown). Jeśli spamujesz za szybko, sekwencje znikają w próżni. Domyślne opóźnienie 1 s respektuje ten GCD.</li>
+            <li><strong>FP wysycha w środku cyklu</strong> — twoja rotacja po cichu się zatrzymuje. Włącz makro mikstury FP albo zwiększ INT/MP.</li>
+            <li><strong>Członkowie drużyny poza strefą AOE</strong> — okresowy heal leczy tylko graczy w promieniu Heal Rain (~12-15 m). Pogadaj z drużyną: muszą zostać w zasięgu.</li>
+            <li><strong>Stracony cel po śmierci moba</strong> — dla RM bez znaczenia, ale pilnuj targetów, jeśli masz też sekwencje single-target w rotacji.</li>
         </ul>
 
-        <h2 id="legal">Aspect légal — ce qu'il faut savoir</h2>
-        <p>L'automatisation des actions répétitives via une extension <strong>peut violer les conditions d'utilisation</strong> de certains services de jeu, y compris celles de Gala Lab pour Flyff Universe. Reborn Assistant <strong>ne lit pas la mémoire du jeu, n'envoie pas de paquets réseau, ne modifie pas le client</strong> : c'est strictement une simulation de touches que vous appuieriez manuellement. Vous restez 100% responsable de l'usage que vous en faites.</p>
-        <p>Pour comprendre exactement ce que fait (et ne fait pas) Reborn Assistant techniquement, consultez la <a href="../index.html#faq">FAQ de la page principale</a>.</p>
+        <h2 id="legal">Aspekt prawny — co warto wiedzieć</h2>
+        <p>Automatyzacja powtarzalnych czynności przez rozszerzenie <strong>może łamać regulamin</strong> niektórych usług growych, w tym Gala Lab dla Flyff Universe. Reborn Assistant <strong>nie czyta pamięci gry, nie wysyła pakietów sieciowych, nie modyfikuje klienta</strong>: to wyłącznie symulacja klawiszy, które wcisnąłbyś ręcznie. Pełną odpowiedzialność za użycie ponosisz ty.</p>
+        <p>Aby dokładnie zrozumieć, co Reborn Assistant robi (a czego nie robi) od strony technicznej, zajrzyj do <a href="../index.html#faq">FAQ na stronie głównej</a>.</p>
 
         <div class="cta-box">
-            <h3>Prêt à libérer votre Ringmaster ?</h3>
-            <p>Installez Reborn Assistant en 30 secondes depuis le Chrome Web Store. 7 jours d'essai Premium gratuits, sans carte bancaire.</p>
-            <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" rel="noopener" class="btn-cta">Installer Reborn Assistant</a>
+            <h3>Gotowy uwolnić swojego Ringmastera?</h3>
+            <p>Zainstaluj Reborn Assistant w 30 sekund z Chrome Web Store. 7 dni darmowego okresu próbnego Premium, bez karty kredytowej.</p>
+            <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" rel="noopener" class="btn-cta">Zainstaluj Reborn Assistant</a>
         </div>
 
         <div class="related">
             <a href="/pl/docs/najlepsze-narzedzia-flyff-universe-2026.html" class="related-card">
-                <span class="related-tag">◆ Article lié</span>
-                <span class="related-title">Les meilleurs outils & extensions Flyff Universe 2026</span>
+                <span class="related-tag">◆ Powiązany artykuł</span>
+                <span class="related-title">Najlepsze narzędzia i rozszerzenia Flyff Universe 2026</span>
             </a>
             <a href="/pl/docs/poradnik-ringmaster-flyff-universe.html" class="related-card">
-                <span class="related-tag">◆ Article lié</span>
-                <span class="related-title">Guide complet de la classe Ringmaster Flyff Universe</span>
+                <span class="related-tag">◆ Powiązany artykuł</span>
+                <span class="related-title">Kompletny poradnik klasy Ringmaster w Flyff Universe</span>
             </a>
             <a href="premium.html" class="related-card">
-                <span class="related-tag">◆ Documentation</span>
-                <span class="related-title">Guide complet des fonctionnalités Premium</span>
+                <span class="related-tag">◆ Dokumentacja</span>
+                <span class="related-title">Kompletny poradnik funkcji Premium</span>
             </a>
         </div>
     </div>

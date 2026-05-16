@@ -108,7 +108,7 @@ export default {
   },
 
   docsHome: {
-    version:              "版本 1.3 · 完整文档",
+    version:              "版本 1.3.3 · 完整文档",
     userGuide:            "用户指南",
     support:              "支持",
     legal:                "法律信息",

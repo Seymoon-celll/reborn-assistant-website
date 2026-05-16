@@ -108,7 +108,7 @@ export default {
   },
 
   docsHome: {
-    version:              "VERSIE 1.3 · VOLLEDIGE DOCUMENTATIE",
+    version:              "VERSIE 1.3.3 · VOLLEDIGE DOCUMENTATIE",
     userGuide:            "Gebruikershandleiding",
     support:              "Ondersteuning",
     legal:                "Juridische informatie",

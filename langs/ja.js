@@ -108,7 +108,7 @@ export default {
   },
 
   docsHome: {
-    version:              "バージョン1.3・完全ドキュメント",
+    version:              "バージョン1.3.3・完全ドキュメント",
     userGuide:            "ユーザーガイド",
     support:              "サポート",
     legal:                "法的情報",

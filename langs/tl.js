@@ -108,7 +108,7 @@ export default {
   },
 
   docsHome: {
-    version:              "Bersyon 1.3 · Kumpletong Dokumentasyon",
+    version:              "Bersyon 1.3.3 · Kumpletong Dokumentasyon",
     userGuide:            "Gabay ng Gumagamit",
     support:              "Suporta",
     legal:                "Legal na Impormasyon",

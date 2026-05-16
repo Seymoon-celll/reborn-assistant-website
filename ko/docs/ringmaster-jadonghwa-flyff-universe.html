@@ -132,11 +132,11 @@
             { "@type": "HowToTool", "name": "Navigateur Chromium (Chrome, Edge, Brave)" }
           ],
           "step": [
-            { "@type": "HowToStep", "name": "Installer Reborn Assistant", "text": "Ajoutez l'extension Reborn Assistant depuis le Chrome Web Store et épinglez-la dans la barre d'outils." },
-            { "@type": "HowToStep", "name": "Identifier vos séquences Ringmaster", "text": "Recensez vos séquences clés : Heart of Power (HoP), Beef Up, Mental Sign, Speed Pep, et l'AOE Heal (Heal Rain)." },
-            { "@type": "HowToStep", "name": "Configurer la rotation de séquences", "text": "Dans Reborn Assistant, activez la rotation F2 → 1-9 → 0 → F1 avec un intervalle de 5 minutes (durée typique de vos buffs)." },
-            { "@type": "HowToStep", "name": "Programmer le Heal périodique", "text": "Activez la macro périodique pour déclencher Heal Rain toutes les 15 secondes en groupe." },
-            { "@type": "HowToStep", "name": "Lancer l'automatisation", "text": "Démarrez avec CTRL+A, surveillez le log d'activité, ajustez les délais selon les animations de vos séquences." }
+            { "@type": "HowToStep", "name": "Reborn Assistant 설치하기", "text": "Chrome Web Store에서 Reborn Assistant 확장 프로그램을 추가하고 도구 모음에 고정하세요." },
+            { "@type": "HowToStep", "name": "Ringmaster 시퀀스 파악하기", "text": "핵심 시퀀스를 정리합니다: Heart of Power (HoP), Beef Up, Mental Sign, Speed Pep, 그리고 AOE 힐(Heal Rain)." },
+            { "@type": "HowToStep", "name": "시퀀스 로테이션 설정하기", "text": "Dans Reborn Assistant, activez la rotation F2 → 1-9 → F1 avec un intervalle de 5 minutes (durée typique de vos buffs)." },
+            { "@type": "HowToStep", "name": "Programmer le Heal automatique", "text": "Assignez Heal Rain à une touche libre, reportez-la dans la section SOIN du panneau Reborn, réglez l'intervalle sur 12-15 secondes et activez le toggle ON." },
+            { "@type": "HowToStep", "name": "자동화 시작하기", "text": "CTRL+A로 시작하고, 활동 로그를 확인하며, 시퀀스 애니메이션에 맞춰 지연을 조정하세요." }
           ]
         }
       ]
@@ -146,160 +146,170 @@
 </head>
 <body>
     <div class="container">
-        <a href="/ko/docs/index.html" class="back-link">← Retour aux docs</a>
+        <a href="/ko/docs/index.html" class="back-link">← 문서로 돌아가기</a>
         <div class="breadcrumb" style="margin-top:24px;">
-            <a href="../index.html">Accueil</a> › <a href="/ko/docs/index.html">Documentation</a> › Automatiser son Ringmaster
+            <a href="../index.html">홈</a> › <a href="/ko/docs/index.html">문서</a> › Ringmaster 자동화하기
         </div>
 
-        <h1>Automatiser son Ringmaster sur Flyff Universe — Guide complet 2026</h1>
-        <p class="subtitle">Buffs, séquences, AOE heal, gestion HP/FP : le tutoriel pas à pas pour transformer votre Ringmaster en pilier de groupe sans y laisser la main.</p>
+        <h1>Flyff Universe에서 Ringmaster 자동화하기 — 2026 완벽 가이드</h1>
+        <p class="subtitle">버프, 시퀀스, AOE 힐, HP/FP 관리: 손가락이 남아나게 두면서 Ringmaster를 파티의 기둥으로 만드는 단계별 튜토리얼입니다.</p>
 
         <div class="toc">
-            <div class="toc-title">◆ Sommaire</div>
+            <div class="toc-title">◆ 목차</div>
             <ol>
-                <li><a href="#pourquoi">Pourquoi automatiser son Ringmaster</a></li>
-                <li><a href="#prerequis">Prérequis avant d'automatiser</a></li>
-                <li><a href="#sequences">Identifier vos séquences Ringmaster</a></li>
-                <li><a href="#rotation">Configurer la rotation de buffs</a></li>
-                <li><a href="#heal">Programmer le Heal périodique</a></li>
-                <li><a href="#macros">Macros personnalisées (DPS, support, urgence)</a></li>
-                <li><a href="#optimisation">Optimisation et erreurs courantes</a></li>
-                <li><a href="#legal">Aspect légal — ce qu'il faut savoir</a></li>
+                <li><a href="#pourquoi">왜 Ringmaster를 자동화해야 하는가</a></li>
+                <li><a href="#prerequis">자동화 전 준비 사항</a></li>
+                <li><a href="#sequences">Ringmaster 시퀀스 파악하기</a></li>
+                <li><a href="#rotation">버프 로테이션 설정하기</a></li>
+                <li><a href="#heal">주기 힐 설정하기</a></li>
+                <li><a href="#macros">Macros, Familier, Suivre, Auto-clic</a></li>
+                <li><a href="#optimisation">최적화와 자주 하는 실수</a></li>
+                <li><a href="#legal">법적 측면 — 반드시 알아야 할 점</a></li>
             </ol>
         </div>
 
-        <h2 id="pourquoi">Pourquoi automatiser son Ringmaster</h2>
-        <p>Le Ringmaster (souvent abrégé <strong>RM</strong>) est la classe support emblématique de Flyff Universe. Son rôle est clair : maintenir le groupe en vie via des buffs (Heart of Power, Beef Up, Mental Sign…) qui durent entre 5 et 30 minutes selon le niveau, et soigner les dégâts via Heal Rain en AOE. Sur le papier, c'est limpide. En pratique, c'est l'une des classes les plus fatigantes à jouer en farm prolongé : vous passez 80% de votre temps à <strong>rebuff toutes les 5 minutes</strong>, à <strong>relancer Heal Rain toutes les 10-15 secondes</strong> et à <strong>maintenir un œil sur les barres FP</strong> de chaque membre du groupe.</p>
-        <p>L'automatisation ne remplace pas votre jugement. Elle décharge votre clavier des routines mécaniques : la séquence de rebuff complète, le heal périodique, l'utilisation des potions FP. Vous gardez les mains libres pour les <strong>moments où ça compte vraiment</strong> : un wipe imminent, un wave qui dérape, un boss qui shoot le RM en premier.</p>
+        <h2 id="pourquoi">왜 Ringmaster를 자동화해야 하는가</h2>
+        <p>Ringmaster (보통 <strong>RM</strong>으로 줄여 부름)는 Flyff Universe를 대표하는 서포트 클래스입니다. 역할은 명확합니다. 레벨에 따라 5~30분 지속되는 버프(Heart of Power, Beef Up, Mental Sign 등)로 파티를 살아 있게 유지하고, AOE인 Heal Rain으로 피해를 회복시킵니다. 종이 위에서는 깔끔하지만, 실제로는 장시간 사냥 시 가장 피로한 클래스 중 하나입니다. 시간의 80%를 <strong>5분마다 리버프</strong>하고, <strong>10~15초마다 Heal Rain을 재시전</strong>하며, 파티원 각자의 <strong>FP 바를 감시</strong>하는 데 씁니다.</p>
+        <p>자동화는 여러분의 판단을 대체하지 않습니다. 키보드에서 기계적인 루틴만 덜어줄 뿐입니다. 전체 리버프 시퀀스, 주기 힐, FP 포션 사용 등이 그 대상입니다. 여러분의 손은 <strong>정말 중요한 순간</strong>을 위해 자유로워집니다. 임박한 와이프, 통제 불능이 된 웨이브, RM부터 노리는 보스 등 말입니다.</p>
 
         <div class="callout">
-            <strong>💡 Cas d'usage typique</strong>
-            Vous lancez un farm de 4 heures sur Glaphan ou Asteria. Sans automatisation : 240 minutes ÷ 5 minutes = 48 cycles de rebuff manuel. Avec Reborn Assistant configuré : 1 cycle, le reste tourne en arrière-plan. Vous reprenez la main uniquement si la composition change ou si un membre meurt.
+            <strong>💡 대표 활용 사례</strong>
+            Glaphan 또는 Asteria에서 4시간 사냥을 시작한다고 가정해 봅시다. 자동화 없이는 240분 ÷ 5분 = 48번의 수동 리버프 사이클을 해야 합니다. Reborn Assistant를 설정해 두면 1번만 돌리면 나머지는 백그라운드에서 자동 진행됩니다. 파티 구성이 바뀌거나 누군가 죽을 때만 직접 개입하면 됩니다.
         </div>
 
-        <h2 id="prerequis">Prérequis avant d'automatiser</h2>
-        <p>Avant d'activer quoi que ce soit, posez les bases solides :</p>
+        <h2 id="prerequis">자동화 전 준비 사항</h2>
+        <p>아무것도 활성화하기 전에, 탄탄한 기반부터 다집니다.</p>
         <ul>
-            <li><strong>Reborn Assistant Premium</strong> installé (la version gratuite ne couvre que la macro soin de base). Voir le <a href="quickstart.html">guide d'installation</a>.</li>
-            <li><strong>Vos buffs Ringmaster assignés aux touches F2 → 0</strong> en suivant un ordre logique (Heart of Power d'abord, AOE buffs ensuite, single-target en dernier).</li>
-            <li><strong>Heal Rain sur la touche § (ou autre touche dédiée)</strong> — c'est la touche que Reborn Assistant déclenchera en boucle.</li>
-            <li><strong>Une pile de potions FP</strong> dans l'inventaire — l'automatisation n'invente pas les ressources.</li>
-            <li><strong>Une zone de farm stable</strong> : éviter les zones avec téléportations forcées ou mobs qui repoussent (ça décale les positions et casse l'AOE).</li>
+            <li><strong>Reborn Assistant Premium</strong> 설치 완료 (무료 버전은 기본 힐 매크로만 지원합니다). <a href="quickstart.html">설치 가이드</a>를 참고하세요.</li>
+            <li><strong>Ringmaster 버프를 F2 → 0번 키에 배치</strong>합니다. 논리적 순서를 따르세요 (Heart of Power 먼저, 그다음 AOE 버프, 마지막에 단일 대상 버프).</li>
+            <li><strong>Heal Rain sur une touche libre</strong> de votre choix (par exemple <code>R</code>, <code>T</code>, <code>E</code>) — c'est la touche que Reborn Assistant déclenchera en boucle.</li>
+            <li><strong>FP 포션 한 묶음</strong>을 인벤토리에 챙겨두세요. 자동화는 자원을 만들어내지 않습니다.</li>
+            <li><strong>안정적인 사냥터</strong>: 강제 텔레포트가 있거나 밀쳐내는 몹이 있는 지역은 피하세요 (위치가 어긋나면 AOE가 깨집니다).</li>
         </ul>
 
-        <h2 id="sequences">Identifier vos séquences Ringmaster</h2>
-        <p>Toutes les séquences ne sont pas égales. Voici la hiérarchie typique d'un build RM full support :</p>
-        <h3>Séquences essentielles (rotation toutes les 5 min)</h3>
+        <h2 id="sequences">Ringmaster 시퀀스 파악하기</h2>
+        <p>모든 시퀀스가 똑같이 중요하지는 않습니다. 풀 서포트 RM 빌드의 일반적인 우선순위는 다음과 같습니다.</p>
+        <h3>필수 시퀀스 (5분마다 로테이션)</h3>
         <ul>
-            <li><strong>Heart of Power (HoP)</strong> — boost STA + attaque, indispensable</li>
-            <li><strong>Beef Up</strong> — STA flat, augmente HP max du groupe</li>
-            <li><strong>Mental Sign</strong> — INT + boost magique pour les Mages / Knights AOE</li>
-            <li><strong>Speed Pep</strong> — attack speed, énorme pour les Blades / Rangers</li>
-            <li><strong>Cat's Reflex</strong> — DODGE, utile en zone difficile</li>
+            <li><strong>Heart of Power (HoP)</strong> — STA + 공격력 증가, 필수</li>
+            <li><strong>Beef Up</strong> — 고정 STA, 파티 최대 HP 증가</li>
+            <li><strong>Mental Sign</strong> — INT + 마법 부스트, Mage와 AOE Knight에게 유용</li>
+            <li><strong>Speed Pep</strong> — 공격 속도, Blade와 Ranger에게는 엄청난 위력</li>
+            <li><strong>Cat's Reflex</strong> — 회피, 까다로운 지역에서 유용</li>
         </ul>
-        <h3>Séquences situationnelles (à activer manuellement)</h3>
+        <h3>상황별 시퀀스 (수동 발동)</h3>
         <ul>
-            <li><strong>Resurrection</strong> — jamais en auto, situation par situation</li>
-            <li><strong>Holy Cross</strong> — bonus dégâts élémentaires, optionnel selon le contexte</li>
+            <li><strong>Resurrection</strong> — 절대 자동화하지 말고 상황에 맞춰 직접 사용</li>
+            <li><strong>Holy Cross</strong> — 속성 피해 보너스, 상황에 따라 선택 사용</li>
         </ul>
 
-        <h2 id="rotation">Configurer la rotation de buffs</h2>
-        <p>C'est le cœur du système. Reborn Assistant peut appuyer sur une séquence fixe <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 0 → F1</code> à intervalle régulier. Voici comment l'aligner avec votre RM :</p>
+        <h2 id="rotation">버프 로테이션 설정하기</h2>
+        <p>C'est le cœur du système. Reborn Assistant peut appuyer sur une séquence fixe <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → F1</code> à intervalle régulier. F2 ouvre votre panneau de buffs, 1 à 9 déclenchent vos séquences, F1 revient à la barre de combat. Voici comment l'aligner avec votre RM :</p>
 
         <div class="step">
             <div class="step-number">1</div>
-            <div class="step-title">Préparer vos slots de séquences</div>
-            <p>Glissez vos séquences depuis la barre de séquences vers la barre de raccourcis Flyff dans cet ordre :</p>
+            <div class="step-title">시퀀스 슬롯 준비하기</div>
+            <p>시퀀스 바에서 Flyff 단축키 바로 다음 순서로 시퀀스를 드래그합니다.</p>
             <ul>
-                <li>Touche 1 → Heart of Power</li>
-                <li>Touche 2 → Beef Up</li>
-                <li>Touche 3 → Mental Sign</li>
-                <li>Touche 4 → Speed Pep</li>
-                <li>Touche 5 → Cat's Reflex</li>
-                <li>Touches 6 à 0 → vos autres buffs disponibles ou vide</li>
+                <li>1번 키 → Heart of Power</li>
+                <li>2번 키 → Beef Up</li>
+                <li>3번 키 → Mental Sign</li>
+                <li>4번 키 → Speed Pep</li>
+                <li>5번 키 → Cat's Reflex</li>
+                <li>Touches 6 à 9 → vos autres buffs disponibles ou vide</li>
             </ul>
         </div>
 
         <div class="step">
             <div class="step-number">2</div>
-            <div class="step-title">Activer la rotation dans Reborn Assistant</div>
-            <p>Dans le panneau Reborn, onglet Premium :</p>
+            <div class="step-title">Reborn Assistant에서 로테이션 활성화</div>
+            <p>Reborn 패널의 Premium 탭에서:</p>
             <ul>
-                <li>Activez le toggle <strong>« Rotation Séquences »</strong></li>
-                <li>Réglez <strong>l'intervalle entre cycles</strong> sur la durée du buff le plus court (typiquement 5 min)</li>
-                <li>Réglez <strong>le délai entre touches</strong> sur 1 seconde (laisse le temps à l'animation de séquence de se jouer)</li>
+                <li><strong>«시퀀스 로테이션»</strong> 토글을 활성화합니다</li>
+                <li><strong>사이클 간 간격</strong>을 가장 짧은 버프의 지속시간(보통 5분)에 맞추세요</li>
+                <li><strong>키 입력 사이 지연</strong>을 1초로 설정합니다 (시퀀스 애니메이션이 재생될 시간을 줍니다)</li>
             </ul>
         </div>
 
         <div class="step">
             <div class="step-number">3</div>
-            <div class="step-title">Tester un cycle complet</div>
-            <p>Lancez avec <code>CTRL+A</code>. Surveillez le log d'activité : vous devez voir <em>F2 pressed → 1 pressed → 2 pressed…</em> séquentiellement, avec ~1 seconde entre chaque. Si une séquence ne se lance pas, c'est probablement un cooldown ou une absence de FP — vérifiez visuellement en jeu.</p>
+            <div class="step-title">완전한 사이클 테스트하기</div>
+            <p><code>CTRL+A</code>로 시작합니다. 활동 로그를 확인하세요. <em>F2 pressed → 1 pressed → 2 pressed…</em>가 약 1초 간격으로 순차적으로 표시되어야 합니다. 시퀀스가 발동하지 않는다면 쿨다운이거나 FP 부족일 가능성이 큽니다. 게임 내에서 직접 확인하세요.</p>
         </div>
 
-        <h2 id="heal">Programmer le Heal périodique</h2>
-        <p>Le Heal Rain doit tourner en parallèle de la rotation des buffs. Reborn Assistant propose une macro périodique fixe à 15 secondes, parfaitement calibrée pour la zone AOE de Heal Rain (qui dure environ 12-15 secondes).</p>
+        <h2 id="heal">Programmer le Heal automatique</h2>
+        <p>Heal Rain doit tourner en parallèle de la rotation des buffs. Reborn Assistant propose une section <strong>SOIN</strong> dédiée dans le panneau, avec touche et intervalle entièrement configurables.</p>
 
         <div class="step">
             <div class="step-number">1</div>
-            <div class="step-title">Assigner Heal Rain à la touche §</div>
-            <p>Par défaut, la macro périodique de Reborn Assistant déclenche la touche <code>§</code>. Glissez Heal Rain sur cette touche dans Flyff.</p>
+            <div class="step-title">Assigner Heal Rain à une touche</div>
+            <p>Choisissez une touche libre dans Flyff (par exemple <code>R</code>, <code>T</code> ou n'importe quelle touche disponible) et glissez Heal Rain dessus. Reportez ensuite cette même touche dans le champ « Touche » de la section SOIN du panneau Reborn.</p>
         </div>
 
         <div class="step">
             <div class="step-number">2</div>
-            <div class="step-title">Activer la macro périodique</div>
-            <p>Toggle <strong>« Macro périodique »</strong> dans le panneau Premium. Le système appellera Heal Rain toutes les 15 secondes, avec stockage automatique.</p>
+            <div class="step-title">Configurer l'intervalle puis activer</div>
+            <p>Réglez l'intervalle de la section SOIN sur la durée typique de votre Heal Rain (généralement 12 à 15 secondes). Basculez le toggle <strong>ON</strong>. L'extension déclenchera votre touche toutes les X secondes, en parallèle de la rotation de buffs et des autres systèmes.</p>
         </div>
 
         <div class="callout warning">
-            <strong>⚠️ Attention au positionnement</strong>
-            Heal Rain est une AOE centrée sur vous. Si vous bougez constamment (kite ou repositionnement), votre Heal Rain ne couvrira pas vos DPS. Restez statique ou définissez un point de rallye fixe pour le groupe.
+            <strong>⚠️ 위치 선정에 주의</strong>
+            Heal Rain est une AOE centrée sur vous. Si vous bougez constamment (kite ou repositionnement), Heal Rain ne couvrira pas votre groupe. Restez statique ou définissez un point de rallye fixe pour vos alliés.
         </div>
 
-        <h2 id="macros">Macros personnalisées (DPS, support, urgence)</h2>
-        <p>En plus de la rotation et du heal, Reborn Assistant Premium offre <strong>3 macros indépendantes</strong>. Voici comment les exploiter pour un Ringmaster :</p>
+        <h2 id="macros">Macros, Familier, Suivre, Auto-clic</h2>
+        <p>En plus de la rotation de buffs et du soin, Reborn Assistant Premium offre quatre systèmes complémentaires que vous activez indépendamment selon vos besoins.</p>
 
-        <h3>Macro 1 — Pet feeding</h3>
-        <p>Si vous avez un familier qui demande à manger régulièrement, programmez une séquence type <code>k,h</code> (touche pet panel + heal pet) toutes les 30 secondes. Évite que votre pet meure pendant que vous farmez.</p>
-
-        <h3>Macro 2 — Stack de FP potions</h3>
-        <p>Configurez une séquence type <code>y</code> (touche FP potion) toutes les 20 secondes pour maintenir votre FP au-dessus de 80%. Ajustez selon votre consommation et la cadence de Heal Rain.</p>
-
-        <h3>Macro 3 — Anti-AFK</h3>
-        <p>Une séquence type <code>up,down</code> ou <code>space</code> toutes les 4-5 minutes permet d'éviter une déconnexion AFK pendant un farm long en cas de période calme. À utiliser avec discernement.</p>
-
-        <h2 id="optimisation">Optimisation et erreurs courantes</h2>
+        <h3>3 Macros personnalisables</h3>
+        <p>Chaque macro déclenche <strong>une seule touche</strong> à un <strong>intervalle configurable</strong> (secondes ou minutes). Une macro = une touche, pas une séquence. Pour combiner plusieurs touches dans l'ordre, utilisez la rotation de buffs principale.</p>
+        <p>Cas d'usage typiques pour un Ringmaster :</p>
         <ul>
-            <li><strong>Délai entre touches trop court</strong> — si vos séquences sautent, augmentez le délai entre touches à 1,5 ou 2 secondes. Mieux vaut un cycle un peu plus lent mais qui passe à 100%.</li>
-            <li><strong>Cooldown global à ne pas dépasser</strong> — Flyff a un GCD (global cooldown). Si vous spammez trop vite, des séquences sont absorbées dans le vide. Le délai de 1s par défaut respecte ce GCD.</li>
-            <li><strong>FP qui sèche au milieu d'un cycle</strong> — votre rotation s'arrête silencieusement. Activez la macro FP potion ou augmentez votre INT/MP.</li>
-            <li><strong>Membres du groupe hors zone AOE</strong> — le heal périodique ne soigne que les joueurs dans le rayon de Heal Rain (~12-15m). Communiquez avec le groupe : ils doivent rester à portée.</li>
-            <li><strong>Cible perdue après mort d'un mob</strong> — pas grave pour le RM, mais surveillez vos targets si vous avez aussi des séquences single-target en rotation.</li>
+            <li><strong>Macro 1</strong> — touche d'une potion FP toutes les 20-30 secondes pour maintenir votre pool de FP au-dessus de 80%</li>
+            <li><strong>Macro 2</strong> — touche d'un buff longue durée (15-30 min) hors rotation principale</li>
+            <li><strong>Macro 3</strong> — touche d'une potion HP d'urgence toutes les 60 secondes, en backup du SOIN principal</li>
+        </ul>
+        <p>Si une macro était prévue pendant une séquence de buffs, elle s'exécutera automatiquement à la fin du cycle de buffs, une par une, avec le même délai que vos buffs.</p>
+
+        <h3>Familier automatique (Premium)</h3>
+        <p>L'extension sort votre familier <strong>avant</strong> chaque cycle de buffs et le range <strong>après</strong>. Pratique pour ne jamais oublier les buffs de pet pendant un farm long, sans ajouter de touche manuelle à votre rotation.</p>
+
+        <h3>Suivre automatique (Premium)</h3>
+        <p>Appui répété sur une touche dédiée (par défaut <code>F</code>) toutes les 5 secondes. Idéal pour suivre un autre personnage en mode follow pendant que vous bufez et heal sans risque de perdre le lock. Seule la touche est configurable, l'intervalle de 5 secondes est fixe.</p>
+
+        <h3>Auto-clic souris (Premium)</h3>
+        <p>Clic à une position fixe de l'écran toutes les 2 secondes. Activez en cliquant sur l'icône <strong>🖱</strong> dans l'en-tête du panneau, puis cliquez sur l'endroit où vous voulez que les clics se déclenchent. Un point rouge clignotant indique la position active. Cliquez le ✕ à côté du point pour arrêter.</p>
+
+        <h2 id="optimisation">최적화와 자주 하는 실수</h2>
+        <ul>
+            <li><strong>키 입력 간 지연이 너무 짧음</strong> — 시퀀스가 건너뛰어진다면 키 간 지연을 1.5초나 2초로 늘리세요. 다소 느려도 100% 완수되는 사이클이 더 낫습니다.</li>
+            <li><strong>글로벌 쿨다운을 무시하지 말 것</strong> — Flyff에는 GCD(global cooldown)가 있습니다. 너무 빨리 연타하면 시퀀스가 허공으로 사라집니다. 기본 1초 지연은 이 GCD를 존중합니다.</li>
+            <li><strong>사이클 도중 FP가 고갈됨</strong> — 로테이션이 조용히 멈춥니다. FP 포션 매크로를 활성화하거나 INT/MP를 늘리세요.</li>
+            <li><strong>AOE 범위 밖에 있는 파티원</strong> — 주기 힐은 Heal Rain 반경(약 12~15m) 내 플레이어만 회복시킵니다. 파티원과 소통해서 사정거리 안에 머물게 하세요.</li>
+            <li><strong>몹 처치 후 타깃이 사라짐</strong> — RM에게는 큰 문제가 아니지만, 단일 대상 시퀀스도 로테이션에 포함돼 있다면 타깃을 주시하세요.</li>
         </ul>
 
-        <h2 id="legal">Aspect légal — ce qu'il faut savoir</h2>
-        <p>L'automatisation des actions répétitives via une extension <strong>peut violer les conditions d'utilisation</strong> de certains services de jeu, y compris celles de Gala Lab pour Flyff Universe. Reborn Assistant <strong>ne lit pas la mémoire du jeu, n'envoie pas de paquets réseau, ne modifie pas le client</strong> : c'est strictement une simulation de touches que vous appuieriez manuellement. Vous restez 100% responsable de l'usage que vous en faites.</p>
-        <p>Pour comprendre exactement ce que fait (et ne fait pas) Reborn Assistant techniquement, consultez la <a href="../index.html#faq">FAQ de la page principale</a>.</p>
+        <h2 id="legal">법적 측면 — 반드시 알아야 할 점</h2>
+        <p>확장 프로그램을 통한 반복 작업 자동화는 Flyff Universe에 대한 Gala Lab의 약관을 포함해 일부 게임 서비스의 <strong>이용약관을 위반할 수 있습니다</strong>. Reborn Assistant는 <strong>게임 메모리를 읽지 않으며, 네트워크 패킷을 전송하지 않고, 클라이언트를 수정하지 않습니다</strong>. 오로지 사용자가 수동으로 누를 키 입력을 시뮬레이션할 뿐입니다. 사용에 대한 책임은 전적으로 사용자에게 있습니다.</p>
+        <p>Reborn Assistant가 기술적으로 무엇을 하는지(그리고 무엇을 하지 않는지) 정확히 알고 싶다면 <a href="../index.html#faq">메인 페이지의 FAQ</a>를 확인하세요.</p>
 
         <div class="cta-box">
-            <h3>Prêt à libérer votre Ringmaster ?</h3>
-            <p>Installez Reborn Assistant en 30 secondes depuis le Chrome Web Store. 7 jours d'essai Premium gratuits, sans carte bancaire.</p>
-            <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" rel="noopener" class="btn-cta">Installer Reborn Assistant</a>
+            <h3>Ringmaster를 자유롭게 만들 준비가 되셨나요?</h3>
+            <p>Chrome Web Store에서 30초 만에 Reborn Assistant를 설치하세요. Premium 7일 무료 체험, 신용카드 등록 없이 가능합니다.</p>
+            <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" rel="noopener" class="btn-cta">Reborn Assistant 설치하기</a>
         </div>
 
         <div class="related">
             <a href="/ko/docs/choesangui-flyff-universe-dogu-2026.html" class="related-card">
-                <span class="related-tag">◆ Article lié</span>
-                <span class="related-title">Les meilleurs outils & extensions Flyff Universe 2026</span>
+                <span class="related-tag">◆ 관련 글</span>
+                <span class="related-title">2026년 Flyff Universe 최고의 도구와 확장 프로그램</span>
             </a>
             <a href="/ko/docs/ringmaster-class-gaideu-flyff-universe.html" class="related-card">
-                <span class="related-tag">◆ Article lié</span>
-                <span class="related-title">Guide complet de la classe Ringmaster Flyff Universe</span>
+                <span class="related-tag">◆ 관련 글</span>
+                <span class="related-title">Flyff Universe Ringmaster 클래스 완벽 가이드</span>
             </a>
             <a href="premium.html" class="related-card">
-                <span class="related-tag">◆ Documentation</span>
-                <span class="related-title">Guide complet des fonctionnalités Premium</span>
+                <span class="related-tag">◆ 문서</span>
+                <span class="related-title">Premium 기능 완벽 가이드</span>
             </a>
         </div>
     </div>

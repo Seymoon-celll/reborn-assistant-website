@@ -132,11 +132,11 @@
             { "@type": "HowToTool", "name": "Navigateur Chromium (Chrome, Edge, Brave)" }
           ],
           "step": [
-            { "@type": "HowToStep", "name": "Installer Reborn Assistant", "text": "Ajoutez l'extension Reborn Assistant depuis le Chrome Web Store et épinglez-la dans la barre d'outils." },
-            { "@type": "HowToStep", "name": "Identifier vos séquences Ringmaster", "text": "Recensez vos séquences clés : Heart of Power (HoP), Beef Up, Mental Sign, Speed Pep, et l'AOE Heal (Heal Rain)." },
-            { "@type": "HowToStep", "name": "Configurer la rotation de séquences", "text": "Dans Reborn Assistant, activez la rotation F2 → 1-9 → 0 → F1 avec un intervalle de 5 minutes (durée typique de vos buffs)." },
-            { "@type": "HowToStep", "name": "Programmer le Heal périodique", "text": "Activez la macro périodique pour déclencher Heal Rain toutes les 15 secondes en groupe." },
-            { "@type": "HowToStep", "name": "Lancer l'automatisation", "text": "Démarrez avec CTRL+A, surveillez le log d'activité, ajustez les délais selon les animations de vos séquences." }
+            { "@type": "HowToStep", "name": "I-install ang Reborn Assistant", "text": "Idagdag ang Reborn Assistant extension mula sa Chrome Web Store at i-pin sa toolbar." },
+            { "@type": "HowToStep", "name": "Kilalanin ang mga sequence ng Ringmaster mo", "text": "Ilista ang mga key sequence mo: Heart of Power (HoP), Beef Up, Mental Sign, Speed Pep, at ang AOE Heal (Heal Rain)." },
+            { "@type": "HowToStep", "name": "I-configure ang sequence rotation", "text": "Dans Reborn Assistant, activez la rotation F2 → 1-9 → F1 avec un intervalle de 5 minutes (durée typique de vos buffs)." },
+            { "@type": "HowToStep", "name": "Programmer le Heal automatique", "text": "Assignez Heal Rain à une touche libre, reportez-la dans la section SOIN du panneau Reborn, réglez l'intervalle sur 12-15 secondes et activez le toggle ON." },
+            { "@type": "HowToStep", "name": "I-launch ang automation", "text": "Magsimula gamit ang CTRL+A, bantayan ang activity log, i-adjust ang delays depende sa animation ng sequences mo." }
           ]
         }
       ]
@@ -146,160 +146,170 @@
 </head>
 <body>
     <div class="container">
-        <a href="/tl/docs/index.html" class="back-link">← Retour aux docs</a>
+        <a href="/tl/docs/index.html" class="back-link">← Bumalik sa docs</a>
         <div class="breadcrumb" style="margin-top:24px;">
-            <a href="../index.html">Accueil</a> › <a href="/tl/docs/index.html">Documentation</a> › Automatiser son Ringmaster
+            <a href="../index.html">Home</a> › <a href="/tl/docs/index.html">Dokumentasyon</a> › I-automate ang Ringmaster mo
         </div>
 
-        <h1>Automatiser son Ringmaster sur Flyff Universe — Guide complet 2026</h1>
-        <p class="subtitle">Buffs, séquences, AOE heal, gestion HP/FP : le tutoriel pas à pas pour transformer votre Ringmaster en pilier de groupe sans y laisser la main.</p>
+        <h1>I-automate ang Ringmaster mo sa Flyff Universe — Kumpletong gabay 2026</h1>
+        <p class="subtitle">Buffs, sequences, AOE heal, pamamahala ng HP/FP: ang step-by-step tutorial para gawing haligi ng party ang Ringmaster mo nang hindi nababalde ang kamay.</p>
 
         <div class="toc">
-            <div class="toc-title">◆ Sommaire</div>
+            <div class="toc-title">◆ Talaan ng Nilalaman</div>
             <ol>
-                <li><a href="#pourquoi">Pourquoi automatiser son Ringmaster</a></li>
-                <li><a href="#prerequis">Prérequis avant d'automatiser</a></li>
-                <li><a href="#sequences">Identifier vos séquences Ringmaster</a></li>
-                <li><a href="#rotation">Configurer la rotation de buffs</a></li>
-                <li><a href="#heal">Programmer le Heal périodique</a></li>
-                <li><a href="#macros">Macros personnalisées (DPS, support, urgence)</a></li>
-                <li><a href="#optimisation">Optimisation et erreurs courantes</a></li>
-                <li><a href="#legal">Aspect légal — ce qu'il faut savoir</a></li>
+                <li><a href="#pourquoi">Bakit i-automate ang Ringmaster mo</a></li>
+                <li><a href="#prerequis">Mga kailangan bago mag-automate</a></li>
+                <li><a href="#sequences">Kilalanin ang mga sequence ng Ringmaster mo</a></li>
+                <li><a href="#rotation">I-set up ang buff rotation</a></li>
+                <li><a href="#heal">I-program ang periodic Heal</a></li>
+                <li><a href="#macros">Macros, Familier, Suivre, Auto-clic</a></li>
+                <li><a href="#optimisation">Optimization at mga karaniwang pagkakamali</a></li>
+                <li><a href="#legal">Legal aspect — ang dapat mong malaman</a></li>
             </ol>
         </div>
 
-        <h2 id="pourquoi">Pourquoi automatiser son Ringmaster</h2>
-        <p>Le Ringmaster (souvent abrégé <strong>RM</strong>) est la classe support emblématique de Flyff Universe. Son rôle est clair : maintenir le groupe en vie via des buffs (Heart of Power, Beef Up, Mental Sign…) qui durent entre 5 et 30 minutes selon le niveau, et soigner les dégâts via Heal Rain en AOE. Sur le papier, c'est limpide. En pratique, c'est l'une des classes les plus fatigantes à jouer en farm prolongé : vous passez 80% de votre temps à <strong>rebuff toutes les 5 minutes</strong>, à <strong>relancer Heal Rain toutes les 10-15 secondes</strong> et à <strong>maintenir un œil sur les barres FP</strong> de chaque membre du groupe.</p>
-        <p>L'automatisation ne remplace pas votre jugement. Elle décharge votre clavier des routines mécaniques : la séquence de rebuff complète, le heal périodique, l'utilisation des potions FP. Vous gardez les mains libres pour les <strong>moments où ça compte vraiment</strong> : un wipe imminent, un wave qui dérape, un boss qui shoot le RM en premier.</p>
+        <h2 id="pourquoi">Bakit i-automate ang Ringmaster mo</h2>
+        <p>Ang Ringmaster (madalas pinapaikli bilang <strong>RM</strong>) ang signature support class ng Flyff Universe. Malinaw ang papel niya: panatilihing buhay ang party gamit ang mga buff (Heart of Power, Beef Up, Mental Sign…) na tumatagal ng 5 hanggang 30 minuto depende sa level, at i-heal ang damage gamit ang Heal Rain na AOE. Sa papel, parang simple lang. Sa totoong laro, isa ito sa pinakanakakapagod na class sa mahabang farm: 80% ng oras mo ay nasa <strong>rebuff kada 5 minuto</strong>, <strong>pag-recast ng Heal Rain kada 10-15 segundo</strong> at <strong>pagbabantay sa FP bars</strong> ng bawat party member.</p>
+        <p>Hindi pinapalitan ng automation ang pasya mo. Inaalis lang nito sa keyboard mo ang mga mechanical routine: ang buong rebuff sequence, ang periodic heal, ang paggamit ng FP potions. Malaya ang kamay mo para sa <strong>mga sandaling talagang importante</strong>: papalapit na wipe, wave na nasisira, boss na unang tumitira sa RM.</p>
 
         <div class="callout">
-            <strong>💡 Cas d'usage typique</strong>
-            Vous lancez un farm de 4 heures sur Glaphan ou Asteria. Sans automatisation : 240 minutes ÷ 5 minutes = 48 cycles de rebuff manuel. Avec Reborn Assistant configuré : 1 cycle, le reste tourne en arrière-plan. Vous reprenez la main uniquement si la composition change ou si un membre meurt.
+            <strong>💡 Tipikal na use case</strong>
+            Magsisimula kang mag-farm ng 4 oras sa Glaphan o Asteria. Walang automation: 240 minuto ÷ 5 minuto = 48 manual rebuff cycles. May naka-setup na Reborn Assistant: 1 cycle lang, ang iba ay tumatakbo sa background. Babalikan mo lang ito kapag nagbago ang composition o may namatay na miyembro.
         </div>
 
-        <h2 id="prerequis">Prérequis avant d'automatiser</h2>
-        <p>Avant d'activer quoi que ce soit, posez les bases solides :</p>
+        <h2 id="prerequis">Mga kailangan bago mag-automate</h2>
+        <p>Bago mag-activate ng anuman, ilatag muna ang matibay na pundasyon:</p>
         <ul>
-            <li><strong>Reborn Assistant Premium</strong> installé (la version gratuite ne couvre que la macro soin de base). Voir le <a href="quickstart.html">guide d'installation</a>.</li>
-            <li><strong>Vos buffs Ringmaster assignés aux touches F2 → 0</strong> en suivant un ordre logique (Heart of Power d'abord, AOE buffs ensuite, single-target en dernier).</li>
-            <li><strong>Heal Rain sur la touche § (ou autre touche dédiée)</strong> — c'est la touche que Reborn Assistant déclenchera en boucle.</li>
-            <li><strong>Une pile de potions FP</strong> dans l'inventaire — l'automatisation n'invente pas les ressources.</li>
-            <li><strong>Une zone de farm stable</strong> : éviter les zones avec téléportations forcées ou mobs qui repoussent (ça décale les positions et casse l'AOE).</li>
+            <li><strong>Reborn Assistant Premium</strong> naka-install (ang free version ay basic heal macro lang ang sakop). Tingnan ang <a href="quickstart.html">installation guide</a>.</li>
+            <li><strong>Ang Ringmaster buffs mo ay naka-assign sa mga key F2 → 0</strong> sa logical order (Heart of Power muna, AOE buffs sumunod, single-target sa huli).</li>
+            <li><strong>Heal Rain sur une touche libre</strong> de votre choix (par exemple <code>R</code>, <code>T</code>, <code>E</code>) — c'est la touche que Reborn Assistant déclenchera en boucle.</li>
+            <li><strong>Isang stack ng FP potions</strong> sa inventory — hindi nag-iimbento ng resources ang automation.</li>
+            <li><strong>Isang stable na farming zone</strong>: iwasan ang mga lugar na may forced teleports o mga mob na nagpapatumba (gumugulo ang posisyon at nasisira ang AOE).</li>
         </ul>
 
-        <h2 id="sequences">Identifier vos séquences Ringmaster</h2>
-        <p>Toutes les séquences ne sont pas égales. Voici la hiérarchie typique d'un build RM full support :</p>
-        <h3>Séquences essentielles (rotation toutes les 5 min)</h3>
+        <h2 id="sequences">Kilalanin ang mga sequence ng Ringmaster mo</h2>
+        <p>Hindi pantay-pantay ang lahat ng sequence. Eto ang tipikal na hierarchy ng full support RM build:</p>
+        <h3>Essential sequences (rotation kada 5 min)</h3>
         <ul>
-            <li><strong>Heart of Power (HoP)</strong> — boost STA + attaque, indispensable</li>
-            <li><strong>Beef Up</strong> — STA flat, augmente HP max du groupe</li>
-            <li><strong>Mental Sign</strong> — INT + boost magique pour les Mages / Knights AOE</li>
-            <li><strong>Speed Pep</strong> — attack speed, énorme pour les Blades / Rangers</li>
-            <li><strong>Cat's Reflex</strong> — DODGE, utile en zone difficile</li>
+            <li><strong>Heart of Power (HoP)</strong> — boost ng STA + attack, hindi maaaring mawala</li>
+            <li><strong>Beef Up</strong> — flat STA, pinapataas ang max HP ng party</li>
+            <li><strong>Mental Sign</strong> — INT + magic boost para sa Mages / Knights AOE</li>
+            <li><strong>Speed Pep</strong> — attack speed, sobrang lakas para sa Blades / Rangers</li>
+            <li><strong>Cat's Reflex</strong> — DODGE, kapaki-pakinabang sa mahirap na zone</li>
         </ul>
-        <h3>Séquences situationnelles (à activer manuellement)</h3>
+        <h3>Situational sequences (manual activation)</h3>
         <ul>
-            <li><strong>Resurrection</strong> — jamais en auto, situation par situation</li>
-            <li><strong>Holy Cross</strong> — bonus dégâts élémentaires, optionnel selon le contexte</li>
+            <li><strong>Resurrection</strong> — hinding-hindi sa auto, kada sitwasyon iba</li>
+            <li><strong>Holy Cross</strong> — elemental damage bonus, opsyonal depende sa konteksto</li>
         </ul>
 
-        <h2 id="rotation">Configurer la rotation de buffs</h2>
-        <p>C'est le cœur du système. Reborn Assistant peut appuyer sur une séquence fixe <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 0 → F1</code> à intervalle régulier. Voici comment l'aligner avec votre RM :</p>
+        <h2 id="rotation">I-set up ang buff rotation</h2>
+        <p>C'est le cœur du système. Reborn Assistant peut appuyer sur une séquence fixe <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → F1</code> à intervalle régulier. F2 ouvre votre panneau de buffs, 1 à 9 déclenchent vos séquences, F1 revient à la barre de combat. Voici comment l'aligner avec votre RM :</p>
 
         <div class="step">
             <div class="step-number">1</div>
-            <div class="step-title">Préparer vos slots de séquences</div>
-            <p>Glissez vos séquences depuis la barre de séquences vers la barre de raccourcis Flyff dans cet ordre :</p>
+            <div class="step-title">Ihanda ang sequence slots mo</div>
+            <p>I-drag ang mga sequence mo mula sa sequence bar papunta sa Flyff hotkey bar sa ganitong order:</p>
             <ul>
-                <li>Touche 1 → Heart of Power</li>
-                <li>Touche 2 → Beef Up</li>
-                <li>Touche 3 → Mental Sign</li>
-                <li>Touche 4 → Speed Pep</li>
-                <li>Touche 5 → Cat's Reflex</li>
-                <li>Touches 6 à 0 → vos autres buffs disponibles ou vide</li>
+                <li>Key 1 → Heart of Power</li>
+                <li>Key 2 → Beef Up</li>
+                <li>Key 3 → Mental Sign</li>
+                <li>Key 4 → Speed Pep</li>
+                <li>Key 5 → Cat's Reflex</li>
+                <li>Touches 6 à 9 → vos autres buffs disponibles ou vide</li>
             </ul>
         </div>
 
         <div class="step">
             <div class="step-number">2</div>
-            <div class="step-title">Activer la rotation dans Reborn Assistant</div>
-            <p>Dans le panneau Reborn, onglet Premium :</p>
+            <div class="step-title">I-activate ang rotation sa Reborn Assistant</div>
+            <p>Sa Reborn panel, sa Premium tab:</p>
             <ul>
-                <li>Activez le toggle <strong>« Rotation Séquences »</strong></li>
-                <li>Réglez <strong>l'intervalle entre cycles</strong> sur la durée du buff le plus court (typiquement 5 min)</li>
-                <li>Réglez <strong>le délai entre touches</strong> sur 1 seconde (laisse le temps à l'animation de séquence de se jouer)</li>
+                <li>I-on ang toggle <strong>"Sequence Rotation"</strong></li>
+                <li>I-set ang <strong>interval kada cycle</strong> sa duration ng pinakamaikling buff (kadalasan 5 min)</li>
+                <li>I-set ang <strong>delay kada key</strong> sa 1 segundo (para may oras na matapos ang sequence animation)</li>
             </ul>
         </div>
 
         <div class="step">
             <div class="step-number">3</div>
-            <div class="step-title">Tester un cycle complet</div>
-            <p>Lancez avec <code>CTRL+A</code>. Surveillez le log d'activité : vous devez voir <em>F2 pressed → 1 pressed → 2 pressed…</em> séquentiellement, avec ~1 seconde entre chaque. Si une séquence ne se lance pas, c'est probablement un cooldown ou une absence de FP — vérifiez visuellement en jeu.</p>
+            <div class="step-title">Subukan ang buong cycle</div>
+            <p>I-start gamit ang <code>CTRL+A</code>. Bantayan ang activity log: dapat makita mo ang <em>F2 pressed → 1 pressed → 2 pressed…</em> nang sunud-sunod, may ~1 segundo sa pagitan. Kung hindi nag-cast ang isang sequence, malamang cooldown o kulang ang FP — tingnan sa loob ng laro.</p>
         </div>
 
-        <h2 id="heal">Programmer le Heal périodique</h2>
-        <p>Le Heal Rain doit tourner en parallèle de la rotation des buffs. Reborn Assistant propose une macro périodique fixe à 15 secondes, parfaitement calibrée pour la zone AOE de Heal Rain (qui dure environ 12-15 secondes).</p>
+        <h2 id="heal">Programmer le Heal automatique</h2>
+        <p>Heal Rain doit tourner en parallèle de la rotation des buffs. Reborn Assistant propose une section <strong>SOIN</strong> dédiée dans le panneau, avec touche et intervalle entièrement configurables.</p>
 
         <div class="step">
             <div class="step-number">1</div>
-            <div class="step-title">Assigner Heal Rain à la touche §</div>
-            <p>Par défaut, la macro périodique de Reborn Assistant déclenche la touche <code>§</code>. Glissez Heal Rain sur cette touche dans Flyff.</p>
+            <div class="step-title">Assigner Heal Rain à une touche</div>
+            <p>Choisissez une touche libre dans Flyff (par exemple <code>R</code>, <code>T</code> ou n'importe quelle touche disponible) et glissez Heal Rain dessus. Reportez ensuite cette même touche dans le champ « Touche » de la section SOIN du panneau Reborn.</p>
         </div>
 
         <div class="step">
             <div class="step-number">2</div>
-            <div class="step-title">Activer la macro périodique</div>
-            <p>Toggle <strong>« Macro périodique »</strong> dans le panneau Premium. Le système appellera Heal Rain toutes les 15 secondes, avec stockage automatique.</p>
+            <div class="step-title">Configurer l'intervalle puis activer</div>
+            <p>Réglez l'intervalle de la section SOIN sur la durée typique de votre Heal Rain (généralement 12 à 15 secondes). Basculez le toggle <strong>ON</strong>. L'extension déclenchera votre touche toutes les X secondes, en parallèle de la rotation de buffs et des autres systèmes.</p>
         </div>
 
         <div class="callout warning">
-            <strong>⚠️ Attention au positionnement</strong>
-            Heal Rain est une AOE centrée sur vous. Si vous bougez constamment (kite ou repositionnement), votre Heal Rain ne couvrira pas vos DPS. Restez statique ou définissez un point de rallye fixe pour le groupe.
+            <strong>⚠️ Mag-ingat sa positioning</strong>
+            Heal Rain est une AOE centrée sur vous. Si vous bougez constamment (kite ou repositionnement), Heal Rain ne couvrira pas votre groupe. Restez statique ou définissez un point de rallye fixe pour vos alliés.
         </div>
 
-        <h2 id="macros">Macros personnalisées (DPS, support, urgence)</h2>
-        <p>En plus de la rotation et du heal, Reborn Assistant Premium offre <strong>3 macros indépendantes</strong>. Voici comment les exploiter pour un Ringmaster :</p>
+        <h2 id="macros">Macros, Familier, Suivre, Auto-clic</h2>
+        <p>En plus de la rotation de buffs et du soin, Reborn Assistant Premium offre quatre systèmes complémentaires que vous activez indépendamment selon vos besoins.</p>
 
-        <h3>Macro 1 — Pet feeding</h3>
-        <p>Si vous avez un familier qui demande à manger régulièrement, programmez une séquence type <code>k,h</code> (touche pet panel + heal pet) toutes les 30 secondes. Évite que votre pet meure pendant que vous farmez.</p>
-
-        <h3>Macro 2 — Stack de FP potions</h3>
-        <p>Configurez une séquence type <code>y</code> (touche FP potion) toutes les 20 secondes pour maintenir votre FP au-dessus de 80%. Ajustez selon votre consommation et la cadence de Heal Rain.</p>
-
-        <h3>Macro 3 — Anti-AFK</h3>
-        <p>Une séquence type <code>up,down</code> ou <code>space</code> toutes les 4-5 minutes permet d'éviter une déconnexion AFK pendant un farm long en cas de période calme. À utiliser avec discernement.</p>
-
-        <h2 id="optimisation">Optimisation et erreurs courantes</h2>
+        <h3>3 Macros personnalisables</h3>
+        <p>Chaque macro déclenche <strong>une seule touche</strong> à un <strong>intervalle configurable</strong> (secondes ou minutes). Une macro = une touche, pas une séquence. Pour combiner plusieurs touches dans l'ordre, utilisez la rotation de buffs principale.</p>
+        <p>Cas d'usage typiques pour un Ringmaster :</p>
         <ul>
-            <li><strong>Délai entre touches trop court</strong> — si vos séquences sautent, augmentez le délai entre touches à 1,5 ou 2 secondes. Mieux vaut un cycle un peu plus lent mais qui passe à 100%.</li>
-            <li><strong>Cooldown global à ne pas dépasser</strong> — Flyff a un GCD (global cooldown). Si vous spammez trop vite, des séquences sont absorbées dans le vide. Le délai de 1s par défaut respecte ce GCD.</li>
-            <li><strong>FP qui sèche au milieu d'un cycle</strong> — votre rotation s'arrête silencieusement. Activez la macro FP potion ou augmentez votre INT/MP.</li>
-            <li><strong>Membres du groupe hors zone AOE</strong> — le heal périodique ne soigne que les joueurs dans le rayon de Heal Rain (~12-15m). Communiquez avec le groupe : ils doivent rester à portée.</li>
-            <li><strong>Cible perdue après mort d'un mob</strong> — pas grave pour le RM, mais surveillez vos targets si vous avez aussi des séquences single-target en rotation.</li>
+            <li><strong>Macro 1</strong> — touche d'une potion FP toutes les 20-30 secondes pour maintenir votre pool de FP au-dessus de 80%</li>
+            <li><strong>Macro 2</strong> — touche d'un buff longue durée (15-30 min) hors rotation principale</li>
+            <li><strong>Macro 3</strong> — touche d'une potion HP d'urgence toutes les 60 secondes, en backup du SOIN principal</li>
+        </ul>
+        <p>Si une macro était prévue pendant une séquence de buffs, elle s'exécutera automatiquement à la fin du cycle de buffs, une par une, avec le même délai que vos buffs.</p>
+
+        <h3>Familier automatique (Premium)</h3>
+        <p>L'extension sort votre familier <strong>avant</strong> chaque cycle de buffs et le range <strong>après</strong>. Pratique pour ne jamais oublier les buffs de pet pendant un farm long, sans ajouter de touche manuelle à votre rotation.</p>
+
+        <h3>Suivre automatique (Premium)</h3>
+        <p>Appui répété sur une touche dédiée (par défaut <code>F</code>) toutes les 5 secondes. Idéal pour suivre un autre personnage en mode follow pendant que vous bufez et heal sans risque de perdre le lock. Seule la touche est configurable, l'intervalle de 5 secondes est fixe.</p>
+
+        <h3>Auto-clic souris (Premium)</h3>
+        <p>Clic à une position fixe de l'écran toutes les 2 secondes. Activez en cliquant sur l'icône <strong>🖱</strong> dans l'en-tête du panneau, puis cliquez sur l'endroit où vous voulez que les clics se déclenchent. Un point rouge clignotant indique la position active. Cliquez le ✕ à côté du point pour arrêter.</p>
+
+        <h2 id="optimisation">Optimization at mga karaniwang pagkakamali</h2>
+        <ul>
+            <li><strong>Masyadong maikli ang delay kada key</strong> — kung lumalaktaw ang mga sequence mo, dagdagan ang delay kada key sa 1.5 o 2 segundo. Mas okay ang mas mabagal na cycle pero 100% pumapasok.</li>
+            <li><strong>Huwag lalagpasan ang global cooldown</strong> — may GCD (global cooldown) ang Flyff. Kung sobrang bilis mag-spam, nawawala sa hangin ang mga sequence. Ang default na 1s delay ay rumirespeto sa GCD na ito.</li>
+            <li><strong>Nauubusan ng FP sa gitna ng cycle</strong> — tahimik na huminto ang rotation mo. I-activate ang FP potion macro o dagdagan ang INT/MP mo.</li>
+            <li><strong>Mga party member na nasa labas ng AOE zone</strong> — ang periodic heal ay para lang sa mga player na nasa loob ng Heal Rain radius (~12-15m). Mag-usap sa party: dapat manatili sa loob ng range.</li>
+            <li><strong>Nawawala ang target pagkamatay ng mob</strong> — hindi malaking issue para sa RM, pero bantayan ang targets mo kung may single-target sequences ka rin sa rotation.</li>
         </ul>
 
-        <h2 id="legal">Aspect légal — ce qu'il faut savoir</h2>
-        <p>L'automatisation des actions répétitives via une extension <strong>peut violer les conditions d'utilisation</strong> de certains services de jeu, y compris celles de Gala Lab pour Flyff Universe. Reborn Assistant <strong>ne lit pas la mémoire du jeu, n'envoie pas de paquets réseau, ne modifie pas le client</strong> : c'est strictement une simulation de touches que vous appuieriez manuellement. Vous restez 100% responsable de l'usage que vous en faites.</p>
-        <p>Pour comprendre exactement ce que fait (et ne fait pas) Reborn Assistant techniquement, consultez la <a href="../index.html#faq">FAQ de la page principale</a>.</p>
+        <h2 id="legal">Legal aspect — ang dapat mong malaman</h2>
+        <p>Ang pag-automate ng paulit-ulit na aksyon sa pamamagitan ng extension ay <strong>maaaring lumabag sa terms of use</strong> ng ilang game service, kasama ang sa Gala Lab para sa Flyff Universe. Ang Reborn Assistant ay <strong>hindi bumabasa ng game memory, hindi nagpapadala ng network packets, hindi binabago ang client</strong>: simulation lang ito ng mga key na ikaw mismo ang magpipindot. 100% responsable ka sa kung paano ito gagamitin.</p>
+        <p>Para maintindihan ang ginagawa (at hindi ginagawa) ng Reborn Assistant sa technical na paraan, basahin ang <a href="../index.html#faq">FAQ sa main page</a>.</p>
 
         <div class="cta-box">
-            <h3>Prêt à libérer votre Ringmaster ?</h3>
-            <p>Installez Reborn Assistant en 30 secondes depuis le Chrome Web Store. 7 jours d'essai Premium gratuits, sans carte bancaire.</p>
-            <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" rel="noopener" class="btn-cta">Installer Reborn Assistant</a>
+            <h3>Handa nang palayain ang Ringmaster mo?</h3>
+            <p>I-install ang Reborn Assistant sa loob ng 30 segundo mula sa Chrome Web Store. 7 araw na libreng Premium trial, walang credit card.</p>
+            <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" rel="noopener" class="btn-cta">I-install ang Reborn Assistant</a>
         </div>
 
         <div class="related">
             <a href="/tl/docs/pinakamahusay-flyff-universe-tools-2026.html" class="related-card">
-                <span class="related-tag">◆ Article lié</span>
-                <span class="related-title">Les meilleurs outils & extensions Flyff Universe 2026</span>
+                <span class="related-tag">◆ Kaugnay na artikulo</span>
+                <span class="related-title">Ang pinakamahuhusay na tools at extensions ng Flyff Universe 2026</span>
             </a>
             <a href="/tl/docs/gabay-sa-ringmaster-flyff-universe.html" class="related-card">
-                <span class="related-tag">◆ Article lié</span>
-                <span class="related-title">Guide complet de la classe Ringmaster Flyff Universe</span>
+                <span class="related-tag">◆ Kaugnay na artikulo</span>
+                <span class="related-title">Kumpletong gabay sa Ringmaster class ng Flyff Universe</span>
             </a>
             <a href="premium.html" class="related-card">
-                <span class="related-tag">◆ Documentation</span>
-                <span class="related-title">Guide complet des fonctionnalités Premium</span>
+                <span class="related-tag">◆ Dokumentasyon</span>
+                <span class="related-title">Kumpletong gabay sa Premium features</span>
             </a>
         </div>
     </div>
