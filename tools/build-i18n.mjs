@@ -160,7 +160,7 @@ function rewriteSeoTags(html, lang, page) {
  *   - root pages    (index.html, privacy.html)
  *   - docs pages    (docs/<x>.html)
  *
- * Asset paths (favicon.svg, langs/index.js, og-image.png) → ALWAYS rewritten to "/asset".
+ * Asset paths (favicon.svg, langs/index.js, og-image.jpg) → ALWAYS rewritten to "/asset".
  * Internal page links → rewritten to /<lang>/<page> for non-FR; FR keeps original relatives.
  */
 function rewritePaths(html, page, lang) {

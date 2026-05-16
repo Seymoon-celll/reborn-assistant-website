@@ -1,0 +1,4 @@
+Contact: mailto:seymoon@constellation-89.fr
+Expires: 2027-05-16T00:00:00.000Z
+Preferred-Languages: fr, en
+Canonical: https://reborn-assistance.fr/.well-known/security.txt

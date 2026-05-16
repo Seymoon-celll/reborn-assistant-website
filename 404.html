@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page introuvable — Reborn Assistant</title>
+    <meta name="description" content="Cette page n'existe pas. Retournez sur la page d'accueil de Reborn Assistant ou consultez la documentation.">
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#080808">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;900&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold:#d4af37; --gold-light:#f4d03f; --gold-dark:#b8941f; --dark-bg:#080808; --text:#f0ead6; --text-dim:#9a9278; --border:rgba(212,175,55,0.2); }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif; background:var(--dark-bg); color:var(--text); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:40px; text-align:center; }
+        body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events:none; opacity:0.4; }
+        body::after { content:''; position:fixed; top:-20%; left:50%; transform:translateX(-50%); width:900px; height:600px; background:radial-gradient(ellipse, rgba(212,175,55,0.06) 0%, transparent 70%); pointer-events:none; }
+        .wrap { position:relative; z-index:1; max-width:600px; }
+        .code { font-family:'Cinzel',serif; font-size:clamp(80px, 18vw, 160px); font-weight:900; line-height:1; background:linear-gradient(135deg, var(--gold-dark), var(--gold-light), var(--gold-dark)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:8px; letter-spacing:-2px; }
+        h1 { font-family:'Cinzel',serif; font-size:clamp(22px,3vw,32px); color:var(--gold); letter-spacing:3px; text-transform:uppercase; margin-bottom:18px; }
+        .divider { width:60px; height:1px; background:linear-gradient(90deg, transparent, var(--gold), transparent); margin:0 auto 28px; }
+        p { color:var(--text-dim); font-size:16px; line-height:1.8; margin-bottom:36px; max-width:480px; margin-left:auto; margin-right:auto; }
+        .actions { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+        a { padding:14px 32px; font-family:'Cinzel',serif; font-size:12px; font-weight:600; text-decoration:none; border-radius:6px; border:1px solid; text-transform:uppercase; letter-spacing:2px; transition:all .3s ease; }
+        .primary { background:linear-gradient(135deg, #2d5016, #4CAF50, #5dd87a); color:#fff; border-color:#4CAF50; box-shadow:0 4px 24px rgba(76,175,80,0.3); }
+        .primary:hover { transform:translateY(-3px); box-shadow:0 12px 40px rgba(76,175,80,0.45); }
+        .secondary { background:transparent; color:var(--gold); border-color:rgba(212,175,55,0.5); }
+        .secondary:hover { background:rgba(212,175,55,0.07); border-color:var(--gold); transform:translateY(-3px); }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="code">404</div>
+        <h1>Page Introuvable</h1>
+        <div class="divider"></div>
+        <p>Cette page n'existe pas ou a été déplacée. Retournez à l'accueil ou explorez la documentation pour trouver ce que vous cherchez.</p>
+        <div class="actions">
+            <a href="/" class="primary">Accueil</a>
+            <a href="/docs/" class="secondary">Documentation</a>
+        </div>
+    </div>
+</body>
+</html>

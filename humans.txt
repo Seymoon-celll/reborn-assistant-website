@@ -1,0 +1,14 @@
+/* TEAM */
+Founder & Developer: Seymoon
+Contact: seymoon [at] constellation-89.fr
+From: France
+
+/* SITE */
+Last update: 2026/05/16
+Standards: HTML5, CSS3, ES2023
+Components: Static site, vanilla JS i18n loader
+Languages: French · English · Spanish · German · Portuguese · Italian · Dutch · Polish · Russian · Turkish · Japanese · Korean · Filipino · Chinese · Arabic
+
+/* PRODUCT */
+Reborn Assistant — Browser extension for Flyff Universe Ringmaster automation.
+Chrome Web Store: https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme
