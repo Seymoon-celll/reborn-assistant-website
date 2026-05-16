@@ -134,8 +134,8 @@
           "step": [
             { "@type": "HowToStep", "name": "安装 Reborn Assistant", "text": "从 Chrome Web Store 安装 Reborn Assistant 扩展,并把它固定到工具栏。" },
             { "@type": "HowToStep", "name": "识别你的 Ringmaster 技能序列", "text": "列出你的核心技能:Heart of Power (HoP)、Beef Up、Mental Sign、Speed Pep,以及 AOE 治疗(Heal Rain)。" },
-            { "@type": "HowToStep", "name": "配置技能轮换", "text": "Dans Reborn Assistant, activez la rotation F2 → 1-9 → F1 avec un intervalle de 5 minutes (durée typique de vos buffs)." },
-            { "@type": "HowToStep", "name": "Programmer le Heal automatique", "text": "Assignez Heal Rain à une touche libre, reportez-la dans la section SOIN du panneau Reborn, réglez l'intervalle sur 12-15 secondes et activez le toggle ON." },
+            { "@type": "HowToStep", "name": "配置技能轮换", "text": "在 Reborn Assistant 中以 5 分钟（你的 buff 典型持续时间）的间隔激活 F2 → 1-9 → F1 轮换。" },
+            { "@type": "HowToStep", "name": "配置自动 Heal", "text": "将 Heal Rain 分配到一个空闲按键，在 Reborn 面板的 SOIN 部分输入它，将间隔设置为 12-15 秒，并将切换开关切到 ON。" },
             { "@type": "HowToStep", "name": "启动自动化", "text": "按 CTRL+A 启动,观察活动日志,根据技能动作调整按键间隔。" }
           ]
         }
@@ -162,7 +162,7 @@
                 <li><a href="#sequences">识别你的 Ringmaster 技能序列</a></li>
                 <li><a href="#rotation">配置 buff 轮换</a></li>
                 <li><a href="#heal">设置周期性治疗</a></li>
-                <li><a href="#macros">Macros, Familier, Suivre, Auto-clic</a></li>
+                <li><a href="#macros">宏、宠物、跟随、自动点击</a></li>
                 <li><a href="#optimisation">优化与常见错误</a></li>
                 <li><a href="#legal">合法性 — 你需要知道的事</a></li>
             </ol>
@@ -182,7 +182,7 @@
         <ul>
             <li>已安装 <strong>Reborn Assistant Premium</strong>(免费版只覆盖基础治疗宏)。参考 <a href="quickstart.html">安装指南</a>。</li>
             <li><strong>把 Ringmaster 的 buff 按逻辑顺序分配到 F2 → 0 键</strong>(Heart of Power 先放,然后是 AOE buff,最后是单体 buff)。</li>
-            <li><strong>Heal Rain sur une touche libre</strong> de votre choix (par exemple <code>R</code>, <code>T</code>, <code>E</code>) — c'est la touche que Reborn Assistant déclenchera en boucle.</li>
+            <li><strong>Heal Rain 绑定到一个空闲按键</strong>（例如 <code>R</code>、<code>T</code>、<code>E</code>）— 这是 Reborn Assistant 将循环按下的按键。</li>
             <li><strong>背包里备一摞 FP 药</strong> — 自动化不会凭空变出资源。</li>
             <li><strong>选稳定的刷怪点</strong>:避开有强制传送或会击退玩家的怪的区域(位置一乱 AOE 就报废)。</li>
         </ul>
@@ -204,7 +204,7 @@
         </ul>
 
         <h2 id="rotation">配置 buff 轮换</h2>
-        <p>C'est le cœur du système. Reborn Assistant peut appuyer sur une séquence fixe <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → F1</code> à intervalle régulier. F2 ouvre votre panneau de buffs, 1 à 9 déclenchent vos séquences, F1 revient à la barre de combat. Voici comment l'aligner avec votre RM :</p>
+        <p>这是系统的核心。Reborn Assistant 可以按规律间隔按下固定序列 <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → F1</code>。F2 打开 buff 面板，1-9 触发你的序列，F1 返回战斗栏。以下是如何与你的 RM 对齐：</p>
 
         <div class="step">
             <div class="step-number">1</div>
@@ -216,7 +216,7 @@
                 <li>3 键 → Mental Sign</li>
                 <li>4 键 → Speed Pep</li>
                 <li>5 键 → Cat's Reflex</li>
-                <li>Touches 6 à 9 → vos autres buffs disponibles ou vide</li>
+                <li>按键 6 到 9 → 你的其他可用 buff 或留空</li>
             </ul>
         </div>
 
@@ -237,47 +237,47 @@
             <p>按 <code>CTRL+A</code> 启动。观察活动日志:应该能看到 <em>F2 pressed → 1 pressed → 2 pressed…</em> 依次出现,每个之间约 1 秒。如果某个技能没释放,多半是冷却中或者没 FP — 进游戏目视确认一下。</p>
         </div>
 
-        <h2 id="heal">Programmer le Heal automatique</h2>
-        <p>Heal Rain doit tourner en parallèle de la rotation des buffs. Reborn Assistant propose une section <strong>SOIN</strong> dédiée dans le panneau, avec touche et intervalle entièrement configurables.</p>
+        <h2 id="heal">配置自动 Heal</h2>
+        <p>Heal Rain 必须与 buff 轮换并行运行。Reborn Assistant 在面板中提供专门的 <strong>SOIN</strong> 部分，按键和间隔完全可配置。</p>
 
         <div class="step">
             <div class="step-number">1</div>
-            <div class="step-title">Assigner Heal Rain à une touche</div>
-            <p>Choisissez une touche libre dans Flyff (par exemple <code>R</code>, <code>T</code> ou n'importe quelle touche disponible) et glissez Heal Rain dessus. Reportez ensuite cette même touche dans le champ « Touche » de la section SOIN du panneau Reborn.</p>
+            <div class="step-title">将 Heal Rain 分配到按键</div>
+            <p>在 Flyff 中选择一个空闲按键（例如 <code>R</code>、<code>T</code> 或任何可用按键）并将 Heal Rain 拖到上面。然后在 Reborn 面板 SOIN 部分的「按键」字段中输入同一按键。</p>
         </div>
 
         <div class="step">
             <div class="step-number">2</div>
-            <div class="step-title">Configurer l'intervalle puis activer</div>
-            <p>Réglez l'intervalle de la section SOIN sur la durée typique de votre Heal Rain (généralement 12 à 15 secondes). Basculez le toggle <strong>ON</strong>. L'extension déclenchera votre touche toutes les X secondes, en parallèle de la rotation de buffs et des autres systèmes.</p>
+            <div class="step-title">配置间隔并激活</div>
+            <p>将 SOIN 部分的间隔设置为 Heal Rain 的典型持续时间（通常 12-15 秒）。将切换开关切到 <strong>ON</strong>。扩展程序将每 X 秒触发你的按键，与 buff 轮换和其他系统并行。</p>
         </div>
 
         <div class="callout warning">
             <strong>⚠️ 注意走位</strong>
-            Heal Rain est une AOE centrée sur vous. Si vous bougez constamment (kite ou repositionnement), Heal Rain ne couvrira pas votre groupe. Restez statique ou définissez un point de rallye fixe pour vos alliés.
+            Heal Rain 是以你为中心的 AOE。如果你不断移动（风筝或重新定位），Heal Rain 将无法覆盖你的队伍。保持静止或为盟友设置一个固定的集合点。
         </div>
 
-        <h2 id="macros">Macros, Familier, Suivre, Auto-clic</h2>
-        <p>En plus de la rotation de buffs et du soin, Reborn Assistant Premium offre quatre systèmes complémentaires que vous activez indépendamment selon vos besoins.</p>
+        <h2 id="macros">宏、宠物、跟随、自动点击</h2>
+        <p>除了 buff 轮换和治疗，Reborn Assistant Premium 还提供四个补充系统，可根据需要独立激活。</p>
 
-        <h3>3 Macros personnalisables</h3>
-        <p>Chaque macro déclenche <strong>une seule touche</strong> à un <strong>intervalle configurable</strong> (secondes ou minutes). Une macro = une touche, pas une séquence. Pour combiner plusieurs touches dans l'ordre, utilisez la rotation de buffs principale.</p>
-        <p>Cas d'usage typiques pour un Ringmaster :</p>
+        <h3>3 个可自定义宏</h3>
+        <p>每个宏以<strong>可配置间隔</strong>（秒或分钟）按下<strong>一个按键</strong>。一个宏 = 一个按键，不是序列。要按顺序组合多个按键，请使用主 buff 轮换。</p>
+        <p>Ringmaster 的典型用例：</p>
         <ul>
-            <li><strong>Macro 1</strong> — touche d'une potion FP toutes les 20-30 secondes pour maintenir votre pool de FP au-dessus de 80%</li>
-            <li><strong>Macro 2</strong> — touche d'un buff longue durée (15-30 min) hors rotation principale</li>
-            <li><strong>Macro 3</strong> — touche d'une potion HP d'urgence toutes les 60 secondes, en backup du SOIN principal</li>
+            <li><strong>宏 1</strong> — 每 20-30 秒按下 FP 药水按键，将 FP 池保持在 80% 以上</li>
+            <li><strong>宏 2</strong> — 主轮换之外的长时间 buff（15-30 分钟）按键</li>
+            <li><strong>宏 3</strong> — 每 60 秒按下紧急 HP 药水按键，作为主 SOIN 的备份</li>
         </ul>
-        <p>Si une macro était prévue pendant une séquence de buffs, elle s'exécutera automatiquement à la fin du cycle de buffs, une par une, avec le même délai que vos buffs.</p>
+        <p>如果宏在 buff 序列期间计划执行，它将在 buff 周期结束后自动执行，一个接一个，延迟与你的 buff 相同。</p>
 
-        <h3>Familier automatique (Premium)</h3>
-        <p>L'extension sort votre familier <strong>avant</strong> chaque cycle de buffs et le range <strong>après</strong>. Pratique pour ne jamais oublier les buffs de pet pendant un farm long, sans ajouter de touche manuelle à votre rotation.</p>
+        <h3>自动宠物（Premium）</h3>
+        <p>扩展程序在每个 buff 周期<strong>之前</strong>召出你的宠物，<strong>之后</strong>收回。在长时间刷怪时永远不会忘记宠物 buff，无需在轮换中添加手动按键。</p>
 
-        <h3>Suivre automatique (Premium)</h3>
-        <p>Appui répété sur une touche dédiée (par défaut <code>F</code>) toutes les 5 secondes. Idéal pour suivre un autre personnage en mode follow pendant que vous bufez et heal sans risque de perdre le lock. Seule la touche est configurable, l'intervalle de 5 secondes est fixe.</p>
+        <h3>自动跟随（Premium）</h3>
+        <p>每 5 秒重复按下专用按键（默认 <code>F</code>）。在 follow 模式下跟随其他角色，同时 buff 和治疗而不会丢失锁定。仅按键可配置，5 秒间隔固定。</p>
 
-        <h3>Auto-clic souris (Premium)</h3>
-        <p>Clic à une position fixe de l'écran toutes les 2 secondes. Activez en cliquant sur l'icône <strong>🖱</strong> dans l'en-tête du panneau, puis cliquez sur l'endroit où vous voulez que les clics se déclenchent. Un point rouge clignotant indique la position active. Cliquez le ✕ à côté du point pour arrêter.</p>
+        <h3>鼠标自动点击（Premium）</h3>
+        <p>每 2 秒点击屏幕上的固定位置。通过点击面板头部的 <strong>🖱</strong> 图标激活，然后点击你希望点击触发的位置。闪烁的红点指示活动位置。点击红点旁边的 ✕ 停止。</p>
 
         <h2 id="optimisation">优化与常见错误</h2>
         <ul>

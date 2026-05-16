@@ -134,8 +134,8 @@
           "step": [
             { "@type": "HowToStep", "name": "Instalar Reborn Assistant", "text": "Adicione a extensão Reborn Assistant pela Chrome Web Store e fixe-a na barra de ferramentas." },
             { "@type": "HowToStep", "name": "Identifique suas sequências Ringmaster", "text": "Liste suas sequências-chave: Heart of Power (HoP), Beef Up, Mental Sign, Speed Pep e o AOE Heal (Heal Rain)." },
-            { "@type": "HowToStep", "name": "Configurar a rotação de sequências", "text": "Dans Reborn Assistant, activez la rotation F2 → 1-9 → F1 avec un intervalle de 5 minutes (durée typique de vos buffs)." },
-            { "@type": "HowToStep", "name": "Programmer le Heal automatique", "text": "Assignez Heal Rain à une touche libre, reportez-la dans la section SOIN du panneau Reborn, réglez l'intervalle sur 12-15 secondes et activez le toggle ON." },
+            { "@type": "HowToStep", "name": "Configurar a rotação de sequências", "text": "No Reborn Assistant, ative a rotação F2 → 1-9 → F1 com um intervalo de 5 minutos (duração típica dos seus buffs)." },
+            { "@type": "HowToStep", "name": "Programar o Heal automático", "text": "Atribua Heal Rain a uma tecla livre, informe-a na seção SOIN do painel Reborn, ajuste o intervalo para 12-15 segundos e acione o toggle ON." },
             { "@type": "HowToStep", "name": "Iniciar a automação", "text": "Inicie com CTRL+A, observe o log de atividade, ajuste os delays conforme as animações das suas sequências." }
           ]
         }
@@ -162,7 +162,7 @@
                 <li><a href="#sequences">Identifique suas sequências Ringmaster</a></li>
                 <li><a href="#rotation">Configure a rotação de buffs</a></li>
                 <li><a href="#heal">Programe o Heal periódico</a></li>
-                <li><a href="#macros">Macros, Familier, Suivre, Auto-clic</a></li>
+                <li><a href="#macros">Macros, Familiar, Seguir, Auto-clique</a></li>
                 <li><a href="#optimisation">Otimização e erros frequentes</a></li>
                 <li><a href="#legal">Aspecto legal — o que você precisa saber</a></li>
             </ol>
@@ -182,7 +182,7 @@
         <ul>
             <li><strong>Reborn Assistant Premium</strong> instalado (a versão gratuita cobre apenas a macro de heal básica). Veja o <a href="quickstart.html">guia de instalação</a>.</li>
             <li><strong>Seus buffs Ringmaster atribuídos às teclas F2 → 0</strong> seguindo uma ordem lógica (Heart of Power primeiro, AOE buffs em seguida, single-target por último).</li>
-            <li><strong>Heal Rain sur une touche libre</strong> de votre choix (par exemple <code>R</code>, <code>T</code>, <code>E</code>) — c'est la touche que Reborn Assistant déclenchera en boucle.</li>
+            <li><strong>Heal Rain em uma tecla livre</strong> de sua escolha (por exemplo <code>R</code>, <code>T</code>, <code>E</code>) — é a tecla que Reborn Assistant acionará em loop.</li>
             <li><strong>Uma pilha de poções de FP</strong> no inventário — a automação não inventa recursos.</li>
             <li><strong>Uma zona de farm estável</strong>: evite zonas com teleportes forçados ou mobs que empurram (desloca as posições e quebra o AOE).</li>
         </ul>
@@ -204,7 +204,7 @@
         </ul>
 
         <h2 id="rotation">Configure a rotação de buffs</h2>
-        <p>C'est le cœur du système. Reborn Assistant peut appuyer sur une séquence fixe <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → F1</code> à intervalle régulier. F2 ouvre votre panneau de buffs, 1 à 9 déclenchent vos séquences, F1 revient à la barre de combat. Voici comment l'aligner avec votre RM :</p>
+        <p>É o coração do sistema. Reborn Assistant pode pressionar uma sequência fixa <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → F1</code> em intervalos regulares. F2 abre seu painel de buffs, 1 a 9 disparam suas sequências, F1 volta à barra de combate. Veja como alinhar isso com seu RM:</p>
 
         <div class="step">
             <div class="step-number">1</div>
@@ -216,7 +216,7 @@
                 <li>Tecla 3 → Mental Sign</li>
                 <li>Tecla 4 → Speed Pep</li>
                 <li>Tecla 5 → Cat's Reflex</li>
-                <li>Touches 6 à 9 → vos autres buffs disponibles ou vide</li>
+                <li>Teclas 6 a 9 → seus outros buffs disponíveis ou vazio</li>
             </ul>
         </div>
 
@@ -237,47 +237,47 @@
             <p>Inicie com <code>CTRL+A</code>. Observe o log de atividade: você deve ver <em>F2 pressed → 1 pressed → 2 pressed…</em> sequencialmente, com ~1 segundo entre cada um. Se uma sequência não disparar, provavelmente é cooldown ou falta de FP — verifique visualmente no jogo.</p>
         </div>
 
-        <h2 id="heal">Programmer le Heal automatique</h2>
-        <p>Heal Rain doit tourner en parallèle de la rotation des buffs. Reborn Assistant propose une section <strong>SOIN</strong> dédiée dans le panneau, avec touche et intervalle entièrement configurables.</p>
+        <h2 id="heal">Programar o Heal automático</h2>
+        <p>Heal Rain deve rodar em paralelo com a rotação de buffs. Reborn Assistant oferece uma seção <strong>SOIN</strong> dedicada no painel, com tecla e intervalo totalmente configuráveis.</p>
 
         <div class="step">
             <div class="step-number">1</div>
-            <div class="step-title">Assigner Heal Rain à une touche</div>
-            <p>Choisissez une touche libre dans Flyff (par exemple <code>R</code>, <code>T</code> ou n'importe quelle touche disponible) et glissez Heal Rain dessus. Reportez ensuite cette même touche dans le champ « Touche » de la section SOIN du panneau Reborn.</p>
+            <div class="step-title">Atribuir Heal Rain a uma tecla</div>
+            <p>Escolha uma tecla livre no Flyff (por exemplo <code>R</code>, <code>T</code> ou qualquer tecla disponível) e arraste Heal Rain para ela. Em seguida, informe essa mesma tecla no campo « Tecla » da seção SOIN do painel Reborn.</p>
         </div>
 
         <div class="step">
             <div class="step-number">2</div>
-            <div class="step-title">Configurer l'intervalle puis activer</div>
-            <p>Réglez l'intervalle de la section SOIN sur la durée typique de votre Heal Rain (généralement 12 à 15 secondes). Basculez le toggle <strong>ON</strong>. L'extension déclenchera votre touche toutes les X secondes, en parallèle de la rotation de buffs et des autres systèmes.</p>
+            <div class="step-title">Configurar o intervalo e ativar</div>
+            <p>Ajuste o intervalo da seção SOIN para a duração típica do seu Heal Rain (geralmente 12 a 15 segundos). Acione o toggle <strong>ON</strong>. A extensão disparará sua tecla a cada X segundos, em paralelo com a rotação de buffs e os demais sistemas.</p>
         </div>
 
         <div class="callout warning">
             <strong>⚠️ Atenção ao posicionamento</strong>
-            Heal Rain est une AOE centrée sur vous. Si vous bougez constamment (kite ou repositionnement), Heal Rain ne couvrira pas votre groupe. Restez statique ou définissez un point de rallye fixe pour vos alliés.
+            Heal Rain é um AOE centrado em você. Se você se move constantemente (kite ou reposicionamento), Heal Rain não cobrirá seu grupo. Fique estático ou defina um ponto de encontro fixo para seus aliados.
         </div>
 
-        <h2 id="macros">Macros, Familier, Suivre, Auto-clic</h2>
-        <p>En plus de la rotation de buffs et du soin, Reborn Assistant Premium offre quatre systèmes complémentaires que vous activez indépendamment selon vos besoins.</p>
+        <h2 id="macros">Macros, Familiar, Seguir, Auto-clique</h2>
+        <p>Além da rotação de buffs e do heal, Reborn Assistant Premium oferece quatro sistemas complementares que você ativa independentemente conforme sua necessidade.</p>
 
-        <h3>3 Macros personnalisables</h3>
-        <p>Chaque macro déclenche <strong>une seule touche</strong> à un <strong>intervalle configurable</strong> (secondes ou minutes). Une macro = une touche, pas une séquence. Pour combiner plusieurs touches dans l'ordre, utilisez la rotation de buffs principale.</p>
-        <p>Cas d'usage typiques pour un Ringmaster :</p>
+        <h3>3 Macros personalizáveis</h3>
+        <p>Cada macro dispara <strong>uma única tecla</strong> em um <strong>intervalo configurável</strong> (segundos ou minutos). Uma macro = uma tecla, não uma sequência. Para combinar várias teclas em ordem, use a rotação principal de buffs.</p>
+        <p>Casos de uso típicos para um Ringmaster:</p>
         <ul>
-            <li><strong>Macro 1</strong> — touche d'une potion FP toutes les 20-30 secondes pour maintenir votre pool de FP au-dessus de 80%</li>
-            <li><strong>Macro 2</strong> — touche d'un buff longue durée (15-30 min) hors rotation principale</li>
-            <li><strong>Macro 3</strong> — touche d'une potion HP d'urgence toutes les 60 secondes, en backup du SOIN principal</li>
+            <li><strong>Macro 1</strong> — tecla de uma poção FP a cada 20-30 segundos para manter seu pool de FP acima de 80%</li>
+            <li><strong>Macro 2</strong> — tecla de um buff de longa duração (15-30 min) fora da rotação principal</li>
+            <li><strong>Macro 3</strong> — tecla de uma poção HP de emergência a cada 60 segundos, como backup do SOIN principal</li>
         </ul>
-        <p>Si une macro était prévue pendant une séquence de buffs, elle s'exécutera automatiquement à la fin du cycle de buffs, une par une, avec le même délai que vos buffs.</p>
+        <p>Se uma macro estava prevista durante uma sequência de buffs, ela será executada automaticamente ao final do ciclo de buffs, uma por uma, com o mesmo atraso dos seus buffs.</p>
 
-        <h3>Familier automatique (Premium)</h3>
-        <p>L'extension sort votre familier <strong>avant</strong> chaque cycle de buffs et le range <strong>après</strong>. Pratique pour ne jamais oublier les buffs de pet pendant un farm long, sans ajouter de touche manuelle à votre rotation.</p>
+        <h3>Familiar automático (Premium)</h3>
+        <p>A extensão invoca seu familiar <strong>antes</strong> de cada ciclo de buffs e o guarda <strong>depois</strong>. Prático para nunca esquecer os buffs de pet durante um farm longo, sem adicionar uma tecla manual à sua rotação.</p>
 
-        <h3>Suivre automatique (Premium)</h3>
-        <p>Appui répété sur une touche dédiée (par défaut <code>F</code>) toutes les 5 secondes. Idéal pour suivre un autre personnage en mode follow pendant que vous bufez et heal sans risque de perdre le lock. Seule la touche est configurable, l'intervalle de 5 secondes est fixe.</p>
+        <h3>Seguir automático (Premium)</h3>
+        <p>Pressionamento repetido de uma tecla dedicada (padrão <code>F</code>) a cada 5 segundos. Ideal para seguir outro personagem em modo follow enquanto você buffa e heal sem risco de perder o lock. Apenas a tecla é configurável, o intervalo de 5 segundos é fixo.</p>
 
-        <h3>Auto-clic souris (Premium)</h3>
-        <p>Clic à une position fixe de l'écran toutes les 2 secondes. Activez en cliquant sur l'icône <strong>🖱</strong> dans l'en-tête du panneau, puis cliquez sur l'endroit où vous voulez que les clics se déclenchent. Un point rouge clignotant indique la position active. Cliquez le ✕ à côté du point pour arrêter.</p>
+        <h3>Auto-clique do mouse (Premium)</h3>
+        <p>Clique em uma posição fixa da tela a cada 2 segundos. Ative clicando no ícone <strong>🖱</strong> no cabeçalho do painel e depois clique no local onde os cliques devem ser disparados. Um ponto vermelho piscante indica a posição ativa. Clique no ✕ ao lado do ponto para parar.</p>
 
         <h2 id="optimisation">Otimização e erros frequentes</h2>
         <ul>

@@ -13,6 +13,7 @@ import { automateRmKo } from './_agent-ko.mjs';
 import { automateRmTl } from './_agent-tl.mjs';
 import { automateRmZh } from './_agent-zh.mjs';
 import { automateRmAr } from './_agent-ar.mjs';
+import { corrections as C } from './_corrections-automate-rm.mjs';
 
 const fr = {};
 const en = {};
@@ -341,16 +342,24 @@ const de = {
 };
 
 // ─── 11 other languages — populated by background agents ─────────────────────
-const pt = automateRmPt;
-const it = automateRmIt;
-const nl = automateRmNl;
-const pl = automateRmPl;
-const ru = automateRmRu;
-const tr = automateRmTr;
-const ja = automateRmJa;
-const ko = automateRmKo;
-const tl = automateRmTl;
-const zh = automateRmZh;
-const ar = automateRmAr;
+// Merge corrections (phrases added/rewritten in the FR source AFTER the agents
+// translated). The merge spreads agent translations first, then corrections,
+// so a corrected key wins if both happen to share the same FR phrase.
+const pt = { ...automateRmPt, ...C.pt };
+const it = { ...automateRmIt, ...C.it };
+const nl = { ...automateRmNl, ...C.nl };
+const pl = { ...automateRmPl, ...C.pl };
+const ru = { ...automateRmRu, ...C.ru };
+const tr = { ...automateRmTr, ...C.tr };
+const ja = { ...automateRmJa, ...C.ja };
+const ko = { ...automateRmKo, ...C.ko };
+const tl = { ...automateRmTl, ...C.tl };
+const zh = { ...automateRmZh, ...C.zh };
+const ar = { ...automateRmAr, ...C.ar };
 
-export const automateRmContent = { fr, en, es, de, pt, it, nl, pl, ru, tr, ja, ko, tl, zh, ar };
+// ES + DE: manual seed in this file already contains the legacy mappings.
+// Spread corrections to add the new phrases on top.
+const esMerged = { ...es, ...C.es };
+const deMerged = { ...de, ...C.de };
+
+export const automateRmContent = { fr, en, es: esMerged, de: deMerged, pt, it, nl, pl, ru, tr, ja, ko, tl, zh, ar };

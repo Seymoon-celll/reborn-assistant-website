@@ -134,8 +134,8 @@
           "step": [
             { "@type": "HowToStep", "name": "Reborn Assistant 설치하기", "text": "Chrome Web Store에서 Reborn Assistant 확장 프로그램을 추가하고 도구 모음에 고정하세요." },
             { "@type": "HowToStep", "name": "Ringmaster 시퀀스 파악하기", "text": "핵심 시퀀스를 정리합니다: Heart of Power (HoP), Beef Up, Mental Sign, Speed Pep, 그리고 AOE 힐(Heal Rain)." },
-            { "@type": "HowToStep", "name": "시퀀스 로테이션 설정하기", "text": "Dans Reborn Assistant, activez la rotation F2 → 1-9 → F1 avec un intervalle de 5 minutes (durée typique de vos buffs)." },
-            { "@type": "HowToStep", "name": "Programmer le Heal automatique", "text": "Assignez Heal Rain à une touche libre, reportez-la dans la section SOIN du panneau Reborn, réglez l'intervalle sur 12-15 secondes et activez le toggle ON." },
+            { "@type": "HowToStep", "name": "시퀀스 로테이션 설정하기", "text": "Reborn Assistant에서 5분 간격(버프의 일반적인 지속 시간)으로 F2 → 1-9 → F1 로테이션을 활성화하세요." },
+            { "@type": "HowToStep", "name": "자동 Heal 설정", "text": "Heal Rain을 비어 있는 키에 할당하고 Reborn 패널의 SOIN 섹션에 입력한 다음 간격을 12-15초로 설정하고 토글을 ON으로 전환하세요." },
             { "@type": "HowToStep", "name": "자동화 시작하기", "text": "CTRL+A로 시작하고, 활동 로그를 확인하며, 시퀀스 애니메이션에 맞춰 지연을 조정하세요." }
           ]
         }
@@ -162,7 +162,7 @@
                 <li><a href="#sequences">Ringmaster 시퀀스 파악하기</a></li>
                 <li><a href="#rotation">버프 로테이션 설정하기</a></li>
                 <li><a href="#heal">주기 힐 설정하기</a></li>
-                <li><a href="#macros">Macros, Familier, Suivre, Auto-clic</a></li>
+                <li><a href="#macros">매크로, 펫, 따라가기, 자동 클릭</a></li>
                 <li><a href="#optimisation">최적화와 자주 하는 실수</a></li>
                 <li><a href="#legal">법적 측면 — 반드시 알아야 할 점</a></li>
             </ol>
@@ -182,7 +182,7 @@
         <ul>
             <li><strong>Reborn Assistant Premium</strong> 설치 완료 (무료 버전은 기본 힐 매크로만 지원합니다). <a href="quickstart.html">설치 가이드</a>를 참고하세요.</li>
             <li><strong>Ringmaster 버프를 F2 → 0번 키에 배치</strong>합니다. 논리적 순서를 따르세요 (Heart of Power 먼저, 그다음 AOE 버프, 마지막에 단일 대상 버프).</li>
-            <li><strong>Heal Rain sur une touche libre</strong> de votre choix (par exemple <code>R</code>, <code>T</code>, <code>E</code>) — c'est la touche que Reborn Assistant déclenchera en boucle.</li>
+            <li><strong>Heal Rain을 비어 있는 키</strong>에 배치 (예: <code>R</code>, <code>T</code>, <code>E</code>) — Reborn Assistant가 반복해서 누를 키입니다.</li>
             <li><strong>FP 포션 한 묶음</strong>을 인벤토리에 챙겨두세요. 자동화는 자원을 만들어내지 않습니다.</li>
             <li><strong>안정적인 사냥터</strong>: 강제 텔레포트가 있거나 밀쳐내는 몹이 있는 지역은 피하세요 (위치가 어긋나면 AOE가 깨집니다).</li>
         </ul>
@@ -204,7 +204,7 @@
         </ul>
 
         <h2 id="rotation">버프 로테이션 설정하기</h2>
-        <p>C'est le cœur du système. Reborn Assistant peut appuyer sur une séquence fixe <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → F1</code> à intervalle régulier. F2 ouvre votre panneau de buffs, 1 à 9 déclenchent vos séquences, F1 revient à la barre de combat. Voici comment l'aligner avec votre RM :</p>
+        <p>이것이 시스템의 핵심입니다. Reborn Assistant는 정기적인 간격으로 고정 시퀀스 <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → F1</code>을 누를 수 있습니다. F2는 버프 패널을 열고, 1-9는 시퀀스를 발동하며, F1은 전투 바로 돌아옵니다. RM에 맞추는 방법:</p>
 
         <div class="step">
             <div class="step-number">1</div>
@@ -216,7 +216,7 @@
                 <li>3번 키 → Mental Sign</li>
                 <li>4번 키 → Speed Pep</li>
                 <li>5번 키 → Cat's Reflex</li>
-                <li>Touches 6 à 9 → vos autres buffs disponibles ou vide</li>
+                <li>키 6 ~ 9 → 다른 사용 가능한 버프 또는 비어 둠</li>
             </ul>
         </div>
 
@@ -237,47 +237,47 @@
             <p><code>CTRL+A</code>로 시작합니다. 활동 로그를 확인하세요. <em>F2 pressed → 1 pressed → 2 pressed…</em>가 약 1초 간격으로 순차적으로 표시되어야 합니다. 시퀀스가 발동하지 않는다면 쿨다운이거나 FP 부족일 가능성이 큽니다. 게임 내에서 직접 확인하세요.</p>
         </div>
 
-        <h2 id="heal">Programmer le Heal automatique</h2>
-        <p>Heal Rain doit tourner en parallèle de la rotation des buffs. Reborn Assistant propose une section <strong>SOIN</strong> dédiée dans le panneau, avec touche et intervalle entièrement configurables.</p>
+        <h2 id="heal">자동 Heal 설정</h2>
+        <p>Heal Rain은 버프 로테이션과 병행해서 돌아야 합니다. Reborn Assistant는 패널에 전용 <strong>SOIN</strong> 섹션을 제공하며, 키와 간격을 완전히 구성할 수 있습니다.</p>
 
         <div class="step">
             <div class="step-number">1</div>
-            <div class="step-title">Assigner Heal Rain à une touche</div>
-            <p>Choisissez une touche libre dans Flyff (par exemple <code>R</code>, <code>T</code> ou n'importe quelle touche disponible) et glissez Heal Rain dessus. Reportez ensuite cette même touche dans le champ « Touche » de la section SOIN du panneau Reborn.</p>
+            <div class="step-title">Heal Rain을 키에 할당하기</div>
+            <p>Flyff에서 비어 있는 키(예: <code>R</code>, <code>T</code> 또는 사용 가능한 모든 키)를 선택하고 Heal Rain을 그 위로 끌어다 놓습니다. 그런 다음 Reborn 패널 SOIN 섹션의 「키」 필드에 같은 키를 입력하세요.</p>
         </div>
 
         <div class="step">
             <div class="step-number">2</div>
-            <div class="step-title">Configurer l'intervalle puis activer</div>
-            <p>Réglez l'intervalle de la section SOIN sur la durée typique de votre Heal Rain (généralement 12 à 15 secondes). Basculez le toggle <strong>ON</strong>. L'extension déclenchera votre touche toutes les X secondes, en parallèle de la rotation de buffs et des autres systèmes.</p>
+            <div class="step-title">간격 설정 후 활성화</div>
+            <p>SOIN 섹션의 간격을 Heal Rain의 일반적인 지속 시간(보통 12-15초)으로 설정합니다. 토글을 <strong>ON</strong>으로 전환하세요. 확장 프로그램은 버프 로테이션 및 다른 시스템과 병행하여 X초마다 키를 누릅니다.</p>
         </div>
 
         <div class="callout warning">
             <strong>⚠️ 위치 선정에 주의</strong>
-            Heal Rain est une AOE centrée sur vous. Si vous bougez constamment (kite ou repositionnement), Heal Rain ne couvrira pas votre groupe. Restez statique ou définissez un point de rallye fixe pour vos alliés.
+            Heal Rain은 본인 중심의 AOE입니다. 계속 움직이면(카이팅이나 재배치) Heal Rain이 그룹을 커버하지 못합니다. 정지해 있거나 동료를 위한 고정 집결 지점을 정하세요.
         </div>
 
-        <h2 id="macros">Macros, Familier, Suivre, Auto-clic</h2>
-        <p>En plus de la rotation de buffs et du soin, Reborn Assistant Premium offre quatre systèmes complémentaires que vous activez indépendamment selon vos besoins.</p>
+        <h2 id="macros">매크로, 펫, 따라가기, 자동 클릭</h2>
+        <p>버프 로테이션과 힐 외에도, Reborn Assistant Premium은 필요에 따라 독립적으로 활성화하는 4가지 보완 시스템을 제공합니다.</p>
 
-        <h3>3 Macros personnalisables</h3>
-        <p>Chaque macro déclenche <strong>une seule touche</strong> à un <strong>intervalle configurable</strong> (secondes ou minutes). Une macro = une touche, pas une séquence. Pour combiner plusieurs touches dans l'ordre, utilisez la rotation de buffs principale.</p>
-        <p>Cas d'usage typiques pour un Ringmaster :</p>
+        <h3>3개의 사용자 정의 매크로</h3>
+        <p>각 매크로는 <strong>구성 가능한 간격</strong>(초 또는 분)으로 <strong>단일 키</strong>만 누릅니다. 매크로 1개 = 키 1개, 시퀀스가 아닙니다. 여러 키를 순서대로 조합하려면 메인 버프 로테이션을 사용하세요.</p>
+        <p>Ringmaster를 위한 일반적인 사용 사례:</p>
         <ul>
-            <li><strong>Macro 1</strong> — touche d'une potion FP toutes les 20-30 secondes pour maintenir votre pool de FP au-dessus de 80%</li>
-            <li><strong>Macro 2</strong> — touche d'un buff longue durée (15-30 min) hors rotation principale</li>
-            <li><strong>Macro 3</strong> — touche d'une potion HP d'urgence toutes les 60 secondes, en backup du SOIN principal</li>
+            <li><strong>매크로 1</strong> — FP 풀을 80% 이상으로 유지하기 위해 20-30초마다 FP 포션 키</li>
+            <li><strong>매크로 2</strong> — 메인 로테이션 외 장시간 버프(15-30분) 키</li>
+            <li><strong>매크로 3</strong> — 메인 SOIN의 백업으로 60초마다 비상 HP 포션 키</li>
         </ul>
-        <p>Si une macro était prévue pendant une séquence de buffs, elle s'exécutera automatiquement à la fin du cycle de buffs, une par une, avec le même délai que vos buffs.</p>
+        <p>버프 시퀀스 중 매크로가 예정되어 있었다면, 버프 사이클이 끝난 후 버프와 같은 지연으로 하나씩 자동으로 실행됩니다.</p>
 
-        <h3>Familier automatique (Premium)</h3>
-        <p>L'extension sort votre familier <strong>avant</strong> chaque cycle de buffs et le range <strong>après</strong>. Pratique pour ne jamais oublier les buffs de pet pendant un farm long, sans ajouter de touche manuelle à votre rotation.</p>
+        <h3>자동 펫 (Premium)</h3>
+        <p>확장 프로그램은 각 버프 사이클 <strong>전에</strong> 펫을 꺼내고 <strong>후에</strong> 다시 넣습니다. 긴 파밍 중 펫 버프를 잊지 않으면서 로테이션에 수동 키를 추가할 필요가 없어 편리합니다.</p>
 
-        <h3>Suivre automatique (Premium)</h3>
-        <p>Appui répété sur une touche dédiée (par défaut <code>F</code>) toutes les 5 secondes. Idéal pour suivre un autre personnage en mode follow pendant que vous bufez et heal sans risque de perdre le lock. Seule la touche est configurable, l'intervalle de 5 secondes est fixe.</p>
+        <h3>자동 따라가기 (Premium)</h3>
+        <p>전용 키(기본 <code>F</code>)를 5초마다 반복해서 누릅니다. follow 모드로 다른 캐릭터를 따라가면서 락을 잃지 않고 버프와 힐을 하기에 이상적입니다. 키만 설정 가능하며, 5초 간격은 고정입니다.</p>
 
-        <h3>Auto-clic souris (Premium)</h3>
-        <p>Clic à une position fixe de l'écran toutes les 2 secondes. Activez en cliquant sur l'icône <strong>🖱</strong> dans l'en-tête du panneau, puis cliquez sur l'endroit où vous voulez que les clics se déclenchent. Un point rouge clignotant indique la position active. Cliquez le ✕ à côté du point pour arrêter.</p>
+        <h3>마우스 자동 클릭 (Premium)</h3>
+        <p>화면의 고정 위치를 2초마다 클릭합니다. 패널 헤더의 <strong>🖱</strong> 아이콘을 클릭하여 활성화한 다음, 클릭을 발동할 위치를 클릭합니다. 깜박이는 빨간 점이 활성 위치를 표시합니다. 점 옆의 ✕을 클릭하여 중지합니다.</p>
 
         <h2 id="optimisation">최적화와 자주 하는 실수</h2>
         <ul>

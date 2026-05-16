@@ -134,8 +134,8 @@
           "step": [
             { "@type": "HowToStep", "name": "Reborn Assistant'ı Kur", "text": "Reborn Assistant uzantısını Chrome Web Store'dan ekleyin ve araç çubuğuna sabitleyin." },
             { "@type": "HowToStep", "name": "Ringmaster sekanslarınızı belirleyin", "text": "Anahtar sekanslarınızı listeleyin: Heart of Power (HoP), Beef Up, Mental Sign, Speed Pep ve AOE Heal (Heal Rain)." },
-            { "@type": "HowToStep", "name": "Sekans rotasyonunu yapılandırın", "text": "Dans Reborn Assistant, activez la rotation F2 → 1-9 → F1 avec un intervalle de 5 minutes (durée typique de vos buffs)." },
-            { "@type": "HowToStep", "name": "Programmer le Heal automatique", "text": "Assignez Heal Rain à une touche libre, reportez-la dans la section SOIN du panneau Reborn, réglez l'intervalle sur 12-15 secondes et activez le toggle ON." },
+            { "@type": "HowToStep", "name": "Sekans rotasyonunu yapılandırın", "text": "Reborn Assistant'ta F2 → 1-9 → F1 rotasyonunu 5 dakika aralıkla etkinleştirin (buff'larınızın tipik süresi)." },
+            { "@type": "HowToStep", "name": "Otomatik Heal Ayarı", "text": "Heal Rain'i boş bir tuşa atayın, Reborn panelinin SOIN bölümüne girin, aralığı 12-15 saniyeye ayarlayın ve toggle'ı ON'a alın." },
             { "@type": "HowToStep", "name": "Otomasyonu başlatın", "text": "CTRL+A ile başlatın, aktivite log'unu izleyin, gecikmeleri sekans animasyonlarınıza göre ayarlayın." }
           ]
         }
@@ -162,7 +162,7 @@
                 <li><a href="#sequences">Ringmaster sekanslarınızı belirleyin</a></li>
                 <li><a href="#rotation">Buff rotasyonunu yapılandırın</a></li>
                 <li><a href="#heal">Periyodik Heal'i programlayın</a></li>
-                <li><a href="#macros">Macros, Familier, Suivre, Auto-clic</a></li>
+                <li><a href="#macros">Makrolar, Familiar, Takip, Oto-tıklama</a></li>
                 <li><a href="#optimisation">Optimizasyon ve sık yapılan hatalar</a></li>
                 <li><a href="#legal">Yasal durum — bilmeniz gerekenler</a></li>
             </ol>
@@ -182,7 +182,7 @@
         <ul>
             <li><strong>Reborn Assistant Premium</strong> kurulu olmalı (ücretsiz sürüm yalnızca temel heal makrosunu kapsar). <a href="quickstart.html">Kurulum rehberine</a> bakın.</li>
             <li><strong>Ringmaster buff'larınız F2 → 0 tuşlarına atanmış</strong>, mantıklı bir sırayla (önce Heart of Power, sonra AOE buff'lar, en son single-target).</li>
-            <li><strong>Heal Rain sur une touche libre</strong> de votre choix (par exemple <code>R</code>, <code>T</code>, <code>E</code>) — c'est la touche que Reborn Assistant déclenchera en boucle.</li>
+            <li><strong>Heal Rain için boş bir tuş</strong> (örneğin <code>R</code>, <code>T</code>, <code>E</code>) — Reborn Assistant'ın döngüde basacağı tuştur.</li>
             <li><strong>Envanterde bir yığın FP iksiri</strong> — otomasyon kaynakları sıfırdan üretmez.</li>
             <li><strong>Stabil bir farm bölgesi</strong>: zorunlu ışınlanmaların veya geri iten mob'ların olduğu alanlardan kaçının (pozisyonları kaydırır ve AOE'yi bozar).</li>
         </ul>
@@ -204,7 +204,7 @@
         </ul>
 
         <h2 id="rotation">Buff rotasyonunu yapılandırın</h2>
-        <p>C'est le cœur du système. Reborn Assistant peut appuyer sur une séquence fixe <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → F1</code> à intervalle régulier. F2 ouvre votre panneau de buffs, 1 à 9 déclenchent vos séquences, F1 revient à la barre de combat. Voici comment l'aligner avec votre RM :</p>
+        <p>Sistemin kalbi budur. Reborn Assistant düzenli aralıklarla sabit bir dizi <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → F1</code> basabilir. F2 buff panelinizi açar, 1-9 sıralarınızı tetikler, F1 savaş barına döner. RM'inize uyarlamak için:</p>
 
         <div class="step">
             <div class="step-number">1</div>
@@ -216,7 +216,7 @@
                 <li>Tuş 3 → Mental Sign</li>
                 <li>Tuş 4 → Speed Pep</li>
                 <li>Tuş 5 → Cat's Reflex</li>
-                <li>Touches 6 à 9 → vos autres buffs disponibles ou vide</li>
+                <li>6-9 tuşları → diğer mevcut buff'larınız veya boş</li>
             </ul>
         </div>
 
@@ -237,47 +237,47 @@
             <p><code>CTRL+A</code> ile başlatın. Aktivite log'unu izleyin: ardışık olarak <em>F2 pressed → 1 pressed → 2 pressed…</em> görmelisiniz, her birinin arasında ~1 saniye. Bir sekans çalışmazsa muhtemelen cooldown veya FP eksikliğidir — oyunda görsel olarak doğrulayın.</p>
         </div>
 
-        <h2 id="heal">Programmer le Heal automatique</h2>
-        <p>Heal Rain doit tourner en parallèle de la rotation des buffs. Reborn Assistant propose une section <strong>SOIN</strong> dédiée dans le panneau, avec touche et intervalle entièrement configurables.</p>
+        <h2 id="heal">Otomatik Heal Ayarı</h2>
+        <p>Heal Rain buff rotasyonuyla paralel çalışmalıdır. Reborn Assistant panelde adanmış bir <strong>SOIN</strong> bölümü sunar — tuş ve aralık tamamen yapılandırılabilir.</p>
 
         <div class="step">
             <div class="step-number">1</div>
-            <div class="step-title">Assigner Heal Rain à une touche</div>
-            <p>Choisissez une touche libre dans Flyff (par exemple <code>R</code>, <code>T</code> ou n'importe quelle touche disponible) et glissez Heal Rain dessus. Reportez ensuite cette même touche dans le champ « Touche » de la section SOIN du panneau Reborn.</p>
+            <div class="step-title">Heal Rain'i bir tuşa atamak</div>
+            <p>Flyff'te boş bir tuş seçin (örneğin <code>R</code>, <code>T</code> veya herhangi mevcut bir tuş) ve Heal Rain'i üstüne sürükleyin. Ardından aynı tuşu Reborn panelindeki SOIN bölümünün « Tuş » alanına girin.</p>
         </div>
 
         <div class="step">
             <div class="step-number">2</div>
-            <div class="step-title">Configurer l'intervalle puis activer</div>
-            <p>Réglez l'intervalle de la section SOIN sur la durée typique de votre Heal Rain (généralement 12 à 15 secondes). Basculez le toggle <strong>ON</strong>. L'extension déclenchera votre touche toutes les X secondes, en parallèle de la rotation de buffs et des autres systèmes.</p>
+            <div class="step-title">Aralığı ayarla ve aktif et</div>
+            <p>SOIN bölümünün aralığını Heal Rain'inizin tipik süresine ayarlayın (genelde 12-15 saniye). Toggle'ı <strong>ON</strong>'a alın. Uzantı tuşunuzu her X saniyede bir basacak — buff rotasyonu ve diğer sistemlerle paralel.</p>
         </div>
 
         <div class="callout warning">
             <strong>⚠️ Pozisyonlanmaya dikkat</strong>
-            Heal Rain est une AOE centrée sur vous. Si vous bougez constamment (kite ou repositionnement), Heal Rain ne couvrira pas votre groupe. Restez statique ou définissez un point de rallye fixe pour vos alliés.
+            Heal Rain üzerinize odaklı bir AOE'dir. Sürekli hareket ediyorsanız (kite veya yer değiştirme), Heal Rain grubunuzu kapsamaz. Sabit kalın veya müttefikleriniz için sabit bir buluşma noktası belirleyin.
         </div>
 
-        <h2 id="macros">Macros, Familier, Suivre, Auto-clic</h2>
-        <p>En plus de la rotation de buffs et du soin, Reborn Assistant Premium offre quatre systèmes complémentaires que vous activez indépendamment selon vos besoins.</p>
+        <h2 id="macros">Makrolar, Familiar, Takip, Oto-tıklama</h2>
+        <p>Buff rotasyonu ve heal'in yanı sıra, Reborn Assistant Premium ihtiyacınıza göre bağımsız etkinleştirebileceğiniz dört tamamlayıcı sistem sunar.</p>
 
-        <h3>3 Macros personnalisables</h3>
-        <p>Chaque macro déclenche <strong>une seule touche</strong> à un <strong>intervalle configurable</strong> (secondes ou minutes). Une macro = une touche, pas une séquence. Pour combiner plusieurs touches dans l'ordre, utilisez la rotation de buffs principale.</p>
-        <p>Cas d'usage typiques pour un Ringmaster :</p>
+        <h3>3 özelleştirilebilir makro</h3>
+        <p>Her makro <strong>yalnızca bir tuşu</strong> <strong>yapılandırılabilir aralıkta</strong> (saniye veya dakika) basar. Bir makro = bir tuş, bir dizi değil. Birden fazla tuşu sırayla kombinlemek için ana buff rotasyonunu kullanın.</p>
+        <p>Bir Ringmaster için tipik kullanım senaryoları:</p>
         <ul>
-            <li><strong>Macro 1</strong> — touche d'une potion FP toutes les 20-30 secondes pour maintenir votre pool de FP au-dessus de 80%</li>
-            <li><strong>Macro 2</strong> — touche d'un buff longue durée (15-30 min) hors rotation principale</li>
-            <li><strong>Macro 3</strong> — touche d'une potion HP d'urgence toutes les 60 secondes, en backup du SOIN principal</li>
+            <li><strong>Makro 1</strong> — FP havuzunuzu %80 üstünde tutmak için her 20-30 saniyede FP iksiri tuşu</li>
+            <li><strong>Makro 2</strong> — ana rotasyon dışındaki uzun süreli (15-30 dk) buff tuşu</li>
+            <li><strong>Makro 3</strong> — ana SOIN için yedek olarak her 60 saniyede acil HP iksiri tuşu</li>
         </ul>
-        <p>Si une macro était prévue pendant une séquence de buffs, elle s'exécutera automatiquement à la fin du cycle de buffs, une par une, avec le même délai que vos buffs.</p>
+        <p>Bir makro buff dizisi sırasında çalışacaktıysa, buff döngüsünün sonunda otomatik olarak ardı ardına çalışır — buff'larınızla aynı gecikmeyle.</p>
 
-        <h3>Familier automatique (Premium)</h3>
-        <p>L'extension sort votre familier <strong>avant</strong> chaque cycle de buffs et le range <strong>après</strong>. Pratique pour ne jamais oublier les buffs de pet pendant un farm long, sans ajouter de touche manuelle à votre rotation.</p>
+        <h3>Otomatik Familiar (Premium)</h3>
+        <p>Uzantı her buff döngüsünden <strong>önce</strong> familiar'ınızı çıkarır ve <strong>sonrasında</strong> geri kaldırır. Uzun farmda pet buff'larını asla unutmamak için pratik — rotasyona manuel tuş eklemeden.</p>
 
-        <h3>Suivre automatique (Premium)</h3>
-        <p>Appui répété sur une touche dédiée (par défaut <code>F</code>) toutes les 5 secondes. Idéal pour suivre un autre personnage en mode follow pendant que vous bufez et heal sans risque de perdre le lock. Seule la touche est configurable, l'intervalle de 5 secondes est fixe.</p>
+        <h3>Otomatik Takip (Premium)</h3>
+        <p>Adanmış bir tuşa (varsayılan <code>F</code>) her 5 saniyede tekrar basma. Follow modunda başka bir karakteri takip ederken buff ve heal atmak için ideal — lock kaybetmeden. Yalnızca tuş yapılandırılabilir, 5 saniyelik aralık sabittir.</p>
 
-        <h3>Auto-clic souris (Premium)</h3>
-        <p>Clic à une position fixe de l'écran toutes les 2 secondes. Activez en cliquant sur l'icône <strong>🖱</strong> dans l'en-tête du panneau, puis cliquez sur l'endroit où vous voulez que les clics se déclenchent. Un point rouge clignotant indique la position active. Cliquez le ✕ à côté du point pour arrêter.</p>
+        <h3>Fare oto-tıklama (Premium)</h3>
+        <p>Ekranda sabit bir konuma her 2 saniyede tıklama. Etkinleştirmek için panel başlığındaki <strong>🖱</strong> simgesine tıklayın, sonra tıklamaların tetikleneceği yere tıklayın. Yanıp sönen kırmızı bir nokta aktif konumu gösterir. Durdurmak için noktanın yanındaki ✕'e tıklayın.</p>
 
         <h2 id="optimisation">Optimizasyon ve sık yapılan hatalar</h2>
         <ul>

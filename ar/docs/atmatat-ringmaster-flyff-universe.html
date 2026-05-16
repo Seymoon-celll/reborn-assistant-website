@@ -134,8 +134,8 @@
           "step": [
             { "@type": "HowToStep", "name": "تثبيت Reborn Assistant", "text": "أضف إضافة Reborn Assistant من Chrome Web Store وثبّتها في شريط الأدوات." },
             { "@type": "HowToStep", "name": "تحديد متتاليات الـ Ringmaster", "text": "أحصِ متتالياتك الأساسية: Heart of Power (HoP)، Beef Up، Mental Sign، Speed Pep، وشفاء AOE (Heal Rain)." },
-            { "@type": "HowToStep", "name": "إعداد دوران المتتاليات", "text": "Dans Reborn Assistant, activez la rotation F2 → 1-9 → F1 avec un intervalle de 5 minutes (durée typique de vos buffs)." },
-            { "@type": "HowToStep", "name": "Programmer le Heal automatique", "text": "Assignez Heal Rain à une touche libre, reportez-la dans la section SOIN du panneau Reborn, réglez l'intervalle sur 12-15 secondes et activez le toggle ON." },
+            { "@type": "HowToStep", "name": "إعداد دوران المتتاليات", "text": "في Reborn Assistant، فعّل تناوب F2 → 1-9 → F1 بفاصل 5 دقائق (المدة النموذجية لتعزيزاتك)." },
+            { "@type": "HowToStep", "name": "إعداد Heal التلقائي", "text": "عيّن Heal Rain لمفتاح حر، أدخله في قسم SOIN من لوحة Reborn، اضبط الفاصل على 12-15 ثانية وحرّك المفتاح إلى ON." },
             { "@type": "HowToStep", "name": "تشغيل الأتمتة", "text": "ابدأ بـ CTRL+A، راقب سجل النشاط، وعدّل التأخيرات حسب أنيميشن متتالياتك." }
           ]
         }
@@ -162,7 +162,7 @@
                 <li><a href="#sequences">تحديد متتاليات الـ Ringmaster</a></li>
                 <li><a href="#rotation">إعداد دوران التعزيزات</a></li>
                 <li><a href="#heal">برمجة الشفاء الدوري</a></li>
-                <li><a href="#macros">Macros, Familier, Suivre, Auto-clic</a></li>
+                <li><a href="#macros">الماكروهات، الفاميليار، المتابعة، النقر التلقائي</a></li>
                 <li><a href="#optimisation">التحسين والأخطاء الشائعة</a></li>
                 <li><a href="#legal">الجانب القانوني — ما يجب معرفته</a></li>
             </ol>
@@ -182,7 +182,7 @@
         <ul>
             <li><strong>Reborn Assistant Premium</strong> مثبّت (النسخة المجانية تغطي ماكرو الشفاء الأساسي فقط). راجع <a href="quickstart.html">دليل التثبيت</a>.</li>
             <li><strong>تعزيزات الـ Ringmaster مُسندة إلى المفاتيح F2 → 0</strong> بترتيب منطقي (Heart of Power أولاً، ثم تعزيزات AOE، وأخيراً تعزيزات الهدف الفردي).</li>
-            <li><strong>Heal Rain sur une touche libre</strong> de votre choix (par exemple <code>R</code>, <code>T</code>, <code>E</code>) — c'est la touche que Reborn Assistant déclenchera en boucle.</li>
+            <li><strong>Heal Rain على مفتاح حر</strong> من اختيارك (مثلاً <code>R</code>، <code>T</code>، <code>E</code>) — هذا المفتاح الذي سيضغطه Reborn Assistant في حلقة.</li>
             <li><strong>كومة من جرعات FP</strong> في الحقيبة — الأتمتة لا تخترع الموارد.</li>
             <li><strong>منطقة فارم مستقرة</strong>: تجنّب المناطق ذات الانتقال القسري أو الوحوش التي تدفعك للخلف (يُربك المواقع ويُفسد الـ AOE).</li>
         </ul>
@@ -204,7 +204,7 @@
         </ul>
 
         <h2 id="rotation">إعداد دوران التعزيزات</h2>
-        <p>C'est le cœur du système. Reborn Assistant peut appuyer sur une séquence fixe <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → F1</code> à intervalle régulier. F2 ouvre votre panneau de buffs, 1 à 9 déclenchent vos séquences, F1 revient à la barre de combat. Voici comment l'aligner avec votre RM :</p>
+        <p>هذا قلب النظام. يمكن لـ Reborn Assistant الضغط على تسلسل ثابت <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → F1</code> على فترات منتظمة. يفتح F2 لوحة التعزيزات، وتشغل المفاتيح 1-9 تسلسلاتك، ويعود F1 إلى شريط القتال. إليك كيفية محاذاته مع RM:</p>
 
         <div class="step">
             <div class="step-number">1</div>
@@ -216,7 +216,7 @@
                 <li>المفتاح 3 → Mental Sign</li>
                 <li>المفتاح 4 → Speed Pep</li>
                 <li>المفتاح 5 → Cat's Reflex</li>
-                <li>Touches 6 à 9 → vos autres buffs disponibles ou vide</li>
+                <li>المفاتيح 6 إلى 9 → تعزيزاتك الأخرى المتاحة أو فارغة</li>
             </ul>
         </div>
 
@@ -237,47 +237,47 @@
             <p>ابدأ بـ <code>CTRL+A</code>. راقب سجل النشاط: يجب أن ترى <em>F2 pressed → 1 pressed → 2 pressed…</em> بالتسلسل، بفاصل ~1 ثانية بين كل ضغطة. إذا لم تنطلق متتالية، فالسبب غالباً cooldown أو نقص FP — تحقق بصرياً داخل اللعبة.</p>
         </div>
 
-        <h2 id="heal">Programmer le Heal automatique</h2>
-        <p>Heal Rain doit tourner en parallèle de la rotation des buffs. Reborn Assistant propose une section <strong>SOIN</strong> dédiée dans le panneau, avec touche et intervalle entièrement configurables.</p>
+        <h2 id="heal">إعداد Heal التلقائي</h2>
+        <p>يجب أن يعمل Heal Rain بالتوازي مع تناوب التعزيزات. يقدم Reborn Assistant قسماً مخصصاً <strong>SOIN</strong> في اللوحة، مع مفتاح وفاصل قابلين للتكوين بالكامل.</p>
 
         <div class="step">
             <div class="step-number">1</div>
-            <div class="step-title">Assigner Heal Rain à une touche</div>
-            <p>Choisissez une touche libre dans Flyff (par exemple <code>R</code>, <code>T</code> ou n'importe quelle touche disponible) et glissez Heal Rain dessus. Reportez ensuite cette même touche dans le champ « Touche » de la section SOIN du panneau Reborn.</p>
+            <div class="step-title">تعيين Heal Rain لمفتاح</div>
+            <p>اختر مفتاحاً حراً في Flyff (مثلاً <code>R</code>، <code>T</code> أو أي مفتاح متاح) واسحب Heal Rain فوقه. ثم أدخل المفتاح نفسه في حقل «المفتاح» من قسم SOIN في لوحة Reborn.</p>
         </div>
 
         <div class="step">
             <div class="step-number">2</div>
-            <div class="step-title">Configurer l'intervalle puis activer</div>
-            <p>Réglez l'intervalle de la section SOIN sur la durée typique de votre Heal Rain (généralement 12 à 15 secondes). Basculez le toggle <strong>ON</strong>. L'extension déclenchera votre touche toutes les X secondes, en parallèle de la rotation de buffs et des autres systèmes.</p>
+            <div class="step-title">ضبط الفاصل ثم التفعيل</div>
+            <p>اضبط فاصل قسم SOIN على المدة النموذجية لـ Heal Rain (عادةً 12 إلى 15 ثانية). حرّك المفتاح إلى <strong>ON</strong>. سيشغّل الامتداد مفتاحك كل X ثانية، بالتوازي مع تناوب التعزيزات والأنظمة الأخرى.</p>
         </div>
 
         <div class="callout warning">
             <strong>⚠️ انتبه للموقع</strong>
-            Heal Rain est une AOE centrée sur vous. Si vous bougez constamment (kite ou repositionnement), Heal Rain ne couvrira pas votre groupe. Restez statique ou définissez un point de rallye fixe pour vos alliés.
+            Heal Rain هو AOE متمركز عليك. إذا تحركت باستمرار (kite أو إعادة تموضع)، فلن يغطي Heal Rain مجموعتك. ابقَ ثابتاً أو حدد نقطة تجمع ثابتة لحلفائك.
         </div>
 
-        <h2 id="macros">Macros, Familier, Suivre, Auto-clic</h2>
-        <p>En plus de la rotation de buffs et du soin, Reborn Assistant Premium offre quatre systèmes complémentaires que vous activez indépendamment selon vos besoins.</p>
+        <h2 id="macros">الماكروهات، الفاميليار، المتابعة، النقر التلقائي</h2>
+        <p>بالإضافة إلى تناوب التعزيزات والعلاج، يقدم Reborn Assistant Premium أربعة أنظمة تكميلية يمكنك تفعيلها بشكل مستقل حسب احتياجاتك.</p>
 
-        <h3>3 Macros personnalisables</h3>
-        <p>Chaque macro déclenche <strong>une seule touche</strong> à un <strong>intervalle configurable</strong> (secondes ou minutes). Une macro = une touche, pas une séquence. Pour combiner plusieurs touches dans l'ordre, utilisez la rotation de buffs principale.</p>
-        <p>Cas d'usage typiques pour un Ringmaster :</p>
+        <h3>3 ماكروهات قابلة للتخصيص</h3>
+        <p>يشغّل كل ماكرو <strong>مفتاحاً واحداً فقط</strong> بـ <strong>فاصل قابل للتكوين</strong> (ثوانٍ أو دقائق). ماكرو واحد = مفتاح واحد، وليس تسلسلاً. لدمج عدة مفاتيح بالترتيب، استخدم تناوب التعزيزات الرئيسي.</p>
+        <p>حالات استخدام نموذجية لـ Ringmaster:</p>
         <ul>
-            <li><strong>Macro 1</strong> — touche d'une potion FP toutes les 20-30 secondes pour maintenir votre pool de FP au-dessus de 80%</li>
-            <li><strong>Macro 2</strong> — touche d'un buff longue durée (15-30 min) hors rotation principale</li>
-            <li><strong>Macro 3</strong> — touche d'une potion HP d'urgence toutes les 60 secondes, en backup du SOIN principal</li>
+            <li><strong>الماكرو 1</strong> — مفتاح جرعة FP كل 20-30 ثانية للحفاظ على مخزون FP فوق 80%</li>
+            <li><strong>الماكرو 2</strong> — مفتاح تعزيز طويل الأمد (15-30 دقيقة) خارج التناوب الرئيسي</li>
+            <li><strong>الماكرو 3</strong> — مفتاح جرعة HP طارئة كل 60 ثانية، كنسخة احتياطية لـ SOIN الرئيسي</li>
         </ul>
-        <p>Si une macro était prévue pendant une séquence de buffs, elle s'exécutera automatiquement à la fin du cycle de buffs, une par une, avec le même délai que vos buffs.</p>
+        <p>إذا كان ماكرو مجدولاً أثناء تسلسل تعزيز، فسيتم تنفيذه تلقائياً في نهاية دورة التعزيز، واحداً تلو الآخر، بنفس تأخير تعزيزاتك.</p>
 
-        <h3>Familier automatique (Premium)</h3>
-        <p>L'extension sort votre familier <strong>avant</strong> chaque cycle de buffs et le range <strong>après</strong>. Pratique pour ne jamais oublier les buffs de pet pendant un farm long, sans ajouter de touche manuelle à votre rotation.</p>
+        <h3>الفاميليار التلقائي (Premium)</h3>
+        <p>يخرج الامتداد فاميليارك <strong>قبل</strong> كل دورة تعزيز ويعيده <strong>بعدها</strong>. عملي لعدم نسيان تعزيزات الحيوان الأليف خلال farm طويل، دون إضافة مفتاح يدوي إلى تناوبك.</p>
 
-        <h3>Suivre automatique (Premium)</h3>
-        <p>Appui répété sur une touche dédiée (par défaut <code>F</code>) toutes les 5 secondes. Idéal pour suivre un autre personnage en mode follow pendant que vous bufez et heal sans risque de perdre le lock. Seule la touche est configurable, l'intervalle de 5 secondes est fixe.</p>
+        <h3>المتابعة التلقائية (Premium)</h3>
+        <p>ضغط متكرر على مفتاح مخصص (افتراضياً <code>F</code>) كل 5 ثوانٍ. مثالي لمتابعة شخصية أخرى في وضع follow أثناء التعزيز والعلاج دون خطر فقدان القفل. فقط المفتاح قابل للتكوين، فاصل 5 ثوانٍ ثابت.</p>
 
-        <h3>Auto-clic souris (Premium)</h3>
-        <p>Clic à une position fixe de l'écran toutes les 2 secondes. Activez en cliquant sur l'icône <strong>🖱</strong> dans l'en-tête du panneau, puis cliquez sur l'endroit où vous voulez que les clics se déclenchent. Un point rouge clignotant indique la position active. Cliquez le ✕ à côté du point pour arrêter.</p>
+        <h3>النقر التلقائي بالماوس (Premium)</h3>
+        <p>نقر على موضع ثابت من الشاشة كل ثانيتين. للتفعيل انقر على رمز <strong>🖱</strong> في رأس اللوحة، ثم انقر على المكان حيث تريد أن تُطلَق النقرات. نقطة حمراء وامضة تشير إلى الموضع النشط. انقر على ✕ بجانب النقطة للتوقف.</p>
 
         <h2 id="optimisation">التحسين والأخطاء الشائعة</h2>
         <ul>

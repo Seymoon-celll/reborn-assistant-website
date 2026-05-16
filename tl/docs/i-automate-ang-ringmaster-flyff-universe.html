@@ -134,8 +134,8 @@
           "step": [
             { "@type": "HowToStep", "name": "I-install ang Reborn Assistant", "text": "Idagdag ang Reborn Assistant extension mula sa Chrome Web Store at i-pin sa toolbar." },
             { "@type": "HowToStep", "name": "Kilalanin ang mga sequence ng Ringmaster mo", "text": "Ilista ang mga key sequence mo: Heart of Power (HoP), Beef Up, Mental Sign, Speed Pep, at ang AOE Heal (Heal Rain)." },
-            { "@type": "HowToStep", "name": "I-configure ang sequence rotation", "text": "Dans Reborn Assistant, activez la rotation F2 → 1-9 → F1 avec un intervalle de 5 minutes (durée typique de vos buffs)." },
-            { "@type": "HowToStep", "name": "Programmer le Heal automatique", "text": "Assignez Heal Rain à une touche libre, reportez-la dans la section SOIN du panneau Reborn, réglez l'intervalle sur 12-15 secondes et activez le toggle ON." },
+            { "@type": "HowToStep", "name": "I-configure ang sequence rotation", "text": "Sa Reborn Assistant, i-activate ang F2 → 1-9 → F1 rotation na may interval na 5 minuto (typical duration ng buffs mo)." },
+            { "@type": "HowToStep", "name": "I-program ang Automatic Heal", "text": "I-assign ang Heal Rain sa isang libreng key, ilagay ito sa SOIN section ng Reborn panel, i-set ang interval sa 12-15 segundo at ibaling ang toggle sa ON." },
             { "@type": "HowToStep", "name": "I-launch ang automation", "text": "Magsimula gamit ang CTRL+A, bantayan ang activity log, i-adjust ang delays depende sa animation ng sequences mo." }
           ]
         }
@@ -162,7 +162,7 @@
                 <li><a href="#sequences">Kilalanin ang mga sequence ng Ringmaster mo</a></li>
                 <li><a href="#rotation">I-set up ang buff rotation</a></li>
                 <li><a href="#heal">I-program ang periodic Heal</a></li>
-                <li><a href="#macros">Macros, Familier, Suivre, Auto-clic</a></li>
+                <li><a href="#macros">Mga Macro, Familiar, Sundan, Auto-click</a></li>
                 <li><a href="#optimisation">Optimization at mga karaniwang pagkakamali</a></li>
                 <li><a href="#legal">Legal aspect — ang dapat mong malaman</a></li>
             </ol>
@@ -182,7 +182,7 @@
         <ul>
             <li><strong>Reborn Assistant Premium</strong> naka-install (ang free version ay basic heal macro lang ang sakop). Tingnan ang <a href="quickstart.html">installation guide</a>.</li>
             <li><strong>Ang Ringmaster buffs mo ay naka-assign sa mga key F2 → 0</strong> sa logical order (Heart of Power muna, AOE buffs sumunod, single-target sa huli).</li>
-            <li><strong>Heal Rain sur une touche libre</strong> de votre choix (par exemple <code>R</code>, <code>T</code>, <code>E</code>) — c'est la touche que Reborn Assistant déclenchera en boucle.</li>
+            <li><strong>Heal Rain sa isang libreng key</strong> ng iyong pinili (halimbawa <code>R</code>, <code>T</code>, <code>E</code>) — ito ang key na pipindutin ng Reborn Assistant sa loop.</li>
             <li><strong>Isang stack ng FP potions</strong> sa inventory — hindi nag-iimbento ng resources ang automation.</li>
             <li><strong>Isang stable na farming zone</strong>: iwasan ang mga lugar na may forced teleports o mga mob na nagpapatumba (gumugulo ang posisyon at nasisira ang AOE).</li>
         </ul>
@@ -204,7 +204,7 @@
         </ul>
 
         <h2 id="rotation">I-set up ang buff rotation</h2>
-        <p>C'est le cœur du système. Reborn Assistant peut appuyer sur une séquence fixe <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → F1</code> à intervalle régulier. F2 ouvre votre panneau de buffs, 1 à 9 déclenchent vos séquences, F1 revient à la barre de combat. Voici comment l'aligner avec votre RM :</p>
+        <p>Ito ang puso ng sistema. Maaaring pindutin ng Reborn Assistant ang fixed sequence <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → F1</code> sa regular na pagitan. Binubuksan ng F2 ang buff panel mo, ang 1-9 ay nag-trigger ng sequences, at ang F1 ay bumabalik sa combat bar. Paano i-align sa RM mo:</p>
 
         <div class="step">
             <div class="step-number">1</div>
@@ -216,7 +216,7 @@
                 <li>Key 3 → Mental Sign</li>
                 <li>Key 4 → Speed Pep</li>
                 <li>Key 5 → Cat's Reflex</li>
-                <li>Touches 6 à 9 → vos autres buffs disponibles ou vide</li>
+                <li>Keys 6 hanggang 9 → iba pa ng available buffs mo o blank</li>
             </ul>
         </div>
 
@@ -237,47 +237,47 @@
             <p>I-start gamit ang <code>CTRL+A</code>. Bantayan ang activity log: dapat makita mo ang <em>F2 pressed → 1 pressed → 2 pressed…</em> nang sunud-sunod, may ~1 segundo sa pagitan. Kung hindi nag-cast ang isang sequence, malamang cooldown o kulang ang FP — tingnan sa loob ng laro.</p>
         </div>
 
-        <h2 id="heal">Programmer le Heal automatique</h2>
-        <p>Heal Rain doit tourner en parallèle de la rotation des buffs. Reborn Assistant propose une section <strong>SOIN</strong> dédiée dans le panneau, avec touche et intervalle entièrement configurables.</p>
+        <h2 id="heal">I-program ang Automatic Heal</h2>
+        <p>Dapat tumakbo ang Heal Rain kasabay ng buff rotation. May dedicated <strong>SOIN</strong> section ang Reborn Assistant sa panel, na may key at interval na fully configurable.</p>
 
         <div class="step">
             <div class="step-number">1</div>
-            <div class="step-title">Assigner Heal Rain à une touche</div>
-            <p>Choisissez une touche libre dans Flyff (par exemple <code>R</code>, <code>T</code> ou n'importe quelle touche disponible) et glissez Heal Rain dessus. Reportez ensuite cette même touche dans le champ « Touche » de la section SOIN du panneau Reborn.</p>
+            <div class="step-title">I-assign ang Heal Rain sa isang key</div>
+            <p>Pumili ng libreng key sa Flyff (halimbawa <code>R</code>, <code>T</code> o anumang available key) at i-drag ang Heal Rain dito. Pagkatapos ilagay ang parehong key sa field « Key » ng SOIN section ng Reborn panel.</p>
         </div>
 
         <div class="step">
             <div class="step-number">2</div>
-            <div class="step-title">Configurer l'intervalle puis activer</div>
-            <p>Réglez l'intervalle de la section SOIN sur la durée typique de votre Heal Rain (généralement 12 à 15 secondes). Basculez le toggle <strong>ON</strong>. L'extension déclenchera votre touche toutes les X secondes, en parallèle de la rotation de buffs et des autres systèmes.</p>
+            <div class="step-title">I-configure ang interval at i-activate</div>
+            <p>I-set ang interval ng SOIN section sa typical duration ng Heal Rain mo (kadalasan 12-15 segundo). Ibaling ang toggle sa <strong>ON</strong>. Ang extension ay magti-trigger ng key mo bawat X segundo, kasabay ng buff rotation at iba pang systems.</p>
         </div>
 
         <div class="callout warning">
             <strong>⚠️ Mag-ingat sa positioning</strong>
-            Heal Rain est une AOE centrée sur vous. Si vous bougez constamment (kite ou repositionnement), Heal Rain ne couvrira pas votre groupe. Restez statique ou définissez un point de rallye fixe pour vos alliés.
+            Ang Heal Rain ay AOE na nakatuon sa iyo. Kung patuloy kang gumagalaw (kite o reposition), hindi macocover ng Heal Rain ang grupo mo. Manatiling static o magtakda ng fixed rally point para sa mga kaalyado mo.
         </div>
 
-        <h2 id="macros">Macros, Familier, Suivre, Auto-clic</h2>
-        <p>En plus de la rotation de buffs et du soin, Reborn Assistant Premium offre quatre systèmes complémentaires que vous activez indépendamment selon vos besoins.</p>
+        <h2 id="macros">Mga Macro, Familiar, Sundan, Auto-click</h2>
+        <p>Bukod sa buff rotation at heal, ang Reborn Assistant Premium ay nag-aalok ng apat na komplementaryong system na ina-activate mo nang independyente ayon sa pangangailangan mo.</p>
 
-        <h3>3 Macros personnalisables</h3>
-        <p>Chaque macro déclenche <strong>une seule touche</strong> à un <strong>intervalle configurable</strong> (secondes ou minutes). Une macro = une touche, pas une séquence. Pour combiner plusieurs touches dans l'ordre, utilisez la rotation de buffs principale.</p>
-        <p>Cas d'usage typiques pour un Ringmaster :</p>
+        <h3>3 customizable na macro</h3>
+        <p>Ang bawat macro ay nagti-trigger ng <strong>iisang key</strong> sa <strong>configurable interval</strong> (segundo o minuto). Isang macro = isang key, hindi sequence. Para pagsamahin ang ilang keys sa pagkakasunod-sunod, gamitin ang pangunahing buff rotation.</p>
+        <p>Mga typical use case para sa Ringmaster:</p>
         <ul>
-            <li><strong>Macro 1</strong> — touche d'une potion FP toutes les 20-30 secondes pour maintenir votre pool de FP au-dessus de 80%</li>
-            <li><strong>Macro 2</strong> — touche d'un buff longue durée (15-30 min) hors rotation principale</li>
-            <li><strong>Macro 3</strong> — touche d'une potion HP d'urgence toutes les 60 secondes, en backup du SOIN principal</li>
+            <li><strong>Macro 1</strong> — key ng FP potion bawat 20-30 segundo para panatilihin ang FP pool mo sa 80% pataas</li>
+            <li><strong>Macro 2</strong> — key ng long-duration buff (15-30 min) labas sa main rotation</li>
+            <li><strong>Macro 3</strong> — key ng emergency HP potion bawat 60 segundo, bilang backup ng main SOIN</li>
         </ul>
-        <p>Si une macro était prévue pendant une séquence de buffs, elle s'exécutera automatiquement à la fin du cycle de buffs, une par une, avec le même délai que vos buffs.</p>
+        <p>Kung naka-schedule ang isang macro sa loob ng buff sequence, awtomatiko itong ie-execute sa dulo ng buff cycle, isa-isa, na may parehong delay ng buffs mo.</p>
 
-        <h3>Familier automatique (Premium)</h3>
-        <p>L'extension sort votre familier <strong>avant</strong> chaque cycle de buffs et le range <strong>après</strong>. Pratique pour ne jamais oublier les buffs de pet pendant un farm long, sans ajouter de touche manuelle à votre rotation.</p>
+        <h3>Automatic Familiar (Premium)</h3>
+        <p>Inilalabas ng extension ang familiar mo <strong>bago</strong> ang bawat buff cycle at iniimbak <strong>pagkatapos</strong>. Praktikal para hindi makalimutan ang pet buffs sa mahabang farm, na hindi nagdadagdag ng manual key sa rotation.</p>
 
-        <h3>Suivre automatique (Premium)</h3>
-        <p>Appui répété sur une touche dédiée (par défaut <code>F</code>) toutes les 5 secondes. Idéal pour suivre un autre personnage en mode follow pendant que vous bufez et heal sans risque de perdre le lock. Seule la touche est configurable, l'intervalle de 5 secondes est fixe.</p>
+        <h3>Automatic Sundan (Premium)</h3>
+        <p>Paulit-ulit na pagpindot sa dedicated key (default <code>F</code>) bawat 5 segundo. Ideal para sundan ang ibang character sa follow mode habang nagbu-buff at heal nang walang panganib na mawala ang lock. Tanging key lang ang configurable, ang 5-second interval ay fixed.</p>
 
-        <h3>Auto-clic souris (Premium)</h3>
-        <p>Clic à une position fixe de l'écran toutes les 2 secondes. Activez en cliquant sur l'icône <strong>🖱</strong> dans l'en-tête du panneau, puis cliquez sur l'endroit où vous voulez que les clics se déclenchent. Un point rouge clignotant indique la position active. Cliquez le ✕ à côté du point pour arrêter.</p>
+        <h3>Auto-click ng mouse (Premium)</h3>
+        <p>Click sa fixed na posisyon sa screen bawat 2 segundo. I-activate sa pag-click ng <strong>🖱</strong> icon sa panel header, tapos i-click ang lugar kung saan dapat mag-trigger ang clicks. Ang kumukutab na red dot ay nagpapakita ng active position. I-click ang ✕ sa tabi ng dot para huminto.</p>
 
         <h2 id="optimisation">Optimization at mga karaniwang pagkakamali</h2>
         <ul>

@@ -134,8 +134,8 @@
           "step": [
             { "@type": "HowToStep", "name": "Reborn Assistant をインストール", "text": "Chrome Web Store から Reborn Assistant 拡張機能を追加し、ツールバーにピン留めします。" },
             { "@type": "HowToStep", "name": "Ringmaster のシーケンスを特定する", "text": "主要シーケンスを書き出します: Heart of Power (HoP)、Beef Up、Mental Sign、Speed Pep、そして AOE ヒール(Heal Rain)。" },
-            { "@type": "HowToStep", "name": "シーケンスローテーションを設定する", "text": "Dans Reborn Assistant, activez la rotation F2 → 1-9 → F1 avec un intervalle de 5 minutes (durée typique de vos buffs)." },
-            { "@type": "HowToStep", "name": "Programmer le Heal automatique", "text": "Assignez Heal Rain à une touche libre, reportez-la dans la section SOIN du panneau Reborn, réglez l'intervalle sur 12-15 secondes et activez le toggle ON." },
+            { "@type": "HowToStep", "name": "シーケンスローテーションを設定する", "text": "Reborn Assistant で F2 → 1-9 → F1 ローテーションを 5 分間隔（バフの典型的な持続時間）で有効化します。" },
+            { "@type": "HowToStep", "name": "自動 Heal の設定", "text": "Heal Rain を空きキーに割り当て、Reborn パネルの SOIN セクションに入力し、間隔を 12-15 秒に設定してトグルを ON にします。" },
             { "@type": "HowToStep", "name": "自動化を起動する", "text": "CTRL+A で開始し、アクティビティログを監視して、シーケンスのアニメーションに合わせてディレイを調整します。" }
           ]
         }
@@ -162,7 +162,7 @@
                 <li><a href="#sequences">Ringmaster のシーケンスを特定する</a></li>
                 <li><a href="#rotation">バフのローテーションを設定する</a></li>
                 <li><a href="#heal">定期ヒールを設定する</a></li>
-                <li><a href="#macros">Macros, Familier, Suivre, Auto-clic</a></li>
+                <li><a href="#macros">マクロ、ペット、追従、オートクリック</a></li>
                 <li><a href="#optimisation">最適化とよくある失敗</a></li>
                 <li><a href="#legal">法的側面 — 知っておくべきこと</a></li>
             </ol>
@@ -182,7 +182,7 @@
         <ul>
             <li><strong>Reborn Assistant Premium</strong> をインストール済み(無料版は基本のヒールマクロしかカバーしません)。<a href="quickstart.html">インストールガイド</a>を参照してください。</li>
             <li><strong>Ringmaster のバフを F2 → 0 のキーに割り当て</strong>、論理的な順序にしておきます(Heart of Power が先、AOE バフが次、シングルターゲットが最後)。</li>
-            <li><strong>Heal Rain sur une touche libre</strong> de votre choix (par exemple <code>R</code>, <code>T</code>, <code>E</code>) — c'est la touche que Reborn Assistant déclenchera en boucle.</li>
+            <li><strong>Heal Rain を任意の空きキー</strong>に設定（例: <code>R</code>、<code>T</code>、<code>E</code>）— Reborn Assistant がループで押すキーです。</li>
             <li><strong>FP ポーションの束</strong>をインベントリに用意。自動化はリソースを生み出してはくれません。</li>
             <li><strong>安定したファームゾーン</strong>: 強制テレポートやノックバックする mob のいるゾーンは避けます(位置がずれて AOE が崩れます)。</li>
         </ul>
@@ -204,7 +204,7 @@
         </ul>
 
         <h2 id="rotation">バフのローテーションを設定する</h2>
-        <p>C'est le cœur du système. Reborn Assistant peut appuyer sur une séquence fixe <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → F1</code> à intervalle régulier. F2 ouvre votre panneau de buffs, 1 à 9 déclenchent vos séquences, F1 revient à la barre de combat. Voici comment l'aligner avec votre RM :</p>
+        <p>これがシステムの心臓部です。Reborn Assistant は一定間隔で固定シーケンス <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → F1</code> を押せます。F2 でバフパネルを開き、1-9 でシーケンスを発動、F1 で戦闘バーに戻ります。RM に合わせる方法:</p>
 
         <div class="step">
             <div class="step-number">1</div>
@@ -216,7 +216,7 @@
                 <li>キー 3 → Mental Sign</li>
                 <li>キー 4 → Speed Pep</li>
                 <li>キー 5 → Cat's Reflex</li>
-                <li>Touches 6 à 9 → vos autres buffs disponibles ou vide</li>
+                <li>キー 6 から 9 → 他の利用可能なバフまたは空</li>
             </ul>
         </div>
 
@@ -237,47 +237,47 @@
             <p><code>CTRL+A</code> で開始します。アクティビティログを確認してください。<em>F2 pressed → 1 pressed → 2 pressed…</em> が順番に、それぞれ約1秒間隔で表示されるはずです。シーケンスが発動しない場合は、おそらくクールダウンか FP 不足です。ゲーム内で目視確認してください。</p>
         </div>
 
-        <h2 id="heal">Programmer le Heal automatique</h2>
-        <p>Heal Rain doit tourner en parallèle de la rotation des buffs. Reborn Assistant propose une section <strong>SOIN</strong> dédiée dans le panneau, avec touche et intervalle entièrement configurables.</p>
+        <h2 id="heal">自動 Heal の設定</h2>
+        <p>Heal Rain はバフローテーションと並行して動かす必要があります。Reborn Assistant はパネルに専用の <strong>SOIN</strong> セクションを用意しており、キーと間隔は完全に設定可能です。</p>
 
         <div class="step">
             <div class="step-number">1</div>
-            <div class="step-title">Assigner Heal Rain à une touche</div>
-            <p>Choisissez une touche libre dans Flyff (par exemple <code>R</code>, <code>T</code> ou n'importe quelle touche disponible) et glissez Heal Rain dessus. Reportez ensuite cette même touche dans le champ « Touche » de la section SOIN du panneau Reborn.</p>
+            <div class="step-title">Heal Rain をキーに割り当てる</div>
+            <p>Flyff で空きキー（例: <code>R</code>、<code>T</code> や任意の利用可能キー）を選び、Heal Rain をドラッグします。次に、同じキーを Reborn パネルの SOIN セクションの「キー」欄に入力します。</p>
         </div>
 
         <div class="step">
             <div class="step-number">2</div>
-            <div class="step-title">Configurer l'intervalle puis activer</div>
-            <p>Réglez l'intervalle de la section SOIN sur la durée typique de votre Heal Rain (généralement 12 à 15 secondes). Basculez le toggle <strong>ON</strong>. L'extension déclenchera votre touche toutes les X secondes, en parallèle de la rotation de buffs et des autres systèmes.</p>
+            <div class="step-title">間隔を設定してアクティブ化</div>
+            <p>SOIN セクションの間隔を Heal Rain の典型的な持続時間（通常 12-15 秒）に設定します。トグルを <strong>ON</strong> に切り替えます。拡張機能は X 秒ごとにキーを押し、バフローテーションや他のシステムと並行して動作します。</p>
         </div>
 
         <div class="callout warning">
             <strong>⚠️ 位置取りに注意</strong>
-            Heal Rain est une AOE centrée sur vous. Si vous bougez constamment (kite ou repositionnement), Heal Rain ne couvrira pas votre groupe. Restez statique ou définissez un point de rallye fixe pour vos alliés.
+            Heal Rain は自分中心の AOE です。常に動き回ると（カイトや位置取り）、Heal Rain はパーティをカバーできません。静止するか、味方のために固定集合点を決めてください。
         </div>
 
-        <h2 id="macros">Macros, Familier, Suivre, Auto-clic</h2>
-        <p>En plus de la rotation de buffs et du soin, Reborn Assistant Premium offre quatre systèmes complémentaires que vous activez indépendamment selon vos besoins.</p>
+        <h2 id="macros">マクロ、ペット、追従、オートクリック</h2>
+        <p>バフローテーションとヒールに加えて、Reborn Assistant Premium はニーズに応じて独立して有効化できる 4 つの補助システムを提供します。</p>
 
-        <h3>3 Macros personnalisables</h3>
-        <p>Chaque macro déclenche <strong>une seule touche</strong> à un <strong>intervalle configurable</strong> (secondes ou minutes). Une macro = une touche, pas une séquence. Pour combiner plusieurs touches dans l'ordre, utilisez la rotation de buffs principale.</p>
-        <p>Cas d'usage typiques pour un Ringmaster :</p>
+        <h3>カスタマイズ可能な 3 つのマクロ</h3>
+        <p>各マクロは<strong>1 つのキー</strong>のみを<strong>設定可能な間隔</strong>（秒または分）で押します。1 マクロ = 1 キー、シーケンスではありません。複数のキーを順番に組み合わせるには、メインのバフローテーションを使用してください。</p>
+        <p>Ringmaster の典型的なユースケース:</p>
         <ul>
-            <li><strong>Macro 1</strong> — touche d'une potion FP toutes les 20-30 secondes pour maintenir votre pool de FP au-dessus de 80%</li>
-            <li><strong>Macro 2</strong> — touche d'un buff longue durée (15-30 min) hors rotation principale</li>
-            <li><strong>Macro 3</strong> — touche d'une potion HP d'urgence toutes les 60 secondes, en backup du SOIN principal</li>
+            <li><strong>マクロ 1</strong> — FP プールを 80% 以上に保つため、20-30 秒ごとに FP ポーションのキー</li>
+            <li><strong>マクロ 2</strong> — メインローテーション外の長時間バフ（15-30 分）のキー</li>
+            <li><strong>マクロ 3</strong> — メイン SOIN のバックアップとして、60 秒ごとに緊急 HP ポーションのキー</li>
         </ul>
-        <p>Si une macro était prévue pendant une séquence de buffs, elle s'exécutera automatiquement à la fin du cycle de buffs, une par une, avec le même délai que vos buffs.</p>
+        <p>バフシーケンス中にマクロが予定されていた場合、バフサイクル終了後に自動的に 1 つずつ、バフと同じ遅延で実行されます。</p>
 
-        <h3>Familier automatique (Premium)</h3>
-        <p>L'extension sort votre familier <strong>avant</strong> chaque cycle de buffs et le range <strong>après</strong>. Pratique pour ne jamais oublier les buffs de pet pendant un farm long, sans ajouter de touche manuelle à votre rotation.</p>
+        <h3>自動ペット（Premium）</h3>
+        <p>拡張機能は各バフサイクルの<strong>前</strong>にペットを出し、<strong>後</strong>に戻します。長時間ファームでペットバフを忘れないために便利で、ローテーションに手動キーを追加する必要がありません。</p>
 
-        <h3>Suivre automatique (Premium)</h3>
-        <p>Appui répété sur une touche dédiée (par défaut <code>F</code>) toutes les 5 secondes. Idéal pour suivre un autre personnage en mode follow pendant que vous bufez et heal sans risque de perdre le lock. Seule la touche est configurable, l'intervalle de 5 secondes est fixe.</p>
+        <h3>自動追従（Premium）</h3>
+        <p>専用キー（デフォルト <code>F</code>）を 5 秒ごとに繰り返し押します。ロックを失うリスクなくバフとヒールをしながら follow モードで別キャラを追従するのに最適。キーのみ設定可能で、5 秒間隔は固定です。</p>
 
-        <h3>Auto-clic souris (Premium)</h3>
-        <p>Clic à une position fixe de l'écran toutes les 2 secondes. Activez en cliquant sur l'icône <strong>🖱</strong> dans l'en-tête du panneau, puis cliquez sur l'endroit où vous voulez que les clics se déclenchent. Un point rouge clignotant indique la position active. Cliquez le ✕ à côté du point pour arrêter.</p>
+        <h3>マウスオートクリック（Premium）</h3>
+        <p>画面の固定位置を 2 秒ごとにクリック。パネルヘッダーの <strong>🖱</strong> アイコンをクリックして有効化し、クリックを発動させたい場所をクリックします。点滅する赤い点がアクティブ位置を示します。停止するには点の横の ✕ をクリックしてください。</p>
 
         <h2 id="optimisation">最適化とよくある失敗</h2>
         <ul>
