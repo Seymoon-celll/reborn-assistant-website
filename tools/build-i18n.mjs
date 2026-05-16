@@ -17,7 +17,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 import { SEO, seoFor, LANGS, PAGES } from './seo-i18n.mjs';
-import { LONGTAIL_PAGES, LONGTAIL_LANGS, RTL_LONGTAIL_LANGS } from './longtail-i18n.mjs';
+import { LONGTAIL_PAGES, LONGTAIL_LANGS, RTL_LONGTAIL_LANGS, BILINGUAL_LONGTAIL_PAGES } from './longtail-i18n.mjs';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const SITE = 'https://reborn-assistance.fr';
@@ -263,6 +263,25 @@ function buildSitemap() {
       );
     }
   }
+  // Bilingual long-tail pages (FR + EN only)
+  for (const page of BILINGUAL_LONGTAIL_PAGES) {
+    const altLines =
+      `    <xhtml:link rel="alternate" hreflang="fr" href="${SITE}/${page.fr.slug}"/>\n` +
+      `    <xhtml:link rel="alternate" hreflang="en" href="${SITE}/${page.en.slug}"/>\n` +
+      `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/${page.fr.slug}"/>`;
+    for (const v of [page.fr, page.en]) {
+      urls.push(
+        `  <url>\n` +
+        `    <loc>${SITE}/${v.slug}</loc>\n` +
+        `    <lastmod>${today}</lastmod>\n` +
+        `    <changefreq>monthly</changefreq>\n` +
+        `    <priority>0.75</priority>\n` +
+        altLines + '\n' +
+        `  </url>`
+      );
+    }
+  }
+
   // Long-tail SEO pages — 15 languages, cross-language alternates
   for (const page of LONGTAIL_PAGES) {
     const altLines = LONGTAIL_LANGS

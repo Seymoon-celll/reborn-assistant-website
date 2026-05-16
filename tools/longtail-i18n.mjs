@@ -135,3 +135,15 @@ export const LONGTAIL_PAGES = [
   { id: 'tools-2026',  source: 'docs/meilleurs-outils-flyff-universe-2026.html',   slugs: TOOLS_SLUGS,    seo: TOOLS_SEO,    content: toolsContent },
   { id: 'guide-rm',    source: 'docs/guide-ringmaster-flyff-universe.html',        slugs: GUIDE_SLUGS,    seo: GUIDE_SEO,    content: guideRmContent },
 ];
+
+/**
+ * Standalone bilingual long-tail pages (FR + EN only, no 13-language generation).
+ * Listed separately so the sitemap can include them with proper hreflang.
+ */
+export const BILINGUAL_LONGTAIL_PAGES = [
+  {
+    id: 'keyboard-shortcuts',
+    fr: { slug: 'docs/raccourcis-clavier-flyff-universe.html', title: 'Raccourcis Clavier Flyff Universe — Liste Complète 2026' },
+    en: { slug: 'en/docs/flyff-universe-keyboard-shortcuts.html', title: 'Flyff Universe Keyboard Shortcuts — Complete 2026 List' },
+  },
+];

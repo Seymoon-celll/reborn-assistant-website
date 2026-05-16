@@ -2642,6 +2642,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/privacy.html"/>
   </url>
   <url>
+    <loc>https://reborn-assistance.fr/docs/raccourcis-clavier-flyff-universe.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://reborn-assistance.fr/docs/raccourcis-clavier-flyff-universe.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://reborn-assistance.fr/en/docs/flyff-universe-keyboard-shortcuts.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/raccourcis-clavier-flyff-universe.html"/>
+  </url>
+  <url>
+    <loc>https://reborn-assistance.fr/en/docs/flyff-universe-keyboard-shortcuts.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://reborn-assistance.fr/docs/raccourcis-clavier-flyff-universe.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://reborn-assistance.fr/en/docs/flyff-universe-keyboard-shortcuts.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/raccourcis-clavier-flyff-universe.html"/>
+  </url>
+  <url>
     <loc>https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html</loc>
     <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
