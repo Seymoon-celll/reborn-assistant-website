@@ -16,7 +16,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-import { SEO, seoFor, LANGS, PAGES, BONUS_PAGES } from './seo-i18n.mjs';
+import { SEO, seoFor, LANGS, PAGES } from './seo-i18n.mjs';
+import { LONGTAIL_PAGES, LONGTAIL_LANGS, RTL_LONGTAIL_LANGS } from './longtail-i18n.mjs';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const SITE = 'https://reborn-assistance.fr';
@@ -206,15 +207,17 @@ function escapeHtmlAttr(s) {
 }
 
 /**
- * For language-specific bonus-page URLs, swap FR slugs → EN slugs when rendering EN.
- * Other non-FR languages keep FR slugs (user lands on the FR version — acceptable
- * fallback since these pages only exist in FR + EN).
+ * For language-specific long-tail-page URLs, swap FR slugs → target language slug.
+ * For each long-tail page, the FR slug (absolute path starting with /docs/...) is
+ * remapped to the per-language slug if defined. Languages without a slug keep FR.
  */
 function rewriteBonusLinks(html, lang) {
-  if (lang !== 'en') return html;
-  for (const bp of BONUS_PAGES) {
-    // bp.fr is "/docs/x.html", bp.en is "/en/docs/y.html"
-    html = html.replaceAll(`href="${bp.fr}"`, `href="${bp.en}"`);
+  if (lang === 'fr') return html;
+  for (const page of LONGTAIL_PAGES) {
+    const frSlug = '/' + page.slugs.fr;
+    const targetSlug = page.slugs[lang];
+    if (!targetSlug || targetSlug === page.slugs.fr) continue;
+    html = html.replaceAll(`href="${frSlug}"`, `href="/${targetSlug}"`);
   }
   return html;
 }
@@ -260,19 +263,19 @@ function buildSitemap() {
       );
     }
   }
-  // Bonus pages — FR + EN only, with cross-language alternates
-  for (const bp of BONUS_PAGES) {
-    const altLines =
-      `    <xhtml:link rel="alternate" hreflang="fr" href="${SITE}${bp.fr}"/>\n` +
-      `    <xhtml:link rel="alternate" hreflang="en" href="${SITE}${bp.en}"/>\n` +
-      `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}${bp.fr}"/>`;
-    for (const url of [bp.fr, bp.en]) {
+  // Long-tail SEO pages — 15 languages, cross-language alternates
+  for (const page of LONGTAIL_PAGES) {
+    const altLines = LONGTAIL_LANGS
+      .map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${SITE}/${page.slugs[l]}"/>`)
+      .concat([`    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/${page.slugs.fr}"/>`])
+      .join('\n');
+    for (const l of LONGTAIL_LANGS) {
       urls.push(
         `  <url>\n` +
-        `    <loc>${SITE}${url}</loc>\n` +
+        `    <loc>${SITE}/${page.slugs[l]}</loc>\n` +
         `    <lastmod>${today}</lastmod>\n` +
-        `    <changefreq>${bp.changefreq}</changefreq>\n` +
-        `    <priority>${bp.priority}</priority>\n` +
+        `    <changefreq>monthly</changefreq>\n` +
+        `    <priority>0.8</priority>\n` +
         altLines + '\n' +
         `  </url>`
       );
@@ -308,6 +311,80 @@ function writeOutput(outRel, content) {
   const outPath = path.join(ROOT, outRel);
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, content);
+}
+
+/**
+ * Render one long-tail SEO page from its FR source into a target language.
+ *
+ * 1. Apply the content translation map (replaceAll on FR strings).
+ * 2. Replace <html lang="fr"> + add dir="rtl" for AR.
+ * 3. Rewrite title / meta description / OG / Twitter / canonical / og:locale
+ *    using the per-language SEO meta.
+ * 4. Rewrite hreflang block with the 15 per-language slugs + x-default → FR.
+ * 5. Convert relative asset paths (../favicon.svg, etc.) to absolute.
+ * 6. Rewrite the related-card links so they point to the same language.
+ */
+function renderLongtailPage(frHtml, page, lang) {
+  let html = frHtml;
+  const seo = page.seo[lang] || page.seo.en || page.seo.fr;
+  const targetSlug = page.slugs[lang];
+  const pageUrl = `${SITE}/${targetSlug}`;
+
+  // 1. Apply content translation map (replaceAll on FR phrases)
+  const contentMap = page.content[lang] || {};
+  for (const [fr, tr] of Object.entries(contentMap)) {
+    html = html.replaceAll(fr, tr);
+  }
+
+  // 2. <html lang> + dir
+  const dirAttr = RTL_LONGTAIL_LANGS.has(lang) ? ' dir="rtl"' : '';
+  html = html.replace(/<html[^>]*>/, `<html lang="${lang}"${dirAttr}>`);
+
+  // 3. SEO meta — title, description, OG, Twitter, canonical
+  html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(seo.title)}</title>`);
+  html = html.replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/?>/i,
+    `<meta name="description" content="${escapeHtmlAttr(seo.description)}">`);
+  html = html.replace(/<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/i,
+    `<meta property="og:title" content="${escapeHtmlAttr(seo.title)}">`);
+  html = html.replace(/<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/i,
+    `<meta property="og:description" content="${escapeHtmlAttr(seo.description)}">`);
+  html = html.replace(/<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/i,
+    `<meta property="og:url" content="${pageUrl}">`);
+  html = html.replace(/<meta\s+property="og:locale"\s+content="[^"]*"\s*\/?>/i,
+    `<meta property="og:locale" content="${seo.ogLocale}">`);
+  html = html.replace(/<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/i,
+    `<meta name="twitter:title" content="${escapeHtmlAttr(seo.title)}">`);
+  html = html.replace(/<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/i,
+    `<meta name="twitter:description" content="${escapeHtmlAttr(seo.description)}">`);
+  html = html.replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/i,
+    `<link rel="canonical" href="${pageUrl}">`);
+
+  // 4. Replace the 3-line FR hreflang block with the 15-language version
+  const hreflangLines = LONGTAIL_LANGS
+    .map(l => `    <link rel="alternate" hreflang="${l}" href="${SITE}/${page.slugs[l]}">`)
+    .concat([`    <link rel="alternate" hreflang="x-default" href="${SITE}/${page.slugs.fr}">`])
+    .join('\n');
+  html = html.replace(
+    /<!-- ── hreflang ─[\s\S]*?<!-- ── \/hreflang.*?-->|<link rel="alternate" hreflang="fr"[\s\S]*?hreflang="x-default"[^>]*>/,
+    `<!-- ── hreflang ──────────────────────────────────── -->\n${hreflangLines}\n    <!-- ── /hreflang ── -->`
+  );
+
+  // 5. Convert relative asset paths to absolute (page lives at /<lang>/docs/<slug>.html)
+  html = html.replaceAll('href="../favicon.svg"', 'href="/favicon.svg"');
+  html = html.replaceAll('href="index.html"', `href="/${lang}/docs/index.html"`);
+
+  // 6. Cross-link related cards — point to the SAME language's slugs
+  for (const other of LONGTAIL_PAGES) {
+    if (other.id === page.id) continue;
+    const frRel = path.basename(other.slugs.fr);                // e.g. "meilleurs-outils-flyff-universe-2026.html"
+    const targetAbs = '/' + other.slugs[lang];                  // language-specific slug
+    html = html.replaceAll(`href="${frRel}"`, `href="${targetAbs}"`);
+  }
+
+  // 7. Prerendered-lang marker
+  html = html.replace(/<\/head>/, `    <script>window.__PRERENDERED_LANG__=${JSON.stringify(lang)};</script>\n</head>`);
+
+  return html;
 }
 
 async function build() {
@@ -346,7 +423,20 @@ async function build() {
   }
   console.log('[build-i18n] wrote', count, 'localized pages');
 
-  // 4. Sitemap + robots
+  // 4. Long-tail pages — generate each non-FR / non-EN language from FR source
+  let longtailCount = 0;
+  for (const page of LONGTAIL_PAGES) {
+    const frHtml = readSource(page.source);
+    for (const lang of LONGTAIL_LANGS) {
+      if (lang === 'fr' || lang === 'en') continue; // hand-written sources
+      const out = renderLongtailPage(frHtml, page, lang);
+      writeOutput(page.slugs[lang], out);
+      longtailCount++;
+    }
+  }
+  console.log('[build-i18n] wrote', longtailCount, 'long-tail pages across 13 non-FR/EN languages');
+
+  // 5. Sitemap + robots
   writeOutput('sitemap.xml', buildSitemap());
   writeOutput('robots.txt', buildRobots());
   console.log('[build-i18n] wrote sitemap.xml + robots.txt');
