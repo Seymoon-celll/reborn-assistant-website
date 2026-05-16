@@ -1,0 +1,205 @@
+<!-- © 2026 Reborn Assistant — All rights reserved. Unauthorized copying, modification or distribution is strictly prohibited. https://reborn-assistant.com -->
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ── SEO Primary ─────────────────────────────────────────── -->
+    <title>Reborn Assistant installeren — Snelstart Flyff Universe</title>
+    <meta name="description" content="Installeer en configureer Reborn Assistant in enkele minuten: Chrome Web Store, macro-instellingen, sneltoetsen voor Flyff Universe.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#080808">
+    <link rel="canonical" href="https://reborn-assistance.fr/nl/docs/quickstart.html">
+
+    <!-- ── Open Graph ─────────────────────────────────────────── -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Reborn Assistant">
+    <meta property="og:title" content="Reborn Assistant installeren — Snelstart Flyff Universe">
+    <meta property="og:description" content="Installeer en configureer Reborn Assistant in enkele minuten: Chrome Web Store, macro-instellingen, sneltoetsen voor Flyff Universe.">
+    <meta property="og:url" content="https://reborn-assistance.fr/nl/docs/quickstart.html">
+    <meta property="og:image" content="https://reborn-assistance.fr/og-image.png">
+    <meta property="og:locale" content="nl_NL">
+
+    <!-- ── Twitter Card ───────────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Reborn Assistant installeren — Snelstart Flyff Universe">
+    <meta name="twitter:description" content="Installeer en configureer Reborn Assistant in enkele minuten: Chrome Web Store, macro-instellingen, sneltoetsen voor Flyff Universe.">
+    <meta name="twitter:image" content="https://reborn-assistance.fr/og-image.png">
+
+    <!-- ── Performance ────────────────────────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Marcellus&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37; --gold-light: #f4d03f; --gold-dark: #b8941f;
+            --dark-bg: #080808; --green: #4CAF50; --red: #ff6b6b;
+            --text: #f0ead6; --text-dim: #9a9278; --border: rgba(212,175,55,0.2);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--dark-bg); color: var(--text); line-height: 1.7; }
+        body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; opacity: 0.3; }
+        .container { max-width: 900px; margin: 0 auto; padding: 80px 40px 100px; position: relative; z-index: 1; }
+        .back-link { display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease; }
+        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
+        h1 { font-family: 'Cinzel', serif; font-size: 42px; color: var(--gold); letter-spacing: 2px; margin-bottom: 16px; }
+        .subtitle { font-size: 18px; color: var(--text-dim); margin-bottom: 60px; }
+        h2 { font-family: 'Cinzel', serif; font-size: 28px; color: var(--text); margin: 60px 0 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+        h3 { font-size: 20px; color: var(--gold); margin: 40px 0 16px; }
+        p { margin-bottom: 20px; font-size: 15px; }
+        .step { background: rgba(20,20,16,0.6); border: 1px solid var(--border); border-radius: 12px; padding: 32px; margin-bottom: 24px; }
+        .step-number { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: linear-gradient(135deg, var(--gold-dark), var(--gold-light)); color: #000; font-weight: 700; border-radius: 8px; margin-bottom: 16px; }
+        .step-title { font-size: 18px; font-weight: 600; color: var(--gold); margin-bottom: 12px; }
+        .alert { background: rgba(212,175,55,0.08); border-left: 4px solid var(--gold); padding: 20px 24px; margin: 24px 0; border-radius: 4px; }
+        .alert-warning { background: rgba(255,107,107,0.08); border-left-color: var(--red); }
+        .alert strong { color: var(--gold); display: block; margin-bottom: 8px; }
+        code { background: rgba(20,20,16,0.8); padding: 2px 8px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 13px; color: var(--gold-light); }
+        .requirement { display: flex; align-items: center; gap: 12px; padding: 12px 0; }
+        .requirement-icon { font-size: 20px; }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.svg">
+
+    <!-- ── hreflang ───────────────────────────────────── -->
+    <link rel="alternate" hreflang="fr" href="https://reborn-assistance.fr/docs/quickstart.html">
+    <link rel="alternate" hreflang="en" href="https://reborn-assistance.fr/en/docs/quickstart.html">
+    <link rel="alternate" hreflang="es" href="https://reborn-assistance.fr/es/docs/quickstart.html">
+    <link rel="alternate" hreflang="de" href="https://reborn-assistance.fr/de/docs/quickstart.html">
+    <link rel="alternate" hreflang="pt" href="https://reborn-assistance.fr/pt/docs/quickstart.html">
+    <link rel="alternate" hreflang="it" href="https://reborn-assistance.fr/it/docs/quickstart.html">
+    <link rel="alternate" hreflang="nl" href="https://reborn-assistance.fr/nl/docs/quickstart.html">
+    <link rel="alternate" hreflang="pl" href="https://reborn-assistance.fr/pl/docs/quickstart.html">
+    <link rel="alternate" hreflang="ru" href="https://reborn-assistance.fr/ru/docs/quickstart.html">
+    <link rel="alternate" hreflang="tr" href="https://reborn-assistance.fr/tr/docs/quickstart.html">
+    <link rel="alternate" hreflang="ja" href="https://reborn-assistance.fr/ja/docs/quickstart.html">
+    <link rel="alternate" hreflang="ko" href="https://reborn-assistance.fr/ko/docs/quickstart.html">
+    <link rel="alternate" hreflang="tl" href="https://reborn-assistance.fr/tl/docs/quickstart.html">
+    <link rel="alternate" hreflang="zh" href="https://reborn-assistance.fr/zh/docs/quickstart.html">
+    <link rel="alternate" hreflang="ar" href="https://reborn-assistance.fr/ar/docs/quickstart.html">
+    <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/quickstart.html">
+    <!-- ── /hreflang ── -->
+    <script>window.__PRERENDERED_LANG__="nl";</script>
+</head>
+<body>
+    <div class="container">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:12px;">
+            <a href="/nl/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← Terug naar documentatie</a>
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                <a href="/nl/" style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:7px 16px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.color='var(--text-dim)';this.style.borderColor='var(--border)'" data-i18n="docsNav.mainSite">⌂ Hoofdsite</a>
+                <div class="lang-select">
+                    <button class="lang-select-btn" onclick="toggleLangMenu()">
+                        <span class="lang-flag">🇳🇱</span>
+                        <span class="lang-code">NL</span>
+                        <span class="lang-chevron">▾</span>
+                    </button>
+                    <div class="lang-select-menu">
+                        <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
+                        <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
+                        <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
+                        <button class="lang-option" data-lang="de" onclick="setLang('de')">🇩🇪 Deutsch</button>
+                        <button class="lang-option" data-lang="pt" onclick="setLang('pt')">🇧🇷 Português</button>
+                        <button class="lang-option" data-lang="it" onclick="setLang('it')">🇮🇹 Italiano</button>
+                        <button class="lang-option" data-lang="nl" onclick="setLang('nl')">🇳🇱 Nederlands</button>
+                        <button class="lang-option" data-lang="pl" onclick="setLang('pl')">🇵🇱 Polski</button>
+                        <button class="lang-option" data-lang="ru" onclick="setLang('ru')">🇷🇺 Русский</button>
+                        <button class="lang-option" data-lang="tr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
+                        <button class="lang-option" data-lang="ja" onclick="setLang('ja')">🇯🇵 日本語</button>
+                        <button class="lang-option" data-lang="ko" onclick="setLang('ko')">🇰🇷 한국어</button>
+                        <button class="lang-option" data-lang="tl" onclick="setLang('tl')">🇵🇭 Filipino</button>
+                        <button class="lang-option" data-lang="zh" onclick="setLang('zh')">🇨🇳 中文</button>
+                        <button class="lang-option" data-lang="ar" onclick="setLang('ar')">🇸🇦 العربية</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 data-i18n="docQuickstart.h1">🚀 Snelstart</h1>
+        <p class="subtitle" data-i18n="docQuickstart.subtitle">Installeer en configureer Reborn Assistant in enkele minuten</p>
+
+        <h2 data-i18n="docQuickstart.reqH2">Vereisten</h2>
+        <div class="requirement">
+            <span class="requirement-icon">🌐</span>
+            <div data-i18n="docQuickstart.req1"><strong>Compatibele browser:</strong> Google Chrome, Microsoft Edge, Brave of elke op Chromium gebaseerde browser</div>
+        </div>
+        <div class="requirement">
+            <span class="requirement-icon">🔧</span>
+            <div data-i18n="docQuickstart.req2"><strong>Google-account:</strong> Alleen vereist voor Premium-authenticatie (optioneel voor gratis versie)</div>
+        </div>
+        <div class="requirement">
+            <span class="requirement-icon">🎮</span>
+            <div data-i18n="docQuickstart.req3"><strong>Compatibele site:</strong> Compatibel met standaard websites</div>
+        </div>
+
+        <h2 data-i18n="docQuickstart.installH2">Installatie</h2>
+
+        <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-title" data-i18n="docQuickstart.step1Title">Bezoek de Chrome Web Store</div>
+            <p data-i18n="docQuickstart.step1p">Ga naar de pagina van Reborn Assistant in de <a href='https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme' target='_blank' style='color:var(--gold);text-decoration:none;' onmouseover='this.style.textDecoration="underline"' onmouseout='this.style.textDecoration="none"'>Chrome Web Store</a> en klik op <strong>«Toevoegen aan Chrome»</strong>.</p>
+            <p style="margin-top:12px;font-size:13px;color:var(--text-dim);" data-i18n="docQuickstart.step1tip">💡 Compatibel met Google Chrome, Microsoft Edge, Brave en elke op Chromium gebaseerde browser.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-title" data-i18n="docQuickstart.step2Title">Bevestig de installatie</div>
+            <p data-i18n="docQuickstart.step2p">Klik op <strong>«Extensie toevoegen»</strong> in het bevestigingsvenster. De extensie wordt automatisch geïnstalleerd.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-title" data-i18n="docQuickstart.step3Title">Extensie vastzetten</div>
+            <p data-i18n="docQuickstart.step3p">Klik op het puzzelicoon 🧩 in de werkbalk van uw browser en zet Reborn Assistant vast voor snelle toegang.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-title" data-i18n="docQuickstart.step4Title">Aanmelden (optioneel voor Premium)</div>
+            <p data-i18n="docQuickstart.step4p">• Klik op het Reborn-icoon in de werkbalk<br>• Voor Premium: Meld u aan met uw Google-account<br>• Voor Gratis: Gebruik het direct zonder aanmelden</p>
+        </div>
+
+        <div class="alert">
+            <strong data-i18n="docQuickstart.alertTitle">✅ Installatie geslaagd!</strong>
+            <span data-i18n="docQuickstart.alertText">Het Reborn-icoon wordt groen wanneer de extensie actief is. U kunt nu uw functies configureren.</span>
+        </div>
+
+        <h2 data-i18n="docQuickstart.configH2">Eerste configuratie</h2>
+
+        <h3 data-i18n="docQuickstart.freeH3">GRATIS Versie</h3>
+        <p data-i18n="docQuickstart.freeTitle"><strong>Functies beschikbaar zonder aanmelden:</strong></p>
+        <p data-i18n="docQuickstart.freeText">• Automatische type 1-actie (alleen HP)<br>• 6 visuele thema's<br>• Ondersteuning voor 15 talen</p>
+
+        <div class="step">
+            <div class="step-title" data-i18n="docQuickstart.freeStepTitle">Configuratie van de automatische type 1-actie</div>
+            <p data-i18n="docQuickstart.freeStepText">1. Open het Reborn-paneel (klik op het icoon)<br>2. Stel de HP-actietimer in (standaard: 2s)<br>3. De actie wordt automatisch geactiveerd<br>4. Geen aanmelding vereist</p>
+        </div>
+
+        <h3 data-i18n="docQuickstart.premiumH3">PREMIUM Versie 💎</h3>
+        <p data-i18n="docQuickstart.premiumFeatTitle"><strong>Extra functies (vereist aanmelden met Google):</strong></p>
+        <p data-i18n="docQuickstart.premiumFeatText">• Automatische activator macro 1 (configureerbare timer + sneltoets)<br>• Automatische activator macro 2 (configureerbare timer + sneltoets)<br>• Sneltoetsen (CTRL+A / CTRL+O)<br>• Automatische reeksrotatie (F2 → 1-9 → 0 → F1)<br>• 3 aanpasbare macro's met toetsreeksen<br>• Automatisch periodiek macrosysteem (oproep + opslaan elke 15s)</p>
+
+        <div class="step">
+            <div class="step-title" data-i18n="docQuickstart.premConfigTitle">Premium Configuratie</div>
+            <p data-i18n="docQuickstart.premConfigSeq"><strong>Automatische reeksen:</strong><br>• Activeer «Reeksrotatie» in het paneel<br>• Stel het interval tussen cycli in (standaard: 5 min)<br>• Pas de vertraging tussen elke toets aan (standaard: 1s)</p>
+
+            <p data-i18n="docQuickstart.premConfigMacro"><strong>Macro's:</strong><br>• Activeer Macro 1, 2 of 3<br>• Definieer de toetsreeks (bijv. <code>1,2,3,4</code>)<br>• Stel het herhalingsinterval in</p>
+
+            <p data-i18n="docQuickstart.premConfigPer"><strong>Periodieke macro:</strong><br>• Activeer de schakelaar «Periodieke macro»<br>• Het systeem roept automatisch uw periodieke macro elke 15s op<br>• Automatisch opslaan na de oproep</p>
+        </div>
+
+        <div class="alert alert-warning">
+            <strong data-i18n="docQuickstart.warnTitle">⚠️ Belangrijke opmerking</strong>
+            <span data-i18n="docQuickstart.warnText">De Premium-functies (Activatormacro's 1 en 2, Automatische reeksen, Automatische periodieke macro, 3 configureerbare macro's) vereisen een geldige Premium-licentie en een Google-aanmelding. Zonder licentie is alleen de basismacro beschikbaar.</span>
+        </div>
+
+        <h2 data-i18n="docQuickstart.shortcutsH2">Sneltoetsen</h2>
+        <p data-i18n="docQuickstart.shortcutsText"><code>CTRL + A</code>: Bot starten<br><code>CTRL + O</code>: Bot stoppen</p>
+
+        <h2 data-i18n="docQuickstart.nextH2">Volgende stappen</h2>
+        <p>• <a href="/nl/docs/features.html" style="color:var(--gold);" data-i18n="docQuickstart.link1">Ontdek alle functionaliteiten</a><br>
+        • <a href="/nl/docs/premium.html" style="color:var(--gold);" data-i18n="docQuickstart.link2">Volledige Premium handleiding</a><br>
+        • <a href="/nl/docs/troubleshooting.html" style="color:var(--gold);" data-i18n="docQuickstart.link3">Oplossingen voor veelvoorkomende problemen</a></p>
+    </div>
+    <script type="module" src="/langs/index.js"></script>
+</body>
+</html>

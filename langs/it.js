@@ -91,6 +91,8 @@ export default {
     a4: "Tutti i tuoi dati sono memorizzati localmente sul tuo dispositivo. Non raccogliamo dati personali né utilizziamo tracciamento o telemetria.",
     q5: "Come contattare il supporto?",
     a5: "Contattaci via e-mail all'indirizzo seymoon.cell@gmail.com o su Discord (Seymoon). Gli abbonati premium ricevono una risposta prioritaria.",
+    q6: "Reborn Assistant è un bot?",
+    a6: "In senso stretto, Reborn Assistant non è un bot convenzionale. È un'estensione di macro configurabili che automatizza sequenze di tasti che definisci tu stesso. Nessuna intelligenza artificiale, nessuna interazione con il server di gioco, nessuna lettura della memoria. L'estensione non legge né modifica i dati di gioco — simula solo i tasti che premeresti manualmente. È tua responsabilità rispettare i Termini di Servizio.",
   },
   footer: {
     privacy:   "Privacy",

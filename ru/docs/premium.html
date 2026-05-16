@@ -1,0 +1,271 @@
+<!-- © 2026 Reborn Assistant — All rights reserved. Unauthorized copying, modification or distribution is strictly prohibited. https://reborn-assistant.com -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ── SEO Primary ─────────────────────────────────────────── -->
+    <title>Руководство Premium Reborn Assistant — Ringmaster Flyff</title>
+    <meta name="description" content="Освойте Premium-функции Reborn Assistant: автоматическая ротация последовательностей, 3 настраиваемых макроса, периодический макрос.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#080808">
+    <link rel="canonical" href="https://reborn-assistance.fr/ru/docs/premium.html">
+
+    <!-- ── Open Graph ─────────────────────────────────────────── -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Reborn Assistant">
+    <meta property="og:title" content="Руководство Premium Reborn Assistant — Ringmaster Flyff">
+    <meta property="og:description" content="Освойте Premium-функции Reborn Assistant: автоматическая ротация последовательностей, 3 настраиваемых макроса, периодический макрос.">
+    <meta property="og:url" content="https://reborn-assistance.fr/ru/docs/premium.html">
+    <meta property="og:image" content="https://reborn-assistance.fr/og-image.png">
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- ── Twitter Card ───────────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Руководство Premium Reborn Assistant — Ringmaster Flyff">
+    <meta name="twitter:description" content="Освойте Premium-функции Reborn Assistant: автоматическая ротация последовательностей, 3 настраиваемых макроса, периодический макрос.">
+    <meta name="twitter:image" content="https://reborn-assistance.fr/og-image.png">
+
+    <!-- ── Performance ────────────────────────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Marcellus&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold:#d4af37;--gold-light:#f4d03f;--gold-dark:#b8941f;--dark-bg:#080808;--green:#4CAF50;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
+        * { margin:0;padding:0;box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.7; }
+        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
+        .container { max-width:900px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
+        .back-link { display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease; }
+        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
+        h1 { font-family:'Cinzel',serif;font-size:42px;color:var(--gold);letter-spacing:2px;margin-bottom:16px; }
+        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:60px; }
+        h2 { font-family:'Cinzel',serif;font-size:28px;color:var(--text);margin:60px 0 24px;padding-bottom:16px;border-bottom:1px solid var(--border); }
+        h3 { font-size:20px;color:var(--gold);margin:40px 0 16px; }
+        .premium-badge { background:linear-gradient(135deg,var(--gold-dark),var(--gold-light));color:#000;font-size:10px;font-weight:700;padding:6px 14px;border-radius:12px;letter-spacing:1.5px;display:inline-block;margin-left:12px; }
+        .section { background:rgba(20,20,16,0.6);border:1px solid var(--gold);border-radius:12px;padding:32px;margin:32px 0; }
+        .param { background:rgba(212,175,55,0.06);border-left:3px solid var(--gold);padding:16px 20px;margin:16px 0;border-radius:4px; }
+        .param-name { font-weight:600;color:var(--gold);margin-bottom:6px; }
+        .param-desc { font-size:14px;color:var(--text-dim); }
+        code { background:rgba(20,20,16,0.9);padding:3px 10px;border-radius:4px;font-family:'Courier New',monospace;font-size:13px;color:var(--gold-light); }
+        .example { background:rgba(76,175,80,0.06);border-left:3px solid var(--green);padding:20px;margin:24px 0;border-radius:4px; }
+        .example-title { font-weight:600;color:var(--green);margin-bottom:12px; }
+        ul { margin:16px 0;padding-left:24px; }
+        li { margin:8px 0;font-size:15px; }
+        ol { margin:16px 0;padding-left:24px; }
+        ol li { margin:8px 0;font-size:15px; }
+        p { margin-bottom:16px;font-size:15px; }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.svg">
+
+    <!-- ── hreflang ───────────────────────────────────── -->
+    <link rel="alternate" hreflang="fr" href="https://reborn-assistance.fr/docs/premium.html">
+    <link rel="alternate" hreflang="en" href="https://reborn-assistance.fr/en/docs/premium.html">
+    <link rel="alternate" hreflang="es" href="https://reborn-assistance.fr/es/docs/premium.html">
+    <link rel="alternate" hreflang="de" href="https://reborn-assistance.fr/de/docs/premium.html">
+    <link rel="alternate" hreflang="pt" href="https://reborn-assistance.fr/pt/docs/premium.html">
+    <link rel="alternate" hreflang="it" href="https://reborn-assistance.fr/it/docs/premium.html">
+    <link rel="alternate" hreflang="nl" href="https://reborn-assistance.fr/nl/docs/premium.html">
+    <link rel="alternate" hreflang="pl" href="https://reborn-assistance.fr/pl/docs/premium.html">
+    <link rel="alternate" hreflang="ru" href="https://reborn-assistance.fr/ru/docs/premium.html">
+    <link rel="alternate" hreflang="tr" href="https://reborn-assistance.fr/tr/docs/premium.html">
+    <link rel="alternate" hreflang="ja" href="https://reborn-assistance.fr/ja/docs/premium.html">
+    <link rel="alternate" hreflang="ko" href="https://reborn-assistance.fr/ko/docs/premium.html">
+    <link rel="alternate" hreflang="tl" href="https://reborn-assistance.fr/tl/docs/premium.html">
+    <link rel="alternate" hreflang="zh" href="https://reborn-assistance.fr/zh/docs/premium.html">
+    <link rel="alternate" hreflang="ar" href="https://reborn-assistance.fr/ar/docs/premium.html">
+    <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/premium.html">
+    <!-- ── /hreflang ── -->
+    <script>window.__PRERENDERED_LANG__="ru";</script>
+</head>
+<body>
+    <div class="container">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:12px;">
+            <a href="/ru/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← Вернуться к документации</a>
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                <a href="/ru/" style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:7px 16px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.color='var(--text-dim)';this.style.borderColor='var(--border)'" data-i18n="docsNav.mainSite">⌂ Главный сайт</a>
+                <div class="lang-select">
+                    <button class="lang-select-btn" onclick="toggleLangMenu()">
+                        <span class="lang-flag">🇷🇺</span>
+                        <span class="lang-code">RU</span>
+                        <span class="lang-chevron">▾</span>
+                    </button>
+                    <div class="lang-select-menu">
+                        <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
+                        <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
+                        <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
+                        <button class="lang-option" data-lang="de" onclick="setLang('de')">🇩🇪 Deutsch</button>
+                        <button class="lang-option" data-lang="pt" onclick="setLang('pt')">🇧🇷 Português</button>
+                        <button class="lang-option" data-lang="it" onclick="setLang('it')">🇮🇹 Italiano</button>
+                        <button class="lang-option" data-lang="nl" onclick="setLang('nl')">🇳🇱 Nederlands</button>
+                        <button class="lang-option" data-lang="pl" onclick="setLang('pl')">🇵🇱 Polski</button>
+                        <button class="lang-option" data-lang="ru" onclick="setLang('ru')">🇷🇺 Русский</button>
+                        <button class="lang-option" data-lang="tr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
+                        <button class="lang-option" data-lang="ja" onclick="setLang('ja')">🇯🇵 日本語</button>
+                        <button class="lang-option" data-lang="ko" onclick="setLang('ko')">🇰🇷 한국어</button>
+                        <button class="lang-option" data-lang="tl" onclick="setLang('tl')">🇵🇭 Filipino</button>
+                        <button class="lang-option" data-lang="zh" onclick="setLang('zh')">🇨🇳 中文</button>
+                        <button class="lang-option" data-lang="ar" onclick="setLang('ar')">🇸🇦 العربية</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 data-i18n="docPremium.h1">💎 Руководство Premium</h1>
+        <p class="subtitle" data-i18n="docPremium.subtitle">Освойте все расширенные функции Reborn Assistant</p>
+
+        <!-- ROTATION -->
+        <div class="section">
+            <h2 data-i18n="docPremium.rotH2">🛡️ Автоматическая ротация последовательностей</h2>
+
+            <p data-i18n="docPremium.rotDesc">Система ротации автоматически поддерживает все последовательности активными, нажимая предопределённую последовательность клавиш через равные промежутки времени.</p>
+
+            <h3 data-i18n="docPremium.rotSeqH3">Последовательность клавиш</h3>
+            <p data-i18n="docPremium.rotSeqText">Ротация всегда следует этому фиксированному порядку:</p>
+            <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 0 → F1</code>
+
+            <h3 data-i18n="docPremium.rotConfigH3">Настройка</h3>
+
+            <div class="param">
+                <div class="param-name" data-i18n="docPremium.rotIntName">Интервал между циклами</div>
+                <div class="param-desc" data-i18n="docPremium.rotIntDesc">Время ожидания перед перезапуском всей последовательности. По умолчанию: 5 минут. Настройте по длительности самых коротких последовательностей.</div>
+            </div>
+
+            <div class="param">
+                <div class="param-name" data-i18n="docPremium.rotDelName">Задержка между клавишами</div>
+                <div class="param-desc" data-i18n="docPremium.rotDelDesc">Время ожидания между каждой клавишей последовательности. По умолчанию: 1 секунда. Настройте по скорости сервиса (анимации, кулдауны...).</div>
+            </div>
+
+            <div class="example">
+                <div class="example-title" data-i18n="docPremium.rotExTitle">💡 Пример использования</div>
+                <p data-i18n="docPremium.rotExScenario"><strong>Сценарий:</strong> Ваши последовательности длятся 5 минут, и у вас 8 последовательностей на клавишах 1-8.</p>
+                <p data-i18n="docPremium.rotExConfig"><strong>Настройка:</strong></p>
+                <ul>
+                    <li data-i18n="docPremium.rotExLi1">Интервал: 5 минут</li>
+                    <li data-i18n="docPremium.rotExLi2">Задержка: 1 секунда</li>
+                    <li data-i18n="docPremium.rotExLi3">Бот будет нажимать F2, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, F1 каждые 5 минут</li>
+                    <li data-i18n="docPremium.rotExLi4">13 клавиш всего с 1 секундой между каждой = ~13 секунд на цикл</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- MACROS PERSONNALISABLES -->
+        <div class="section">
+            <h2 data-i18n="docPremium.macH2">⚙️ Настраиваемые Макросы</h2>
+
+            <p data-i18n="docPremium.macDesc">Создавайте до 3 независимых макросов с собственными последовательностями клавиш. Идеально для автоматизации повторяющихся задач, регулярных комбо или ротации умений.</p>
+
+            <h3 data-i18n="docPremium.macHowH3">Принцип работы</h3>
+            <p data-i18n="docPremium.macHowText">Каждый макрос выполняет последовательность клавиш через равные промежутки времени, независимо от других систем.</p>
+
+            <h3 data-i18n="docPremium.macConfigH3">Настройка</h3>
+
+            <div class="param">
+                <div class="param-name" data-i18n="docPremium.macSeqName">Последовательность клавиш</div>
+                <div class="param-desc" data-i18n="docPremium.macSeqDesc">Задайте клавиши для нажатия по порядку, разделённые запятыми. Пример: 1,2,3,4 или q,w,e,r,f</div>
+            </div>
+
+            <div class="param">
+                <div class="param-name" data-i18n="docPremium.macRepName">Интервал повторения</div>
+                <div class="param-desc" data-i18n="docPremium.macRepDesc">Время ожидания перед повторением последовательности. Настройте по потребностям (секунды или минуты).</div>
+            </div>
+
+            <div class="param">
+                <div class="param-name" data-i18n="docPremium.macDelName">Задержка между клавишами</div>
+                <div class="param-desc" data-i18n="docPremium.macDelDesc">Время ожидания между каждой клавишей последовательности (обычно 0,5–2 секунды).</div>
+            </div>
+
+            <div class="example">
+                <div class="example-title" data-i18n="docPremium.macExTitle">💡 Примеры использования</div>
+
+                <p data-i18n="docPremium.mac1Title"><strong>Макрос 1 – Повторяющаяся автоматизация:</strong></p>
+                <ul>
+                    <li data-i18n="docPremium.mac1Li1">Последовательность: 1,2,3,space</li>
+                    <li data-i18n="docPremium.mac1Li2">Интервал: 10 секунд</li>
+                    <li data-i18n="docPremium.mac1Li3">Использование: Ротация базовых атак в цикле</li>
+                </ul>
+
+                <p data-i18n="docPremium.mac2Title"><strong>Макрос 2 – Комбо умений:</strong></p>
+                <ul>
+                    <li data-i18n="docPremium.mac2Li1">Последовательность: q,w,e,r</li>
+                    <li data-i18n="docPremium.mac2Li2">Интервал: 30 секунд</li>
+                    <li data-i18n="docPremium.mac2Li3">Использование: Оптимальная DPS-ротация</li>
+                </ul>
+
+                <p data-i18n="docPremium.mac3Title"><strong>Макрос 3 – Автоматическая поддержка:</strong></p>
+                <ul>
+                    <li data-i18n="docPremium.mac3Li1">Последовательность: f,g,h</li>
+                    <li data-i18n="docPremium.mac3Li2">Интервал: 15 секунд</li>
+                    <li data-i18n="docPremium.mac3Li3">Использование: Групповые последовательности или периодические действия</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- MACRO PERIODIQUE -->
+        <div class="section">
+            <h2 data-i18n="docPremium.perH2">🐉 Периодический макрос</h2>
+
+            <p data-i18n="docPremium.perDesc">Система автоматически выполняет периодическое действие каждые 15 секунд. Идеально для повторяющихся задач, которые необходимо регулярно активировать.</p>
+
+            <h3 data-i18n="docPremium.perHowH3">Принцип работы</h3>
+            <p data-i18n="docPremium.perHowText">Система автоматически выполняет эту последовательность каждые 15 секунд:</p>
+            <ol>
+                <li data-i18n="docPremium.perLi1">Вызывает периодический макрос (настраиваемая клавиша, по умолчанию §)</li>
+                <li data-i18n="docPremium.perLi2">Ждёт 500 мс</li>
+                <li data-i18n="docPremium.perLi3">Автоматически сохраняет периодический макрос</li>
+            </ol>
+
+            <h3 data-i18n="docPremium.perConfigH3">Настройка</h3>
+
+            <div class="param">
+                <div class="param-name" data-i18n="docPremium.perCallName">Клавиша вызова</div>
+                <div class="param-desc" data-i18n="docPremium.perCallDesc">Клавиша, активирующая периодический макрос. По умолчанию: §. Измените в соответствии с конфигурацией.</div>
+            </div>
+
+            <div class="param">
+                <div class="param-name" data-i18n="docPremium.perIntName">Интервал (фиксированный)</div>
+                <div class="param-desc" data-i18n="docPremium.perIntDesc">Система всегда использует фиксированный интервал 15 секунд. Не настраивается.</div>
+            </div>
+
+            <div class="example">
+                <div class="example-title" data-i18n="docPremium.perExTitle">💡 Случай использования</div>
+                <p data-i18n="docPremium.perExText">В некоторых сервисах периодический макрос нужно регулярно вызывать для сбора предметов, обеспечения временных последовательностей или получения опыта. Эта система полностью автоматизирует данный процесс.</p>
+            </div>
+
+            <h3 data-i18n="docPremium.perImpH3">⚠️ Важно</h3>
+            <ul>
+                <li data-i18n="docPremium.perImpLi1">Убедитесь, что настроенная клавиша соответствует клавише вызова</li>
+                <li data-i18n="docPremium.perImpLi2">Периодический макрос автоматически сохраняется после каждого вызова</li>
+                <li data-i18n="docPremium.perImpLi3">Работает параллельно с другими системами (последовательности, макросы, действия)</li>
+            </ul>
+        </div>
+
+        <h2 data-i18n="docPremium.optH2">Советы по оптимизации</h2>
+
+        <h3 data-i18n="docPremium.combH3">🎯 Комбинирование систем</h3>
+        <p data-i18n="docPremium.combDesc">Все Premium-функции работают одновременно. Вы можете:</p>
+        <ul>
+            <li data-i18n="docPremium.combLi1">Активировать автоматические последовательности + 3 макроса + периодический макрос одновременно</li>
+            <li data-i18n="docPremium.combLi2">Действия триггеров 1 и 2 всегда работают параллельно</li>
+            <li data-i18n="docPremium.combLi3">Каждая система имеет собственный независимый таймер</li>
+        </ul>
+
+        <h3 data-i18n="docPremium.perfH3">⚡ Производительность</h3>
+        <ul>
+            <li data-i18n="docPremium.perfLi1">Чем больше систем активировано, тем больше ресурсов потребляет расширение</li>
+            <li data-i18n="docPremium.perfLi2">Настройте интервалы, чтобы избежать слишком частых действий</li>
+            <li data-i18n="docPremium.perfLi3">Следите за журналом активности для проверки корректной работы</li>
+        </ul>
+
+        <h3 data-i18n="docPremium.secH3">🔑 Безопасность</h3>
+        <ul>
+            <li data-i18n="docPremium.secLi1">Лицензия Premium проверяется в реальном времени</li>
+            <li data-i18n="docPremium.secLi2">При потере соединения Premium-функции отключаются</li>
+            <li data-i18n="docPremium.secLi3">Войдите снова, чтобы реактивировать все функции</li>
+        </ul>
+    </div>
+    <script type="module" src="/langs/index.js"></script>
+</body>
+</html>

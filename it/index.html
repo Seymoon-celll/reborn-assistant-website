@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ── SEO Primary ─────────────────────────────────────────── -->
+    <title>Reborn Assistant — Estensione Ringmaster per Flyff Universe</title>
+    <meta name="description" content="Estensione premium per automatizzare il tuo Ringmaster su Flyff Universe. Macro configurabili, sequenze automatiche, 15 lingue. Versione gratuita disponibile.">
+    <meta name="keywords" content="Reborn Assistant, Flyff Universe, Ringmaster, RM, extension Flyff, macro Flyff, automation, séquences automatiques, FWC, support, Flyff Universe outils">
+    <meta name="author" content="Seymoon">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#080808">
+    <link rel="canonical" href="https://reborn-assistance.fr/it/">
+
+    <!-- ── Open Graph ─────────────────────────────────────────── -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Reborn Assistant">
+    <meta property="og:title" content="Reborn Assistant — Estensione Ringmaster per Flyff Universe">
+    <meta property="og:description" content="Estensione premium per automatizzare il tuo Ringmaster su Flyff Universe. Macro configurabili, sequenze automatiche, 15 lingue. Versione gratuita disponibile.">
+    <meta property="og:url" content="https://reborn-assistance.fr/it/">
+    <meta property="og:image" content="https://reborn-assistance.fr/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Reborn Assistant — Extension Ringmaster pour Flyff Universe">
+    <meta property="og:locale" content="it_IT">
+
+    <!-- ── Twitter Card ───────────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Reborn Assistant — Estensione Ringmaster per Flyff Universe">
+    <meta name="twitter:description" content="Estensione premium per automatizzare il tuo Ringmaster su Flyff Universe. Macro configurabili, sequenze automatiche, 15 lingue. Versione gratuita disponibile.">
+    <meta name="twitter:image" content="https://reborn-assistance.fr/og-image.png">
+    <meta name="twitter:image:alt" content="Reborn Assistant — Extension Ringmaster pour Flyff Universe">
+
+    <!-- ── Performance ────────────────────────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37; --gold-light: #f4d03f; --gold-dark: #b8941f;
+            --dark-bg: #080808; --dark-card: #141410; --dark-header: #1a1810;
+            --green: #4CAF50; --green-dark: #2d5016; --green-glow: rgba(76,175,80,0.4);
+            --text: #f0ead6; --text-dim: #9a9278; --border: rgba(212,175,55,0.2);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--dark-bg); color: var(--text); overflow-x: hidden; }
+        body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; opacity: 0.4; }
+        body::after { content: ''; position: fixed; top: -20%; left: 50%; transform: translateX(-50%); width: 900px; height: 600px; background: radial-gradient(ellipse, rgba(212,175,55,0.06) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+
+        header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 18px 60px; display: flex; justify-content: space-between; align-items: center; background: rgba(8,8,8,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); animation: slideDown 0.8s ease-out; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        .logo-container { display: flex; align-items: center; gap: 14px; }
+        .logo-icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--gold-dark), var(--gold-light)); display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 22px; font-weight: 900; color: #000; border-radius: 6px; box-shadow: 0 0 20px rgba(212,175,55,0.35); }
+        .logo-text { font-family: 'Cinzel', serif; font-size: 20px; font-weight: 700; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; }
+        .status-badge { background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.35); padding: 7px 18px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; color: var(--gold); text-transform: uppercase; letter-spacing: 2.5px; }
+
+        /* Lang dropdown */
+        .lang-select{position:relative;display:inline-block;user-select:none;}
+        .lang-select-btn{display:flex;align-items:center;gap:7px;background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.25);border-radius:8px;padding:7px 13px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--gold);cursor:pointer;transition:all 0.2s ease;letter-spacing:0.5px;white-space:nowrap;}
+        .lang-select-btn:hover{background:rgba(212,175,55,0.12);border-color:rgba(212,175,55,0.45);}
+        .lang-chevron{font-size:9px;transition:transform 0.2s ease;opacity:0.6;margin-left:2px;}
+        .lang-select.open .lang-chevron{transform:rotate(180deg);}
+        .lang-select-menu{position:absolute;top:calc(100% + 6px);right:0;min-width:130px;background:rgba(10,10,8,0.97);border:1px solid rgba(212,175,55,0.25);border-radius:8px;overflow:hidden;display:none;flex-direction:column;backdrop-filter:blur(16px);box-shadow:0 12px 40px rgba(0,0,0,0.6),0 0 0 1px rgba(212,175,55,0.08);z-index:999;}
+        .lang-select.open .lang-select-menu{display:flex;}
+        .lang-option{display:flex;align-items:center;gap:9px;width:100%;background:transparent;border:none;border-bottom:1px solid rgba(212,175,55,0.08);padding:10px 14px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;color:var(--text-dim);cursor:pointer;transition:all 0.15s ease;text-align:left;}
+        .lang-option:last-child{border-bottom:none;}
+        .lang-option:hover{background:rgba(212,175,55,0.09);color:var(--gold);}
+        .lang-option.active{color:var(--gold);background:rgba(212,175,55,0.05);font-weight:600;}
+
+        .hero { min-height: 85vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 100px 40px 60px; position: relative; z-index: 1; }
+        .hero-inner { max-width: 900px; position: relative; }
+        .hero-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 36px; padding: 8px 20px; border: 1px solid var(--border); border-radius: 20px; animation: fadeUp 1s ease-out 0.2s both; }
+        .hero-eyebrow span { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; display: inline-block; }
+        h1 { font-family: 'Cinzel', serif; font-size: clamp(52px, 9vw, 100px); font-weight: 900; line-height: 1.05; margin-bottom: 12px; background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 50%, var(--gold-dark) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: -1px; animation: fadeUp 1s ease-out 0.35s both; }
+        .hero-subtitle { font-family: 'Cinzel', serif; font-size: clamp(14px, 2vw, 18px); color: var(--text-dim); letter-spacing: 6px; text-transform: uppercase; margin-bottom: 40px; animation: fadeUp 1s ease-out 0.45s both; }
+        .hero-divider { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 40px; animation: fadeUp 1s ease-out 0.5s both; }
+        .hero-description { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 300; color: var(--text-dim); max-width: 620px; margin: 0 auto 56px; line-height: 1.9; animation: fadeUp 1s ease-out 0.6s both; }
+        .cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; animation: fadeUp 1s ease-out 0.75s both; }
+        .hero-trust { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-top: 32px; animation: fadeUp 1s ease-out 0.9s both; }
+        .hero-trust-item { display: flex; align-items: center; gap: 7px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 400; color: var(--text-dim); }
+        .hero-trust-item .dot-green { width: 7px; height: 7px; background: var(--green); border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 6px rgba(76,175,80,0.6); }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+        .btn { padding: 16px 40px; font-family: 'Cinzel', serif; font-size: 13px; font-weight: 600; text-decoration: none; border-radius: 6px; border: 1px solid; cursor: pointer; position: relative; overflow: hidden; transition: all 0.35s ease; text-transform: uppercase; letter-spacing: 2px; display: inline-block; }
+        .btn::before { content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.35s ease; }
+        .btn-primary { background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 60%, #5dd87a 100%); border-color: var(--green); color: #fff; box-shadow: 0 4px 24px var(--green-glow); }
+        .btn-primary::before { background: rgba(255,255,255,0.12); }
+        .btn-primary::after { content: ''; position: absolute; top: 0; left: -100%; width: 55%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent); transition: left 0.55s ease; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px var(--green-glow); }
+        .btn-primary:hover::before { opacity: 1; }
+        .btn-primary:hover::after { left: 160%; }
+        .btn-secondary { background: transparent; border-color: rgba(212,175,55,0.5); color: var(--gold); }
+        .btn-secondary::before { background: rgba(212,175,55,0.07); }
+        .btn-secondary:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(212,175,55,0.15); }
+        .btn-secondary:hover::before { opacity: 1; }
+
+        section { position: relative; z-index: 1; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+        .section-header { text-align: center; margin-bottom: 80px; }
+        .section-tag { display: inline-block; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; padding: 5px 16px; border: 1px solid var(--border); border-radius: 20px; position: relative; }
+        .section-title { font-family: 'Cinzel', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 700; color: var(--text); margin-bottom: 20px; letter-spacing: -0.5px; }
+        .section-title em { font-style: normal; background: linear-gradient(135deg, var(--gold-dark), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .section-subtitle { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 300; color: var(--text-dim); max-width: 560px; margin: 0 auto; line-height: 1.8; }
+
+        .features { padding: 120px 0; }
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; -webkit-transform: translateZ(0); transform: translateZ(0); }
+        .feature-card { background: var(--dark-card); padding: 48px 40px; position: relative; transition: background 0.3s ease; }
+        /* Safari fix: overflow:hidden ne clippe pas les grilles — border-radius direct sur les coins */
+        .feature-card:first-child { border-top-left-radius: 11px; }
+        .feature-card:nth-child(3) { border-top-right-radius: 11px; }
+        .feature-card:nth-child(4) { border-bottom-left-radius: 11px; }
+        .feature-card:last-child { border-bottom-right-radius: 11px; }
+        .feature-card::after { content: ''; position: absolute; bottom: 0; left: 40px; right: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0; transition: opacity 0.3s ease; }
+        .feature-card:hover { background: var(--dark-header); }
+        .feature-card:hover::after { opacity: 0.6; }
+        .feature-icon { font-size: 36px; margin-bottom: 24px; display: block; filter: drop-shadow(0 0 8px rgba(212,175,55,0.3)); transition: all 0.3s ease; }
+        .feature-title { font-family: 'Cinzel', serif; font-size: 17px; font-weight: 600; margin-bottom: 14px; color: var(--gold); letter-spacing: 0.5px; }
+        .feature-description { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: var(--text-dim); line-height: 1.8; }
+
+        .stats { padding: 60px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(212,175,55,0.02); }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; text-align: center; }
+        .stat-item { padding: 30px 20px; border-right: 1px solid var(--border); }
+        .stat-item:last-child { border-right: none; }
+        .stat-number { font-family: 'Cinzel', serif; font-size: 42px; font-weight: 900; background: linear-gradient(135deg, var(--gold-dark), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; line-height: 1; }
+        .stat-label { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 400; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; }
+
+        .trust-bar { padding: 50px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .trust-badges { display: flex; justify-content: center; align-items: center; gap: 48px; flex-wrap: wrap; }
+        .trust-badge { display: flex; align-items: center; gap: 10px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; color: var(--text-dim); }
+        .trust-badge-icon { width: 36px; height: 36px; background: rgba(212,175,55,0.08); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+
+        .pricing { padding: 120px 0; background: linear-gradient(180deg, transparent 0%, rgba(212,175,55,0.03) 50%, transparent 100%); }
+
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .price-card { background: var(--dark-card); border: 1px solid var(--border); border-radius: 16px; padding: 36px 28px; position: relative; box-sizing: border-box; display: flex; flex-direction: column; }
+        .price-card.featured { border-color: var(--gold); background: linear-gradient(160deg, rgba(42,36,10,0.9) 0%, var(--dark-card) 100%); box-shadow: 0 0 60px rgba(212,175,55,0.12), inset 0 1px 0 rgba(212,175,55,0.3); padding-top: 50px; }
+        .price-card.exclusive { border-color: rgba(50,200,80,0.6); background: linear-gradient(160deg, rgba(5,30,10,0.95) 0%, var(--dark-card) 100%); box-shadow: 0 0 50px rgba(50,200,80,0.12), inset 0 1px 0 rgba(50,200,80,0.2); padding-top: 56px; }
+        .price-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--gold-dark), var(--gold-light)); color: #000; padding: 6px 16px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; white-space: nowrap; }
+        .price-plan { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; color: var(--gold); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 24px; }
+        .price-amount { font-family: 'Cinzel', serif; font-size: 48px; font-weight: 900; line-height: 1; margin-bottom: 8px; background: linear-gradient(135deg, var(--gold-dark), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .price-period { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 300; color: var(--text-dim); margin-bottom: 40px; }
+        .price-divider { height: 1px; background: var(--border); margin-bottom: 32px; }
+        .price-features { list-style: none; margin-bottom: 40px; flex: 1; }
+        .price-features li { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; padding: 13px 0; border-bottom: 1px solid rgba(212,175,55,0.08); color: var(--text-dim); display: flex; align-items: center; gap: 12px; }
+        .price-features li::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; flex-shrink: 0; opacity: 0.7; }
+        .btn-full { width: 100%; text-align: center; }
+        .price-guarantee { text-align: center; margin-top: 14px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400; color: var(--text-dim); opacity: 0.6; display: flex; align-items: center; justify-content: center; gap: 5px; }
+        .btn-download { display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; margin-top: 12px; padding: 11px 16px; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.4); text-decoration: none; border: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.02); letter-spacing: 0.4px; transition: all 0.25s ease; }
+        .btn-download:hover { color: rgba(255,255,255,0.8); border-color: rgba(66,133,244,0.35); background: rgba(66,133,244,0.07); }
+
+        .faq { padding: 120px 0; }
+        .faq-list { max-width: 720px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border); overflow: hidden; }
+        .faq-question { width: 100%; background: none; border: none; cursor: pointer; padding: 24px 0; display: flex; justify-content: space-between; align-items: center; font-family: 'Cinzel', serif; font-size: 16px; font-weight: 600; color: var(--text); text-align: left; gap: 16px; transition: color 0.3s ease; }
+        .faq-question:hover { color: var(--gold); }
+        .faq-icon { font-size: 20px; color: var(--gold); flex-shrink: 0; transition: transform 0.3s ease; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
+        .faq-answer p { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: var(--text-dim); line-height: 1.9; padding-bottom: 24px; }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+        .faq-item.open .faq-answer { max-height: 200px; }
+
+        footer { padding: 80px 0 40px; border-top: 1px solid var(--border); position: relative; z-index: 1; }
+        .footer-content { text-align: center; }
+        .footer-logo { font-family: 'Cinzel', serif; font-size: 26px; font-weight: 700; color: var(--gold); letter-spacing: 4px; margin-bottom: 36px; opacity: 0.7; }
+        .footer-links { display: flex; gap: 36px; justify-content: center; margin-bottom: 48px; flex-wrap: wrap; }
+        .footer-links a { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 400; color: var(--text-dim); text-decoration: none; letter-spacing: 0.5px; transition: color 0.3s ease; }
+        .footer-links a:hover { color: var(--gold); }
+        .copyright { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 300; color: var(--text-dim); opacity: 0.5; line-height: 2; padding-top: 32px; border-top: 1px solid rgba(212,175,55,0.08); }
+
+        .particle { position: fixed; border-radius: 50%; background: var(--gold); pointer-events: none; z-index: 0; opacity: 0; animation: particleFloat linear infinite; }
+        @keyframes particleFloat { 0% { transform: translateY(100vh) scale(0); opacity: 0; } 10% { opacity: 0.4; } 90% { opacity: 0.15; } 100% { transform: translateY(-20px) scale(1); opacity: 0; } }
+        @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.2); } }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 1024px) {
+            .price-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .btn-manage-short { display: none; }
+        .btn-docs-short { display: none; }
+
+        @media (max-width: 900px) {
+            .container { padding: 0 32px; } header { padding: 16px 32px; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .stat-item:nth-child(2) { border-right: none; }
+            .trust-badges { gap: 24px; }
+            /* 2 colonnes : coins top-right = card 2, bottom-left = card 5 */
+            .feature-card:nth-child(3) { border-top-right-radius: 0; }
+            .feature-card:nth-child(2) { border-top-right-radius: 11px; }
+            .feature-card:nth-child(4) { border-bottom-left-radius: 0; }
+            .feature-card:nth-child(5) { border-bottom-left-radius: 11px; }
+        }
+
+        @media (max-width: 640px) {
+            .container { padding: 0 20px; } header { padding: 14px 20px; }
+            .logo-text { display: none; } h1 { font-size: 46px; }
+            .lang-code { display: none; }
+            .lang-select-btn { padding: 6px 8px; gap: 4px; }
+            .rv-label { display: none; }
+            .rv-btn { padding: 6px 8px; gap: 0; }
+            .btn-manage { padding: 6px 12px; font-size: 10px; letter-spacing: 1.5px; border-radius: 6px; }
+            .btn-manage-full { display: none; }
+            .btn-manage-short { display: inline; }
+            .btn-docs-full { display: none; }
+            .btn-docs-short { display: inline; }
+            .features-grid { grid-template-columns: 1fr; }
+            /* 1 colonne : card 1 = top-left+top-right, card 6 = bottom-left+bottom-right */
+            .feature-card:nth-child(2) { border-top-right-radius: 0; }
+            .feature-card:nth-child(5) { border-bottom-left-radius: 0; }
+            .feature-card:first-child { border-top-right-radius: 11px; }
+            .feature-card:last-child { border-bottom-left-radius: 11px; }
+            .cta-group { flex-direction: column; } .btn { width: 100%; text-align: center; }
+            .features, .pricing, .faq { padding: 50px 0; }
+            .price-card { padding: 40px 24px; }
+            .hero-trust { flex-direction: column; gap: 12px; }
+            .hero-inner { width: 100%; }
+            .price-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ═══ MMORPG Visual Enhancements ═══ */
+        .hero-bracket { position: absolute; width: 48px; height: 48px; opacity: 0.2; pointer-events: none; }
+        .hero-bracket.tl { top: -8px; left: -8px; border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); }
+        .hero-bracket.tr { top: -8px; right: -8px; border-top: 2px solid var(--gold); border-right: 2px solid var(--gold); }
+        .hero-bracket.bl { bottom: -8px; left: -8px; border-bottom: 2px solid var(--gold); border-left: 2px solid var(--gold); }
+        .hero-bracket.br { bottom: -8px; right: -8px; border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold); }
+
+        .skill-badge { display: inline-block; font-family: 'Inter', sans-serif; font-size: 8px; font-weight: 700; padding: 3px 8px; border-radius: 3px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
+        .skill-active { background: rgba(76,175,80,0.12); border: 1px solid rgba(76,175,80,0.35); color: var(--green); }
+        .skill-passive { background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.3); color: var(--gold); }
+
+        .feature-card::before { content: attr(data-skill); position: absolute; bottom: 20px; right: 20px; font-family: 'Cinzel', serif; font-size: 28px; font-weight: 900; color: rgba(212,175,55,0.06); line-height: 1; pointer-events: none; }
+
+        .price-rank { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 20px; opacity: 0.7; display: flex; align-items: center; gap: 8px; }
+        .price-rank::before, .price-rank::after { content: ''; flex: 1; height: 1px; background: rgba(212,175,55,0.15); }
+        .price-card.featured .price-rank { color: var(--gold); opacity: 0.8; }
+        .price-card.featured .price-rank::before, .price-card.featured .price-rank::after { background: rgba(212,175,55,0.3); }
+        .price-card.exclusive .price-rank { color: var(--green); opacity: 0.8; }
+        .price-card.exclusive .price-rank::before, .price-card.exclusive .price-rank::after { background: rgba(76,175,80,0.25); }
+
+        .section-ornament { display: flex; align-items: center; gap: 14px; margin: 0 auto 24px; max-width: 280px; }
+        .section-ornament::before, .section-ornament::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(212,175,55,0.4)); }
+        .section-ornament::after { background: linear-gradient(90deg, rgba(212,175,55,0.4), transparent); }
+        .section-ornament span { font-size: 10px; color: var(--gold); opacity: 0.6; letter-spacing: 4px; white-space: nowrap; }
+
+        .price-card.featured { animation: featuredPulse 3s ease-in-out infinite; }
+        @keyframes featuredPulse { 0%, 100% { box-shadow: 0 0 60px rgba(212,175,55,0.12), inset 0 1px 0 rgba(212,175,55,0.3); } 50% { box-shadow: 0 0 80px rgba(212,175,55,0.2), inset 0 1px 0 rgba(212,175,55,0.4); } }
+        .stat-number { text-shadow: 0 0 30px rgba(212,175,55,0.3); }
+        .feature-card:hover .feature-icon { filter: drop-shadow(0 0 14px rgba(212,175,55,0.6)); transform: scale(1.05); }
+
+        /* Security section cards */
+        .sec-card { padding: 28px 24px; background: var(--dark-card); border: 1px solid var(--border); border-radius: 12px; transition: background 0.3s ease; }
+        .sec-card:hover { background: var(--dark-header); }
+        .sec-card-icon { font-size: 32px; margin-bottom: 12px; }
+        .sec-card-title { font-family: 'Cinzel', serif; font-size: 14px; font-weight: 600; color: var(--gold); margin-bottom: 8px; }
+        .sec-card-text { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+
+        /* Bouton gérer abonnement */
+        .btn-manage { background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.35); padding: 7px 18px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; color: var(--gold); text-transform: uppercase; letter-spacing: 2.5px; text-decoration: none; transition: background 0.3s ease, border-color 0.3s ease; white-space: nowrap; }
+        .btn-manage:hover { background: rgba(212,175,55,0.16); border-color: rgba(212,175,55,0.7); }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.svg">
+
+    <!-- ── Schema.org JSON-LD ─────────────────────────────────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://reborn-assistance.fr/#organization",
+          "name": "Reborn Assistant",
+          "url": "https://reborn-assistance.fr/",
+          "logo": "https://reborn-assistance.fr/favicon.svg",
+          "founder": { "@type": "Person", "name": "Seymoon" },
+          "sameAs": [
+            "https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://reborn-assistance.fr/#website",
+          "url": "https://reborn-assistance.fr/",
+          "name": "Reborn Assistant",
+          "description": "Extension premium d'automatisation Ringmaster pour Flyff Universe.",
+          "publisher": { "@id": "https://reborn-assistance.fr/#organization" },
+          "inLanguage": ["fr", "en", "es", "de", "pt", "it", "nl", "pl", "ru", "tr", "ja", "ko", "tl", "zh", "ar"]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Reborn Assistant",
+          "operatingSystem": "Windows, macOS, Linux, ChromeOS (via Chrome, Edge, Brave)",
+          "applicationCategory": "BrowserApplication",
+          "applicationSubCategory": "Game Automation Extension",
+          "url": "https://reborn-assistance.fr/",
+          "downloadUrl": "https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme",
+          "image": "https://reborn-assistance.fr/og-image.png",
+          "description": "Extension Chrome premium dédiée à l'automatisation du Ringmaster sur Flyff Universe. Macros configurables, séquences automatiques, raccourcis clavier, support de 15 langues.",
+          "softwareVersion": "1.3",
+          "publisher": { "@id": "https://reborn-assistance.fr/#organization" },
+          "offers": [
+            { "@type": "Offer", "name": "Voyageur (Gratuit)", "price": "0", "priceCurrency": "EUR", "category": "free" },
+            { "@type": "Offer", "name": "Aventurier (Mensuel)", "price": "2.99", "priceCurrency": "EUR", "category": "subscription" },
+            { "@type": "Offer", "name": "Champion (Annuel)", "price": "29.99", "priceCurrency": "EUR", "category": "subscription" },
+            { "@type": "Offer", "name": "Légende (À Vie)", "price": "99.99", "priceCurrency": "EUR", "category": "lifetime" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "L'essai gratuit nécessite-t-il une carte bancaire ?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Non, aucune carte bancaire n'est requise. Les 7 premiers jours sont entièrement gratuits, sans engagement." }
+            },
+            {
+              "@type": "Question",
+              "name": "Puis-je changer de plan à tout moment ?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Oui, vous pouvez passer à un plan supérieur ou inférieur à tout moment depuis votre espace client. Aucun frais de changement." }
+            },
+            {
+              "@type": "Question",
+              "name": "Le plan À Vie inclut-il vraiment toutes les futures mises à jour ?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Absolument. Le plan À Vie vous garantit l'accès à toutes les mises à jour et nouvelles fonctionnalités futures." }
+            },
+            {
+              "@type": "Question",
+              "name": "Mes données sont-elles en sécurité ?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Toutes vos données restent stockées localement sur votre appareil. Nous ne collectons aucune donnée personnelle et n'utilisons aucun tracking." }
+            },
+            {
+              "@type": "Question",
+              "name": "Reborn Assistant est-il un bot ?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Au sens strict, Reborn Assistant n'est pas un bot conventionnel. C'est une extension de macros configurables qui automatise des séquences de touches que vous définissez vous-même. Aucune intelligence artificielle, aucune interaction avec le serveur du jeu, aucune lecture de la mémoire. L'extension ne lit ni ne modifie les données du jeu : elle simule seulement les touches que vous taperiez manuellement." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- ── hreflang ───────────────────────────────────── -->
+    <link rel="alternate" hreflang="fr" href="https://reborn-assistance.fr/">
+    <link rel="alternate" hreflang="en" href="https://reborn-assistance.fr/en/">
+    <link rel="alternate" hreflang="es" href="https://reborn-assistance.fr/es/">
+    <link rel="alternate" hreflang="de" href="https://reborn-assistance.fr/de/">
+    <link rel="alternate" hreflang="pt" href="https://reborn-assistance.fr/pt/">
+    <link rel="alternate" hreflang="it" href="https://reborn-assistance.fr/it/">
+    <link rel="alternate" hreflang="nl" href="https://reborn-assistance.fr/nl/">
+    <link rel="alternate" hreflang="pl" href="https://reborn-assistance.fr/pl/">
+    <link rel="alternate" hreflang="ru" href="https://reborn-assistance.fr/ru/">
+    <link rel="alternate" hreflang="tr" href="https://reborn-assistance.fr/tr/">
+    <link rel="alternate" hreflang="ja" href="https://reborn-assistance.fr/ja/">
+    <link rel="alternate" hreflang="ko" href="https://reborn-assistance.fr/ko/">
+    <link rel="alternate" hreflang="tl" href="https://reborn-assistance.fr/tl/">
+    <link rel="alternate" hreflang="zh" href="https://reborn-assistance.fr/zh/">
+    <link rel="alternate" hreflang="ar" href="https://reborn-assistance.fr/ar/">
+    <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/">
+    <!-- ── /hreflang ── -->
+    <script>window.__PRERENDERED_LANG__="it";</script>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <div class="logo-icon">R</div>
+            <div class="logo-text">Reborn</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+            <a class="rv-btn" href="https://reborn-vision.com" target="_blank" rel="noopener" title="Reborn Vision Extension" aria-label="Reborn Vision Extension" style="display:flex;align-items:center;gap:7px;background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.25);border-radius:8px;padding:6px 12px;text-decoration:none;transition:all 0.2s ease;" onmouseover="this.style.background='rgba(212,175,55,0.12)';this.style.borderColor='rgba(212,175,55,0.45)'" onmouseout="this.style.background='rgba(212,175,55,0.06)';this.style.borderColor='rgba(212,175,55,0.25)'"><img src="https://reborn-vision.com/favicon.svg" alt="Logo Reborn Vision" width="20" height="20" style="border-radius:4px;flex-shrink:0;" onerror="this.style.display='none'"><span class="rv-label" style="font-family:'Cinzel',serif;font-size:10px;font-weight:600;letter-spacing:1px;color:var(--gold);">Reborn Vision Extension</span></a>
+            <div class="lang-select">
+                <button class="lang-select-btn" onclick="toggleLangMenu()">
+                    <span class="lang-flag">🇮🇹</span>
+                    <span class="lang-code">IT</span>
+                    <span class="lang-chevron">▾</span>
+                </button>
+                <div class="lang-select-menu">
+                    <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
+                    <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
+                    <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
+                    <button class="lang-option" data-lang="de" onclick="setLang('de')">🇩🇪 Deutsch</button>
+                    <button class="lang-option" data-lang="pt" onclick="setLang('pt')">🇧🇷 Português</button>
+                    <button class="lang-option" data-lang="it" onclick="setLang('it')">🇮🇹 Italiano</button>
+                    <button class="lang-option" data-lang="nl" onclick="setLang('nl')">🇳🇱 Nederlands</button>
+                    <button class="lang-option" data-lang="pl" onclick="setLang('pl')">🇵🇱 Polski</button>
+                    <button class="lang-option" data-lang="ru" onclick="setLang('ru')">🇷🇺 Русский</button>
+                    <button class="lang-option" data-lang="tr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
+                    <button class="lang-option" data-lang="ja" onclick="setLang('ja')">🇯🇵 日本語</button>
+                    <button class="lang-option" data-lang="ko" onclick="setLang('ko')">🇰🇷 한국어</button>
+                    <button class="lang-option" data-lang="tl" onclick="setLang('tl')">🇵🇭 Filipino</button>
+                    <button class="lang-option" data-lang="zh" onclick="setLang('zh')">🇨🇳 中文</button>
+                    <button class="lang-option" data-lang="ar" onclick="setLang('ar')">🇸🇦 العربية</button>
+                </div>
+            </div>
+            <a href="/it/docs/index.html" style="font-family:'Cinzel',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;color:var(--gold);padding:6px 12px;border:1px solid rgba(212,175,55,0.4);border-radius:6px;transition:all 0.3s ease;background:rgba(212,175,55,0.05);" onmouseover="this.style.background='rgba(212,175,55,0.12)';this.style.borderColor='var(--gold)'" onmouseout="this.style.background='rgba(212,175,55,0.05)';this.style.borderColor='rgba(212,175,55,0.4)'" ><span class="btn-docs-full" data-i18n="nav.docsFull">📚 Documentazione</span><span class="btn-docs-short" data-i18n="nav.docsShort">📚 Docs</span></a>
+            <a onclick="openStripeWindow()" class="btn-manage" style="cursor:pointer;" role="button"><span class="btn-manage-full" data-i18n="nav.manageFull">Gestisci abbonamento</span><span class="btn-manage-short" data-i18n="nav.manageShort">Gestisci</span></a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-bracket tl"></div>
+            <div class="hero-bracket tr"></div>
+            <div class="hero-bracket bl"></div>
+            <div class="hero-bracket br"></div>
+            <div class="hero-eyebrow"><span></span> Browser Automation <span></span></div>
+            <h1>REBORN<br>ASSISTANT</h1>
+            <div class="hero-subtitle">Premium Automation</div>
+            <div class="hero-divider"></div>
+            <p class="hero-description" data-i18n="hero.description">Estensione di automazione del browser con macro avanzate. Automatizza le tue azioni ripetitive, scorciatoie e sequenze per ottimizzare la tua produttività.</p>
+            <div class="cta-group">
+                <a href="#pricing" class="btn btn-primary" data-i18n="hero.ctaPrimary">Inizia ora</a>
+                <a href="#features" class="btn btn-secondary" data-i18n="hero.ctaSecondary">Scopri di più</a>
+            </div>
+            <div class="hero-trust">
+                <div class="hero-trust-item"><span class="dot-green"></span> <span data-i18n="hero.trust1">Versione gratuita disponibile</span></div>
+                <div class="hero-trust-item"><span class="dot-green"></span> <span data-i18n="hero.trust2">Senza impegno</span></div>
+                <div class="hero-trust-item"><span class="dot-green"></span> <span data-i18n="hero.trust3">Pagamento 100% sicuro</span></div>
+                <div class="hero-trust-item"><span class="dot-green"></span> <span data-i18n="hero.trust4">Aggiornamenti automatici</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chrome Web Store — Badge client -->
+    <div class="reveal" style="margin-top:16px;margin-bottom:16px;padding:0 40px;">
+        <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" style="display:block;max-width:560px;margin:0 auto;text-decoration:none;">
+        <div style="background:rgba(14,14,12,0.95);border:1px solid rgba(255,255,255,0.08);border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.45);transition:transform 0.25s ease,box-shadow 0.25s ease;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 28px 70px rgba(0,0,0,0.55)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 20px 60px rgba(0,0,0,0.45)'">
+
+            <!-- Bande Google en haut -->
+            <div style="height:3px;background:linear-gradient(90deg,#4285F4 25%,#EA4335 25%,#EA4335 50%,#FBBC05 50%,#FBBC05 75%,#34A853 75%);"></div>
+
+            <div style="padding:28px 32px;display:flex;align-items:center;gap:20px;">
+
+                <!-- Icône extension -->
+                <img src="/favicon.svg" alt="Reborn Assistant" width="56" height="56" style="object-fit:contain;border-radius:14px;border:1px solid rgba(255,255,255,0.08);flex-shrink:0;">
+
+                <!-- Texte central -->
+                <div style="flex:1;min-width:0;">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;">
+                        <span style="font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:rgba(255,255,255,0.92);">Reborn Assistant</span>
+                        <!-- Pastille vérifiée -->
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" title="Vérifié par Google"><circle cx="8" cy="8" r="8" fill="#34A853"/><path d="M4.5 8l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:6px;">
+                        <svg width="13" height="13" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                        <span style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:0.2px;">Google Chrome Web Store</span>
+                    </div>
+                </div>
+
+                <!-- CTA bouton -->
+                <div style="flex-shrink:0;background:#1a73e8;border-radius:8px;padding:10px 20px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:#fff;letter-spacing:0.3px;white-space:nowrap;" data-i18n="store.install">Installa</div>
+
+            </div>
+
+            <!-- Bande verte statut -->
+            <div style="padding:10px 32px;background:rgba(52,168,83,0.06);border-top:1px solid rgba(52,168,83,0.12);display:flex;align-items:center;gap:8px;">
+                <div style="width:6px;height:6px;background:#34A853;border-radius:50%;box-shadow:0 0 6px rgba(52,168,83,0.7);animation:pulse 2s infinite;flex-shrink:0;"></div>
+                <span style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(52,168,83,0.9);font-weight:500;letter-spacing:0.3px;" data-i18n="store.available">Disponibile gratuitamente · Estensione ufficiale verificata da Google</span>
+            </div>
+
+        </div>
+        </a>
+    </div>
+
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag" data-i18n="features.tag">Abilità & Competenze</div>
+                <h2 class="section-title"><span data-i18n="features.titleBefore">Tutto ciò che </span><em data-i18n="features.titleEm">ti serve</em></h2>
+                <div class="section-ornament"><span>◆ ◆ ◆</span></div>
+                <p class="section-subtitle" data-i18n="features.subtitle">Scopri le straordinarie capacità di Reborn Assistant.</p>
+            </div>
+            <div class="features-grid reveal">
+                <div class="feature-card" data-skill="I">
+                    <div class="skill-badge skill-active" data-i18n="features.card1.badge">Attivo</div>
+                    <span class="feature-icon">⚡</span>
+                    <h3 class="feature-title" data-i18n="features.card1.title">Automazione Completa</h3>
+                    <p class="feature-description" data-i18n="features.card1.description">Macro di tasti, sequenze automatiche e azioni configurabili per un'automazione completa.</p>
+                </div>
+                <div class="feature-card" data-skill="II">
+                    <div class="skill-badge skill-passive" data-i18n="features.card2.badge">Passivo</div>
+                    <span class="feature-icon">🛡️</span>
+                    <h3 class="feature-title" data-i18n="features.card2.title">Sicurezza Massima</h3>
+                    <p class="feature-description" data-i18n="features.card2.description">I tuoi dati rimangono locali. Nessun tracciamento, nessuna telemetria.</p>
+                </div>
+                <div class="feature-card" data-skill="III">
+                    <div class="skill-badge skill-active" data-i18n="features.card3.badge">Attivo</div>
+                    <span class="feature-icon">🎯</span>
+                    <h3 class="feature-title" data-i18n="features.card3.title">Macro Personalizzabili</h3>
+                    <p class="feature-description" data-i18n="features.card3.description">3 macro configurabili con attivatori automatici e scorciatoie da tastiera.</p>
+                </div>
+                <div class="feature-card" data-skill="IV">
+                    <div class="skill-badge skill-passive" data-i18n="features.card4.badge">Passivo</div>
+                    <span class="feature-icon">🎨</span>
+                    <h3 class="feature-title" data-i18n="features.card4.title">Interfaccia Personalizzabile</h3>
+                    <p class="feature-description" data-i18n="features.card4.description">Scegli tra 6 temi e adatta l'interfaccia alle tue esigenze.</p>
+                </div>
+                <div class="feature-card" data-skill="V">
+                    <div class="skill-badge skill-passive" data-i18n="features.card5.badge">Passivo</div>
+                    <span class="feature-icon">🌐</span>
+                    <h3 class="feature-title" data-i18n="features.card5.title">Multi-Lingua</h3>
+                    <p class="feature-description" data-i18n="features.card5.description">Disponibile in 15 lingue. Supporto mondiale con interfacce localizzate.</p>
+                </div>
+                <div class="feature-card" data-skill="VI">
+                    <div class="skill-badge skill-passive" data-i18n="features.card6.badge">Gratuito</div>
+                    <span class="feature-icon">🔄</span>
+                    <h3 class="feature-title" data-i18n="features.card6.title">Versione Gratuita</h3>
+                    <p class="feature-description" data-i18n="features.card6.description">Prova gratis con le funzioni di base incluse.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Sécurité Premium -->
+    <section style="padding:100px 0;background:linear-gradient(180deg,rgba(212,175,55,0.02) 0%,transparent 100%);position:relative;z-index:1;">
+        <div class="container">
+            <div class="reveal" style="max-width:900px;margin:0 auto;text-align:center;">
+                <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:32px;padding:10px 24px;border:1px solid rgba(76,175,80,0.3);border-radius:30px;background:rgba(76,175,80,0.05);">
+                    <div style="width:8px;height:8px;background:#4CAF50;border-radius:50%;box-shadow:0 0 10px rgba(76,175,80,0.8);animation:pulse 2s infinite;"></div>
+                    <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:600;color:#4CAF50;text-transform:uppercase;letter-spacing:3px;" data-i18n="security.tag">Sicurezza</span>
+                </div>
+
+                <h2 style="font-family:'Cinzel',serif;font-size:clamp(28px,4vw,42px);font-weight:700;color:var(--text);margin-bottom:24px;line-height:1.2;">
+                    <span data-i18n="security.titleBefore">Sicurezza di livello </span><span style="background:linear-gradient(135deg,var(--gold-dark),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;" data-i18n="security.titleEm">professionale</span><span data-i18n="security.titleAfter"></span>
+                </h2>
+
+                <p style="font-family:'Inter',sans-serif;font-size:17px;font-weight:300;color:var(--text-dim);line-height:1.9;margin-bottom:48px;" data-i18n="security.description">Reborn Assistant utilizza gli stessi standard di sicurezza delle piattaforme di streaming mondiali. Le tue credenziali sono protette da <strong style='color:var(--gold);'>crittografia JWT</strong>, i tuoi pagamenti garantiti tramite <strong style='color:var(--gold);'>Stripe</strong>, e i tuoi dati rimangono <strong style='color:var(--gold);'>100% locali</strong>. Nessun tracciamento, nessuna rivendita di dati.</p>
+
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-top:48px;">
+                    <div class="sec-card">
+                        <div class="sec-card-icon">🔐</div>
+                        <div class="sec-card-title" data-i18n="security.card1Title">Crittografia JWT</div>
+                        <div class="sec-card-text" data-i18n="security.card1Text">Autenticazione sicura di livello bancario</div>
+                    </div>
+                    <div class="sec-card">
+                        <div class="sec-card-icon">💳</div>
+                        <div class="sec-card-title" data-i18n="security.card2Title">Pagamento con Stripe</div>
+                        <div class="sec-card-text" data-i18n="security.card2Text">Processore utilizzato da Amazon e Google</div>
+                    </div>
+                    <div class="sec-card">
+                        <div class="sec-card-icon">🛡️</div>
+                        <div class="sec-card-title" data-i18n="security.card3Title">Zero Tracciamento</div>
+                        <div class="sec-card-text" data-i18n="security.card3Text">I tuoi dati non lasciano mai il tuo dispositivo</div>
+                    </div>
+                    <div class="sec-card">
+                        <div class="sec-card-icon">🔒</div>
+                        <div class="sec-card-title">Google Cloud</div>
+                        <div class="sec-card-text" data-i18n="security.card4Text">Infrastruttura sicura di Google Cloud</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag" data-i18n="pricing.tag">Scegli la tua Classe</div>
+                <h2 class="section-title"><span data-i18n="pricing.titleBefore">Scegli il tuo </span><em data-i18n="pricing.titleEm">rango</em></h2>
+                <div class="section-ornament"><span>◆ ◆ ◆</span></div>
+                <p class="section-subtitle" data-i18n="pricing.subtitle">Scegli la formula più adatta a te. Senza impegno.</p>
+            </div>
+
+            <div class="reveal">
+                <div class="price-grid">
+                    <div class="price-card">
+                        <div class="price-rank" data-i18n="pricing.voyageur.rank">Rango I · Viaggiatore</div>
+                        <div class="price-plan" data-i18n="pricing.voyageur.plan">Gratuito</div>
+                        <div class="price-amount">0€</div>
+                        <div class="price-period" data-i18n="pricing.voyageur.period">per sempre</div>
+                        <div class="price-divider"></div>
+                        <ul class="price-features">
+                            <li data-i18n="pricing.voyageur.feat1">Macro di cura</li>
+                            <li data-i18n="pricing.voyageur.feat2">6 temi visivi</li>
+                            <li data-i18n="pricing.voyageur.feat3">15 lingue disponibili</li>
+                            <li data-i18n="pricing.voyageur.feat4">Interfaccia flottante</li>
+                        </ul>
+                        <div class="price-guarantee" data-i18n="pricing.voyageur.guarantee">🔒 Gratuito per sempre</div>
+                        <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" class="btn-download"><svg width="13" height="13" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span data-i18n="pricing.voyageur.download">Aggiungi a Chrome</span></a>
+                    </div>
+
+                    <div class="price-card">
+                        <div class="price-rank" data-i18n="pricing.aventurier.rank">Rango II · Avventuriero</div>
+                        <div class="price-plan" data-i18n="pricing.aventurier.plan">Mensile</div>
+                        <div class="price-amount">2,99€</div>
+                        <div class="price-period" data-i18n="pricing.aventurier.period">al mese</div>
+                        <div class="price-divider"></div>
+                        <ul class="price-features">
+                            <li data-i18n="pricing.aventurier.feat1">Tutte le funzioni Premium</li>
+                            <li data-i18n="pricing.aventurier.feat2">Supporto prioritario</li>
+                            <li data-i18n="pricing.aventurier.feat3">Aggiornamenti gratuiti</li>
+                        </ul>
+                        <a href="https://buy.stripe.com/bJe3cufUWbhUcuCeTVe3e02" target="_blank" class="btn btn-primary btn-full" data-i18n="pricing.aventurier.btn">Prova Gratis</a>
+                        <div class="price-guarantee" data-i18n="pricing.aventurier.guarantee">🎁 7 giorni gratis · Senza carta di credito</div>
+                        <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" class="btn-download"><svg width="13" height="13" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span data-i18n="pricing.aventurier.download">Aggiungi a Chrome</span></a>
+                    </div>
+
+                    <div class="price-card featured">
+                        <div class="price-badge" data-i18n="pricing.champion.badge">⭐ Popolare -17%</div>
+                        <div class="price-rank" data-i18n="pricing.champion.rank">Rango III · Campione</div>
+                        <div class="price-plan" data-i18n="pricing.champion.plan">Annuale</div>
+                        <div class="price-amount">29,99€</div>
+                        <div class="price-period" data-i18n="pricing.champion.period">all'anno · 2,50€/mese</div>
+                        <div class="price-divider"></div>
+                        <ul class="price-features">
+                            <li data-i18n="pricing.champion.feat1">Tutte le funzioni Premium</li>
+                            <li data-i18n="pricing.champion.feat2">Supporto prioritario</li>
+                            <li data-i18n="pricing.champion.feat3">Aggiornamenti gratuiti</li>
+                        </ul>
+                        <a href="https://buy.stripe.com/5kQ9AS38a85IbqyeTVe3e01" target="_blank" class="btn btn-primary btn-full" data-i18n="pricing.champion.btn">Prova Gratis</a>
+                        <div class="price-guarantee" data-i18n="pricing.champion.guarantee">🎁 7 giorni gratis · Senza carta di credito</div>
+                        <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" class="btn-download"><svg width="13" height="13" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span data-i18n="pricing.champion.download">Aggiungi a Chrome</span></a>
+                    </div>
+
+                    <div class="price-card exclusive">
+                        <div class="price-badge" style="background:linear-gradient(135deg,#1a5c28,#2ea84a);color:#fff;border:none;" data-i18n="pricing.legende.badge">⚡ Offerta Limitata</div>
+                        <div class="price-rank" data-i18n="pricing.legende.rank">Rango IV · Leggenda</div>
+                        <div class="price-plan" data-i18n="pricing.legende.plan">A Vita</div>
+                        <div class="price-amount">99,99€</div>
+                        <div class="price-period" data-i18n="pricing.legende.period">pagamento unico · mai più</div>
+                        <div class="price-divider"></div>
+                        <ul class="price-features">
+                            <li data-i18n="pricing.legende.feat1">Accesso a vita</li>
+                            <li data-i18n="pricing.legende.feat2">Tutti gli aggiornamenti futuri</li>
+                            <li data-i18n="pricing.legende.feat3">Supporto premium dedicato</li>
+                            <li data-i18n="pricing.legende.feat4">Miglior rapporto qualità-prezzo</li>
+                        </ul>
+                        <a href="https://buy.stripe.com/6oU14m2464TwcuC3bde3e00" target="_blank" class="btn btn-secondary btn-full" data-i18n="pricing.legende.btn">Acquista</a>
+                        <div class="price-guarantee" data-i18n="pricing.legende.guarantee">🔒 Pagamento unico · Accesso garantito a vita</div>
+                        <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" class="btn-download"><svg width="13" height="13" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span data-i18n="pricing.legende.download">Aggiungi a Chrome</span></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Stats sous le pricing -->
+            <div class="stats reveal" style="margin-top:60px;border-radius:12px;">
+                <div class="stats-grid">
+                    <div class="stat-item"><div class="stat-number">15</div><div class="stat-label" data-i18n="stats.label1">Lingue disponibili</div></div>
+                    <div class="stat-item"><div class="stat-number">6</div><div class="stat-label" data-i18n="stats.label2">Temi visivi</div></div>
+                    <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label" data-i18n="stats.label3">Dati locali</div></div>
+                    <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label" data-i18n="stats.label4">Estensione attiva</div></div>
+                </div>
+            </div>
+
+            <!-- Trust badges -->
+            <div class="trust-bar reveal" style="border-top:none;margin-top:0;">
+                <div class="trust-badges">
+                    <div class="trust-badge"><div class="trust-badge-icon">🔒</div> <span data-i18n="trust.badge1">Pagamento sicuro SSL</span></div>
+                    <div class="trust-badge"><div class="trust-badge-icon">⚡</div> <span data-i18n="trust.badge2">Accesso immediato</span></div>
+                    <div class="trust-badge"><div class="trust-badge-icon">🛡️</div> <span data-i18n="trust.badge3">Dati 100% privati</span></div>
+                    <div class="trust-badge"><div class="trust-badge-icon">💬</div> <span data-i18n="trust.badge4">Supporto reattivo</span></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">FAQ</div>
+                <h2 class="section-title"><span data-i18n="faq.titleBefore">Domande </span><em data-i18n="faq.titleEm">frequenti</em></h2>
+                <div class="section-ornament"><span>◆ ◆ ◆</span></div>
+                <p class="section-subtitle" data-i18n="faq.subtitle">Tutto quello che devi sapere prima di iniziare.</p>
+            </div>
+            <div class="faq-list reveal">
+                <div class="faq-item">
+                    <button class="faq-question"><span data-i18n="faq.q1">La prova gratuita richiede una carta di credito?</span> <span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p data-i18n="faq.a1">No, non è necessaria alcuna carta di credito. I primi 7 giorni sono completamente gratuiti, senza impegno. Crea semplicemente il tuo account per iniziare subito.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question"><span data-i18n="faq.q2">Posso cambiare piano in qualsiasi momento?</span> <span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p data-i18n="faq.a2">Sì, puoi passare a un piano superiore o inferiore in qualsiasi momento dal tuo account. Nessun costo di cambio.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question"><span data-i18n="faq.q3">Il piano A Vita include davvero tutti gli aggiornamenti futuri?</span> <span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p data-i18n="faq.a3">Assolutamente. Il piano A Vita ti garantisce l'accesso a tutti gli aggiornamenti e alle nuove funzioni future, senza pagare nulla in più.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question"><span data-i18n="faq.q4">I miei dati sono al sicuro?</span> <span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p data-i18n="faq.a4">Tutti i tuoi dati sono memorizzati localmente sul tuo dispositivo. Non raccogliamo dati personali né utilizziamo tracciamento o telemetria.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question"><span data-i18n="faq.q5">Come contattare il supporto?</span> <span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p data-i18n="faq.a5">Contattaci via e-mail all'indirizzo seymoon.cell@gmail.com o su Discord (Seymoon). Gli abbonati premium ricevono una risposta prioritaria.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question"><span data-i18n="faq.q6">Reborn Assistant è un bot?</span> <span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p data-i18n="faq.a6">In senso stretto, Reborn Assistant non è un bot convenzionale. È un'estensione di macro configurabili che automatizza sequenze di tasti che definisci tu stesso. Nessuna intelligenza artificiale, nessuna interazione con il server di gioco, nessuna lettura della memoria. L'estensione non legge né modifica i dati di gioco — simula solo i tasti che premeresti manualmente. È tua responsabilità rispettare i Termini di Servizio.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">REBORN ASSISTANT</div>
+                <div class="footer-links">
+                    <a href="/it/docs/index.html">Documentation</a>
+                    <a href="/it/docs/privacy.html#confidentialite" data-i18n="footer.privacy">Privacy</a>
+                    <a href="/it/docs/privacy.html" data-i18n="footer.terms">Termini di Utilizzo</a>
+                    <a href="/it/docs/troubleshooting.html">Support</a>
+                    <a href="/cdn-cgi/l/email-protection#f88b9d8195979796d69b9d9494b89f95999194d69b9795">Contact</a>
+                </div>
+                <div class="copyright" data-i18n="footer.copyright">© 2026 Reborn Assistant. Tutti i diritti riservati.<br>Sviluppato da Seymoon</div>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script type="module" src="/langs/index.js"></script>
+    <script>
+        // ── Particles ──
+        for (let i = 0; i < 25; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = (Math.random() * 100) + '%';
+            const s = (Math.random() * 3 + 2) + 'px';
+            p.style.width = p.style.height = s;
+            p.style.animationDuration = (Math.random() * 12 + 8) + 's';
+            p.style.animationDelay = (Math.random() * 12) + 's';
+            document.body.appendChild(p);
+        }
+
+        // ── Reveal on scroll ──
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // ── FAQ accordion ──
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.faq-item');
+                const wasOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                if (!wasOpen) item.classList.add('open');
+            });
+        });
+
+        // ── Stripe Billing Window ──
+        function openStripeWindow() {
+            const url  = 'https://billing.stripe.com/p/login/5kQ9AS38a85IbqyeTVe3e01';
+            const w = 500, h = 780;
+            const left = Math.round((screen.width  - w) / 2);
+            const top  = Math.round((screen.height - h) / 2);
+            const specs = `width=${w},height=${h},left=${left},top=${top},resizable=yes,scrollbars=yes,status=no,toolbar=no,menubar=no,location=no`;
+            const win = window.open(url, 'stripe_billing', specs);
+            if (win) win.focus();
+            else window.open(url, '_blank', 'noopener,noreferrer');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!-- © 2026 Reborn Assistant — All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ringmaster Flyff Universe — Complete 2026 Class Guide (Builds, Buffs)</title>
+    <meta name="description" content="Complete Ringmaster guide for Flyff Universe: role, essential buffs, STA/INT builds, gear, rotation, automation. Everything to master the support class.">
+    <meta name="keywords" content="Ringmaster guide, RM Flyff Universe, Flyff support class, Ringmaster build, RM buffs, Mentalist vs Ringmaster, FWC RM">
+    <meta name="author" content="Seymoon">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#080808">
+    <link rel="canonical" href="https://reborn-assistance.fr/en/docs/flyff-universe-ringmaster-class-guide.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Reborn Assistant">
+    <meta property="og:title" content="Ringmaster Flyff Universe — Complete 2026 Class Guide">
+    <meta property="og:description" content="Role, essential buffs, builds, gear and automation: everything to master the Ringmaster on Flyff Universe.">
+    <meta property="og:url" content="https://reborn-assistance.fr/en/docs/flyff-universe-ringmaster-class-guide.html">
+    <meta property="og:image" content="https://reborn-assistance.fr/og-image.png">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ringmaster Flyff Universe — Complete 2026 Class Guide">
+    <meta name="twitter:description" content="Role, buffs, builds, gear: mastering the Ringmaster on Flyff Universe.">
+    <meta name="twitter:image" content="https://reborn-assistance.fr/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="alternate" hreflang="fr" href="https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html">
+    <link rel="alternate" hreflang="en" href="https://reborn-assistance.fr/en/docs/flyff-universe-ringmaster-class-guide.html">
+    <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html">
+
+    <style>
+        :root { --gold:#d4af37;--gold-light:#f4d03f;--gold-dark:#b8941f;--dark-bg:#080808;--green:#4CAF50;--red:#ff6b6b;--blue:#5dade2;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
+        * { margin:0;padding:0;box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.8; }
+        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
+        .container { max-width:880px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
+        .breadcrumb { font-size:12px;color:var(--text-dim);margin-bottom:32px;letter-spacing:1px; }
+        .breadcrumb a { color:var(--gold);text-decoration:none; }
+        h1 { font-family:'Cinzel',serif;font-size:clamp(30px,5vw,44px);color:var(--gold);letter-spacing:1.5px;line-height:1.1;margin-bottom:20px; }
+        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:48px;line-height:1.6; }
+        h2 { font-family:'Cinzel',serif;font-size:26px;color:var(--text);margin:56px 0 20px;padding-bottom:14px;border-bottom:1px solid var(--border);letter-spacing:0.5px; }
+        h3 { font-size:19px;color:var(--gold);margin:28px 0 12px;font-weight:600; }
+        p { margin-bottom:18px;font-size:15.5px; }
+        ul, ol { margin:14px 0 22px 24px; }
+        li { margin:8px 0;font-size:15.5px; }
+        strong { color:var(--gold); }
+        code { background:rgba(20,20,16,0.9);padding:3px 9px;border-radius:4px;font-family:'Courier New',monospace;font-size:13px;color:var(--gold-light); }
+        .stats-table { width:100%;border-collapse:collapse;margin:24px 0;background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;overflow:hidden; }
+        .stats-table th { background:rgba(212,175,55,0.1);padding:14px 16px;font-weight:600;text-align:left;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--gold); }
+        .stats-table td { padding:14px 16px;border-top:1px solid var(--border);font-size:14px; }
+        .buff-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:24px 0; }
+        .buff-card { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:10px;padding:20px; }
+        .buff-card.priority { border-color:var(--gold);background:rgba(212,175,55,0.04); }
+        .buff-name { font-family:'Cinzel',serif;color:var(--gold);font-size:16px;font-weight:600;margin-bottom:8px; }
+        .buff-meta { font-size:11px;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px; }
+        .buff-desc { font-size:13px;line-height:1.6;color:var(--text-dim); }
+        .callout { background:rgba(212,175,55,0.08);border-left:4px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:4px; }
+        .role-card { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;padding:24px;margin:20px 0; }
+        .role-icon { font-size:28px;margin-bottom:10px; }
+        .back-link { display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;text-decoration:none;transition:all 0.3s; }
+        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
+        .cta-box { background:linear-gradient(160deg,rgba(212,175,55,0.06),rgba(20,20,16,0.6));border:1px solid var(--gold);border-radius:14px;padding:32px;margin:48px 0;text-align:center; }
+        .cta-box h3 { color:var(--gold);font-family:'Cinzel',serif;font-size:22px;margin-bottom:14px; }
+        .btn-cta { display:inline-block;background:linear-gradient(135deg,#2d5016,#4CAF50,#5dd87a);color:#fff;padding:14px 32px;text-decoration:none;font-family:'Cinzel',serif;font-weight:600;letter-spacing:1.5px;border-radius:6px;font-size:13px;text-transform:uppercase;margin-top:8px; }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.svg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Ringmaster Flyff Universe — Complete 2026 Class Guide",
+      "description": "Complete Ringmaster guide for Flyff Universe: role, essential buffs, STA/INT builds, gear, rotation, automation.",
+      "image": "https://reborn-assistance.fr/og-image.png",
+      "author": { "@type": "Person", "name": "Seymoon" },
+      "publisher": { "@type": "Organization", "name": "Reborn Assistant", "logo": { "@type": "ImageObject", "url": "https://reborn-assistance.fr/favicon.svg" } },
+      "datePublished": "2026-05-16",
+      "dateModified": "2026-05-16",
+      "mainEntityOfPage": "https://reborn-assistance.fr/en/docs/flyff-universe-ringmaster-class-guide.html",
+      "inLanguage": "en"
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <a href="/en/docs/index.html" class="back-link">← Back to docs</a>
+        <div class="breadcrumb" style="margin-top:24px;">
+            <a href="/en/">Home</a> › <a href="/en/docs/index.html">Documentation</a> › Ringmaster Guide
+        </div>
+
+        <h1>Ringmaster Flyff Universe — Complete 2026 Class Guide</h1>
+        <p class="subtitle">Role, buffs, builds, gear, rotation: everything you need to play Ringmaster on Flyff Universe in 2026, from level 60 to end-game.</p>
+
+        <h2>What is a Ringmaster?</h2>
+        <p>The <strong>Ringmaster</strong> (RM) is the final advancement of the Assist branch on Flyff Universe. It is <strong>the support class of the game</strong>: its main role isn't dealing damage, but <em>keeping a group alive and making them more powerful</em> through long-duration buffs and a looping AOE heal. Without a Ringmaster, an end-game group takes two to three times longer to clear a zone — and survives accidental pulls far less reliably.</p>
+
+        <p>Key characteristics:</p>
+        <ul>
+            <li><strong>Long-duration buffs</strong> (5 to 30 minutes) boosting group stats: attack, defense, speed, dodge</li>
+            <li><strong>Heal Rain</strong>, an AOE that heals over time all allies within ~12-15m</li>
+            <li><strong>Resurrection</strong> of dead players without experience penalty</li>
+            <li><strong>Very low personal burst damage</strong> — the RM kills nothing efficiently alone</li>
+            <li><strong>Nearly always requires a group</strong> or an alt to buff/heal</li>
+        </ul>
+
+        <h2>The Ringmaster's role in a group</h2>
+        <p>Three main roles depending on context:</p>
+
+        <div class="role-card">
+            <div class="role-icon">⚔️</div>
+            <h3 style="margin-top:0;">Fast farming (classic PvE)</h3>
+            <p>You accompany one or more DPS at a farm spot. Your job: rebuff every 5 minutes, keep Heal Rain rolling, watch FP. Highly repetitive — exactly where automation shines.</p>
+        </div>
+
+        <div class="role-card">
+            <div class="role-icon">🐉</div>
+            <h3 style="margin-top:0;">Raids &amp; bosses</h3>
+            <p>Bosses with high burst damage like Glaphan, Bang, Aibatt. Rhythm changes: less periodic heal, more burst heals, sometimes Resurrection to anticipate. Automation takes a back seat here — you need to stay hands-on.</p>
+        </div>
+
+        <div class="role-card">
+            <div class="role-icon">🏆</div>
+            <h3 style="margin-top:0;">FWC (Flyff World Championships)</h3>
+            <p>Organized competition, ultra-precise metagame. RMs are no longer just utility: they contribute to optimized comps with synchronized buff timings. Knowing rotations by heart becomes critical. Automation may be banned by tournament rules — always check.</p>
+        </div>
+
+        <h2>Essential Ringmaster buffs</h2>
+        <p>Buffs to master and include in your rotation, ranked by priority:</p>
+
+        <div class="buff-grid">
+            <div class="buff-card priority">
+                <div class="buff-name">Heart of Power (HoP)</div>
+                <div class="buff-meta">★ Top priority · 30 min</div>
+                <p class="buff-desc">STA + attack boost for the whole group. The Ringmaster's signature buff, always first in rotation.</p>
+            </div>
+            <div class="buff-card priority">
+                <div class="buff-name">Beef Up</div>
+                <div class="buff-meta">★ High priority · 15 min</div>
+                <p class="buff-desc">Raises group max HP. Critical in zones where a wipe is possible if anyone is missing HP cap.</p>
+            </div>
+            <div class="buff-card priority">
+                <div class="buff-name">Mental Sign</div>
+                <div class="buff-meta">★ High priority · 15 min</div>
+                <p class="buff-desc">Group INT boost. Huge for Mages, AOE Knights, and Rangers with magic-scaling skills.</p>
+            </div>
+            <div class="buff-card">
+                <div class="buff-name">Speed Pep</div>
+                <div class="buff-meta">15 min</div>
+                <p class="buff-desc">Attack speed boost. Game-changer for Blades and Rangers; less critical for Mages.</p>
+            </div>
+            <div class="buff-card">
+                <div class="buff-name">Cat's Reflex</div>
+                <div class="buff-meta">15 min</div>
+                <p class="buff-desc">Dodge boost. Useful in zones with many fast physical attacks.</p>
+            </div>
+            <div class="buff-card">
+                <div class="buff-name">Heal Rain</div>
+                <div class="buff-meta">AOE · ~15 sec</div>
+                <p class="buff-desc">Self-centered AOE heal. To re-cast continuously during farms. Covers all allies within 12-15m.</p>
+            </div>
+        </div>
+
+        <h2>STA vs INT — Which build to choose?</h2>
+        <p>Two main schools in 2026:</p>
+
+        <table class="stats-table">
+            <thead>
+                <tr><th>Criterion</th><th>Full STA Build</th><th>INT Hybrid Build</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Main stats</strong></td><td>Full STA, INT only as required for buffs</td><td>~50/50 STA/INT, sometimes 30/70</td></tr>
+                <tr><td><strong>HP / Survival</strong></td><td>Excellent — huge pool, survives accidental pulls</td><td>Average — demands more attention</td></tr>
+                <tr><td><strong>Heal power</strong></td><td>Decent — covers most situations</td><td>Excellent — Heal Rain and others scale strongly on INT</td></tr>
+                <tr><td><strong>FP pool</strong></td><td>Low — needs more potions</td><td>High — much more comfortable FP management</td></tr>
+                <tr><td><strong>Recommended for</strong></td><td>Beginners, low-danger farms, RM utility solo</td><td>Experienced players, hard raids, FWC, end-game</td></tr>
+            </tbody>
+        </table>
+
+        <p>Full STA remains the most forgiving and most-played. INT Hybrid is more demanding but rewards with significantly higher heal output — a must for competitive content.</p>
+
+        <h2>Recommended gear</h2>
+        <h3>Weapons</h3>
+        <ul>
+            <li><strong>Staff</strong> — best INT scaling, recommended for INT Hybrid</li>
+            <li><strong>Stick</strong> — balanced, versatile</li>
+            <li><strong>Shield</strong> off-hand — defense gain, strongly recommended in Full STA</li>
+        </ul>
+
+        <h3>Armor</h3>
+        <ul>
+            <li><strong>STA jewelry set</strong> for Full STA (Tinerbol, Lord, etc. depending on tier)</li>
+            <li><strong>INT or hybrid STA/INT set</strong> for INT Hybrid</li>
+            <li><strong>Always prioritize the full set</strong> for the 2/4/6-piece bonus</li>
+        </ul>
+
+        <h3>Jewelry</h3>
+        <p>Jewelry optimization is where the RM goes from decent to excellent. Use a calculator (see <a href="best-flyff-universe-tools-2026.html">our tool comparison</a>) to find the combination that maximizes your priority stat per tier.</p>
+
+        <h2>Rotation and pacing</h2>
+        <p>An efficient rotation in classic farm fits into 3 timings:</p>
+        <ul>
+            <li><strong>Every 5 minutes</strong> — full group rebuff (HoP → Beef Up → Mental Sign → Speed Pep → Cat's Reflex)</li>
+            <li><strong>Every 12-15 seconds</strong> — Heal Rain</li>
+            <li><strong>Continuous</strong> — monitoring individual HP for emergency burst heals</li>
+        </ul>
+
+        <p>The first two timings are mechanical and perfect for <strong>automation</strong>. The third demands human attention. That's the modern Ringmaster's key trade-off: automate the repetitive so you <strong>save your energy for the decisive moments</strong>.</p>
+
+        <div class="callout">
+            <strong>💡 Hands-on tutorial available</strong>
+            We've written a <a href="automate-ringmaster-flyff-universe.html" style="color:var(--gold);">step-by-step tutorial to automate your Ringmaster</a> with Reborn Assistant: rotation configuration, intervals, Heal Rain macro, and mistakes to avoid.
+        </div>
+
+        <h2>Ringmaster vs Mentalist — What's the difference?</h2>
+        <p>Two Assist branch classes often confused by beginners:</p>
+        <ul>
+            <li><strong>Ringmaster</strong> = full support, low personal damage, indispensable in groups, weak solo</li>
+            <li><strong>Mentalist</strong> = magic DPS orientation, can solo farm, loses some long-duration buffs</li>
+        </ul>
+        <p>If your intent is group play, FWC, or being a guild "pillar" → Ringmaster. If you want a more autonomous Assist class for solo play → Mentalist.</p>
+
+        <h2>Common Ringmaster beginner mistakes</h2>
+        <ul>
+            <li><strong>Not rebuffing regularly</strong> — a missing buff after 5 minutes can cost more than the DPS's entire life</li>
+            <li><strong>Moving during Heal Rain</strong> — the AOE doesn't follow, allies leave the radius</li>
+            <li><strong>Going Full INT too early</strong> — without enough HP pool, you die before launching Heal Rain</li>
+            <li><strong>Ignoring FP potions</strong> — an RM without FP is a useless RM</li>
+            <li><strong>Trying to DPS</strong> — you waste time better spent on heal and buffs</li>
+        </ul>
+
+        <div class="cta-box">
+            <h3>Optimize your Ringmaster with Reborn Assistant</h3>
+            <p>The Premium extension to automate buff rotation, periodic Heal Rain and your custom macros. 7-day free trial, no credit card.</p>
+            <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" rel="noopener" class="btn-cta">Install Reborn Assistant</a>
+        </div>
+
+        <p style="margin-top:48px;text-align:center;color:var(--text-dim);font-size:14px;">
+            Guide updated May 16, 2026 — Flyff Universe (Gala Lab).
+        </p>
+    </div>
+</body>
+</html>

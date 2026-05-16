@@ -1,0 +1,227 @@
+<!-- © 2026 Reborn Assistant — All rights reserved. Unauthorized copying, modification or distribution is strictly prohibited. https://reborn-assistant.com -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ── SEO Primary ─────────────────────────────────────────── -->
+    <title>Interface &amp; Personalização — Reborn Assistant Flyff</title>
+    <meta name="description" content="Personalize o Reborn Assistant: 6 temas visuais, 15 idiomas, atalhos de teclado configuráveis, painel arrastável, opacidade ajustável.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#080808">
+    <link rel="canonical" href="https://reborn-assistance.fr/pt/docs/interface.html">
+
+    <!-- ── Open Graph ─────────────────────────────────────────── -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Reborn Assistant">
+    <meta property="og:title" content="Interface &amp; Personalização — Reborn Assistant Flyff">
+    <meta property="og:description" content="Personalize o Reborn Assistant: 6 temas visuais, 15 idiomas, atalhos de teclado configuráveis, painel arrastável, opacidade ajustável.">
+    <meta property="og:url" content="https://reborn-assistance.fr/pt/docs/interface.html">
+    <meta property="og:image" content="https://reborn-assistance.fr/og-image.png">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- ── Twitter Card ───────────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Interface &amp; Personalização — Reborn Assistant Flyff">
+    <meta name="twitter:description" content="Personalize o Reborn Assistant: 6 temas visuais, 15 idiomas, atalhos de teclado configuráveis, painel arrastável, opacidade ajustável.">
+    <meta name="twitter:image" content="https://reborn-assistance.fr/og-image.png">
+
+    <!-- ── Performance ────────────────────────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold:#d4af37;--gold-light:#f4d03f;--gold-dark:#b8941f;--dark-bg:#080808;--green:#4CAF50;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
+        * { margin:0;padding:0;box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.7; }
+        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
+        .container { max-width:900px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
+        .back-link { display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease; }
+        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
+        h1 { font-family:'Cinzel',serif;font-size:42px;color:var(--gold);letter-spacing:2px;margin-bottom:16px; }
+        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:60px; }
+        h2 { font-family:'Cinzel',serif;font-size:28px;color:var(--text);margin:60px 0 24px;padding-bottom:16px;border-bottom:1px solid var(--border); }
+        h3 { font-size:20px;color:var(--gold);margin:32px 0 16px; }
+        .theme-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0; }
+        .theme-card { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:8px;padding:20px;text-align:center; }
+        .theme-preview { width:100%;height:60px;border-radius:6px;margin-bottom:12px; }
+        .theme-name { font-weight:600;color:var(--gold);font-size:14px; }
+        .lang-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin:24px 0; }
+        .lang-item { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:6px;padding:12px;text-align:center;font-size:13px; }
+        code { background:rgba(20,20,16,0.9);padding:3px 10px;border-radius:4px;font-family:'Courier New',monospace;font-size:13px;color:#f4d03f; }
+        ul { margin:16px 0;padding-left:24px; }
+        li { margin:8px 0;font-size:15px; }
+        p { margin-bottom:16px;font-size:15px; }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.svg">
+
+    <!-- ── hreflang ───────────────────────────────────── -->
+    <link rel="alternate" hreflang="fr" href="https://reborn-assistance.fr/docs/interface.html">
+    <link rel="alternate" hreflang="en" href="https://reborn-assistance.fr/en/docs/interface.html">
+    <link rel="alternate" hreflang="es" href="https://reborn-assistance.fr/es/docs/interface.html">
+    <link rel="alternate" hreflang="de" href="https://reborn-assistance.fr/de/docs/interface.html">
+    <link rel="alternate" hreflang="pt" href="https://reborn-assistance.fr/pt/docs/interface.html">
+    <link rel="alternate" hreflang="it" href="https://reborn-assistance.fr/it/docs/interface.html">
+    <link rel="alternate" hreflang="nl" href="https://reborn-assistance.fr/nl/docs/interface.html">
+    <link rel="alternate" hreflang="pl" href="https://reborn-assistance.fr/pl/docs/interface.html">
+    <link rel="alternate" hreflang="ru" href="https://reborn-assistance.fr/ru/docs/interface.html">
+    <link rel="alternate" hreflang="tr" href="https://reborn-assistance.fr/tr/docs/interface.html">
+    <link rel="alternate" hreflang="ja" href="https://reborn-assistance.fr/ja/docs/interface.html">
+    <link rel="alternate" hreflang="ko" href="https://reborn-assistance.fr/ko/docs/interface.html">
+    <link rel="alternate" hreflang="tl" href="https://reborn-assistance.fr/tl/docs/interface.html">
+    <link rel="alternate" hreflang="zh" href="https://reborn-assistance.fr/zh/docs/interface.html">
+    <link rel="alternate" hreflang="ar" href="https://reborn-assistance.fr/ar/docs/interface.html">
+    <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/interface.html">
+    <!-- ── /hreflang ── -->
+    <script>window.__PRERENDERED_LANG__="pt";</script>
+</head>
+<body>
+    <div class="container">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:12px;">
+            <a href="/pt/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← Voltar à documentação</a>
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                <a href="/pt/" style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:7px 16px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.color='var(--text-dim)';this.style.borderColor='var(--border)'" data-i18n="docsNav.mainSite">⌂ Site principal</a>
+                <div class="lang-select">
+                    <button class="lang-select-btn" onclick="toggleLangMenu()">
+                        <span class="lang-flag">🇧🇷</span>
+                        <span class="lang-code">PT</span>
+                        <span class="lang-chevron">▾</span>
+                    </button>
+                    <div class="lang-select-menu">
+                        <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
+                        <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
+                        <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
+                        <button class="lang-option" data-lang="de" onclick="setLang('de')">🇩🇪 Deutsch</button>
+                        <button class="lang-option" data-lang="pt" onclick="setLang('pt')">🇧🇷 Português</button>
+                        <button class="lang-option" data-lang="it" onclick="setLang('it')">🇮🇹 Italiano</button>
+                        <button class="lang-option" data-lang="nl" onclick="setLang('nl')">🇳🇱 Nederlands</button>
+                        <button class="lang-option" data-lang="pl" onclick="setLang('pl')">🇵🇱 Polski</button>
+                        <button class="lang-option" data-lang="ru" onclick="setLang('ru')">🇷🇺 Русский</button>
+                        <button class="lang-option" data-lang="tr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
+                        <button class="lang-option" data-lang="ja" onclick="setLang('ja')">🇯🇵 日本語</button>
+                        <button class="lang-option" data-lang="ko" onclick="setLang('ko')">🇰🇷 한국어</button>
+                        <button class="lang-option" data-lang="tl" onclick="setLang('tl')">🇵🇭 Filipino</button>
+                        <button class="lang-option" data-lang="zh" onclick="setLang('zh')">🇨🇳 中文</button>
+                        <button class="lang-option" data-lang="ar" onclick="setLang('ar')">🇸🇦 العربية</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 data-i18n="docInterface.h1">🎨 Interface & Personalização</h1>
+        <p class="subtitle" data-i18n="docInterface.subtitle">Personalize o Reborn Assistant de acordo com suas preferências</p>
+
+        <h2 data-i18n="docInterface.themesH2">Temas visuais</h2>
+        <p data-i18n="docInterface.themesDesc">O Reborn Assistant oferece 6 temas para personalizar a aparência da interface:</p>
+
+        <div class="theme-grid">
+            <div class="theme-card">
+                <div class="theme-preview" style="background:linear-gradient(135deg,#d4af37,#f4d03f);"></div>
+                <div class="theme-name">MMO Gold</div>
+            </div>
+            <div class="theme-card">
+                <div class="theme-preview" style="background:linear-gradient(135deg,#004d66,#0099cc);"></div>
+                <div class="theme-name">Cyber Blue</div>
+            </div>
+            <div class="theme-card">
+                <div class="theme-preview" style="background:linear-gradient(135deg,#660080,#9900cc);"></div>
+                <div class="theme-name">Neon Purple</div>
+            </div>
+            <div class="theme-card">
+                <div class="theme-preview" style="background:linear-gradient(135deg,#990000,#ff0000);"></div>
+                <div class="theme-name">Fire Red</div>
+            </div>
+            <div class="theme-card">
+                <div class="theme-preview" style="background:linear-gradient(135deg,#333,#555);"></div>
+                <div class="theme-name">Dark Mode</div>
+            </div>
+            <div class="theme-card">
+                <div class="theme-preview" style="background:linear-gradient(135deg,#ddd,#f5f5f5);"></div>
+                <div class="theme-name">White Mode</div>
+            </div>
+        </div>
+
+        <h3 data-i18n="docInterface.changeThemeH3">Mudar de tema</h3>
+        <p data-i18n="docInterface.changeThemeText">1. Abra o painel do Reborn<br>2. Clique na aba "⚙️ CONFIGURAÇÕES"<br>3. Selecione seu tema no menu suspenso<br>4. A mudança é instantânea</p>
+
+        <h2 data-i18n="docInterface.langsH2">Idiomas disponíveis</h2>
+        <p data-i18n="docInterface.langsDesc">Interface disponível em 15 idiomas:</p>
+
+        <div class="lang-grid">
+            <div class="lang-item">🇫🇷 Français</div>
+            <div class="lang-item">🇬🇧 English</div>
+            <div class="lang-item">🇪🇸 Español</div>
+            <div class="lang-item">🇩🇪 Deutsch</div>
+            <div class="lang-item">🇮🇹 Italiano</div>
+            <div class="lang-item">🇵🇹 Português</div>
+            <div class="lang-item">🇳🇱 Nederlands</div>
+            <div class="lang-item">🇵🇱 Polski</div>
+            <div class="lang-item">🇷🇺 Русский</div>
+            <div class="lang-item">🇨🇳 中文</div>
+            <div class="lang-item">🇯🇵 日本語</div>
+            <div class="lang-item">🇰🇷 한국어</div>
+            <div class="lang-item">🇵🇭 Filipino</div>
+            <div class="lang-item">🇹🇷 Türkçe</div>
+        </div>
+
+        <h3 data-i18n="docInterface.changeLangH3">Mudar de idioma</h3>
+        <p data-i18n="docInterface.changeLangText">1. Abra o painel do Reborn<br>2. Clique em "⚙️ CONFIGURAÇÕES"<br>3. Selecione seu idioma no menu suspenso<br>4. Toda a interface é traduzida instantaneamente</p>
+
+        <h2 data-i18n="docInterface.shortcutsH2">Atalhos de teclado</h2>
+        <p data-i18n="docInterface.shortcutsDesc">O Reborn Assistant inclui atalhos globais para controle rápido:</p>
+
+        <h3 data-i18n="docInterface.systemH3">Atalhos do sistema</h3>
+        <ul>
+            <li data-i18n="docInterface.sysSC1"><code>CTRL + A</code>: Iniciar o bot</li>
+            <li data-i18n="docInterface.sysSC2"><code>CTRL + O</code>: Parar o bot</li>
+        </ul>
+
+        <h3 data-i18n="docInterface.customH3">Atalhos personalizáveis</h3>
+        <p data-i18n="docInterface.customDesc">Você pode configurar as teclas para:</p>
+        <ul>
+            <li data-i18n="docInterface.customLi1">Ações tipo 1 e 2</li>
+            <li data-i18n="docInterface.customLi2">Macros (sequências de teclas)</li>
+            <li data-i18n="docInterface.customLi3">Macro periódica</li>
+        </ul>
+
+        <h2 data-i18n="docInterface.displayH2">Opções de exibição</h2>
+
+        <h3 data-i18n="docInterface.panelPosH3">Posição do painel</h3>
+        <p data-i18n="docInterface.panelPosDesc">O painel do Reborn é arrastável:</p>
+        <ul>
+            <li data-i18n="docInterface.panelLi1">Clique no cabeçalho do painel</li>
+            <li data-i18n="docInterface.panelLi2">Mantenha pressionado e arraste</li>
+            <li data-i18n="docInterface.panelLi3">Solte no local desejado</li>
+            <li data-i18n="docInterface.panelLi4">A posição é salva automaticamente</li>
+        </ul>
+
+        <h3 data-i18n="docInterface.opacityH3">Opacidade do painel</h3>
+        <p data-i18n="docInterface.opacityDesc">Ajuste a transparência para não interferir na sua navegação enquanto controla suas estatísticas.</p>
+
+        <h3 data-i18n="docInterface.logH3">Registro de atividade</h3>
+        <p data-i18n="docInterface.logDesc">O registro mostra em tempo real todas as ações realizadas:</p>
+        <ul>
+            <li data-i18n="docInterface.logLi1">Ativação/desativação de sistemas</li>
+            <li data-i18n="docInterface.logLi2">Uso de poções</li>
+            <li data-i18n="docInterface.logLi3">Execução de macros e sequências</li>
+            <li data-i18n="docInterface.logLi4">Chamadas à macro periódica</li>
+            <li data-i18n="docInterface.logLi5">Possíveis erros</li>
+        </ul>
+
+        <h2 data-i18n="docInterface.saveH2">Salvamento de parâmetros</h2>
+        <p data-i18n="docInterface.saveDesc">Todas as suas configurações são salvas automaticamente de forma local:</p>
+        <ul>
+            <li data-i18n="docInterface.saveLi1">Tema selecionado</li>
+            <li data-i18n="docInterface.saveLi2">Idioma da interface</li>
+            <li data-i18n="docInterface.saveLi3">Limites de ativação</li>
+            <li data-i18n="docInterface.saveLi4">Teclas atribuídas</li>
+            <li data-i18n="docInterface.saveLi5">Configuração de macros</li>
+            <li data-i18n="docInterface.saveLi6">Posição do painel</li>
+        </ul>
+        <p data-i18n="docInterface.savePersist">Persistem entre sessões, mesmo após fechar o navegador.</p>
+    </div>
+    <script type="module" src="/langs/index.js"></script>
+</body>
+</html>

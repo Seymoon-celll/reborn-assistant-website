@@ -1,0 +1,205 @@
+<!-- © 2026 Reborn Assistant — All rights reserved. Unauthorized copying, modification or distribution is strictly prohibited. https://reborn-assistant.com -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ── SEO Primary ─────────────────────────────────────────── -->
+    <title>Rozwiązywanie &amp; FAQ Reborn Assistant — Flyff Universe</title>
+    <meta name="description" content="Rozwiązania częstych problemów Reborn Assistant: instalacja, logowanie, licencja Premium, niedziałające makra. Pełne FAQ.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#080808">
+    <link rel="canonical" href="https://reborn-assistance.fr/pl/docs/troubleshooting.html">
+
+    <!-- ── Open Graph ─────────────────────────────────────────── -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Reborn Assistant">
+    <meta property="og:title" content="Rozwiązywanie &amp; FAQ Reborn Assistant — Flyff Universe">
+    <meta property="og:description" content="Rozwiązania częstych problemów Reborn Assistant: instalacja, logowanie, licencja Premium, niedziałające makra. Pełne FAQ.">
+    <meta property="og:url" content="https://reborn-assistance.fr/pl/docs/troubleshooting.html">
+    <meta property="og:image" content="https://reborn-assistance.fr/og-image.png">
+    <meta property="og:locale" content="pl_PL">
+
+    <!-- ── Twitter Card ───────────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rozwiązywanie &amp; FAQ Reborn Assistant — Flyff Universe">
+    <meta name="twitter:description" content="Rozwiązania częstych problemów Reborn Assistant: instalacja, logowanie, licencja Premium, niedziałające makra. Pełne FAQ.">
+    <meta name="twitter:image" content="https://reborn-assistance.fr/og-image.png">
+
+    <!-- ── Performance ────────────────────────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold:#d4af37;--dark-bg:#080808;--green:#4CAF50;--red:#ff6b6b;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
+        * { margin:0;padding:0;box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.7; }
+        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
+        .container { max-width:900px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
+        .back-link { display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease; }
+        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
+        h1 { font-family:'Cinzel',serif;font-size:42px;color:var(--gold);letter-spacing:2px;margin-bottom:16px; }
+        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:60px; }
+        h2 { font-family:'Cinzel',serif;font-size:28px;color:var(--text);margin:60px 0 24px;padding-bottom:16px;border-bottom:1px solid var(--border); }
+        .faq { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;padding:28px;margin:20px 0; }
+        .faq-q { font-size:18px;font-weight:600;color:var(--gold);margin-bottom:12px; }
+        .faq-a { font-size:15px;line-height:1.7;color:var(--text-dim); }
+        .alert { background:rgba(255,107,107,0.08);border-left:4px solid var(--red);padding:20px 24px;margin:16px 0;border-radius:4px; }
+        .success { background:rgba(76,175,80,0.08);border-left:4px solid var(--green);padding:20px 24px;margin:24px 0;border-radius:4px; }
+        code { background:rgba(20,20,16,0.9);padding:3px 10px;border-radius:4px;font-family:'Courier New',monospace;font-size:13px;color:#f4d03f; }
+        ul { margin:16px 0;padding-left:24px; }
+        li { margin:8px 0;font-size:15px; }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.svg">
+
+    <!-- ── hreflang ───────────────────────────────────── -->
+    <link rel="alternate" hreflang="fr" href="https://reborn-assistance.fr/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="en" href="https://reborn-assistance.fr/en/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="es" href="https://reborn-assistance.fr/es/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="de" href="https://reborn-assistance.fr/de/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="pt" href="https://reborn-assistance.fr/pt/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="it" href="https://reborn-assistance.fr/it/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="nl" href="https://reborn-assistance.fr/nl/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="pl" href="https://reborn-assistance.fr/pl/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="ru" href="https://reborn-assistance.fr/ru/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="tr" href="https://reborn-assistance.fr/tr/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="ja" href="https://reborn-assistance.fr/ja/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="ko" href="https://reborn-assistance.fr/ko/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="tl" href="https://reborn-assistance.fr/tl/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="zh" href="https://reborn-assistance.fr/zh/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="ar" href="https://reborn-assistance.fr/ar/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/troubleshooting.html">
+    <!-- ── /hreflang ── -->
+    <script>window.__PRERENDERED_LANG__="pl";</script>
+</head>
+<body>
+    <div class="container">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:12px;">
+            <a href="/pl/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← Powrót do dokumentacji</a>
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                <a href="/pl/" style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:7px 16px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.color='var(--text-dim)';this.style.borderColor='var(--border)'" data-i18n="docsNav.mainSite">⌂ Strona główna</a>
+                <div class="lang-select">
+                    <button class="lang-select-btn" onclick="toggleLangMenu()">
+                        <span class="lang-flag">🇵🇱</span>
+                        <span class="lang-code">PL</span>
+                        <span class="lang-chevron">▾</span>
+                    </button>
+                    <div class="lang-select-menu">
+                        <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
+                        <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
+                        <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
+                        <button class="lang-option" data-lang="de" onclick="setLang('de')">🇩🇪 Deutsch</button>
+                        <button class="lang-option" data-lang="pt" onclick="setLang('pt')">🇧🇷 Português</button>
+                        <button class="lang-option" data-lang="it" onclick="setLang('it')">🇮🇹 Italiano</button>
+                        <button class="lang-option" data-lang="nl" onclick="setLang('nl')">🇳🇱 Nederlands</button>
+                        <button class="lang-option" data-lang="pl" onclick="setLang('pl')">🇵🇱 Polski</button>
+                        <button class="lang-option" data-lang="ru" onclick="setLang('ru')">🇷🇺 Русский</button>
+                        <button class="lang-option" data-lang="tr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
+                        <button class="lang-option" data-lang="ja" onclick="setLang('ja')">🇯🇵 日本語</button>
+                        <button class="lang-option" data-lang="ko" onclick="setLang('ko')">🇰🇷 한국어</button>
+                        <button class="lang-option" data-lang="tl" onclick="setLang('tl')">🇵🇭 Filipino</button>
+                        <button class="lang-option" data-lang="zh" onclick="setLang('zh')">🇨🇳 中文</button>
+                        <button class="lang-option" data-lang="ar" onclick="setLang('ar')">🇸🇦 العربية</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 data-i18n="docTroubleshooting.h1">🔧 Rozwiązywanie problemów</h1>
+        <p class="subtitle" data-i18n="docTroubleshooting.subtitle">Rozwiązania typowych problemów i często zadawane pytania</p>
+
+        <h2 data-i18n="docTroubleshooting.installH2">Problemy z instalacją</h2>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq1Q">❌ Rozszerzenie nie pojawia się na pasku narzędzi</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq1A"><strong>Rozwiązania:</strong><br>1. Sprawdź, czy rozszerzenie jest zainstalowane z <strong>Chrome Web Store</strong><br>2. Przypnij rozszerzenie: kliknij ikonę puzzli 🧩 na pasku narzędzi i przypnij Reborn Assistant<br>3. Uruchom ponownie przeglądarkę<br>4. Jeśli problem nadal występuje, odinstaluj i ponownie zainstaluj rozszerzenie z Chrome Web Store</div>
+        </div>
+
+        <h2 data-i18n="docTroubleshooting.connH2">Problemy z połączeniem</h2>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq2Q">❌ "Połączenie nieudane" lub "Nieprawidłowa licencja"</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq2A"><strong>Możliwe przyczyny:</strong><br>• Słabe połączenie internetowe<br>• Serwery Google Cloud tymczasowo niedostępne<br>• Wygasła lub odwołana licencja<br><br><strong>Rozwiązania:</strong><br>1. Sprawdź połączenie internetowe<br>2. Wyloguj się i zaloguj ponownie przez Google<br>3. Sprawdź status licencji w portalu Stripe<br>4. Skontaktuj się z pomocą techniczną, jeśli problem nadal występuje</div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq3Q">❌ Panel pokazuje "FREE" mimo posiadania Premium</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq3A">1. Wyloguj się z konta Google<br>2. Całkowicie zamknij przeglądarkę<br>3. Otwórz ponownie i zaloguj się<br>4. Jeśli problem nadal występuje, sprawdź, czy jesteś zalogowany na właściwe konto Google (użyte przy zakupie)</div>
+        </div>
+
+        <h2 data-i18n="docTroubleshooting.funcH2">Problemy z działaniem</h2>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq4Q">❌ Akcje typu 1/2 nie są aktywowane</div>
+            <div class="faq-a">
+                <div class="alert" data-i18n="docTroubleshooting.faq4Alert"><strong>⚠️ WAŻNE</strong><br>Akcje typu 1 i 2 są funkcjami <strong>WYŁĄCZNIE PREMIUM</strong>. Tylko automatyczna akcja typu 1 (HP) jest dostępna w wersji darmowej.</div>
+                <span data-i18n="docTroubleshooting.faq4Prem"><strong>Jeśli masz Premium:</strong><br>1. Czy bot jest uruchomiony? <code>CTRL+A</code><br>2. Czy przełączniki wyzwalaczy są włączone? (zielony wskaźnik «ON»)<br>3. Czy skonfigurowane klawisze są prawidłowe?</span>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq5Q">❌ Sekwencje / makra / makro okresowe / skróty nie działają</div>
+            <div class="faq-a">
+                <div class="alert" data-i18n="docTroubleshooting.faq5Alert"><strong>⚠️ WAŻNE</strong><br>Skróty klawiszowe, sekwencje, makra i makro okresowe są funkcjami <strong>WYŁĄCZNIE PREMIUM</strong>. W wersji darmowej dostępna jest tylko automatyczna akcja typu 1 (HP).</div>
+                <span data-i18n="docTroubleshooting.faq5Prem"><strong>Jeśli masz Premium:</strong><br>1. Sprawdź, czy licencja Premium jest aktywna (ikona 💎 w panelu)<br>2. Czy odpowiednie przełączniki są włączone?<br>3. Sprawdź skonfigurowane interwały i opóźnienia</span>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq6Q">❌ Bot zatrzymuje się sam</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq6A"><strong>Możliwe przyczyny:</strong><br>• Utrata połączenia z Google Cloud<br>• Wykrycie DevTools<br>• URL strony uległ zmianie<br><br><strong>Rozwiązania:</strong><br>1. Uruchom ponownie bota przez <code>CTRL+A</code> (Premium) lub z panelu<br>2. Przeładuj dotkniętą stronę<br>3. Sprawdź połączenie internetowe<br>4. Nie otwieraj DevTools w trybie Premium</div>
+        </div>
+
+        <h2 data-i18n="docTroubleshooting.optH2">Optymalizacja & Wydajność</h2>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq7Q">💡 Bot zużywa zbyt dużo zasobów</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq7A"><strong>Zalecenia:</strong><br>• Zwiększ interwały makr i sekwencji (mniej akcji = mniej CPU)<br>• Dezaktywuj systemy, których nie potrzebujesz<br>• Zamknij niepotrzebne karty<br>• Używaj zoptymalizowanej przeglądarki (Brave, Edge są lżejsze niż Chrome)</div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq8Q">💡 Jak zoptymalizować konfigurację?</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq8A"><strong>Zalecana konfiguracja:</strong><br>• <strong>Interwał sekwencji:</strong> 5-25 minut (zależnie od czasu trwania sekwencji)<br>• <strong>Opóźnienie między klawiszami:</strong> 1-2 sekundy (unika błędów)<br>• <strong>Makra:</strong> Interwały 10-30s zależnie od użycia</div>
+        </div>
+
+        <h2 data-i18n="docTroubleshooting.genH2">Często Zadawane Pytania</h2>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq9Q">❓ Czy mogę używać Reborn na wielu przeglądarkach?</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq9A">Tak, ale musisz zainstalować rozszerzenie na każdej przeglądarce. Licencja Premium działa na wszystkich urządzeniach, gdy logujesz się tym samym kontem Google (maks. 1 jednoczesne połączenie).</div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq10Q">❓ Czy moje dane są zapisywane?</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq10A">Wszystkie ustawienia (klawisze, makra, motyw, język) są zapisywane <strong>lokalnie</strong> w przeglądarce. Zachowywane między sesjami. Jednak odinstalowanie rozszerzenia spowoduje utratę tych danych.</div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq11Q">❓ Czy Reborn może spowodować bana?</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq11A">Używanie narzędzi automatyzacji może naruszać Warunki Korzystania z Usługi niektórych serwisów. <strong>Tylko Ty jesteś odpowiedzialny</strong> za sposób używania Reborn. Zapoznaj się z warunkami użytkowania serwisu przed użyciem tego narzędzia.</div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq12Q">❓ Jak anulować subskrypcję Premium?</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq12A">Możesz anulować w dowolnym momencie z portalu zarządzania Stripe (link otrzymany e-mailem po płatności). Anulowanie wchodzi w życie na końcu bieżącego okresu. Bez opłat za anulowanie.</div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq13Q">❓ Co się stanie z planem Dożywotnim, jeśli serwis zostanie zamknięty?</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq13A">Plan Dożywotni gwarantuje dostęp, dopóki serwis jest aktywny. Po zainstalowaniu rozszerzenie działa lokalnie; tylko weryfikacja licencji wymaga połączenia internetowego.</div>
+        </div>
+
+        <h2 data-i18n="docTroubleshooting.supportH2">Potrzebujesz więcej pomocy?</h2>
+        <div class="success">
+            <strong data-i18n="docTroubleshooting.supportTitle">📧 Wsparcie</strong><br>
+            <span data-i18n="docTroubleshooting.supportText">Jeśli problem nadal występuje, skontaktuj się bezpośrednio z pomocą techniczną przez e-mail. Dołącz do wiadomości:<br><br>• Szczegółowy opis problemu<br>• Kroki, które już podjąłeś<br>• Zrzuty ekranu, jeśli są istotne<br>• Przeglądarkę i system operacyjny</span>
+            <br><br>
+            <a href="mailto:seymoon.cell@gmail.com" style="color:var(--gold);">📧 seymoon.cell@gmail.com</a><br>
+            <span style="color:var(--gold);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:4px;"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.053a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>Discord : Seymoon</span>
+        </div>
+    </div>
+    <script type="module" src="/langs/index.js"></script>
+</body>
+</html>

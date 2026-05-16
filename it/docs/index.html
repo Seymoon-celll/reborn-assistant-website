@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ── SEO Primary ─────────────────────────────────────────── -->
+    <title>Documentazione Reborn Assistant — Guida Ringmaster Flyff</title>
+    <meta name="description" content="Documentazione completa di Reborn Assistant: installazione, funzionalità, guida Premium, interfaccia e risoluzione problemi per Flyff Universe.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#080808">
+    <link rel="canonical" href="https://reborn-assistance.fr/it/docs/">
+
+    <!-- ── Open Graph ─────────────────────────────────────────── -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Reborn Assistant">
+    <meta property="og:title" content="Documentazione Reborn Assistant — Guida Ringmaster Flyff">
+    <meta property="og:description" content="Documentazione completa di Reborn Assistant: installazione, funzionalità, guida Premium, interfaccia e risoluzione problemi per Flyff Universe.">
+    <meta property="og:url" content="https://reborn-assistance.fr/it/docs/">
+    <meta property="og:image" content="https://reborn-assistance.fr/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="it_IT">
+
+    <!-- ── Twitter Card ───────────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Documentazione Reborn Assistant — Guida Ringmaster Flyff">
+    <meta name="twitter:description" content="Documentazione completa di Reborn Assistant: installazione, funzionalità, guida Premium, interfaccia e risoluzione problemi per Flyff Universe.">
+    <meta name="twitter:image" content="https://reborn-assistance.fr/og-image.png">
+
+    <!-- ── Performance ────────────────────────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Marcellus&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f4d03f;
+            --gold-dark: #b8941f;
+            --dark-bg: #080808;
+            --dark-card: #141410;
+            --green: #4CAF50;
+            --text: #f0ead6;
+            --text-dim: #9a9278;
+            --border: rgba(212, 175, 55, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none; opacity: 0.3;
+        }
+
+        .container {
+            max-width: 1200px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            width: 80px; height: 80px;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-size: 40px;
+            font-weight: 900;
+            color: #000;
+            border-radius: 12px;
+            box-shadow: 0 0 40px rgba(212,175,55,0.4);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 36px;
+            color: var(--gold);
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        .version {
+            font-size: 14px;
+            color: var(--text-dim);
+            letter-spacing: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: rgba(20,20,16,0.6);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .card:hover {
+            border-color: var(--gold);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(212,175,55,0.2);
+        }
+
+        .card-icon { font-size: 32px; margin-bottom: 16px; }
+
+        .card-title {
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-dim);
+        }
+
+        .premium-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+            color: #000;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
+            letter-spacing: 1px;
+            margin-left: 8px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: -20%; left: 50%; transform: translateX(-50%);
+            width: 900px; height: 600px;
+            background: radial-gradient(ellipse, rgba(212,175,55,0.05) 0%, transparent 70%);
+            pointer-events: none; z-index: 0;
+        }
+
+        .logo { animation: logoGlow 3s ease-in-out infinite; }
+        @keyframes logoGlow {
+            0%, 100% { box-shadow: 0 0 40px rgba(212,175,55,0.4); }
+            50% { box-shadow: 0 0 60px rgba(212,175,55,0.6), 0 0 100px rgba(212,175,55,0.2); }
+        }
+
+        .card { position: relative; overflow: hidden; }
+        .card::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 20%; right: 20%; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .card:hover::before { opacity: 0.5; }
+
+        .doc-category {
+            font-family: 'Inter', sans-serif;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            opacity: 0.5;
+            text-align: center;
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .doc-category::before, .doc-category::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(212,175,55,0.2);
+        }
+        .grid-section { margin-bottom: 8px; }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.svg">
+
+    <!-- ── hreflang ───────────────────────────────────── -->
+    <link rel="alternate" hreflang="fr" href="https://reborn-assistance.fr/docs/">
+    <link rel="alternate" hreflang="en" href="https://reborn-assistance.fr/en/docs/">
+    <link rel="alternate" hreflang="es" href="https://reborn-assistance.fr/es/docs/">
+    <link rel="alternate" hreflang="de" href="https://reborn-assistance.fr/de/docs/">
+    <link rel="alternate" hreflang="pt" href="https://reborn-assistance.fr/pt/docs/">
+    <link rel="alternate" hreflang="it" href="https://reborn-assistance.fr/it/docs/">
+    <link rel="alternate" hreflang="nl" href="https://reborn-assistance.fr/nl/docs/">
+    <link rel="alternate" hreflang="pl" href="https://reborn-assistance.fr/pl/docs/">
+    <link rel="alternate" hreflang="ru" href="https://reborn-assistance.fr/ru/docs/">
+    <link rel="alternate" hreflang="tr" href="https://reborn-assistance.fr/tr/docs/">
+    <link rel="alternate" hreflang="ja" href="https://reborn-assistance.fr/ja/docs/">
+    <link rel="alternate" hreflang="ko" href="https://reborn-assistance.fr/ko/docs/">
+    <link rel="alternate" hreflang="tl" href="https://reborn-assistance.fr/tl/docs/">
+    <link rel="alternate" hreflang="zh" href="https://reborn-assistance.fr/zh/docs/">
+    <link rel="alternate" hreflang="ar" href="https://reborn-assistance.fr/ar/docs/">
+    <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/">
+    <!-- ── /hreflang ── -->
+    <script>window.__PRERENDERED_LANG__="it";</script>
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <a href="/it/" style="display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.color='var(--text-dim)';this.style.borderColor='var(--border)'" data-i18n="docsNav.backToMainSite">← Torna al sito principale</a>
+            <div class="lang-select">
+                <button class="lang-select-btn" onclick="toggleLangMenu()">
+                    <span class="lang-flag">🇮🇹</span>
+                    <span class="lang-code">IT</span>
+                    <span class="lang-chevron">▾</span>
+                </button>
+                <div class="lang-select-menu">
+                    <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
+                    <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
+                    <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
+                    <button class="lang-option" data-lang="de" onclick="setLang('de')">🇩🇪 Deutsch</button>
+                    <button class="lang-option" data-lang="pt" onclick="setLang('pt')">🇧🇷 Português</button>
+                    <button class="lang-option" data-lang="it" onclick="setLang('it')">🇮🇹 Italiano</button>
+                    <button class="lang-option" data-lang="nl" onclick="setLang('nl')">🇳🇱 Nederlands</button>
+                    <button class="lang-option" data-lang="pl" onclick="setLang('pl')">🇵🇱 Polski</button>
+                    <button class="lang-option" data-lang="ru" onclick="setLang('ru')">🇷🇺 Русский</button>
+                    <button class="lang-option" data-lang="tr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
+                    <button class="lang-option" data-lang="ja" onclick="setLang('ja')">🇯🇵 日本語</button>
+                    <button class="lang-option" data-lang="ko" onclick="setLang('ko')">🇰🇷 한국어</button>
+                    <button class="lang-option" data-lang="tl" onclick="setLang('tl')">🇵🇭 Filipino</button>
+                    <button class="lang-option" data-lang="zh" onclick="setLang('zh')">🇨🇳 中文</button>
+                    <button class="lang-option" data-lang="ar" onclick="setLang('ar')">🇸🇦 العربية</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="logo">R</div>
+            <h1>REBORN ASSISTANT</h1>
+            <div class="version" data-i18n="docsHome.version">VERSIONE 1.3 · DOCUMENTAZIONE COMPLETA</div>
+        </div>
+
+        <div class="doc-category" data-i18n="docsHome.userGuide">Guida utente</div>
+        <div class="grid grid-section">
+            <a href="/it/docs/quickstart.html" class="card">
+                <div class="card-icon">🚀</div>
+                <div class="card-title" data-i18n="docsHome.quickstartTitle">Avvio Rapido</div>
+                <div class="card-desc" data-i18n="docsHome.quickstartDesc">Installazione, configurazione iniziale e primi passi con Reborn Assistant.</div>
+            </a>
+
+            <a href="/it/docs/features.html" class="card">
+                <div class="card-icon">⚡</div>
+                <div class="card-title" data-i18n="docsHome.featuresTitle">Funzionalità</div>
+                <div class="card-desc" data-i18n="docsHome.featuresDesc">Dettaglio completo delle funzioni gratuite e Premium con tabella comparativa.</div>
+            </a>
+
+            <a href="/it/docs/premium.html" class="card">
+                <div class="card-icon">💎</div>
+                <div class="card-title"><span data-i18n="docsHome.premiumTitle">Guida Premium</span> <span class="premium-badge">PREMIUM</span></div>
+                <div class="card-desc" data-i18n="docsHome.premiumDesc">Sequenze automatiche, macro personalizzabili e macro periodica.</div>
+            </a>
+
+            <a href="/it/docs/interface.html" class="card">
+                <div class="card-icon">🎨</div>
+                <div class="card-title" data-i18n="docsHome.interfaceTitle">Interfaccia & Personalizzazione</div>
+                <div class="card-desc" data-i18n="docsHome.interfaceDesc">Temi visivi, lingue e opzioni di personalizzazione.</div>
+            </a>
+        </div>
+
+        <div class="doc-category" data-i18n="docsHome.articles">Articles &amp; Guides Flyff Universe</div>
+        <div class="grid grid-section">
+            <a href="/docs/automatiser-ringmaster-flyff-universe.html" class="card" data-bonus-fr="/docs/automatiser-ringmaster-flyff-universe.html" data-bonus-en="/en/docs/automate-ringmaster-flyff-universe.html">
+                <div class="card-icon">⚙️</div>
+                <div class="card-title" data-i18n="docsHome.articleAutomateTitle">Automatiser son Ringmaster</div>
+                <div class="card-desc" data-i18n="docsHome.articleAutomateDesc">Tutoriel pas à pas pour automatiser votre Ringmaster sur Flyff Universe avec Reborn Assistant.</div>
+            </a>
+            <a href="/docs/meilleurs-outils-flyff-universe-2026.html" class="card" data-bonus-fr="/docs/meilleurs-outils-flyff-universe-2026.html" data-bonus-en="/en/docs/best-flyff-universe-tools-2026.html">
+                <div class="card-icon">🔧</div>
+                <div class="card-title" data-i18n="docsHome.articleToolsTitle">Meilleurs outils Flyff Universe 2026</div>
+                <div class="card-desc" data-i18n="docsHome.articleToolsDesc">Comparatif des extensions, traducteurs et calculateurs testés pour Flyff Universe.</div>
+            </a>
+            <a href="/docs/guide-ringmaster-flyff-universe.html" class="card" data-bonus-fr="/docs/guide-ringmaster-flyff-universe.html" data-bonus-en="/en/docs/flyff-universe-ringmaster-class-guide.html">
+                <div class="card-icon">🎯</div>
+                <div class="card-title" data-i18n="docsHome.articleGuideTitle">Guide complet du Ringmaster</div>
+                <div class="card-desc" data-i18n="docsHome.articleGuideDesc">Rôle, buffs, builds STA/INT, équipement : tout sur la classe support Flyff Universe.</div>
+            </a>
+        </div>
+
+        <div class="doc-category" data-i18n="docsHome.support">Supporto</div>
+        <div class="grid grid-section">
+            <a href="/it/docs/troubleshooting.html" class="card">
+                <div class="card-icon">🔧</div>
+                <div class="card-title" data-i18n="docsHome.troubleshootingTitle">Risoluzione dei problemi</div>
+                <div class="card-desc" data-i18n="docsHome.troubleshootingDesc">Soluzioni ai problemi comuni, domande frequenti e ottimizzazione delle prestazioni.</div>
+            </a>
+        </div>
+
+        <div class="doc-category" data-i18n="docsHome.legal">Informazioni legali</div>
+        <div class="grid grid-section">
+            <a href="/it/docs/privacy.html" class="card">
+                <div class="card-icon">⚖️🔒</div>
+                <div class="card-title" data-i18n="docsHome.legalTitle">Legale & Privacy</div>
+                <div class="card-desc" data-i18n="docsHome.legalDesc">Avviso legale, note legali, termini di licenza, informativa sulla privacy e registro delle modifiche.</div>
+            </a>
+        </div>
+
+        <footer>
+            <span data-i18n="docsHome.footer">© 2026 Reborn Assistant — Sviluppato da Seymoon · Tutti i diritti riservati</span>
+        </footer>
+    </div>
+    <script type="module" src="/langs/index.js"></script>
+</body>
+</html>

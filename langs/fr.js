@@ -1,6 +1,6 @@
 export default {
   hero: {
-    description: "Extension d'automatisation pour navigateur avec macros avancées. Automatisez vos actions répétitives, raccourcis et séquences pour optimiser votre productivité.",
+    description: "Extension d'automatisation pour navigateur avec macros avancées, pensée pour les joueurs de MMORPG comme Flyff Universe et leur classe support Ringmaster. Automatisez vos actions répétitives, raccourcis et séquences pour optimiser votre gameplay.",
     ctaPrimary: "Commencer maintenant",
     ctaSecondary: "En savoir plus",
     trust1: "Version gratuite disponible",
@@ -91,6 +91,8 @@ export default {
     a4: "Toutes vos données restent stockées localement sur votre appareil. Nous ne collectons aucune donnée personnelle et n'utilisons aucun tracking ou télémétrie.",
     q5: "Comment contacter le support ?",
     a5: "Contactez-nous par email à seymoon.cell@gmail.com ou sur Discord (Seymoon). Les abonnés premium bénéficient d'une réponse prioritaire.",
+    q6: "Reborn Assistant est-il un bot ?",
+    a6: "Au sens strict, Reborn Assistant n'est pas un bot conventionnel. C'est une extension de macros configurables qui automatise des séquences de touches que vous définissez vous-même. Aucune intelligence artificielle, aucune interaction avec le serveur du jeu, aucune lecture de la mémoire. L'extension ne lit ni ne modifie les données du jeu : elle simule seulement les touches que vous taperiez manuellement. À vous de respecter les conditions d'utilisation des services que vous utilisez.",
   },
   footer: {
     privacy:   "Confidentialité",
@@ -124,6 +126,13 @@ export default {
     troubleshootingDesc:  "Solutions aux problèmes courants, FAQ et optimisation des performances.",
     legalTitle:           "Légal & Confidentialité",
     legalDesc:            "Disclaimer, mentions légales, termes de licence, politique de confidentialité et changelog.",
+    articles:             "Articles & Guides Flyff Universe",
+    articleAutomateTitle: "Automatiser son Ringmaster",
+    articleAutomateDesc:  "Tutoriel pas à pas pour automatiser votre Ringmaster sur Flyff Universe avec Reborn Assistant.",
+    articleToolsTitle:    "Meilleurs outils Flyff Universe 2026",
+    articleToolsDesc:     "Comparatif des extensions, traducteurs et calculateurs testés pour Flyff Universe.",
+    articleGuideTitle:    "Guide complet du Ringmaster",
+    articleGuideDesc:     "Rôle, buffs, builds STA/INT, équipement : tout sur la classe support Flyff Universe.",
     footer:               "© 2026 Reborn Assistant — Développé par Seymoon · Tous droits réservés",
   },
 

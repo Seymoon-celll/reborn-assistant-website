@@ -1,0 +1,9 @@
+{
+  "name": "reborn-assistant-website",
+  "private": true,
+  "description": "reborn-assistance.fr — static site for the Reborn Assistant Chrome extension (Flyff Universe Ringmaster automation).",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build-i18n.mjs"
+  }
+}

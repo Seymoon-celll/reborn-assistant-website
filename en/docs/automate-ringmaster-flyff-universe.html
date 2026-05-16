@@ -1,0 +1,288 @@
+<!-- © 2026 Reborn Assistant — All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ── SEO Primary ─────────────────────────────────────────── -->
+    <title>How to Automate Your Ringmaster on Flyff Universe — 2026 Guide</title>
+    <meta name="description" content="Complete tutorial to automate your Ringmaster on Flyff Universe: auto-buff, rotations, AOE heal, HP/FP management. Step-by-step with Reborn Assistant.">
+    <meta name="keywords" content="automate Ringmaster, RM Flyff Universe, Ringmaster macro, auto buff Flyff, RM rotation, Flyff support, Reborn Assistant Ringmaster">
+    <meta name="author" content="Seymoon">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#080808">
+    <link rel="canonical" href="https://reborn-assistance.fr/en/docs/automate-ringmaster-flyff-universe.html">
+
+    <!-- ── Open Graph ─────────────────────────────────────────── -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Reborn Assistant">
+    <meta property="og:title" content="How to Automate Your Ringmaster on Flyff Universe — 2026 Guide">
+    <meta property="og:description" content="Step-by-step tutorial to automate your Ringmaster on Flyff Universe: auto-buff, rotations, AOE heal.">
+    <meta property="og:url" content="https://reborn-assistance.fr/en/docs/automate-ringmaster-flyff-universe.html">
+    <meta property="og:image" content="https://reborn-assistance.fr/og-image.png">
+    <meta property="og:locale" content="en_US">
+
+    <!-- ── Twitter Card ───────────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Automate Your Ringmaster on Flyff Universe — 2026 Guide">
+    <meta name="twitter:description" content="Step-by-step Ringmaster automation tutorial for Flyff Universe.">
+    <meta name="twitter:image" content="https://reborn-assistance.fr/og-image.png">
+
+    <!-- ── Performance ────────────────────────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- ── hreflang ────────────────────────────────────────────── -->
+    <link rel="alternate" hreflang="fr" href="https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html">
+    <link rel="alternate" hreflang="en" href="https://reborn-assistance.fr/en/docs/automate-ringmaster-flyff-universe.html">
+    <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html">
+
+    <style>
+        :root { --gold:#d4af37;--gold-light:#f4d03f;--gold-dark:#b8941f;--dark-bg:#080808;--green:#4CAF50;--red:#ff6b6b;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
+        * { margin:0;padding:0;box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.8; }
+        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
+        .container { max-width:880px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
+        .breadcrumb { font-size:12px;color:var(--text-dim);margin-bottom:32px;letter-spacing:1px; }
+        .breadcrumb a { color:var(--gold);text-decoration:none; }
+        h1 { font-family:'Cinzel',serif;font-size:clamp(32px,5vw,46px);color:var(--gold);letter-spacing:1.5px;line-height:1.1;margin-bottom:20px; }
+        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:56px;line-height:1.6; }
+        h2 { font-family:'Cinzel',serif;font-size:26px;color:var(--text);margin:56px 0 20px;padding-bottom:14px;border-bottom:1px solid var(--border);letter-spacing:0.5px; }
+        h3 { font-size:19px;color:var(--gold);margin:32px 0 14px;font-weight:600; }
+        p { margin-bottom:18px;font-size:15.5px; }
+        ul, ol { margin:14px 0 22px 24px; }
+        li { margin:8px 0;font-size:15.5px; }
+        strong { color:var(--gold); }
+        code { background:rgba(20,20,16,0.9);padding:3px 9px;border-radius:4px;font-family:'Courier New',monospace;font-size:13px;color:var(--gold-light); }
+        .step { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin:24px 0; }
+        .step-number { display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;background:linear-gradient(135deg,var(--gold-dark),var(--gold-light));color:#000;font-weight:700;border-radius:8px;margin-bottom:14px;font-family:'Cinzel',serif; }
+        .step-title { font-size:18px;font-weight:600;color:var(--gold);margin-bottom:10px; }
+        .callout { background:rgba(212,175,55,0.08);border-left:4px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:4px; }
+        .callout strong { color:var(--gold);display:block;margin-bottom:6px; }
+        .warning { background:rgba(255,107,107,0.08);border-left-color:var(--red); }
+        .warning strong { color:var(--red); }
+        .cta-box { background:linear-gradient(160deg,rgba(212,175,55,0.06),rgba(20,20,16,0.6));border:1px solid var(--gold);border-radius:14px;padding:36px;margin:48px 0;text-align:center; }
+        .cta-box h3 { color:var(--gold);font-family:'Cinzel',serif;font-size:22px;margin-bottom:14px; }
+        .btn-cta { display:inline-block;background:linear-gradient(135deg,#2d5016,#4CAF50,#5dd87a);color:#fff;padding:14px 32px;text-decoration:none;font-family:'Cinzel',serif;font-weight:600;letter-spacing:1.5px;border-radius:6px;font-size:13px;text-transform:uppercase;margin-top:8px; }
+        .back-link { display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;text-decoration:none;transition:all 0.3s; }
+        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
+        .toc { background:rgba(20,20,16,0.5);border:1px solid var(--border);border-radius:10px;padding:24px 32px;margin:32px 0 48px; }
+        .toc-title { font-family:'Cinzel',serif;font-size:13px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:14px; }
+        .toc ol { margin:0;padding-left:20px; }
+        .toc li { margin:6px 0;font-size:14px; }
+        .toc a { color:var(--text);text-decoration:none; }
+        .toc a:hover { color:var(--gold); }
+        .related { display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:48px 0 0; }
+        .related-card { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:10px;padding:20px;text-decoration:none;transition:all 0.3s; }
+        .related-card:hover { border-color:var(--gold);transform:translateY(-2px); }
+        .related-tag { font-family:'Cinzel',serif;font-size:9px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;display:block; }
+        .related-title { color:var(--gold);font-weight:600;font-size:14px;line-height:1.4; }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.svg">
+
+    <!-- ── Schema.org : Article + HowTo ────────────────────────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "How to Automate Your Ringmaster on Flyff Universe — 2026 Guide",
+          "description": "Complete tutorial to automate your Ringmaster on Flyff Universe: auto-buff, rotations, AOE heal, HP/FP management with Reborn Assistant.",
+          "image": "https://reborn-assistance.fr/og-image.png",
+          "author": { "@type": "Person", "name": "Seymoon" },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Reborn Assistant",
+            "logo": { "@type": "ImageObject", "url": "https://reborn-assistance.fr/favicon.svg" }
+          },
+          "datePublished": "2026-05-16",
+          "dateModified": "2026-05-16",
+          "mainEntityOfPage": "https://reborn-assistance.fr/en/docs/automate-ringmaster-flyff-universe.html",
+          "inLanguage": "en"
+        },
+        {
+          "@type": "HowTo",
+          "name": "How to automate your Ringmaster on Flyff Universe",
+          "description": "Complete method to automate the repetitive actions of a Ringmaster on Flyff Universe using Reborn Assistant.",
+          "totalTime": "PT15M",
+          "tool": [
+            { "@type": "HowToTool", "name": "Reborn Assistant (Chrome extension)" },
+            { "@type": "HowToTool", "name": "Chromium browser (Chrome, Edge, Brave)" }
+          ],
+          "step": [
+            { "@type": "HowToStep", "name": "Install Reborn Assistant", "text": "Add the Reborn Assistant extension from the Chrome Web Store and pin it to your toolbar." },
+            { "@type": "HowToStep", "name": "Identify your Ringmaster sequences", "text": "List your key sequences: Heart of Power, Beef Up, Mental Sign, Speed Pep, and the AOE Heal Rain." },
+            { "@type": "HowToStep", "name": "Configure the rotation", "text": "In Reborn Assistant, enable the F2 → 1-9 → 0 → F1 rotation with a 5-minute interval." },
+            { "@type": "HowToStep", "name": "Program the periodic heal", "text": "Enable the periodic macro to trigger Heal Rain every 15 seconds." },
+            { "@type": "HowToStep", "name": "Launch the bot", "text": "Start with CTRL+A, monitor the activity log, adjust delays as needed." }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <a href="/en/docs/index.html" class="back-link">← Back to docs</a>
+        <div class="breadcrumb" style="margin-top:24px;">
+            <a href="/en/">Home</a> › <a href="/en/docs/index.html">Documentation</a> › Automate your Ringmaster
+        </div>
+
+        <h1>How to Automate Your Ringmaster on Flyff Universe — Complete 2026 Guide</h1>
+        <p class="subtitle">Buffs, rotations, AOE heal, HP/FP management: the step-by-step tutorial to turn your Ringmaster into a group pillar without burning your hands on the keyboard.</p>
+
+        <div class="toc">
+            <div class="toc-title">◆ Table of Contents</div>
+            <ol>
+                <li><a href="#why">Why automate your Ringmaster</a></li>
+                <li><a href="#prereqs">Prerequisites</a></li>
+                <li><a href="#sequences">Identify your Ringmaster sequences</a></li>
+                <li><a href="#rotation">Configure the buff rotation</a></li>
+                <li><a href="#heal">Program the periodic Heal Rain</a></li>
+                <li><a href="#macros">Custom macros (DPS, support, emergency)</a></li>
+                <li><a href="#optimization">Optimization and common mistakes</a></li>
+                <li><a href="#legal">Legal aspects — what you need to know</a></li>
+            </ol>
+        </div>
+
+        <h2 id="why">Why automate your Ringmaster</h2>
+        <p>The Ringmaster (often abbreviated <strong>RM</strong>) is the iconic support class of Flyff Universe. Its role is clear: keep the group alive through buffs (Heart of Power, Beef Up, Mental Sign…) that last between 5 and 30 minutes, and heal damage via Heal Rain in AOE. On paper, it's simple. In practice, it's one of the most exhausting classes to play during long farm sessions: you spend 80% of your time <strong>rebuffing every 5 minutes</strong>, <strong>relaunching Heal Rain every 10-15 seconds</strong>, and <strong>watching the FP bars</strong> of every group member.</p>
+        <p>Automation does not replace your judgment. It offloads mechanical routines from your keyboard: the full rebuff sequence, the periodic heal, FP potion usage. Your hands stay free for <strong>the moments that actually matter</strong>: an imminent wipe, a wave going sideways, a boss targeting the RM first.</p>
+
+        <div class="callout">
+            <strong>💡 Typical use case</strong>
+            You start a 4-hour farm on Glaphan or Asteria. Without automation: 240 minutes ÷ 5 minutes = 48 manual rebuff cycles. With Reborn Assistant configured: 1 cycle, the rest runs in the background. You only step in if the composition changes or someone dies.
+        </div>
+
+        <h2 id="prereqs">Prerequisites</h2>
+        <p>Before activating anything, lay solid foundations:</p>
+        <ul>
+            <li><strong>Reborn Assistant Premium</strong> installed (the free version only covers the basic heal macro). See the <a href="/en/docs/quickstart.html">installation guide</a>.</li>
+            <li><strong>Your Ringmaster buffs assigned to keys F2 → 0</strong> in logical order (Heart of Power first, AOE buffs next, single-target last).</li>
+            <li><strong>Heal Rain on the § key (or any dedicated key)</strong> — the key Reborn Assistant will loop on.</li>
+            <li><strong>A stack of FP potions</strong> in inventory — automation does not invent resources.</li>
+            <li><strong>A stable farm zone</strong> — avoid spots with forced teleports or pushing mobs.</li>
+        </ul>
+
+        <h2 id="sequences">Identify your Ringmaster sequences</h2>
+        <p>Not all sequences are equal. Here's the typical hierarchy of a full-support RM build:</p>
+        <h3>Essential sequences (rotation every 5 min)</h3>
+        <ul>
+            <li><strong>Heart of Power (HoP)</strong> — STA + attack boost, mandatory</li>
+            <li><strong>Beef Up</strong> — flat STA, increases group max HP</li>
+            <li><strong>Mental Sign</strong> — INT + magic boost for Mages / AOE Knights</li>
+            <li><strong>Speed Pep</strong> — attack speed, huge for Blades / Rangers</li>
+            <li><strong>Cat's Reflex</strong> — DODGE, useful in tough zones</li>
+        </ul>
+        <h3>Situational sequences (manual activation)</h3>
+        <ul>
+            <li><strong>Resurrection</strong> — never auto, case by case</li>
+            <li><strong>Holy Cross</strong> — elemental damage bonus, context-dependent</li>
+        </ul>
+
+        <h2 id="rotation">Configure the buff rotation</h2>
+        <p>This is the heart of the system. Reborn Assistant can press a fixed sequence <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 0 → F1</code> at regular intervals. Here's how to align it with your RM:</p>
+
+        <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-title">Prepare your sequence slots</div>
+            <p>Drag your sequences from the skill bar to the Flyff hotkey bar in this order:</p>
+            <ul>
+                <li>Key 1 → Heart of Power</li>
+                <li>Key 2 → Beef Up</li>
+                <li>Key 3 → Mental Sign</li>
+                <li>Key 4 → Speed Pep</li>
+                <li>Key 5 → Cat's Reflex</li>
+                <li>Keys 6 to 0 → other available buffs or empty</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-title">Enable rotation in Reborn Assistant</div>
+            <p>In the Reborn panel, Premium tab:</p>
+            <ul>
+                <li>Toggle on <strong>"Sequence Rotation"</strong></li>
+                <li>Set the <strong>interval between cycles</strong> to the duration of your shortest buff (typically 5 min)</li>
+                <li>Set the <strong>delay between keys</strong> to 1 second (lets sequence animation finish)</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-title">Test a full cycle</div>
+            <p>Start with <code>CTRL+A</code>. Watch the activity log: you should see <em>F2 pressed → 1 pressed → 2 pressed…</em> sequentially, with ~1 second between each. If a sequence doesn't fire, it's probably a cooldown or missing FP — check in-game visually.</p>
+        </div>
+
+        <h2 id="heal">Program the periodic Heal Rain</h2>
+        <p>Heal Rain should run in parallel with the buff rotation. Reborn Assistant offers a fixed 15-second periodic macro, perfectly calibrated for Heal Rain's AOE duration (~12-15 seconds).</p>
+
+        <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-title">Assign Heal Rain to the § key</div>
+            <p>By default, Reborn Assistant's periodic macro triggers the <code>§</code> key. Drag Heal Rain onto this key in Flyff.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-title">Enable the periodic macro</div>
+            <p>Toggle <strong>"Periodic Macro"</strong> in the Premium panel. The system will call Heal Rain every 15 seconds, with automatic storage.</p>
+        </div>
+
+        <div class="callout warning">
+            <strong>⚠️ Watch your positioning</strong>
+            Heal Rain is a self-centered AOE. If you constantly move (kite or reposition), your Heal Rain won't cover your DPS. Stay static or set a fixed rally point for the group.
+        </div>
+
+        <h2 id="macros">Custom macros (DPS, support, emergency)</h2>
+        <p>Beyond rotation and heal, Reborn Assistant Premium offers <strong>3 independent macros</strong>. Here's how to leverage them for a Ringmaster:</p>
+
+        <h3>Macro 1 — Pet feeding</h3>
+        <p>If you have a pet that needs regular feeding, program a sequence like <code>k,h</code> every 30 seconds. Prevents your pet from dying during long farms.</p>
+
+        <h3>Macro 2 — FP potion stack</h3>
+        <p>Configure a sequence like <code>y</code> every 20 seconds to keep FP above 80%. Adjust based on consumption and Heal Rain cadence.</p>
+
+        <h3>Macro 3 — Anti-AFK</h3>
+        <p>A sequence like <code>up,down</code> or <code>space</code> every 4-5 minutes prevents AFK disconnects during long calm periods. Use with discernment.</p>
+
+        <h2 id="optimization">Optimization and common mistakes</h2>
+        <ul>
+            <li><strong>Key delay too short</strong> — if sequences skip, increase delay to 1.5-2 seconds. Better a slightly slower cycle that always completes.</li>
+            <li><strong>Don't exceed the global cooldown (GCD)</strong> — Flyff has a GCD. Too fast = sequences absorbed into the void. The default 1s respects this GCD.</li>
+            <li><strong>FP running out mid-cycle</strong> — your rotation stops silently. Enable the FP potion macro or boost your INT/MP.</li>
+            <li><strong>Group members outside AOE</strong> — periodic heal only covers players within ~12-15m. Communicate with the group.</li>
+            <li><strong>Target lost after mob death</strong> — not a problem for the RM, but watch your single-target sequences.</li>
+        </ul>
+
+        <h2 id="legal">Legal aspects — what you need to know</h2>
+        <p>Automating repetitive actions via an extension <strong>may violate the Terms of Service</strong> of some game services, including Gala Lab's for Flyff Universe. Reborn Assistant <strong>does not read game memory, does not send network packets, does not modify the client</strong>: it's strictly a simulation of keys you would press manually. You remain 100% responsible for how you use it.</p>
+        <p>For exactly what Reborn Assistant does (and doesn't do) technically, see the <a href="/en/#faq">FAQ on the main page</a>.</p>
+
+        <div class="cta-box">
+            <h3>Ready to free your Ringmaster?</h3>
+            <p>Install Reborn Assistant in 30 seconds from the Chrome Web Store. 7 days of Premium trial free, no credit card.</p>
+            <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" rel="noopener" class="btn-cta">Install Reborn Assistant</a>
+        </div>
+
+        <div class="related">
+            <a href="/en/docs/best-flyff-universe-tools-2026.html" class="related-card">
+                <span class="related-tag">◆ Related</span>
+                <span class="related-title">Best Flyff Universe tools &amp; extensions 2026</span>
+            </a>
+            <a href="/en/docs/flyff-universe-ringmaster-class-guide.html" class="related-card">
+                <span class="related-tag">◆ Related</span>
+                <span class="related-title">Complete Ringmaster class guide for Flyff Universe</span>
+            </a>
+            <a href="/en/docs/premium.html" class="related-card">
+                <span class="related-tag">◆ Documentation</span>
+                <span class="related-title">Complete guide to Premium features</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -91,6 +91,8 @@ export default {
     a4: "Wszystkie Twoje dane są przechowywane lokalnie na Twoim urządzeniu. Nie zbieramy danych osobowych ani nie używamy śledzenia czy telemetrii.",
     q5: "Jak skontaktować się z pomocą techniczną?",
     a5: "Skontaktuj się z nami przez e-mail na adres seymoon.cell@gmail.com lub na Discordzie (Seymoon). Subskrybenci premium otrzymują priorytetową odpowiedź.",
+    q6: "Czy Reborn Assistant to bot?",
+    a6: "Ściśle mówiąc, Reborn Assistant nie jest konwencjonalnym botem. To rozszerzenie z konfigurowalnymi makrami, które automatyzuje sekwencje klawiszy zdefiniowane przez Ciebie. Bez sztucznej inteligencji, bez interakcji z serwerem gry, bez odczytu pamięci. Rozszerzenie nie odczytuje ani nie modyfikuje danych gry — symuluje tylko klawisze, które wcisnąłbyś ręcznie. To Twoja odpowiedzialność przestrzegać Warunków Korzystania.",
   },
   footer: {
     privacy:   "Prywatność",

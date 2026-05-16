@@ -1,0 +1,271 @@
+<!-- © 2026 Reborn Assistant — All rights reserved. Unauthorized copying, modification or distribution is strictly prohibited. https://reborn-assistant.com -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ── SEO Primary ─────────────────────────────────────────── -->
+    <title>Przewodnik Premium Reborn Assistant — Ringmaster Flyff</title>
+    <meta name="description" content="Opanuj funkcje Premium Reborn Assistant: automatyczna rotacja sekwencji, 3 konfigurowalne makra, makro okresowe.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#080808">
+    <link rel="canonical" href="https://reborn-assistance.fr/pl/docs/premium.html">
+
+    <!-- ── Open Graph ─────────────────────────────────────────── -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Reborn Assistant">
+    <meta property="og:title" content="Przewodnik Premium Reborn Assistant — Ringmaster Flyff">
+    <meta property="og:description" content="Opanuj funkcje Premium Reborn Assistant: automatyczna rotacja sekwencji, 3 konfigurowalne makra, makro okresowe.">
+    <meta property="og:url" content="https://reborn-assistance.fr/pl/docs/premium.html">
+    <meta property="og:image" content="https://reborn-assistance.fr/og-image.png">
+    <meta property="og:locale" content="pl_PL">
+
+    <!-- ── Twitter Card ───────────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Przewodnik Premium Reborn Assistant — Ringmaster Flyff">
+    <meta name="twitter:description" content="Opanuj funkcje Premium Reborn Assistant: automatyczna rotacja sekwencji, 3 konfigurowalne makra, makro okresowe.">
+    <meta name="twitter:image" content="https://reborn-assistance.fr/og-image.png">
+
+    <!-- ── Performance ────────────────────────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Marcellus&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold:#d4af37;--gold-light:#f4d03f;--gold-dark:#b8941f;--dark-bg:#080808;--green:#4CAF50;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
+        * { margin:0;padding:0;box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.7; }
+        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
+        .container { max-width:900px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
+        .back-link { display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease; }
+        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
+        h1 { font-family:'Cinzel',serif;font-size:42px;color:var(--gold);letter-spacing:2px;margin-bottom:16px; }
+        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:60px; }
+        h2 { font-family:'Cinzel',serif;font-size:28px;color:var(--text);margin:60px 0 24px;padding-bottom:16px;border-bottom:1px solid var(--border); }
+        h3 { font-size:20px;color:var(--gold);margin:40px 0 16px; }
+        .premium-badge { background:linear-gradient(135deg,var(--gold-dark),var(--gold-light));color:#000;font-size:10px;font-weight:700;padding:6px 14px;border-radius:12px;letter-spacing:1.5px;display:inline-block;margin-left:12px; }
+        .section { background:rgba(20,20,16,0.6);border:1px solid var(--gold);border-radius:12px;padding:32px;margin:32px 0; }
+        .param { background:rgba(212,175,55,0.06);border-left:3px solid var(--gold);padding:16px 20px;margin:16px 0;border-radius:4px; }
+        .param-name { font-weight:600;color:var(--gold);margin-bottom:6px; }
+        .param-desc { font-size:14px;color:var(--text-dim); }
+        code { background:rgba(20,20,16,0.9);padding:3px 10px;border-radius:4px;font-family:'Courier New',monospace;font-size:13px;color:var(--gold-light); }
+        .example { background:rgba(76,175,80,0.06);border-left:3px solid var(--green);padding:20px;margin:24px 0;border-radius:4px; }
+        .example-title { font-weight:600;color:var(--green);margin-bottom:12px; }
+        ul { margin:16px 0;padding-left:24px; }
+        li { margin:8px 0;font-size:15px; }
+        ol { margin:16px 0;padding-left:24px; }
+        ol li { margin:8px 0;font-size:15px; }
+        p { margin-bottom:16px;font-size:15px; }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.svg">
+
+    <!-- ── hreflang ───────────────────────────────────── -->
+    <link rel="alternate" hreflang="fr" href="https://reborn-assistance.fr/docs/premium.html">
+    <link rel="alternate" hreflang="en" href="https://reborn-assistance.fr/en/docs/premium.html">
+    <link rel="alternate" hreflang="es" href="https://reborn-assistance.fr/es/docs/premium.html">
+    <link rel="alternate" hreflang="de" href="https://reborn-assistance.fr/de/docs/premium.html">
+    <link rel="alternate" hreflang="pt" href="https://reborn-assistance.fr/pt/docs/premium.html">
+    <link rel="alternate" hreflang="it" href="https://reborn-assistance.fr/it/docs/premium.html">
+    <link rel="alternate" hreflang="nl" href="https://reborn-assistance.fr/nl/docs/premium.html">
+    <link rel="alternate" hreflang="pl" href="https://reborn-assistance.fr/pl/docs/premium.html">
+    <link rel="alternate" hreflang="ru" href="https://reborn-assistance.fr/ru/docs/premium.html">
+    <link rel="alternate" hreflang="tr" href="https://reborn-assistance.fr/tr/docs/premium.html">
+    <link rel="alternate" hreflang="ja" href="https://reborn-assistance.fr/ja/docs/premium.html">
+    <link rel="alternate" hreflang="ko" href="https://reborn-assistance.fr/ko/docs/premium.html">
+    <link rel="alternate" hreflang="tl" href="https://reborn-assistance.fr/tl/docs/premium.html">
+    <link rel="alternate" hreflang="zh" href="https://reborn-assistance.fr/zh/docs/premium.html">
+    <link rel="alternate" hreflang="ar" href="https://reborn-assistance.fr/ar/docs/premium.html">
+    <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/premium.html">
+    <!-- ── /hreflang ── -->
+    <script>window.__PRERENDERED_LANG__="pl";</script>
+</head>
+<body>
+    <div class="container">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:12px;">
+            <a href="/pl/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← Powrót do dokumentacji</a>
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                <a href="/pl/" style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:7px 16px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.color='var(--text-dim)';this.style.borderColor='var(--border)'" data-i18n="docsNav.mainSite">⌂ Strona główna</a>
+                <div class="lang-select">
+                    <button class="lang-select-btn" onclick="toggleLangMenu()">
+                        <span class="lang-flag">🇵🇱</span>
+                        <span class="lang-code">PL</span>
+                        <span class="lang-chevron">▾</span>
+                    </button>
+                    <div class="lang-select-menu">
+                        <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
+                        <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
+                        <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
+                        <button class="lang-option" data-lang="de" onclick="setLang('de')">🇩🇪 Deutsch</button>
+                        <button class="lang-option" data-lang="pt" onclick="setLang('pt')">🇧🇷 Português</button>
+                        <button class="lang-option" data-lang="it" onclick="setLang('it')">🇮🇹 Italiano</button>
+                        <button class="lang-option" data-lang="nl" onclick="setLang('nl')">🇳🇱 Nederlands</button>
+                        <button class="lang-option" data-lang="pl" onclick="setLang('pl')">🇵🇱 Polski</button>
+                        <button class="lang-option" data-lang="ru" onclick="setLang('ru')">🇷🇺 Русский</button>
+                        <button class="lang-option" data-lang="tr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
+                        <button class="lang-option" data-lang="ja" onclick="setLang('ja')">🇯🇵 日本語</button>
+                        <button class="lang-option" data-lang="ko" onclick="setLang('ko')">🇰🇷 한국어</button>
+                        <button class="lang-option" data-lang="tl" onclick="setLang('tl')">🇵🇭 Filipino</button>
+                        <button class="lang-option" data-lang="zh" onclick="setLang('zh')">🇨🇳 中文</button>
+                        <button class="lang-option" data-lang="ar" onclick="setLang('ar')">🇸🇦 العربية</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 data-i18n="docPremium.h1">💎 Przewodnik Premium</h1>
+        <p class="subtitle" data-i18n="docPremium.subtitle">Opanuj wszystkie zaawansowane funkcje Reborn Assistant</p>
+
+        <!-- ROTATION -->
+        <div class="section">
+            <h2 data-i18n="docPremium.rotH2">🛡️ Automatyczna rotacja sekwencji</h2>
+
+            <p data-i18n="docPremium.rotDesc">System rotacji automatycznie utrzymuje wszystkie sekwencje aktywne, naciskając predefiniowaną sekwencję klawiszy w regularnych odstępach czasu.</p>
+
+            <h3 data-i18n="docPremium.rotSeqH3">Sekwencja klawiszy</h3>
+            <p data-i18n="docPremium.rotSeqText">Rotacja zawsze przebiega w tej stałej kolejności:</p>
+            <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 0 → F1</code>
+
+            <h3 data-i18n="docPremium.rotConfigH3">Konfiguracja</h3>
+
+            <div class="param">
+                <div class="param-name" data-i18n="docPremium.rotIntName">Interwał między cyklami</div>
+                <div class="param-desc" data-i18n="docPremium.rotIntDesc">Czas oczekiwania przed ponownym uruchomieniem całej sekwencji. Domyślnie: 5 minut. Dostosuj do czasu trwania najkrótszych sekwencji.</div>
+            </div>
+
+            <div class="param">
+                <div class="param-name" data-i18n="docPremium.rotDelName">Opóźnienie między klawiszami</div>
+                <div class="param-desc" data-i18n="docPremium.rotDelDesc">Czas oczekiwania między każdym klawiszem sekwencji. Domyślnie: 1 sekunda. Dostosuj do szybkości serwisu (animacje, cooldowny...).</div>
+            </div>
+
+            <div class="example">
+                <div class="example-title" data-i18n="docPremium.rotExTitle">💡 Przykład użycia</div>
+                <p data-i18n="docPremium.rotExScenario"><strong>Scenariusz:</strong> Twoje sekwencje trwają 5 minut i masz 8 sekwencji na klawiszach 1-8.</p>
+                <p data-i18n="docPremium.rotExConfig"><strong>Konfiguracja:</strong></p>
+                <ul>
+                    <li data-i18n="docPremium.rotExLi1">Interwał: 5 minut</li>
+                    <li data-i18n="docPremium.rotExLi2">Opóźnienie: 1 sekunda</li>
+                    <li data-i18n="docPremium.rotExLi3">Bot będzie naciskał F2, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, F1 co 5 minut</li>
+                    <li data-i18n="docPremium.rotExLi4">13 klawiszy łącznie z 1 sekundą między każdym = ~13 sekund na cykl</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- MACROS PERSONNALISABLES -->
+        <div class="section">
+            <h2 data-i18n="docPremium.macH2">⚙️ Konfigurowalne Makra</h2>
+
+            <p data-i18n="docPremium.macDesc">Twórz do 3 niezależnych makr z własnymi sekwencjami klawiszy. Idealne do automatyzowania powtarzalnych zadań, powracających combo lub rotacji umiejętności.</p>
+
+            <h3 data-i18n="docPremium.macHowH3">Działanie</h3>
+            <p data-i18n="docPremium.macHowText">Każde makro wykonuje sekwencję klawiszy w regularnych odstępach czasu, niezależnie od innych systemów.</p>
+
+            <h3 data-i18n="docPremium.macConfigH3">Konfiguracja</h3>
+
+            <div class="param">
+                <div class="param-name" data-i18n="docPremium.macSeqName">Sekwencja klawiszy</div>
+                <div class="param-desc" data-i18n="docPremium.macSeqDesc">Zdefiniuj klawisze do naciśnięcia w kolejności, oddzielone przecinkami. Przykład: 1,2,3,4 lub q,w,e,r,f</div>
+            </div>
+
+            <div class="param">
+                <div class="param-name" data-i18n="docPremium.macRepName">Interwał powtarzania</div>
+                <div class="param-desc" data-i18n="docPremium.macRepDesc">Czas oczekiwania przed powtórzeniem sekwencji. Skonfiguruj według potrzeb (sekundy lub minuty).</div>
+            </div>
+
+            <div class="param">
+                <div class="param-name" data-i18n="docPremium.macDelName">Opóźnienie między klawiszami</div>
+                <div class="param-desc" data-i18n="docPremium.macDelDesc">Czas oczekiwania między każdym klawiszem sekwencji (zwykle 0,5 do 2 sekund).</div>
+            </div>
+
+            <div class="example">
+                <div class="example-title" data-i18n="docPremium.macExTitle">💡 Przykłady użycia</div>
+
+                <p data-i18n="docPremium.mac1Title"><strong>Makro 1 – Automatyzacja powtarzalna:</strong></p>
+                <ul>
+                    <li data-i18n="docPremium.mac1Li1">Sekwencja: 1,2,3,space</li>
+                    <li data-i18n="docPremium.mac1Li2">Interwał: 10 sekund</li>
+                    <li data-i18n="docPremium.mac1Li3">Użycie: Rotacja podstawowych ataków w pętli</li>
+                </ul>
+
+                <p data-i18n="docPremium.mac2Title"><strong>Makro 2 – Combo umiejętności:</strong></p>
+                <ul>
+                    <li data-i18n="docPremium.mac2Li1">Sekwencja: q,w,e,r</li>
+                    <li data-i18n="docPremium.mac2Li2">Interwał: 30 sekund</li>
+                    <li data-i18n="docPremium.mac2Li3">Użycie: Optymalna rotacja DPS</li>
+                </ul>
+
+                <p data-i18n="docPremium.mac3Title"><strong>Makro 3 – Automatyczne wsparcie:</strong></p>
+                <ul>
+                    <li data-i18n="docPremium.mac3Li1">Sekwencja: f,g,h</li>
+                    <li data-i18n="docPremium.mac3Li2">Interwał: 15 sekund</li>
+                    <li data-i18n="docPremium.mac3Li3">Użycie: Sekwencje grupowe lub akcje okresowe</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- MACRO PERIODIQUE -->
+        <div class="section">
+            <h2 data-i18n="docPremium.perH2">🐉 Makro okresowe</h2>
+
+            <p data-i18n="docPremium.perDesc">System automatycznie wykonuje akcję okresową co 15 sekund. Idealny do powtarzalnych zadań, które muszą być regularnie aktywowane.</p>
+
+            <h3 data-i18n="docPremium.perHowH3">Działanie</h3>
+            <p data-i18n="docPremium.perHowText">System automatycznie wykonuje tę sekwencję co 15 sekund:</p>
+            <ol>
+                <li data-i18n="docPremium.perLi1">Wywołuje makro okresowe (konfigurowalny klawisz, domyślnie §)</li>
+                <li data-i18n="docPremium.perLi2">Czeka 500ms</li>
+                <li data-i18n="docPremium.perLi3">Automatycznie zapisuje makro okresowe</li>
+            </ol>
+
+            <h3 data-i18n="docPremium.perConfigH3">Konfiguracja</h3>
+
+            <div class="param">
+                <div class="param-name" data-i18n="docPremium.perCallName">Klawisz wywołania</div>
+                <div class="param-desc" data-i18n="docPremium.perCallDesc">Klawisz aktywujący makro okresowe. Domyślnie: §. Zmień zgodnie z konfiguracją.</div>
+            </div>
+
+            <div class="param">
+                <div class="param-name" data-i18n="docPremium.perIntName">Interwał (stały)</div>
+                <div class="param-desc" data-i18n="docPremium.perIntDesc">System zawsze używa stałego interwału 15 sekund. Nie konfigurowalny.</div>
+            </div>
+
+            <div class="example">
+                <div class="example-title" data-i18n="docPremium.perExTitle">💡 Przypadek użycia</div>
+                <p data-i18n="docPremium.perExText">W niektórych serwisach makro okresowe musi być regularnie wywoływane, aby zbierać przedmioty, dostarczać tymczasowe sekwencje lub zdobywać doświadczenie. System ten całkowicie automatyzuje ten proces.</p>
+            </div>
+
+            <h3 data-i18n="docPremium.perImpH3">⚠️ Ważne</h3>
+            <ul>
+                <li data-i18n="docPremium.perImpLi1">Sprawdź, czy skonfigurowany klawisz odpowiada klawiszowi wywołania</li>
+                <li data-i18n="docPremium.perImpLi2">Makro okresowe jest automatycznie zapisywane po każdym wywołaniu</li>
+                <li data-i18n="docPremium.perImpLi3">Działa równolegle z innymi systemami (sekwencje, makra, akcje)</li>
+            </ul>
+        </div>
+
+        <h2 data-i18n="docPremium.optH2">Wskazówki optymalizacji</h2>
+
+        <h3 data-i18n="docPremium.combH3">🎯 Łączenie systemów</h3>
+        <p data-i18n="docPremium.combDesc">Wszystkie funkcje Premium działają jednocześnie. Możesz:</p>
+        <ul>
+            <li data-i18n="docPremium.combLi1">Aktywować automatyczne sekwencje + 3 makra + makro okresowe jednocześnie</li>
+            <li data-i18n="docPremium.combLi2">Akcje wyzwalaczy 1 i 2 zawsze działają równolegle</li>
+            <li data-i18n="docPremium.combLi3">Każdy system ma własny niezależny timer</li>
+        </ul>
+
+        <h3 data-i18n="docPremium.perfH3">⚡ Wydajność</h3>
+        <ul>
+            <li data-i18n="docPremium.perfLi1">Im więcej systemów aktywujesz, tym więcej zasobów zużywa rozszerzenie</li>
+            <li data-i18n="docPremium.perfLi2">Dostosuj interwały, aby unikać zbyt częstych akcji</li>
+            <li data-i18n="docPremium.perfLi3">Monitoruj dziennik aktywności, aby zweryfikować prawidłowe działanie</li>
+        </ul>
+
+        <h3 data-i18n="docPremium.secH3">🔑 Bezpieczeństwo</h3>
+        <ul>
+            <li data-i18n="docPremium.secLi1">Licencja Premium jest weryfikowana w czasie rzeczywistym</li>
+            <li data-i18n="docPremium.secLi2">Jeśli połączenie zostanie utracone, funkcje Premium są dezaktywowane</li>
+            <li data-i18n="docPremium.secLi3">Zaloguj się ponownie, aby reaktywować wszystkie funkcje</li>
+        </ul>
+    </div>
+    <script type="module" src="/langs/index.js"></script>
+</body>
+</html>

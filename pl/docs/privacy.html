@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ── SEO Primary ─────────────────────────────────────────── -->
+    <title>Informacje Prawne &amp; Prywatność — Reborn Assistant</title>
+    <meta name="description" content="Polityka prywatności, informacje prawne, warunki licencji i polityka zwrotów Reborn Assistant. Twoje dane pozostają w 100% lokalne.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#080808">
+    <link rel="canonical" href="https://reborn-assistance.fr/pl/docs/privacy.html">
+
+    <!-- ── Open Graph ─────────────────────────────────────────── -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Reborn Assistant">
+    <meta property="og:title" content="Informacje Prawne &amp; Prywatność — Reborn Assistant">
+    <meta property="og:description" content="Polityka prywatności, informacje prawne, warunki licencji i polityka zwrotów Reborn Assistant. Twoje dane pozostają w 100% lokalne.">
+    <meta property="og:url" content="https://reborn-assistance.fr/pl/docs/privacy.html">
+    <meta property="og:image" content="https://reborn-assistance.fr/og-image.png">
+    <meta property="og:locale" content="pl_PL">
+
+    <!-- ── Twitter Card ───────────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Informacje Prawne &amp; Prywatność — Reborn Assistant">
+    <meta name="twitter:description" content="Polityka prywatności, informacje prawne, warunki licencji i polityka zwrotów Reborn Assistant. Twoje dane pozostają w 100% lokalne.">
+    <meta name="twitter:image" content="https://reborn-assistance.fr/og-image.png">
+
+    <!-- ── Performance ────────────────────────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold:#d4af37;--dark-bg:#080808;--red:#ff6b6b;--green:#4CAF50;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
+        * { margin:0;padding:0;box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.7; }
+        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
+        .container { max-width:900px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
+        .back-link { display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease; }
+        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
+        h1 { font-family:'Cinzel',serif;font-size:42px;color:var(--gold);letter-spacing:2px;margin-bottom:16px; }
+        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:40px; }
+        h2 { font-family:'Cinzel',serif;font-size:28px;color:var(--text);margin:60px 0 24px;padding-bottom:16px;border-bottom:1px solid var(--border); }
+        h3 { font-size:20px;color:var(--gold);margin:32px 0 16px; }
+        .legal-block { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;padding:32px;margin:24px 0; }
+        .warning-box { background:rgba(255,107,107,0.08);border-left:4px solid var(--red);padding:24px;margin:32px 0;border-radius:4px; }
+        .success-box { background:rgba(76,175,80,0.08);border-left:4px solid var(--green);padding:24px;margin:32px 0;border-radius:4px; }
+        ul { margin:16px 0 16px 20px; }
+        li { margin:8px 0;font-size:15px; }
+        p { margin-bottom:16px;font-size:15px; }
+        strong { color:var(--gold); }
+        a { color:var(--gold);text-decoration:none; }
+        a:hover { text-decoration:underline; }
+        code { background:rgba(20,20,16,0.9);padding:3px 10px;border-radius:4px;font-family:'Courier New',monospace;font-size:13px;color:#f4d03f; }
+        .contact-box { background:rgba(212,175,55,0.08);border:1px solid var(--border);border-radius:8px;padding:20px;margin:24px 0;text-align:center; }
+        .section-nav { display:flex;gap:12px;flex-wrap:wrap;margin-bottom:60px; }
+        .section-nav a { display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border:1px solid var(--border);border-radius:20px;font-size:12px;font-weight:500;color:var(--text-dim);text-decoration:none;letter-spacing:0.5px;transition:all 0.2s ease; }
+        .section-nav a:hover { color:var(--gold);border-color:rgba(212,175,55,0.5);background:rgba(212,175,55,0.05);text-decoration:none; }
+        .page-separator { margin:80px 0;display:flex;align-items:center;gap:16px; }
+        .page-separator::before,.page-separator::after { content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,0.4)); }
+        .page-separator::after { background:linear-gradient(90deg,rgba(212,175,55,0.4),transparent); }
+        .page-separator span { font-family:'Cinzel',serif;font-size:10px;color:var(--gold);opacity:0.5;letter-spacing:4px;white-space:nowrap; }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.svg">
+
+    <!-- ── hreflang ───────────────────────────────────── -->
+    <link rel="alternate" hreflang="fr" href="https://reborn-assistance.fr/docs/privacy.html">
+    <link rel="alternate" hreflang="en" href="https://reborn-assistance.fr/en/docs/privacy.html">
+    <link rel="alternate" hreflang="es" href="https://reborn-assistance.fr/es/docs/privacy.html">
+    <link rel="alternate" hreflang="de" href="https://reborn-assistance.fr/de/docs/privacy.html">
+    <link rel="alternate" hreflang="pt" href="https://reborn-assistance.fr/pt/docs/privacy.html">
+    <link rel="alternate" hreflang="it" href="https://reborn-assistance.fr/it/docs/privacy.html">
+    <link rel="alternate" hreflang="nl" href="https://reborn-assistance.fr/nl/docs/privacy.html">
+    <link rel="alternate" hreflang="pl" href="https://reborn-assistance.fr/pl/docs/privacy.html">
+    <link rel="alternate" hreflang="ru" href="https://reborn-assistance.fr/ru/docs/privacy.html">
+    <link rel="alternate" hreflang="tr" href="https://reborn-assistance.fr/tr/docs/privacy.html">
+    <link rel="alternate" hreflang="ja" href="https://reborn-assistance.fr/ja/docs/privacy.html">
+    <link rel="alternate" hreflang="ko" href="https://reborn-assistance.fr/ko/docs/privacy.html">
+    <link rel="alternate" hreflang="tl" href="https://reborn-assistance.fr/tl/docs/privacy.html">
+    <link rel="alternate" hreflang="zh" href="https://reborn-assistance.fr/zh/docs/privacy.html">
+    <link rel="alternate" hreflang="ar" href="https://reborn-assistance.fr/ar/docs/privacy.html">
+    <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/privacy.html">
+    <!-- ── /hreflang ── -->
+    <script>window.__PRERENDERED_LANG__="pl";</script>
+</head>
+<body>
+    <div class="container">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:12px;">
+            <a href="/pl/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← Powrót do dokumentacji</a>
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                <a href="/pl/" style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:7px 16px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.color='var(--text-dim)';this.style.borderColor='var(--border)'" data-i18n="docsNav.mainSite">⌂ Strona główna</a>
+                <div class="lang-select">
+                    <button class="lang-select-btn" onclick="toggleLangMenu()">
+                        <span class="lang-flag">🇵🇱</span>
+                        <span class="lang-code">PL</span>
+                        <span class="lang-chevron">▾</span>
+                    </button>
+                    <div class="lang-select-menu">
+                        <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
+                        <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
+                        <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
+                        <button class="lang-option" data-lang="de" onclick="setLang('de')">🇩🇪 Deutsch</button>
+                        <button class="lang-option" data-lang="pt" onclick="setLang('pt')">🇧🇷 Português</button>
+                        <button class="lang-option" data-lang="it" onclick="setLang('it')">🇮🇹 Italiano</button>
+                        <button class="lang-option" data-lang="nl" onclick="setLang('nl')">🇳🇱 Nederlands</button>
+                        <button class="lang-option" data-lang="pl" onclick="setLang('pl')">🇵🇱 Polski</button>
+                        <button class="lang-option" data-lang="ru" onclick="setLang('ru')">🇷🇺 Русский</button>
+                        <button class="lang-option" data-lang="tr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
+                        <button class="lang-option" data-lang="ja" onclick="setLang('ja')">🇯🇵 日本語</button>
+                        <button class="lang-option" data-lang="ko" onclick="setLang('ko')">🇰🇷 한국어</button>
+                        <button class="lang-option" data-lang="tl" onclick="setLang('tl')">🇵🇭 Filipino</button>
+                        <button class="lang-option" data-lang="zh" onclick="setLang('zh')">🇨🇳 中文</button>
+                        <button class="lang-option" data-lang="ar" onclick="setLang('ar')">🇸🇦 العربية</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 data-i18n="docPrivacy.h1">⚖️ Prawne & Prywatność</h1>
+        <p class="subtitle" data-i18n="docPrivacy.subtitle">Zastrzeżenie prawne, wzmianki prawne, warunki licencji i polityka prywatności</p>
+
+        <nav class="section-nav">
+            <a href="#legal" data-i18n="docPrivacy.navLegal">⚖️ Informacje Prawne</a>
+            <a href="#licence" data-i18n="docPrivacy.navLicence">© Licencja</a>
+            <a href="#confidentialite" data-i18n="docPrivacy.navPrivacy">🔒 Prywatność</a>
+            <a href="#changelog">📋 Changelog</a>
+        </nav>
+
+        <!-- LEGAL -->
+        <h2 id="legal" data-i18n="docPrivacy.disclaimerH2">⚠️ Zastrzeżenie Prawne</h2>
+        <div class="warning-box" data-i18n="docPrivacy.disclaimerBox"><strong>⚠️ Ważna uwaga:</strong> Reborn Assistant to narzędzie automatyzacji. Jego użycie może naruszać Warunki Korzystania z Usługi niektórych serwisów online. Korzystanie z tego narzędzia jest całkowicie na własne ryzyko.</div>
+
+        <div class="legal-block">
+            <h3 data-i18n="docPrivacy.respH3">Odpowiedzialność użytkownika</h3>
+            <p data-i18n="docPrivacy.respIntro">Używając Reborn Assistant, uznajesz i akceptujesz, że:</p>
+            <ul>
+                <li data-i18n="docPrivacy.respLi1">Jesteś jedyną osobą odpowiedzialną za użycie tego oprogramowania</li>
+                <li data-i18n="docPrivacy.respLi2">Sprawdzisz warunki użytkowania każdego serwisu przed użyciem tego narzędzia</li>
+                <li data-i18n="docPrivacy.respLi3">Autor nie może być pociągnięty do odpowiedzialności za żaden ban, ograniczenie konta lub działanie prawne wynikające z użycia Reborn</li>
+                <li data-i18n="docPrivacy.respLi4">Używasz tego oprogramowania świadomie i na własne ryzyko</li>
+                <li data-i18n="docPrivacy.respLi5">To narzędzie nie może być używane w sposób, który szkodzi doświadczeniu innych użytkowników</li>
+            </ul>
+        </div>
+
+        <div class="legal-block">
+            <h3 data-i18n="docPrivacy.warrantH3">Brak gwarancji</h3>
+            <p data-i18n="docPrivacy.warrantText">Oprogramowanie jest dostarczane «TAKIE JAKIE JEST» bez żadnych gwarancji. Autor nie gwarantuje, że oprogramowanie będzie działać nieprzerwanie lub bez błędów, ani że będzie kompatybilne ze wszystkimi serwisami lub przeglądarkami.</p>
+        </div>
+
+        <h2 data-i18n="docPrivacy.legalH2">📄 Wzmianki prawne</h2>
+
+        <div class="legal-block">
+            <h3 data-i18n="docPrivacy.copyrightH3">Prawa autorskie & Własność intelektualna</h3>
+            <p data-i18n="docPrivacy.copyrightText"><strong>© 2026 Reborn Assistant – Wszelkie prawa zastrzeżone</strong><br>Opracowany przez <strong>Seymoon</strong></p>
+            <p data-i18n="docPrivacy.copyrightText2">To oprogramowanie i wszystkie powiązane materiały są wyłączną własnością intelektualną autora. Wszelka reprodukcja, modyfikacja, dystrybucja lub inżynieria odwrotna bez pisemnego zezwolenia jest surowo zabroniona.</p>
+        </div>
+
+        <div class="legal-block">
+            <h3 data-i18n="docPrivacy.liabilityH3">Ograniczenie odpowiedzialności</h3>
+            <p data-i18n="docPrivacy.liabilityIntro">W żadnym wypadku autor nie ponosi odpowiedzialności za roszczenia lub szkody wynikające z użycia lub niemożności użycia tego oprogramowania, w tym między innymi:</p>
+            <ul>
+                <li data-i18n="docPrivacy.liabilityLi1">Utrata danych lub konta użytkownika</li>
+                <li data-i18n="docPrivacy.liabilityLi2">Bany lub ograniczenia nałożone przez wydawców serwisów</li>
+                <li data-i18n="docPrivacy.liabilityLi3">Uszkodzenia systemów informatycznych</li>
+                <li data-i18n="docPrivacy.liabilityLi4">Wszelkie konsekwencje prawne wynikające z użycia niezgodnego z warunkami korzystania z usługi</li>
+            </ul>
+        </div>
+
+        <div class="legal-block">
+            <h3 data-i18n="docPrivacy.dataH3">Dane osobowe</h3>
+            <p data-i18n="docPrivacy.dataText">Reborn Assistant używa Firebase (Google Cloud) do zarządzania kontami i licencjami. Zbierane dane ograniczają się do adresu e-mail i identyfikatora konta, wyłącznie do celów uwierzytelnienia i weryfikacji licencji.</p>
+            <p data-i18n="docPrivacy.dataText2"><strong>Żadne dane o aktywności nie są zbierane ani przesyłane.</strong> Ustawienia pozostają przechowywane lokalnie na urządzeniu.</p>
+        </div>
+
+        <div class="legal-block">
+            <h3 data-i18n="docPrivacy.jurisH3">Jurysdykcja</h3>
+            <p data-i18n="docPrivacy.jurisText">Umowa ta podlega prawu właściwemu dla jurysdykcji miejsca zamieszkania właściciela praw autorskich. Instalując i używając tego oprogramowania, uznajesz, że przeczytałeś, zrozumiałeś i zaakceptowałeś całość tych warunków.</p>
+        </div>
+
+        <!-- LICENCE -->
+        <h2 id="licence" data-i18n="docPrivacy.licenceH2">© Warunki licencji</h2>
+
+        <div class="legal-block">
+            <h3 data-i18n="docPrivacy.licenceH3">Licencja użytkowania</h3>
+            <p data-i18n="docPrivacy.licenceIntro">Zakup planu Reborn Assistant przyznaje osobistą, niewyłączną i niezbywalną licencję na użytkowanie oprogramowania.</p>
+            <p data-i18n="docPrivacy.licenceAllows"><strong>Ta licencja upoważnia Cię do:</strong></p>
+            <ul>
+                <li data-i18n="docPrivacy.licenceLi1">Używania oprogramowania do celów osobistych na własnych urządzeniach</li>
+                <li data-i18n="docPrivacy.licenceLi2">Korzystania z aktualizacji zawartych w planie</li>
+            </ul>
+            <p data-i18n="docPrivacy.licenceForbids"><strong>Ta licencja nie upoważnia Cię do:</strong></p>
+            <ul>
+                <li data-i18n="docPrivacy.licenceLi3">Redystrybuowania, odsprzedaży lub udostępniania dostępu</li>
+                <li data-i18n="docPrivacy.licenceLi4">Modyfikowania, dekompilowania lub przeprowadzania inżynierii odwrotnej oprogramowania</li>
+                <li data-i18n="docPrivacy.licenceLi5">Używania oprogramowania do celów komercyjnych bez uprzedniej pisemnej umowy</li>
+                <li data-i18n="docPrivacy.licenceLi6">Przenoszenia licencji na osobę trzecią</li>
+            </ul>
+        </div>
+
+        <div class="legal-block">
+            <h3 data-i18n="docPrivacy.terminationH3">Rozwiązanie</h3>
+            <p data-i18n="docPrivacy.terminationText">Licencja może zostać natychmiast rozwiązana w przypadku naruszenia tych warunków. W przypadku planów subskrypcyjnych możesz anulować w dowolnym momencie z portalu Stripe.</p>
+        </div>
+
+        <div class="success-box" data-i18n="docPrivacy.refundBox"><strong>✅ Polityka zwrotów:</strong> Jeśli nie jesteś zadowolony w ciągu 7 dni od zakupu, skontaktuj się z pomocą techniczną, aby uzyskać pełny zwrot. Po tym terminie zwroty nie są udzielane, z wyjątkiem wyjątkowych przypadków.</div>
+
+        <!-- CONFIDENTIALITE -->
+        <div class="page-separator"><span>◆ ◆ ◆</span></div>
+
+        <h2 id="confidentialite" style="font-family:'Cinzel',serif;font-size:36px;color:var(--gold);letter-spacing:2px;margin-bottom:12px;border:none;padding:0;" data-i18n="docPrivacy.privacyH1">🔒 Polityka Prywatności</h2>
+        <p class="subtitle" data-i18n="docPrivacy.privacySubtitle">Jak chronimy Twoje dane osobowe</p>
+
+        <div class="success-box" data-i18n="docPrivacy.privacyBox"><strong>✅ Twoja prywatność jest naszym priorytetem</strong><br>Wersja darmowa: żadne dane osobowe nie są zbierane. Wersja Premium: przetwarzane są tylko dane ściśle niezbędne do weryfikacji licencji.</div>
+
+        <h2 data-i18n="docPrivacy.collectH2">Zbieranie danych</h2>
+        <div class="legal-block">
+            <h3 data-i18n="docPrivacy.collectFreeH3">Wersja Darmowa</h3>
+            <p data-i18n="docPrivacy.collectFreeText">Żadne dane osobowe nie są zbierane ani przesyłane. Wszystkie preferencje są przechowywane wyłącznie na urządzeniu.</p>
+            <h3 data-i18n="docPrivacy.collectPremH3">Wersja Premium</h3>
+            <p data-i18n="docPrivacy.collectPremIntro">Aby zweryfikować licencję i chronić konto, przetwarzane są następujące dane:</p>
+            <ul>
+                <li data-i18n="docPrivacy.collectPremLi1">Adres e-mail Google (przez uwierzytelnienie Google)</li>
+                <li data-i18n="docPrivacy.collectPremLi2">Unikalny identyfikator urządzenia (generowany lokalnie)</li>
+                <li data-i18n="docPrivacy.collectPremLi3">Status subskrypcji i znaczniki czasu sesji</li>
+                <li data-i18n="docPrivacy.collectPremLi4">Maksymalnie 2 zarejestrowane urządzenia na konto</li>
+            </ul>
+            <p data-i18n="docPrivacy.collectPremBasis"><strong>Podstawa prawna:</strong> wykonanie umowy (art. 6.1.b RODO).</p>
+            <h3 data-i18n="docPrivacy.collectNotH3">Dane nigdy niezgromadzone</h3>
+            <ul>
+                <li data-i18n="docPrivacy.collectNotLi1">❌ Żadne dane o grze lub aktywności</li>
+                <li data-i18n="docPrivacy.collectNotLi2">❌ Żadna historia przeglądania</li>
+                <li data-i18n="docPrivacy.collectNotLi3">❌ Żadne reklamowe ani śledzące pliki cookie</li>
+            </ul>
+        </div>
+
+        <h2 data-i18n="docPrivacy.localH2">Dane przechowywane lokalnie</h2>
+        <div class="legal-block">
+            <p data-i18n="docPrivacy.localIntro">Poniższe informacje są zapisywane <strong>wyłącznie na urządzeniu</strong>:</p>
+            <ul>
+                <li data-i18n="docPrivacy.localLi1"><strong>Preferencje językowe</strong>: Wybór języka interfejsu</li>
+                <li data-i18n="docPrivacy.localLi2"><strong>Wybór motywu wizualnego</strong>: Wybrany motyw spośród 6 dostępnych</li>
+                <li data-i18n="docPrivacy.localLi3"><strong>Skonfigurowane skróty klawiszowe</strong>: Przypisane klawisze do akcji</li>
+                <li data-i18n="docPrivacy.localLi4"><strong>Niestandardowe interwały timera</strong>: Skonfigurowane timery dla makr</li>
+                <li data-i18n="docPrivacy.localLi5"><strong>Pozycja interfejsu</strong>: Położenie panelu Reborn na ekranie</li>
+                <li data-i18n="docPrivacy.localLi6"><strong>Cache licencji (Premium)</strong>: identyfikator urządzenia i status subskrypcji, aby uniknąć weryfikacji przy każdym uruchomieniu</li>
+            </ul>
+        </div>
+
+        <h2 data-i18n="docPrivacy.thirdH2">Usługi stron trzecich</h2>
+        <div class="legal-block">
+            <h3 data-i18n="docPrivacy.thirdH3">Używane usługi (wersja Premium)</h3>
+            <p data-i18n="docPrivacy.thirdDesc">Do uwierzytelnienia i płatności Reborn Assistant używa:</p>
+            <ul>
+                <li data-i18n="docPrivacy.thirdLi1">🔐 <strong>Google</strong> — Uwierzytelnienie i bezpieczne przechowywanie danych licencji</li>
+                <li data-i18n="docPrivacy.thirdLi2">💳 <strong>Stripe</strong> — Przetwarzanie płatności Premium (dane bankowe nigdy nie przechodzą przez nasze serwery)</li>
+            </ul>
+            <p data-i18n="docPrivacy.thirdTransfer">Ci dostawcy są zgodni z RODO i posiadają odpowiednie gwarancje dla międzynarodowych transferów danych.</p>
+            <h3 data-i18n="docPrivacy.thirdNoH3">Bez śledzenia, bez reklam</h3>
+            <ul>
+                <li data-i18n="docPrivacy.thirdLi3">❌ Żadne usługi analityczne lub statystyczne</li>
+                <li data-i18n="docPrivacy.thirdLi4">❌ Żadne reklamy ani ukierunkowany marketing</li>
+                <li data-i18n="docPrivacy.thirdLi5">❌ Żadne pliki cookie stron trzecich ani śledzenie zachowań</li>
+            </ul>
+        </div>
+
+        <h2 data-i18n="docPrivacy.authH2">Uwierzytelnienie i zarządzanie urządzeniami</h2>
+        <div class="legal-block">
+            <h3 data-i18n="docPrivacy.authH3">Logowanie przez Google (wersja Premium)</h3>
+            <p data-i18n="docPrivacy.authText">Konto Google jest używane wyłącznie do uwierzytelnienia tożsamości i weryfikacji licencji. Urządzenie jest rejestrowane w bezpiecznym systemie (maksymalnie 2 urządzenia na konto).</p>
+            <p data-i18n="docPrivacy.authText2">Otrzymasz powiadomienie, jeśli konto zostanie użyte na nierozpoznanym urządzeniu. Zarejestrowanymi urządzeniami możesz zarządzać bezpośrednio z rozszerzenia.</p>
+        </div>
+
+        <h2 data-i18n="docPrivacy.payH2">Bezpieczne Płatności</h2>
+        <div class="legal-block">
+            <p data-i18n="docPrivacy.payText">Płatności Premium są przetwarzane przez <strong>Stripe</strong>. Dane bankowe <strong>nigdy</strong> nie przechodzą przez nasze serwery. Nie przechowujemy <strong>żadnych</strong> danych karty bankowej.</p>
+        </div>
+
+        <h2 data-i18n="docPrivacy.retentionH2">Okres przechowywania</h2>
+        <div class="legal-block">
+            <p data-i18n="docPrivacy.retentionText">Dane są przechowywane tylko przez niezbędny czas:</p>
+            <ul>
+                <li data-i18n="docPrivacy.retentionLi1"><strong>Aktywne konto:</strong> dane przechowywane przez cały okres subskrypcji</li>
+                <li data-i18n="docPrivacy.retentionLi2"><strong>Po anulowaniu:</strong> usunięcie w ciągu 30 dni</li>
+                <li data-i18n="docPrivacy.retentionLi3"><strong>Dane lokalne:</strong> usunięte natychmiast po odinstalowaniu rozszerzenia</li>
+            </ul>
+        </div>
+
+        <h2 data-i18n="docPrivacy.rightsH2">Twoje prawa (RODO)</h2>
+        <div class="legal-block">
+            <p data-i18n="docPrivacy.rightsText">Zgodnie z RODO masz następujące prawa dotyczące danych:</p>
+            <ul>
+                <li data-i18n="docPrivacy.rightsLi1">✅ <strong>Dostęp</strong> — Uzyskanie kopii danych osobowych</li>
+                <li data-i18n="docPrivacy.rightsLi2">✅ <strong>Sprostowanie</strong> — Korekta nieprawidłowych danych</li>
+                <li data-i18n="docPrivacy.rightsLi3">✅ <strong>Usunięcie</strong> — Żądanie usunięcia konta i danych</li>
+                <li data-i18n="docPrivacy.rightsLi4">✅ <strong>Przenoszalność</strong> — Otrzymanie danych w czytelnym formacie</li>
+                <li data-i18n="docPrivacy.rightsLi5">✅ <strong>Skarga</strong> — Złożenie skargi do organu ochrony danych w swoim kraju</li>
+            </ul>
+            <p style="margin-top:16px;" data-i18n="docPrivacy.rightsExercise">Aby skorzystać z tych praw, skontaktuj się: seymoon.cell@gmail.com lub na Discordzie (Seymoon)</p>
+        </div>
+
+        <h2 data-i18n="docPrivacy.deleteH2">Usunięcie danych</h2>
+        <div class="legal-block">
+            <p data-i18n="docPrivacy.deleteText1"><strong>1. Odinstalowanie rozszerzenia</strong><br>Odinstalowanie Reborn Assistant automatycznie usuwa wszystkie dane lokalne.</p>
+            <p data-i18n="docPrivacy.deleteText2"><strong>2. Ręczny reset</strong><br>Możesz zresetować ustawienia z interfejsu Reborn w dowolnym momencie.</p>
+            <p data-i18n="docPrivacy.deleteText3"><strong>3. Usunięcie konta (Premium)</strong><br>Aby usunąć konto Premium i wszystkie powiązane dane, skontaktuj się z nami przez e-mail.</p>
+        </div>
+
+        <h2 data-i18n="docPrivacy.contactH2">Kontakt</h2>
+        <div class="contact-box">
+            <p data-i18n="docPrivacy.contactText">W przypadku pytań dotyczących informacji prawnych lub polityki prywatności:</p>
+            <p style="margin-top:16px;"><strong>📧 Email :</strong> <a href="mailto:seymoon.cell@gmail.com">seymoon.cell@gmail.com</a></p>
+            <p style="margin-top:8px;"><strong><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:6px;"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.053a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>Discord :</strong> Seymoon</p>
+        </div>
+
+        <!-- CHANGELOG -->
+        <div class="page-separator"><span>◆ ◆ ◆</span></div>
+
+        <h2 id="changelog" data-i18n="docPrivacy.changelogH2">📋 Dziennik zmian</h2>
+
+        <div class="legal-block">
+            <h3 data-i18n="docPrivacy.v130H3">Wersja 1.3.0 (Marzec 2026) · Aktualna</h3>
+
+            <p style="font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);opacity:0.7;margin:18px 0 10px;" data-i18n="docPrivacy.v130newLabel">✨ Nowości</p>
+            <ul>
+                <li data-i18n="docPrivacy.v130Li1">⏱ Przeciągalny pływający mini-timer — małe pływające okno wyświetlające timery buffów i te powyżej 1 minuty, automatycznie otwiera się przy następnym uruchomieniu i śledzi aktywny skin.</li>
+                <li data-i18n="docPrivacy.v130Li2">⚡ Makra priorytetowe — makra wykonują się przed leczeniem/HP/maną, z zamrożeniem leczenia 0,5s przed i po każdym wykonaniu dla uniknięcia konfliktów.</li>
+                <li data-i18n="docPrivacy.v130Li3">🧠 Inteligentne zarządzanie buffem — buff wykonuje się jako pierwszy, wyciszone makra są kolejkowane i automatycznie restartowane po jego zakończeniu (opóźnienie zmniejszone do 2s).</li>
+                <li data-i18n="docPrivacy.v130Li4">💾 Zapamiętywanie pozycji — pływające okna zachowują swoją pozycję między sesjami.</li>
+                <li data-i18n="docPrivacy.v130Li5">🇸🇦 Obsługa arabskiego — 15. język dostępny w rozszerzeniu.</li>
+                <li data-i18n="docPrivacy.v130Li6">💳 Płatność Stripe w popup — otwiera się w dedykowanym oknie z automatycznym zamknięciem, bez opuszczania rozszerzenia.</li>
+            </ul>
+
+            <p style="font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);opacity:0.7;margin:18px 0 10px;" data-i18n="docPrivacy.v130improvLabel">🔧 Ulepszenia</p>
+            <ul>
+                <li data-i18n="docPrivacy.v130Li7">🐾 Znajomy: naprawiono błąd, gdy znajomy nie wychodził przy pierwszym buffie + lepsze śledzenie trybu F1/F2 dla chowania przy zatrzymaniu.</li>
+                <li data-i18n="docPrivacy.v130Li8">⏱ Timer: przeprojektowanie wizualne designu premium + przezroczystość 55% w spoczynku → 95% przy najechaniu dla lepszej czytelności.</li>
+                <li data-i18n="docPrivacy.v130Li9">💳 Portal rozliczeniowy: jedno aktywne okno w pamięci z automatycznym zamknięciem.</li>
+            </ul>
+
+            <p style="font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);opacity:0.7;margin:18px 0 10px;" data-i18n="docPrivacy.v130fixLabel">🐛 Poprawki</p>
+            <ul>
+                <li data-i18n="docPrivacy.v130Li10">Naprawiono kilka wycieków pamięci w zawartości i popupie.</li>
+                <li data-i18n="docPrivacy.v130Li16">Wyrównanie UI do limitu max 2 urządzeń (spójność z backendem).</li>
+            </ul>
+        </div>
+
+        <div class="legal-block">
+            <h3 data-i18n="docPrivacy.v120H3">Wersja 1.2.0 (Marzec 2026)</h3>
+            <ul>
+                <li data-i18n="docPrivacy.v120Li1">✨ 6 skórek zostało przeprojektowanych z subtelnym efektem przezroczystości.</li>
+                <li data-i18n="docPrivacy.v120Li2">🔐 Przeglądaj i zarządzaj zarejestrowanym urządzeniem bezpośrednio z rozszerzenia.</li>
+                <li data-i18n="docPrivacy.v120Li3">💳 Dostęp do subskrypcji jednym kliknięciem z rozszerzenia.</li>
+                <li data-i18n="docPrivacy.v120Li4">🔔 Natychmiastowe powiadomienie, jeśli konto jest używane na innym urządzeniu.</li>
+            </ul>
+        </div>
+
+        <div class="legal-block">
+            <h3 data-i18n="docPrivacy.v12H3">Wersja 1.2 (Luty 2026)</h3>
+            <ul>
+                <li data-i18n="docPrivacy.v12Li1">Obsługa 15 języków (dodano turecki 🇹🇷)</li>
+                <li data-i18n="docPrivacy.v12Li2">Wizualny redesign strony internetowej</li>
+                <li data-i18n="docPrivacy.v12Li3">Połączenie stron prawnych w jedną ujednoliconą stronę</li>
+                <li data-i18n="docPrivacy.v12Li4">Pełne tłumaczenie FR/EN strony</li>
+            </ul>
+        </div>
+
+        <div class="legal-block">
+            <h3 data-i18n="docPrivacy.v11H3">Wersja 1.1.1 (Luty 2026)</h3>
+            <ul>
+                <li data-i18n="docPrivacy.v11Li1">Dodano automatyczne makro okresowe (15s + auto-zapisywanie)</li>
+                <li data-i18n="docPrivacy.v11Li2">Skróty klawiszowe CTRL+A / CTRL+O</li>
+                <li data-i18n="docPrivacy.v11Li3">Obsługa 15 języków (dodano filipiński + turecki)</li>
+                <li data-i18n="docPrivacy.v11Li4">Poprawa stabilności licencji Premium</li>
+                <li data-i18n="docPrivacy.v11Li5">Poprawki błędów w rotacji sekwencji</li>
+            </ul>
+        </div>
+
+        <div class="legal-block">
+            <h3 data-i18n="docPrivacy.v10H3">Wersja 1.0 (2025) · Pierwsza</h3>
+            <ul>
+                <li data-i18n="docPrivacy.v10Li1">Premiera Reborn Assistant</li>
+                <li data-i18n="docPrivacy.v10Li2">Automatyczne akcje typu 1 i 2</li>
+                <li data-i18n="docPrivacy.v10Li3">Automatyczna rotacja sekwencji (F2 → 1-9 → 0 → F1)</li>
+                <li data-i18n="docPrivacy.v10Li4">3 konfigurowalne makra</li>
+                <li data-i18n="docPrivacy.v10Li5">6 motywów wizualnych i 12 języków</li>
+                <li data-i18n="docPrivacy.v10Li6">System licencji Premium przez Firebase</li>
+            </ul>
+        </div>
+
+        <p style="margin-top:60px;text-align:center;color:var(--text-dim);font-size:13px;" data-i18n="docPrivacy.pageFooter">© 2026 Reborn Assistant — Opracowany przez Seymoon · Wszelkie prawa zastrzeżone</p>
+    </div>
+    <script type="module" src="/langs/index.js"></script>
+</body>
+</html>

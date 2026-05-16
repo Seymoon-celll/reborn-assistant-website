@@ -57,37 +57,62 @@ function applyTranslations(strings) {
   document.documentElement.lang = currentLang;
 }
 
+/* Detect language from URL path (e.g. /en/docs/...) — null if root (= FR) */
+function detectLangFromPath() {
+  const m = location.pathname.match(/^\/([a-z]{2})(\/|$)/);
+  return m && SUPPORTED.includes(m[1]) ? m[1] : null;
+}
+
+/* Return current path stripped of any lang prefix (e.g. /en/docs/x.html → /docs/x.html) */
+function stripLangPrefix() {
+  const cur = detectLangFromPath();
+  if (!cur) return location.pathname;
+  return location.pathname.replace(/^\/[a-z]{2}/, '') || '/';
+}
+
 /* Detect browser language, fallback to 'fr' */
 function detectBrowserLang() {
   const code = (navigator.language || '').slice(0, 2).toLowerCase();
   return SUPPORTED.includes(code) ? code : 'fr';
 }
 
-let currentLang = localStorage.getItem('site-lang') || detectBrowserLang();
+/* URL path always wins over localStorage / browser — search engines and shared links need this */
+let currentLang = detectLangFromPath() || localStorage.getItem('site-lang') || detectBrowserLang();
 let cachedStrings = {};
 
-/* Load a lang file dynamically and apply translations */
+/* Switch language — on a static pre-rendered site, this redirects to /<lang>/<path>.
+   FR lives at the root (no /fr/ prefix). The root HTML is FR, so when language is FR
+   we never need to fetch anything: just stay where we are or strip the lang prefix. */
 async function setLang(lang) {
   if (!SUPPORTED.includes(lang)) lang = 'fr';
+
+  const basePath = stripLangPrefix();
+  const targetPath = lang === 'fr' ? basePath : '/' + lang + basePath;
+
+  /* If we're not on the right URL yet, redirect — that's where the pre-rendered HTML lives */
+  if (location.pathname !== targetPath && location.pathname !== targetPath.replace(/\/$/, '/index.html')) {
+    localStorage.setItem('site-lang', lang);
+    location.href = targetPath;
+    return;
+  }
+
+  /* Already on the right URL — just sync the in-page state (used by initial load) */
   currentLang = lang;
   localStorage.setItem('site-lang', lang);
 
-  /* Close dropdown */
   const menu = document.querySelector('.lang-select');
   if (menu) menu.classList.remove('open');
 
-  /* Update button display */
   const flagEl = document.querySelector('.lang-flag');
   const codeEl = document.querySelector('.lang-code');
   if (flagEl) flagEl.textContent = LANGS[lang]?.flag ?? '';
   if (codeEl) codeEl.textContent = lang.toUpperCase();
 
-  /* Mark active option */
   document.querySelectorAll('.lang-option').forEach(opt => {
     opt.classList.toggle('active', opt.dataset.lang === lang);
   });
 
-  /* Load & cache strings */
+  /* Load & cache strings — only really needed if HTML is stale (cached) */
   if (!cachedStrings[lang]) {
     try {
       const base = new URL(`./${lang}.js`, import.meta.url).href;

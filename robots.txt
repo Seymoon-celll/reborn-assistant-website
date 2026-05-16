@@ -1,0 +1,7 @@
+# Reborn Assistant — reborn-assistance.fr
+User-agent: *
+Allow: /
+Disallow: /tools/
+Disallow: /privacy.html
+
+Sitemap: https://reborn-assistance.fr/sitemap.xml

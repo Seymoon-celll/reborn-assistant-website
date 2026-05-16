@@ -1,0 +1,205 @@
+<!-- © 2026 Reborn Assistant — All rights reserved. Unauthorized copying, modification or distribution is strictly prohibited. https://reborn-assistant.com -->
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ── SEO Primary ─────────────────────────────────────────── -->
+    <title>Probleemoplossing &amp; FAQ Reborn Assistant — Flyff Universe</title>
+    <meta name="description" content="Oplossingen voor veelvoorkomende Reborn Assistant problemen: installatie, verbinding, Premium-licentie, macro's die niet starten.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#080808">
+    <link rel="canonical" href="https://reborn-assistance.fr/nl/docs/troubleshooting.html">
+
+    <!-- ── Open Graph ─────────────────────────────────────────── -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Reborn Assistant">
+    <meta property="og:title" content="Probleemoplossing &amp; FAQ Reborn Assistant — Flyff Universe">
+    <meta property="og:description" content="Oplossingen voor veelvoorkomende Reborn Assistant problemen: installatie, verbinding, Premium-licentie, macro's die niet starten.">
+    <meta property="og:url" content="https://reborn-assistance.fr/nl/docs/troubleshooting.html">
+    <meta property="og:image" content="https://reborn-assistance.fr/og-image.png">
+    <meta property="og:locale" content="nl_NL">
+
+    <!-- ── Twitter Card ───────────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Probleemoplossing &amp; FAQ Reborn Assistant — Flyff Universe">
+    <meta name="twitter:description" content="Oplossingen voor veelvoorkomende Reborn Assistant problemen: installatie, verbinding, Premium-licentie, macro's die niet starten.">
+    <meta name="twitter:image" content="https://reborn-assistance.fr/og-image.png">
+
+    <!-- ── Performance ────────────────────────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold:#d4af37;--dark-bg:#080808;--green:#4CAF50;--red:#ff6b6b;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
+        * { margin:0;padding:0;box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.7; }
+        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
+        .container { max-width:900px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
+        .back-link { display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease; }
+        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
+        h1 { font-family:'Cinzel',serif;font-size:42px;color:var(--gold);letter-spacing:2px;margin-bottom:16px; }
+        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:60px; }
+        h2 { font-family:'Cinzel',serif;font-size:28px;color:var(--text);margin:60px 0 24px;padding-bottom:16px;border-bottom:1px solid var(--border); }
+        .faq { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;padding:28px;margin:20px 0; }
+        .faq-q { font-size:18px;font-weight:600;color:var(--gold);margin-bottom:12px; }
+        .faq-a { font-size:15px;line-height:1.7;color:var(--text-dim); }
+        .alert { background:rgba(255,107,107,0.08);border-left:4px solid var(--red);padding:20px 24px;margin:16px 0;border-radius:4px; }
+        .success { background:rgba(76,175,80,0.08);border-left:4px solid var(--green);padding:20px 24px;margin:24px 0;border-radius:4px; }
+        code { background:rgba(20,20,16,0.9);padding:3px 10px;border-radius:4px;font-family:'Courier New',monospace;font-size:13px;color:#f4d03f; }
+        ul { margin:16px 0;padding-left:24px; }
+        li { margin:8px 0;font-size:15px; }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.svg">
+
+    <!-- ── hreflang ───────────────────────────────────── -->
+    <link rel="alternate" hreflang="fr" href="https://reborn-assistance.fr/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="en" href="https://reborn-assistance.fr/en/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="es" href="https://reborn-assistance.fr/es/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="de" href="https://reborn-assistance.fr/de/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="pt" href="https://reborn-assistance.fr/pt/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="it" href="https://reborn-assistance.fr/it/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="nl" href="https://reborn-assistance.fr/nl/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="pl" href="https://reborn-assistance.fr/pl/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="ru" href="https://reborn-assistance.fr/ru/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="tr" href="https://reborn-assistance.fr/tr/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="ja" href="https://reborn-assistance.fr/ja/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="ko" href="https://reborn-assistance.fr/ko/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="tl" href="https://reborn-assistance.fr/tl/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="zh" href="https://reborn-assistance.fr/zh/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="ar" href="https://reborn-assistance.fr/ar/docs/troubleshooting.html">
+    <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/troubleshooting.html">
+    <!-- ── /hreflang ── -->
+    <script>window.__PRERENDERED_LANG__="nl";</script>
+</head>
+<body>
+    <div class="container">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:12px;">
+            <a href="/nl/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← Terug naar documentatie</a>
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                <a href="/nl/" style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:7px 16px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.color='var(--text-dim)';this.style.borderColor='var(--border)'" data-i18n="docsNav.mainSite">⌂ Hoofdsite</a>
+                <div class="lang-select">
+                    <button class="lang-select-btn" onclick="toggleLangMenu()">
+                        <span class="lang-flag">🇳🇱</span>
+                        <span class="lang-code">NL</span>
+                        <span class="lang-chevron">▾</span>
+                    </button>
+                    <div class="lang-select-menu">
+                        <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
+                        <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
+                        <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
+                        <button class="lang-option" data-lang="de" onclick="setLang('de')">🇩🇪 Deutsch</button>
+                        <button class="lang-option" data-lang="pt" onclick="setLang('pt')">🇧🇷 Português</button>
+                        <button class="lang-option" data-lang="it" onclick="setLang('it')">🇮🇹 Italiano</button>
+                        <button class="lang-option" data-lang="nl" onclick="setLang('nl')">🇳🇱 Nederlands</button>
+                        <button class="lang-option" data-lang="pl" onclick="setLang('pl')">🇵🇱 Polski</button>
+                        <button class="lang-option" data-lang="ru" onclick="setLang('ru')">🇷🇺 Русский</button>
+                        <button class="lang-option" data-lang="tr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
+                        <button class="lang-option" data-lang="ja" onclick="setLang('ja')">🇯🇵 日本語</button>
+                        <button class="lang-option" data-lang="ko" onclick="setLang('ko')">🇰🇷 한국어</button>
+                        <button class="lang-option" data-lang="tl" onclick="setLang('tl')">🇵🇭 Filipino</button>
+                        <button class="lang-option" data-lang="zh" onclick="setLang('zh')">🇨🇳 中文</button>
+                        <button class="lang-option" data-lang="ar" onclick="setLang('ar')">🇸🇦 العربية</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 data-i18n="docTroubleshooting.h1">🔧 Probleemoplossing</h1>
+        <p class="subtitle" data-i18n="docTroubleshooting.subtitle">Oplossingen voor veelvoorkomende problemen en veelgestelde vragen</p>
+
+        <h2 data-i18n="docTroubleshooting.installH2">Installatieproblemen</h2>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq1Q">❌ De extensie verschijnt niet in de werkbalk</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq1A"><strong>Oplossingen:</strong><br>1. Controleer of de extensie geïnstalleerd is via de <strong>Chrome Web Store</strong><br>2. Zet de extensie vast: klik op het puzzelicoon 🧩 in de werkbalk en zet Reborn Assistant vast<br>3. Herstart uw browser<br>4. Als het probleem aanhoudt, verwijder dan de extensie en installeer deze opnieuw via de Chrome Web Store</div>
+        </div>
+
+        <h2 data-i18n="docTroubleshooting.connH2">Verbindingsproblemen</h2>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq2Q">❌ "Verbinding mislukt" of "Ongeldige licentie"</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq2A"><strong>Mogelijke oorzaken:</strong><br>• Slechte internetverbinding<br>• Google Cloud-servers tijdelijk niet beschikbaar<br>• Verlopen of ingetrokken licentie<br><br><strong>Oplossingen:</strong><br>1. Controleer uw internetverbinding<br>2. Meld u af en opnieuw aan met Google<br>3. Controleer de status van uw licentie in uw Stripe-portaal<br>4. Neem contact op met de ondersteuning als het probleem aanhoudt</div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq3Q">❌ Het paneel toont "FREE" terwijl ik Premium heb</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq3A">1. Meld u af van uw Google-account<br>2. Sluit de browser volledig<br>3. Open opnieuw en meld u aan<br>4. Als het probleem aanhoudt, controleer dan of u bent aangemeld met het juiste Google-account (gebruikt voor de aankoop)</div>
+        </div>
+
+        <h2 data-i18n="docTroubleshooting.funcH2">Functioneringsproblemen</h2>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq4Q">❌ Type 1/2-acties worden niet geactiveerd</div>
+            <div class="faq-a">
+                <div class="alert" data-i18n="docTroubleshooting.faq4Alert"><strong>⚠️ BELANGRIJK</strong><br>Type 1 en 2-acties zijn <strong>EXCLUSIEF PREMIUM</strong>-functies. Alleen de automatische type 1-actie (HP) is beschikbaar in de gratis versie.</div>
+                <span data-i18n="docTroubleshooting.faq4Prem"><strong>Als u Premium heeft:</strong><br>1. Is de bot gestart? <code>CTRL+A</code><br>2. Zijn de activatorschakelaars ingeschakeld? (groene indicator «ON»)<br>3. Zijn de geconfigureerde toetsen correct?</span>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq5Q">❌ Reeksen / macro's / periodieke macro / sneltoetsen werken niet</div>
+            <div class="faq-a">
+                <div class="alert" data-i18n="docTroubleshooting.faq5Alert"><strong>⚠️ BELANGRIJK</strong><br>Sneltoetsen, reeksen, macro's en periodieke macro zijn <strong>EXCLUSIEF PREMIUM</strong>-functies. In de gratis versie is alleen de automatische type 1-actie (HP) beschikbaar.</div>
+                <span data-i18n="docTroubleshooting.faq5Prem"><strong>Als u Premium heeft:</strong><br>1. Controleer of uw Premium-licentie actief is (💎-icoon in het paneel)<br>2. Zijn de bijbehorende schakelaars ingeschakeld?<br>3. Controleer de geconfigureerde intervallen en vertragingen</span>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq6Q">❌ De bot stopt vanzelf</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq6A"><strong>Mogelijke oorzaken:</strong><br>• Verlies van verbinding met Google Cloud<br>• Detectie van DevTools<br>• De pagina-URL is gewijzigd<br><br><strong>Oplossingen:</strong><br>1. Herstart de bot met <code>CTRL+A</code> (Premium) of via het paneel<br>2. Herlaad de betreffende pagina<br>3. Controleer uw internetverbinding<br>4. Open geen DevTools in Premium-modus</div>
+        </div>
+
+        <h2 data-i18n="docTroubleshooting.optH2">Optimalisatie & Prestaties</h2>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq7Q">💡 De bot verbruikt te veel resources</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq7A"><strong>Aanbevelingen:</strong><br>• Vergroot de intervallen van macro's en reeksen (minder acties = minder CPU)<br>• Deactiveer systemen die u niet nodig heeft<br>• Sluit onnodige tabbladen<br>• Gebruik een geoptimaliseerde browser (Brave, Edge zijn lichter dan Chrome)</div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq8Q">💡 Hoe de configuratie optimaliseren?</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq8A"><strong>Aanbevolen configuratie:</strong><br>• <strong>Reeksinterval:</strong> 5-25 minuten (afhankelijk van de duur van uw reeksen)<br>• <strong>Vertraging tussen toetsen:</strong> 1-2 seconden (vermijdt fouten)<br>• <strong>Macro's:</strong> Intervallen van 10-30s afhankelijk van het gebruik</div>
+        </div>
+
+        <h2 data-i18n="docTroubleshooting.genH2">Veelgestelde Vragen</h2>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq9Q">❓ Kan ik Reborn op meerdere browsers gebruiken?</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq9A">Ja, maar u moet de extensie op elke browser installeren. Uw Premium-licentie werkt op al uw apparaten zolang u aangemeld bent met hetzelfde Google-account (max. 1 gelijktijdige verbinding).</div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq10Q">❓ Worden mijn gegevens opgeslagen?</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq10A">Al uw instellingen (toetsen, macro's, thema, taal) worden <strong>lokaal</strong> in de browser opgeslagen. Ze blijven bewaard tussen sessies. Als u echter de extensie verwijdert, verliest u deze gegevens.</div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq11Q">❓ Kan Reborn een ban veroorzaken?</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq11A">Het gebruik van automatiseringstools kan de Servicevoorwaarden van sommige services schenden. <strong>U bent als enige verantwoordelijk</strong> voor hoe u Reborn gebruikt. Raadpleeg de gebruiksvoorwaarden van de service voordat u deze tool gebruikt.</div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq12Q">❓ Hoe mijn Premium-abonnement opzeggen?</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq12A">U kunt op elk moment opzeggen via uw Stripe-beheerportaal (link ontvangen per e-mail na betaling). De opzegging heeft effect aan het einde van uw huidige periode. Geen opzegkosten.</div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-q" data-i18n="docTroubleshooting.faq13Q">❓ Wat gebeurt er met het Levenslang abonnement als de service sluit?</div>
+            <div class="faq-a" data-i18n="docTroubleshooting.faq13A">Het Levenslang abonnement garandeert toegang zolang de service actief is. Eenmaal geïnstalleerd werkt de extensie lokaal; alleen de licentieverificatie vereist een internetverbinding.</div>
+        </div>
+
+        <h2 data-i18n="docTroubleshooting.supportH2">Meer hulp nodig?</h2>
+        <div class="success">
+            <strong data-i18n="docTroubleshooting.supportTitle">📧 Ondersteuning</strong><br>
+            <span data-i18n="docTroubleshooting.supportText">Als uw probleem aanhoudt, neem dan rechtstreeks contact op met de ondersteuning via e-mail. Vermeld in uw bericht:<br><br>• Een gedetailleerde beschrijving van het probleem<br>• De stappen die u al heeft geprobeerd<br>• Screenshots indien relevant<br>• Uw browser en besturingssysteem</span>
+            <br><br>
+            <a href="mailto:seymoon.cell@gmail.com" style="color:var(--gold);">📧 seymoon.cell@gmail.com</a><br>
+            <span style="color:var(--gold);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:4px;"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.053a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>Discord : Seymoon</span>
+        </div>
+    </div>
+    <script type="module" src="/langs/index.js"></script>
+</body>
+</html>

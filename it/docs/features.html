@@ -1,0 +1,320 @@
+<!-- © 2026 Reborn Assistant — All rights reserved. Unauthorized copying, modification or distribution is strictly prohibited. https://reborn-assistant.com -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ── SEO Primary ─────────────────────────────────────────── -->
+    <title>Funzionalità Reborn Assistant — Macro Ringmaster Flyff</title>
+    <meta name="description" content="Tutte le funzionalità di Reborn Assistant per Flyff Universe: macro configurabili, sequenze automatiche, scorciatoie da tastiera, 6 temi.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#080808">
+    <link rel="canonical" href="https://reborn-assistance.fr/it/docs/features.html">
+
+    <!-- ── Open Graph ─────────────────────────────────────────── -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Reborn Assistant">
+    <meta property="og:title" content="Funzionalità Reborn Assistant — Macro Ringmaster Flyff">
+    <meta property="og:description" content="Tutte le funzionalità di Reborn Assistant per Flyff Universe: macro configurabili, sequenze automatiche, scorciatoie da tastiera, 6 temi.">
+    <meta property="og:url" content="https://reborn-assistance.fr/it/docs/features.html">
+    <meta property="og:image" content="https://reborn-assistance.fr/og-image.png">
+    <meta property="og:locale" content="it_IT">
+
+    <!-- ── Twitter Card ───────────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Funzionalità Reborn Assistant — Macro Ringmaster Flyff">
+    <meta name="twitter:description" content="Tutte le funzionalità di Reborn Assistant per Flyff Universe: macro configurabili, sequenze automatiche, scorciatoie da tastiera, 6 temi.">
+    <meta name="twitter:image" content="https://reborn-assistance.fr/og-image.png">
+
+    <!-- ── Performance ────────────────────────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Marcellus&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold:#d4af37;--gold-light:#f4d03f;--gold-dark:#b8941f;--dark-bg:#080808;--green:#4CAF50;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
+        * { margin:0;padding:0;box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.7; }
+        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
+        .container { max-width:1000px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
+        .back-link { display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease; }
+        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
+        h1 { font-family:'Cinzel',serif;font-size:42px;color:var(--gold);letter-spacing:2px;margin-bottom:16px; }
+        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:60px; }
+        h2 { font-family:'Cinzel',serif;font-size:28px;color:var(--text);margin:60px 0 24px;padding-bottom:16px;border-bottom:1px solid var(--border); }
+        .feature-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin:40px 0; }
+        .feature-card { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;padding:28px; }
+        .feature-card.premium { border-color:var(--gold);background:rgba(212,175,55,0.04); }
+        .feature-header { display:flex;align-items:center;justify-content:space-between;margin-bottom:16px; }
+        .feature-icon { font-size:28px; }
+        .premium-badge { background:linear-gradient(135deg,var(--gold-dark),var(--gold-light));color:#000;font-size:9px;font-weight:700;padding:4px 10px;border-radius:10px;letter-spacing:1px; }
+        .free-badge { background:rgba(76,175,80,0.2);color:var(--green);border:1px solid rgba(76,175,80,0.4);font-size:9px;font-weight:700;padding:4px 10px;border-radius:10px;letter-spacing:1px; }
+        .feature-title { font-size:18px;font-weight:600;color:var(--gold);margin-bottom:12px; }
+        .feature-desc { font-size:14px;line-height:1.6;color:var(--text-dim); }
+        .feature-list { margin-top:12px;padding-left:0;list-style:none; }
+        .feature-list li { padding:6px 0;font-size:13px;color:var(--text-dim); }
+        .feature-list li::before { content:"→";color:var(--gold);font-weight:bold;margin-right:8px; }
+        .comparison-table { width:100%;margin:40px 0;border-collapse:collapse;background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;overflow:hidden; }
+        .comparison-table th { background:rgba(212,175,55,0.1);padding:16px;font-weight:600;border-bottom:1px solid var(--border);text-align:left; }
+        .comparison-table td { padding:14px 16px;border-bottom:1px solid var(--border); }
+        .comparison-table tr:last-child td { border-bottom:none; }
+        .check { color:var(--green);font-weight:bold; }
+        .cross { color:var(--text-dim); }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.svg">
+
+    <!-- ── hreflang ───────────────────────────────────── -->
+    <link rel="alternate" hreflang="fr" href="https://reborn-assistance.fr/docs/features.html">
+    <link rel="alternate" hreflang="en" href="https://reborn-assistance.fr/en/docs/features.html">
+    <link rel="alternate" hreflang="es" href="https://reborn-assistance.fr/es/docs/features.html">
+    <link rel="alternate" hreflang="de" href="https://reborn-assistance.fr/de/docs/features.html">
+    <link rel="alternate" hreflang="pt" href="https://reborn-assistance.fr/pt/docs/features.html">
+    <link rel="alternate" hreflang="it" href="https://reborn-assistance.fr/it/docs/features.html">
+    <link rel="alternate" hreflang="nl" href="https://reborn-assistance.fr/nl/docs/features.html">
+    <link rel="alternate" hreflang="pl" href="https://reborn-assistance.fr/pl/docs/features.html">
+    <link rel="alternate" hreflang="ru" href="https://reborn-assistance.fr/ru/docs/features.html">
+    <link rel="alternate" hreflang="tr" href="https://reborn-assistance.fr/tr/docs/features.html">
+    <link rel="alternate" hreflang="ja" href="https://reborn-assistance.fr/ja/docs/features.html">
+    <link rel="alternate" hreflang="ko" href="https://reborn-assistance.fr/ko/docs/features.html">
+    <link rel="alternate" hreflang="tl" href="https://reborn-assistance.fr/tl/docs/features.html">
+    <link rel="alternate" hreflang="zh" href="https://reborn-assistance.fr/zh/docs/features.html">
+    <link rel="alternate" hreflang="ar" href="https://reborn-assistance.fr/ar/docs/features.html">
+    <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/features.html">
+    <!-- ── /hreflang ── -->
+    <script>window.__PRERENDERED_LANG__="it";</script>
+</head>
+<body>
+    <div class="container">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:12px;">
+            <a href="/it/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← Torna alla documentazione</a>
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                <a href="/it/" style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:7px 16px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.color='var(--text-dim)';this.style.borderColor='var(--border)'" data-i18n="docsNav.mainSite">⌂ Sito principale</a>
+                <div class="lang-select">
+                    <button class="lang-select-btn" onclick="toggleLangMenu()">
+                        <span class="lang-flag">🇮🇹</span>
+                        <span class="lang-code">IT</span>
+                        <span class="lang-chevron">▾</span>
+                    </button>
+                    <div class="lang-select-menu">
+                        <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
+                        <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
+                        <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
+                        <button class="lang-option" data-lang="de" onclick="setLang('de')">🇩🇪 Deutsch</button>
+                        <button class="lang-option" data-lang="pt" onclick="setLang('pt')">🇧🇷 Português</button>
+                        <button class="lang-option" data-lang="it" onclick="setLang('it')">🇮🇹 Italiano</button>
+                        <button class="lang-option" data-lang="nl" onclick="setLang('nl')">🇳🇱 Nederlands</button>
+                        <button class="lang-option" data-lang="pl" onclick="setLang('pl')">🇵🇱 Polski</button>
+                        <button class="lang-option" data-lang="ru" onclick="setLang('ru')">🇷🇺 Русский</button>
+                        <button class="lang-option" data-lang="tr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
+                        <button class="lang-option" data-lang="ja" onclick="setLang('ja')">🇯🇵 日本語</button>
+                        <button class="lang-option" data-lang="ko" onclick="setLang('ko')">🇰🇷 한국어</button>
+                        <button class="lang-option" data-lang="tl" onclick="setLang('tl')">🇵🇭 Filipino</button>
+                        <button class="lang-option" data-lang="zh" onclick="setLang('zh')">🇨🇳 中文</button>
+                        <button class="lang-option" data-lang="ar" onclick="setLang('ar')">🇸🇦 العربية</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 data-i18n="docFeatures.h1">⚡ Funzionalità</h1>
+        <p class="subtitle" data-i18n="docFeatures.subtitle">Scopri tutto ciò che Reborn Assistant può fare per te</p>
+
+        <h2 data-i18n="docFeatures.h2Free">Funzionalità GRATUITE</h2>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">💊</div>
+                    <span class="free-badge" data-i18n="docFeatures.freeBadge">GRATIS</span>
+                </div>
+                <div class="feature-title" data-i18n="docFeatures.c1Title">Azione automatica tipo 1</div>
+                <div class="feature-desc" data-i18n="docFeatures.c1Desc">Attiva automaticamente la tua azione tipo 1 (HP) in base a un timer configurabile.</div>
+                <ul class="feature-list">
+                    <li data-i18n="docFeatures.c1li1">Timer azione configurabile</li>
+                    <li data-i18n="docFeatures.c1li2">Funziona in background</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">🎨</div>
+                    <span class="free-badge" data-i18n="docFeatures.freeBadge">GRATIS</span>
+                </div>
+                <div class="feature-title" data-i18n="docFeatures.c2Title">Temi visivi</div>
+                <div class="feature-desc" data-i18n="docFeatures.c2Desc">Personalizza l'aspetto dell'interfaccia con 6 temi diversi.</div>
+                <ul class="feature-list">
+                    <li data-i18n="docFeatures.c2li1">MMO Gold (predefinito)</li>
+                    <li>Cyber Blue, Neon Purple, Fire Red</li>
+                    <li data-i18n="docFeatures.c2li2">Dark Mode & White Mode</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">🌍</div>
+                    <span class="free-badge" data-i18n="docFeatures.freeBadge">GRATIS</span>
+                </div>
+                <div class="feature-title" data-i18n="docFeatures.c3Title">Multi-lingua</div>
+                <div class="feature-desc" data-i18n="docFeatures.c3Desc">Interfaccia disponibile in 15 lingue per un'esperienza internazionale.</div>
+                <ul class="feature-list">
+                    <li>Français, English, Español, Deutsch, Italiano, Português, Nederlands</li>
+                    <li>Polski, Русский, 中文, 日本語, 한국어, Filipino, Türkçe</li>
+                    <li data-i18n="docFeatures.c3li3">Cambio istantaneo</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 data-i18n="docFeatures.h2Premium">Funzionalità PREMIUM 💎</h2>
+
+        <div class="feature-grid">
+            <div class="feature-card premium">
+                <div class="feature-header">
+                    <div class="feature-icon">❤️</div>
+                    <span class="premium-badge">PREMIUM</span>
+                </div>
+                <div class="feature-title" data-i18n="docFeatures.p1Title">Macro attivatore 1 automatico</div>
+                <div class="feature-desc" data-i18n="docFeatures.p1Desc">Attivazione automatica della tua azione tipo 1 (HP) in base a un timer configurabile.</div>
+                <ul class="feature-list">
+                    <li data-i18n="docFeatures.p1li1">Timer attivatore 1 configurabile</li>
+                    <li data-i18n="docFeatures.p1li2">Tasto di scelta rapida configurabile</li>
+                    <li data-i18n="docFeatures.p1li3">Funziona in background</li>
+                </ul>
+            </div>
+
+            <div class="feature-card premium">
+                <div class="feature-header">
+                    <div class="feature-icon">💧</div>
+                    <span class="premium-badge">PREMIUM</span>
+                </div>
+                <div class="feature-title" data-i18n="docFeatures.p2Title">Macro attivatore 2 automatico</div>
+                <div class="feature-desc" data-i18n="docFeatures.p2Desc">Uso automatico delle tue azioni tipo 2 in base a un timer configurabile.</div>
+                <ul class="feature-list">
+                    <li data-i18n="docFeatures.p2li1">Timer attivatore 2 configurabile</li>
+                    <li data-i18n="docFeatures.p2li2">Tasto di scelta rapida configurabile</li>
+                    <li data-i18n="docFeatures.p2li3">Funziona in background</li>
+                </ul>
+            </div>
+
+            <div class="feature-card premium">
+                <div class="feature-header">
+                    <div class="feature-icon">⌨️</div>
+                    <span class="premium-badge">PREMIUM</span>
+                </div>
+                <div class="feature-title" data-i18n="docFeatures.p3Title">Scorciatoie da tastiera</div>
+                <div class="feature-desc" data-i18n="docFeatures.p3Desc">Controlla Reborn Assistant al volo con scorciatoie globali personalizzabili.</div>
+                <ul class="feature-list">
+                    <li data-i18n="docFeatures.p3li1">CTRL+A: Avvia il bot</li>
+                    <li data-i18n="docFeatures.p3li2">CTRL+O: Ferma il bot</li>
+                </ul>
+            </div>
+
+            <div class="feature-card premium">
+                <div class="feature-header">
+                    <div class="feature-icon">🛡️</div>
+                    <span class="premium-badge">PREMIUM</span>
+                </div>
+                <div class="feature-title" data-i18n="docFeatures.p4Title">Rotazione sequenze</div>
+                <div class="feature-desc" data-i18n="docFeatures.p4Desc">Sistema automatico di mantenimento delle sequenze con una sequenza predefinita.</div>
+                <ul class="feature-list">
+                    <li data-i18n="docFeatures.p4li1">Sequenza: F2 → 1-9 → 0 → F1</li>
+                    <li data-i18n="docFeatures.p4li2">Intervallo configurabile (minuti)</li>
+                    <li data-i18n="docFeatures.p4li3">Ritardo tra i tasti regolabile</li>
+                </ul>
+            </div>
+
+            <div class="feature-card premium">
+                <div class="feature-header">
+                    <div class="feature-icon">⚙️</div>
+                    <span class="premium-badge">PREMIUM</span>
+                </div>
+                <div class="feature-title" data-i18n="docFeatures.p5Title">Macro Personalizzabili</div>
+                <div class="feature-desc" data-i18n="docFeatures.p5Desc">Crea fino a 3 macro con le tue sequenze di tasti personalizzate.</div>
+                <ul class="feature-list">
+                    <li data-i18n="docFeatures.p5li1">3 macro indipendenti</li>
+                    <li data-i18n="docFeatures.p5li2">Sequenze personalizzate</li>
+                    <li data-i18n="docFeatures.p5li3">Intervalli di ripetizione regolabili</li>
+                </ul>
+            </div>
+
+            <div class="feature-card premium">
+                <div class="feature-header">
+                    <div class="feature-icon">🐉</div>
+                    <span class="premium-badge">PREMIUM</span>
+                </div>
+                <div class="feature-title" data-i18n="docFeatures.p6Title">Macro periodica</div>
+                <div class="feature-desc" data-i18n="docFeatures.p6Desc">Chiamata e memorizzazione automatica della tua macro periodica ogni 15 secondi.</div>
+                <ul class="feature-list">
+                    <li data-i18n="docFeatures.p6li1">Chiamata automatica della macro periodica</li>
+                    <li data-i18n="docFeatures.p6li2">Auto-memorizzazione dopo la chiamata</li>
+                    <li data-i18n="docFeatures.p6li3">Intervallo fisso di 15 secondi</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 data-i18n="docFeatures.tableH2">Tabella comparativa</h2>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th data-i18n="docFeatures.tableFeature">Funzionalità</th>
+                    <th style="text-align:center;" data-i18n="docFeatures.tableFree">Gratis</th>
+                    <th style="text-align:center;">Premium</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-i18n="docFeatures.row1">Azione automatica tipo 1 (HP)</td>
+                    <td style="text-align:center;"><span class="check">✔</span></td>
+                    <td style="text-align:center;"><span class="check">✔</span></td>
+                </tr>
+                <tr>
+                    <td data-i18n="docFeatures.row2">Temi visivi (6)</td>
+                    <td style="text-align:center;"><span class="check">✔</span></td>
+                    <td style="text-align:center;"><span class="check">✔</span></td>
+                </tr>
+                <tr>
+                    <td data-i18n="docFeatures.row3">Multi-lingua (15)</td>
+                    <td style="text-align:center;"><span class="check">✔</span></td>
+                    <td style="text-align:center;"><span class="check">✔</span></td>
+                </tr>
+                <tr style="background:rgba(212,175,55,0.03);">
+                    <td><strong data-i18n="docFeatures.row4">Macro attivatore 1 automatico</strong></td>
+                    <td style="text-align:center;"><span class="cross">✗</span></td>
+                    <td style="text-align:center;"><span class="check">✔</span></td>
+                </tr>
+                <tr style="background:rgba(212,175,55,0.03);">
+                    <td><strong data-i18n="docFeatures.row5">Macro attivatore 2 automatico</strong></td>
+                    <td style="text-align:center;"><span class="cross">✗</span></td>
+                    <td style="text-align:center;"><span class="check">✔</span></td>
+                </tr>
+                <tr style="background:rgba(212,175,55,0.03);">
+                    <td><strong data-i18n="docFeatures.row6">Scorciatoie da tastiera (CTRL+A / CTRL+O)</strong></td>
+                    <td style="text-align:center;"><span class="cross">✗</span></td>
+                    <td style="text-align:center;"><span class="check">✔</span></td>
+                </tr>
+                <tr style="background:rgba(212,175,55,0.03);">
+                    <td><strong data-i18n="docFeatures.row7">Rotazione sequenze automatica</strong></td>
+                    <td style="text-align:center;"><span class="cross">✗</span></td>
+                    <td style="text-align:center;"><span class="check">✔</span></td>
+                </tr>
+                <tr style="background:rgba(212,175,55,0.03);">
+                    <td><strong data-i18n="docFeatures.row8">Macro personalizzabili (3x)</strong></td>
+                    <td style="text-align:center;"><span class="cross">✗</span></td>
+                    <td style="text-align:center;"><span class="check">✔</span></td>
+                </tr>
+                <tr style="background:rgba(212,175,55,0.03);">
+                    <td><strong data-i18n="docFeatures.row9">Macro periodica automatica</strong></td>
+                    <td style="text-align:center;"><span class="cross">✗</span></td>
+                    <td style="text-align:center;"><span class="check">✔</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="margin-top:40px;text-align:center;color:var(--text-dim);">
+            <a href="/it/docs/premium.html" style="color:var(--gold);text-decoration:none;" data-i18n="docFeatures.learnMore">→ Scopri di più sulle funzioni Premium</a>
+        </p>
+    </div>
+    <script type="module" src="/langs/index.js"></script>
+</body>
+</html>
