@@ -6,7 +6,7 @@ Copyright © 2026 Reborn Assistant — Seymoon. All rights reserved.
 This website and all its contents — including but not limited to
 HTML, CSS, JavaScript, translations, design, layout, text,
 graphics, and any associated files — are the exclusive intellectual
-property of Seymoon (contact: seymoon.cell@gmail.com).
+property of Seymoon (contact: seymoon@constellation-89.fr).
 
 STRICTLY PROHIBITED WITHOUT PRIOR WRITTEN AUTHORIZATION:
 ─────────────────────────────────────────────────────────
@@ -26,7 +26,7 @@ Any unauthorized use constitutes copyright infringement and may
 result in civil and/or criminal penalties under applicable law.
 
 Website: reborn-assistance.com
-Contact: seymoon.cell@gmail.com
+Contact: seymoon@constellation-89.fr
 
 ════════════════════════════════════════════════════════════════
 © 2026 Reborn Vision. All rights reserved.
