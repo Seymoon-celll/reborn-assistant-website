@@ -133,6 +133,8 @@ export default {
     articleToolsDesc:     "Comparatif des extensions, traducteurs et calculateurs testés pour Flyff Universe.",
     articleGuideTitle:    "Guide complet du Ringmaster",
     articleGuideDesc:     "Rôle, buffs, builds STA/INT, équipement : tout sur la classe support Flyff Universe.",
+    articleShortcutsTitle: "Raccourcis clavier Flyff Universe",
+    articleShortcutsDesc:  "Liste complète des raccourcis Flyff Universe et configuration recommandée par classe.",
     footer:               "© 2026 Reborn Assistant — Développé par Seymoon · Tous droits réservés",
   },
 

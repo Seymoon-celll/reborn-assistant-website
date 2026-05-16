@@ -133,6 +133,8 @@ export default {
     articleToolsDesc:     "Comparison of extensions, translators and calculators tested for Flyff Universe.",
     articleGuideTitle:    "Complete Ringmaster guide",
     articleGuideDesc:     "Role, buffs, STA/INT builds, gear: everything about the Flyff Universe support class.",
+    articleShortcutsTitle: "Flyff Universe Keyboard Shortcuts",
+    articleShortcutsDesc:  "Complete list of Flyff Universe shortcuts and recommended configuration per class.",
     footer:               "© 2026 Reborn Assistant — Developed by Seymoon · All rights reserved",
   },
 
