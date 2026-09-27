@@ -41,11 +41,11 @@
         /* Title page of the codex */
         .docs-hero { text-align: center; margin-bottom: clamp(36px, 5vw, 56px); }
         .docs-sigil { position: relative; display: grid; place-items: center; width: 176px; height: 176px; margin: 0 auto 22px; }
-        .docs-sigil svg { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--gold); opacity: .75; animation: spin 240s linear infinite; will-change: transform; }
+        .docs-sigil svg { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--gold); opacity: .75; }
         .docs-sigil::before { content: ''; position: absolute; inset: 18%; border-radius: 50%; background: radial-gradient(circle, rgba(212,175,55,.22), transparent 70%); }
         .logo {
             position: relative; display: grid; place-items: center; width: 72px; height: 72px;
-            font-family: 'Cinzel', serif; font-size: 36px; font-weight: 900; line-height: 1; color: #171204;
+            font-family: 'Cinzel', serif; font-size: 36px; font-weight: 900; line-height: 1; color: var(--on-gold);
             background: var(--gilt); border-radius: 18px;
             box-shadow: inset 0 0 0 1px rgba(255,248,220,.55), inset 0 -10px 18px rgba(125,100,32,.45), 0 0 0 1px rgba(0,0,0,.65), 0 14px 40px -12px rgba(212,175,55,.7);
         }
@@ -68,10 +68,10 @@
         .doc-category::before {
             content: counter(chapter, upper-roman); flex-shrink: 0; display: grid; place-items: center;
             min-width: 38px; height: 38px; padding: 0 8px; border-radius: 10px;
-            font-family: 'Cinzel', serif; font-size: 13px; font-weight: 900; letter-spacing: .04em; color: #1a1405;
+            font-family: 'Cinzel', serif; font-size: 13px; font-weight: 900; letter-spacing: .04em; color: var(--on-gold);
             background: var(--gilt); box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 8px 20px -10px rgba(212,175,55,.8);
         }
-        .doc-category::after { content: ''; flex: 1; min-width: 24px; height: 1px; background: linear-gradient(var(--to-end), var(--line-3), transparent); }
+        .doc-category::after { content: ''; flex: 1; min-width: 0; height: 1px; background: linear-gradient(var(--to-end), var(--line-3), transparent); }
 
         /* Entry cards */
         .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
@@ -104,10 +104,25 @@
             .card { column-gap: 16px; padding: 18px; min-height: 0; }
             .card .skill-slot { width: 52px; height: 52px; font-size: 22px; }
         }
+        @media (prefers-reduced-motion: no-preference) {
+            .docs-sigil svg { animation: spin 240s linear infinite; will-change: transform; }
+        }
+        /* Phones: the crest becomes a compact horizontal title block (≈ 100px) so the first entry card shows early */
         @media (max-width: 640px) {
-            .docs-sigil { width: 144px; height: 144px; }
-            .logo { width: 60px; height: 60px; font-size: 30px; border-radius: 15px; }
-            .docs-hero h1 { letter-spacing: .1em; padding-inline-start: .1em; }
+            .docs-hub { padding-top: 24px; }
+            .docs-hero {
+                display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; align-items: center;
+                margin-bottom: 8px; text-align: start;
+            }
+            .docs-sigil { grid-row: 1 / span 2; width: 88px; height: 88px; margin: 0; }
+            .docs-sigil svg { opacity: .6; }
+            .logo { width: 42px; height: 42px; font-size: 21px; border-radius: 11px; }
+            .logo::after { inset: 4px; border-radius: 8px; }
+            .docs-hero h1 { align-self: end; margin-bottom: 4px; padding-inline-start: 0; font-size: clamp(19px, 5.6vw, 24px); letter-spacing: .08em; line-height: 1.2; }
+            .version { align-self: start; font-size: 10.5px; letter-spacing: .12em; line-height: 1.5; }
+            .docs-hero .ornament { display: none; }
+            .codex-chapter:first-of-type { margin-top: 22px; }
+            .doc-category { gap: 12px; font-size: 12.5px; letter-spacing: .08em; overflow-wrap: anywhere; }
         }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -313,18 +328,5 @@
     </footer>
 
     <script type="module" src="/langs/index.js"></script>
-    <script>
-        // ── Language dropdown: mirror its open state (toggled by langs/index.js) into aria-expanded; Escape closes it ──
-        (function () {
-            const ls = document.querySelector('.lang-select');
-            const lb = ls && ls.querySelector('.lang-select-btn');
-            if (!ls || !lb) return;
-            new MutationObserver(() => lb.setAttribute('aria-expanded', String(ls.classList.contains('open'))))
-                .observe(ls, { attributes: true, attributeFilter: ['class'] });
-            document.addEventListener('keydown', e => {
-                if (e.key === 'Escape' && ls.classList.contains('open')) { ls.classList.remove('open'); lb.focus(); }
-            });
-        })();
-    </script>
 </body>
 </html>

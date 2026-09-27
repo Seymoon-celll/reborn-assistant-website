@@ -1,13 +1,15 @@
 // © 2026 Reborn Assistant — All rights reserved. Unauthorized copying, modification or distribution is strictly prohibited. https://reborn-assistant.com
 /* ── Reborn Assistant — i18n loader ── */
 
-/* Inject lang-select dropdown CSS */
+/* Language dropdown CSS — the single source of truth lives in section 9 of
+   /assets/css/site.css. This resolved copy is injected ONLY on pages that do not
+   link that stylesheet (legacy or cached pages); keep both in sync. */
 (function injectLangCSS() {
+  if (document.querySelector('link[rel~="stylesheet"][href*="/assets/css/site.css"]')) return;
   const s = document.createElement('style');
   s.textContent = [
-    /* Arcane Luxe dropdown — kept in sync with section 9 of /assets/css/site.css (logical properties for RTL) */
     '.lang-select{position:relative;display:inline-block;user-select:none;}',
-    '.lang-select-btn{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 12px;background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.28);border-radius:10px;font-family:\'Inter\',system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:.04em;white-space:nowrap;color:#d4af37;cursor:pointer;transition:background-color .2s ease,border-color .2s ease;}',
+    '.lang-select-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:40px;min-width:40px;padding:0 12px;background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.28);border-radius:10px;font-family:\'Inter\',system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:.04em;white-space:nowrap;color:#d4af37;cursor:pointer;transition:background-color .2s ease,border-color .2s ease;}',
     '.lang-select-btn:hover,.lang-select.open .lang-select-btn{background:rgba(212,175,55,0.12);border-color:rgba(212,175,55,0.5);}',
     '.lang-select-btn:focus-visible{outline:2px solid #f5e6b8;outline-offset:3px;}',
     '.lang-flag{font-size:15px;line-height:1;}',
@@ -142,6 +144,21 @@ document.addEventListener('click', e => {
   const el = document.querySelector('.lang-select');
   if (el && !el.contains(e.target)) el.classList.remove('open');
 });
+
+/* Accessibility, once for every page: aria-expanded mirrors the open state
+   (whoever toggles the class), Escape closes the menu and returns focus. */
+(function langMenuA11y() {
+  const el = document.querySelector('.lang-select');
+  const btn = el && el.querySelector('.lang-select-btn');
+  if (!btn) return;
+  if (!btn.hasAttribute('aria-haspopup')) btn.setAttribute('aria-haspopup', 'true');
+  const sync = () => btn.setAttribute('aria-expanded', String(el.classList.contains('open')));
+  sync();
+  new MutationObserver(sync).observe(el, { attributes: true, attributeFilter: ['class'] });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && el.classList.contains('open')) { el.classList.remove('open'); btn.focus(); }
+  });
+})();
 
 /* Init — handle both cases: module executes before or after DOMContentLoaded */
 if (document.readyState === 'loading') {
