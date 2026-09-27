@@ -28,39 +28,53 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="alternate" hreflang="fr" href="https://reborn-assistance.fr/docs/raccourcis-clavier-flyff-universe.html">
     <link rel="alternate" hreflang="en" href="https://reborn-assistance.fr/en/docs/flyff-universe-keyboard-shortcuts.html">
     <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/raccourcis-clavier-flyff-universe.html">
 
+    <link rel="stylesheet" href="/assets/css/site.css?v=2">
     <style>
-        :root { --gold:#d4af37;--gold-light:#f4d03f;--gold-dark:#b8941f;--dark-bg:#080808;--green:#4CAF50;--red:#ff6b6b;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
-        * { margin:0;padding:0;box-sizing:border-box; }
-        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.8; }
-        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
-        .container { max-width:920px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
-        .breadcrumb { font-size:12px;color:var(--text-dim);margin-bottom:32px;letter-spacing:1px; }
-        .breadcrumb a { color:var(--gold);text-decoration:none; }
-        h1 { font-family:'Cinzel',serif;font-size:clamp(30px,5vw,44px);color:var(--gold);letter-spacing:1.5px;line-height:1.1;margin-bottom:20px; }
-        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:48px;line-height:1.6; }
-        h2 { font-family:'Cinzel',serif;font-size:26px;color:var(--text);margin:56px 0 20px;padding-bottom:14px;border-bottom:1px solid var(--border);letter-spacing:0.5px; }
-        h3 { font-size:19px;color:var(--gold);margin:28px 0 12px;font-weight:600; }
-        p { margin-bottom:18px;font-size:15.5px; }
-        ul { margin:14px 0 22px 24px; }
-        li { margin:8px 0;font-size:15.5px; }
-        strong { color:var(--gold); }
-        kbd { display:inline-block;background:rgba(20,20,16,0.9);border:1px solid var(--border);border-bottom-width:2px;padding:3px 10px;border-radius:5px;font-family:'Courier New',monospace;font-size:12px;color:var(--gold-light);min-width:30px;text-align:center; }
-        .key-table { width:100%;border-collapse:collapse;margin:20px 0;background:rgba(20,20,16,0.5);border:1px solid var(--border);border-radius:10px;overflow:hidden; }
-        .key-table th { background:rgba(212,175,55,0.1);padding:12px 16px;font-weight:600;text-align:left;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold); }
-        .key-table td { padding:12px 16px;border-top:1px solid var(--border);font-size:14px;vertical-align:middle; }
-        .callout { background:rgba(212,175,55,0.08);border-left:4px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:4px; }
-        .callout strong { color:var(--gold);display:block;margin-bottom:6px; }
-        .cta-box { background:linear-gradient(160deg,rgba(212,175,55,0.06),rgba(20,20,16,0.6));border:1px solid var(--gold);border-radius:14px;padding:32px;margin:48px 0;text-align:center; }
-        .cta-box h3 { color:var(--gold);font-family:'Cinzel',serif;font-size:22px;margin-bottom:14px; }
-        .btn-cta { display:inline-block;background:linear-gradient(135deg,#2d5016,#4CAF50,#5dd87a);color:#fff;padding:14px 32px;text-decoration:none;font-family:'Cinzel',serif;font-weight:600;letter-spacing:1.5px;border-radius:6px;font-size:13px;text-transform:uppercase;margin-top:8px; }
-        .back-link { display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;text-decoration:none;transition:all 0.3s; }
-        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
+        /* ═══ Long-tail article — page-specific tweaks (codex components: /assets/css/site.css) ═══ */
+        .article-head .breadcrumb { margin-bottom: 20px; }
+        .article .callout { margin-block: 34px; }
+
+        /* Callout titles start with an OS emoji ("💡 …", "📚 …"). Their markup stays byte-identical: the emoji is hidden
+           visually (screen readers still read it, as .emoji-lead does) and a gold line glyph in the callout's tone
+           is drawn beside the title by the callout itself (§6a′, without touching the phrase). */
+        .article .callout--gl > strong:first-child { padding-inline-start: 27px; }
+        .article .callout--gl > strong:first-child::first-letter { font-size: 0; color: transparent; float: left; }
+        .article .callout--gl::after {
+            content: ''; position: absolute; top: 27px; inset-inline-start: 30px; width: 17px; height: 17px; pointer-events: none;
+            background: var(--callout-title);
+            -webkit-mask: var(--callout-gl) center / contain no-repeat; mask: var(--callout-gl) center / contain no-repeat;
+        }
+        .callout--bulb { --callout-gl: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' fill-opacity='.16' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9.3 16.6v-1.2c0-1.1-.5-1.9-1.3-2.7a6 6 0 1 1 8 0c-.8.8-1.3 1.6-1.3 2.7v1.2z'/%3E%3Cpath fill='none' d='M9.6 19.2h4.8M10.6 21.6h2.8M10.4 11.6l1.6 1.4 1.6-1.4M12 13v3.6'/%3E%3C/svg%3E"); }
+        .callout--book { --callout-gl: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' fill-opacity='.16' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 6.6C10.2 5.2 7.7 4.5 3.5 4.5v13.2c4.2 0 6.7.7 8.5 2.1 1.8-1.4 4.3-2.1 8.5-2.1V4.5c-4.2 0-6.7.7-8.5 2.1z'/%3E%3Cpath fill='none' d='M12 6.6v13.2'/%3E%3C/svg%3E"); }
+
+        /* Key tables — every one pins its key column (the same keycap rail in all four). The key/action pairs share
+           one key-column width and fit a phone instead of scrolling; the three-column combat table scrolls there. */
+        .article .key-table--pair :is(th, td):first-child { width: 36%; }
+        .table-scroll .key-table--pair { min-width: 0; }
+        /* site.css paints zebra and hover rows with a translucent `background` that outranks the pinned cell's opaque
+           fill: keep pinned cells opaque (scrolled text must not show through them) and keep the header tint */
+        .table-scroll--sticky th:first-child { background: linear-gradient(rgba(212,175,55,.08), rgba(212,175,55,.08)) var(--ink-3); }
+        .table-scroll--sticky tbody tr:nth-child(even) td:first-child { background: linear-gradient(rgba(212,175,55,.02), rgba(212,175,55,.02)) var(--ink-3); }
+        .table-scroll--sticky tbody tr:hover td:first-child { background: linear-gradient(rgba(212,175,55,.045), rgba(212,175,55,.045)) var(--ink-3); }
+        @media (max-width: 560px) {
+            .article .key-table :is(th, td) { padding-inline: 14px; }
+            .article .key-table td:first-child { white-space: normal; }        /* keys wrap between keycaps, never inside the text column */
+            .article .key-table--pair :is(th, td):first-child { width: 40%; }
+        }
+
+        /* Per-class setups — role cards, as in the class guide (heading + intro beside the glyph well, list below) */
+        .article .role-card > h3 { margin-top: 0; }
+        .article .role-card > p { margin-bottom: 12px; }
+        .article .role-card > ul { margin: 0 0 16px; }
+        .article .role-card > ul > li:first-child { margin-top: 0; }
+        .article .role-card > ul > li:last-child { margin-bottom: 0; }
+        @media (max-width: 640px) { .article .role-card > h3 + ul { margin-top: 14px; } }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
@@ -94,20 +108,41 @@
     </script>
 </head>
 <body>
-    <div class="container">
-        <a href="/en/docs/index.html" class="back-link">← Back to docs</a>
-        <div class="breadcrumb" style="margin-top:24px;">
-            <a href="/en/">Home</a> › <a href="/en/docs/index.html">Documentation</a> › Flyff Universe keyboard shortcuts
+    <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 10c0 5.65-7 10-7 10z"/></symbol>
+        <symbol id="g-swords" viewBox="0 0 24 24"><path fill="none" d="M4 4l10.6 10.6M20 4L9.4 14.6M12.4 16.8l4.4-4.4M7.2 12.4l4.4 4.4M14.6 14.6l3.8 3.8M9.4 14.6l-3.8 3.8"/><circle cx="19.3" cy="19.3" r="1.2"/><circle cx="4.7" cy="19.3" r="1.2"/></symbol>
+        <symbol id="g-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4L12 3z"/></symbol>
+        <symbol id="g-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4.5M12 17.5V22M2 12h4.5M17.5 12H22"/><circle cx="12" cy="12" r=".4"/></symbol>
+    </svg>
+    <!-- ═══ Header ═══ -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="/en/" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+                <span class="brand__word">Reborn</span>
+            </a>
+            <div class="header-actions">
+                <a href="/en/docs/index.html" class="back-link">← Back to docs</a>
+            </div>
         </div>
+    </header>
 
-        <h1>Flyff Universe Keyboard Shortcuts — Complete 2026 List</h1>
-        <p class="subtitle">Every key in the game gathered in a single reference. Combat, buffs, inventory, chat, navigation: the setup every player should know by heart before tackling end-game.</p>
+    <main class="container article">
+        <header class="article-head">
+            <div class="breadcrumb" style="margin-top:24px;">
+                <a href="/en/">Home</a> › <a href="/en/docs/index.html">Documentation</a> › Flyff Universe keyboard shortcuts
+            </div>
+
+            <h1>Flyff Universe Keyboard Shortcuts — Complete 2026 List</h1>
+            <p class="subtitle">Every key in the game gathered in a single reference. Combat, buffs, inventory, chat, navigation: the setup every player should know by heart before tackling end-game.</p>
+            <div class="ornament" aria-hidden="true"></div>
+        </header>
 
         <h2>Why mastering shortcuts changes everything</h2>
         <p>On Flyff Universe, a player who uses the mouse for <em>every</em> action loses on average <strong>30 to 40% of their DPS</strong> compared to a player who masters their keyboard shortcuts. The reason is mathematical: a click takes 250-400 ms (movement + precision), a keystroke takes 80-120 ms. Across a 5-minute boss fight requiring 200 actions, this difference is the gap between a wipe and a kill.</p>
         <p>This guide collects <strong>default shortcuts</strong>, <strong>configurable shortcuts</strong>, and the <strong>recommended setup per class</strong>. Everything you need to never open a menu with your mouse mid-fight again.</p>
 
-        <div class="callout">
+        <div class="callout callout--gl callout--bulb">
             <strong>💡 AZERTY vs QWERTY</strong>
             Flyff Universe respects your physical keyboard layout. On a French AZERTY, <kbd>A</kbd> and <kbd>Q</kbd> are swapped compared to QWERTY. If you use an assistant like Reborn Assistant, set the layout in Settings — otherwise your macros will trigger the wrong keys.
         </div>
@@ -115,61 +150,69 @@
         <h2>Combat — Core keys</h2>
         <p>These keys are fixed server-side and cannot be remapped:</p>
 
-        <table class="key-table">
-            <thead><tr><th>Key</th><th>Action</th><th>Note</th></tr></thead>
-            <tbody>
-                <tr><td><kbd>F1</kbd></td><td>First action bar (main combat)</td><td>Always shown while farming</td></tr>
-                <tr><td><kbd>F2</kbd></td><td>Second action bar (main buffs)</td><td>Heart of the RM/Mentalist buff system</td></tr>
-                <tr><td><kbd>F3</kbd></td><td>Third action bar (situational sequences)</td><td>Resurrection, Holy Cross, etc.</td></tr>
-                <tr><td><kbd>F4</kbd></td><td>Fourth bar (potions/pet)</td><td>Slots 7-9 ideal for HP/FP potions</td></tr>
-                <tr><td><kbd>1</kbd>—<kbd>9</kbd> and <kbd>0</kbd></td><td>Active slots of the current bar</td><td>Recommended: assign long-duration buffs first</td></tr>
-                <tr><td><kbd>Space</kbd></td><td>Jump / activate flight mode</td><td>Double-press in flight = dive</td></tr>
-                <tr><td><kbd>Tab</kbd></td><td>Target the nearest mob</td><td>The must-have for fluid combat</td></tr>
-                <tr><td><kbd>Esc</kbd></td><td>Deselect / cancel / close menu</td><td>First reflex in emergencies</td></tr>
-            </tbody>
-        </table>
+        <div class="table-scroll table-scroll--sticky">
+            <table class="key-table">
+                <thead><tr><th>Key</th><th>Action</th><th>Note</th></tr></thead>
+                <tbody>
+                    <tr><td><kbd>F1</kbd></td><td>First action bar (main combat)</td><td>Always shown while farming</td></tr>
+                    <tr><td><kbd>F2</kbd></td><td>Second action bar (main buffs)</td><td>Heart of the RM/Mentalist buff system</td></tr>
+                    <tr><td><kbd>F3</kbd></td><td>Third action bar (situational sequences)</td><td>Resurrection, Holy Cross, etc.</td></tr>
+                    <tr><td><kbd>F4</kbd></td><td>Fourth bar (potions/pet)</td><td>Slots 7-9 ideal for HP/FP potions</td></tr>
+                    <tr><td><kbd>1</kbd>—<kbd>9</kbd> and <kbd>0</kbd></td><td>Active slots of the current bar</td><td>Recommended: assign long-duration buffs first</td></tr>
+                    <tr><td><kbd>Space</kbd></td><td>Jump / activate flight mode</td><td>Double-press in flight = dive</td></tr>
+                    <tr><td><kbd>Tab</kbd></td><td>Target the nearest mob</td><td>The must-have for fluid combat</td></tr>
+                    <tr><td><kbd>Esc</kbd></td><td>Deselect / cancel / close menu</td><td>First reflex in emergencies</td></tr>
+                </tbody>
+            </table>
+        </div>
 
         <h2>Menus & inventory</h2>
-        <table class="key-table">
-            <thead><tr><th>Key</th><th>Action</th></tr></thead>
-            <tbody>
-                <tr><td><kbd>I</kbd></td><td>Open/close inventory</td></tr>
-                <tr><td><kbd>C</kbd></td><td>Character sheet (stats, gear)</td></tr>
-                <tr><td><kbd>K</kbd></td><td>Skill tree</td></tr>
-                <tr><td><kbd>P</kbd></td><td>Party sheet</td></tr>
-                <tr><td><kbd>O</kbd></td><td>Social list (friends, guild, ignore)</td></tr>
-                <tr><td><kbd>G</kbd></td><td>Guild / Academy</td></tr>
-                <tr><td><kbd>M</kbd></td><td>Map / expanded minimap</td></tr>
-                <tr><td><kbd>Q</kbd></td><td>Active quest list</td></tr>
-                <tr><td><kbd>L</kbd></td><td>Pet panel</td></tr>
-                <tr><td><kbd>V</kbd></td><td>Mount</td></tr>
-                <tr><td><kbd>B</kbd></td><td>Bank (on banker NPC)</td></tr>
-                <tr><td><kbd>U</kbd></td><td>Lover / Couple system</td></tr>
-            </tbody>
-        </table>
+        <div class="table-scroll table-scroll--sticky">
+            <table class="key-table key-table--pair">
+                <thead><tr><th>Key</th><th>Action</th></tr></thead>
+                <tbody>
+                    <tr><td><kbd>I</kbd></td><td>Open/close inventory</td></tr>
+                    <tr><td><kbd>C</kbd></td><td>Character sheet (stats, gear)</td></tr>
+                    <tr><td><kbd>K</kbd></td><td>Skill tree</td></tr>
+                    <tr><td><kbd>P</kbd></td><td>Party sheet</td></tr>
+                    <tr><td><kbd>O</kbd></td><td>Social list (friends, guild, ignore)</td></tr>
+                    <tr><td><kbd>G</kbd></td><td>Guild / Academy</td></tr>
+                    <tr><td><kbd>M</kbd></td><td>Map / expanded minimap</td></tr>
+                    <tr><td><kbd>Q</kbd></td><td>Active quest list</td></tr>
+                    <tr><td><kbd>L</kbd></td><td>Pet panel</td></tr>
+                    <tr><td><kbd>V</kbd></td><td>Mount</td></tr>
+                    <tr><td><kbd>B</kbd></td><td>Bank (on banker NPC)</td></tr>
+                    <tr><td><kbd>U</kbd></td><td>Lover / Couple system</td></tr>
+                </tbody>
+            </table>
+        </div>
 
         <h2>Chat & communication</h2>
-        <table class="key-table">
-            <thead><tr><th>Key</th><th>Action</th></tr></thead>
-            <tbody>
-                <tr><td><kbd>Enter</kbd></td><td>Open chat / send message</td></tr>
-                <tr><td><kbd>/</kbd></td><td>Slash command (e.g. <code>/who</code>, <code>/r</code> for reply)</td></tr>
-                <tr><td><kbd>Shift</kbd>+<kbd>Enter</kbd></td><td>Chat in shout mode (global channel)</td></tr>
-                <tr><td><kbd>Page Up</kbd> / <kbd>Page Down</kbd></td><td>Scroll chat history</td></tr>
-            </tbody>
-        </table>
+        <div class="table-scroll table-scroll--sticky">
+            <table class="key-table key-table--pair">
+                <thead><tr><th>Key</th><th>Action</th></tr></thead>
+                <tbody>
+                    <tr><td><kbd>Enter</kbd></td><td>Open chat / send message</td></tr>
+                    <tr><td><kbd>/</kbd></td><td>Slash command (e.g. <code>/who</code>, <code>/r</code> for reply)</td></tr>
+                    <tr><td><kbd>Shift</kbd>+<kbd>Enter</kbd></td><td>Chat in shout mode (global channel)</td></tr>
+                    <tr><td><kbd>Page Up</kbd> / <kbd>Page Down</kbd></td><td>Scroll chat history</td></tr>
+                </tbody>
+            </table>
+        </div>
 
         <h2>Camera & movement</h2>
-        <table class="key-table">
-            <thead><tr><th>Key</th><th>Action</th></tr></thead>
-            <tbody>
-                <tr><td><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> or arrows</td><td>Movement (depends on QWERTY/AZERTY layout)</td></tr>
-                <tr><td><kbd>Insert</kbd> / <kbd>Delete</kbd></td><td>Horizontal camera rotation</td></tr>
-                <tr><td><kbd>Home</kbd> / <kbd>End</kbd></td><td>Camera zoom in / out</td></tr>
-                <tr><td><kbd>↑</kbd> / <kbd>↓</kbd></td><td>Vertical camera tilt</td></tr>
-                <tr><td><kbd>Right click + mouse drag</kbd></td><td>Free camera rotation (standard method)</td></tr>
-            </tbody>
-        </table>
+        <div class="table-scroll table-scroll--sticky">
+            <table class="key-table key-table--pair">
+                <thead><tr><th>Key</th><th>Action</th></tr></thead>
+                <tbody>
+                    <tr><td><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> or arrows</td><td>Movement (depends on QWERTY/AZERTY layout)</td></tr>
+                    <tr><td><kbd>Insert</kbd> / <kbd>Delete</kbd></td><td>Horizontal camera rotation</td></tr>
+                    <tr><td><kbd>Home</kbd> / <kbd>End</kbd></td><td>Camera zoom in / out</td></tr>
+                    <tr><td><kbd>↑</kbd> / <kbd>↓</kbd></td><td>Vertical camera tilt</td></tr>
+                    <tr><td><kbd>Right click + mouse drag</kbd></td><td>Free camera rotation (standard method)</td></tr>
+                </tbody>
+            </table>
+        </div>
 
         <h2>Hidden & useful shortcuts</h2>
         <p>Lesser-known shortcuts that can save you while farming:</p>
@@ -183,64 +226,84 @@
 
         <h2>Recommended setup per class</h2>
 
-        <h3>Ringmaster / Mentalist (support)</h3>
-        <p>You spend 80% of your time on buffs. The F2 bar becomes your headquarters:</p>
-        <ul>
-            <li><strong>F1</strong> — combat bar (target/Heal Rain/HP potion)</li>
-            <li><strong>F2</strong> — slots 1-9: Heart of Power, Beef Up, Mental Sign, Speed Pep, Cat's Reflex, Holy Cross, other buffs</li>
-            <li><strong>F3</strong> — Resurrection, dispels, situationals</li>
-            <li><strong>F4</strong> — stacked FP/HP potions</li>
-            <li><strong>R</strong> or <strong>T</strong> — dedicated Heal Rain (free key for <a href="/en/">Reborn Assistant</a> automation)</li>
-        </ul>
+        <div class="role-card">
+            <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-heart"/></svg></div>
+            <h3>Ringmaster / Mentalist (support)</h3>
+            <p>You spend 80% of your time on buffs. The F2 bar becomes your headquarters:</p>
+            <ul>
+                <li><strong>F1</strong> — combat bar (target/Heal Rain/HP potion)</li>
+                <li><strong>F2</strong> — slots 1-9: Heart of Power, Beef Up, Mental Sign, Speed Pep, Cat's Reflex, Holy Cross, other buffs</li>
+                <li><strong>F3</strong> — Resurrection, dispels, situationals</li>
+                <li><strong>F4</strong> — stacked FP/HP potions</li>
+                <li><strong>R</strong> or <strong>T</strong> — dedicated Heal Rain (free key for <a href="/en/">Reborn Assistant</a> automation)</li>
+            </ul>
+        </div>
 
-        <h3>Blade / Knight (melee DPS)</h3>
-        <p>Fast combos, fluid target switching:</p>
-        <ul>
-            <li><strong>F1</strong> — Sonic Blade, Cross Strike, Berserk (the hits that build DPS)</li>
-            <li><strong>F2</strong> — Auto-attack toggle, parry, blink-away</li>
-            <li><strong>Tab</strong> — auto-target nearest mob (reflex on pull)</li>
-            <li><strong>1-4</strong> — HP potions in quick-access</li>
-        </ul>
+        <div class="role-card">
+            <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-swords"/></svg></div>
+            <h3>Blade / Knight (melee DPS)</h3>
+            <p>Fast combos, fluid target switching:</p>
+            <ul>
+                <li><strong>F1</strong> — Sonic Blade, Cross Strike, Berserk (the hits that build DPS)</li>
+                <li><strong>F2</strong> — Auto-attack toggle, parry, blink-away</li>
+                <li><strong>Tab</strong> — auto-target nearest mob (reflex on pull)</li>
+                <li><strong>1-4</strong> — HP potions in quick-access</li>
+            </ul>
+        </div>
 
-        <h3>Mage / Psykeeper (caster)</h3>
-        <p>Long cast time, mandatory kite:</p>
-        <ul>
-            <li><strong>F1</strong> — main cast spells (Fire Strike, Lightning Mastery, etc.)</li>
-            <li><strong>F2</strong> — AOE spells</li>
-            <li><strong>F3</strong> — Spell Mastery / activatable passives</li>
-            <li><strong>Space</strong> — kite jump (casters live by their mobility)</li>
-        </ul>
+        <div class="role-card">
+            <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-spark"/></svg></div>
+            <h3>Mage / Psykeeper (caster)</h3>
+            <p>Long cast time, mandatory kite:</p>
+            <ul>
+                <li><strong>F1</strong> — main cast spells (Fire Strike, Lightning Mastery, etc.)</li>
+                <li><strong>F2</strong> — AOE spells</li>
+                <li><strong>F3</strong> — Spell Mastery / activatable passives</li>
+                <li><strong>Space</strong> — kite jump (casters live by their mobility)</li>
+            </ul>
+        </div>
 
-        <h3>Ranger / Jester (ranged DPS)</h3>
-        <ul>
-            <li><strong>F1</strong> — Stunning Throw, Pulling Arrow, main hits</li>
-            <li><strong>F2</strong> — Critical Swing, personal buffs</li>
-            <li><strong>F3</strong> — Positioning skills (escape, dash)</li>
-            <li><strong>Tab</strong> — target reset after each pull</li>
-        </ul>
+        <div class="role-card">
+            <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-target"/></svg></div>
+            <h3>Ranger / Jester (ranged DPS)</h3>
+            <ul>
+                <li><strong>F1</strong> — Stunning Throw, Pulling Arrow, main hits</li>
+                <li><strong>F2</strong> — Critical Swing, personal buffs</li>
+                <li><strong>F3</strong> — Positioning skills (escape, dash)</li>
+                <li><strong>Tab</strong> — target reset after each pull</li>
+            </ul>
+        </div>
 
         <h2>Automating your shortcuts</h2>
         <p>Once your shortcuts are dialed in, the next step is <strong>automating the mechanical repetitions</strong>. That's exactly what <a href="/en/">Reborn Assistant</a> does: your F2 → 1-9 → F1 buff rotation can run on a loop without you touching the keyboard, your Heal Rain can fire every 15 seconds on whichever key you choose, and up to 3 independent macros can run in parallel.</p>
         <p>The real gain: while the extension handles the mechanical work, <strong>you keep your hands on the targeting / emergency heal keys</strong> — where your human attention makes the difference.</p>
 
-        <div class="callout">
+        <div class="callout callout--gl callout--book">
             <strong>📚 Going further</strong>
             Check our <a href="automate-ringmaster-flyff-universe.html" style="color:var(--gold);">step-by-step tutorial to automate your Ringmaster</a> or the <a href="flyff-universe-ringmaster-class-guide.html" style="color:var(--gold);">complete Ringmaster class guide</a> for the optimal rotation.
         </div>
 
         <h2>FAQ Flyff Universe shortcuts</h2>
 
-        <h3>Can I remap F1, F2, F3, F4?</h3>
-        <p>No, these keys are fixed and tied to the four action bars. The entire community macro and automation ecosystem relies on this convention.</p>
+        <div class="faq">
+            <h3>Can I remap F1, F2, F3, F4?</h3>
+            <p>No, these keys are fixed and tied to the four action bars. The entire community macro and automation ecosystem relies on this convention.</p>
+        </div>
 
-        <h3>My shortcuts don't work in fullscreen browser?</h3>
-        <p>Check that the game window has focus (click on it once). On some browsers, the iframe loses focus when another Chrome window is active. Solution: open the game in a <em>separate window</em> (not a tab), via right-click → "Open in new window".</p>
+        <div class="faq">
+            <h3>My shortcuts don't work in fullscreen browser?</h3>
+            <p>Check that the game window has focus (click on it once). On some browsers, the iframe loses focus when another Chrome window is active. Solution: open the game in a <em>separate window</em> (not a tab), via right-click → "Open in new window".</p>
+        </div>
 
-        <h3>AZERTY or QWERTY for Flyff Universe?</h3>
-        <p>Neither is better, it's just your physical keyboard. On AZERTY, the <kbd>Z</kbd>/<kbd>Q</kbd>/<kbd>S</kbd>/<kbd>D</kbd> keys replace <kbd>W</kbd>/<kbd>A</kbd>/<kbd>S</kbd>/<kbd>D</kbd>. Reborn Assistant detects your layout automatically if you set it in Settings.</p>
+        <div class="faq">
+            <h3>AZERTY or QWERTY for Flyff Universe?</h3>
+            <p>Neither is better, it's just your physical keyboard. On AZERTY, the <kbd>Z</kbd>/<kbd>Q</kbd>/<kbd>S</kbd>/<kbd>D</kbd> keys replace <kbd>W</kbd>/<kbd>A</kbd>/<kbd>S</kbd>/<kbd>D</kbd>. Reborn Assistant detects your layout automatically if you set it in Settings.</p>
+        </div>
 
-        <h3>How do I show the shortcut list in-game?</h3>
-        <p>Type <code>/keys</code> or <code>/key</code> in chat, or open <strong>System → Keys</strong>. The full list appears, with the option to customize the non-server-locked keys.</p>
+        <div class="faq">
+            <h3>How do I show the shortcut list in-game?</h3>
+            <p>Type <code>/keys</code> or <code>/key</code> in chat, or open <strong>System → Keys</strong>. The full list appears, with the option to customize the non-server-locked keys.</p>
+        </div>
 
         <div class="cta-box">
             <h3>Automate what can be automated</h3>
@@ -251,6 +314,17 @@
         <p style="margin-top:48px;text-align:center;color:var(--text-dim);font-size:14px;">
             Article updated May 16, 2026 — Flyff Universe (Gala Lab).
         </p>
-    </div>
+    </main>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="site-footer site-footer--compact">
+        <div class="container footer-content">
+            <a class="brand" href="/en/" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+            </a>
+            <div class="footer-logo">REBORN ASSISTANT</div>
+            <div class="ornament" aria-hidden="true"></div>
+        </div>
+    </footer>
 </body>
 </html>
