@@ -548,5 +548,10 @@ export default {
     docsShort:   "📚 Docs",
     manageFull:  "Pamahalaan ang subscription",
     manageShort: "Pamahalaan",
+    features:    "Mga Feature",
+    security:    "Seguridad",
+    pricing:     "Presyo",
+    faq:         "FAQ",
+    docs:        "Dokumentasyon",
   },
 };

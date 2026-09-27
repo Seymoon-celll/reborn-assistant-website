@@ -548,5 +548,10 @@ export default {
     docsShort:   "📚 Docs",
     manageFull:  "구독 관리",
     manageShort: "관리",
+    features:    "기능",
+    security:    "보안",
+    pricing:     "요금제",
+    faq:         "FAQ",
+    docs:        "문서",
   },
 };

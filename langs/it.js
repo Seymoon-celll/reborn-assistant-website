@@ -556,5 +556,10 @@ export default {
     docsShort:   "📚 Docs",
     manageFull:  "Gestisci abbonamento",
     manageShort: "Gestisci",
+    features:    "Funzionalità",
+    security:    "Sicurezza",
+    pricing:     "Prezzi",
+    faq:         "FAQ",
+    docs:        "Documentazione",
   },
 };

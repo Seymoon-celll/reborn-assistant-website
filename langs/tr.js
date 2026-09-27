@@ -548,5 +548,10 @@ export default {
     docsShort:   "📚 Docs",
     manageFull:  "Aboneliği yönet",
     manageShort: "Yönet",
+    features:    "Özellikler",
+    security:    "Güvenlik",
+    pricing:     "Fiyatlar",
+    faq:         "SSS",
+    docs:        "Belgeler",
   },
 };
