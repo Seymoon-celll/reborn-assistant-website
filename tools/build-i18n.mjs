@@ -235,6 +235,24 @@ function setActiveLangInHeader(html, lang) {
   return html;
 }
 
+/**
+ * The design hides a label's leading OS emoji with `.emoji-lead::first-letter` and draws a gold glyph instead.
+ * That only works while every translation of such a label still STARTS with an emoji — otherwise the real
+ * first letter would be hidden. Warn loudly (without failing the build) when a translation breaks that rule.
+ */
+const EMOJI_LEAD_RE = /<(\w+)\b([^>]*\bclass="[^"]*\bemoji-lead\b[^"]*"[^>]*)>([\s\S]*?)<\/\1>/g;
+const STARTS_WITH_EMOJI_RE = /^\s*(?:\p{Extended_Pictographic}|\p{Regional_Indicator})/u;
+let emojiLeadWarnings = 0;
+function checkEmojiLead(html, label) {
+  for (const m of html.matchAll(EMOJI_LEAD_RE)) {
+    const text = m[3].replace(/<[^>]*>/g, '');
+    if (!STARTS_WITH_EMOJI_RE.test(text)) {
+      emojiLeadWarnings++;
+      console.warn(`[build-i18n] WARNING ${label}: .emoji-lead text does not start with an emoji, its first letter would be hidden: "${text.trim().slice(0, 60)}"`);
+    }
+  }
+}
+
 // ─── Sitemap.xml + robots.txt ────────────────────────────────────────────────
 
 function buildSitemap() {
@@ -420,6 +438,7 @@ async function build() {
   // 2. FR pages (source) — only inject hreflang + prerendered-lang marker (in place)
   for (const page of PAGES) {
     let html = readSource(page);
+    checkEmojiLead(html, page);
     html = injectHeadSeoTags(html, page, 'fr');
     writeOutput(page, html);
   }
@@ -436,6 +455,7 @@ async function build() {
       html = rewriteBonusLinks(html, lang);
       html = setActiveLangInHeader(html, lang);
       html = injectHeadSeoTags(html, page, lang);
+      checkEmojiLead(html, `${lang}/${page}`);
       writeOutput(`${lang}/${page}`, html);
       count++;
     }
@@ -449,6 +469,7 @@ async function build() {
     for (const lang of LONGTAIL_LANGS) {
       if (lang === 'fr' || lang === 'en') continue; // hand-written sources
       const out = renderLongtailPage(frHtml, page, lang);
+      checkEmojiLead(out, page.slugs[lang]);
       writeOutput(page.slugs[lang], out);
       longtailCount++;
     }
@@ -460,6 +481,7 @@ async function build() {
   writeOutput('robots.txt', buildRobots());
   console.log('[build-i18n] wrote sitemap.xml + robots.txt');
 
+  if (emojiLeadWarnings) console.warn(`[build-i18n] ${emojiLeadWarnings} .emoji-lead warning(s) — see above.`);
   console.log('[build-i18n] done.');
 }
 
