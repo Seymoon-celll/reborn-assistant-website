@@ -236,31 +236,63 @@ function setActiveLangInHeader(html, lang) {
 }
 
 /**
- * The design hides a label's leading OS emoji with `.emoji-lead::first-letter` and draws a gold glyph instead.
- * That only works while every translation of such a label still STARTS with an emoji — otherwise the real
- * first letter would be hidden. Warn loudly (without failing the build) when a translation breaks that rule.
- * Callout frames with .callout--gl hide the first letter of their title the same way (site.css §13).
+ * Emoji-led labels (DESIGN-SYSTEM §6a′ / §6a″). `.emoji-lead::first-letter` and `.callout--gl > :first-child::first-letter`
+ * hide a label's leading OS emoji so that a gold glyph can stand in for it. But ::first-letter also takes punctuation
+ * next to that letter: punctuation directly after it (incl. opening brackets 「 « in Chromium ≤ 155 and Firefox ≤ 128), and
+ * punctuation after a space in Safari ≤ 18 (" „ « ¿ ¡). A leading emoji that is itself punctuation (‼️ ⁉️ 〽️ 〰️) makes the
+ * NEXT character the first letter. Either way a real character would be hidden.
+ * So a label is only hidden when it is SAFE — one real pictograph (or a flag) NOT followed by optional spaces + punctuation.
+ * Otherwise, per language, the build keeps the OS emoji visible (nothing hidden, as before the redesign):
+ *   - `.emoji-lead` ↔ `.emoji-keep` (reversible, so the FR source can hold either; site.css hides the sibling .inline-gl);
+ *   - a `.callout--gl` frame loses `callout--gl` (plain title, no glyph).
+ * A label that does not start with an emoji at all means a translation drifted: that is a WARNING.
+ * Hand-written pages the build does not write (FR long-tail sources, EN twins, raccourcis-clavier) are only checked:
+ * any unsafe label there is a WARNING, to be fixed by hand. langs/index.js applies the same test at runtime.
  */
-const EMOJI_LEAD_RE = /<(\w+)\b([^>]*\bclass="[^"]*\bemoji-lead\b[^"]*"[^>]*)>([\s\S]*?)<\/\1>/g;
+const EMOJI_CLUSTER = String.raw`(?:\p{Regional_Indicator}{2}|(?!\p{P})\p{Extended_Pictographic}[\u{FE0F}\u{20E3}\p{Emoji_Modifier}]*(?:\u{200D}\p{Extended_Pictographic}[\u{FE0F}\p{Emoji_Modifier}]*)*)`;
 const STARTS_WITH_EMOJI_RE = /^\s*(?:\p{Extended_Pictographic}|\p{Regional_Indicator})/u;
+const SAFE_EMOJI_LEAD_RE = new RegExp(String.raw`^\s*${EMOJI_CLUSTER}(?!\s*\p{P})`, 'u');
+const EMOJI_LABEL_RE = /<(\w+)\b([^>]*?\bclass=")([^"]*\bemoji-(?:lead|keep)\b[^"]*)("[^>]*)>([\s\S]*?)<\/\1>/g;
+// A .callout--gl frame and its first child (the title): the first letter of that child is hidden.
+const CALLOUT_GL_RE = /<(\w+)\b([^>]*?\bclass=")([^"]*\bcallout--gl\b[^"]*)("[^>]*)>(\s*<(\w+)\b[^>]*>([\s\S]*?)<\/\6>)?/g;
 let emojiLeadWarnings = 0;
-// Same rule for callout frames with .callout--gl: the first letter of the frame's title (its first text) is hidden.
-const CALLOUT_GL_RE = /<(\w+)\b[^>]*\bclass="[^"]*\bcallout--gl\b[^"]*"[^>]*>/g;
-function checkEmojiLead(html, label) {
-  for (const m of html.matchAll(EMOJI_LEAD_RE)) {
-    const text = m[3].replace(/<[^>]*>/g, '');
-    if (!STARTS_WITH_EMOJI_RE.test(text)) {
-      emojiLeadWarnings++;
-      console.warn(`[build-i18n] WARNING ${label}: .emoji-lead text does not start with an emoji, its first letter would be hidden: "${text.trim().slice(0, 60)}"`);
-    }
-  }
-  for (const m of html.matchAll(CALLOUT_GL_RE)) {
-    const text = html.slice(m.index + m[0].length, m.index + m[0].length + 600).replace(/<[^>]*>/g, '');
-    if (!STARTS_WITH_EMOJI_RE.test(text)) {
-      emojiLeadWarnings++;
-      console.warn(`[build-i18n] WARNING ${label}: .callout--gl title does not start with an emoji, its first letter would be hidden: "${text.trim().slice(0, 60)}"`);
-    }
-  }
+let emojiKept = 0;
+
+function labelText(inner) {
+  return inner.replace(/<[^>]*>/g, '').replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (m, e) => {
+    if (e[0] === '#') return String.fromCodePoint(e[1] === 'x' || e[1] === 'X' ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10));
+    return { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' }[e.toLowerCase()] ?? m;
+  });
+}
+function warnLabel(label, what, text) {
+  emojiLeadWarnings++;
+  console.warn(`[build-i18n] WARNING ${label}: ${what}: "${text.trim().slice(0, 60)}"`);
+}
+
+/** Returns the html with every emoji-led label made safe (fix) — or unchanged, only warning (check-only pages). */
+function guardEmojiLabels(html, label, { fix = true } = {}) {
+  html = html.replace(EMOJI_LABEL_RE, (m, tag, pre, cls, post, inner) => {
+    const text = labelText(inner);
+    const safe = SAFE_EMOJI_LEAD_RE.test(text);
+    if (!STARTS_WITH_EMOJI_RE.test(text)) warnLabel(label, '.emoji-lead text does not start with an emoji (label kept whole, glyph hidden)', text);
+    else if (!safe && !fix) warnLabel(label, '.emoji-lead emoji is followed by punctuation that ::first-letter would hide — use class="emoji-keep"', text);
+    if (!fix) return m;
+    if (!safe) emojiKept++;
+    const next = cls.replace(/\bemoji-(?:lead|keep)\b/, safe ? 'emoji-lead' : 'emoji-keep');
+    return `<${tag}${pre}${next}${post}>${inner}</${tag}>`;
+  });
+  html = html.replace(CALLOUT_GL_RE, (m, tag, pre, cls, post, title, _t, inner) => {
+    const text = title === undefined ? '' : labelText(inner);
+    const safe = title !== undefined && SAFE_EMOJI_LEAD_RE.test(text);
+    if (title === undefined) warnLabel(label, '.callout--gl frame does not start with a title element (glyph dropped)', m);
+    else if (!STARTS_WITH_EMOJI_RE.test(text)) warnLabel(label, '.callout--gl title does not start with an emoji (glyph dropped)', text);
+    else if (!safe && !fix) warnLabel(label, '.callout--gl title emoji is followed by punctuation that ::first-letter would hide — drop callout--gl', text);
+    if (!fix || safe) return m;
+    emojiKept++;
+    const next = cls.replace(/\s*\bcallout--gl\b/, '').trim();
+    return `<${tag}${pre}${next}${post}>${title ?? ''}`;
+  });
+  return html;
 }
 
 // ─── Sitemap.xml + robots.txt ────────────────────────────────────────────────
@@ -448,7 +480,7 @@ async function build() {
   // 2. FR pages (source) — only inject hreflang + prerendered-lang marker (in place)
   for (const page of PAGES) {
     let html = readSource(page);
-    checkEmojiLead(html, page);
+    html = guardEmojiLabels(html, page);
     html = injectHeadSeoTags(html, page, 'fr');
     writeOutput(page, html);
   }
@@ -465,7 +497,7 @@ async function build() {
       html = rewriteBonusLinks(html, lang);
       html = setActiveLangInHeader(html, lang);
       html = injectHeadSeoTags(html, page, lang);
-      checkEmojiLead(html, `${lang}/${page}`);
+      html = guardEmojiLabels(html, `${lang}/${page}`);
       writeOutput(`${lang}/${page}`, html);
       count++;
     }
@@ -476,21 +508,27 @@ async function build() {
   let longtailCount = 0;
   for (const page of LONGTAIL_PAGES) {
     const frHtml = readSource(page.source);
+    guardEmojiLabels(frHtml, page.source, { fix: false });                    // hand-written: check only
+    guardEmojiLabels(readSource(page.slugs.en), page.slugs.en, { fix: false });
     for (const lang of LONGTAIL_LANGS) {
       if (lang === 'fr' || lang === 'en') continue; // hand-written sources
-      const out = renderLongtailPage(frHtml, page, lang);
-      checkEmojiLead(out, page.slugs[lang]);
+      const out = guardEmojiLabels(renderLongtailPage(frHtml, page, lang), page.slugs[lang]);
       writeOutput(page.slugs[lang], out);
       longtailCount++;
     }
   }
   console.log('[build-i18n] wrote', longtailCount, 'long-tail pages across 13 non-FR/EN languages');
+  // FR + EN only long-tail pages are hand-written and not generated: check them too
+  for (const page of BILINGUAL_LONGTAIL_PAGES) {
+    for (const v of [page.fr, page.en]) guardEmojiLabels(readSource(v.slug), v.slug, { fix: false });
+  }
 
   // 5. Sitemap + robots
   writeOutput('sitemap.xml', buildSitemap());
   writeOutput('robots.txt', buildRobots());
   console.log('[build-i18n] wrote sitemap.xml + robots.txt');
 
+  if (emojiKept) console.log(`[build-i18n] ${emojiKept} emoji-led label(s) keep their OS emoji: the emoji is followed by punctuation that ::first-letter would hide (.emoji-keep / no .callout--gl).`);
   if (emojiLeadWarnings) console.warn(`[build-i18n] ${emojiLeadWarnings} .emoji-lead warning(s) — see above.`);
   console.log('[build-i18n] done.');
 }

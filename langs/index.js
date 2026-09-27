@@ -52,6 +52,26 @@ function resolve(obj, path) {
   return path.split('.').reduce((acc, k) => acc?.[k], obj);
 }
 
+/* Emoji-led labels (/assets/css/site.css §7, §13): ::first-letter hides the leading emoji, and would also hide punctuation
+   that follows it ("❌「…", "💡 ¿…"). Same test as tools/build-i18n.mjs, re-applied here in case a cached page is older than
+   its strings: a label that is not SAFE keeps its OS emoji (.emoji-keep; a .callout--gl frame loses callout--gl).
+   Built with new RegExp in a try: an engine without these Unicode properties simply skips the check. */
+let SAFE_EMOJI_LEAD = null;
+try {
+  SAFE_EMOJI_LEAD = new RegExp('^\\s*(?:\\p{Regional_Indicator}{2}|(?!\\p{P})\\p{Extended_Pictographic}[\\u{FE0F}\\u{20E3}\\p{Emoji_Modifier}]*(?:\\u{200D}\\p{Extended_Pictographic}[\\u{FE0F}\\p{Emoji_Modifier}]*)*)(?!\\s*\\p{P})', 'u');
+} catch (e) { /* unsupported: keep the build's classes */ }
+function guardEmojiLabel(el) {
+  if (!SAFE_EMOJI_LEAD) return;
+  if (el.classList.contains('emoji-lead') || el.classList.contains('emoji-keep')) {
+    const safe = SAFE_EMOJI_LEAD.test(el.textContent);
+    el.classList.toggle('emoji-lead', safe);
+    el.classList.toggle('emoji-keep', !safe);
+  }
+  const frame = el.closest('.callout--gl');
+  const title = frame && frame.firstElementChild;
+  if (title && (frame === el || title === el || title.contains(el)) && !SAFE_EMOJI_LEAD.test(title.textContent)) frame.classList.remove('callout--gl');
+}
+
 /* Apply loaded translations to every [data-i18n] element */
 function applyTranslations(strings) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -59,6 +79,7 @@ function applyTranslations(strings) {
     if (val !== undefined) {
       if (val.includes('<')) el.innerHTML = val;
       else el.textContent = val;
+      guardEmojiLabel(el);
     }
   });
   document.documentElement.lang = currentLang;
@@ -176,6 +197,10 @@ document.addEventListener('click', e => {
   /* relatedTarget is null for a mouse click in Safari: leave that case to the click handlers */
   el.addEventListener('focusout', e => {
     if (e.relatedTarget && !el.contains(e.relatedTarget)) el.classList.remove('open');
+  });
+  /* …and when focus comes back from the browser UI somewhere else on the page */
+  document.addEventListener('focusin', e => {
+    if (el.classList.contains('open') && !el.contains(e.target)) el.classList.remove('open');
   });
 })();
 

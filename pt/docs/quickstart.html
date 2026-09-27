@@ -31,7 +31,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/site.css?v=3">
+    <link rel="stylesheet" href="/assets/css/site.css?v=4">
     <style>
         /* ═══ Quick start — page-specific layout only (tokens & components: /assets/css/site.css) ═══ */
 
@@ -50,6 +50,13 @@
             background: rgba(226,194,99,.5);
         }
         .article .step .step-tip { margin-top: -4px; font-size: 14px; line-height: 1.6; color: var(--text-dim); }
+        /* the tip's leading 💡 is hidden (.emoji-lead) and drawn as the gold bulb of the callouts, out of flow so
+           ::first-letter still reaches the emoji; mirrored in RTL */
+        .article .step .step-tip.emoji-lead { position: relative; padding-inline-start: 24px; }
+        .article .step .step-tip.emoji-lead::before {
+            content: ''; position: absolute; inset-inline-start: 0; top: calc(.8em - 8px); width: 16px; height: 16px;
+            background: var(--gold-300); -webkit-mask: var(--gl-bulb) center / contain no-repeat; mask: var(--gl-bulb) center / contain no-repeat;
+        }
 
         /* Free / Premium set-up — two framed tiers; hierarchy by gilt intensity, not hue */
         .article .tier { margin: 26px 0; }
@@ -194,7 +201,7 @@
                 <div class="step-number">1</div>
                 <div class="step-title" data-i18n="docQuickstart.step1Title">Acessar a Chrome Web Store</div>
                 <p data-i18n="docQuickstart.step1p">Acesse a página do Reborn Assistant na <a href='https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme' target='_blank' style='color:var(--gold);text-decoration:none;' onmouseover='this.style.textDecoration="underline"' onmouseout='this.style.textDecoration="none"'>Chrome Web Store</a> e clique em <strong>«Adicionar ao Chrome»</strong>.</p>
-                <p class="step-tip" data-i18n="docQuickstart.step1tip">💡 Compatível com Google Chrome, Microsoft Edge, Brave e qualquer navegador baseado em Chromium.</p>
+                <p class="step-tip emoji-lead" data-i18n="docQuickstart.step1tip">💡 Compatível com Google Chrome, Microsoft Edge, Brave e qualquer navegador baseado em Chromium.</p>
             </div>
 
             <div class="step">
@@ -235,7 +242,7 @@
         </div>
 
         <div class="section tier tier--premium">
-            <h3 data-i18n="docQuickstart.premiumH3">Versão PREMIUM 💎</h3>
+            <h3 class="h2-gilt" data-i18n="docQuickstart.premiumH3">Versão PREMIUM 💎</h3>
             <p data-i18n="docQuickstart.premiumFeatTitle"><strong>Funções adicionais (requer login com Google):</strong></p>
             <p data-i18n="docQuickstart.premiumFeatText">• Macro ativador 1 automático (temporizador configurável + atalho)<br>• Macro ativador 2 automático (temporizador configurável + atalho)<br>• Atalhos de teclado (CTRL+A / CTRL+O)<br>• Rotação automática de sequências (F2 → 1-9 → 0 → F1)<br>• 3 macros personalizáveis com sequências de teclas<br>• Sistema de macro periódica automático (chamada + armazenamento a cada 15s)</p>
 

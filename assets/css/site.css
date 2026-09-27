@@ -200,8 +200,12 @@
 :root:lang(ru) { --font-display: 'Cinzel', 'Cormorant Garamond', Georgia, 'Times New Roman', serif; }
 /* Cormorant's lowercase is smaller than Cinzel's small caps: on small display titles, scale the fallback glyphs to
    Cinzel's x-height (from-font = the primary face's own ratio, so Cinzel/Inter text is unchanged). h1/h2 keep their size. */
-:lang(ru) :is(.article h3, .card-title, .next-card__title, .buff-name, .cta-box h3,
+:lang(ru) :is(.article h3, .card-title, .next-card__title, .buff-name, .cta-box h3, .features .feature-title, .sec-card-title,
     :is(.callout, .alert, .warning-box, .success-box, .success, .example) > :first-child) { font-size-adjust: from-font; }
+/* Table heads too (not below 340px, where the RU features table would start to scroll), and phone h2s, which would
+   otherwise read smaller than the Inter card titles under them. */
+@media (min-width: 340px) { :lang(ru) .article th { font-size-adjust: from-font; } }
+@media (max-width: 480px) { :lang(ru) .article h2:not(.part-title) { font-size-adjust: from-font; } }
 
 
 /* ── 2. Base / reset ──────────────────────────────────────────────────────── */
@@ -428,6 +432,10 @@ main, section, .site-footer { position: relative; z-index: 1; }
 }
 /* zero-size float: the space after it collapses too; letter-spacing 0, or a tracked label keeps a sliver of the emoji */
 .emoji-lead::first-letter { font-size: 0; color: transparent; float: left; letter-spacing: 0; }
+/* ::first-letter also swallows punctuation next to the emoji (「 in Chromium ≤ 155, ¿ " « after the space in Safari ≤ 18).
+   When a translation continues with punctuation, tools/build-i18n.mjs (and langs/index.js) swap .emoji-lead for
+   .emoji-keep: nothing is hidden, the OS emoji shows alone and its gold stand-in steps aside. */
+.inline-gl:has(+ .emoji-keep) { display: none; }
 
 
 /* ── 8. Header & navigation ──────────────────────────────────────────────── */
@@ -773,7 +781,7 @@ main, section, .site-footer { position: relative; z-index: 1; }
 .article h2 {
     position: relative; margin: clamp(52px, 6vw, 72px) 0 22px; padding-bottom: 16px; padding-inline-start: 26px;
     font-family: var(--font-display); font-size: var(--fs-2xl); font-weight: 700; line-height: 1.25;
-    letter-spacing: .01em; color: var(--text-strong); text-wrap: pretty;
+    letter-spacing: .01em; color: var(--text-strong); text-wrap: balance;   /* short display lines: no lone last word (a gilt 💎) */
 }
 .article h2::before {          /* lozenge marker hanging before the first line */
     content: ''; position: absolute; inset-inline-start: 2px; top: .5em; width: 9px; height: 9px;
@@ -791,14 +799,16 @@ main, section, .site-footer { position: relative; z-index: 1; }
 }
 .article h2.part-title::before, .article h2.part-title::after { display: none; }
 .article h2.part-title + .subtitle { margin: 12px auto 32px; text-align: center; }
-/* Gilt chapter title — keeps an emoji inside a translated heading on-palette (it renders as a gilt silhouette) */
-.article h2.h2-gilt {
+/* Gilt chapter title — keeps an emoji inside a translated heading on-palette (it renders as a gilt silhouette):
+   features "PREMIUM 💎" (h2), quickstart "Version PREMIUM 💎" (h3). One metal band per line = the line-height. */
+.article :is(h2, h3).h2-gilt {
     background: var(--gilt-text) 0 0 / 100% 1.25em repeat-y; background-origin: content-box;
     -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
 }
+.article h3.h2-gilt { background-size: 100% 1.35em; }
 .article h3 {
     margin: 32px 0 12px; font-family: var(--font-display); font-size: var(--fs-lg); font-weight: 700;
-    line-height: 1.35; letter-spacing: .01em; color: var(--gold-200);
+    line-height: 1.35; letter-spacing: .01em; color: var(--gold-200); text-wrap: balance;
 }
 .article h4 { margin: 20px 0 8px; font-size: 13px; font-weight: 700; letter-spacing: var(--track-sm); text-transform: uppercase; color: var(--gold-200); }
 .article p, .article li { font-size: var(--fs-md); line-height: var(--lh-read); color: var(--text-soft); }
@@ -810,6 +820,9 @@ main, section, .site-footer { position: relative; z-index: 1; }
     text-decoration-thickness: 1px; text-underline-offset: 3px; transition: text-decoration-color var(--dur-2);
 }
 .article a:not([class]):hover { text-decoration-color: var(--gold-200); }
+/* quickstart step 1: the translated Chrome Web Store link carries style="text-decoration:none" (+ hover handlers); an inline
+   link must not be told apart by colour alone (WCAG 1.4.1), so its underline always wins */
+.article .step p a:not([class]) { text-decoration-line: underline !important; text-underline-offset: 3px; }
 .article ul, .article ol { margin: 14px 0 24px; padding-inline-start: 4px; }
 .article ul { list-style: none; }
 .article ol { padding-inline-start: 1.4em; }
@@ -908,9 +921,9 @@ kbd, :is(.keycaps, .shortcut-list) code {
     box-shadow: var(--shadow-md);
 }
 .table-scroll table { width: 100%; min-width: 560px; border-collapse: collapse; }
-.table-scroll .key-table { min-width: 460px; }
-/* Narrow tables fit a phone instead of scrolling: a yes/no comparison, and key → action pairs (.key-table--pair) */
-.table-scroll :is(.comparison-table, .key-table--pair) { min-width: 0; }
+/* The site's tables fit a phone instead of scrolling (a hidden column reads as a finished table): the yes/no comparison,
+   the stats comparison (guide), key tables. The 560px minimum only remains for a future wide .doc-table. */
+.table-scroll :is(.comparison-table, .stats-table, .key-table) { min-width: 0; }
 /* Unwrapped tables still get the codex look (but cannot scroll — wrap them). */
 :is(.key-table, .comparison-table, .stats-table, .doc-table) {
     width: 100%; border-collapse: collapse; font-size: 14.5px;
@@ -950,6 +963,8 @@ kbd, :is(.keycaps, .shortcut-list) code {
 @media (max-width: 560px) {
     .key-table :is(th, td) { padding-inline: 14px; }
     .key-table td:first-child { white-space: normal; }
+    :is(.stats-table, .key-table:not(.key-table--pair)) :is(th, td) { padding: 12px 10px; }
+    .stats-table td:first-child { white-space: normal; }
     .key-table--pair :is(th, td):first-child { width: 40%; }
     .comparison-table th { padding: 12px 10px; font-size: 11.5px; letter-spacing: 0; }
     .comparison-table td { padding: 12px 10px; font-size: 14px; }
@@ -1022,7 +1037,8 @@ kbd, :is(.keycaps, .shortcut-list) code {
    frame. The emoji stays in the text (screen readers, translations, verify.sh) and is hidden like .emoji-lead; a line
    glyph in the tone's colour is drawn in its place: bulb (info), alert (warning), check (success) — or pick one with
    .gl-bulb / .gl-alert / .gl-check / .gl-book / .gl-scales. Nothing inside the title changes, so it also works when the
-   whole frame is a data-i18n element and on long-tail articles (only a class on the frame is added). */
+   whole frame is a data-i18n element and on long-tail articles (only a class on the frame is added). In a language whose
+   title continues with punctuation ("✅ ¡…"), tools/build-i18n.mjs drops callout--gl: the OS emoji stays (§7). */
 .callout--gl > :first-child { position: relative; padding-inline-start: 27px; }
 .callout--gl > :first-child::before {
     content: ''; position: absolute; inset-inline-start: 0; top: calc(.75em - 8.5px); width: 17px; height: 17px; pointer-events: none;
@@ -1184,7 +1200,7 @@ kbd, :is(.keycaps, .shortcut-list) code {
 }
 .related-card:hover { transform: translateY(-3px); }
 .related-tag { font-size: var(--fs-label); font-weight: 600; letter-spacing: var(--track-md); text-transform: uppercase; color: var(--gold-300); }
-.related-title { font-size: 15px; font-weight: 600; line-height: 1.45; color: var(--gold-100); }
+.related-title { font-size: 15px; font-weight: 600; line-height: 1.45; color: var(--gold-100); text-wrap: balance; }
 
 /* Entry cards — a whole-card link with a glyph well and a chevron (mirrored in RTL): docs hub chapters, quickstart
    "next steps". The page places the title/description; the chevron and the well shrink away on small phones.
@@ -1351,7 +1367,7 @@ kbd, :is(.keycaps, .shortcut-list) code {
 .faq-q > span { flex: 1; min-width: 0; text-wrap: pretty; }
 .faq-a { font-size: 15.5px; line-height: 1.75; color: var(--text-soft); }
 .faq-a .alert { margin: 4px 0 16px; font-size: 15px; }
-@media (min-width: 600px) { .faq-q:has(> .inline-gl) + .faq-a { padding-inline-start: 32px; } }
+@media (min-width: 600px) { .faq-q:has(> .inline-gl + .emoji-lead) + .faq-a { padding-inline-start: 32px; } }   /* not under a kept OS emoji (.emoji-keep) */
 @media (max-width: 480px) {
     .article .faq { padding: 18px; }
     .article .faq > :is(h3, .faq-q):first-child { font-size: 16px; }

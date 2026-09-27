@@ -36,7 +36,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/site.css?v=3">
+    <link rel="stylesheet" href="/assets/css/site.css?v=4">
     <style>
         /* ═══ Homepage — page-specific layout (tokens & shared components: /assets/css/site.css) ═══ */
 
@@ -1356,8 +1356,10 @@
             nav.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
             // one panel at a time: opening the language list closes the menu
             header.querySelector('.lang-select-btn')?.addEventListener('click', () => setMenu(false));
-            // focus leaving the header closes the menu (not when the window itself loses focus)
+            // focus leaving the header closes the menu (not when the window itself loses focus)…
             header.addEventListener('focusout', e => { if (e.relatedTarget && !header.contains(e.relatedTarget)) setMenu(false); });
+            // …and focus coming back from the browser UI anywhere else (Shift+Tab wraps to the footer) closes it too
+            document.addEventListener('focusin', e => { if (header.classList.contains('nav-open') && !header.contains(e.target)) setMenu(false); });
             document.addEventListener('click', e => { if (!header.contains(e.target)) setMenu(false); });
             document.addEventListener('keydown', e => {
                 if (e.key === 'Escape' && header.classList.contains('nav-open')) { setMenu(false); toggle.focus(); }
