@@ -57,6 +57,9 @@
             content: ''; position: absolute; inset-inline-start: 0; top: calc(.8em - 8px); width: 16px; height: 16px;
             background: var(--gold-300); -webkit-mask: var(--gl-bulb) center / contain no-repeat; mask: var(--gl-bulb) center / contain no-repeat;
         }
+        @media (forced-colors: active) {      /* the masked background would become Canvas: paint the bulb in the text colour */
+            .article .step .step-tip.emoji-lead::before { forced-color-adjust: none; background: CanvasText; }
+        }
 
         /* Free / Premium set-up — two framed tiers; hierarchy by gilt intensity, not hue */
         .article .tier { margin: 26px 0; }
@@ -146,7 +149,7 @@
                     <button class="lang-select-btn" type="button" aria-expanded="false" aria-controls="lang-menu" onclick="toggleLangMenu()">
                         <span class="lang-flag">🇫🇷</span>
                         <span class="lang-code">FR</span>
-                        <span class="lang-chevron">▾</span>
+                        <span class="lang-chevron" aria-hidden="true">▾</span>
                     </button>
                     <div class="lang-select-menu" id="lang-menu">
                         <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
@@ -286,6 +289,9 @@
     <!-- ═══ Footer ═══ -->
     <footer class="site-footer site-footer--compact">
         <div class="container footer-content">
+            <a class="brand" href="../index.html" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+            </a>
             <div class="footer-logo">REBORN ASSISTANT</div>
             <div class="ornament" aria-hidden="true"></div>
             <div class="copyright"><span data-i18n="docsNav.footer">© 2026 Reborn Assistant — Développé par Seymoon · Tous droits réservés</span></div>

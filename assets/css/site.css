@@ -434,8 +434,18 @@ main, section, .site-footer { position: relative; z-index: 1; }
 .emoji-lead::first-letter { font-size: 0; color: transparent; float: left; letter-spacing: 0; }
 /* ::first-letter also swallows punctuation next to the emoji (「 in Chromium ≤ 155, ¿ " « after the space in Safari ≤ 18).
    When a translation continues with punctuation, tools/build-i18n.mjs (and langs/index.js) swap .emoji-lead for
-   .emoji-keep: nothing is hidden, the OS emoji shows alone and its gold stand-in steps aside. */
+   .emoji-keep: nothing is hidden, the OS emoji shows alone and its gold stand-in steps aside. The build and langs/index.js
+   also mark the glyph right before the label .inline-gl--off (engines without :has(): Firefox ESR 115, Safari ≤ 15.3);
+   the :has() rule stays for pages cached before that class existed. Keep them two rules: a selector list containing
+   :has() is dropped whole where :has() is unknown. */
+.inline-gl.inline-gl--off { display: none; }
 .inline-gl:has(+ .emoji-keep) { display: none; }
+/* Forced colours (Windows contrast themes) keep an SVG's own color (UA: forced-color-adjust: preserve-parent-color), so
+   gold glyphs stayed gold on a white Canvas (1.45:1). Let them take the forced colour of their label instead (CanvasText,
+   LinkText in a link…); !important because context rules colour them at a higher specificity (.faq-q > .inline-gl…). */
+@media (forced-colors: active) {
+    :is(.slot-gl, .inline-gl, .rv-glyph, .contact-chip > svg) { color: inherit !important; filter: none; }
+}
 
 
 /* ── 8. Header & navigation ──────────────────────────────────────────────── */
@@ -633,7 +643,8 @@ main, section, .site-footer { position: relative; z-index: 1; }
 @media (max-width: 640px) {
     :root { --header-h: 64px; }
     .brand__word { display: none; }
-    .lang-code { display: none; }
+    /* the flag alone is shown, but the code stays in the button's accessible name ("🇬🇧 EN", the chevron is aria-hidden) */
+    .lang-code { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
     .site-header__inner { gap: 8px; }
     .header-actions { gap: 6px; }
     .hdr-btn { padding: 0 10px; }
@@ -931,6 +942,16 @@ kbd, :is(.keycaps, .shortcut-list) code {
 .article .service-list > li::before { display: none; }
 .service-list .inline-gl { width: 18px; height: 18px; margin-top: .3em; color: var(--gold-200); }    /* 18 + 8 = the 26px text indent of every list */
 .service-list li > span { flex: 1; min-width: 0; }
+/* Forced colours replace backgrounds with Canvas and drop gradients: the lozenge bullets and the ✕ of .list-no would
+   vanish and leave a blank indent (the ✓ of .list-yes is a border and survives). Redraw them in the system text colour. */
+@media (forced-colors: active) {
+    .article ul:not(.list-yes):not(.list-no) > li::before { forced-color-adjust: none; background: CanvasText; box-shadow: none; }
+    .article .list-no > li::before {
+        forced-color-adjust: none; background:
+            linear-gradient(CanvasText, CanvasText) center / 100% 1.6px no-repeat,
+            linear-gradient(CanvasText, CanvasText) center / 1.6px 100% no-repeat;
+    }
+}
 
 
 /* ── 13. Codex components ────────────────────────────────────────────────── */
@@ -1100,6 +1121,11 @@ kbd, :is(.keycaps, .shortcut-list) code {
 .callout--gl.gl-check { --callout-gl: var(--gl-check); }
 .callout--gl.gl-book { --callout-gl: var(--gl-book); }
 .callout--gl.gl-scales { --callout-gl: var(--gl-scales); }
+/* Forced colours drop the fill of the masked glyph (a background) while ::first-letter still hides the OS emoji:
+   paint the glyph in the system text colour, or the title keeps an empty 27px indent */
+@media (forced-colors: active) {
+    .callout--gl > :first-child::before { forced-color-adjust: none; background: CanvasText; }
+}
 
 :is(.warning-box, .success-box, .success) strong { color: var(--callout-title); }
 .callout a, .article .alert a { color: var(--gold-200); text-underline-offset: 3px; }
@@ -1220,12 +1246,12 @@ kbd, :is(.keycaps, .shortcut-list) code {
 
 /* Steps — numbered badge + title on one row, body below at full width */
 .step {
-    position: relative; display: grid; grid-template-columns: minmax(0, 1fr); align-items: center;
+    position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; align-items: center;
     margin: 22px 0; padding: 22px 24px; border-radius: 16px; border: 1px solid transparent;
     background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box; box-shadow: var(--shadow-md);
 }
-.step:has(> .step-number) { grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; }
-.step > :not(.step-number):not(.step-title) { grid-column: 1 / -1; }
+/* badge | title on the first row, everything else full width; a step without a badge (quickstart tiers) has a full-width title */
+.step > :not(.step-number):not(.step-title), .step > .step-title:first-child { grid-column: 1 / -1; }
 .step-number {
     display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 10px;
     font-family: var(--font-display); font-weight: 900; color: var(--on-gold); background: var(--gilt);
@@ -1414,7 +1440,9 @@ kbd, :is(.keycaps, .shortcut-list) code {
     margin: 0 0 10px; font-family: var(--font-body); font-size: 17px; font-weight: 600; line-height: 1.45;
     letter-spacing: 0; color: var(--gold-100); text-wrap: pretty;
 }
-.faq-q:has(> .inline-gl) { display: flex; align-items: flex-start; gap: 12px; }
+/* glyph + label on one row: a flex item is a block container, so the label's ::first-letter reaches its emoji (no :has():
+   an engine without it would show the OS emoji and put the glyph on a line of its own) */
+.faq-q { display: flex; align-items: flex-start; gap: 12px; }
 .faq-q > .inline-gl { width: 20px; height: 20px; margin-top: .14em; color: var(--gold-300); }
 .faq-q > span { flex: 1; min-width: 0; text-wrap: pretty; }
 /* A question whose emoji must stay (.emoji-keep, §6a′: "❌ «…»", es "❓ ¿…") shows it as a gold silhouette, like the
@@ -1429,7 +1457,7 @@ kbd, :is(.keycaps, .shortcut-list) code {
 @media (max-width: 480px) {
     .article .faq { padding: 18px; }
     .article .faq > :is(h3, .faq-q):first-child { font-size: 16px; }
-    .faq-q:has(> .inline-gl) { gap: 10px; }
+    .faq-q { gap: 10px; }
     .faq-q > .inline-gl { width: 18px; height: 18px; }
 }
 
@@ -1475,7 +1503,8 @@ kbd, :is(.keycaps, .shortcut-list) code {
     background: rgba(212,175,55,.05); border: 1px solid var(--line-2);
     transition: background-color var(--dur-2) var(--ease-out), border-color var(--dur-2) var(--ease-out);
 }
-a.contact-chip:hover, .contact-chip:has(a):hover { background: rgba(212,175,55,.11); border-color: var(--line-3); }
+a.contact-chip:hover { background: rgba(212,175,55,.11); border-color: var(--line-3); }
+.contact-chip:has(a):hover { background: rgba(212,175,55,.11); border-color: var(--line-3); }   /* own rule: unknown :has() drops the whole list */
 .contact-chip > svg { flex-shrink: 0; width: 16px; height: 16px; color: var(--gold-200); }
 .contact-chip > span { min-width: 0; text-align: start; }
 a.contact-chip > span, .contact-chip a { white-space: nowrap; }

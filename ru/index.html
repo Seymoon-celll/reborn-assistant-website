@@ -260,6 +260,14 @@
         /* hudPlay holds step i from 0.8·i s to 0.8·(i+1) s: key 4 (step index 4) is pressed 3.2s → 4.0s */
         @keyframes keyPress { 0%, 26.6% { opacity: 0; } 26.7%, 33.3% { opacity: 1; } 33.4%, 100% { opacity: 0; } }
         @keyframes knobGlow { 0%, 100% { opacity: 1; } 50% { opacity: .7; } }
+        /* No container-query units (Safari ≤ 15.x): the playhead's cqw transforms are dropped, so it would sit on F2 while
+           the rail shows step 4. Show the static frame instead: playhead on step 4 by percentage, nothing travels. */
+        @supports not (width: 1cqw) {
+            .hud-playhead { transform: none; left: calc((100% - var(--step-w)) * 4 / var(--seg)); animation: none; }
+            .hud-rail i, .hud-key.is-press::before { animation: none; }
+            .hud-step:nth-child(-n+5) { color: var(--gold-200); border-color: var(--line-3); }
+            .hud-step:nth-child(6) { color: var(--text-strong); }
+        }
 
         /* ── Chrome Web Store card ── */
         .store { position: relative; z-index: 2; padding-inline: var(--gutter); margin-top: calc(-1 * clamp(8px, 2vh, 28px)); }
@@ -657,6 +665,12 @@
             .hud-skills { gap: 5px; }
             .trust-badges { grid-template-columns: minmax(0, 1fr); }
         }
+        /* Forced colours: HUD glyphs take their label's system colour (site.css does the same for .slot-gl/.inline-gl),
+           and the pricing lozenges — backgrounds, which become Canvas — are redrawn in the text colour */
+        @media (forced-colors: active) {
+            .hud-gl { color: inherit !important; }
+            .price-features li::before { forced-color-adjust: none; background: CanvasText; box-shadow: none; }
+        }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
@@ -808,7 +822,7 @@
                     <button class="lang-select-btn" type="button" aria-expanded="false" aria-controls="lang-menu" onclick="toggleLangMenu()">
                         <span class="lang-flag">🇷🇺</span>
                         <span class="lang-code">RU</span>
-                        <span class="lang-chevron">▾</span>
+                        <span class="lang-chevron" aria-hidden="true">▾</span>
                     </button>
                     <div class="lang-select-menu" id="lang-menu">
                         <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
@@ -834,6 +848,8 @@
             </div>
         </div>
     </header>
+
+    <main id="main">
 
     <!-- ═══ Hero — monumental title, rune circle, and the in-game HUD (product proof) ═══ -->
     <section class="hero">
@@ -1252,6 +1268,8 @@
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- ═══ Footer ═══ -->
     <footer class="site-footer">

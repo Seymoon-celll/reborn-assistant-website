@@ -128,7 +128,7 @@
                     <button class="lang-select-btn" type="button" aria-expanded="false" aria-controls="lang-menu" onclick="toggleLangMenu()">
                         <span class="lang-flag">🇹🇷</span>
                         <span class="lang-code">TR</span>
-                        <span class="lang-chevron">▾</span>
+                        <span class="lang-chevron" aria-hidden="true">▾</span>
                     </button>
                     <div class="lang-select-menu" id="lang-menu">
                         <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
@@ -277,6 +277,9 @@
     <!-- ═══ Footer ═══ -->
     <footer class="site-footer site-footer--compact">
         <div class="container footer-content">
+            <a class="brand" href="/tr/" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+            </a>
             <div class="footer-logo">REBORN ASSISTANT</div>
             <div class="ornament" aria-hidden="true"></div>
             <div class="copyright"><span data-i18n="docsNav.footer">© 2026 Reborn Assistant — Seymoon tarafından geliştirildi · Tüm hakları saklıdır</span></div>

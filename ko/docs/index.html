@@ -42,6 +42,7 @@
         .docs-hero { text-align: center; margin-bottom: clamp(36px, 5vw, 56px); }
         .docs-sigil { position: relative; display: grid; place-items: center; width: 176px; height: 176px; margin: 0 auto 22px; }
         .docs-sigil svg { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--gold); opacity: .75; }
+        @media (forced-colors: active) { .docs-sigil svg { color: inherit; } }    /* the rune ring takes the system text colour, not gold on a light Canvas */
         .docs-sigil::before { content: ''; position: absolute; inset: 18%; border-radius: 50%; background: radial-gradient(circle, rgba(212,175,55,.22), transparent 70%); }
         .logo {
             position: relative; display: grid; place-items: center; width: 72px; height: 72px;
@@ -174,7 +175,7 @@
                     <button class="lang-select-btn" type="button" aria-expanded="false" aria-controls="lang-menu" onclick="toggleLangMenu()">
                         <span class="lang-flag">🇰🇷</span>
                         <span class="lang-code">KO</span>
-                        <span class="lang-chevron">▾</span>
+                        <span class="lang-chevron" aria-hidden="true">▾</span>
                     </button>
                     <div class="lang-select-menu" id="lang-menu">
                         <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
@@ -323,6 +324,9 @@
     <!-- ═══ Footer ═══ -->
     <footer class="site-footer site-footer--compact">
         <div class="container footer-content">
+            <a class="brand" href="/ko/" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+            </a>
             <div class="footer-logo">REBORN ASSISTANT</div>
             <div class="ornament" aria-hidden="true"></div>
             <div class="copyright"><span data-i18n="docsHome.footer">© 2026 Reborn Assistant — Seymoon 개발 · 모든 권리 보유</span></div>

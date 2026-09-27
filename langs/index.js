@@ -57,8 +57,9 @@ function resolve(obj, path) {
    Built with new RegExp in a try: an engine without these Unicode properties simply skips the check. */
 let SAFE_EMOJI_LEAD = null;
 try {
-  /* the emoji cluster is matched atomically ((?=(…))\1), so it cannot give back a VS16 / skin tone / ZWJ to pass the punctuation test */
-  SAFE_EMOJI_LEAD = new RegExp('^\\s*(?=((?:\\p{Regional_Indicator}{2}|(?!\\p{P})\\p{Extended_Pictographic}[\\u{FE0F}\\u{20E3}\\p{Emoji_Modifier}]*(?:\\u{200D}\\p{Extended_Pictographic}[\\u{FE0F}\\p{Emoji_Modifier}]*)*)))\\1(?!\\s*\\p{P})', 'u');
+  /* the emoji cluster (a flag, or a pictograph + any combining mark / skin tone / tag character, per ZWJ part) is matched
+     atomically ((?=(…))\1), so it cannot give back an extender to pass the punctuation test */
+  SAFE_EMOJI_LEAD = new RegExp('^\\s*(?=((?:\\p{Regional_Indicator}{2}|(?!\\p{P})\\p{Extended_Pictographic}[\\p{M}\\p{Emoji_Modifier}\\u{E0020}-\\u{E007F}]*(?:\\u{200D}\\p{Extended_Pictographic}[\\p{M}\\p{Emoji_Modifier}\\u{E0020}-\\u{E007F}]*)*)))\\1(?!\\s*\\p{P})', 'u');
 } catch (e) { /* unsupported: keep the build's classes */ }
 function guardEmojiLabel(el) {
   if (!SAFE_EMOJI_LEAD) return;
@@ -66,6 +67,9 @@ function guardEmojiLabel(el) {
     const safe = SAFE_EMOJI_LEAD.test(el.textContent);
     el.classList.toggle('emoji-lead', safe);
     el.classList.toggle('emoji-keep', !safe);
+    /* its gold stand-in steps aside beside a kept emoji (site.css: .inline-gl--off — also where :has() is unknown) */
+    const gl = el.previousElementSibling;
+    if (gl && gl.classList.contains('inline-gl')) gl.classList.toggle('inline-gl--off', !safe);
   }
   const frame = el.closest('.callout--gl');
   const title = frame && frame.firstElementChild;

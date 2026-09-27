@@ -108,7 +108,7 @@
                     <button class="lang-select-btn" type="button" aria-expanded="false" aria-controls="lang-menu" onclick="toggleLangMenu()">
                         <span class="lang-flag">🇫🇷</span>
                         <span class="lang-code">FR</span>
-                        <span class="lang-chevron">▾</span>
+                        <span class="lang-chevron" aria-hidden="true">▾</span>
                     </button>
                     <div class="lang-select-menu" id="lang-menu">
                         <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
@@ -150,7 +150,7 @@
         <h2 data-i18n="docTroubleshooting.connH2">Problèmes de connexion</h2>
 
         <div class="faq">
-            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-keep" data-i18n="docTroubleshooting.faq2Q">❌ "Connexion échouée" ou "Licence invalide"</span></h3>
+            <h3 class="faq-q"><svg class="inline-gl inline-gl--off" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-keep" data-i18n="docTroubleshooting.faq2Q">❌ "Connexion échouée" ou "Licence invalide"</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq2A"><strong>Causes possibles :</strong><br>• Mauvaise connexion internet<br>• Serveurs Google Cloud temporairement indisponibles<br>• Licence expirée ou révoquée<br><br><strong>Solutions :</strong><br>1. Vérifiez votre connexion internet<br>2. Déconnectez-vous et reconnectez-vous avec Google<br>3. Vérifiez votre statut de licence dans votre espace Stripe<br>4. Contactez le support si le problème persiste</div>
         </div>
 
@@ -238,6 +238,9 @@
     <!-- ═══ Footer ═══ -->
     <footer class="site-footer site-footer--compact">
         <div class="container footer-content">
+            <a class="brand" href="../index.html" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+            </a>
             <div class="footer-logo">REBORN ASSISTANT</div>
             <div class="ornament" aria-hidden="true"></div>
             <div class="copyright"><span data-i18n="docsNav.footer">© 2026 Reborn Assistant — Développé par Seymoon · Tous droits réservés</span></div>

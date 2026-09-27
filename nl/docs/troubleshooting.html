@@ -108,7 +108,7 @@
                     <button class="lang-select-btn" type="button" aria-expanded="false" aria-controls="lang-menu" onclick="toggleLangMenu()">
                         <span class="lang-flag">🇳🇱</span>
                         <span class="lang-code">NL</span>
-                        <span class="lang-chevron">▾</span>
+                        <span class="lang-chevron" aria-hidden="true">▾</span>
                     </button>
                     <div class="lang-select-menu" id="lang-menu">
                         <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
@@ -150,7 +150,7 @@
         <h2 data-i18n="docTroubleshooting.connH2">Verbindingsproblemen</h2>
 
         <div class="faq">
-            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-keep" data-i18n="docTroubleshooting.faq2Q">❌ "Verbinding mislukt" of "Ongeldige licentie"</span></h3>
+            <h3 class="faq-q"><svg class="inline-gl inline-gl--off" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-keep" data-i18n="docTroubleshooting.faq2Q">❌ "Verbinding mislukt" of "Ongeldige licentie"</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq2A"><strong>Mogelijke oorzaken:</strong><br>• Slechte internetverbinding<br>• Google Cloud-servers tijdelijk niet beschikbaar<br>• Verlopen of ingetrokken licentie<br><br><strong>Oplossingen:</strong><br>1. Controleer uw internetverbinding<br>2. Meld u af en opnieuw aan met Google<br>3. Controleer de status van uw licentie in uw Stripe-portaal<br>4. Neem contact op met de ondersteuning als het probleem aanhoudt</div>
         </div>
 
@@ -238,6 +238,9 @@
     <!-- ═══ Footer ═══ -->
     <footer class="site-footer site-footer--compact">
         <div class="container footer-content">
+            <a class="brand" href="/nl/" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+            </a>
             <div class="footer-logo">REBORN ASSISTANT</div>
             <div class="ornament" aria-hidden="true"></div>
             <div class="copyright"><span data-i18n="docsNav.footer">© 2026 Reborn Assistant — Ontwikkeld door Seymoon · Alle rechten voorbehouden</span></div>

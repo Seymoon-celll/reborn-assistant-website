@@ -243,19 +243,25 @@ function setActiveLangInHeader(html, lang) {
  * NEXT character the first letter. Either way a real character would be hidden.
  * So a label is only hidden when it is SAFE — one real pictograph (or a flag) NOT followed by optional spaces + punctuation.
  * Otherwise, per language, the build keeps the OS emoji visible (nothing hidden, as before the redesign):
- *   - `.emoji-lead` ↔ `.emoji-keep` (reversible, so the FR source can hold either; site.css hides the sibling .inline-gl);
+ *   - `.emoji-lead` ↔ `.emoji-keep` (reversible, so the FR source can hold either), and the `svg.inline-gl` right before
+ *     the label gets `.inline-gl--off` beside a kept emoji (site.css hides it; also without :has() support);
  *   - a `.callout--gl` frame loses `callout--gl` (plain title, no glyph).
  * A label that does not start with an emoji at all means a translation drifted: that is a WARNING.
  * Hand-written pages the build does not write (FR long-tail sources, EN twins, raccourcis-clavier) are only checked:
  * any unsafe label there is a WARNING, to be fixed by hand. langs/index.js applies the same test at runtime.
  */
-const EMOJI_CLUSTER = String.raw`(?:\p{Regional_Indicator}{2}|(?!\p{P})\p{Extended_Pictographic}[\u{FE0F}\u{20E3}\p{Emoji_Modifier}]*(?:\u{200D}\p{Extended_Pictographic}[\u{FE0F}\p{Emoji_Modifier}]*)*)`;
+// A cluster = a flag, or a pictograph + its extenders (any combining mark: VS16/VS15, keycap U+20E3, …; skin tones; the tag
+// characters of subdivision flags), repeated after each ZWJ. An extender left out would end the cluster early, and the
+// punctuation test would run against it: "⚠︎ ¿…" (VS15) passed as SAFE while Safari hides the ¿.
+const EMOJI_CLUSTER = String.raw`(?:\p{Regional_Indicator}{2}|(?!\p{P})\p{Extended_Pictographic}[\p{M}\p{Emoji_Modifier}\u{E0020}-\u{E007F}]*(?:\u{200D}\p{Extended_Pictographic}[\p{M}\p{Emoji_Modifier}\u{E0020}-\u{E007F}]*)*)`;
 const STARTS_WITH_EMOJI_RE = /^\s*(?:\p{Extended_Pictographic}|\p{Regional_Indicator})/u;
 // The cluster is matched atomically (lookahead + backreference: JS has no atomic groups). A plain `${EMOJI_CLUSTER}(?!…)`
 // could backtrack and give back a trailing VS16 / skin tone / ZWJ, so the punctuation test would run against that
 // extender instead of the punctuation: "⚠️ ¿Qué?", "👍🏽 ¡Bravo!", "⚠️«Texte»" would pass as SAFE.
 const SAFE_EMOJI_LEAD_RE = new RegExp(String.raw`^\s*(?=(${EMOJI_CLUSTER}))\1(?!\s*\p{P})`, 'u');
 const EMOJI_LABEL_RE = /<(\w+)\b([^>]*?\bclass=")([^"]*\bemoji-(?:lead|keep)\b[^"]*)("[^>]*)>([\s\S]*?)<\/\1>/g;
+// The gold stand-in right before a label (<svg class="inline-gl">…</svg><span class="emoji-lead|keep">): its class follows the label.
+const INLINE_GL_RE = /(<svg\b[^>]*?\bclass=")([^"]*\binline-gl\b[^"]*)("[^>]*>(?:(?!<\/svg>)[\s\S])*<\/svg>\s*<\w+\b[^>]*?\bclass="[^"]*\bemoji-(lead|keep)\b)/g;
 // A .callout--gl frame and its first child (the title): the first letter of that child is hidden.
 const CALLOUT_GL_RE = /<(\w+)\b([^>]*?\bclass=")([^"]*\bcallout--gl\b[^"]*)("[^>]*)>(\s*<(\w+)\b[^>]*>([\s\S]*?)<\/\6>)?/g;
 let emojiLeadWarnings = 0;
@@ -284,6 +290,10 @@ function guardEmojiLabels(html, label, { fix = true } = {}) {
     const next = cls.replace(/\bemoji-(?:lead|keep)\b/, safe ? 'emoji-lead' : 'emoji-keep');
     return `<${tag}${pre}${next}${post}>${inner}</${tag}>`;
   });
+  // …and its glyph steps aside beside a kept OS emoji: .inline-gl--off (site.css's .inline-gl:has(+ .emoji-keep) does the
+  // same, but an engine without :has() would show the glyph AND the emoji)
+  if (fix) html = html.replace(INLINE_GL_RE, (m, pre, cls, post, kind) =>
+    pre + cls.replace(/\s*\binline-gl--off\b/g, '') + (kind === 'keep' ? ' inline-gl--off' : '') + post);
   html = html.replace(CALLOUT_GL_RE, (m, tag, pre, cls, post, title, _t, inner) => {
     const text = title === undefined ? '' : labelText(inner);
     const safe = title !== undefined && SAFE_EMOJI_LEAD_RE.test(text);

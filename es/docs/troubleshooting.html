@@ -108,7 +108,7 @@
                     <button class="lang-select-btn" type="button" aria-expanded="false" aria-controls="lang-menu" onclick="toggleLangMenu()">
                         <span class="lang-flag">🇪🇸</span>
                         <span class="lang-code">ES</span>
-                        <span class="lang-chevron">▾</span>
+                        <span class="lang-chevron" aria-hidden="true">▾</span>
                     </button>
                     <div class="lang-select-menu" id="lang-menu">
                         <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
@@ -150,7 +150,7 @@
         <h2 data-i18n="docTroubleshooting.connH2">Problemas de conexión</h2>
 
         <div class="faq">
-            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-keep" data-i18n="docTroubleshooting.faq2Q">❌ "Conexión fallida" o "Licencia inválida"</span></h3>
+            <h3 class="faq-q"><svg class="inline-gl inline-gl--off" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-keep" data-i18n="docTroubleshooting.faq2Q">❌ "Conexión fallida" o "Licencia inválida"</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq2A"><strong>Posibles causas:</strong><br>• Mala conexión a internet<br>• Servidores de Google Cloud temporalmente no disponibles<br>• Licencia expirada o revocada<br><br><strong>Soluciones:</strong><br>1. Verifica tu conexión a internet<br>2. Cierra sesión y vuelve a iniciarla con Google<br>3. Verifica el estado de tu licencia en tu portal Stripe<br>4. Contacta con el soporte si el problema persiste</div>
         </div>
 
@@ -190,34 +190,34 @@
         </div>
 
         <div class="faq">
-            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-bulb"/></svg><span class="emoji-keep" data-i18n="docTroubleshooting.faq8Q">💡 ¿Cómo optimizar la configuración?</span></h3>
+            <h3 class="faq-q"><svg class="inline-gl inline-gl--off" aria-hidden="true" focusable="false"><use href="#g-bulb"/></svg><span class="emoji-keep" data-i18n="docTroubleshooting.faq8Q">💡 ¿Cómo optimizar la configuración?</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq8A"><strong>Configuración recomendada:</strong><br>• <strong>Intervalo secuencias:</strong> 5-25 minutos (según duración de tus secuencias)<br>• <strong>Retraso entre teclas:</strong> 1-2 segundos (evita errores)<br>• <strong>Macros:</strong> Intervalos de 10-30s según el uso</div>
         </div>
 
         <h2 data-i18n="docTroubleshooting.genH2">Preguntas Frecuentes</h2>
 
         <div class="faq">
-            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-keep" data-i18n="docTroubleshooting.faq9Q">❓ ¿Puedo usar Reborn en varios navegadores?</span></h3>
+            <h3 class="faq-q"><svg class="inline-gl inline-gl--off" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-keep" data-i18n="docTroubleshooting.faq9Q">❓ ¿Puedo usar Reborn en varios navegadores?</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq9A">Sí, pero debes instalar la extensión en cada navegador. Tu licencia Premium funciona en todos tus dispositivos mientras inicies sesión con la misma cuenta de Google (máx. 1 conexión simultánea).</div>
         </div>
 
         <div class="faq">
-            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-keep" data-i18n="docTroubleshooting.faq10Q">❓ ¿Se guardan mis datos?</span></h3>
+            <h3 class="faq-q"><svg class="inline-gl inline-gl--off" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-keep" data-i18n="docTroubleshooting.faq10Q">❓ ¿Se guardan mis datos?</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq10A">Todas tus configuraciones (teclas, macros, tema, idioma) se guardan <strong>localmente</strong> en el navegador. Persisten entre sesiones. Sin embargo, si desinstala la extensión, perderás estos datos.</div>
         </div>
 
         <div class="faq">
-            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-keep" data-i18n="docTroubleshooting.faq11Q">❓ ¿Puede Reborn provocar un baneo?</span></h3>
+            <h3 class="faq-q"><svg class="inline-gl inline-gl--off" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-keep" data-i18n="docTroubleshooting.faq11Q">❓ ¿Puede Reborn provocar un baneo?</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq11A">El uso de herramientas de automatización puede violar los Términos de Servicio de algunos servicios. <strong>Eres el único responsable</strong> de cómo usas Reborn. Consulta los términos de uso del servicio antes de usar esta herramienta.</div>
         </div>
 
         <div class="faq">
-            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-keep" data-i18n="docTroubleshooting.faq12Q">❓ ¿Cómo cancelar mi suscripción Premium?</span></h3>
+            <h3 class="faq-q"><svg class="inline-gl inline-gl--off" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-keep" data-i18n="docTroubleshooting.faq12Q">❓ ¿Cómo cancelar mi suscripción Premium?</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq12A">Puedes cancelar en cualquier momento desde tu portal de gestión de Stripe (enlace recibido por correo electrónico tras el pago). La cancelación tiene efecto al final de tu período actual. Sin cargos por cancelación.</div>
         </div>
 
         <div class="faq">
-            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-keep" data-i18n="docTroubleshooting.faq13Q">❓ ¿Qué pasa con el plan De por Vida si el servicio cierra?</span></h3>
+            <h3 class="faq-q"><svg class="inline-gl inline-gl--off" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-keep" data-i18n="docTroubleshooting.faq13Q">❓ ¿Qué pasa con el plan De por Vida si el servicio cierra?</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq13A">El plan De por Vida garantiza el acceso mientras el servicio esté activo. Una vez instalada, la extensión funciona localmente; solo la verificación de licencia requiere conexión a internet.</div>
         </div>
 
@@ -238,6 +238,9 @@
     <!-- ═══ Footer ═══ -->
     <footer class="site-footer site-footer--compact">
         <div class="container footer-content">
+            <a class="brand" href="/es/" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+            </a>
             <div class="footer-logo">REBORN ASSISTANT</div>
             <div class="ornament" aria-hidden="true"></div>
             <div class="copyright"><span data-i18n="docsNav.footer">© 2026 Reborn Assistant — Desarrollado por Seymoon · Todos los derechos reservados</span></div>
