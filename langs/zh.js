@@ -553,5 +553,6 @@ export default {
     pricing:     "价格",
     faq:         "常见问题",
     docs:        "文档",
+    menu:        "菜单",
   },
 };

@@ -553,5 +553,6 @@ export default {
     pricing:     "Cennik",
     faq:         "FAQ",
     docs:        "Dokumentacja",
+    menu:        "Menu",
   },
 };

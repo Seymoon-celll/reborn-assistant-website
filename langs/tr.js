@@ -553,5 +553,6 @@ export default {
     pricing:     "Fiyatlar",
     faq:         "SSS",
     docs:        "Belgeler",
+    menu:        "Menü",
   },
 };

@@ -561,5 +561,6 @@ export default {
     pricing:     "Precios",
     faq:         "FAQ",
     docs:        "Documentación",
+    menu:        "Menú",
   },
 };

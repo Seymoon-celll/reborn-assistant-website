@@ -553,5 +553,6 @@ export default {
     pricing:     "요금제",
     faq:         "FAQ",
     docs:        "문서",
+    menu:        "메뉴",
   },
 };

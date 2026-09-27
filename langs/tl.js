@@ -553,5 +553,6 @@ export default {
     pricing:     "Presyo",
     faq:         "FAQ",
     docs:        "Dokumentasyon",
+    menu:        "Menu",
   },
 };

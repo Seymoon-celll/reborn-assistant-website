@@ -570,5 +570,6 @@ export default {
     pricing:     "Tarifs",
     faq:         "FAQ",
     docs:        "Documentation",
+    menu:        "Menu",
   },
 };

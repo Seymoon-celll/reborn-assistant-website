@@ -553,5 +553,6 @@ export default {
     pricing:     "料金",
     faq:         "よくある質問",
     docs:        "ドキュメント",
+    menu:        "メニュー",
   },
 };
