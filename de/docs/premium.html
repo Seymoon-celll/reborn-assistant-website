@@ -30,32 +30,94 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Marcellus&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css?v=2">
     <style>
-        :root { --gold:#d4af37;--gold-light:#f4d03f;--gold-dark:#b8941f;--dark-bg:#080808;--green:#4CAF50;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
-        * { margin:0;padding:0;box-sizing:border-box; }
-        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.7; }
-        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
-        .container { max-width:900px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
-        .back-link { display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease; }
-        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
-        h1 { font-family:'Cinzel',serif;font-size:42px;color:var(--gold);letter-spacing:2px;margin-bottom:16px; }
-        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:60px; }
-        h2 { font-family:'Cinzel',serif;font-size:28px;color:var(--text);margin:60px 0 24px;padding-bottom:16px;border-bottom:1px solid var(--border); }
-        h3 { font-size:20px;color:var(--gold);margin:40px 0 16px; }
-        .premium-badge { background:linear-gradient(135deg,var(--gold-dark),var(--gold-light));color:#000;font-size:10px;font-weight:700;padding:6px 14px;border-radius:12px;letter-spacing:1.5px;display:inline-block;margin-left:12px; }
-        .section { background:rgba(20,20,16,0.6);border:1px solid var(--gold);border-radius:12px;padding:32px;margin:32px 0; }
-        .param { background:rgba(212,175,55,0.06);border-left:3px solid var(--gold);padding:16px 20px;margin:16px 0;border-radius:4px; }
-        .param-name { font-weight:600;color:var(--gold);margin-bottom:6px; }
-        .param-desc { font-size:14px;color:var(--text-dim); }
-        code { background:rgba(20,20,16,0.9);padding:3px 10px;border-radius:4px;font-family:'Courier New',monospace;font-size:13px;color:var(--gold-light); }
-        .example { background:rgba(76,175,80,0.06);border-left:3px solid var(--green);padding:20px;margin:24px 0;border-radius:4px; }
-        .example-title { font-weight:600;color:var(--green);margin-bottom:12px; }
-        ul { margin:16px 0;padding-left:24px; }
-        li { margin:8px 0;font-size:15px; }
-        ol { margin:16px 0;padding-left:24px; }
-        ol li { margin:8px 0;font-size:15px; }
-        p { margin-bottom:16px;font-size:15px; }
+        /* ═══ Premium guide — page-specific layout (tokens & components: /assets/css/site.css) ═══ */
+
+        /* Title crest: the gold glyph stands in for the h1's leading emoji (.emoji-lead keeps it in the text, hidden) */
+        .article-crest { margin-bottom: 24px; }
+
+        /* Chapter head — glyph well · PREMIUM chip · title. The chip is a SIBLING of the data-i18n h2:
+           inside it, the translation (build + langs/index.js) would overwrite it in every language. */
+        .chapter-head {
+            position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center;
+            column-gap: 18px; row-gap: 8px; padding-bottom: 20px; margin-bottom: 24px;
+        }
+        .chapter-head::after {          /* the h2's gilded underline, now under the whole head */
+            content: ''; position: absolute; inset-inline: 0; bottom: 0; height: 1px;
+            background: linear-gradient(var(--to-end), var(--gold-300), rgba(212,175,55,.2) 45%, transparent);
+        }
+        .chapter-head > .skill-slot { grid-row: 1 / span 2; }
+        .chapter-head > .premium-badge { grid-column: 2; grid-row: 1; justify-self: start; align-self: end; }
+        .article .chapter-head > h2 { grid-column: 2; grid-row: 2; align-self: start; margin: 0; padding: 0; text-wrap: balance; }
+        .article .chapter-head > h2::before, .article .chapter-head > h2::after { display: none; }
+
+        /* site.css keeps a callout's 30px bottom margin even as the panel's last child — the panel padding is enough */
+        .article .section > :last-child { margin-bottom: 0; }
+
+        /* Fixed rotation order as a keycap rail (language-neutral, always LTR).
+           Each key travels with its arrow; the rail breaks into even rows (12 → 6 + 6 → 4 + 4 + 4), never an orphan key. */
+        .key-seq {
+            display: grid; grid-template-columns: repeat(12, auto); align-items: center; justify-content: center; row-gap: 10px;
+            margin: 12px 0 28px; padding: 16px 14px; border-radius: 14px;
+            background: var(--surface-well); border: 1px solid var(--line-2);
+            box-shadow: inset 0 1px 0 rgba(245,230,184,.05), inset 0 12px 24px -16px rgba(0,0,0,.9);
+        }
+        .key-seq__step { display: inline-flex; align-items: center; }
+        .key-seq kbd {
+            display: inline-grid; place-items: center; min-width: 34px; height: 34px; padding: 0 7px;
+            font-size: 13px; line-height: 1; color: var(--gold-100);
+            background: var(--surface-key); border: 1px solid var(--line-3); border-radius: 8px;
+            box-shadow: inset 0 -3px 0 rgba(0,0,0,.45), inset 0 1px 0 rgba(245,230,184,.12), 0 4px 10px -4px rgba(0,0,0,.8);
+        }
+        .key-seq__arrow { padding-inline: 4px; font-size: 12px; line-height: 1; color: var(--gold-700); }
+        .key-seq .inline-gl { width: 20px; height: 20px; margin-inline-start: 8px; color: var(--gold-300); }
+
+        /* Macro examples: title | settings, one row per macro */
+        .macro-spec > div { padding: 14px 0; border-top: 1px solid rgba(76,175,80,.16); }
+        .macro-spec > div:first-child { padding-top: 2px; border-top: 0; }
+        .macro-spec > div:last-child { padding-bottom: 0; }
+        .article .example .macro-spec p { margin: 0 0 4px; }
+        .article .example .macro-spec ul { margin: 0; }
+        .article .macro-spec li { margin: 4px 0; }
+        @media (min-width: 720px) {
+            .macro-spec > div { display: grid; grid-template-columns: minmax(0, 15em) minmax(0, 1fr); column-gap: 24px; align-items: baseline; }
+        }
+
+        /* "Important" — a warning callout headed by the translated h3 */
+        .article .callout--warning > h3 { margin: 0 0 6px; font-size: 16px; color: var(--callout-title); }
+        .article .callout--warning li::before { background: var(--red-300); box-shadow: none; }
+
+        /* Optimisation tips — codex cards with a glyph well (same card as the Ringmaster guide) */
+        .article .tip-card { grid-template-columns: auto minmax(0, 1fr); padding-bottom: 22px; }
+        .article .tip-card > h3 { margin: 0 0 4px; align-self: center; }
+        .article .tip-card > p { margin: 4px 0 0; }
+        .article .tip-card > ul { margin: 8px 0 0; }
+
+        @media (max-width: 919px) { .key-seq { grid-template-columns: repeat(6, auto); } }
+        @media (max-width: 400px) { .key-seq { grid-template-columns: repeat(4, auto); } }
+
+        /* Phones: the title takes the full width under its well + chip, and nested frames give back their padding
+           (a 14-character katakana compound or "Özelleştirilebilir" must fit on one line at 320px) */
+        @media (max-width: 560px) {
+            .chapter-head { column-gap: 14px; row-gap: 14px; }
+            .chapter-head > .skill-slot { grid-row: 1; }
+            .chapter-head > .premium-badge { align-self: center; }
+            .article .chapter-head > h2 { grid-column: 1 / -1; font-size: clamp(18px, 5.6vw, 24px); line-height: 1.3; }
+            .key-seq { padding: 14px 8px; }
+            .key-seq kbd { min-width: 30px; height: 32px; padding: 0 6px; }
+            .key-seq__arrow { padding-inline: 3px; }
+        }
+        @media (max-width: 480px) {
+            .article .section { padding: 20px 16px; }
+            .article .section :is(.param, .example, .callout) { padding: 16px; padding-inline-start: 20px; }
+        }
+        /* Small phones: long single words ("Systeemcombinatie", "Tastenkombinationen") must fit their line */
+        @media (max-width: 400px) {
+            .article h2 { font-size: clamp(20px, 6.6vw, 25px); }
+            .article .tip-card > h3 { font-size: clamp(16px, 4.8vw, 19px); }
+        }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
@@ -92,18 +154,35 @@
     <script>window.__PRERENDERED_LANG__="de";</script>
 </head>
 <body>
-    <div class="container">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:12px;">
-            <a href="/de/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← Zurück zur Dokumentation</a>
-            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-                <a href="/de/" style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:7px 16px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.color='var(--text-dim)';this.style.borderColor='var(--border)'" data-i18n="docsNav.mainSite">⌂ Hauptseite</a>
+    <!-- Gold line glyphs (shared library, DESIGN-SYSTEM §6a) — referenced with <use href="#g-…"> -->
+    <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-gem" viewBox="0 0 24 24"><path d="M6.8 4.5h10.4L21 9.4 12 20.5 3 9.4z"/><path fill="none" d="M3 9.4h18M9.8 4.5L8.4 9.4 12 20.5l3.6-11.1-1.4-4.9"/></symbol>
+        <symbol id="g-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.3-2.9 7.9-7 9.5-4.1-1.6-7-5.2-7-9.5V6l7-3z"/><path d="M9 12l2.2 2.2L15.5 10"/></symbol>
+        <symbol id="g-gear" viewBox="0 0 24 24"><path d="M9.9 5.2l.3-2.3h3.6l.3 2.3 1.2.5 1.8-1.5 2.6 2.6-1.5 1.8.5 1.2 2.3.3v3.7l-2.3.2-.5 1.2 1.5 1.8-2.6 2.6-1.8-1.5-1.2.5-.3 2.3h-3.6l-.3-2.3-1.2-.5-1.8 1.5-2.6-2.6 1.5-1.8-.5-1.2-2.3-.3v-3.6l2.3-.3.5-1.2-1.5-1.8 2.6-2.6 1.8 1.5z"/><circle cx="12" cy="12" r="3"/></symbol>
+        <symbol id="g-boss" viewBox="0 0 24 24"><path d="M12 5.5c-4 0-7 2.8-7 6.6 0 2.2 1 3.9 2.6 4.9v2.4c0 .8.6 1.4 1.4 1.4h6c.8 0 1.4-.6 1.4-1.4V17c1.6-1 2.6-2.7 2.6-4.9 0-3.8-3-6.6-7-6.6z"/><path fill="none" d="M6.3 8.2L3.2 3.5l5 2.3M17.7 8.2l3.1-4.7-5 2.3M10.5 20.5v-2M13.5 20.5v-2"/><circle cx="9.3" cy="12.6" r="1.4"/><circle cx="14.7" cy="12.6" r="1.4"/></symbol>
+        <symbol id="g-loop" viewBox="0 0 24 24"><path fill="none" d="M4.5 11a7.5 7.5 0 0 1 13-4.6l2 2.1M19.5 4v4.5H15M19.5 13a7.5 7.5 0 0 1-13 4.6l-2-2.1M4.5 20v-4.5H9"/></symbol>
+        <symbol id="g-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4.5M12 17.5V22M2 12h4.5M17.5 12H22"/><circle cx="12" cy="12" r=".4"/></symbol>
+        <symbol id="g-bolt" viewBox="0 0 24 24"><path d="M13 2.5L5 13.5h6l-1 8 8-11h-6l1-8z"/></symbol>
+        <symbol id="g-key" viewBox="0 0 24 24"><circle cx="8" cy="15.5" r="4.2"/><circle cx="7.2" cy="16.3" r="1"/><path fill="none" d="M11 12.5L19.5 4M16.2 7.3l2.6 2.6M13.9 9.6l2 2"/></symbol>
+    </svg>
+
+    <!-- ═══ Header ═══ -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="/de/" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+                <span class="brand__word">Reborn</span>
+            </a>
+            <div class="header-actions">
+                <a href="/de/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← Zurück zur Dokumentation</a>
+                <a href="/de/" class="hdr-btn hdr-home" data-i18n="docsNav.mainSite">⌂ Hauptseite</a>
                 <div class="lang-select">
-                    <button class="lang-select-btn" onclick="toggleLangMenu()">
+                    <button class="lang-select-btn" type="button" aria-expanded="false" aria-controls="lang-menu" onclick="toggleLangMenu()">
                         <span class="lang-flag">🇩🇪</span>
                         <span class="lang-code">DE</span>
                         <span class="lang-chevron">▾</span>
                     </button>
-                    <div class="lang-select-menu">
+                    <div class="lang-select-menu" id="lang-menu">
                         <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
                         <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
                         <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
@@ -123,19 +202,42 @@
                 </div>
             </div>
         </div>
+    </header>
 
-        <h1 data-i18n="docPremium.h1">💎 Premium-Leitfaden</h1>
-        <p class="subtitle" data-i18n="docPremium.subtitle">Meistern Sie alle erweiterten Funktionen von Reborn Assistant</p>
+    <main class="container article">
+        <header class="article-head">
+            <div class="skill-slot article-crest" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-gem"/></svg></div>
+            <h1 class="emoji-lead" data-i18n="docPremium.h1">💎 Premium-Leitfaden</h1>
+            <p class="subtitle" data-i18n="docPremium.subtitle">Meistern Sie alle erweiterten Funktionen von Reborn Assistant</p>
+            <div class="ornament" aria-hidden="true"></div>
+        </header>
 
         <!-- ROTATION -->
         <div class="section">
-            <h2 data-i18n="docPremium.rotH2">🛡️ Automatische Sequenz-Rotation</h2>
+            <div class="chapter-head">
+                <span class="skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-shield"/></svg></span>
+                <h2 class="emoji-lead" data-i18n="docPremium.rotH2">🛡️ Automatische Sequenz-Rotation</h2>
+                <span class="premium-badge">PREMIUM</span>
+            </div>
 
             <p data-i18n="docPremium.rotDesc">Das Rotationssystem erhält automatisch alle Ihre aktiven Sequenzen, indem es in regelmäßigen Abständen eine vordefinierte Tastensequenz drückt.</p>
 
             <h3 data-i18n="docPremium.rotSeqH3">Tastensequenz</h3>
             <p data-i18n="docPremium.rotSeqText">Die Rotation folgt immer dieser festen Reihenfolge:</p>
-            <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 0 → F1</code>
+            <div class="key-seq" dir="ltr">
+                <span class="key-seq__step"><kbd>F2</kbd><span class="key-seq__arrow" aria-hidden="true">→</span></span>
+                <span class="key-seq__step"><kbd>1</kbd><span class="key-seq__arrow" aria-hidden="true">→</span></span>
+                <span class="key-seq__step"><kbd>2</kbd><span class="key-seq__arrow" aria-hidden="true">→</span></span>
+                <span class="key-seq__step"><kbd>3</kbd><span class="key-seq__arrow" aria-hidden="true">→</span></span>
+                <span class="key-seq__step"><kbd>4</kbd><span class="key-seq__arrow" aria-hidden="true">→</span></span>
+                <span class="key-seq__step"><kbd>5</kbd><span class="key-seq__arrow" aria-hidden="true">→</span></span>
+                <span class="key-seq__step"><kbd>6</kbd><span class="key-seq__arrow" aria-hidden="true">→</span></span>
+                <span class="key-seq__step"><kbd>7</kbd><span class="key-seq__arrow" aria-hidden="true">→</span></span>
+                <span class="key-seq__step"><kbd>8</kbd><span class="key-seq__arrow" aria-hidden="true">→</span></span>
+                <span class="key-seq__step"><kbd>9</kbd><span class="key-seq__arrow" aria-hidden="true">→</span></span>
+                <span class="key-seq__step"><kbd>0</kbd><span class="key-seq__arrow" aria-hidden="true">→</span></span>
+                <span class="key-seq__step"><kbd>F1</kbd><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-loop"/></svg></span>
+            </div>
 
             <h3 data-i18n="docPremium.rotConfigH3">Konfiguration</h3>
 
@@ -164,7 +266,11 @@
 
         <!-- MACROS PERSONNALISABLES -->
         <div class="section">
-            <h2 data-i18n="docPremium.macH2">⚙️ Anpassbare Makros</h2>
+            <div class="chapter-head">
+                <span class="skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-gear"/></svg></span>
+                <h2 class="emoji-lead" data-i18n="docPremium.macH2">⚙️ Anpassbare Makros</h2>
+                <span class="premium-badge">PREMIUM</span>
+            </div>
 
             <p data-i18n="docPremium.macDesc">Erstellen Sie bis zu 3 unabhängige Makros mit Ihren eigenen Tastensequenzen. Perfekt für sich wiederholende Aufgaben, wiederkehrende Combos oder Fähigkeitsrotationen.</p>
 
@@ -191,32 +297,44 @@
             <div class="example">
                 <div class="example-title" data-i18n="docPremium.macExTitle">💡 Verwendungsbeispiele</div>
 
-                <p data-i18n="docPremium.mac1Title"><strong>Makro 1 – Wiederholende Automatisierung:</strong></p>
-                <ul>
-                    <li data-i18n="docPremium.mac1Li1">Sequenz: 1,2,3,space</li>
-                    <li data-i18n="docPremium.mac1Li2">Intervall: 10 Sekunden</li>
-                    <li data-i18n="docPremium.mac1Li3">Verwendung: Basisangriff-Rotation in Schleife</li>
-                </ul>
+                <div class="macro-spec">
+                    <div>
+                        <p data-i18n="docPremium.mac1Title"><strong>Makro 1 – Wiederholende Automatisierung:</strong></p>
+                        <ul>
+                            <li data-i18n="docPremium.mac1Li1">Sequenz: 1,2,3,space</li>
+                            <li data-i18n="docPremium.mac1Li2">Intervall: 10 Sekunden</li>
+                            <li data-i18n="docPremium.mac1Li3">Verwendung: Basisangriff-Rotation in Schleife</li>
+                        </ul>
+                    </div>
 
-                <p data-i18n="docPremium.mac2Title"><strong>Makro 2 – Fähigkeits-Combo:</strong></p>
-                <ul>
-                    <li data-i18n="docPremium.mac2Li1">Sequenz: q,w,e,r</li>
-                    <li data-i18n="docPremium.mac2Li2">Intervall: 30 Sekunden</li>
-                    <li data-i18n="docPremium.mac2Li3">Verwendung: Optimale DPS-Rotation</li>
-                </ul>
+                    <div>
+                        <p data-i18n="docPremium.mac2Title"><strong>Makro 2 – Fähigkeits-Combo:</strong></p>
+                        <ul>
+                            <li data-i18n="docPremium.mac2Li1">Sequenz: q,w,e,r</li>
+                            <li data-i18n="docPremium.mac2Li2">Intervall: 30 Sekunden</li>
+                            <li data-i18n="docPremium.mac2Li3">Verwendung: Optimale DPS-Rotation</li>
+                        </ul>
+                    </div>
 
-                <p data-i18n="docPremium.mac3Title"><strong>Makro 3 – Automatischer Support:</strong></p>
-                <ul>
-                    <li data-i18n="docPremium.mac3Li1">Sequenz: f,g,h</li>
-                    <li data-i18n="docPremium.mac3Li2">Intervall: 15 Sekunden</li>
-                    <li data-i18n="docPremium.mac3Li3">Verwendung: Gruppensequenzen oder periodische Aktionen</li>
-                </ul>
+                    <div>
+                        <p data-i18n="docPremium.mac3Title"><strong>Makro 3 – Automatischer Support:</strong></p>
+                        <ul>
+                            <li data-i18n="docPremium.mac3Li1">Sequenz: f,g,h</li>
+                            <li data-i18n="docPremium.mac3Li2">Intervall: 15 Sekunden</li>
+                            <li data-i18n="docPremium.mac3Li3">Verwendung: Gruppensequenzen oder periodische Aktionen</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- MACRO PERIODIQUE -->
         <div class="section">
-            <h2 data-i18n="docPremium.perH2">🐉 Periodisches Makro</h2>
+            <div class="chapter-head">
+                <span class="skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-boss"/></svg></span>
+                <h2 class="emoji-lead" data-i18n="docPremium.perH2">🐉 Periodisches Makro</h2>
+                <span class="premium-badge">PREMIUM</span>
+            </div>
 
             <p data-i18n="docPremium.perDesc">Dieses System führt automatisch alle 15 Sekunden eine periodische Aktion aus. Ideal für wiederkehrende Aufgaben.</p>
 
@@ -245,38 +363,59 @@
                 <p data-i18n="docPremium.perExText">Bei einigen Diensten muss das periodische Makro regelmäßig aufgerufen werden, um Gegenstände zu sammeln, temporäre Sequenzen bereitzustellen oder Erfahrung zu sammeln. Dieses System automatisiert diesen Prozess vollständig.</p>
             </div>
 
-            <h3 data-i18n="docPremium.perImpH3">⚠️ Wichtig</h3>
-            <ul>
-                <li data-i18n="docPremium.perImpLi1">Überprüfen Sie, dass die konfigurierte Taste Ihrer Aufruf-Taste entspricht</li>
-                <li data-i18n="docPremium.perImpLi2">Das periodische Makro wird nach jedem Aufruf automatisch gespeichert</li>
-                <li data-i18n="docPremium.perImpLi3">Funktioniert parallel zu anderen Systemen (Sequenzen, Makros, Aktionen)</li>
-            </ul>
+            <div class="callout callout--warning">
+                <h3 data-i18n="docPremium.perImpH3">⚠️ Wichtig</h3>
+                <ul>
+                    <li data-i18n="docPremium.perImpLi1">Überprüfen Sie, dass die konfigurierte Taste Ihrer Aufruf-Taste entspricht</li>
+                    <li data-i18n="docPremium.perImpLi2">Das periodische Makro wird nach jedem Aufruf automatisch gespeichert</li>
+                    <li data-i18n="docPremium.perImpLi3">Funktioniert parallel zu anderen Systemen (Sequenzen, Makros, Aktionen)</li>
+                </ul>
+            </div>
         </div>
 
         <h2 data-i18n="docPremium.optH2">Optimierungstipps</h2>
 
-        <h3 data-i18n="docPremium.combH3">🎯 Kombination der Systeme</h3>
-        <p data-i18n="docPremium.combDesc">Alle Premium-Funktionen funktionieren gleichzeitig. Sie können:</p>
-        <ul>
-            <li data-i18n="docPremium.combLi1">Automatische Sequenzen + 3 Makros + periodisches Makro gleichzeitig aktivieren</li>
-            <li data-i18n="docPremium.combLi2">Auslöseraktionen 1 &amp; 2 laufen immer parallel</li>
-            <li data-i18n="docPremium.combLi3">Jedes System hat seinen eigenen unabhängigen Timer</li>
-        </ul>
+        <div class="role-card tip-card">
+            <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-target"/></svg></div>
+            <h3 class="emoji-lead" data-i18n="docPremium.combH3">🎯 Kombination der Systeme</h3>
+            <p data-i18n="docPremium.combDesc">Alle Premium-Funktionen funktionieren gleichzeitig. Sie können:</p>
+            <ul>
+                <li data-i18n="docPremium.combLi1">Automatische Sequenzen + 3 Makros + periodisches Makro gleichzeitig aktivieren</li>
+                <li data-i18n="docPremium.combLi2">Auslöseraktionen 1 &amp; 2 laufen immer parallel</li>
+                <li data-i18n="docPremium.combLi3">Jedes System hat seinen eigenen unabhängigen Timer</li>
+            </ul>
+        </div>
 
-        <h3 data-i18n="docPremium.perfH3">⚡ Leistung</h3>
-        <ul>
-            <li data-i18n="docPremium.perfLi1">Je mehr Systeme Sie aktivieren, desto mehr Ressourcen verbraucht die Erweiterung</li>
-            <li data-i18n="docPremium.perfLi2">Passen Sie die Intervalle an, um zu häufige Aktionen zu vermeiden</li>
-            <li data-i18n="docPremium.perfLi3">Überwachen Sie das Aktivitätsprotokoll, um die korrekte Funktion zu überprüfen</li>
-        </ul>
+        <div class="role-card tip-card">
+            <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-bolt"/></svg></div>
+            <h3 class="emoji-lead" data-i18n="docPremium.perfH3">⚡ Leistung</h3>
+            <ul>
+                <li data-i18n="docPremium.perfLi1">Je mehr Systeme Sie aktivieren, desto mehr Ressourcen verbraucht die Erweiterung</li>
+                <li data-i18n="docPremium.perfLi2">Passen Sie die Intervalle an, um zu häufige Aktionen zu vermeiden</li>
+                <li data-i18n="docPremium.perfLi3">Überwachen Sie das Aktivitätsprotokoll, um die korrekte Funktion zu überprüfen</li>
+            </ul>
+        </div>
 
-        <h3 data-i18n="docPremium.secH3">🔑 Sicherheit</h3>
-        <ul>
-            <li data-i18n="docPremium.secLi1">Ihre Premium-Lizenz wird in Echtzeit überprüft</li>
-            <li data-i18n="docPremium.secLi2">Bei Verbindungsverlust werden Premium-Funktionen deaktiviert</li>
-            <li data-i18n="docPremium.secLi3">Melden Sie sich erneut an, um alle Funktionen zu reaktivieren</li>
-        </ul>
-    </div>
+        <div class="role-card tip-card">
+            <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-key"/></svg></div>
+            <h3 class="emoji-lead" data-i18n="docPremium.secH3">🔑 Sicherheit</h3>
+            <ul>
+                <li data-i18n="docPremium.secLi1">Ihre Premium-Lizenz wird in Echtzeit überprüft</li>
+                <li data-i18n="docPremium.secLi2">Bei Verbindungsverlust werden Premium-Funktionen deaktiviert</li>
+                <li data-i18n="docPremium.secLi3">Melden Sie sich erneut an, um alle Funktionen zu reaktivieren</li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="site-footer site-footer--compact">
+        <div class="container footer-content">
+            <div class="footer-logo">REBORN ASSISTANT</div>
+            <div class="ornament" aria-hidden="true"></div>
+            <div class="copyright"><span data-i18n="docsNav.footer">© 2026 Reborn Assistant — Entwickelt von Seymoon · Alle Rechte vorbehalten</span></div>
+        </div>
+    </footer>
+
     <script type="module" src="/langs/index.js"></script>
 </body>
 </html>

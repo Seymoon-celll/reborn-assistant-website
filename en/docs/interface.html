@@ -30,29 +30,76 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css?v=2">
     <style>
-        :root { --gold:#d4af37;--gold-light:#f4d03f;--gold-dark:#b8941f;--dark-bg:#080808;--green:#4CAF50;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
-        * { margin:0;padding:0;box-sizing:border-box; }
-        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.7; }
-        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
-        .container { max-width:900px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
-        .back-link { display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease; }
-        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
-        h1 { font-family:'Cinzel',serif;font-size:42px;color:var(--gold);letter-spacing:2px;margin-bottom:16px; }
-        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:60px; }
-        h2 { font-family:'Cinzel',serif;font-size:28px;color:var(--text);margin:60px 0 24px;padding-bottom:16px;border-bottom:1px solid var(--border); }
-        h3 { font-size:20px;color:var(--gold);margin:32px 0 16px; }
-        .theme-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0; }
-        .theme-card { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:8px;padding:20px;text-align:center; }
-        .theme-preview { width:100%;height:60px;border-radius:6px;margin-bottom:12px; }
-        .theme-name { font-weight:600;color:var(--gold);font-size:14px; }
-        .lang-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin:24px 0; }
-        .lang-item { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:6px;padding:12px;text-align:center;font-size:13px; }
-        code { background:rgba(20,20,16,0.9);padding:3px 10px;border-radius:4px;font-family:'Courier New',monospace;font-size:13px;color:#f4d03f; }
-        ul { margin:16px 0;padding-left:24px; }
-        li { margin:8px 0;font-size:15px; }
-        p { margin-bottom:16px;font-size:15px; }
+        /* ═══ Interface — page-specific layout (tokens & components: /assets/css/site.css) ═══ */
+
+        /* Title crest: the hub card's glyph stands above the title; the h1's leading emoji is hidden (.emoji-lead) */
+        .article-crest { display: grid; margin: 0 auto 24px; box-shadow: inset 0 0 0 3px rgba(8,7,5,.92), inset 0 0 0 4px rgba(212,175,55,.3), inset 0 10px 18px -6px rgba(0,0,0,.85), 0 12px 40px -10px rgba(212,175,55,.45); }
+
+        /* Theme swatches: 3 × 2 (2 × 3 on phones); each swatch reads as a tiny panel (title bar + two rows) */
+        .theme-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+        .theme-card { padding: 10px 10px 14px; }
+        .theme-preview { position: relative; height: 84px; overflow: hidden; }
+        .theme-preview::before {
+            content: ''; position: absolute; inset: 0 0 auto; height: 16px;
+            background: rgba(0,0,0,.28); box-shadow: inset 0 -1px 0 rgba(255,255,255,.14);
+        }
+        .theme-preview::after {
+            content: ''; position: absolute; inset-inline-start: 12px; top: 32px; width: 46%; height: 30px;
+            background: linear-gradient(rgba(0,0,0,.22) 0 0) 0 0 / 100% 7px no-repeat, linear-gradient(rgba(0,0,0,.16) 0 0) 0 16px / 70% 7px no-repeat;
+            border-radius: 3px;
+        }
+        .theme-name { margin-top: 2px; }
+        @media (max-width: 560px) { .theme-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }
+
+        /* The theme intro is a one-line lead-in to the swatches, not chapter prose: no illuminated initial */
+        :root:not([dir="rtl"]):not(:lang(ja)):not(:lang(zh)):not(:lang(ko)) .article > h2:first-of-type + p::first-letter {
+            float: none; margin: 0; font: inherit; color: inherit; text-shadow: none;
+        }
+
+        /* Languages: a gilded index in balanced columns (3 × 5 rows, 2 × 7 on phones), flag + native name on each row */
+        .lang-grid {
+            display: block; columns: 3; column-gap: 28px; padding: 14px 22px;
+            border-radius: 16px; border: 1px solid transparent;
+            background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box; box-shadow: var(--shadow-md);
+        }
+        .lang-item {
+            display: flex; align-items: center; min-height: 42px; padding: 0 4px; break-inside: avoid;
+            text-align: start; white-space: nowrap; background: none; border: 0; border-radius: 0;
+        }
+        @media (max-width: 480px) { .lang-grid { columns: 2; column-gap: 16px; padding: 10px 16px; } }
+
+        /* "How to" procedures (translated <br>-separated lines) in a gilded note */
+        .article .howto { margin: 26px 0 8px; }
+        .article .howto h3 { margin-bottom: 10px; }
+        .article .howto p { line-height: 2; }
+
+        /* System shortcuts: two keycap tiles */
+        .article .shortcut-list { padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 12px; margin: 16px 0 26px; }
+        .article .shortcut-list > li {
+            margin: 0; padding: 14px 18px; border-radius: 14px; border: 1px solid transparent;
+            background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box; box-shadow: var(--shadow-md);
+        }
+        .article .shortcut-list > li::before { display: none; }
+        .article .shortcut-list code {
+            display: inline-block; margin-inline-end: 4px; padding: 3px 10px; font-weight: 600; line-height: 1.5; white-space: nowrap; direction: ltr; unicode-bidi: isolate;
+            background: var(--surface-key); border-color: var(--line-3); box-shadow: inset 0 -2px 0 rgba(212,175,55,.22), 0 2px 6px rgba(0,0,0,.6);
+        }
+
+        /* Saved settings: two columns where there is room */
+        @media (min-width: 640px) {
+            .article .list-cols { columns: 2; column-gap: 32px; }
+            .article .list-cols > li { break-inside: avoid; }
+            .article .list-cols > li:first-child { margin-top: 0; }
+        }
+
+        /* Phones: titles shrink a little so the longest translated words (de "Parametergespeicherung") never split mid-word */
+        @media (max-width: 480px) {
+            .article h1 { font-size: clamp(26px, 8vw, 31px); }
+            .article h2 { font-size: clamp(19px, 5.8vw, 25px); padding-inline-start: 22px; }
+        }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
@@ -89,18 +136,28 @@
     <script>window.__PRERENDERED_LANG__="en";</script>
 </head>
 <body>
-    <div class="container">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:12px;">
-            <a href="/en/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← Back to docs</a>
-            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-                <a href="/en/" style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:7px 16px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.color='var(--text-dim)';this.style.borderColor='var(--border)'" data-i18n="docsNav.mainSite">⌂ Main site</a>
+    <!-- Gold line glyph for the title crest — referenced with <use href="#g-…"> -->
+    <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-palette" viewBox="0 0 24 24"><path d="M12 3.2a8.8 8.8 0 1 0 0 17.6c1.1 0 1.8-.8 1.8-1.7 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-.9.8-1.7 1.7-1.7h2a4.3 4.3 0 0 0 4.3-4.3c0-4.3-3.9-7.5-8.8-7.5z"/><circle cx="7.5" cy="11.5" r="1.1"/><circle cx="10.2" cy="7.4" r="1.1"/><circle cx="14.8" cy="7.6" r="1.1"/></symbol>
+    </svg>
+
+    <!-- ═══ Header ═══ -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="/en/" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+                <span class="brand__word">Reborn</span>
+            </a>
+            <div class="header-actions">
+                <a href="/en/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← Back to docs</a>
+                <a href="/en/" class="hdr-btn hdr-home" data-i18n="docsNav.mainSite">⌂ Main site</a>
                 <div class="lang-select">
-                    <button class="lang-select-btn" onclick="toggleLangMenu()">
+                    <button class="lang-select-btn" type="button" aria-expanded="false" aria-controls="lang-menu" onclick="toggleLangMenu()">
                         <span class="lang-flag">🇬🇧</span>
                         <span class="lang-code">EN</span>
                         <span class="lang-chevron">▾</span>
                     </button>
-                    <div class="lang-select-menu">
+                    <div class="lang-select-menu" id="lang-menu">
                         <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
                         <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
                         <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
@@ -120,9 +177,15 @@
                 </div>
             </div>
         </div>
+    </header>
 
-        <h1 data-i18n="docInterface.h1">🎨 Interface & Customization</h1>
-        <p class="subtitle" data-i18n="docInterface.subtitle">Customize Reborn Assistant to your preferences</p>
+    <main class="container article">
+        <header class="article-head">
+            <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-palette"/></svg></div>
+            <h1 class="emoji-lead" data-i18n="docInterface.h1">🎨 Interface & Customization</h1>
+            <p class="subtitle" data-i18n="docInterface.subtitle">Customize Reborn Assistant to your preferences</p>
+            <div class="ornament" aria-hidden="true"></div>
+        </header>
 
         <h2 data-i18n="docInterface.themesH2">Visual themes</h2>
         <p data-i18n="docInterface.themesDesc">Reborn Assistant offers 6 themes to customize the interface appearance:</p>
@@ -154,8 +217,10 @@
             </div>
         </div>
 
-        <h3 data-i18n="docInterface.changeThemeH3">Change theme</h3>
-        <p data-i18n="docInterface.changeThemeText">1. Open the Reborn panel<br>2. Click the "⚙️ CONFIGURATION" tab<br>3. Select your theme from the dropdown<br>4. The change is instant</p>
+        <div class="callout howto">
+            <h3 data-i18n="docInterface.changeThemeH3">Change theme</h3>
+            <p data-i18n="docInterface.changeThemeText">1. Open the Reborn panel<br>2. Click the "⚙️ CONFIGURATION" tab<br>3. Select your theme from the dropdown<br>4. The change is instant</p>
+        </div>
 
         <h2 data-i18n="docInterface.langsH2">Available languages</h2>
         <p data-i18n="docInterface.langsDesc">Interface available in 15 languages:</p>
@@ -177,14 +242,16 @@
             <div class="lang-item">🇹🇷 Türkçe</div>
         </div>
 
-        <h3 data-i18n="docInterface.changeLangH3">Change language</h3>
-        <p data-i18n="docInterface.changeLangText">1. Open the Reborn panel<br>2. Click "⚙️ CONFIGURATION"<br>3. Select your language from the dropdown<br>4. The entire interface translates instantly</p>
+        <div class="callout howto">
+            <h3 data-i18n="docInterface.changeLangH3">Change language</h3>
+            <p data-i18n="docInterface.changeLangText">1. Open the Reborn panel<br>2. Click "⚙️ CONFIGURATION"<br>3. Select your language from the dropdown<br>4. The entire interface translates instantly</p>
+        </div>
 
         <h2 data-i18n="docInterface.shortcutsH2">Keyboard shortcuts</h2>
         <p data-i18n="docInterface.shortcutsDesc">Reborn Assistant includes global shortcuts for quick control:</p>
 
         <h3 data-i18n="docInterface.systemH3">System shortcuts</h3>
-        <ul>
+        <ul class="shortcut-list">
             <li data-i18n="docInterface.sysSC1"><code>CTRL + A</code>: Start the automation</li>
             <li data-i18n="docInterface.sysSC2"><code>CTRL + O</code>: Stop the automation</li>
         </ul>
@@ -201,12 +268,12 @@
 
         <h3 data-i18n="docInterface.panelPosH3">Panel position</h3>
         <p data-i18n="docInterface.panelPosDesc">The Reborn panel is draggable:</p>
-        <ul>
+        <ol>
             <li data-i18n="docInterface.panelLi1">Click on the panel header</li>
             <li data-i18n="docInterface.panelLi2">Hold the button and drag</li>
             <li data-i18n="docInterface.panelLi3">Release at the desired location</li>
             <li data-i18n="docInterface.panelLi4">Position is saved automatically</li>
-        </ul>
+        </ol>
 
         <h3 data-i18n="docInterface.opacityH3">Panel opacity</h3>
         <p data-i18n="docInterface.opacityDesc">Adjust transparency so it doesn't interfere with your navigation while keeping an eye on your stats.</p>
@@ -223,7 +290,7 @@
 
         <h2 data-i18n="docInterface.saveH2">Settings backup</h2>
         <p data-i18n="docInterface.saveDesc">All your configurations are automatically saved locally:</p>
-        <ul>
+        <ul class="list-cols">
             <li data-i18n="docInterface.saveLi1">Selected theme</li>
             <li data-i18n="docInterface.saveLi2">Interface language</li>
             <li data-i18n="docInterface.saveLi3">Trigger thresholds</li>
@@ -232,7 +299,17 @@
             <li data-i18n="docInterface.saveLi6">Panel position</li>
         </ul>
         <p data-i18n="docInterface.savePersist">They persist between sessions, even after closing the browser.</p>
-    </div>
+    </main>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="site-footer site-footer--compact">
+        <div class="container footer-content">
+            <div class="footer-logo">REBORN ASSISTANT</div>
+            <div class="ornament" aria-hidden="true"></div>
+            <div class="copyright"><span data-i18n="docsNav.footer">© 2026 Reborn Assistant — Developed by Seymoon · All rights reserved</span></div>
+        </div>
+    </footer>
+
     <script type="module" src="/langs/index.js"></script>
 </body>
 </html>

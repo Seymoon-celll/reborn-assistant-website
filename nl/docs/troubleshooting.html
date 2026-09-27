@@ -30,26 +30,60 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css?v=2">
     <style>
-        :root { --gold:#d4af37;--dark-bg:#080808;--green:#4CAF50;--red:#ff6b6b;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
-        * { margin:0;padding:0;box-sizing:border-box; }
-        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.7; }
-        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
-        .container { max-width:900px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
-        .back-link { display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease; }
-        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
-        h1 { font-family:'Cinzel',serif;font-size:42px;color:var(--gold);letter-spacing:2px;margin-bottom:16px; }
-        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:60px; }
-        h2 { font-family:'Cinzel',serif;font-size:28px;color:var(--text);margin:60px 0 24px;padding-bottom:16px;border-bottom:1px solid var(--border); }
-        .faq { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;padding:28px;margin:20px 0; }
-        .faq-q { font-size:18px;font-weight:600;color:var(--gold);margin-bottom:12px; }
-        .faq-a { font-size:15px;line-height:1.7;color:var(--text-dim); }
-        .alert { background:rgba(255,107,107,0.08);border-left:4px solid var(--red);padding:20px 24px;margin:16px 0;border-radius:4px; }
-        .success { background:rgba(76,175,80,0.08);border-left:4px solid var(--green);padding:20px 24px;margin:24px 0;border-radius:4px; }
-        code { background:rgba(20,20,16,0.9);padding:3px 10px;border-radius:4px;font-family:'Courier New',monospace;font-size:13px;color:#f4d03f; }
-        ul { margin:16px 0;padding-left:24px; }
-        li { margin:8px 0;font-size:15px; }
+        /* ═══ Troubleshooting — page-specific layout (tokens & components: /assets/css/site.css) ═══ */
+
+        /* Title crest: the docs-hub card's glyph stands above the title; the h1's leading emoji stays in the text, hidden (.emoji-lead) */
+        .article-crest { display: grid; margin: 0 auto 24px; box-shadow: inset 0 0 0 3px rgba(8,7,5,.92), inset 0 0 0 4px rgba(212,175,55,.3), inset 0 10px 18px -6px rgba(0,0,0,.85), 0 12px 40px -10px rgba(212,175,55,.45); }
+
+        /* Q/A cards — each question is a heading led by a gold glyph (❌ symptom · 💡 tip · ❓ question; the emoji stays in
+           the translated text, hidden). From 600px the answer hangs under the question text. */
+        .article .faq { padding: 22px 26px; }
+        .article .faq-q {
+            display: flex; align-items: flex-start; gap: 12px; margin: 0 0 10px;
+            font-family: var(--font-body); font-size: 17px; font-weight: 600; line-height: 1.45; letter-spacing: 0; color: var(--gold-100);
+        }
+        .faq-q > .inline-gl { width: 20px; height: 20px; margin-top: .14em; color: var(--gold-300); }
+        .faq-q > span { flex: 1; min-width: 0; text-wrap: pretty; }
+        .faq-a > span { display: block; }
+        @media (min-width: 600px) { .faq-a { padding-inline-start: 32px; } }
+        :lang(ja) .faq-a strong { word-break: auto-phrase; }        /* 「プレミアム専用」 stays whole */
+
+        /* Support — a gilded "write to us" panel: glyph well + title, the checklist, then the two contact routes as chips */
+        .support-box {
+            position: relative; margin: 26px 0 0; padding: clamp(22px, 4vw, 34px); border-radius: 18px; border: 1px solid transparent;
+            background: radial-gradient(90% 80% at 50% 0%, rgba(212,175,55,.1), transparent 70%) padding-box, var(--surface-raised) padding-box, var(--gilt-edge) border-box;
+            box-shadow: var(--shadow-md);
+        }
+        .support-head { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+        .support-title { min-width: 0; font-family: var(--font-display); font-size: var(--fs-xl); font-weight: 700; line-height: 1.3; letter-spacing: .01em; }
+        .article .support-box .support-text { margin-bottom: 24px; }
+        .contact-links { display: flex; flex-wrap: wrap; gap: 10px; }
+        .contact-chip {
+            display: inline-flex; align-items: center; gap: 10px; max-width: 100%; min-height: 44px; padding: 8px 16px; border-radius: 12px;
+            font-size: 15px; font-weight: 600; line-height: 1.35; text-decoration: none;
+            background: rgba(212,175,55,.05); border: 1px solid var(--line-2);
+            transition: background-color var(--dur-2) var(--ease-out), border-color var(--dur-2) var(--ease-out);
+        }
+        a.contact-chip:hover { background: rgba(212,175,55,.11); border-color: var(--line-3); }
+        .contact-chip > svg { flex-shrink: 0; width: 16px; height: 16px; }
+        .contact-chip > span { min-width: 0; white-space: nowrap; }         /* the address never splits at its hyphen */
+
+        /* Phones: titles shrink so the longest translated words (nl "Functioneringsproblemen", "Probleemoplossing") keep to one line */
+        @media (max-width: 480px) {
+            .article h1 { font-size: clamp(25px, 7.8vw, 31px); }
+            .article h2 { font-size: clamp(17.5px, 5.5vw, 25px); padding-inline-start: 22px; }
+            .article .faq { padding: 18px 18px; }
+            .article .faq-q { font-size: 16px; gap: 10px; }
+            .faq-q > .inline-gl { width: 18px; height: 18px; }
+            .article .faq-a .alert { padding: 16px; padding-inline-start: 20px; }   /* a frame inside a frame gives its width back to the text */
+            .support-box { padding: 22px 16px; }
+            .contact-links { flex-direction: column; align-items: stretch; }
+            .contact-chip { font-size: 14px; padding-inline: 12px; }
+        }
+        @media (max-width: 339px) { .contact-chip { gap: 8px; padding-inline: 10px; font-size: 13.5px; } }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
@@ -86,18 +120,33 @@
     <script>window.__PRERENDERED_LANG__="nl";</script>
 </head>
 <body>
-    <div class="container">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:12px;">
-            <a href="/nl/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← Terug naar documentatie</a>
-            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-                <a href="/nl/" style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:7px 16px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.color='var(--text-dim)';this.style.borderColor='var(--border)'" data-i18n="docsNav.mainSite">⌂ Hoofdsite</a>
+    <!-- Gold line glyphs — referenced with <use href="#g-…"> (library: DESIGN-SYSTEM §6a; g-fault, g-bulb, g-question, g-mail drawn for this page in the same style) -->
+    <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-wrench" viewBox="0 0 24 24"><path d="M15.6 3.4a5 5 0 0 0-4.8 6.6L3.9 16.9a2 2 0 0 0 2.8 2.8l6.9-6.9a5 5 0 0 0 6.6-4.8l-3.3 1.6-2.7-1.4-.4-3z"/></symbol>
+        <symbol id="g-fault" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path fill="none" d="M9.3 9.3l5.4 5.4M14.7 9.3l-5.4 5.4"/></symbol>
+        <symbol id="g-bulb" viewBox="0 0 24 24"><path d="M12 3.2a6.2 6.2 0 0 0-3.8 11.1c.8.6 1.2 1.5 1.2 2.4v.8h5.2v-.8c0-.9.4-1.8 1.2-2.4A6.2 6.2 0 0 0 12 3.2z"/><path fill="none" d="M9.8 20.7h4.4M10.3 11.3l1.7 1.9 1.7-1.9"/></symbol>
+        <symbol id="g-question" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path fill="none" d="M9.6 9.7a2.5 2.5 0 0 1 4.9.5c0 1.7-2.5 2.1-2.5 3.8"/><circle cx="12" cy="16.9" r=".35"/></symbol>
+        <symbol id="g-chat" viewBox="0 0 24 24"><path d="M20 11.3c0 4.1-3.6 7.4-8 7.4-1.2 0-2.3-.2-3.3-.6L4 19.6l1.4-3.8C4.5 14.5 4 13 4 11.3 4 7.2 7.6 3.9 12 3.9s8 3.3 8 7.4z"/><path d="M8.5 10h7M8.5 13.2h4.5"/></symbol>
+        <symbol id="g-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.2"/><path fill="none" d="M4.2 7.4l7.8 5.8 7.8-5.8"/></symbol>
+    </svg>
+
+    <!-- ═══ Header ═══ -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="/nl/" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+                <span class="brand__word">Reborn</span>
+            </a>
+            <div class="header-actions">
+                <a href="/nl/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← Terug naar documentatie</a>
+                <a href="/nl/" class="hdr-btn hdr-home" data-i18n="docsNav.mainSite">⌂ Hoofdsite</a>
                 <div class="lang-select">
-                    <button class="lang-select-btn" onclick="toggleLangMenu()">
+                    <button class="lang-select-btn" type="button" aria-expanded="false" aria-controls="lang-menu" onclick="toggleLangMenu()">
                         <span class="lang-flag">🇳🇱</span>
                         <span class="lang-code">NL</span>
                         <span class="lang-chevron">▾</span>
                     </button>
-                    <div class="lang-select-menu">
+                    <div class="lang-select-menu" id="lang-menu">
                         <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
                         <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
                         <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
@@ -117,33 +166,39 @@
                 </div>
             </div>
         </div>
+    </header>
 
-        <h1 data-i18n="docTroubleshooting.h1">🔧 Probleemoplossing</h1>
-        <p class="subtitle" data-i18n="docTroubleshooting.subtitle">Oplossingen voor veelvoorkomende problemen en veelgestelde vragen</p>
+    <main class="container article">
+        <header class="article-head">
+            <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-wrench"/></svg></div>
+            <h1 class="emoji-lead" data-i18n="docTroubleshooting.h1">🔧 Probleemoplossing</h1>
+            <p class="subtitle" data-i18n="docTroubleshooting.subtitle">Oplossingen voor veelvoorkomende problemen en veelgestelde vragen</p>
+            <div class="ornament" aria-hidden="true"></div>
+        </header>
 
         <h2 data-i18n="docTroubleshooting.installH2">Installatieproblemen</h2>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq1Q">❌ De extensie verschijnt niet in de werkbalk</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq1Q">❌ De extensie verschijnt niet in de werkbalk</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq1A"><strong>Oplossingen:</strong><br>1. Controleer of de extensie geïnstalleerd is via de <strong>Chrome Web Store</strong><br>2. Zet de extensie vast: klik op het puzzelicoon 🧩 in de werkbalk en zet Reborn Assistant vast<br>3. Herstart uw browser<br>4. Als het probleem aanhoudt, verwijder dan de extensie en installeer deze opnieuw via de Chrome Web Store</div>
         </div>
 
         <h2 data-i18n="docTroubleshooting.connH2">Verbindingsproblemen</h2>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq2Q">❌ "Verbinding mislukt" of "Ongeldige licentie"</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq2Q">❌ "Verbinding mislukt" of "Ongeldige licentie"</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq2A"><strong>Mogelijke oorzaken:</strong><br>• Slechte internetverbinding<br>• Google Cloud-servers tijdelijk niet beschikbaar<br>• Verlopen of ingetrokken licentie<br><br><strong>Oplossingen:</strong><br>1. Controleer uw internetverbinding<br>2. Meld u af en opnieuw aan met Google<br>3. Controleer de status van uw licentie in uw Stripe-portaal<br>4. Neem contact op met de ondersteuning als het probleem aanhoudt</div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq3Q">❌ Het paneel toont "FREE" terwijl ik Premium heb</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq3Q">❌ Het paneel toont "FREE" terwijl ik Premium heb</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq3A">1. Meld u af van uw Google-account<br>2. Sluit de browser volledig<br>3. Open opnieuw en meld u aan<br>4. Als het probleem aanhoudt, controleer dan of u bent aangemeld met het juiste Google-account (gebruikt voor de aankoop)</div>
         </div>
 
         <h2 data-i18n="docTroubleshooting.funcH2">Functioneringsproblemen</h2>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq4Q">❌ Type 1/2-acties worden niet geactiveerd</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq4Q">❌ Type 1/2-acties worden niet geactiveerd</span></h3>
             <div class="faq-a">
                 <div class="alert" data-i18n="docTroubleshooting.faq4Alert"><strong>⚠️ BELANGRIJK</strong><br>Type 1 en 2-acties zijn <strong>EXCLUSIEF PREMIUM</strong>-functies. Alleen de automatische type 1-actie (HP) is beschikbaar in de gratis versie.</div>
                 <span data-i18n="docTroubleshooting.faq4Prem"><strong>Als je Premium hebt:</strong><br>1. Is de automatisering actief? <code>CTRL+A</code><br>2. Zijn de trigger-toggles ingeschakeld? (groene indicator «ON»)<br>3. Zijn de geconfigureerde toetsen correct?</span>
@@ -151,7 +206,7 @@
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq5Q">❌ Reeksen / macro's / periodieke macro / sneltoetsen werken niet</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq5Q">❌ Reeksen / macro's / periodieke macro / sneltoetsen werken niet</span></h3>
             <div class="faq-a">
                 <div class="alert" data-i18n="docTroubleshooting.faq5Alert"><strong>⚠️ BELANGRIJK</strong><br>Sneltoetsen, reeksen, macro's en periodieke macro zijn <strong>EXCLUSIEF PREMIUM</strong>-functies. In de gratis versie is alleen de automatische type 1-actie (HP) beschikbaar.</div>
                 <span data-i18n="docTroubleshooting.faq5Prem"><strong>Als u Premium heeft:</strong><br>1. Controleer of uw Premium-licentie actief is (💎-icoon in het paneel)<br>2. Zijn de bijbehorende schakelaars ingeschakeld?<br>3. Controleer de geconfigureerde intervallen en vertragingen</span>
@@ -159,58 +214,72 @@
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq6Q">❌ De automatisering stopt vanzelf</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq6Q">❌ De automatisering stopt vanzelf</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq6A"><strong>Mogelijke oorzaken:</strong><br>• Verloren Google Cloud-verbinding<br>• DevTools-detectie<br>• Pagina-URL gewijzigd<br><br><strong>Oplossingen:</strong><br>1. Herstart de automatisering met <code>CTRL+A</code> (Premium) of via het paneel<br>2. Herlaad de betreffende pagina<br>3. Controleer je internetverbinding<br>4. Open geen DevTools als je Premium hebt</div>
         </div>
 
         <h2 data-i18n="docTroubleshooting.optH2">Optimalisatie & Prestaties</h2>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq7Q">💡 De extensie gebruikt te veel bronnen</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-bulb"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq7Q">💡 De extensie gebruikt te veel bronnen</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq7A"><strong>Aanbevelingen:</strong><br>• Vergroot de intervallen van macro's en reeksen (minder acties = minder CPU)<br>• Deactiveer systemen die u niet nodig heeft<br>• Sluit onnodige tabbladen<br>• Gebruik een geoptimaliseerde browser (Brave, Edge zijn lichter dan Chrome)</div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq8Q">💡 Hoe de configuratie optimaliseren?</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-bulb"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq8Q">💡 Hoe de configuratie optimaliseren?</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq8A"><strong>Aanbevolen configuratie:</strong><br>• <strong>Reeksinterval:</strong> 5-25 minuten (afhankelijk van de duur van uw reeksen)<br>• <strong>Vertraging tussen toetsen:</strong> 1-2 seconden (vermijdt fouten)<br>• <strong>Macro's:</strong> Intervallen van 10-30s afhankelijk van het gebruik</div>
         </div>
 
         <h2 data-i18n="docTroubleshooting.genH2">Veelgestelde Vragen</h2>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq9Q">❓ Kan ik Reborn op meerdere browsers gebruiken?</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq9Q">❓ Kan ik Reborn op meerdere browsers gebruiken?</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq9A">Ja, maar u moet de extensie op elke browser installeren. Uw Premium-licentie werkt op al uw apparaten zolang u aangemeld bent met hetzelfde Google-account (max. 1 gelijktijdige verbinding).</div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq10Q">❓ Worden mijn gegevens opgeslagen?</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq10Q">❓ Worden mijn gegevens opgeslagen?</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq10A">Al uw instellingen (toetsen, macro's, thema, taal) worden <strong>lokaal</strong> in de browser opgeslagen. Ze blijven bewaard tussen sessies. Als u echter de extensie verwijdert, verliest u deze gegevens.</div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq11Q">❓ Kan Reborn een ban veroorzaken?</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq11Q">❓ Kan Reborn een ban veroorzaken?</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq11A">Het gebruik van automatiseringstools kan de Servicevoorwaarden van sommige services schenden. <strong>U bent als enige verantwoordelijk</strong> voor hoe u Reborn gebruikt. Raadpleeg de gebruiksvoorwaarden van de service voordat u deze tool gebruikt.</div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq12Q">❓ Hoe mijn Premium-abonnement opzeggen?</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq12Q">❓ Hoe mijn Premium-abonnement opzeggen?</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq12A">U kunt op elk moment opzeggen via uw Stripe-beheerportaal (link ontvangen per e-mail na betaling). De opzegging heeft effect aan het einde van uw huidige periode. Geen opzegkosten.</div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq13Q">❓ Wat gebeurt er met het Levenslang abonnement als de service sluit?</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq13Q">❓ Wat gebeurt er met het Levenslang abonnement als de service sluit?</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq13A">Het Levenslang abonnement garandeert toegang zolang de service actief is. Eenmaal geïnstalleerd werkt de extensie lokaal; alleen de licentieverificatie vereist een internetverbinding.</div>
         </div>
 
         <h2 data-i18n="docTroubleshooting.supportH2">Meer hulp nodig?</h2>
-        <div class="success">
-            <strong data-i18n="docTroubleshooting.supportTitle">📧 Ondersteuning</strong><br>
-            <span data-i18n="docTroubleshooting.supportText">Als uw probleem aanhoudt, neem dan rechtstreeks contact op met de ondersteuning via e-mail. Vermeld in uw bericht:<br><br>• Een gedetailleerde beschrijving van het probleem<br>• De stappen die u al heeft geprobeerd<br>• Screenshots indien relevant<br>• Uw browser en besturingssysteem</span>
-            <br><br>
-            <a href="mailto:seymoon@constellation-89.fr" style="color:var(--gold);">📧 seymoon@constellation-89.fr</a><br>
-            <span style="color:var(--gold);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:4px;"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.053a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>Discord : Seymoon</span>
+        <div class="support-box">
+            <div class="support-head">
+                <span class="skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-chat"/></svg></span>
+                <strong class="support-title emoji-lead" data-i18n="docTroubleshooting.supportTitle">📧 Ondersteuning</strong>
+            </div>
+            <p class="support-text" data-i18n="docTroubleshooting.supportText">Als uw probleem aanhoudt, neem dan rechtstreeks contact op met de ondersteuning via e-mail. Vermeld in uw bericht:<br><br>• Een gedetailleerde beschrijving van het probleem<br>• De stappen die u al heeft geprobeerd<br>• Screenshots indien relevant<br>• Uw browser en besturingssysteem</p>
+            <div class="contact-links">
+                <a href="mailto:seymoon@constellation-89.fr" class="contact-chip" style="color:var(--gold);"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-mail"/></svg><span class="emoji-lead">📧 seymoon@constellation-89.fr</span></a>
+                <span class="contact-chip" style="color:var(--gold);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.053a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg><span>Discord : Seymoon</span></span>
+            </div>
         </div>
-    </div>
+    </main>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="site-footer site-footer--compact">
+        <div class="container footer-content">
+            <div class="footer-logo">REBORN ASSISTANT</div>
+            <div class="ornament" aria-hidden="true"></div>
+            <div class="copyright"><span data-i18n="docsNav.footer">© 2026 Reborn Assistant — Ontwikkeld door Seymoon · Alle rechten voorbehouden</span></div>
+        </div>
+    </footer>
+
     <script type="module" src="/langs/index.js"></script>
 </body>
 </html>

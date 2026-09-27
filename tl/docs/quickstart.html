@@ -30,33 +30,94 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Marcellus&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css?v=2">
     <style>
-        :root {
-            --gold: #d4af37; --gold-light: #f4d03f; --gold-dark: #b8941f;
-            --dark-bg: #080808; --green: #4CAF50; --red: #ff6b6b;
-            --text: #f0ead6; --text-dim: #9a9278; --border: rgba(212,175,55,0.2);
+        /* ═══ Quick start — page-specific layout (tokens & components: /assets/css/site.css) ═══ */
+
+        /* Title crest: the gold glyph stands in for the h1's leading emoji (.emoji-lead keeps it in the text, hidden) */
+        .article-crest { margin-bottom: 24px; }
+
+        /* Requirements & shortcuts — framed lists (same frame as the docs cards) */
+        .req-list, .shortcut-panel {
+            margin: 22px 0 8px; padding: 6px 22px; border-radius: 16px; border: 1px solid transparent;
+            background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box; box-shadow: var(--shadow-md);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--dark-bg); color: var(--text); line-height: 1.7; }
-        body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; opacity: 0.3; }
-        .container { max-width: 900px; margin: 0 auto; padding: 80px 40px 100px; position: relative; z-index: 1; }
-        .back-link { display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease; }
-        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
-        h1 { font-family: 'Cinzel', serif; font-size: 42px; color: var(--gold); letter-spacing: 2px; margin-bottom: 16px; }
-        .subtitle { font-size: 18px; color: var(--text-dim); margin-bottom: 60px; }
-        h2 { font-family: 'Cinzel', serif; font-size: 28px; color: var(--text); margin: 60px 0 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
-        h3 { font-size: 20px; color: var(--gold); margin: 40px 0 16px; }
-        p { margin-bottom: 20px; font-size: 15px; }
-        .step { background: rgba(20,20,16,0.6); border: 1px solid var(--border); border-radius: 12px; padding: 32px; margin-bottom: 24px; }
-        .step-number { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: linear-gradient(135deg, var(--gold-dark), var(--gold-light)); color: #000; font-weight: 700; border-radius: 8px; margin-bottom: 16px; }
-        .step-title { font-size: 18px; font-weight: 600; color: var(--gold); margin-bottom: 12px; }
-        .alert { background: rgba(212,175,55,0.08); border-left: 4px solid var(--gold); padding: 20px 24px; margin: 24px 0; border-radius: 4px; }
-        .alert-warning { background: rgba(255,107,107,0.08); border-left-color: var(--red); }
-        .alert strong { color: var(--gold); display: block; margin-bottom: 8px; }
-        code { background: rgba(20,20,16,0.8); padding: 2px 8px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 13px; color: var(--gold-light); }
-        .requirement { display: flex; align-items: center; gap: 12px; padding: 12px 0; }
-        .requirement-icon { font-size: 20px; }
+        .article .requirement { padding-block: 14px; }
+        .article .requirement > div { min-width: 0; }
+
+        /* Installation steps threaded on a gilded line (it shows in the gaps, behind the opaque cards) */
+        .step-trail { position: relative; }
+        .step-trail::before {
+            content: ''; position: absolute; inset-inline-start: 42.5px; top: 44px; bottom: 44px; width: 1px;
+            background: rgba(226,194,99,.5);
+        }
+        .article .step .step-tip { margin-top: -4px; font-size: 14px; line-height: 1.6; color: var(--text-dim); }
+
+        /* Free / Premium set-up — two framed tiers; hierarchy by gilt intensity, not hue */
+        .article .tier { margin: 26px 0; }
+        .article .tier--free { background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box; }
+        .article .tier > p { margin-bottom: 10px; }
+        .article .tier .step {
+            margin: 22px 0 0; box-shadow: none;
+            background: var(--surface-well) padding-box, var(--gilt-edge-soft) border-box;
+        }
+
+        /* Keyboard shortcuts — the codes inside the translated line read as keycaps */
+        .shortcut-panel { padding-block: 12px; }
+        .article .shortcuts { margin: 0; line-height: 2.8; }
+        .shortcuts code {
+            display: inline-block; direction: ltr; unicode-bidi: isolate; margin-inline-end: .2em; padding: 2px 10px; line-height: 1.6;
+            font-weight: 600; color: var(--gold-100); background: var(--surface-key);
+            border: 1px solid var(--line-3); border-radius: 8px;
+            box-shadow: inset 0 -3px 0 rgba(0,0,0,.45), inset 0 1px 0 rgba(245,230,184,.12), 0 4px 10px -4px rgba(0,0,0,.8);
+        }
+
+        /* Next steps — entry cards like the docs hub (same glyph per destination, chevron mirrored in RTL).
+           One per row until the column is at full width; then three tiles, glyph above the title. */
+        .next-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; margin: 24px 0 8px; }
+        .next-card {
+            position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; column-gap: 16px;
+            padding: 16px 18px; border-radius: 16px; text-decoration: none; border: 1px solid transparent;
+            background: radial-gradient(90% 90% at 0% 0%, rgba(212,175,55,.06), transparent 60%) padding-box, var(--surface-1) padding-box, var(--gilt-edge-soft) border-box;
+            box-shadow: var(--shadow-md); transition: transform var(--dur-3) var(--ease-out);
+        }
+        .next-card:hover { transform: translateY(-3px); }
+        .next-card__title { font-family: var(--font-display); font-size: 16px; font-weight: 700; line-height: 1.35; color: var(--gold-200); text-wrap: balance; }
+        .next-card::after {
+            content: ''; width: 9px; height: 9px; margin-inline: 4px 6px;
+            border-top: 1.5px solid var(--gold-300); border-right: 1.5px solid var(--gold-300);
+            transform: rotate(45deg); opacity: .55; transition: transform var(--dur-3) var(--ease-out), opacity var(--dur-3) var(--ease-out);
+        }
+        .next-card:hover::after { opacity: 1; transform: translateX(3px) rotate(45deg); }
+        [dir="rtl"] .next-card::after { transform: rotate(-135deg); }
+        [dir="rtl"] .next-card:hover::after { transform: translateX(-3px) rotate(-135deg); }
+        @media (min-width: 920px) {
+            .next-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            .next-card { grid-template-columns: minmax(0, 1fr); align-content: start; align-items: start; row-gap: 16px; padding: 20px 20px 22px; }
+            .next-card::after { position: absolute; top: 40px; inset-inline-end: 22px; margin: 0; }
+        }
+
+        /* site.css keeps a callout's bottom margin even as a panel's last child — the panel padding is enough */
+        .article .section > :last-child { margin-bottom: 0; }
+
+        /* Japanese: phrase-aware breaks for card and step titles too (site.css covers headings only) */
+        :lang(ja) :is(.step-title, .next-card__title) { word-break: auto-phrase; }
+
+        /* Small phones: long single words ("Tastenkombinationen", "キーボードショートカット") must fit the h2 line */
+        @media (max-width: 400px) {
+            .article h2 { font-size: clamp(20px, 6.6vw, 25px); }
+            /* like the docs hub: drop the chevron (the whole card is the link) and tighten the well */
+            .next-card { grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; padding: 16px; }
+            .next-card::after { display: none; }
+            .next-card .skill-slot { width: 44px; height: 44px; }
+        }
+        @media (max-width: 480px) {
+            .req-list, .shortcut-panel { padding-inline: 16px; }
+            .article .requirement { align-items: flex-start; gap: 14px; }
+            .article .section { padding: 20px 16px; }
+            .article .tier .step { padding: 18px 16px; }
+        }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
@@ -93,18 +154,34 @@
     <script>window.__PRERENDERED_LANG__="tl";</script>
 </head>
 <body>
-    <div class="container">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:12px;">
-            <a href="/tl/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← Bumalik sa Dokumentasyon</a>
-            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-                <a href="/tl/" style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:7px 16px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.color='var(--text-dim)';this.style.borderColor='var(--border)'" data-i18n="docsNav.mainSite">⌂ Pangunahing Site</a>
+    <!-- Gold line glyphs (shared library, DESIGN-SYSTEM §6a) — referenced with <use href="#g-…"> -->
+    <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-rocket" viewBox="0 0 24 24"><path d="M12 2.8c3 2 4.5 5.5 4.1 9.8l-1.9 3.4H9.8l-1.9-3.4C7.5 8.3 9 4.8 12 2.8z"/><circle cx="12" cy="9" r="1.8"/><path d="M7.9 12.6L5 15.8l3.6.6M16.1 12.6l2.9 3.2-3.6.6M10.4 18.7l1.6 2.7 1.6-2.7"/></symbol>
+        <symbol id="g-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3c2.4 2.5 3.7 5.5 3.7 9s-1.3 6.5-3.7 9c-2.4-2.5-3.7-5.5-3.7-9S9.6 5.5 12 3z"/><path fill="none" d="M3 12h18M4.6 7.5h14.8M4.6 16.5h14.8"/></symbol>
+        <symbol id="g-wrench" viewBox="0 0 24 24"><path d="M15.6 3.4a5 5 0 0 0-4.8 6.6L3.9 16.9a2 2 0 0 0 2.8 2.8l6.9-6.9a5 5 0 0 0 6.6-4.8l-3.3 1.6-2.7-1.4-.4-3z"/></symbol>
+        <symbol id="g-gamepad" viewBox="0 0 24 24"><path d="M7.2 7h9.6a4.6 4.6 0 0 1 4.5 3.7l.9 4.9a2.5 2.5 0 0 1-4.3 2.2L15.5 15.4h-7L6.1 17.8a2.5 2.5 0 0 1-4.3-2.2l.9-4.9A4.6 4.6 0 0 1 7.2 7z"/><path fill="none" d="M7.5 9.7v3.4M5.8 11.4h3.4"/><circle cx="15.8" cy="10.4" r=".7"/><circle cx="17.6" cy="12.3" r=".7"/></symbol>
+        <symbol id="g-bolt" viewBox="0 0 24 24"><path d="M13 2.5L5 13.5h6l-1 8 8-11h-6l1-8z"/></symbol>
+        <symbol id="g-gem" viewBox="0 0 24 24"><path d="M6.8 4.5h10.4L21 9.4 12 20.5 3 9.4z"/><path fill="none" d="M3 9.4h18M9.8 4.5L8.4 9.4 12 20.5l3.6-11.1-1.4-4.9"/></symbol>
+        <symbol id="g-cross" viewBox="0 0 24 24"><path d="M9.5 3.5h5v6h6v5h-6v6h-5v-6h-6v-5h6z"/></symbol>
+    </svg>
+
+    <!-- ═══ Header ═══ -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="/tl/" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+                <span class="brand__word">Reborn</span>
+            </a>
+            <div class="header-actions">
+                <a href="/tl/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← Bumalik sa Dokumentasyon</a>
+                <a href="/tl/" class="hdr-btn hdr-home" data-i18n="docsNav.mainSite">⌂ Pangunahing Site</a>
                 <div class="lang-select">
-                    <button class="lang-select-btn" onclick="toggleLangMenu()">
+                    <button class="lang-select-btn" type="button" aria-expanded="false" aria-controls="lang-menu" onclick="toggleLangMenu()">
                         <span class="lang-flag">🇵🇭</span>
                         <span class="lang-code">TL</span>
                         <span class="lang-chevron">▾</span>
                     </button>
-                    <div class="lang-select-menu">
+                    <div class="lang-select-menu" id="lang-menu">
                         <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
                         <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
                         <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
@@ -124,49 +201,59 @@
                 </div>
             </div>
         </div>
+    </header>
 
-        <h1 data-i18n="docQuickstart.h1">🚀 Mabilis na Simula</h1>
-        <p class="subtitle" data-i18n="docQuickstart.subtitle">I-install at i-configure ang Reborn Assistant sa ilang minuto</p>
+    <main class="container article">
+        <header class="article-head">
+            <div class="skill-slot article-crest" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-rocket"/></svg></div>
+            <h1 class="emoji-lead" data-i18n="docQuickstart.h1">🚀 Mabilis na Simula</h1>
+            <p class="subtitle" data-i18n="docQuickstart.subtitle">I-install at i-configure ang Reborn Assistant sa ilang minuto</p>
+            <div class="ornament" aria-hidden="true"></div>
+        </header>
 
         <h2 data-i18n="docQuickstart.reqH2">Mga Kinakailangan</h2>
-        <div class="requirement">
-            <span class="requirement-icon">🌐</span>
-            <div data-i18n="docQuickstart.req1"><strong>Compatible na browser:</strong> Google Chrome, Microsoft Edge, Brave, o anumang browser na batay sa Chromium</div>
-        </div>
-        <div class="requirement">
-            <span class="requirement-icon">🔧</span>
-            <div data-i18n="docQuickstart.req2"><strong>Google account:</strong> Kinakailangan lamang para sa premium authentication (opsyonal para sa libreng bersyon)</div>
-        </div>
-        <div class="requirement">
-            <span class="requirement-icon">🎮</span>
-            <div data-i18n="docQuickstart.req3"><strong>Compatible na site:</strong> Compatible sa mga karaniwang website</div>
+        <div class="req-list">
+            <div class="requirement">
+                <span class="requirement-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-globe"/></svg><span class="slot-src" aria-hidden="true">🌐</span></span>
+                <div data-i18n="docQuickstart.req1"><strong>Compatible na browser:</strong> Google Chrome, Microsoft Edge, Brave, o anumang browser na batay sa Chromium</div>
+            </div>
+            <div class="requirement">
+                <span class="requirement-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-wrench"/></svg><span class="slot-src" aria-hidden="true">🔧</span></span>
+                <div data-i18n="docQuickstart.req2"><strong>Google account:</strong> Kinakailangan lamang para sa premium authentication (opsyonal para sa libreng bersyon)</div>
+            </div>
+            <div class="requirement">
+                <span class="requirement-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-gamepad"/></svg><span class="slot-src" aria-hidden="true">🎮</span></span>
+                <div data-i18n="docQuickstart.req3"><strong>Compatible na site:</strong> Compatible sa mga karaniwang website</div>
+            </div>
         </div>
 
         <h2 data-i18n="docQuickstart.installH2">Pag-install</h2>
 
-        <div class="step">
-            <div class="step-number">1</div>
-            <div class="step-title" data-i18n="docQuickstart.step1Title">Bisitahin ang Chrome Web Store</div>
-            <p data-i18n="docQuickstart.step1p">Pumunta sa page ng Reborn Assistant sa <a href='https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme' target='_blank' style='color:var(--gold);text-decoration:none;' onmouseover='this.style.textDecoration="underline"' onmouseout='this.style.textDecoration="none"'>Chrome Web Store</a> at i-click ang <strong>«Idagdag sa Chrome»</strong>.</p>
-            <p style="margin-top:12px;font-size:13px;color:var(--text-dim);" data-i18n="docQuickstart.step1tip">💡 Compatible sa Google Chrome, Microsoft Edge, Brave, at mga browser na batay sa Chromium.</p>
-        </div>
+        <div class="step-trail">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-title" data-i18n="docQuickstart.step1Title">Bisitahin ang Chrome Web Store</div>
+                <p data-i18n="docQuickstart.step1p">Pumunta sa page ng Reborn Assistant sa <a href='https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme' target='_blank' style='color:var(--gold);text-decoration:none;' onmouseover='this.style.textDecoration="underline"' onmouseout='this.style.textDecoration="none"'>Chrome Web Store</a> at i-click ang <strong>«Idagdag sa Chrome»</strong>.</p>
+                <p class="step-tip" data-i18n="docQuickstart.step1tip">💡 Compatible sa Google Chrome, Microsoft Edge, Brave, at mga browser na batay sa Chromium.</p>
+            </div>
 
-        <div class="step">
-            <div class="step-number">2</div>
-            <div class="step-title" data-i18n="docQuickstart.step2Title">Kumpirmahin ang Pag-install</div>
-            <p data-i18n="docQuickstart.step2p">I-click ang <strong>«Idagdag ang extension»</strong> sa dialog ng kumpirmasyon. Awtomatikong mai-install ang extension.</p>
-        </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-title" data-i18n="docQuickstart.step2Title">Kumpirmahin ang Pag-install</div>
+                <p data-i18n="docQuickstart.step2p">I-click ang <strong>«Idagdag ang extension»</strong> sa dialog ng kumpirmasyon. Awtomatikong mai-install ang extension.</p>
+            </div>
 
-        <div class="step">
-            <div class="step-number">3</div>
-            <div class="step-title" data-i18n="docQuickstart.step3Title">I-pin ang Extension</div>
-            <p data-i18n="docQuickstart.step3p">I-click ang icon ng puzzle 🧩 sa toolbar ng browser at i-pin ang Reborn Assistant para sa mabilis na access.</p>
-        </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-title" data-i18n="docQuickstart.step3Title">I-pin ang Extension</div>
+                <p data-i18n="docQuickstart.step3p">I-click ang icon ng puzzle 🧩 sa toolbar ng browser at i-pin ang Reborn Assistant para sa mabilis na access.</p>
+            </div>
 
-        <div class="step">
-            <div class="step-number">4</div>
-            <div class="step-title" data-i18n="docQuickstart.step4Title">Mag-login (opsyonal para sa premium)</div>
-            <p data-i18n="docQuickstart.step4p">• I-click ang Reborn icon sa toolbar<br>• Para sa premium: Mag-login gamit ang iyong Google account<br>• Para sa libre: Gamitin nang direkta nang walang pag-login</p>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-title" data-i18n="docQuickstart.step4Title">Mag-login (opsyonal para sa premium)</div>
+                <p data-i18n="docQuickstart.step4p">• I-click ang Reborn icon sa toolbar<br>• Para sa premium: Mag-login gamit ang iyong Google account<br>• Para sa libre: Gamitin nang direkta nang walang pag-login</p>
+            </div>
         </div>
 
         <div class="alert">
@@ -176,26 +263,30 @@
 
         <h2 data-i18n="docQuickstart.configH2">Paunang Configuration</h2>
 
-        <h3 data-i18n="docQuickstart.freeH3">Libreng Bersyon</h3>
-        <p data-i18n="docQuickstart.freeTitle"><strong>Mga feature na available nang walang pag-login:</strong></p>
-        <p data-i18n="docQuickstart.freeText">• Auto Action Type 1 (HP lamang)<br>• 6 na visual na tema<br>• 15 na wikang sinusuportahan</p>
+        <div class="section tier tier--free">
+            <h3 data-i18n="docQuickstart.freeH3">Libreng Bersyon</h3>
+            <p data-i18n="docQuickstart.freeTitle"><strong>Mga feature na available nang walang pag-login:</strong></p>
+            <p data-i18n="docQuickstart.freeText">• Auto Action Type 1 (HP lamang)<br>• 6 na visual na tema<br>• 15 na wikang sinusuportahan</p>
 
-        <div class="step">
-            <div class="step-title" data-i18n="docQuickstart.freeStepTitle">I-configure ang Auto Action Type 1</div>
-            <p data-i18n="docQuickstart.freeStepText">1. Buksan ang Reborn panel (i-click ang icon)<br>2. Ayusin ang HP action timer (default: 2 segundo)<br>3. Awtomatikong maa-activate ang aksyon<br>4. Hindi kailangan ng pag-login</p>
+            <div class="step">
+                <div class="step-title" data-i18n="docQuickstart.freeStepTitle">I-configure ang Auto Action Type 1</div>
+                <p data-i18n="docQuickstart.freeStepText">1. Buksan ang Reborn panel (i-click ang icon)<br>2. Ayusin ang HP action timer (default: 2 segundo)<br>3. Awtomatikong maa-activate ang aksyon<br>4. Hindi kailangan ng pag-login</p>
+            </div>
         </div>
 
-        <h3 data-i18n="docQuickstart.premiumH3">Premium na Bersyon 💎</h3>
-        <p data-i18n="docQuickstart.premiumFeatTitle"><strong>Mga karagdagang feature (nangangailangan ng Google login):</strong></p>
-        <p data-i18n="docQuickstart.premiumFeatText">• Auto Trigger 1 Macro (configurable timer + shortcut)<br>• Auto Trigger 2 Macro (configurable timer + shortcut)<br>• Mga Keyboard Shortcut (CTRL+A / CTRL+O)<br>• Auto Sequence Rotation (F2 → 1-9 → 0 → F1)<br>• 3 Custom Macros na may key sequences<br>• Auto Periodic Macro System (call bawat 15s + auto save)</p>
+        <div class="section tier tier--premium">
+            <h3 data-i18n="docQuickstart.premiumH3">Premium na Bersyon 💎</h3>
+            <p data-i18n="docQuickstart.premiumFeatTitle"><strong>Mga karagdagang feature (nangangailangan ng Google login):</strong></p>
+            <p data-i18n="docQuickstart.premiumFeatText">• Auto Trigger 1 Macro (configurable timer + shortcut)<br>• Auto Trigger 2 Macro (configurable timer + shortcut)<br>• Mga Keyboard Shortcut (CTRL+A / CTRL+O)<br>• Auto Sequence Rotation (F2 → 1-9 → 0 → F1)<br>• 3 Custom Macros na may key sequences<br>• Auto Periodic Macro System (call bawat 15s + auto save)</p>
 
-        <div class="step">
-            <div class="step-title" data-i18n="docQuickstart.premConfigTitle">Premium na Configuration</div>
-            <p data-i18n="docQuickstart.premConfigSeq"><strong>Auto Sequences:</strong><br>• I-activate ang «Sequence Rotation» sa panel<br>• I-set ang agwat sa pagitan ng mga cycle (default: 5 minuto)<br>• Ayusin ang delay sa pagitan ng mga key (default: 1 segundo)</p>
+            <div class="step">
+                <div class="step-title" data-i18n="docQuickstart.premConfigTitle">Premium na Configuration</div>
+                <p data-i18n="docQuickstart.premConfigSeq"><strong>Auto Sequences:</strong><br>• I-activate ang «Sequence Rotation» sa panel<br>• I-set ang agwat sa pagitan ng mga cycle (default: 5 minuto)<br>• Ayusin ang delay sa pagitan ng mga key (default: 1 segundo)</p>
 
-            <p data-i18n="docQuickstart.premConfigMacro"><strong>Macros:</strong><br>• I-activate ang Macro 1, 2, o 3<br>• Tukuyin ang key sequence (hal: <code>1,2,3,4</code>)<br>• I-set ang repetition interval</p>
+                <p data-i18n="docQuickstart.premConfigMacro"><strong>Macros:</strong><br>• I-activate ang Macro 1, 2, o 3<br>• Tukuyin ang key sequence (hal: <code>1,2,3,4</code>)<br>• I-set ang repetition interval</p>
 
-            <p data-i18n="docQuickstart.premConfigPer"><strong>Periodic Macro:</strong><br>• I-activate ang «Periodic Macro» switch<br>• Awtomatikong tatawagin ng system ang periodic macro bawat 15 segundo<br>• Awtomatikong ise-save pagkatapos ng call</p>
+                <p data-i18n="docQuickstart.premConfigPer"><strong>Periodic Macro:</strong><br>• I-activate ang «Periodic Macro» switch<br>• Awtomatikong tatawagin ng system ang periodic macro bawat 15 segundo<br>• Awtomatikong ise-save pagkatapos ng call</p>
+            </div>
         </div>
 
         <div class="alert alert-warning">
@@ -204,13 +295,36 @@
         </div>
 
         <h2 data-i18n="docQuickstart.shortcutsH2">Mga Keyboard Shortcut</h2>
-        <p data-i18n="docQuickstart.shortcutsText"><code>CTRL + A</code>: Simulan ang automation<br><code>CTRL + O</code>: Itigil ang automation</p>
+        <div class="shortcut-panel">
+            <p class="shortcuts" data-i18n="docQuickstart.shortcutsText"><code>CTRL + A</code>: Simulan ang automation<br><code>CTRL + O</code>: Itigil ang automation</p>
+        </div>
 
         <h2 data-i18n="docQuickstart.nextH2">Mga Susunod na Hakbang</h2>
-        <p>• <a href="/tl/docs/features.html" style="color:var(--gold);" data-i18n="docQuickstart.link1">Tuklasin ang lahat ng feature</a><br>
-        • <a href="/tl/docs/premium.html" style="color:var(--gold);" data-i18n="docQuickstart.link2">Kumpletong premium na gabay</a><br>
-        • <a href="/tl/docs/troubleshooting.html" style="color:var(--gold);" data-i18n="docQuickstart.link3">Mga solusyon sa karaniwang problema</a></p>
-    </div>
+        <div class="next-grid">
+            <a href="/tl/docs/features.html" class="next-card gild-hover">
+                <span class="skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-bolt"/></svg></span>
+                <span class="next-card__title" data-i18n="docQuickstart.link1">Tuklasin ang lahat ng feature</span>
+            </a>
+            <a href="/tl/docs/premium.html" class="next-card gild-hover">
+                <span class="skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-gem"/></svg></span>
+                <span class="next-card__title" data-i18n="docQuickstart.link2">Kumpletong premium na gabay</span>
+            </a>
+            <a href="/tl/docs/troubleshooting.html" class="next-card gild-hover">
+                <span class="skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-cross"/></svg></span>
+                <span class="next-card__title" data-i18n="docQuickstart.link3">Mga solusyon sa karaniwang problema</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="site-footer site-footer--compact">
+        <div class="container footer-content">
+            <div class="footer-logo">REBORN ASSISTANT</div>
+            <div class="ornament" aria-hidden="true"></div>
+            <div class="copyright"><span data-i18n="docsNav.footer">© 2026 Reborn Assistant — Ginawa ng Seymoon · Lahat ng karapatan ay nakalaan</span></div>
+        </div>
+    </footer>
+
     <script type="module" src="/langs/index.js"></script>
 </body>
 </html>

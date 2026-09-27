@@ -32,7 +32,7 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- ── hreflang ────────────────────────────────────────────── -->
     <!-- ── hreflang ──────────────────────────────────── -->
@@ -54,47 +54,73 @@
     <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/meilleurs-outils-flyff-universe-2026.html">
     <!-- ── /hreflang ── -->
 
+    <link rel="stylesheet" href="/assets/css/site.css?v=2">
     <style>
-        :root { --gold:#d4af37;--gold-light:#f4d03f;--gold-dark:#b8941f;--dark-bg:#080808;--green:#4CAF50;--red:#ff6b6b;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
-        * { margin:0;padding:0;box-sizing:border-box; }
-        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.8; }
-        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
-        .container { max-width:920px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
-        .breadcrumb { font-size:12px;color:var(--text-dim);margin-bottom:32px;letter-spacing:1px; }
-        .breadcrumb a { color:var(--gold);text-decoration:none; }
-        h1 { font-family:'Cinzel',serif;font-size:clamp(32px,5vw,46px);color:var(--gold);letter-spacing:1.5px;line-height:1.1;margin-bottom:20px; }
-        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:48px;line-height:1.6; }
-        h2 { font-family:'Cinzel',serif;font-size:26px;color:var(--text);margin:56px 0 20px;padding-bottom:14px;border-bottom:1px solid var(--border);letter-spacing:0.5px; }
-        h3 { font-size:19px;color:var(--gold);margin:24px 0 12px;font-weight:600; }
-        p { margin-bottom:18px;font-size:15.5px; }
-        ul, ol { margin:14px 0 22px 24px; }
-        li { margin:8px 0;font-size:15.5px; }
-        strong { color:var(--gold); }
-        .tool-card { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:14px;padding:32px;margin:28px 0;transition:all 0.3s; }
-        .tool-card.featured { border-color:var(--gold);background:linear-gradient(160deg,rgba(42,36,10,0.5),rgba(20,20,16,0.6)); }
-        .tool-rank { font-family:'Cinzel',serif;font-size:11px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:10px; }
-        .tool-card h3 { margin-top:0; }
-        .tool-meta { display:flex;flex-wrap:wrap;gap:12px;margin:14px 0; }
-        .tool-tag { background:rgba(212,175,55,0.08);border:1px solid var(--border);color:var(--gold-light);font-size:11px;padding:4px 12px;border-radius:14px;font-weight:500; }
-        .tool-tag.free { background:rgba(76,175,80,0.1);border-color:rgba(76,175,80,0.3);color:var(--green); }
-        .tool-tag.paid { background:rgba(212,175,55,0.12);color:var(--gold); }
-        .pros-cons { display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0; }
-        .pros, .cons { background:rgba(8,8,8,0.4);border-radius:8px;padding:14px 18px; }
-        .pros { border-left:3px solid var(--green); }
-        .cons { border-left:3px solid var(--red); }
-        .pros-cons h4 { font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px; }
-        .pros h4 { color:var(--green); }
-        .cons h4 { color:var(--red); }
-        .pros-cons ul { margin:0;padding-left:18px; }
-        .pros-cons li { font-size:13px;margin:4px 0; }
-        .cta-inline { display:inline-block;color:var(--gold);text-decoration:none;font-weight:600;border-bottom:1px solid rgba(212,175,55,0.3);padding-bottom:2px; }
-        .cta-inline:hover { border-bottom-color:var(--gold); }
-        .callout { background:rgba(212,175,55,0.08);border-left:4px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:4px; }
-        .back-link { display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;text-decoration:none;transition:all 0.3s; }
-        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
-        @media (max-width: 640px) {
-          .pros-cons { grid-template-columns: 1fr; }
+        /* ═══ Long-tail article — page-specific tweaks (codex components: /assets/css/site.css) ═══ */
+        .article-head .breadcrumb { margin-bottom: 20px; }
+        .article .callout { margin-block: 34px; }
+
+        /* Illuminated initial on the intro paragraph, like the guide's first chapter (Latin/Cyrillic scripts only) */
+        :root:not([dir="rtl"]):not(:lang(ja)):not(:lang(zh)):not(:lang(ko)) .article-head + p::first-letter {
+            float: left; margin: 7px 10px 0 0;
+            font-family: 'Cinzel', Georgia, serif; font-size: 3.5em; font-weight: 700; line-height: .8;
+            color: var(--gold-200); text-shadow: 0 0 24px rgba(212,175,55,.35);
         }
+
+        /* Callout titles start with an OS emoji in every language: the emoji stays in the text,
+           hidden by .emoji-lead, and a line glyph in the callout's own tone sits beside it. */
+        .article .callout > .inline-gl:first-child {
+            float: inline-start; width: 17px; height: 17px; margin-block-start: 5px; margin-inline-end: 10px;
+            color: var(--callout-title); fill: currentColor; fill-opacity: .14;
+        }
+        .article .callout > .inline-gl:first-child + strong {
+            display: block; margin-bottom: 6px;
+            font-family: var(--font-display); font-size: 15px; letter-spacing: .02em; color: var(--callout-title);
+        }
+
+        /* Review cards — a decorative icon well beside the rank line and the tags */
+        .tool-head {
+            display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "icon rank" "icon meta";
+            align-items: center; column-gap: 18px; row-gap: 10px; margin-bottom: 22px;
+        }
+        .tool-head > .tool-icon { grid-area: icon; }
+        .tool-head > .tool-rank { grid-area: rank; align-self: end; margin: 0; }
+        .tool-head > .tool-meta { grid-area: meta; align-self: start; margin: 0; }
+        .tool-card.featured .tool-icon { width: 56px; height: 56px; }
+        @media (max-width: 520px) {
+            .tool-head { grid-template-areas: "icon rank" "meta meta"; column-gap: 14px; row-gap: 14px; }
+            .tool-head > .tool-rank { align-self: center; }
+            .tool-card.featured .tool-icon { width: 48px; height: 48px; }
+        }
+
+        /* Reader profiles — three small cards instead of a bullet list */
+        .article .profile-list {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 14px;
+            margin: 24px 0 32px; padding: 0;
+        }
+        .article .profile-list > li {
+            margin: 0; padding: 20px 22px; border-radius: 14px; border: 1px solid transparent;
+            background: radial-gradient(90% 70% at 50% 0%, rgba(212,175,55,.07), transparent 65%) padding-box,
+                        var(--surface-1) padding-box, var(--gilt-edge-soft) border-box;
+            box-shadow: var(--shadow-md); font-size: 15px; line-height: 1.7;
+        }
+        .article .profile-list > li::before { top: 26px; inset-inline-start: auto; inset-inline-end: 20px; background: var(--gilt); }
+        .article .profile-list > li > strong:first-child {
+            display: block; margin-bottom: 10px; padding-inline-end: 18px;
+            font-size: 15.5px; line-height: 1.45; color: var(--gold-100);
+        }
+        :lang(ja) .article .profile-list > li > strong:first-child { word-break: auto-phrase; }   /* card titles: never split a katakana word */
+
+        /* Pitfalls — the same list, with warning-red markers */
+        .article .avoid-list > li::before { background: var(--red-300); box-shadow: 0 0 0 3px rgba(255,107,107,.12); }
+
+        /* French puts a space before ":" — balanced wrapping can start a line with the colon; greedy wrapping doesn't */
+        :lang(fr) .article-head .subtitle { text-wrap: pretty; }
+
+        /* Single words wider than a phone at the display sizes — cap those headings by the viewport so every word stays
+           whole: nl "automatiseringsextensie" (14 em) in the h2s, tl "Pinakamahuhusay" (10 em) in the h1 */
+        :lang(nl) .article h2 { font-size: min(var(--fs-2xl), calc(7vw - 4.5px)); }
+        @media (max-width: 344px) { :lang(tl) .article h1 { font-size: 9vw; } }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
@@ -150,29 +176,58 @@
     <script>window.__PRERENDERED_LANG__="ko";</script>
 </head>
 <body>
-    <div class="container">
-        <a href="/ko/docs/index.html" class="back-link">← 문서로 돌아가기</a>
-        <div class="breadcrumb" style="margin-top:24px;">
-            <a href="../index.html">홈</a> › <a href="/ko/docs/index.html">문서</a> › Flyff Universe 최고의 도구
+    <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-keyboard" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2.2"/><path d="M6 9.6h1.2M9.4 9.6h1.2M12.8 9.6h1.2M16.2 9.6h1.8M6 12.4h1.8M10 12.4h1.2M13.4 12.4h1.2M16.8 12.4h1.2M8 15h8"/></symbol>
+        <symbol id="g-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+        <symbol id="g-book" viewBox="0 0 24 24"><path d="M12 6.6C10.2 5.2 7.7 4.5 3.5 4.5v13.2c4.2 0 6.7.7 8.5 2.1 1.8-1.4 4.3-2.1 8.5-2.1V4.5c-4.2 0-6.7.7-8.5 2.1z"/><path fill="none" d="M12 6.6v13.2"/></symbol>
+        <symbol id="g-calc" viewBox="0 0 24 24"><rect x="4.8" y="2.6" width="14.4" height="18.8" rx="2.4"/><rect x="7.6" y="5.4" width="8.8" height="4" rx=".8"/><path fill="none" d="M8.2 13.3h1.3M11.35 13.3h1.3M14.5 13.3h1.3M8.2 17h1.3M11.35 17h1.3M14.5 17h1.3"/></symbol>
+        <symbol id="g-chat" viewBox="0 0 24 24"><path d="M20 11.3c0 4.1-3.6 7.4-8 7.4-1.2 0-2.3-.2-3.3-.6L4 19.6l1.4-3.8C4.5 14.5 4 13 4 11.3 4 7.2 7.6 3.9 12 3.9s8 3.3 8 7.4z"/><path d="M8.5 10h7M8.5 13.2h4.5"/></symbol>
+        <symbol id="g-gem" viewBox="0 0 24 24"><path d="M6.8 4.5h10.4L21 9.4 12 20.5 3 9.4z"/><path fill="none" d="M3 9.4h18M9.8 4.5L8.4 9.4 12 20.5l3.6-11.1-1.4-4.9"/></symbol>
+        <symbol id="g-scales" viewBox="0 0 24 24"><path fill="none" d="M12 4v16M8.5 20h7M5 7h14"/><circle cx="12" cy="4" r=".9"/><path d="M5 7l-2.6 6.2a2.6 2.6 0 0 0 5.2 0zM19 7l-2.6 6.2a2.6 2.6 0 0 0 5.2 0z"/></symbol>
+        <symbol id="g-bulb" viewBox="0 0 24 24"><path d="M9.3 16.6v-1.2c0-1.1-.5-1.9-1.3-2.7a6 6 0 1 1 8 0c-.8.8-1.3 1.6-1.3 2.7v1.2z"/><path fill="none" d="M9.6 19.2h4.8M10.6 21.6h2.8M10.4 11.6l1.6 1.4 1.6-1.4M12 13v3.6"/></symbol>
+    </svg>
+    <!-- ═══ Header ═══ -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="../index.html" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+                <span class="brand__word">Reborn</span>
+            </a>
+            <div class="header-actions">
+                <a href="/ko/docs/index.html" class="back-link">← 문서로 돌아가기</a>
+            </div>
         </div>
+    </header>
 
-        <h1>2026년 Flyff Universe 최고의 도구와 확장 프로그램</h1>
-        <p class="subtitle">Flyff Universe 플레이를 실제로 바꿔주는 도구들을 직접 테스트하고 비교한 셀렉션입니다. 확장 프로그램, 번역기, 계산기, 데이터베이스를 다룹니다.</p>
+    <main class="container article">
+        <header class="article-head">
+            <div class="breadcrumb" style="margin-top:24px;">
+                <a href="../index.html">홈</a> › <a href="/ko/docs/index.html">문서</a> › Flyff Universe 최고의 도구
+            </div>
+
+            <h1>2026년 Flyff Universe 최고의 도구와 확장 프로그램</h1>
+            <p class="subtitle">Flyff Universe 플레이를 실제로 바꿔주는 도구들을 직접 테스트하고 비교한 셀렉션입니다. 확장 프로그램, 번역기, 계산기, 데이터베이스를 다룹니다.</p>
+            <div class="ornament" aria-hidden="true"></div>
+        </header>
 
         <p>Flyff Universe는 커뮤니티 덕분에 유지되는 MMORPG입니다. 유용한 도구의 상당수는 퍼블리셔가 아니라 플레이어들 손에서 나옵니다. 3개월(2026년 2월 → 5월) 동안 가장 인기 있는 서드파티 도구들을 직접 테스트해, <strong>정말 가치 있는 6개</strong>를 일반 플레이어의 효용 순으로 추렸습니다.</p>
 
         <div class="callout">
-            <strong>📌 평가 방식</strong>
+            <svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-scales"/></svg>
+            <strong class="emoji-lead">📌 평가 방식</strong>
             각 도구를 4가지 기준으로 평가했습니다. 일상 게임플레이에서의 실제 유용성, 업데이트 품질(Flyff Universe의 흐름을 따라가는지), 사용자 데이터 존중, 그리고 사용 편의성입니다. 상업적 제휴는 없습니다. 단, Reborn Assistant만 본 사이트 운영자가 만든 도구임을 명시합니다 (투명성 차원).
         </div>
 
         <h2>1. Reborn Assistant — Ringmaster 자동화 확장 프로그램</h2>
         <div class="tool-card featured">
-            <div class="tool-rank">★ 1위 · 추천 선택</div>
-            <div class="tool-meta">
-                <span class="tool-tag free">무료 버전</span>
-                <span class="tool-tag paid">Premium 월 2,99€</span>
-                <span class="tool-tag">Chrome / Edge / Brave</span>
+            <div class="tool-head">
+                <span class="tool-icon skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-keyboard"/></svg></span>
+                <div class="tool-rank">★ 1위 · 추천 선택</div>
+                <div class="tool-meta">
+                    <span class="tool-tag free">무료 버전</span>
+                    <span class="tool-tag paid">Premium 월 2,99€</span>
+                    <span class="tool-tag">Chrome / Edge / Brave</span>
+                </div>
             </div>
             <p>Reborn Assistant는 Flyff Universe 플레이어를 위한 <strong>반복 작업 자동화</strong>에 특화된 브라우저 확장 프로그램입니다. 특히 버프 로테이션이 악명 높게 지루한 Ringmaster 클래스를 겨냥합니다. 사용자가 설정한 간격으로 키 입력을 시뮬레이션합니다. X분마다 시퀀스 로테이션, 15초마다 Heal Rain용 주기 매크로, 그리고 최대 3개의 커스텀 매크로까지 지원합니다.</p>
             <p>무료 버전은 기본 기능(HP 자동 회복, 6가지 테마, 15개 인터페이스 언어)을 제공합니다. Premium은 전체 로테이션, 커스텀 매크로, 주기 매크로를 해금합니다. RM 메인 유저가 기대하는 모든 무기를 갖춘 셈입니다.</p>
@@ -199,10 +254,13 @@
 
         <h2>2. Reborn Vision — 다국어 인게임 번역기</h2>
         <div class="tool-card">
-            <div class="tool-rank">★ 2위</div>
-            <div class="tool-meta">
-                <span class="tool-tag free">무료</span>
-                <span class="tool-tag">Chrome / Edge / Brave</span>
+            <div class="tool-head">
+                <span class="tool-icon skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-eye"/></svg></span>
+                <div class="tool-rank">★ 2위</div>
+                <div class="tool-meta">
+                    <span class="tool-tag free">무료</span>
+                    <span class="tool-tag">Chrome / Edge / Brave</span>
+                </div>
             </div>
             <p>Reborn Vision은 Flyff Universe만의 특수한 문제를 해결합니다. 커뮤니티가 매우 국제적(브라질, 한국, 일본, 유럽)이라 많은 플레이어가 모르는 언어의 채팅을 마주칩니다. Reborn Vision은 화면에 표시된 텍스트를 감지해 실시간 오버레이 번역을 제공하는 인게임 번역기입니다.</p>
             <div class="pros-cons">
@@ -227,10 +285,13 @@
 
         <h2>3. FlyffPedia — 대표적인 데이터베이스</h2>
         <div class="tool-card">
-            <div class="tool-rank">★ 2위I</div>
-            <div class="tool-meta">
-                <span class="tool-tag free">무료</span>
-                <span class="tool-tag">웹사이트</span>
+            <div class="tool-head">
+                <span class="tool-icon skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-book"/></svg></span>
+                <div class="tool-rank">★ 2위I</div>
+                <div class="tool-meta">
+                    <span class="tool-tag free">무료</span>
+                    <span class="tool-tag">웹사이트</span>
+                </div>
             </div>
             <p>FlyffPedia는 Flyff Universe에서 가장 충실한 커뮤니티 위키입니다. 이름으로 아이템 검색, 몹별 전용 페이지(드롭, 출현 위치, 제공 경험치), 퀘스트 트리, 클래스 정보까지 제공합니다. 퀘스트에 막히거나 특정 아이템을 어디서 파밍할지 찾을 때 반드시 필요합니다.</p>
             <p>협업 기반 업데이트로 기여자에 따라 품질 편차가 있지만, 전반적으로 사실상의 표준입니다. 일반 플레이어라면 반드시 즐겨찾기 해두세요.</p>
@@ -238,10 +299,13 @@
 
         <h2>4. Flyff Universe Calculator — 스탯과 빌드 계산기</h2>
         <div class="tool-card">
-            <div class="tool-rank">★ 4위</div>
-            <div class="tool-meta">
-                <span class="tool-tag free">무료</span>
-                <span class="tool-tag">웹사이트</span>
+            <div class="tool-head">
+                <span class="tool-icon skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-calc"/></svg></span>
+                <div class="tool-rank">★ 4위</div>
+                <div class="tool-meta">
+                    <span class="tool-tag free">무료</span>
+                    <span class="tool-tag">웹사이트</span>
+                </div>
             </div>
             <p>장비, 쥬얼리, 버프를 모두 반영해 DPS, 생존력, 힐량을 정확히 추정해주는 스탯 계산기입니다. 빌드를 바꿀 때나 두 쥬얼리를 비교할 때 특히 유용합니다.</p>
             <p>인터페이스는 다소 투박하지만 수학적 공식은 견고합니다. 커뮤니티 버전이 여러 개 있으니, 가장 최근에 업데이트된 것을 선택하세요.</p>
@@ -249,27 +313,33 @@
 
         <h2>5. Madrigal Inside — 커뮤니티 및 전략 가이드</h2>
         <div class="tool-card">
-            <div class="tool-rank">★ 5위</div>
-            <div class="tool-meta">
-                <span class="tool-tag free">무료</span>
-                <span class="tool-tag">웹사이트 / Discord</span>
+            <div class="tool-head">
+                <span class="tool-icon skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-chat"/></svg></span>
+                <div class="tool-rank">★ 5위</div>
+                <div class="tool-meta">
+                    <span class="tool-tag free">무료</span>
+                    <span class="tool-tag">웹사이트 / Discord</span>
+                </div>
             </div>
             <p>엄밀히 말해 도구는 아니지만 매우 귀중한 자원입니다. 클래스별 빌드 가이드, 보스 공략, 현재 메타, 서버 경제 정보가 담겨 있습니다. 콘텐츠를 엔드게임 플레이어들이 작성하므로 일반 가이드에서는 볼 수 없는 관점을 얻을 수 있습니다.</p>
         </div>
 
         <h2>6. FlyffOptimizer — 쥬얼리 최적화</h2>
         <div class="tool-card">
-            <div class="tool-rank">★ 5위I</div>
-            <div class="tool-meta">
-                <span class="tool-tag free">무료</span>
-                <span class="tool-tag">웹사이트</span>
+            <div class="tool-head">
+                <span class="tool-icon skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-gem"/></svg></span>
+                <div class="tool-rank">★ 5위I</div>
+                <div class="tool-meta">
+                    <span class="tool-tag free">무료</span>
+                    <span class="tool-tag">웹사이트</span>
+                </div>
             </div>
             <p>여러분의 장비를 입력받아 특정 스탯(공격력, HP, 캐스팅 속도 등)을 최대화하는 최적 쥬얼리 조합을 계산해주는 솔버입니다. 틈새 도구지만 1%까지 따지는 엔드게임에서는 가공할 위력을 발휘합니다.</p>
         </div>
 
         <h2>어떻게 선택할까요?</h2>
         <p>위 순서는 일반 플레이어의 사용 빈도를 기준으로 한 주관적 순위입니다. 선택을 돕기 위해 3가지 대표 프로필을 소개합니다.</p>
-        <ul>
+        <ul class="profile-list">
             <li><strong>특히 RM이나 Mentalist로 사냥을 많이 하는 경우</strong> → Reborn Assistant Premium을 최우선으로, 드롭 정보용으로는 FlyffPedia를 추천합니다.</li>
             <li><strong>국제 길드에서 플레이하는 경우</strong> → Reborn Vision (번역기) + Madrigal Inside (커뮤니티 Discord).</li>
             <li><strong>엔드게임에서 빌드를 최적화하는 경우</strong> → Flyff Universe Calculator와 FlyffOptimizer 조합, 그리고 재료 파밍 자동화를 위한 Reborn Assistant.</li>
@@ -277,7 +347,7 @@
 
         <h2>피해야 할 도구</h2>
         <p>"Flyff Universe"라는 이름으로 홍보되는 모든 도구가 정상적인 것은 아닙니다. 다음과 같은 프로그램은 경계하세요.</p>
-        <ul>
+        <ul class="avoid-list">
             <li><strong>Gala Lab 계정 정보를 요구</strong> — 정상적인 도구는 절대 로그인 정보를 요구하지 않습니다. 100% 사기입니다.</li>
             <li><strong>Windows .exe 실행 파일로 설치</strong> 명확한 소개 페이지가 없는 경우. 키로거나 멀웨어 위험이 있습니다.</li>
             <li><strong>무료 골드, 레벨업 부스트, 아이템 약속</strong>. 항상 사기이거나 곧 닥칠 밴웨이브의 신호입니다.</li>
@@ -285,13 +355,25 @@
         </ul>
 
         <div class="callout">
-            <strong>💡 거짓말하지 않는 기준</strong>
+            <svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-bulb"/></svg>
+            <strong class="emoji-lead">💡 거짓말하지 않는 기준</strong>
             정상적인 도구는 항상 공개된 개인정보 처리방침, 활발한 지원 채널(Discord, 이메일), 그리고 Chrome Web Store 등록 페이지나 공개 GitHub 저장소를 갖추고 있습니다. Reborn Assistant와 Reborn Vision은 이 3가지를 모두 충족합니다.
         </div>
 
         <p style="margin-top:48px;text-align:center;color:var(--text-dim);font-size:14px;">
             2026년 5월 16일에 업데이트된 글입니다.
         </p>
-    </div>
+    </main>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="site-footer site-footer--compact">
+        <div class="container footer-content">
+            <a class="brand" href="../index.html" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+            </a>
+            <div class="footer-logo">REBORN ASSISTANT</div>
+            <div class="ornament" aria-hidden="true"></div>
+        </div>
+    </footer>
 </body>
 </html>
