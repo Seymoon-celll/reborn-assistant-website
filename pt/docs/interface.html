@@ -30,13 +30,10 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/site.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css?v=3">
     <style>
-        /* ═══ Interface — page-specific layout (tokens & components: /assets/css/site.css) ═══ */
-
-        /* Title crest: the hub card's glyph stands above the title; the h1's leading emoji is hidden (.emoji-lead) */
-        .article-crest { display: grid; margin: 0 auto 24px; box-shadow: inset 0 0 0 3px rgba(8,7,5,.92), inset 0 0 0 4px rgba(212,175,55,.3), inset 0 10px 18px -6px rgba(0,0,0,.85), 0 12px 40px -10px rgba(212,175,55,.45); }
+        /* ═══ Interface — page-specific layout only (tokens & components: /assets/css/site.css) ═══ */
 
         /* Theme swatches: 3 × 2 (2 × 3 on phones); each swatch reads as a tiny panel (title bar + two rows) */
         .theme-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
@@ -54,11 +51,6 @@
         .theme-name { margin-top: 2px; }
         @media (max-width: 560px) { .theme-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }
 
-        /* The theme intro is a one-line lead-in to the swatches, not chapter prose: no illuminated initial */
-        :root:not([dir="rtl"]):not(:lang(ja)):not(:lang(zh)):not(:lang(ko)) .article > h2:first-of-type + p::first-letter {
-            float: none; margin: 0; font: inherit; color: inherit; text-shadow: none;
-        }
-
         /* Languages: a gilded index in balanced columns (3 × 5 rows, 2 × 7 on phones), flag + native name on each row */
         .lang-grid {
             display: block; columns: 3; column-gap: 28px; padding: 14px 22px;
@@ -73,32 +65,13 @@
 
         /* "How to" procedures (translated <br>-separated lines) in a gilded note */
         .article .howto { margin: 26px 0 8px; }
-        .article .howto h3 { margin-bottom: 10px; }
         .article .howto p { line-height: 2; }
-
-        /* System shortcuts: two keycap tiles */
-        .article .shortcut-list { padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 12px; margin: 16px 0 26px; }
-        .article .shortcut-list > li {
-            margin: 0; padding: 14px 18px; border-radius: 14px; border: 1px solid transparent;
-            background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box; box-shadow: var(--shadow-md);
-        }
-        .article .shortcut-list > li::before { display: none; }
-        .article .shortcut-list code {
-            display: inline-block; margin-inline-end: 4px; padding: 3px 10px; font-weight: 600; line-height: 1.5; white-space: nowrap; direction: ltr; unicode-bidi: isolate;
-            background: var(--surface-key); border-color: var(--line-3); box-shadow: inset 0 -2px 0 rgba(212,175,55,.22), 0 2px 6px rgba(0,0,0,.6);
-        }
 
         /* Saved settings: two columns where there is room */
         @media (min-width: 640px) {
             .article .list-cols { columns: 2; column-gap: 32px; }
             .article .list-cols > li { break-inside: avoid; }
             .article .list-cols > li:first-child { margin-top: 0; }
-        }
-
-        /* Phones: titles shrink a little so the longest translated words (de "Parametergespeicherung") never split mid-word */
-        @media (max-width: 480px) {
-            .article h1 { font-size: clamp(26px, 8vw, 31px); }
-            .article h2 { font-size: clamp(19px, 5.8vw, 25px); padding-inline-start: 22px; }
         }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -188,7 +161,7 @@
         </header>
 
         <h2 data-i18n="docInterface.themesH2">Temas visuais</h2>
-        <p data-i18n="docInterface.themesDesc">O Reborn Assistant oferece 6 temas para personalizar a aparência da interface:</p>
+        <p class="no-initial" data-i18n="docInterface.themesDesc">O Reborn Assistant oferece 6 temas para personalizar a aparência da interface:</p>
 
         <div class="theme-grid">
             <div class="theme-card">

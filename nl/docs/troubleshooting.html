@@ -30,28 +30,15 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/site.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css?v=3">
     <style>
-        /* ═══ Troubleshooting — page-specific layout (tokens & components: /assets/css/site.css) ═══ */
+        /* ═══ Troubleshooting — page-specific layout only (tokens & components: /assets/css/site.css) ═══ */
 
-        /* Title crest: the docs-hub card's glyph stands above the title; the h1's leading emoji stays in the text, hidden (.emoji-lead) */
-        .article-crest { display: grid; margin: 0 auto 24px; box-shadow: inset 0 0 0 3px rgba(8,7,5,.92), inset 0 0 0 4px rgba(212,175,55,.3), inset 0 10px 18px -6px rgba(0,0,0,.85), 0 12px 40px -10px rgba(212,175,55,.45); }
-
-        /* Q/A cards — each question is a heading led by a gold glyph (❌ symptom · 💡 tip · ❓ question; the emoji stays in
-           the translated text, hidden). From 600px the answer hangs under the question text. */
-        .article .faq { padding: 22px 26px; }
-        .article .faq-q {
-            display: flex; align-items: flex-start; gap: 12px; margin: 0 0 10px;
-            font-family: var(--font-body); font-size: 17px; font-weight: 600; line-height: 1.45; letter-spacing: 0; color: var(--gold-100);
-        }
-        .faq-q > .inline-gl { width: 20px; height: 20px; margin-top: .14em; color: var(--gold-300); }
-        .faq-q > span { flex: 1; min-width: 0; text-wrap: pretty; }
+        /* Q/A answers are translated spans, one block each (the glyph-led questions are site.css .faq-q) */
         .faq-a > span { display: block; }
-        @media (min-width: 600px) { .faq-a { padding-inline-start: 32px; } }
-        :lang(ja) .faq-a strong { word-break: auto-phrase; }        /* 「プレミアム専用」 stays whole */
 
-        /* Support — a gilded "write to us" panel: glyph well + title, the checklist, then the two contact routes as chips */
+        /* Support — a gilded "write to us" panel: glyph well + title, the checklist, then the site.css contact chips */
         .support-box {
             position: relative; margin: 26px 0 0; padding: clamp(22px, 4vw, 34px); border-radius: 18px; border: 1px solid transparent;
             background: radial-gradient(90% 80% at 50% 0%, rgba(212,175,55,.1), transparent 70%) padding-box, var(--surface-raised) padding-box, var(--gilt-edge) border-box;
@@ -60,30 +47,7 @@
         .support-head { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
         .support-title { min-width: 0; font-family: var(--font-display); font-size: var(--fs-xl); font-weight: 700; line-height: 1.3; letter-spacing: .01em; }
         .article .support-box .support-text { margin-bottom: 24px; }
-        .contact-links { display: flex; flex-wrap: wrap; gap: 10px; }
-        .contact-chip {
-            display: inline-flex; align-items: center; gap: 10px; max-width: 100%; min-height: 44px; padding: 8px 16px; border-radius: 12px;
-            font-size: 15px; font-weight: 600; line-height: 1.35; text-decoration: none;
-            background: rgba(212,175,55,.05); border: 1px solid var(--line-2);
-            transition: background-color var(--dur-2) var(--ease-out), border-color var(--dur-2) var(--ease-out);
-        }
-        a.contact-chip:hover { background: rgba(212,175,55,.11); border-color: var(--line-3); }
-        .contact-chip > svg { flex-shrink: 0; width: 16px; height: 16px; }
-        .contact-chip > span { min-width: 0; white-space: nowrap; }         /* the address never splits at its hyphen */
-
-        /* Phones: titles shrink so the longest translated words (nl "Functioneringsproblemen", "Probleemoplossing") keep to one line */
-        @media (max-width: 480px) {
-            .article h1 { font-size: clamp(25px, 7.8vw, 31px); }
-            .article h2 { font-size: clamp(17.5px, 5.5vw, 25px); padding-inline-start: 22px; }
-            .article .faq { padding: 18px 18px; }
-            .article .faq-q { font-size: 16px; gap: 10px; }
-            .faq-q > .inline-gl { width: 18px; height: 18px; }
-            .article .faq-a .alert { padding: 16px; padding-inline-start: 20px; }   /* a frame inside a frame gives its width back to the text */
-            .support-box { padding: 22px 16px; }
-            .contact-links { flex-direction: column; align-items: stretch; }
-            .contact-chip { font-size: 14px; padding-inline: 12px; }
-        }
-        @media (max-width: 339px) { .contact-chip { gap: 8px; padding-inline: 10px; font-size: 13.5px; } }
+        @media (max-width: 480px) { .support-box { padding: 22px 16px; } }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
@@ -120,11 +84,11 @@
     <script>window.__PRERENDERED_LANG__="nl";</script>
 </head>
 <body>
-    <!-- Gold line glyphs — referenced with <use href="#g-…"> (library: DESIGN-SYSTEM §6a; g-fault, g-bulb, g-question, g-mail drawn for this page in the same style) -->
+    <!-- Gold line glyphs (shared library, DESIGN-SYSTEM §6a) — referenced with <use href="#g-…"> -->
     <svg class="glyph-sprite" aria-hidden="true" focusable="false">
         <symbol id="g-wrench" viewBox="0 0 24 24"><path d="M15.6 3.4a5 5 0 0 0-4.8 6.6L3.9 16.9a2 2 0 0 0 2.8 2.8l6.9-6.9a5 5 0 0 0 6.6-4.8l-3.3 1.6-2.7-1.4-.4-3z"/></symbol>
         <symbol id="g-fault" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path fill="none" d="M9.3 9.3l5.4 5.4M14.7 9.3l-5.4 5.4"/></symbol>
-        <symbol id="g-bulb" viewBox="0 0 24 24"><path d="M12 3.2a6.2 6.2 0 0 0-3.8 11.1c.8.6 1.2 1.5 1.2 2.4v.8h5.2v-.8c0-.9.4-1.8 1.2-2.4A6.2 6.2 0 0 0 12 3.2z"/><path fill="none" d="M9.8 20.7h4.4M10.3 11.3l1.7 1.9 1.7-1.9"/></symbol>
+        <symbol id="g-bulb" viewBox="0 0 24 24"><path d="M9.3 16.6v-1.2c0-1.1-.5-1.9-1.3-2.7a6 6 0 1 1 8 0c-.8.8-1.3 1.6-1.3 2.7v1.2z"/><path fill="none" d="M9.6 19.2h4.8M10.6 21.6h2.8M10.4 11.6l1.6 1.4 1.6-1.4M12 13v3.6"/></symbol>
         <symbol id="g-question" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path fill="none" d="M9.6 9.7a2.5 2.5 0 0 1 4.9.5c0 1.7-2.5 2.1-2.5 3.8"/><circle cx="12" cy="16.9" r=".35"/></symbol>
         <symbol id="g-chat" viewBox="0 0 24 24"><path d="M20 11.3c0 4.1-3.6 7.4-8 7.4-1.2 0-2.3-.2-3.3-.6L4 19.6l1.4-3.8C4.5 14.5 4 13 4 11.3 4 7.2 7.6 3.9 12 3.9s8 3.3 8 7.4z"/><path d="M8.5 10h7M8.5 13.2h4.5"/></symbol>
         <symbol id="g-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.2"/><path fill="none" d="M4.2 7.4l7.8 5.8 7.8-5.8"/></symbol>
@@ -200,7 +164,7 @@
         <div class="faq">
             <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq4Q">❌ Type 1/2-acties worden niet geactiveerd</span></h3>
             <div class="faq-a">
-                <div class="alert" data-i18n="docTroubleshooting.faq4Alert"><strong>⚠️ BELANGRIJK</strong><br>Type 1 en 2-acties zijn <strong>EXCLUSIEF PREMIUM</strong>-functies. Alleen de automatische type 1-actie (HP) is beschikbaar in de gratis versie.</div>
+                <div class="alert callout--gl" data-i18n="docTroubleshooting.faq4Alert"><strong>⚠️ BELANGRIJK</strong><br>Type 1 en 2-acties zijn <strong>EXCLUSIEF PREMIUM</strong>-functies. Alleen de automatische type 1-actie (HP) is beschikbaar in de gratis versie.</div>
                 <span data-i18n="docTroubleshooting.faq4Prem"><strong>Als je Premium hebt:</strong><br>1. Is de automatisering actief? <code>CTRL+A</code><br>2. Zijn de trigger-toggles ingeschakeld? (groene indicator «ON»)<br>3. Zijn de geconfigureerde toetsen correct?</span>
             </div>
         </div>
@@ -208,7 +172,7 @@
         <div class="faq">
             <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq5Q">❌ Reeksen / macro's / periodieke macro / sneltoetsen werken niet</span></h3>
             <div class="faq-a">
-                <div class="alert" data-i18n="docTroubleshooting.faq5Alert"><strong>⚠️ BELANGRIJK</strong><br>Sneltoetsen, reeksen, macro's en periodieke macro zijn <strong>EXCLUSIEF PREMIUM</strong>-functies. In de gratis versie is alleen de automatische type 1-actie (HP) beschikbaar.</div>
+                <div class="alert callout--gl" data-i18n="docTroubleshooting.faq5Alert"><strong>⚠️ BELANGRIJK</strong><br>Sneltoetsen, reeksen, macro's en periodieke macro zijn <strong>EXCLUSIEF PREMIUM</strong>-functies. In de gratis versie is alleen de automatische type 1-actie (HP) beschikbaar.</div>
                 <span data-i18n="docTroubleshooting.faq5Prem"><strong>Als u Premium heeft:</strong><br>1. Controleer of uw Premium-licentie actief is (💎-icoon in het paneel)<br>2. Zijn de bijbehorende schakelaars ingeschakeld?<br>3. Controleer de geconfigureerde intervallen en vertragingen</span>
             </div>
         </div>

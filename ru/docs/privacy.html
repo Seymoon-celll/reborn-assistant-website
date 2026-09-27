@@ -29,62 +29,14 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/site.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css?v=3">
     <style>
-        /* ═══ Legal & privacy — page-specific layout (tokens & components: /assets/css/site.css) ═══ */
-
-        /* Crests: the docs-hub card's glyph above the page title, and one above each part title (privacy, changelog).
-           The titles' leading emoji stay in the text, hidden (.emoji-lead). */
-        .article-crest { display: grid; margin: 0 auto 24px; box-shadow: inset 0 0 0 3px rgba(8,7,5,.92), inset 0 0 0 4px rgba(212,175,55,.3), inset 0 10px 18px -6px rgba(0,0,0,.85), 0 12px 40px -10px rgba(212,175,55,.45); }
-        .part-head { text-align: center; }
-        .part-head > .article-crest { margin-bottom: 20px; }
-        .article .part-head > h2 { scroll-margin-top: 104px; }          /* a jump from the section nav keeps the crest in view */
-        .article .part-head > h2:last-child { margin-bottom: 34px; }
-
-        /* Section nav — each pill led by the gold glyph of its part */
-        .section-nav .inline-gl { width: 15px; height: 15px; color: var(--gold-300); }
-        .section-nav a:hover .inline-gl { color: var(--gold-100); }
-
-        /* Lists with a meaning: ✓ granted / ✕ never (the check/cross language of the features table).
-           Items that start with ✅ / ❌ keep the emoji in the text, hidden (.emoji-lead). */
-        .article :is(.list-yes, .list-no) > li::before { box-shadow: none; }
-        .article .list-yes > li::before {
-            top: .38em; inset-inline-start: 6px; width: 6px; height: 11px; background: none; border-radius: 0;
-            border: solid var(--emerald-300); border-width: 0 1.7px 1.7px 0; transform: rotate(45deg);
-        }
-        .article .list-no > li::before {
-            top: .62em; inset-inline-start: 3px; width: 10px; height: 10px; background:
-                linear-gradient(var(--text-dim), var(--text-dim)) center / 100% 1.6px no-repeat,
-                linear-gradient(var(--text-dim), var(--text-dim)) center / 1.6px 100% no-repeat;
-            border-radius: 0;
-        }
-
-        /* Third-party services — a glyph per provider instead of the OS emoji */
-        .article .service-list > li { display: flex; align-items: flex-start; gap: 8px; padding-inline-start: 0; }
-        .article .service-list > li::before { display: none; }
-        .service-list .inline-gl { width: 18px; height: 18px; margin-top: .3em; color: var(--gold-200); }    /* 18 + 8 = the 26px text indent of every list */
-        .service-list li > span { flex: 1; min-width: 0; }
+        /* ═══ Legal & privacy — page-specific layout only (tokens & components: /assets/css/site.css) ═══ */
 
         /* Data deletion: three numbered paths, divided by hairlines */
         .article .legal-steps > p { margin: 0; }
         .article .legal-steps > p + p { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line-1); }
-
-        /* Contact — the two routes as chips; the e-mail chip is a single tap target (stretched link) */
-        .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 18px; }
-        .article .contact-chip {
-            position: relative; display: inline-flex; align-items: center; gap: 10px; max-width: 100%; min-height: 44px; margin: 0; padding: 8px 16px;
-            border-radius: 12px; font-size: 15px; line-height: 1.35; color: var(--text-soft);
-            background: rgba(212,175,55,.05); border: 1px solid var(--line-2);
-            transition: background-color var(--dur-2) var(--ease-out), border-color var(--dur-2) var(--ease-out);
-        }
-        .article .contact-chip:has(a):hover { background: rgba(212,175,55,.11); border-color: var(--line-3); }
-        .contact-chip > svg { flex-shrink: 0; width: 16px; height: 16px; color: var(--gold-200); }
-        .contact-chip > span { min-width: 0; text-align: start; }
-        .contact-chip a { white-space: nowrap; }                       /* the address never splits at its hyphen: the line breaks after "Email :" */
-        .contact-chip strong.emoji-lead { display: inline-block; }
-        .contact-chip a::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
-        .article .contact-chip a { text-decoration: none; }
 
         /* Changelog — releases on a gilded timeline; the current one is lit */
         .changelog { position: relative; padding-inline-start: 34px; }
@@ -106,28 +58,15 @@
         .cl-label { display: flex; align-items: center; gap: 10px; margin: 22px 0 6px; color: var(--gold-300); }
         .cl-label::after { content: ''; flex: 1; min-width: 12px; height: 1px; background: linear-gradient(var(--to-end), var(--line-2), transparent); }
         .cl-label .inline-gl { width: 15px; height: 15px; }
-        .cl-label .emoji-lead::first-letter { letter-spacing: 0; }     /* the label's tracking would otherwise keep a 1.5px sliver */
         .article .cl-label > p {
             margin: 0; font-size: var(--fs-label); font-weight: 700; line-height: 1.5; letter-spacing: var(--track-md); text-transform: uppercase; color: inherit;
         }
-
-        /* Phones: titles shrink so long single words keep to one line (de "Datenschutzrichtlinie", ru "Конфиденциальность");
-           a 30-letter nl compound ("Gebruikersverantwoordelijkheid") may still hyphenate where the browser can */
         @media (max-width: 480px) {
-            .article h1 { font-size: clamp(25px, 7.8vw, 31px); }
-            .article h2 { font-size: clamp(19px, 5.9vw, 25px); padding-inline-start: 22px; }
-            .article h2.part-title { font-size: clamp(21px, 6.9vw, 28px); padding: 0; }
-            .article h3 { font-size: 16.5px; hyphens: auto; }
-            .legal-block { padding: 20px 16px; }
-            :is(.warning-box, .success-box) { padding: 18px; padding-inline-start: 22px; }
+            .article h3 { font-size: 16.5px; }        /* nl "Gebruikersverantwoordelijkheid" (30 letters) keeps to one line from 390px */
             .changelog { padding-inline-start: 22px; }
             .changelog::before { inset-inline-start: 4px; }
             .changelog > .legal-block::before { inset-inline-start: -22px; top: 28px; width: 9px; height: 9px; }
-            .contact-box { padding: 22px 16px; }
-            .contact-links { flex-direction: column; align-items: stretch; }
-            .article .contact-chip { justify-content: flex-start; font-size: 14px; padding-inline: 12px; }
         }
-        @media (max-width: 339px) { .article .contact-chip { gap: 8px; padding-inline: 10px; font-size: 13.5px; } }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
@@ -164,7 +103,7 @@
     <script>window.__PRERENDERED_LANG__="ru";</script>
 </head>
 <body>
-    <!-- Gold line glyphs — referenced with <use href="#g-…"> (library: DESIGN-SYSTEM §6a; g-bug, g-mail drawn for this page in the same style) -->
+    <!-- Gold line glyphs (shared library, DESIGN-SYSTEM §6a) — referenced with <use href="#g-…"> -->
     <svg class="glyph-sprite" aria-hidden="true" focusable="false">
         <symbol id="g-scales" viewBox="0 0 24 24"><path fill="none" d="M12 4v16M8.5 20h7M5 7h14"/><circle cx="12" cy="4" r=".9"/><path d="M5 7l-2.6 6.2a2.6 2.6 0 0 0 5.2 0zM19 7l-2.6 6.2a2.6 2.6 0 0 0 5.2 0z"/></symbol>
         <symbol id="g-key" viewBox="0 0 24 24"><circle cx="8" cy="15.5" r="4.2"/><circle cx="7.2" cy="16.3" r="1"/><path fill="none" d="M11 12.5L19.5 4M16.2 7.3l2.6 2.6M13.9 9.6l2 2"/></symbol>
@@ -233,7 +172,7 @@
 
         <!-- LEGAL -->
         <h2 id="legal" class="emoji-lead" data-i18n="docPrivacy.disclaimerH2">⚠️ Правовая Оговорка</h2>
-        <div class="warning-box" data-i18n="docPrivacy.disclaimerBox"><strong>⚠️ Важное уведомление:</strong> Reborn Assistant — это инструмент автоматизации. Его использование может нарушать Условия предоставления услуг некоторых онлайн-сервисов. Использование этого инструмента осуществляется полностью на ваш страх и риск.</div>
+        <div class="warning-box callout--gl" data-i18n="docPrivacy.disclaimerBox"><strong>⚠️ Важное уведомление:</strong> Reborn Assistant — это инструмент автоматизации. Его использование может нарушать Условия предоставления услуг некоторых онлайн-сервисов. Использование этого инструмента осуществляется полностью на ваш страх и риск.</div>
 
         <div class="legal-block">
             <h3 data-i18n="docPrivacy.respH3">Ответственность пользователя</h3>
@@ -307,7 +246,7 @@
             <p data-i18n="docPrivacy.terminationText">Лицензия может быть немедленно прекращена в случае нарушения настоящих условий. Для тарифных планов с подпиской вы можете отменить в любой момент через портал Stripe.</p>
         </div>
 
-        <div class="success-box" data-i18n="docPrivacy.refundBox"><strong>✅ Политика возврата:</strong> Если вы не удовлетворены в течение 7 дней после покупки, свяжитесь с нашей поддержкой для полного возврата. По истечении этого срока возврат не предоставляется, за исключением исключительных случаев.</div>
+        <div class="success-box callout--gl" data-i18n="docPrivacy.refundBox"><strong>✅ Политика возврата:</strong> Если вы не удовлетворены в течение 7 дней после покупки, свяжитесь с нашей поддержкой для полного возврата. По истечении этого срока возврат не предоставляется, за исключением исключительных случаев.</div>
 
         <!-- CONFIDENTIALITE -->
         <div class="page-separator"><span>◆ ◆ ◆</span></div>
@@ -318,7 +257,7 @@
             <p class="subtitle" data-i18n="docPrivacy.privacySubtitle">Как мы защищаем ваши персональные данные</p>
         </div>
 
-        <div class="success-box" data-i18n="docPrivacy.privacyBox"><strong>✅ Ваша конфиденциальность — наш приоритет</strong><br>Бесплатная версия: персональные данные не собираются. Premium версия: обрабатываются только данные, строго необходимые для проверки лицензии.</div>
+        <div class="success-box callout--gl" data-i18n="docPrivacy.privacyBox"><strong>✅ Ваша конфиденциальность — наш приоритет</strong><br>Бесплатная версия: персональные данные не собираются. Premium версия: обрабатываются только данные, строго необходимые для проверки лицензии.</div>
 
         <h2 data-i18n="docPrivacy.collectH2">Сбор данных</h2>
         <div class="legal-block">

@@ -1,19 +1,23 @@
 /* © 2026 Reborn Assistant — All rights reserved.
  * ═══════════════════════════════════════════════════════════════════════════
  *  Reborn Assistant — shared design system  ·  "Arcane Luxe"
- *  Linked on every migrated page BEFORE the page's inline <style>
- *  (inline, page-specific rules win). Vanilla CSS, no build step.
- *  Migration guide for the remaining pages: DESIGN-SYSTEM.md (see PR notes).
+ *  Linked on every page as /assets/css/site.css?v=N, BEFORE the page's inline
+ *  <style> (which holds page-specific LAYOUT only and wins). Vanilla CSS, no
+ *  build step. Reference: DESIGN-SYSTEM.md. Any pattern used by two pages
+ *  lives here, not in page styles. Bump ?v= on every page when a change here
+ *  is required by new page markup (old cached CSS would mis-render it).
  *
- *   1. Tokens            8. Header & navigation
- *   2. Base / reset      9. Language dropdown (single source of truth)
- *   3. Atmosphere       10. Section headers
- *   4. Layout           11. Footer
- *   5. Ornaments        12. Article ("codex") typography — needs .article
- *   6. Buttons          13. Codex components (callouts, cards, tables, steps…)
- *   7. Gilded frames    14. Docs-page components (features, interface,
- *      & skill slots        premium, troubleshooting, legal, 404)
- *                       15. Utilities & motion
+ *   1. Tokens (+ glyph masks)  8. Header & navigation
+ *   2. Base / reset            9. Language dropdown (single source of truth)
+ *   3. Atmosphere             10. Section headers
+ *   4. Layout                 11. Footer
+ *   5. Ornaments              12. Article typography — needs .article (crest,
+ *   6. Buttons                    phone title scale, code/keycaps, list markers)
+ *   7. Gilded frames          13. Codex components (tables, callouts, cards,
+ *      & skill slots              steps, toc, entry cards, tool cards…)
+ *                             14. Docs-page components (feature cards, Q/A,
+ *                                 legal, contact chips, 404)
+ *                             15. Utilities & motion
  * ═══════════════════════════════════════════════════════════════════════════ */
 
 
@@ -169,6 +173,14 @@
     --to-end: to right;
     --to-start: to left;
 
+    /* Line glyphs as CSS masks — the same drawings as the inline sprite library (DESIGN-SYSTEM §6a), for places
+       where no <svg> may be added (callout titles, §13). Paint = background colour; fill-opacity .16 = faint fill. */
+    --gl-bulb: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' fill-opacity='.16' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9.3 16.6v-1.2c0-1.1-.5-1.9-1.3-2.7a6 6 0 1 1 8 0c-.8.8-1.3 1.6-1.3 2.7v1.2z'/%3E%3Cpath fill='none' d='M9.6 19.2h4.8M10.6 21.6h2.8M10.4 11.6l1.6 1.4 1.6-1.4M12 13v3.6'/%3E%3C/svg%3E");
+    --gl-alert: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' fill-opacity='.16' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.4 4.3a1.85 1.85 0 0 1 3.2 0l7.6 13.4a1.85 1.85 0 0 1-1.6 2.8H4.4a1.85 1.85 0 0 1-1.6-2.8z'/%3E%3Cpath fill='none' d='M12 9.3v4.8'/%3E%3Ccircle cx='12' cy='17.1' r='.4'/%3E%3C/svg%3E");
+    --gl-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' fill-opacity='.16' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='8.5'/%3E%3Cpath fill='none' d='M8.3 12.3l2.6 2.6 4.9-5.1'/%3E%3C/svg%3E");
+    --gl-book: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' fill-opacity='.16' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 6.6C10.2 5.2 7.7 4.5 3.5 4.5v13.2c4.2 0 6.7.7 8.5 2.1 1.8-1.4 4.3-2.1 8.5-2.1V4.5c-4.2 0-6.7.7-8.5 2.1z'/%3E%3Cpath fill='none' d='M12 6.6v13.2'/%3E%3C/svg%3E");
+    --gl-scales: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' fill-opacity='.16' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='none' d='M12 4v16M8.5 20h7M5 7h14'/%3E%3Ccircle cx='12' cy='4' r='.9'/%3E%3Cpath d='M5 7l-2.6 6.2a2.6 2.6 0 0 0 5.2 0zM19 7l-2.6 6.2a2.6 2.6 0 0 0 5.2 0z'/%3E%3C/svg%3E");
+
     color-scheme: dark;
 }
 :root[dir="rtl"] { --to-end: to left; --to-start: to right; }
@@ -183,6 +195,13 @@
     --font-accent: var(--font-body); --accent-style: normal;
 }
 :root:lang(ja) { --font-display: 'Cinzel', 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', serif; }
+/* Cinzel has no Cyrillic: Russian letters fall back to Cormorant Garamond (the brand's accent face, loaded with its
+   Cyrillic subset at 500/700) instead of the OS serif; Latin letters and digits stay in Cinzel. */
+:root:lang(ru) { --font-display: 'Cinzel', 'Cormorant Garamond', Georgia, 'Times New Roman', serif; }
+/* Cormorant's lowercase is smaller than Cinzel's small caps: on small display titles, scale the fallback glyphs to
+   Cinzel's x-height (from-font = the primary face's own ratio, so Cinzel/Inter text is unchanged). h1/h2 keep their size. */
+:lang(ru) :is(.article h3, .card-title, .next-card__title, .buff-name, .cta-box h3,
+    :is(.callout, .alert, .warning-box, .success-box, .success, .example) > :first-child) { font-size-adjust: from-font; }
 
 
 /* ── 2. Base / reset ──────────────────────────────────────────────────────── */
@@ -207,7 +226,8 @@ body {
 }
 /* CJK: phrase-aware line breaking; only break inside a word when it cannot fit at all */
 :lang(ja), :lang(zh) { line-break: strict; }
-:lang(ja) :is(h1, h2, h3, .section-title, .section-subtitle, .subtitle) { word-break: auto-phrase; }
+:lang(ja) :is(h1, h2, h3, .section-title, .section-subtitle, .subtitle,
+    .step-title, .card-title, .next-card__title, .feature-title, .faq-q, .faq-a strong, .param-name, .example-title) { word-break: auto-phrase; }
 :lang(ko) body { word-break: keep-all; }          /* Korean breaks at spaces (eojeol), never inside a word */
 img, svg, video { max-width: 100%; }
 img { height: auto; }
@@ -406,7 +426,8 @@ main, section, .site-footer { position: relative; z-index: 1; }
     display: block; width: 16px; height: 16px; flex-shrink: 0; overflow: visible;
     fill: rgba(244,208,63,.12); stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
 }
-.emoji-lead::first-letter { font-size: 0; color: transparent; float: left; }   /* zero-size float: the space after it collapses too */
+/* zero-size float: the space after it collapses too; letter-spacing 0, or a tracked label keeps a sliver of the emoji */
+.emoji-lead::first-letter { font-size: 0; color: transparent; float: left; letter-spacing: 0; }
 
 
 /* ── 8. Header & navigation ──────────────────────────────────────────────── */
@@ -714,7 +735,21 @@ main, section, .site-footer { position: relative; z-index: 1; }
 .article-head { text-align: center; padding-bottom: clamp(32px, 4vw, 48px); margin-bottom: clamp(8px, 2vw, 16px); }
 .article-head .ornament { margin-top: 30px; }
 
-.breadcrumb { font-size: 12.5px; line-height: 1.6; letter-spacing: var(--track-xs); color: var(--text-dim); margin-bottom: 22px; }
+/* Title crest — every docs page and article: the docs-hub card's glyph in a gilded slot above the h1
+   (after the breadcrumb on long-tail articles). When the h1 string starts with an emoji, the h1 gets
+   .emoji-lead so the emoji stays in the text but only the gold glyph shows.
+       <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-bolt"/></svg></div> */
+.article-crest {
+    display: grid; margin: 0 auto 24px;
+    box-shadow: inset 0 0 0 3px rgba(8,7,5,.92), inset 0 0 0 4px rgba(212,175,55,.3), inset 0 10px 18px -6px rgba(0,0,0,.85), 0 12px 40px -10px rgba(212,175,55,.45);
+}
+/* A crest can also head a part title (privacy: "Politique de confidentialité", "Changelog") */
+.part-head { text-align: center; }
+.part-head > .article-crest { margin-bottom: 20px; }
+.article .part-head > h2 { scroll-margin-top: 104px; }          /* a jump from a section nav keeps the crest in view */
+.article .part-head > h2:last-child { margin-bottom: 34px; }
+
+.breadcrumb { font-size: 12.5px; line-height: 1.6; letter-spacing: var(--track-xs); color: var(--text-dim); margin-bottom: 20px; }
 .breadcrumb a { color: var(--gold-200); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color var(--dur-2); }
 .breadcrumb a:hover { border-bottom-color: var(--line-3); }
 
@@ -756,6 +791,11 @@ main, section, .site-footer { position: relative; z-index: 1; }
 }
 .article h2.part-title::before, .article h2.part-title::after { display: none; }
 .article h2.part-title + .subtitle { margin: 12px auto 32px; text-align: center; }
+/* Gilt chapter title — keeps an emoji inside a translated heading on-palette (it renders as a gilt silhouette) */
+.article h2.h2-gilt {
+    background: var(--gilt-text) 0 0 / 100% 1.25em repeat-y; background-origin: content-box;
+    -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+}
 .article h3 {
     margin: 32px 0 12px; font-family: var(--font-display); font-size: var(--fs-lg); font-weight: 700;
     line-height: 1.35; letter-spacing: .01em; color: var(--gold-200);
@@ -782,22 +822,74 @@ main, section, .site-footer { position: relative; z-index: 1; }
     box-shadow: 0 0 0 3px rgba(212,175,55,.1);
 }
 .article > :first-child { margin-top: 0; }
-:is(.callout, .legal-block, .step, .section, .faq, .tool-card, .codex-card, .toc, .example, .param) > :is(h2, h3, h4):first-child { margin-top: 0; }
-:is(.callout, .legal-block, .step, .section, .faq, .tool-card, .codex-card, .example, .param, .pros, .cons) > :last-child { margin-bottom: 0; }
+:is(.callout, .legal-block, .step, .section, .faq, .tool-card, .codex-card, .role-card, .toc, .example, .param) > :is(h2, h3, h4):first-child { margin-top: 0; }
+:is(.callout, .legal-block, .step, .section, .faq, .tool-card, .codex-card, .role-card, .example, .param, .pros, .cons) > :last-child { margin-bottom: 0; }
+/* (the .article-scoped repeat at the end of §13 outranks the frames' own margin shorthands) */
 
-/* Illuminated initial on the first paragraph of the first chapter (Latin/Cyrillic scripts only) */
-:root:not([dir="rtl"]):not(:lang(ja)):not(:lang(zh)):not(:lang(ko)) .article > h2:first-of-type + p::first-letter {
+/* Illuminated initial (Latin/Cyrillic scripts only) — one per article: on the intro paragraph right under the
+   title block, or on the first paragraph of the first chapter (no current page has both). A paragraph that is
+   only a one-line lead-in opts out with class="no-initial". */
+:root:not([dir="rtl"]):not(:lang(ja)):not(:lang(zh)):not(:lang(ko)) .article > :is(.article-head, h2:first-of-type) + p:not(.no-initial)::first-letter {
     float: left; margin: 7px 10px 0 0;
-    font-family: 'Cinzel', Georgia, serif; font-size: 3.5em; font-weight: 700; line-height: .8;
+    font-family: var(--font-display); font-size: 3.5em; font-weight: 700; line-height: .8;
     color: var(--gold-200); text-shadow: 0 0 24px rgba(212,175,55,.35);
 }
 
+/* Phones: one title scale for every article, sized so the longest single words of all 15 languages
+   (nl "Functioneringsproblemen", de "Tastenkombinationen", tr "Otomatikleştirmeden", tl "Pinakamahuhusay")
+   stay whole at 320 px — no per-page or per-language caps needed. */
+@media (max-width: 480px) {
+    .article h1 { font-size: clamp(25px, 7.8vw, 31px); }
+    .article h2 { font-size: clamp(17.5px, 5.5vw, 25px); padding-inline-start: 22px; }
+    .article h2.part-title { font-size: clamp(21px, 6.9vw, 28px); padding: 0; }
+    .article h3 { font-size: clamp(16px, 4.6vw, 19px); -webkit-hyphens: auto; hyphens: auto; }
+}
+
+/* Inline code & keycaps. Always LTR and bidi-isolated (key sequences read left-to-right on /ar/ too);
+   a pill that wraps is closed on every line (box-decoration-break). */
 code, kbd {
     font-family: var(--font-mono); font-size: .86em;
     padding: 2px 7px; border-radius: 5px; color: var(--gold-100);
     background: rgba(20,18,12,.95); border: 1px solid var(--line-2);
+    direction: ltr; unicode-bidi: isolate; -webkit-box-decoration-break: clone; box-decoration-break: clone;
 }
-kbd { display: inline-block; min-width: 1.9em; text-align: center; line-height: 1.5; box-shadow: inset 0 -2px 0 rgba(212,175,55,.2); font-weight: 600; }
+/* Keycap: every <kbd>, and every <code> inside .keycaps (a translated line listing shortcuts) or .shortcut-list */
+kbd, :is(.keycaps, .shortcut-list) code {
+    display: inline-block; min-width: 1.9em; text-align: center; line-height: 1.5; font-weight: 600;
+    background: var(--surface-key); border-color: var(--line-3); border-radius: 7px;
+    box-shadow: inset 0 -2px 0 rgba(0,0,0,.45), inset 0 1px 0 rgba(245,230,184,.12), 0 3px 8px -4px rgba(0,0,0,.8);
+}
+.keycaps code { padding-inline: 10px; margin-inline-end: .2em; }
+/* Shortcut tiles: a list whose items each start with keycaps (interface page) */
+.article .shortcut-list {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 12px;
+    margin: 16px 0 26px; padding: 0;
+}
+.article .shortcut-list > li {
+    margin: 0; padding: 14px 18px; border-radius: 14px; border: 1px solid transparent;
+    background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box; box-shadow: var(--shadow-md);
+}
+.article .shortcut-list > li::before { display: none; }
+.shortcut-list code { display: inline-block; margin-inline-end: 4px; white-space: nowrap; }
+
+/* Meaningful list markers: ✓ granted (emerald, like .check) · ✕ never (dim, like .cross) · red lozenge = pitfalls.
+   A ✅/❌ that leads an item stays in the text, hidden with li.emoji-lead. */
+.article :is(.list-yes, .list-no, .list-warn) > li::before { box-shadow: none; }
+.article .list-yes > li::before {
+    top: .38em; inset-inline-start: 6px; width: 6px; height: 11px; background: none; border-radius: 0;
+    border: solid var(--emerald-300); border-width: 0 1.7px 1.7px 0; transform: rotate(45deg);
+}
+.article .list-no > li::before {
+    top: .62em; inset-inline-start: 3px; width: 10px; height: 10px; border-radius: 0; background:
+        linear-gradient(var(--text-dim), var(--text-dim)) center / 100% 1.6px no-repeat,
+        linear-gradient(var(--text-dim), var(--text-dim)) center / 1.6px 100% no-repeat;
+}
+.article .list-warn > li::before { background: var(--red-300); box-shadow: 0 0 0 3px rgba(255,107,107,.12); }
+/* A gold glyph as the bullet (third-party services): <li><svg class="inline-gl">…</svg><span>…</span></li> */
+.article .service-list > li { display: flex; align-items: flex-start; gap: 8px; padding-inline-start: 0; }
+.article .service-list > li::before { display: none; }
+.service-list .inline-gl { width: 18px; height: 18px; margin-top: .3em; color: var(--gold-200); }    /* 18 + 8 = the 26px text indent of every list */
+.service-list li > span { flex: 1; min-width: 0; }
 
 
 /* ── 13. Codex components ────────────────────────────────────────────────── */
@@ -817,6 +909,8 @@ kbd { display: inline-block; min-width: 1.9em; text-align: center; line-height: 
 }
 .table-scroll table { width: 100%; min-width: 560px; border-collapse: collapse; }
 .table-scroll .key-table { min-width: 460px; }
+/* Narrow tables fit a phone instead of scrolling: a yes/no comparison, and key → action pairs (.key-table--pair) */
+.table-scroll :is(.comparison-table, .key-table--pair) { min-width: 0; }
 /* Unwrapped tables still get the codex look (but cannot scroll — wrap them). */
 :is(.key-table, .comparison-table, .stats-table, .doc-table) {
     width: 100%; border-collapse: collapse; font-size: 14.5px;
@@ -839,24 +933,71 @@ kbd { display: inline-block; min-width: 1.9em; text-align: center; line-height: 
 :is(.table-scroll, .key-table, .comparison-table, .stats-table, .doc-table) tbody tr:hover td { background: rgba(212,175,55,.045); }
 :is(.stats-table, .key-table) td:first-child { white-space: nowrap; }
 .key-table td { vertical-align: middle; }
+.key-table--pair :is(th, td):first-child { width: 36%; }          /* every pair table shares one key column */
 .comparison-table :is(th, td):not(:first-child) { width: 7.5em; text-align: center; vertical-align: middle; }
+.comparison-table :is(.check, .cross) { font-size: 16px; }
+/* Pinned first column. The cells stay OPAQUE on zebra and hover rows too (the translucent row tints above
+   outrank a plain background-color, which let scrolled text show through): tint layered over --ink-3. */
 .table-scroll--sticky :is(th, td):first-child {
     position: sticky; inset-inline-start: 0; z-index: 1; background-color: var(--ink-3);
     box-shadow: inset -1px 0 0 var(--line-2);
 }
+.table-scroll--sticky th:first-child { background: linear-gradient(rgba(212,175,55,.08), rgba(212,175,55,.08)) var(--ink-3); }
+.table-scroll--sticky tbody tr:nth-child(even) td:first-child { background: linear-gradient(rgba(212,175,55,.02), rgba(212,175,55,.02)) var(--ink-3); }
+.table-scroll--sticky tbody tr:hover td:first-child { background: linear-gradient(rgba(212,175,55,.045), rgba(212,175,55,.045)) var(--ink-3); }
 [dir="rtl"] .table-scroll--sticky :is(th, td):first-child { box-shadow: inset 1px 0 0 var(--line-2); }
+/* Phones: tighter cells; key columns may wrap between keycaps; comparison checks shrink to their content */
+@media (max-width: 560px) {
+    .key-table :is(th, td) { padding-inline: 14px; }
+    .key-table td:first-child { white-space: normal; }
+    .key-table--pair :is(th, td):first-child { width: 40%; }
+    .comparison-table th { padding: 12px 10px; font-size: 11.5px; letter-spacing: 0; }
+    .comparison-table td { padding: 12px 10px; font-size: 14px; }
+    .comparison-table :is(th, td):first-child { padding-inline-start: 14px; }
+    .comparison-table td:first-child { -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 12 5 5; }   /* long compounds (de "Tastenkombinationen") */
+    .comparison-table :is(th, td):not(:first-child) { width: 1%; padding-inline: 8px; }
+}
+@media (max-width: 360px) {
+    .comparison-table th { font-size: 10.5px; }
+    .comparison-table td { font-size: 13px; }
+    .comparison-table :is(th, td):first-child { padding-inline: 12px 8px; }
+    .comparison-table :is(th, td):not(:first-child) { padding-inline: 6px; }
+}
 .article .check { color: var(--emerald-300); font-weight: 700; }
 .article .cross { color: var(--text-dim); }
 
-/* Callouts — one base, three tones. Every alias below shares the same frame:
-     gold (info):   .callout  .alert  .article .param
-     warning (red): .callout.warning  .callout--warning  .warning-box  .alert-warning  .faq-a .alert
-     success:       .callout--success  .success-box  .article .success  .article .example          */
-:is(.callout, .warning-box, .success-box), .article :is(.alert, .success, .example) {
+/* Callouts — one frame, three tones. Every alias below shares it:
+     gold (info):       .callout  .article .alert  .article .example
+     red (warning):     .callout.warning  .callout--warning  .warning-box  .alert-warning  .faq-a .alert
+     emerald (success): .callout--success  .success-box  .alert-success  .article .success
+   Tones only set custom properties (the default sits in a zero-specificity :where), so a tone class
+   always wins over the frame it is combined with (e.g. class="alert alert-success").              */
+:where(.callout, .warning-box, .success-box, .alert, .success, .example) {
     --callout-spine: linear-gradient(180deg, var(--gold-100), var(--gold) 50%, var(--gold-800));
     --callout-tint: rgba(212,175,55,.09);
     --callout-title: var(--gold-200);
-    position: relative; margin: 30px 0; padding: 22px 26px; padding-inline-start: 30px;
+    --callout-marker: var(--gold);
+    --callout-halo: rgba(212,175,55,.1);
+    --callout-gl: var(--gl-bulb);
+}
+:is(.callout.warning, .callout--warning, .warning-box, .alert-warning, .faq-a .alert) {
+    --callout-spine: linear-gradient(180deg, var(--red-300), var(--red));
+    --callout-tint: rgba(255,107,107,.08);
+    --callout-title: var(--red-300);
+    --callout-marker: var(--red-300);
+    --callout-halo: rgba(255,107,107,.12);
+    --callout-gl: var(--gl-alert);
+}
+:is(.callout--success, .success-box, .alert-success), .article .success {
+    --callout-spine: linear-gradient(180deg, var(--emerald-300), var(--emerald-600));
+    --callout-tint: rgba(76,175,80,.08);
+    --callout-title: var(--emerald-300);
+    --callout-marker: var(--emerald-300);
+    --callout-halo: rgba(76,175,80,.12);
+    --callout-gl: var(--gl-check);
+}
+:is(.callout, .warning-box, .success-box), .article :is(.alert, .success, .example) {
+    position: relative; margin: 32px 0; padding: 22px 26px; padding-inline-start: 30px;
     border-radius: 14px; border: 1px solid transparent; font-size: var(--fs-md); line-height: var(--lh-read); color: var(--text-soft);
     background:
         linear-gradient(135deg, var(--callout-tint), rgba(212,175,55,.02) 60%) padding-box,
@@ -867,23 +1008,44 @@ kbd { display: inline-block; min-width: 1.9em; text-align: center; line-height: 
     content: ''; position: absolute; inset-block: 14px; inset-inline-start: -1px; width: 3px; border-radius: 3px;
     background: var(--callout-spine);
 }
-:is(.callout.warning, .callout--warning, .warning-box), .article :is(.alert-warning, .faq-a .alert) {
-    --callout-spine: linear-gradient(180deg, var(--red-300), var(--red));
-    --callout-tint: rgba(255,107,107,.08);
-    --callout-title: var(--red-300);
+/* Title: the frame's first child when it is a <strong>, an <h3>/<h4> or .example-title — Cinzel in the tone's colour.
+   A <br> right after a <strong> title is hidden (the title is already its own line). */
+:is(.callout, .alert, .warning-box, .success-box, .success, .example) > :is(strong, h3, h4, .example-title):first-child {
+    display: block; margin: 0 0 8px; font-family: var(--font-display); font-size: 15px; font-weight: 700;
+    line-height: 1.5; letter-spacing: .02em; color: var(--callout-title); -webkit-hyphens: auto; hyphens: auto;
 }
-:is(.callout--success, .success-box), .article :is(.success, .example) {
-    --callout-spine: linear-gradient(180deg, var(--emerald-300), var(--emerald-600));
-    --callout-tint: rgba(76,175,80,.08);
-    --callout-title: var(--emerald-300);
+:is(.callout, .alert, .warning-box, .success-box, .success, .example) > strong:first-child + br { display: none; }
+@media (max-width: 360px) {   /* de "Rückerstattungsrichtlinie:" must fit beside the glyph at 320px */
+    :is(.callout, .alert, .warning-box, .success-box, .success, .example) > :is(strong, h3, h4, .example-title):first-child { font-size: 14px; letter-spacing: 0; }
 }
-:is(.callout, .alert) > strong:first-child { display: block; margin-bottom: 6px; font-family: var(--font-display); font-size: 15px; letter-spacing: .02em; color: var(--callout-title); }
-.alert > strong:first-child + br { display: none; }
+/* Title glyph — for a title that STARTS with an OS emoji (💡 ⚠️ ✅ 📌 📚 in every language), add .callout--gl to the
+   frame. The emoji stays in the text (screen readers, translations, verify.sh) and is hidden like .emoji-lead; a line
+   glyph in the tone's colour is drawn in its place: bulb (info), alert (warning), check (success) — or pick one with
+   .gl-bulb / .gl-alert / .gl-check / .gl-book / .gl-scales. Nothing inside the title changes, so it also works when the
+   whole frame is a data-i18n element and on long-tail articles (only a class on the frame is added). */
+.callout--gl > :first-child { position: relative; padding-inline-start: 27px; }
+.callout--gl > :first-child::before {
+    content: ''; position: absolute; inset-inline-start: 0; top: calc(.75em - 8.5px); width: 17px; height: 17px; pointer-events: none;
+    background: var(--callout-title);
+    -webkit-mask: var(--callout-gl) center / contain no-repeat; mask: var(--callout-gl) center / contain no-repeat;
+}
+.callout--gl > :first-child::first-letter { font-size: 0; color: transparent; float: left; letter-spacing: 0; }
+.callout--gl.gl-bulb { --callout-gl: var(--gl-bulb); }
+.callout--gl.gl-alert { --callout-gl: var(--gl-alert); }
+.callout--gl.gl-check { --callout-gl: var(--gl-check); }
+.callout--gl.gl-book { --callout-gl: var(--gl-book); }
+.callout--gl.gl-scales { --callout-gl: var(--gl-scales); }
+
 :is(.warning-box, .success-box, .success) strong { color: var(--callout-title); }
 .callout a, .article .alert a { color: var(--gold-200); text-underline-offset: 3px; }
 .article :is(.callout, .alert, .warning-box, .success-box, .success, .example) p { font-size: inherit; }
-.example-title { margin-bottom: 10px; font-weight: 600; color: var(--emerald-300); }
+.article :is(.callout, .alert, .warning-box, .success-box, .success, .example) ul > li::before { background: var(--callout-marker); box-shadow: 0 0 0 3px var(--callout-halo); }
 .article .example ul { margin-bottom: 12px; }
+/* Phones: frames give their width back to the text; a frame nested in a frame even more */
+@media (max-width: 480px) {
+    :is(.callout, .warning-box, .success-box), .article :is(.alert, .success, .example) { padding: 18px; padding-inline-start: 22px; }
+    .article :is(.section, .faq-a) :is(.callout, .alert, .example, .param) { padding: 16px; padding-inline-start: 20px; }
+}
 
 /* Codex cards (buffs, roles, generic entries) */
 .codex-card, .buff-card, .role-card {
@@ -905,9 +1067,10 @@ kbd { display: inline-block; min-width: 1.9em; text-align: center; line-height: 
 .buff-meta { font-size: var(--fs-label); font-weight: 600; letter-spacing: var(--track-md); text-transform: uppercase; color: var(--gold-300); margin-bottom: 10px; opacity: .85; }
 .article .buff-desc, .buff-desc { font-size: 14.5px; line-height: 1.65; color: var(--text-dim); margin: 0; }
 
+/* Role card — glyph well beside a heading, then text/list. minmax(0, 1fr): a long word never widens the column. */
 .role-card {
-    display: grid; grid-template-columns: auto 1fr; column-gap: 20px; align-items: start;
-    padding: 24px 26px 8px; margin: 18px 0;
+    display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 20px; align-items: start;
+    padding: 24px 26px; margin: 18px 0;
 }
 .role-card > :not(.role-icon) { grid-column: 2; }
 .role-icon {
@@ -916,13 +1079,17 @@ kbd { display: inline-block; min-width: 1.9em; text-align: center; line-height: 
     background: radial-gradient(circle at 50% 30%, rgba(212,175,55,.2), transparent 62%) padding-box, var(--surface-slot) padding-box, var(--gilt) border-box;
     box-shadow: inset 0 0 0 3px rgba(8,7,5,.92), inset 0 0 0 4px rgba(212,175,55,.3), 0 10px 22px -10px rgba(0,0,0,.95);
 }
-.article .role-card h3 { margin-bottom: 6px; }
+.article .role-card > h3 { margin: 0 0 6px; }
+.article .role-card > p { margin: 0 0 12px; }
+.article .role-card > :is(ul, ol) { margin: 10px 0 0; }
+.article .role-card > p + :is(ul, ol) { margin-top: 0; }
+.article .role-card > :is(ul, ol) > li:first-child { margin-top: 0; }
 @media (max-width: 640px) {
-    .role-card { column-gap: 14px; padding: 20px 20px 4px; }
+    .role-card { column-gap: 14px; padding: 20px; }
     .role-icon { grid-row: auto; width: 46px; height: 46px; font-size: 22px; border-radius: 12px; }
     .role-card > :not(.role-icon):not(h3) { grid-column: 1 / -1; }
-    .article .role-card h3 { align-self: center; margin-bottom: 0; }
-    .article .role-card p { margin-top: 14px; }
+    .article .role-card > h3 { align-self: center; margin-bottom: 0; }
+    .article .role-card > h3 + * { margin-top: 14px; }
 }
 
 /* CTA box — framed like a sealed page */
@@ -981,7 +1148,7 @@ kbd { display: inline-block; min-width: 1.9em; text-align: center; line-height: 
 }
 .toc-title { font-family: var(--font-display); font-size: 14px; font-weight: 700; letter-spacing: var(--track-md); text-transform: uppercase; color: var(--gold-200); margin-bottom: 10px; }
 .article .toc ol { margin: 0; padding-inline-start: 1.6em; }
-.article .toc li { margin: 4px 0; font-size: 15px; line-height: 1.5; }
+.article .toc li { margin-block: 0; padding-block: 2px; font-size: 15px; line-height: 1.5; }   /* padding, not margins: a column break truncates margins */
 .toc a, .article .toc a { display: inline-flex; align-items: center; min-height: 40px; padding-block: 4px; color: var(--text-soft); text-decoration: none; transition: color var(--dur-2); }
 .toc a:hover, .article .toc a:hover { color: var(--gold-100); }
 @media (min-width: 720px) { .article .toc ol { columns: 2; column-gap: 32px; } .article .toc li { break-inside: avoid; } }
@@ -1002,6 +1169,10 @@ kbd { display: inline-block; min-width: 1.9em; text-align: center; line-height: 
 .step-title { font-family: var(--font-body); font-size: 17.5px; font-weight: 600; line-height: 1.4; color: var(--gold-100); }
 .step-title + * { margin-top: 12px; }
 .article .step p:last-child { margin-bottom: 0; }
+/* .step is a grid, so its children's margins don't collapse: keep the body copy's paragraph → list rhythm */
+.article .step > p + :is(ul, ol) { margin-top: 0; }
+.article .step > :is(ul, ol) > li:first-child { margin-top: 0; }
+.article .step > :is(ul, ol) > li:last-child { margin-bottom: 0; }
 
 /* Related articles (end of long-tail articles) */
 .related { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 16px; margin: 48px 0 0; }
@@ -1014,6 +1185,32 @@ kbd { display: inline-block; min-width: 1.9em; text-align: center; line-height: 
 .related-card:hover { transform: translateY(-3px); }
 .related-tag { font-size: var(--fs-label); font-weight: 600; letter-spacing: var(--track-md); text-transform: uppercase; color: var(--gold-300); }
 .related-title { font-size: 15px; font-weight: 600; line-height: 1.45; color: var(--gold-100); }
+
+/* Entry cards — a whole-card link with a glyph well and a chevron (mirrored in RTL): docs hub chapters, quickstart
+   "next steps". The page places the title/description; the chevron and the well shrink away on small phones.
+       <a class="card entry-card gild-hover" href="…"><span class="skill-slot" aria-hidden="true">…</span><span …>Title</span></a> */
+.entry-card {
+    position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; column-gap: 20px;
+    padding: 20px 22px; border-radius: 16px; text-decoration: none; border: 1px solid transparent;
+    background: radial-gradient(90% 90% at 0% 0%, rgba(212,175,55,.06), transparent 60%) padding-box, var(--surface-1) padding-box, var(--gilt-edge-soft) border-box;
+    box-shadow: var(--shadow-md); transition: transform var(--dur-3) var(--ease-out);
+}
+.entry-card:hover { transform: translateY(-3px); }
+.entry-card::after {
+    content: ''; width: 9px; height: 9px; margin-inline: 4px 6px;
+    border-top: 1.5px solid var(--gold-300); border-right: 1.5px solid var(--gold-300);
+    transform: rotate(45deg); opacity: .55; transition: transform var(--dur-3) var(--ease-out), opacity var(--dur-3) var(--ease-out);
+}
+.entry-card:hover::after { opacity: 1; transform: translateX(3px) rotate(45deg); }
+[dir="rtl"] .entry-card::after { transform: rotate(-135deg); }
+[dir="rtl"] .entry-card:hover::after { transform: translateX(-3px) rotate(-135deg); }
+@media (max-width: 760px) { .entry-card { column-gap: 16px; padding: 18px; } }
+/* Small phones: drop the chevron (the whole card is the link) and tighten the well so titles never split mid-word */
+@media (max-width: 400px) {
+    .entry-card { grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; padding: 16px; }
+    .entry-card::after { display: none; }
+    .entry-card .skill-slot { width: 44px; height: 44px; }
+}
 
 /* Tool review cards (comparison articles) */
 .tool-card {
@@ -1033,6 +1230,21 @@ kbd { display: inline-block; min-width: 1.9em; text-align: center; line-height: 
 }
 .tool-tag.free { color: var(--emerald-300); background: rgba(76,175,80,.1); border-color: rgba(76,175,80,.32); }
 .tool-tag.paid { color: var(--on-gold); background: var(--gilt); border-color: transparent; }
+/* Optional card head: a decorative glyph well beside the rank line and the tags
+       <div class="tool-head"><span class="tool-icon skill-slot skill-slot--sm" aria-hidden="true">…</span><div class="tool-rank">…</div><div class="tool-meta">…</div></div> */
+.tool-head {
+    display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "icon rank" "icon meta";
+    align-items: center; column-gap: 18px; row-gap: 10px; margin-bottom: 22px;
+}
+.tool-head > .tool-icon { grid-area: icon; }
+.tool-head > .tool-rank { grid-area: rank; align-self: end; margin: 0; }
+.tool-head > .tool-meta { grid-area: meta; align-self: start; margin: 0; }
+.tool-card.featured .tool-icon { width: 56px; height: 56px; }
+@media (max-width: 520px) {
+    .tool-head { grid-template-areas: "icon rank" "meta meta"; column-gap: 14px; row-gap: 14px; }
+    .tool-head > .tool-rank { align-self: center; }
+    .tool-card.featured .tool-icon { width: 48px; height: 48px; }
+}
 
 /* Pros / cons pair */
 .pros-cons { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 20px 0; }
@@ -1052,6 +1264,15 @@ kbd { display: inline-block; min-width: 1.9em; text-align: center; line-height: 
 
 /* Colophon line at the end of an article */
 .article-end { margin-top: 56px; text-align: center; font-size: 14px; color: var(--text-dim); }
+
+
+/* Frames never add their last child's margin to their own padding (grid/flex children don't collapse margins, and
+   e.g. a callout's 32px margin used to survive as a .section's last child). Scoped to .article so it outranks the
+   frames' own margin shorthands (".article .alert" = 0,2,0). */
+.article :is(.callout, .alert, .warning-box, .success-box, .success, .example, .param, .section, .step, .faq, .faq-a,
+    .tool-card, .codex-card, .role-card, .buff-card, .legal-block, .contact-box, .toc, .pros, .cons) > :last-child { margin-bottom: 0; }
+.article :is(.callout, .alert, .warning-box, .success-box, .success, .example, .section, .step, .faq, .faq-a,
+    .tool-card, .codex-card, .role-card, .legal-block, .pros, .cons) > :is(ul, ol):last-child > li:last-child { margin-bottom: 0; }
 
 
 /* ── 14. Docs-page components ───────────────────────────────────────────────
@@ -1095,6 +1316,7 @@ kbd { display: inline-block; min-width: 1.9em; text-align: center; line-height: 
     box-shadow: var(--shadow-md);
 }
 .article .section > h2 { margin-top: 0; }
+@media (max-width: 480px) { .article .section { padding: 20px 16px; } }
 .article .section > code { display: block; margin: 8px 0 18px; padding: 12px 16px; line-height: 1.9; white-space: normal; }
 .article .param {
     position: relative; margin: 14px 0; padding: 14px 18px; padding-inline-start: 22px; border-radius: 12px;
@@ -1112,14 +1334,30 @@ kbd { display: inline-block; min-width: 1.9em; text-align: center; line-height: 
     border-radius: 12px; background: rgba(212,175,55,.06); border: 1px solid var(--line-2);
 }
 
-/* Troubleshooting — Q/A cards (the homepage FAQ accordion is a different component) */
+/* Q/A cards — troubleshooting, and the FAQ of long-tail articles (the homepage FAQ accordion is a different component).
+   The question is a heading (<h3 class="faq-q"> or a plain <h3> as first child) set like a UI label: Inter 600.
+   A question led by a gold glyph: <h3 class="faq-q"><svg class="inline-gl">…</svg><span class="emoji-lead" data-i18n>❓ …</span></h3>
+   — the answer then hangs under the question text from 600px. */
 .article .faq {
-    margin: 16px 0; padding: 22px 24px; border-radius: 16px; border: 1px solid transparent;
+    margin: 16px 0; padding: 22px 26px; border-radius: 16px; border: 1px solid transparent;
     background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box; box-shadow: var(--shadow-md);
 }
-.faq-q { margin-bottom: 10px; font-size: 17px; font-weight: 600; line-height: 1.45; color: var(--gold-100); }
+.faq-q, .article .faq > :is(h3, .faq-q):first-child {
+    margin: 0 0 10px; font-family: var(--font-body); font-size: 17px; font-weight: 600; line-height: 1.45;
+    letter-spacing: 0; color: var(--gold-100); text-wrap: pretty;
+}
+.faq-q:has(> .inline-gl) { display: flex; align-items: flex-start; gap: 12px; }
+.faq-q > .inline-gl { width: 20px; height: 20px; margin-top: .14em; color: var(--gold-300); }
+.faq-q > span { flex: 1; min-width: 0; text-wrap: pretty; }
 .faq-a { font-size: 15.5px; line-height: 1.75; color: var(--text-soft); }
 .faq-a .alert { margin: 4px 0 16px; font-size: 15px; }
+@media (min-width: 600px) { .faq-q:has(> .inline-gl) + .faq-a { padding-inline-start: 32px; } }
+@media (max-width: 480px) {
+    .article .faq { padding: 18px; }
+    .article .faq > :is(h3, .faq-q):first-child { font-size: 16px; }
+    .faq-q:has(> .inline-gl) { gap: 10px; }
+    .faq-q > .inline-gl { width: 18px; height: 18px; }
+}
 
 /* Legal & privacy */
 .legal-block {
@@ -1135,6 +1373,8 @@ kbd { display: inline-block; min-width: 1.9em; text-align: center; line-height: 
     transition: color var(--dur-2), border-color var(--dur-2), background-color var(--dur-2);
 }
 .section-nav a:hover, .article .section-nav a:hover { color: var(--gold-100); border-color: var(--line-3); background: rgba(212,175,55,.1); }
+.section-nav .inline-gl { width: 15px; height: 15px; color: var(--gold-300); }     /* a pill led by its part's glyph */
+.section-nav a:hover .inline-gl { color: var(--gold-100); }
 .page-separator { display: flex; align-items: center; gap: 16px; margin: clamp(56px, 8vw, 88px) 0 clamp(32px, 5vw, 48px); }
 .page-separator::before, .page-separator::after { content: ''; flex: 1; height: 1px; }
 .page-separator::before { background: linear-gradient(var(--to-end), transparent, var(--line-3)); }
@@ -1145,9 +1385,42 @@ kbd { display: inline-block; min-width: 1.9em; text-align: center; line-height: 
     background: radial-gradient(90% 80% at 50% 0%, rgba(212,175,55,.1), transparent 70%) padding-box, var(--surface-raised) padding-box, var(--gilt-edge) border-box;
 }
 .contact-box a { color: var(--gold-200); }
+@media (max-width: 480px) {
+    .legal-block { padding: 20px 16px; }
+    .contact-box { padding: 22px 16px; }
+}
 
-/* 404 — add class="error-page" to its wrapper and btn classes to its two links */
-.error-page { position: relative; z-index: 1; display: grid; justify-items: center; gap: 0; max-width: 620px; margin-inline: auto; padding: clamp(48px, 10vh, 120px) var(--gutter); text-align: center; }
+/* Contact chips — one per contact route (e-mail, Discord), 44px tall, gilt outline. The chip is either the link itself
+   (<a class="contact-chip">) or holds one (<p class="contact-chip">…<a>…</a></p>, stretched over the whole chip).
+   The address never splits at its hyphen; chips stack full width on phones. */
+.contact-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.contact-box .contact-links { justify-content: center; margin-top: 18px; }
+.contact-chip, .article .contact-chip {
+    position: relative; display: inline-flex; align-items: center; gap: 10px; max-width: 100%; min-height: 44px; margin: 0; padding: 8px 16px;
+    border-radius: 12px; font-size: 15px; font-weight: 600; line-height: 1.35; color: var(--text-soft); text-decoration: none;
+    background: rgba(212,175,55,.05); border: 1px solid var(--line-2);
+    transition: background-color var(--dur-2) var(--ease-out), border-color var(--dur-2) var(--ease-out);
+}
+a.contact-chip:hover, .contact-chip:has(a):hover { background: rgba(212,175,55,.11); border-color: var(--line-3); }
+.contact-chip > svg { flex-shrink: 0; width: 16px; height: 16px; color: var(--gold-200); }
+.contact-chip > span { min-width: 0; text-align: start; }
+a.contact-chip > span, .contact-chip a { white-space: nowrap; }
+.contact-chip .emoji-lead { display: inline-block; }
+.contact-chip a::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
+.article .contact-chip a { text-decoration: none; }
+@media (max-width: 480px) {
+    .contact-links { flex-direction: column; align-items: stretch; }
+    .contact-chip, .article .contact-chip { justify-content: flex-start; font-size: 14px; padding-inline: 12px; }
+}
+@media (max-width: 339px) { .contact-chip, .article .contact-chip { gap: 8px; padding-inline: 10px; font-size: 13.5px; } }
+
+/* 404 — add class="error-page" to its wrapper, "divider ornament" to its rule and btn classes to its two links.
+   The message sits centred in the screen below the sticky header; both actions share one width. */
+.error-page {
+    position: relative; z-index: 1; display: grid; justify-items: center; align-content: center; gap: 0; max-width: 620px;
+    min-height: calc(100vh - var(--header-h)); min-height: calc(100svh - var(--header-h));
+    margin-inline: auto; padding: clamp(48px, 10vh, 120px) var(--gutter); text-align: center;
+}
 .error-page .code {
     font-family: var(--font-display); font-size: clamp(88px, 20vw, 168px); font-weight: 900; line-height: 1; margin-bottom: 8px;
     background: var(--gilt-text); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
@@ -1157,6 +1430,7 @@ kbd { display: inline-block; min-width: 1.9em; text-align: center; line-height: 
 .error-page .divider { width: min(220px, 60%); height: 10px; margin: 0 auto 26px; background: linear-gradient(90deg, transparent, var(--line-3) 30%, var(--gold-200) 50%, var(--line-3) 70%, transparent) center / 100% 1px no-repeat; }
 .error-page p { max-width: 480px; margin: 0 auto 34px; font-size: 16px; line-height: 1.8; color: var(--text-soft); }
 .error-page .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+.error-page .actions .btn { min-width: 12rem; }
 
 
 /* ── 15. Utilities & motion ──────────────────────────────────────────────── */

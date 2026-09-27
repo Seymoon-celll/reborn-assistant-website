@@ -32,7 +32,7 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- ── hreflang ────────────────────────────────────────────── -->
     <!-- ── hreflang ──────────────────────────────────── -->
@@ -54,39 +54,7 @@
     <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html">
     <!-- ── /hreflang ── -->
 
-    <link rel="stylesheet" href="/assets/css/site.css?v=2">
-    <style>
-        /* ═══ Long-tail article — page-specific tweaks (codex components: /assets/css/site.css) ═══ */
-        .article-head .breadcrumb { margin-bottom: 20px; }
-        .article .callout { margin-block: 34px; }
-
-        /* Callout titles begin with an OS emoji in every language (💡 / ⚠️): the emoji stays in the text,
-           hidden by .emoji-lead, and a line glyph in the callout's own tone sits beside it (§6a′). */
-        .article .callout > .inline-gl:first-child {
-            float: inline-start; width: 17px; height: 17px; margin-block-start: 5px; margin-inline-end: 10px;
-            color: var(--callout-title); fill: currentColor; fill-opacity: .14;
-        }
-        .article .callout > .inline-gl:first-child + strong {
-            display: block; margin-bottom: 6px;
-            font-family: var(--font-display); font-size: 15px; letter-spacing: .02em; color: var(--callout-title);
-        }
-
-        /* .step is a grid, so its children's margins don't collapse: keep the body copy's paragraph → list rhythm */
-        .article .step > p + :is(ul, ol) { margin-top: 0; }
-        .article .step > :is(ul, ol) > li:first-child { margin-top: 0; }
-        .article .step > :is(ul, ol) > li:last-child { margin-bottom: 0; }
-
-        /* Contents: rows spaced with padding (a column break truncates margins) so both columns line up */
-        .article .toc li { margin-block: 0; padding-block: 2px; }
-
-        /* Key sequences read left-to-right on RTL pages too, and a pill that wraps is closed on every line */
-        .article code { direction: ltr; unicode-bidi: isolate; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-
-        /* Turkish compounds ("Otomatikleştirmeden", 19 letters) are wider than a 320 px phone at the display sizes:
-           cap those headings by the viewport so every word stays whole instead of splitting mid-word */
-        :lang(tr) .article h2 { font-size: min(var(--fs-2xl), 6.7vw); }
-        @media (max-width: 344px) { :lang(tr) .article h1 { font-size: 9vw; } }
-    </style>
+    <link rel="stylesheet" href="/assets/css/site.css?v=3">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
 
@@ -147,8 +115,7 @@
 </head>
 <body>
     <svg class="glyph-sprite" aria-hidden="true" focusable="false">
-        <symbol id="g-bulb" viewBox="0 0 24 24"><path d="M9.3 16.6v-1.2c0-1.1-.5-1.9-1.3-2.7a6 6 0 1 1 8 0c-.8.8-1.3 1.6-1.3 2.7v1.2z"/><path fill="none" d="M9.6 19.2h4.8M10.6 21.6h2.8M10.4 11.6l1.6 1.4 1.6-1.4M12 13v3.6"/></symbol>
-        <symbol id="g-alert" viewBox="0 0 24 24"><path d="M10.4 4.3a1.85 1.85 0 0 1 3.2 0l7.6 13.4a1.85 1.85 0 0 1-1.6 2.8H4.4a1.85 1.85 0 0 1-1.6-2.8z"/><path fill="none" d="M12 9.3v4.8"/><circle cx="12" cy="17.1" r=".4"/></symbol>
+        <symbol id="g-gear" viewBox="0 0 24 24"><path d="M9.9 5.2l.3-2.3h3.6l.3 2.3 1.2.5 1.8-1.5 2.6 2.6-1.5 1.8.5 1.2 2.3.3v3.7l-2.3.2-.5 1.2 1.5 1.8-2.6 2.6-1.8-1.5-1.2.5-.3 2.3h-3.6l-.3-2.3-1.2-.5-1.8 1.5-2.6-2.6 1.5-1.8-.5-1.2-2.3-.3v-3.6l2.3-.3.5-1.2-1.5-1.8 2.6-2.6 1.8 1.5z"/><circle cx="12" cy="12" r="3"/></symbol>
     </svg>
     <!-- ═══ Header ═══ -->
     <header class="site-header">
@@ -168,7 +135,7 @@
             <div class="breadcrumb" style="margin-top:24px;">
                 <a href="../index.html">Início</a> › <a href="/pt/docs/index.html">Documentação</a> › Automatizar seu Ringmaster
             </div>
-
+            <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-gear"/></svg></div>
             <h1>Automatizar seu Ringmaster no Flyff Universe — Guia completo 2026</h1>
             <p class="subtitle">Buffs, sequências, AOE heal, gestão de HP/FP: o tutorial passo a passo para transformar seu Ringmaster em pilar do grupo sem deixar a mão lá.</p>
             <div class="ornament" aria-hidden="true"></div>
@@ -192,9 +159,8 @@
         <p>O Ringmaster (frequentemente abreviado como <strong>RM</strong>) é a classe de suporte emblemática do Flyff Universe. Seu papel é claro: manter o grupo vivo através de buffs (Heart of Power, Beef Up, Mental Sign…) que duram entre 5 e 30 minutos conforme o nível, e curar os danos com Heal Rain em AOE. No papel, parece simples. Na prática, é uma das classes mais cansativas em farm prolongado: você passa 80% do tempo <strong>rebufando a cada 5 minutos</strong>, <strong>relançando Heal Rain a cada 10-15 segundos</strong> e <strong>ficando de olho nas barras de FP</strong> de cada membro do grupo.</p>
         <p>A automação não substitui seu julgamento. Ela alivia seu teclado das rotinas mecânicas: a sequência completa de rebuff, o heal periódico, o uso de poções de FP. Você mantém as mãos livres para os <strong>momentos que realmente importam</strong>: um wipe iminente, uma wave que descontrola, um boss que mira o RM primeiro.</p>
 
-        <div class="callout">
-            <svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-bulb"/></svg>
-            <strong class="emoji-lead">💡 Caso de uso típico</strong>
+        <div class="callout callout--gl">
+            <strong>💡 Caso de uso típico</strong>
             Você inicia uma sessão de farm de 4 horas em Glaphan ou Asteria. Sem automação: 240 minutos ÷ 5 minutos = 48 ciclos de rebuff manual. Com o Reborn Assistant configurado: 1 ciclo, o resto roda em segundo plano. Você só retoma o controle se a composição mudar ou se um membro morrer.
         </div>
 
@@ -273,9 +239,8 @@
             <p>Ajuste o intervalo da seção SOIN para a duração típica do seu Heal Rain (geralmente 12 a 15 segundos). Acione o toggle <strong>ON</strong>. A extensão disparará sua tecla a cada X segundos, em paralelo com a rotação de buffs e os demais sistemas.</p>
         </div>
 
-        <div class="callout warning">
-            <svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-alert"/></svg>
-            <strong class="emoji-lead">⚠️ Atenção ao posicionamento</strong>
+        <div class="callout warning callout--gl">
+            <strong>⚠️ Atenção ao posicionamento</strong>
             Heal Rain é um AOE centrado em você. Se você se move constantemente (kite ou reposicionamento), Heal Rain não cobrirá seu grupo. Fique estático ou defina um ponto de encontro fixo para seus aliados.
         </div>
 

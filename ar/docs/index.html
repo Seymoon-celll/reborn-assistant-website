@@ -31,8 +31,8 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/site.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css?v=3">
     <style>
         /* ═══ Docs hub — page-specific layout (tokens & components: /assets/css/site.css) ═══ */
         body { counter-reset: chapter; }
@@ -73,27 +73,13 @@
         }
         .doc-category::after { content: ''; flex: 1; min-width: 0; height: 1px; background: linear-gradient(var(--to-end), var(--line-3), transparent); }
 
-        /* Entry cards */
+        /* Entry cards (site.css .entry-card: frame, chevron, hover) — title above its description, well spanning both */
         .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-        .card {
-            position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 20px; align-items: center;
-            min-height: 112px; padding: 20px 22px; border-radius: 16px; text-decoration: none; border: 1px solid transparent;
-            background: radial-gradient(90% 90% at 0% 0%, rgba(212,175,55,.06), transparent 60%) padding-box, var(--surface-1) padding-box, var(--gilt-edge-soft) border-box;
-            box-shadow: var(--shadow-md);
-            transition: transform var(--dur-3) var(--ease-out);
-        }
-        .card:hover { transform: translateY(-3px); }
+        .card { min-height: 112px; }
         .card-icon { grid-row: 1 / span 2; }
         .card-title { grid-column: 2; align-self: end; margin-bottom: 4px; font-family: var(--font-display); font-size: 17px; font-weight: 700; line-height: 1.35; color: var(--gold-200); }
         .card-desc { grid-column: 2; align-self: start; font-size: 14px; line-height: 1.6; color: var(--text-dim); }
-        .card::after {                  /* chevron, mirrored in RTL */
-            content: ''; grid-column: 3; grid-row: 1 / span 2; width: 9px; height: 9px; margin-inline: 4px 6px;
-            border-top: 1.5px solid var(--gold-300); border-right: 1.5px solid var(--gold-300);
-            transform: rotate(45deg); opacity: .55; transition: transform var(--dur-3) var(--ease-out), opacity var(--dur-3) var(--ease-out);
-        }
-        .card:hover::after { opacity: 1; transform: translateX(3px) rotate(45deg); }
-        [dir="rtl"] .card::after { transform: rotate(-135deg); }
-        [dir="rtl"] .card:hover::after { transform: translateX(-3px) rotate(-135deg); }
+        .card::after { grid-column: 3; grid-row: 1 / span 2; }
         .card-title .premium-badge { margin-inline-start: 8px; vertical-align: 2px; }
         .codex-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
         .codex-row .grid { grid-template-columns: minmax(0, 1fr); }
@@ -102,17 +88,9 @@
         @media (max-width: 900px) {
             .grid, .codex-row { grid-template-columns: minmax(0, 1fr); }
         }
-        @media (max-width: 760px) {
-            .card { column-gap: 16px; padding: 18px; min-height: 0; }
-            .card .skill-slot { width: 52px; height: 52px; font-size: 22px; }
-        }
-        /* Small phones: drop the chevron (the whole card is the link) and tighten the well so titles never split mid-word */
-        @media (max-width: 400px) {
-            .card { grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; padding: 16px; }
-            .card::after { display: none; }
-            .card .skill-slot { width: 44px; height: 44px; }
-            .card-title { font-size: 15.5px; }
-        }
+        @media (max-width: 760px) { .card { min-height: 0; } }
+        @media (max-width: 760px) and (min-width: 401px) { .card .skill-slot { width: 52px; height: 52px; } }
+        @media (max-width: 400px) { .card-title { font-size: 15.5px; } }   /* site.css drops the chevron and shrinks the well */
         @media (prefers-reduced-motion: no-preference) {
             .docs-sigil svg { animation: spin 240s linear infinite; will-change: transform; }
         }
@@ -262,25 +240,25 @@
         <section class="codex-chapter">
             <h2 class="doc-category" data-i18n="docsHome.userGuide">دليل المستخدم</h2>
             <div class="grid grid-section">
-                <a href="/ar/docs/quickstart.html" class="card gild-hover">
+                <a href="/ar/docs/quickstart.html" class="card entry-card gild-hover">
                     <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-rocket"/></svg><span class="slot-src" aria-hidden="true">🚀</span></div>
                     <h3 class="card-title" data-i18n="docsHome.quickstartTitle">البداية السريعة</h3>
                     <div class="card-desc" data-i18n="docsHome.quickstartDesc">التثبيت والإعداد الأولي والخطوات الأولى مع Reborn Assistant.</div>
                 </a>
 
-                <a href="/ar/docs/features.html" class="card gild-hover">
+                <a href="/ar/docs/features.html" class="card entry-card gild-hover">
                     <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-bolt"/></svg><span class="slot-src" aria-hidden="true">⚡</span></div>
                     <h3 class="card-title" data-i18n="docsHome.featuresTitle">الميزات</h3>
                     <div class="card-desc" data-i18n="docsHome.featuresDesc">تفاصيل كاملة للميزات المجانية وميزات Premium مع جدول مقارنة.</div>
                 </a>
 
-                <a href="/ar/docs/premium.html" class="card gild-hover">
+                <a href="/ar/docs/premium.html" class="card entry-card gild-hover">
                     <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-gem"/></svg><span class="slot-src" aria-hidden="true">💎</span></div>
                     <h3 class="card-title"><span data-i18n="docsHome.premiumTitle">دليل Premium</span> <span class="premium-badge">PREMIUM</span></h3>
                     <div class="card-desc" data-i18n="docsHome.premiumDesc">التسلسلات التلقائية والماكرو القابل للتخصيص والماكرو الدوري.</div>
                 </a>
 
-                <a href="/ar/docs/interface.html" class="card gild-hover">
+                <a href="/ar/docs/interface.html" class="card entry-card gild-hover">
                     <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-palette"/></svg><span class="slot-src" aria-hidden="true">🎨</span></div>
                     <h3 class="card-title" data-i18n="docsHome.interfaceTitle">الواجهة والتخصيص</h3>
                     <div class="card-desc" data-i18n="docsHome.interfaceDesc">السمات البصرية واللغات وخيارات التخصيص.</div>
@@ -292,22 +270,22 @@
         <section class="codex-chapter">
             <h2 class="doc-category" data-i18n="docsHome.articles">Articles &amp; Guides Flyff Universe</h2>
             <div class="grid grid-section">
-                <a href="/ar/docs/atmatat-ringmaster-flyff-universe.html" class="card gild-hover" data-bonus-fr="/docs/automatiser-ringmaster-flyff-universe.html" data-bonus-en="/en/docs/automate-ringmaster-flyff-universe.html">
+                <a href="/ar/docs/atmatat-ringmaster-flyff-universe.html" class="card entry-card gild-hover" data-bonus-fr="/docs/automatiser-ringmaster-flyff-universe.html" data-bonus-en="/en/docs/automate-ringmaster-flyff-universe.html">
                     <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-gear"/></svg><span class="slot-src" aria-hidden="true">⚙️</span></div>
                     <h3 class="card-title" data-i18n="docsHome.articleAutomateTitle">Automatiser son Ringmaster</h3>
                     <div class="card-desc" data-i18n="docsHome.articleAutomateDesc">Tutoriel pas à pas pour automatiser votre Ringmaster sur Flyff Universe avec Reborn Assistant.</div>
                 </a>
-                <a href="/ar/docs/afdal-adawat-flyff-universe-2026.html" class="card gild-hover" data-bonus-fr="/docs/meilleurs-outils-flyff-universe-2026.html" data-bonus-en="/en/docs/best-flyff-universe-tools-2026.html">
+                <a href="/ar/docs/afdal-adawat-flyff-universe-2026.html" class="card entry-card gild-hover" data-bonus-fr="/docs/meilleurs-outils-flyff-universe-2026.html" data-bonus-en="/en/docs/best-flyff-universe-tools-2026.html">
                     <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-trophy"/></svg><span class="slot-src" aria-hidden="true">🔧</span></div>
                     <h3 class="card-title" data-i18n="docsHome.articleToolsTitle">Meilleurs outils Flyff Universe 2026</h3>
                     <div class="card-desc" data-i18n="docsHome.articleToolsDesc">Comparatif des extensions, traducteurs et calculateurs testés pour Flyff Universe.</div>
                 </a>
-                <a href="/ar/docs/dalil-ringmaster-flyff-universe.html" class="card gild-hover" data-bonus-fr="/docs/guide-ringmaster-flyff-universe.html" data-bonus-en="/en/docs/flyff-universe-ringmaster-class-guide.html">
+                <a href="/ar/docs/dalil-ringmaster-flyff-universe.html" class="card entry-card gild-hover" data-bonus-fr="/docs/guide-ringmaster-flyff-universe.html" data-bonus-en="/en/docs/flyff-universe-ringmaster-class-guide.html">
                     <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-target"/></svg><span class="slot-src" aria-hidden="true">🎯</span></div>
                     <h3 class="card-title" data-i18n="docsHome.articleGuideTitle">Guide complet du Ringmaster</h3>
                     <div class="card-desc" data-i18n="docsHome.articleGuideDesc">Rôle, buffs, builds STA/INT, équipement : tout sur la classe support Flyff Universe.</div>
                 </a>
-                <a href="/docs/raccourcis-clavier-flyff-universe.html" class="card gild-hover" data-bonus-fr="/docs/raccourcis-clavier-flyff-universe.html" data-bonus-en="/en/docs/flyff-universe-keyboard-shortcuts.html">
+                <a href="/docs/raccourcis-clavier-flyff-universe.html" class="card entry-card gild-hover" data-bonus-fr="/docs/raccourcis-clavier-flyff-universe.html" data-bonus-en="/en/docs/flyff-universe-keyboard-shortcuts.html">
                     <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-keyboard"/></svg><span class="slot-src" aria-hidden="true">⌨️</span></div>
                     <h3 class="card-title" data-i18n="docsHome.articleShortcutsTitle">Raccourcis clavier Flyff Universe</h3>
                     <div class="card-desc" data-i18n="docsHome.articleShortcutsDesc">Liste complète des raccourcis Flyff Universe et configuration recommandée par classe.</div>
@@ -320,7 +298,7 @@
             <section class="codex-chapter">
                 <h2 class="doc-category" data-i18n="docsHome.support">الدعم</h2>
                 <div class="grid grid-section">
-                    <a href="/ar/docs/troubleshooting.html" class="card gild-hover">
+                    <a href="/ar/docs/troubleshooting.html" class="card entry-card gild-hover">
                         <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-wrench"/></svg><span class="slot-src" aria-hidden="true">🔧</span></div>
                         <h3 class="card-title" data-i18n="docsHome.troubleshootingTitle">استكشاف الأخطاء</h3>
                         <div class="card-desc" data-i18n="docsHome.troubleshootingDesc">حلول للمشكلات الشائعة والأسئلة الشائعة وتحسين الأداء.</div>
@@ -331,7 +309,7 @@
             <section class="codex-chapter">
                 <h2 class="doc-category" data-i18n="docsHome.legal">المعلومات القانونية</h2>
                 <div class="grid grid-section">
-                    <a href="/ar/docs/privacy.html" class="card gild-hover">
+                    <a href="/ar/docs/privacy.html" class="card entry-card gild-hover">
                         <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-scales"/></svg><span class="slot-src" aria-hidden="true">⚖️🔒</span></div>
                         <h3 class="card-title" data-i18n="docsHome.legalTitle">القانوني والخصوصية</h3>
                         <div class="card-desc" data-i18n="docsHome.legalDesc">إخلاء المسؤولية والإشعارات القانونية وشروط الترخيص وسياسة الخصوصية وسجل التغييرات.</div>

@@ -32,55 +32,14 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- ── hreflang ────────────────────────────────────────────── -->
     <link rel="alternate" hreflang="fr" href="https://reborn-assistance.fr/docs/raccourcis-clavier-flyff-universe.html">
     <link rel="alternate" hreflang="en" href="https://reborn-assistance.fr/en/docs/flyff-universe-keyboard-shortcuts.html">
     <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/raccourcis-clavier-flyff-universe.html">
 
-    <link rel="stylesheet" href="/assets/css/site.css?v=2">
-    <style>
-        /* ═══ Long-tail article — page-specific tweaks (codex components: /assets/css/site.css) ═══ */
-        .article-head .breadcrumb { margin-bottom: 20px; }
-        .article .callout { margin-block: 34px; }
-
-        /* Callout titles start with an OS emoji ("💡 …", "📚 …"). Their markup stays byte-identical: the emoji is hidden
-           visually (screen readers still read it, as .emoji-lead does) and a gold line glyph in the callout's tone
-           is drawn beside the title by the callout itself (§6a′, without touching the phrase). */
-        .article .callout--gl > strong:first-child { padding-inline-start: 27px; }
-        .article .callout--gl > strong:first-child::first-letter { font-size: 0; color: transparent; float: left; }
-        .article .callout--gl::after {
-            content: ''; position: absolute; top: 27px; inset-inline-start: 30px; width: 17px; height: 17px; pointer-events: none;
-            background: var(--callout-title);
-            -webkit-mask: var(--callout-gl) center / contain no-repeat; mask: var(--callout-gl) center / contain no-repeat;
-        }
-        .callout--bulb { --callout-gl: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' fill-opacity='.16' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9.3 16.6v-1.2c0-1.1-.5-1.9-1.3-2.7a6 6 0 1 1 8 0c-.8.8-1.3 1.6-1.3 2.7v1.2z'/%3E%3Cpath fill='none' d='M9.6 19.2h4.8M10.6 21.6h2.8M10.4 11.6l1.6 1.4 1.6-1.4M12 13v3.6'/%3E%3C/svg%3E"); }
-        .callout--book { --callout-gl: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' fill-opacity='.16' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 6.6C10.2 5.2 7.7 4.5 3.5 4.5v13.2c4.2 0 6.7.7 8.5 2.1 1.8-1.4 4.3-2.1 8.5-2.1V4.5c-4.2 0-6.7.7-8.5 2.1z'/%3E%3Cpath fill='none' d='M12 6.6v13.2'/%3E%3C/svg%3E"); }
-
-        /* Key tables — every one pins its key column (the same keycap rail in all four). The key/action pairs share
-           one key-column width and fit a phone instead of scrolling; the three-column combat table scrolls there. */
-        .article .key-table--pair :is(th, td):first-child { width: 36%; }
-        .table-scroll .key-table--pair { min-width: 0; }
-        /* site.css paints zebra and hover rows with a translucent `background` that outranks the pinned cell's opaque
-           fill: keep pinned cells opaque (scrolled text must not show through them) and keep the header tint */
-        .table-scroll--sticky th:first-child { background: linear-gradient(rgba(212,175,55,.08), rgba(212,175,55,.08)) var(--ink-3); }
-        .table-scroll--sticky tbody tr:nth-child(even) td:first-child { background: linear-gradient(rgba(212,175,55,.02), rgba(212,175,55,.02)) var(--ink-3); }
-        .table-scroll--sticky tbody tr:hover td:first-child { background: linear-gradient(rgba(212,175,55,.045), rgba(212,175,55,.045)) var(--ink-3); }
-        @media (max-width: 560px) {
-            .article .key-table :is(th, td) { padding-inline: 14px; }
-            .article .key-table td:first-child { white-space: normal; }        /* keys wrap between keycaps, never inside the text column */
-            .article .key-table--pair :is(th, td):first-child { width: 40%; }
-        }
-
-        /* Per-class setups — role cards, as in the class guide (heading + intro beside the glyph well, list below) */
-        .article .role-card > h3 { margin-top: 0; }
-        .article .role-card > p { margin-bottom: 12px; }
-        .article .role-card > ul { margin: 0 0 16px; }
-        .article .role-card > ul > li:first-child { margin-top: 0; }
-        .article .role-card > ul > li:last-child { margin-bottom: 0; }
-        @media (max-width: 640px) { .article .role-card > h3 + ul { margin-top: 14px; } }
-    </style>
+    <link rel="stylesheet" href="/assets/css/site.css?v=3">
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="apple-touch-icon" href="../favicon.svg">
 
@@ -115,6 +74,7 @@
 </head>
 <body>
     <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-keyboard" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2.2"/><path d="M6 9.6h1.2M9.4 9.6h1.2M12.8 9.6h1.2M16.2 9.6h1.8M6 12.4h1.8M10 12.4h1.2M13.4 12.4h1.2M16.8 12.4h1.2M8 15h8"/></symbol>
         <symbol id="g-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 10c0 5.65-7 10-7 10z"/></symbol>
         <symbol id="g-swords" viewBox="0 0 24 24"><path fill="none" d="M4 4l10.6 10.6M20 4L9.4 14.6M12.4 16.8l4.4-4.4M7.2 12.4l4.4 4.4M14.6 14.6l3.8 3.8M9.4 14.6l-3.8 3.8"/><circle cx="19.3" cy="19.3" r="1.2"/><circle cx="4.7" cy="19.3" r="1.2"/></symbol>
         <symbol id="g-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4L12 3z"/></symbol>
@@ -138,7 +98,7 @@
             <div class="breadcrumb" style="margin-top:24px;">
                 <a href="../index.html">Accueil</a> › <a href="index.html">Documentation</a> › Raccourcis clavier Flyff Universe
             </div>
-
+            <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-keyboard"/></svg></div>
             <h1>Raccourcis Clavier Flyff Universe — Liste Complète 2026</h1>
             <p class="subtitle">Toutes les touches du jeu rassemblées dans une seule référence. Combat, buffs, inventaire, chat, navigation : la configuration que tout joueur devrait connaître par cœur avant d'attaquer le end-game.</p>
             <div class="ornament" aria-hidden="true"></div>
@@ -148,7 +108,7 @@
         <p>Sur Flyff Universe, un joueur qui utilise la souris pour <em>toutes</em> ses actions perd en moyenne <strong>30 à 40% de son DPS</strong> par rapport à un joueur qui maîtrise ses raccourcis clavier. La raison est mathématique : un clic prend 250-400 ms (déplacement + précision), une touche prend 80-120 ms. Sur un combat de 5 minutes contre un boss qui demande 200 actions, cette différence devient un wipe ou une victoire.</p>
         <p>Ce guide rassemble <strong>les raccourcis par défaut</strong>, les <strong>raccourcis configurables</strong>, et la <strong>configuration recommandée par classe</strong>. Tout ce qu'il faut savoir pour ne plus jamais ouvrir un menu à la souris en plein combat.</p>
 
-        <div class="callout callout--gl callout--bulb">
+        <div class="callout callout--gl">
             <strong>💡 AZERTY vs QWERTY</strong>
             Flyff Universe respecte le layout de votre clavier physique. Sur un AZERTY français, <kbd>A</kbd> et <kbd>Q</kbd> sont inversés par rapport à un QWERTY. Si vous utilisez un assistant comme Reborn Assistant, pensez à régler la disposition dans les Réglages — sinon vos macros déclencheront les mauvaises touches.
         </div>
@@ -284,7 +244,7 @@
         <p>Une fois que vos raccourcis sont en place, l'étape suivante consiste à <strong>automatiser les répétitions mécaniques</strong>. C'est exactement ce que fait <a href="../index.html">Reborn Assistant</a> : votre rotation de buffs F2 → 1-9 → F1 peut tourner en boucle sans que vous touchiez le clavier, votre Heal Rain peut se déclencher toutes les 15 secondes sur la touche que vous voulez, et jusqu'à 3 macros indépendantes peuvent tourner en parallèle.</p>
         <p>Le gain réel : pendant que l'extension gère le mécanique, <strong>vous gardez les mains sur les touches de cible/heal d'urgence</strong> — là où votre attention humaine fait la différence.</p>
 
-        <div class="callout callout--gl callout--book">
+        <div class="callout callout--gl gl-book">
             <strong>📚 Pour aller plus loin</strong>
             Consultez notre <a href="automatiser-ringmaster-flyff-universe.html" style="color:var(--gold);">tutoriel pas à pas pour automatiser votre Ringmaster</a> ou le <a href="guide-ringmaster-flyff-universe.html" style="color:var(--gold);">guide complet de la classe Ringmaster</a> pour la rotation optimale.
         </div>

@@ -32,7 +32,7 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- ── hreflang ────────────────────────────────────────────── -->
     <!-- ── hreflang ──────────────────────────────────── -->
@@ -54,13 +54,7 @@
     <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html">
     <!-- ── /hreflang ── -->
 
-    <link rel="stylesheet" href="/assets/css/site.css?v=2">
-    <style>
-        /* ═══ Long-tail article — page-specific tweaks (codex components: /assets/css/site.css) ═══ */
-        .article-head .breadcrumb { margin-bottom: 20px; }
-        .article .role-card p { margin-bottom: 16px; }
-        .article .callout { margin-block: 34px; }
-    </style>
+    <link rel="stylesheet" href="/assets/css/site.css?v=3">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
 
@@ -100,6 +94,7 @@
 </head>
 <body>
     <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4.5M12 17.5V22M2 12h4.5M17.5 12H22"/><circle cx="12" cy="12" r=".4"/></symbol>
         <symbol id="g-swords" viewBox="0 0 24 24"><path fill="none" d="M4 4l10.6 10.6M20 4L9.4 14.6M12.4 16.8l4.4-4.4M7.2 12.4l4.4 4.4M14.6 14.6l3.8 3.8M9.4 14.6l-3.8 3.8"/><circle cx="19.3" cy="19.3" r="1.2"/><circle cx="4.7" cy="19.3" r="1.2"/></symbol>
         <symbol id="g-boss" viewBox="0 0 24 24"><path d="M12 5.5c-4 0-7 2.8-7 6.6 0 2.2 1 3.9 2.6 4.9v2.4c0 .8.6 1.4 1.4 1.4h6c.8 0 1.4-.6 1.4-1.4V17c1.6-1 2.6-2.7 2.6-4.9 0-3.8-3-6.6-7-6.6z"/><path fill="none" d="M6.3 8.2L3.2 3.5l5 2.3M17.7 8.2l3.1-4.7-5 2.3M10.5 20.5v-2M13.5 20.5v-2"/><circle cx="9.3" cy="12.6" r="1.4"/><circle cx="14.7" cy="12.6" r="1.4"/></symbol>
         <symbol id="g-trophy" viewBox="0 0 24 24"><path d="M7.5 3.5h9v5.2a4.5 4.5 0 0 1-9 0z"/><path fill="none" d="M7.5 5.5H5a2.6 2.6 0 0 0 2.9 4.4M16.5 5.5H19a2.6 2.6 0 0 1-2.9 4.4M12 13.2v3.6M8.5 20.5h7"/><path d="M9.8 20.5l.6-3.7h3.2l.6 3.7"/></symbol>
@@ -122,7 +117,7 @@
             <div class="breadcrumb" style="margin-top:24px;">
                 <a href="../index.html">Inicio</a> › <a href="/es/docs/index.html">Documentación</a> › Guía Ringmaster
             </div>
-
+            <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-target"/></svg></div>
             <h1>Ringmaster Flyff Universe — Guía Completa 2026</h1>
             <p class="subtitle">Rol, buffs, builds, equipamiento, rotación: todo lo que necesitas saber para jugar Ringmaster en Flyff Universe en 2026, desde el nivel 60 hasta el end-game.</p>
             <div class="ornament" aria-hidden="true"></div>
@@ -274,7 +269,7 @@
 
         <p>Los dos primeros timings son mecánicos y perfectos para <strong>la automatización</strong>. El tercero requiere tu atención humana. Es el arbitraje clave del Ringmaster moderno: automatizar lo que es repetitivo para <strong>reservar tu energía para los momentos decisivos</strong>.</p>
 
-        <div class="callout">
+        <div class="callout callout--gl">
             <strong>💡 Tutorial práctico disponible</strong>
             Hemos redactado un <a href="/es/docs/automatizar-ringmaster-flyff-universe.html" style="color:var(--gold);">tutorial paso a paso para automatizar tu Ringmaster</a> con Reborn Assistant: configuración de rotaciones, intervalo entre ciclos, macro Heal Rain y errores que evitar.
         </div>

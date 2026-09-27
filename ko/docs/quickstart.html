@@ -30,13 +30,10 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/site.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css?v=3">
     <style>
-        /* ═══ Quick start — page-specific layout (tokens & components: /assets/css/site.css) ═══ */
-
-        /* Title crest: the gold glyph stands in for the h1's leading emoji (.emoji-lead keeps it in the text, hidden) */
-        .article-crest { margin-bottom: 24px; }
+        /* ═══ Quick start — page-specific layout only (tokens & components: /assets/css/site.css) ═══ */
 
         /* Requirements & shortcuts — framed lists (same frame as the docs cards) */
         .req-list, .shortcut-panel {
@@ -63,59 +60,22 @@
             background: var(--surface-well) padding-box, var(--gilt-edge-soft) border-box;
         }
 
-        /* Keyboard shortcuts — the codes inside the translated line read as keycaps */
+        /* Keyboard shortcuts — the translated line's codes are site.css keycaps (.keycaps) */
         .shortcut-panel { padding-block: 12px; }
         .article .shortcuts { margin: 0; line-height: 2.8; }
-        .shortcuts code {
-            display: inline-block; direction: ltr; unicode-bidi: isolate; margin-inline-end: .2em; padding: 2px 10px; line-height: 1.6;
-            font-weight: 600; color: var(--gold-100); background: var(--surface-key);
-            border: 1px solid var(--line-3); border-radius: 8px;
-            box-shadow: inset 0 -3px 0 rgba(0,0,0,.45), inset 0 1px 0 rgba(245,230,184,.12), 0 4px 10px -4px rgba(0,0,0,.8);
-        }
 
-        /* Next steps — entry cards like the docs hub (same glyph per destination, chevron mirrored in RTL).
-           One per row until the column is at full width; then three tiles, glyph above the title. */
+        /* Next steps — site.css entry cards: one per row until the column is at full width, then three tiles, glyph above the title */
         .next-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; margin: 24px 0 8px; }
-        .next-card {
-            position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; column-gap: 16px;
-            padding: 16px 18px; border-radius: 16px; text-decoration: none; border: 1px solid transparent;
-            background: radial-gradient(90% 90% at 0% 0%, rgba(212,175,55,.06), transparent 60%) padding-box, var(--surface-1) padding-box, var(--gilt-edge-soft) border-box;
-            box-shadow: var(--shadow-md); transition: transform var(--dur-3) var(--ease-out);
-        }
-        .next-card:hover { transform: translateY(-3px); }
         .next-card__title { font-family: var(--font-display); font-size: 16px; font-weight: 700; line-height: 1.35; color: var(--gold-200); text-wrap: balance; }
-        .next-card::after {
-            content: ''; width: 9px; height: 9px; margin-inline: 4px 6px;
-            border-top: 1.5px solid var(--gold-300); border-right: 1.5px solid var(--gold-300);
-            transform: rotate(45deg); opacity: .55; transition: transform var(--dur-3) var(--ease-out), opacity var(--dur-3) var(--ease-out);
-        }
-        .next-card:hover::after { opacity: 1; transform: translateX(3px) rotate(45deg); }
-        [dir="rtl"] .next-card::after { transform: rotate(-135deg); }
-        [dir="rtl"] .next-card:hover::after { transform: translateX(-3px) rotate(-135deg); }
         @media (min-width: 920px) {
             .next-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
             .next-card { grid-template-columns: minmax(0, 1fr); align-content: start; align-items: start; row-gap: 16px; padding: 20px 20px 22px; }
             .next-card::after { position: absolute; top: 40px; inset-inline-end: 22px; margin: 0; }
         }
 
-        /* site.css keeps a callout's bottom margin even as a panel's last child — the panel padding is enough */
-        .article .section > :last-child { margin-bottom: 0; }
-
-        /* Japanese: phrase-aware breaks for card and step titles too (site.css covers headings only) */
-        :lang(ja) :is(.step-title, .next-card__title) { word-break: auto-phrase; }
-
-        /* Small phones: long single words ("Tastenkombinationen", "キーボードショートカット") must fit the h2 line */
-        @media (max-width: 400px) {
-            .article h2 { font-size: clamp(20px, 6.6vw, 25px); }
-            /* like the docs hub: drop the chevron (the whole card is the link) and tighten the well */
-            .next-card { grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; padding: 16px; }
-            .next-card::after { display: none; }
-            .next-card .skill-slot { width: 44px; height: 44px; }
-        }
         @media (max-width: 480px) {
             .req-list, .shortcut-panel { padding-inline: 16px; }
             .article .requirement { align-items: flex-start; gap: 14px; }
-            .article .section { padding: 20px 16px; }
             .article .tier .step { padding: 18px 16px; }
         }
     </style>
@@ -205,7 +165,7 @@
 
     <main class="container article">
         <header class="article-head">
-            <div class="skill-slot article-crest" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-rocket"/></svg></div>
+            <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-rocket"/></svg></div>
             <h1 class="emoji-lead" data-i18n="docQuickstart.h1">🚀 빠른 시작</h1>
             <p class="subtitle" data-i18n="docQuickstart.subtitle">몇 분 안에 Reborn Assistant 설치 및 설정</p>
             <div class="ornament" aria-hidden="true"></div>
@@ -256,7 +216,7 @@
             </div>
         </div>
 
-        <div class="alert">
+        <div class="alert alert-success callout--gl">
             <strong data-i18n="docQuickstart.alertTitle">✅ 설치 완료!</strong>
             <span data-i18n="docQuickstart.alertText">확장 프로그램이 활성화되면 Reborn 아이콘이 초록색으로 변합니다. 이제 기능을 구성할 수 있습니다.</span>
         </div>
@@ -289,27 +249,27 @@
             </div>
         </div>
 
-        <div class="alert alert-warning">
+        <div class="alert alert-warning callout--gl">
             <strong data-i18n="docQuickstart.warnTitle">⚠️ 중요 참고 사항</strong>
             <span data-i18n="docQuickstart.warnText">프리미엄 기능(트리거 매크로 1과 2, 자동 시퀀스, 자동 주기적 매크로, 3개의 구성 가능한 매크로)은 유효한 프리미엄 라이선스와 Google 로그인이 필요합니다. 라이선스 없이는 기본 매크로만 사용 가능합니다.</span>
         </div>
 
         <h2 data-i18n="docQuickstart.shortcutsH2">키보드 단축키</h2>
         <div class="shortcut-panel">
-            <p class="shortcuts" data-i18n="docQuickstart.shortcutsText"><code>CTRL + A</code>: 자동화 시작<br><code>CTRL + O</code>: 자동화 중지</p>
+            <p class="shortcuts keycaps" data-i18n="docQuickstart.shortcutsText"><code>CTRL + A</code>: 자동화 시작<br><code>CTRL + O</code>: 자동화 중지</p>
         </div>
 
         <h2 data-i18n="docQuickstart.nextH2">다음 단계</h2>
         <div class="next-grid">
-            <a href="/ko/docs/features.html" class="next-card gild-hover">
+            <a href="/ko/docs/features.html" class="next-card entry-card gild-hover">
                 <span class="skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-bolt"/></svg></span>
                 <span class="next-card__title" data-i18n="docQuickstart.link1">모든 기능 발견하기</span>
             </a>
-            <a href="/ko/docs/premium.html" class="next-card gild-hover">
+            <a href="/ko/docs/premium.html" class="next-card entry-card gild-hover">
                 <span class="skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-gem"/></svg></span>
                 <span class="next-card__title" data-i18n="docQuickstart.link2">전체 프리미엄 가이드</span>
             </a>
-            <a href="/ko/docs/troubleshooting.html" class="next-card gild-hover">
+            <a href="/ko/docs/troubleshooting.html" class="next-card entry-card gild-hover">
                 <span class="skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-cross"/></svg></span>
                 <span class="next-card__title" data-i18n="docQuickstart.link3">일반적인 문제 해결책</span>
             </a>

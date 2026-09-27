@@ -32,7 +32,7 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- ── hreflang ────────────────────────────────────────────── -->
     <!-- ── hreflang ──────────────────────────────────── -->
@@ -54,39 +54,7 @@
     <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html">
     <!-- ── /hreflang ── -->
 
-    <link rel="stylesheet" href="/assets/css/site.css?v=2">
-    <style>
-        /* ═══ Long-tail article — page-specific tweaks (codex components: /assets/css/site.css) ═══ */
-        .article-head .breadcrumb { margin-bottom: 20px; }
-        .article .callout { margin-block: 34px; }
-
-        /* Callout titles begin with an OS emoji in every language (💡 / ⚠️): the emoji stays in the text,
-           hidden by .emoji-lead, and a line glyph in the callout's own tone sits beside it (§6a′). */
-        .article .callout > .inline-gl:first-child {
-            float: inline-start; width: 17px; height: 17px; margin-block-start: 5px; margin-inline-end: 10px;
-            color: var(--callout-title); fill: currentColor; fill-opacity: .14;
-        }
-        .article .callout > .inline-gl:first-child + strong {
-            display: block; margin-bottom: 6px;
-            font-family: var(--font-display); font-size: 15px; letter-spacing: .02em; color: var(--callout-title);
-        }
-
-        /* .step is a grid, so its children's margins don't collapse: keep the body copy's paragraph → list rhythm */
-        .article .step > p + :is(ul, ol) { margin-top: 0; }
-        .article .step > :is(ul, ol) > li:first-child { margin-top: 0; }
-        .article .step > :is(ul, ol) > li:last-child { margin-bottom: 0; }
-
-        /* Contents: rows spaced with padding (a column break truncates margins) so both columns line up */
-        .article .toc li { margin-block: 0; padding-block: 2px; }
-
-        /* Key sequences read left-to-right on RTL pages too, and a pill that wraps is closed on every line */
-        .article code { direction: ltr; unicode-bidi: isolate; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-
-        /* Turkish compounds ("Otomatikleştirmeden", 19 letters) are wider than a 320 px phone at the display sizes:
-           cap those headings by the viewport so every word stays whole instead of splitting mid-word */
-        :lang(tr) .article h2 { font-size: min(var(--fs-2xl), 6.7vw); }
-        @media (max-width: 344px) { :lang(tr) .article h1 { font-size: 9vw; } }
-    </style>
+    <link rel="stylesheet" href="/assets/css/site.css?v=3">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
 
@@ -147,8 +115,7 @@
 </head>
 <body>
     <svg class="glyph-sprite" aria-hidden="true" focusable="false">
-        <symbol id="g-bulb" viewBox="0 0 24 24"><path d="M9.3 16.6v-1.2c0-1.1-.5-1.9-1.3-2.7a6 6 0 1 1 8 0c-.8.8-1.3 1.6-1.3 2.7v1.2z"/><path fill="none" d="M9.6 19.2h4.8M10.6 21.6h2.8M10.4 11.6l1.6 1.4 1.6-1.4M12 13v3.6"/></symbol>
-        <symbol id="g-alert" viewBox="0 0 24 24"><path d="M10.4 4.3a1.85 1.85 0 0 1 3.2 0l7.6 13.4a1.85 1.85 0 0 1-1.6 2.8H4.4a1.85 1.85 0 0 1-1.6-2.8z"/><path fill="none" d="M12 9.3v4.8"/><circle cx="12" cy="17.1" r=".4"/></symbol>
+        <symbol id="g-gear" viewBox="0 0 24 24"><path d="M9.9 5.2l.3-2.3h3.6l.3 2.3 1.2.5 1.8-1.5 2.6 2.6-1.5 1.8.5 1.2 2.3.3v3.7l-2.3.2-.5 1.2 1.5 1.8-2.6 2.6-1.8-1.5-1.2.5-.3 2.3h-3.6l-.3-2.3-1.2-.5-1.8 1.5-2.6-2.6 1.5-1.8-.5-1.2-2.3-.3v-3.6l2.3-.3.5-1.2-1.5-1.8 2.6-2.6 1.8 1.5z"/><circle cx="12" cy="12" r="3"/></symbol>
     </svg>
     <!-- ═══ Header ═══ -->
     <header class="site-header">
@@ -168,7 +135,7 @@
             <div class="breadcrumb" style="margin-top:24px;">
                 <a href="../index.html">الرئيسية</a> › <a href="/ar/docs/index.html">التوثيق</a> › أتمتة الـ Ringmaster
             </div>
-
+            <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-gear"/></svg></div>
             <h1>أتمتة الـ Ringmaster في Flyff Universe — الدليل الشامل 2026</h1>
             <p class="subtitle">التعزيزات، المتتاليات، شفاء AOE، إدارة HP/FP: شرح خطوة بخطوة لتحويل الـ Ringmaster خاصتك إلى ركيزة الفريق دون أن ترهق أصابعك.</p>
             <div class="ornament" aria-hidden="true"></div>
@@ -192,9 +159,8 @@
         <p>الـ Ringmaster (يُختصر غالباً بـ <strong>RM</strong>) هو الفئة الداعمة الأيقونية في Flyff Universe. دوره واضح: إبقاء الفريق على قيد الحياة عبر تعزيزات (Heart of Power، Beef Up، Mental Sign…) تدوم بين 5 و30 دقيقة حسب المستوى، وشفاء الأضرار عبر Heal Rain بنمط AOE. على الورق، الأمر بسيط. في الواقع، إنها من أكثر الفئات إرهاقاً في جلسات الفارم الطويلة: تقضي 80% من وقتك في <strong>إعادة التعزيز كل 5 دقائق</strong>، و<strong>إعادة إطلاق Heal Rain كل 10-15 ثانية</strong>، و<strong>مراقبة شريط FP</strong> لكل عضو في الفريق.</p>
         <p>الأتمتة لا تستبدل حُكمك. إنها ترفع عن لوحة المفاتيح الروتين الميكانيكي: متتالية إعادة التعزيز الكاملة، الشفاء الدوري، استخدام جرعات FP. تبقى يداك حرّتين للتفاعل مع <strong>اللحظات الحاسمة فعلاً</strong>: wipe وشيك، موجة خرجت عن السيطرة، أو boss يستهدف الـ RM أولاً.</p>
 
-        <div class="callout">
-            <svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-bulb"/></svg>
-            <strong class="emoji-lead">💡 سيناريو استخدام نموذجي</strong>
+        <div class="callout callout--gl">
+            <strong>💡 سيناريو استخدام نموذجي</strong>
             تبدأ جلسة فارم مدتها 4 ساعات في Glaphan أو Asteria. بدون أتمتة: 240 دقيقة ÷ 5 دقائق = 48 دورة إعادة تعزيز يدوية. مع Reborn Assistant مضبوطاً: دورة واحدة، والباقي يعمل في الخلفية. لا تتدخل إلا إذا تغيّر تشكيل الفريق أو مات أحد الأعضاء.
         </div>
 
@@ -273,9 +239,8 @@
             <p>اضبط فاصل قسم SOIN على المدة النموذجية لـ Heal Rain (عادةً 12 إلى 15 ثانية). حرّك المفتاح إلى <strong>ON</strong>. سيشغّل الامتداد مفتاحك كل X ثانية، بالتوازي مع تناوب التعزيزات والأنظمة الأخرى.</p>
         </div>
 
-        <div class="callout warning">
-            <svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-alert"/></svg>
-            <strong class="emoji-lead">⚠️ انتبه للموقع</strong>
+        <div class="callout warning callout--gl">
+            <strong>⚠️ انتبه للموقع</strong>
             Heal Rain هو AOE متمركز عليك. إذا تحركت باستمرار (kite أو إعادة تموضع)، فلن يغطي Heal Rain مجموعتك. ابقَ ثابتاً أو حدد نقطة تجمع ثابتة لحلفائك.
         </div>
 

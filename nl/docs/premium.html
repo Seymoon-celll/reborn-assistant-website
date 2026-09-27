@@ -30,13 +30,10 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/site.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css?v=3">
     <style>
-        /* ═══ Premium guide — page-specific layout (tokens & components: /assets/css/site.css) ═══ */
-
-        /* Title crest: the gold glyph stands in for the h1's leading emoji (.emoji-lead keeps it in the text, hidden) */
-        .article-crest { margin-bottom: 24px; }
+        /* ═══ Premium guide — page-specific layout only (tokens & components: /assets/css/site.css) ═══ */
 
         /* Chapter head — glyph well · PREMIUM chip · title. The chip is a SIBLING of the data-i18n h2:
            inside it, the translation (build + langs/index.js) would overwrite it in every language. */
@@ -53,10 +50,7 @@
         .article .chapter-head > h2 { grid-column: 2; grid-row: 2; align-self: start; margin: 0; padding: 0; text-wrap: balance; }
         .article .chapter-head > h2::before, .article .chapter-head > h2::after { display: none; }
 
-        /* site.css keeps a callout's 30px bottom margin even as the panel's last child — the panel padding is enough */
-        .article .section > :last-child { margin-bottom: 0; }
-
-        /* Fixed rotation order as a keycap rail (language-neutral, always LTR).
+        /* Fixed rotation order as a keycap rail (language-neutral, always LTR; the keycaps are site.css <kbd>).
            Each key travels with its arrow; the rail breaks into even rows (12 → 6 + 6 → 4 + 4 + 4), never an orphan key. */
         .key-seq {
             display: grid; grid-template-columns: repeat(12, auto); align-items: center; justify-content: center; row-gap: 10px;
@@ -65,17 +59,14 @@
             box-shadow: inset 0 1px 0 rgba(245,230,184,.05), inset 0 12px 24px -16px rgba(0,0,0,.9);
         }
         .key-seq__step { display: inline-flex; align-items: center; }
-        .key-seq kbd {
-            display: inline-grid; place-items: center; min-width: 34px; height: 34px; padding: 0 7px;
-            font-size: 13px; line-height: 1; color: var(--gold-100);
-            background: var(--surface-key); border: 1px solid var(--line-3); border-radius: 8px;
-            box-shadow: inset 0 -3px 0 rgba(0,0,0,.45), inset 0 1px 0 rgba(245,230,184,.12), 0 4px 10px -4px rgba(0,0,0,.8);
-        }
+        .key-seq kbd { display: inline-grid; place-items: center; min-width: 34px; height: 34px; padding: 0 7px; font-size: 13px; line-height: 1; border-radius: 8px; }
         .key-seq__arrow { padding-inline: 4px; font-size: 12px; line-height: 1; color: var(--gold-700); }
         .key-seq .inline-gl { width: 20px; height: 20px; margin-inline-start: 8px; color: var(--gold-300); }
+        @media (max-width: 919px) { .key-seq { grid-template-columns: repeat(6, auto); } }
+        @media (max-width: 400px) { .key-seq { grid-template-columns: repeat(4, auto); } }
 
         /* Macro examples: title | settings, one row per macro */
-        .macro-spec > div { padding: 14px 0; border-top: 1px solid rgba(76,175,80,.16); }
+        .macro-spec > div { padding: 14px 0; border-top: 1px solid var(--line-1); }
         .macro-spec > div:first-child { padding-top: 2px; border-top: 0; }
         .macro-spec > div:last-child { padding-bottom: 0; }
         .article .example .macro-spec p { margin: 0 0 4px; }
@@ -85,20 +76,7 @@
             .macro-spec > div { display: grid; grid-template-columns: minmax(0, 15em) minmax(0, 1fr); column-gap: 24px; align-items: baseline; }
         }
 
-        /* "Important" — a warning callout headed by the translated h3 */
-        .article .callout--warning > h3 { margin: 0 0 6px; font-size: 16px; color: var(--callout-title); }
-        .article .callout--warning li::before { background: var(--red-300); box-shadow: none; }
-
-        /* Optimisation tips — codex cards with a glyph well (same card as the Ringmaster guide) */
-        .article .tip-card { grid-template-columns: auto minmax(0, 1fr); padding-bottom: 22px; }
-        .article .tip-card > h3 { margin: 0 0 4px; align-self: center; }
-        .article .tip-card > p { margin: 4px 0 0; }
-        .article .tip-card > ul { margin: 8px 0 0; }
-
-        @media (max-width: 919px) { .key-seq { grid-template-columns: repeat(6, auto); } }
-        @media (max-width: 400px) { .key-seq { grid-template-columns: repeat(4, auto); } }
-
-        /* Phones: the title takes the full width under its well + chip, and nested frames give back their padding
+        /* Phones: the chapter title takes the full width under its well + chip
            (a 14-character katakana compound or "Özelleştirilebilir" must fit on one line at 320px) */
         @media (max-width: 560px) {
             .chapter-head { column-gap: 14px; row-gap: 14px; }
@@ -108,15 +86,6 @@
             .key-seq { padding: 14px 8px; }
             .key-seq kbd { min-width: 30px; height: 32px; padding: 0 6px; }
             .key-seq__arrow { padding-inline: 3px; }
-        }
-        @media (max-width: 480px) {
-            .article .section { padding: 20px 16px; }
-            .article .section :is(.param, .example, .callout) { padding: 16px; padding-inline-start: 20px; }
-        }
-        /* Small phones: long single words ("Systeemcombinatie", "Tastenkombinationen") must fit their line */
-        @media (max-width: 400px) {
-            .article h2 { font-size: clamp(20px, 6.6vw, 25px); }
-            .article .tip-card > h3 { font-size: clamp(16px, 4.8vw, 19px); }
         }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -206,7 +175,7 @@
 
     <main class="container article">
         <header class="article-head">
-            <div class="skill-slot article-crest" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-gem"/></svg></div>
+            <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-gem"/></svg></div>
             <h1 class="emoji-lead" data-i18n="docPremium.h1">💎 Premium Handleiding</h1>
             <p class="subtitle" data-i18n="docPremium.subtitle">Beheers alle geavanceerde functies van Reborn Assistant</p>
             <div class="ornament" aria-hidden="true"></div>
@@ -251,7 +220,7 @@
                 <div class="param-desc" data-i18n="docPremium.rotDelDesc">Wachttijd tussen elke toets van de reeks. Standaard: 1 seconde. Pas aan op basis van de servicesnelheid (animaties, cooldowns...).</div>
             </div>
 
-            <div class="example">
+            <div class="example callout--gl">
                 <div class="example-title" data-i18n="docPremium.rotExTitle">💡 Gebruiksvoorbeeld</div>
                 <p data-i18n="docPremium.rotExScenario"><strong>Scenario:</strong> Uw reeksen duren 5 minuten en u heeft 8 reeksen op toetsen 1-8.</p>
                 <p data-i18n="docPremium.rotExConfig"><strong>Configuratie:</strong></p>
@@ -294,7 +263,7 @@
                 <div class="param-desc" data-i18n="docPremium.macDelDesc">Wachttijd tussen elke toets van de reeks (doorgaans 0,5 tot 2 seconden).</div>
             </div>
 
-            <div class="example">
+            <div class="example callout--gl">
                 <div class="example-title" data-i18n="docPremium.macExTitle">💡 Gebruiksvoorbeelden</div>
 
                 <div class="macro-spec">
@@ -358,12 +327,12 @@
                 <div class="param-desc" data-i18n="docPremium.perIntDesc">Het systeem gebruikt altijd een vast interval van 15 seconden. Niet configureerbaar.</div>
             </div>
 
-            <div class="example">
+            <div class="example callout--gl">
                 <div class="example-title" data-i18n="docPremium.perExTitle">💡 Gebruiksgeval</div>
                 <p data-i18n="docPremium.perExText">In sommige services moet de periodieke macro regelmatig worden opgeroepen om items te verzamelen, tijdelijke reeksen te bieden of ervaring te verdienen. Dit systeem automatiseert dit proces volledig.</p>
             </div>
 
-            <div class="callout callout--warning">
+            <div class="callout callout--warning callout--gl">
                 <h3 data-i18n="docPremium.perImpH3">⚠️ Belangrijk</h3>
                 <ul>
                     <li data-i18n="docPremium.perImpLi1">Controleer of de geconfigureerde toets overeenkomt met uw oproeptoets</li>
@@ -375,7 +344,7 @@
 
         <h2 data-i18n="docPremium.optH2">Optimalisatietips</h2>
 
-        <div class="role-card tip-card">
+        <div class="role-card">
             <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-target"/></svg></div>
             <h3 class="emoji-lead" data-i18n="docPremium.combH3">🎯 Systeemcombinatie</h3>
             <p data-i18n="docPremium.combDesc">Alle Premium-functies werken tegelijkertijd. U kunt:</p>
@@ -386,7 +355,7 @@
             </ul>
         </div>
 
-        <div class="role-card tip-card">
+        <div class="role-card">
             <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-bolt"/></svg></div>
             <h3 class="emoji-lead" data-i18n="docPremium.perfH3">⚡ Prestaties</h3>
             <ul>
@@ -396,7 +365,7 @@
             </ul>
         </div>
 
-        <div class="role-card tip-card">
+        <div class="role-card">
             <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-key"/></svg></div>
             <h3 class="emoji-lead" data-i18n="docPremium.secH3">🔑 Beveiliging</h3>
             <ul>

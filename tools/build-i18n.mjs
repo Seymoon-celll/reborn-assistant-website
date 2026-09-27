@@ -239,16 +239,26 @@ function setActiveLangInHeader(html, lang) {
  * The design hides a label's leading OS emoji with `.emoji-lead::first-letter` and draws a gold glyph instead.
  * That only works while every translation of such a label still STARTS with an emoji — otherwise the real
  * first letter would be hidden. Warn loudly (without failing the build) when a translation breaks that rule.
+ * Callout frames with .callout--gl hide the first letter of their title the same way (site.css §13).
  */
 const EMOJI_LEAD_RE = /<(\w+)\b([^>]*\bclass="[^"]*\bemoji-lead\b[^"]*"[^>]*)>([\s\S]*?)<\/\1>/g;
 const STARTS_WITH_EMOJI_RE = /^\s*(?:\p{Extended_Pictographic}|\p{Regional_Indicator})/u;
 let emojiLeadWarnings = 0;
+// Same rule for callout frames with .callout--gl: the first letter of the frame's title (its first text) is hidden.
+const CALLOUT_GL_RE = /<(\w+)\b[^>]*\bclass="[^"]*\bcallout--gl\b[^"]*"[^>]*>/g;
 function checkEmojiLead(html, label) {
   for (const m of html.matchAll(EMOJI_LEAD_RE)) {
     const text = m[3].replace(/<[^>]*>/g, '');
     if (!STARTS_WITH_EMOJI_RE.test(text)) {
       emojiLeadWarnings++;
       console.warn(`[build-i18n] WARNING ${label}: .emoji-lead text does not start with an emoji, its first letter would be hidden: "${text.trim().slice(0, 60)}"`);
+    }
+  }
+  for (const m of html.matchAll(CALLOUT_GL_RE)) {
+    const text = html.slice(m.index + m[0].length, m.index + m[0].length + 600).replace(/<[^>]*>/g, '');
+    if (!STARTS_WITH_EMOJI_RE.test(text)) {
+      emojiLeadWarnings++;
+      console.warn(`[build-i18n] WARNING ${label}: .callout--gl title does not start with an emoji, its first letter would be hidden: "${text.trim().slice(0, 60)}"`);
     }
   }
 }
