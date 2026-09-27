@@ -588,6 +588,11 @@ main, section, .site-footer { position: relative; z-index: 1; }
 @media (max-width: 1100px) {
     .btn-manage-full { display: none; } .btn-manage-short { display: inline; }
 }
+/* Above 1100 px the header row is capped at the container width, so its room never grows: with the full
+   "Reborn Vision Extension", docs and manage labels, es/pt/pl/ru/tl run out of inline padding (ru/tl: 0 px).
+   Those languages keep the short manage label at every width. */
+:is(:lang(es), :lang(pt), :lang(pl), :lang(ru), :lang(tl)) .btn-manage-full { display: none; }
+:is(:lang(es), :lang(pt), :lang(pl), :lang(ru), :lang(tl)) .btn-manage-short { display: inline; }
 /* 961–1100 px: the inline nav and four labelled buttons share one row (ru "Возможности … Документация Управление"):
    tighter minimum gaps. (With room to spare the nav's auto margins absorb the difference.) */
 @media (min-width: 961px) and (max-width: 1100px) {
