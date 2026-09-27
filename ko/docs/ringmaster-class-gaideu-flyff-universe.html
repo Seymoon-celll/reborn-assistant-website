@@ -99,6 +99,11 @@
     <script>window.__PRERENDERED_LANG__="ko";</script>
 </head>
 <body>
+    <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-swords" viewBox="0 0 24 24"><path fill="none" d="M4 4l10.6 10.6M20 4L9.4 14.6M12.4 16.8l4.4-4.4M7.2 12.4l4.4 4.4M14.6 14.6l3.8 3.8M9.4 14.6l-3.8 3.8"/><circle cx="19.3" cy="19.3" r="1.2"/><circle cx="4.7" cy="19.3" r="1.2"/></symbol>
+        <symbol id="g-boss" viewBox="0 0 24 24"><path d="M12 5.5c-4 0-7 2.8-7 6.6 0 2.2 1 3.9 2.6 4.9v2.4c0 .8.6 1.4 1.4 1.4h6c.8 0 1.4-.6 1.4-1.4V17c1.6-1 2.6-2.7 2.6-4.9 0-3.8-3-6.6-7-6.6z"/><path fill="none" d="M6.3 8.2L3.2 3.5l5 2.3M17.7 8.2l3.1-4.7-5 2.3M10.5 20.5v-2M13.5 20.5v-2"/><circle cx="9.3" cy="12.6" r="1.4"/><circle cx="14.7" cy="12.6" r="1.4"/></symbol>
+        <symbol id="g-trophy" viewBox="0 0 24 24"><path d="M7.5 3.5h9v5.2a4.5 4.5 0 0 1-9 0z"/><path fill="none" d="M7.5 5.5H5a2.6 2.6 0 0 0 2.9 4.4M16.5 5.5H19a2.6 2.6 0 0 1-2.9 4.4M12 13.2v3.6M8.5 20.5h7"/><path d="M9.8 20.5l.6-3.7h3.2l.6 3.7"/></symbol>
+    </svg>
     <!-- ═══ Header ═══ -->
     <header class="site-header">
         <div class="site-header__inner">
@@ -139,19 +144,19 @@
         <p>플레이 상황에 따라 3가지 주요 역할이 있습니다.</p>
 
         <div class="role-card">
-            <div class="role-icon">⚔️</div>
+            <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-swords"/></svg><span class="slot-src" aria-hidden="true">⚔️</span></div>
             <h3 style="margin-top:0;">빠른 사냥 (일반 PvE)</h3>
             <p>한 명 이상의 DPS를 사냥터에서 보조합니다. 할 일은 5분마다 리버프, Heal Rain 연속 시전, FP 모니터링입니다. 매우 반복적이며, 자동화가 진가를 발휘하는 정확한 상황입니다.</p>
         </div>
 
         <div class="role-card">
-            <div class="role-icon">🐉</div>
+            <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-boss"/></svg><span class="slot-src" aria-hidden="true">🐉</span></div>
             <h3 style="margin-top:0;">레이드 및 보스</h3>
             <p>Glaphan, Bang, Aibatt처럼 폭딜이 강한 보스가 대상입니다. 리듬이 달라집니다. 주기 힐은 줄고 수동 폭힐이 늘어나며, 때로는 Resurrection을 미리 예측해야 합니다. 자동화는 뒷전이 됩니다. 직접 컨트롤해야 합니다.</p>
         </div>
 
         <div class="role-card">
-            <div class="role-icon">🏆</div>
+            <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-trophy"/></svg><span class="slot-src" aria-hidden="true">🏆</span></div>
             <h3 style="margin-top:0;">FWC (Flyff World Championships)</h3>
             <p>공식 대회이며 메타가 극도로 정교합니다. 여기서 RM은 단순한 유틸리티가 아니라, 동기화된 버프 타이밍으로 최적화된 조합에 기여합니다. 로테이션을 외우는 것이 매우 중요해집니다. 대회 규정에 따라 자동화는 금지될 수 있으니 반드시 사전에 확인하세요.</p>
         </div>

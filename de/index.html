@@ -112,9 +112,9 @@
         .cta-group .btn { min-width: 220px; min-height: 54px; font-size: 16.5px; }
         .hero-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 26px; margin-top: 30px; }
         .hero-trust-item { display: flex; align-items: center; gap: 9px; font-size: 13.5px; color: var(--text-dim); }
-        .hero-trust-item .dot-green {
-            width: 7px; height: 7px; flex-shrink: 0; transform: rotate(45deg);
-            background: var(--green); box-shadow: 0 0 8px rgba(76,175,80,.7);
+        .hero-trust-item .dot-green {         /* gold lozenge (the class name is historical: green is reserved for the CTA) */
+            width: 6px; height: 6px; flex-shrink: 0; transform: rotate(45deg);
+            background: var(--gold); box-shadow: 0 0 0 3px rgba(212,175,55,.1);
         }
 
         /* Entrance + ring rotation — only when the visitor allows motion */
@@ -137,7 +137,6 @@
               Motion: 8 transform/opacity animations; the default styles ARE the
               deliberate static frame used under prefers-reduced-motion. ── */
         .hero-visual { position: relative; width: 100%; max-width: 560px; margin: 36px auto 0; text-align: left; }
-        .hud-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
         .hud-gl { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
         .hud {
             --step-w: 30px; --steps: 12; --seg: 11;
@@ -170,7 +169,8 @@
             font: 900 13px/1 'Cinzel', Georgia, serif; color: var(--on-gold); background: var(--gilt);
             box-shadow: inset 0 0 0 1px rgba(255,248,220,.5), 0 4px 12px -4px rgba(212,175,55,.6);
         }
-        .hud-auto { display: flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: .16em; color: var(--emerald-400); }
+        .hud-auto { display: flex; align-items: center; gap: 10px; color: var(--emerald-400); }
+        .hud-auto svg { width: 16px; height: 16px; }
         .hud-switch { position: relative; width: 38px; height: 22px; border-radius: var(--r-pill); background: rgba(76,175,80,.24); border: 1px solid rgba(143,224,163,.55); box-shadow: 0 0 16px -2px rgba(76,175,80,.6); }
         .hud-knob { position: absolute; top: 3px; left: 3px; width: 14px; height: 14px; border-radius: 50%; background: var(--emerald-300); transform: translateX(16px); box-shadow: 0 0 10px rgba(143,224,163,.9); }
 
@@ -226,8 +226,8 @@
             background: linear-gradient(180deg, rgba(26,23,15,.97), rgba(11,10,8,.97)) padding-box, var(--gilt-edge) border-box;
             box-shadow: 0 24px 50px -16px rgba(0,0,0,.9), var(--inner-hi); font-family: var(--font-body);
         }
-        .hud-chip--heal { top: -26px; right: -30px; }
-        .hud-chip--keys { bottom: -26px; left: -30px; gap: 8px; padding: 9px 9px 9px 12px; font-size: 13px; font-weight: 600; color: var(--text-dim); }
+        .hud-chip--heal { top: -40px; right: -30px; }
+        .hud-chip--keys { bottom: -40px; left: -30px; gap: 8px; padding: 9px 9px 9px 12px; font-size: 13px; font-weight: 600; color: var(--text-dim); }
         .hud-chip__ico { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; color: var(--emerald-300); background: rgba(76,175,80,.14); border: 1px solid rgba(143,224,163,.4); }
         .hud-chip__ico svg { width: 20px; height: 20px; }
         .hud-chip__txt { display: grid; gap: 5px; line-height: 1; }
@@ -312,7 +312,11 @@
             display: inline-flex; align-items: center; padding: 5px 10px; border-radius: 6px;
             font-size: calc(var(--fs-label) - 1px); font-weight: 700; line-height: 1.3; letter-spacing: var(--track-md); text-transform: uppercase;
         }
-        .skill-active { background: rgba(76,175,80,.1); border: 1px solid rgba(76,175,80,.38); color: var(--emerald-400); }
+        .skill-active {
+            color: var(--on-gold); text-shadow: 0 1px 0 rgba(255,245,210,.35); border: 1px solid transparent;
+            background: var(--gilt) padding-box, linear-gradient(180deg, var(--gold-50), var(--gold-800)) border-box;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 6px 16px -8px rgba(212,175,55,.6);
+        }
         .skill-passive { background: rgba(212,175,55,.07); border: 1px solid rgba(212,175,55,.32); color: var(--gold-200); }
         .features .feature-title { font-family: var(--font-display); font-size: 19px; font-weight: 700; line-height: 1.3; letter-spacing: .01em; color: var(--gold-200); margin-bottom: 10px; }
         .features .feature-description { font-size: 15px; line-height: 1.75; color: var(--text-dim); }
@@ -321,11 +325,6 @@
         .security { padding-block: calc(var(--section-y) * .55) var(--section-y); background: linear-gradient(180deg, transparent, rgba(76,175,80,.022) 50%, transparent); }
         .security__grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(40px, 6vw, 96px); align-items: center; }
         .security__intro { text-align: start; }
-        .security-tag {
-            display: inline-flex; align-items: center; gap: 12px; margin-bottom: 26px; padding: 9px 18px;
-            border-radius: var(--r-pill); border: 1px solid rgba(76,175,80,.32); background: rgba(76,175,80,.06);
-            font-size: var(--fs-label); font-weight: 600; letter-spacing: var(--track-lg); text-transform: uppercase; color: var(--emerald-400);
-        }
         .security__title { font-size: clamp(30px, 2.4vw + 14px, 46px); margin-bottom: 22px; }
         .security__desc { max-width: 560px; font-size: 17px; line-height: 1.85; color: var(--text-dim); }
         .security__desc strong { font-weight: 600; }
@@ -364,12 +363,12 @@
                 var(--gilt-edge-strong) border-box;
             box-shadow: 0 34px 90px -34px rgba(212,175,55,.42), var(--shadow-lg);
         }
-        .price-card.exclusive {
+        .price-card.exclusive {          /* legendary: obsidian surface in a strong gilt frame */
             background:
-                radial-gradient(120% 55% at 50% 0%, rgba(76,175,80,.14), transparent 62%) padding-box,
-                var(--surface-emerald) padding-box,
-                var(--emerald-edge) border-box;
-            box-shadow: 0 30px 80px -36px rgba(76,175,80,.4), var(--shadow-md);
+                radial-gradient(120% 55% at 50% 0%, rgba(212,175,55,.12), transparent 62%) padding-box,
+                var(--surface-2) padding-box,
+                var(--gilt-edge-strong) border-box;
+            box-shadow: 0 30px 80px -36px rgba(212,175,55,.32), var(--shadow-md);
         }
         .price-card.featured::after {   /* slow breathing halo — opacity only */
             content: ''; position: absolute; inset: -1px; z-index: -1; border-radius: inherit; pointer-events: none;
@@ -384,7 +383,11 @@
             color: var(--on-gold); background: var(--gilt);
             box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 8px 22px -8px rgba(212,175,55,.75), 0 0 0 3px var(--ink-1);
         }
-        .price-badge--emerald { color: var(--on-emerald); background: var(--grad-cta); box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 8px 22px -8px rgba(76,175,80,.8), 0 0 0 3px var(--ink-1); }
+        .price-badge--outline {          /* a label, not a button: gilt outline, never the CTA gradient */
+            color: var(--gold-100); border: 1px solid transparent;
+            background: var(--surface-slot) padding-box, var(--gilt-edge-strong) border-box;
+            box-shadow: inset 0 1px 0 rgba(245,230,184,.12), 0 8px 22px -10px rgba(212,175,55,.45), 0 0 0 3px var(--ink-1);
+        }
         .price-head { display: flex; flex-direction: column; }
         .price-rank {
             display: flex; align-items: center; gap: 10px; margin-bottom: 20px;
@@ -392,10 +395,8 @@
             color: var(--text-dim);
         }
         .price-rank::before, .price-rank::after { content: ''; flex: 1; min-width: 12px; height: 1px; background: var(--line-2); }
-        .featured .price-rank { color: var(--gold-200); }
-        .featured .price-rank::before, .featured .price-rank::after { background: var(--line-3); }
-        .exclusive .price-rank { color: var(--emerald-400); }
-        .exclusive .price-rank::before, .exclusive .price-rank::after { background: rgba(76,175,80,.3); }
+        :is(.featured, .exclusive) .price-rank { color: var(--gold-200); }
+        :is(.featured, .exclusive) .price-rank::before, :is(.featured, .exclusive) .price-rank::after { background: var(--line-3); }
         .price-plan { font-family: var(--font-display); font-size: 14px; font-weight: 700; letter-spacing: var(--track-md); text-transform: uppercase; color: var(--gold-200); margin-bottom: 10px; }
         .price-amount {
             font-family: var(--font-display); font-size: clamp(38px, 2.2vw + 16px, 52px); font-weight: 900; line-height: 1;
@@ -439,7 +440,7 @@
             content: ''; width: 6px; height: 6px; flex-shrink: 0; transform: translateY(-2px) rotate(45deg);
             background: var(--gold); box-shadow: 0 0 0 3px rgba(212,175,55,.1);
         }
-        .exclusive .price-features li::before { background: var(--emerald-300); box-shadow: 0 0 0 3px rgba(76,175,80,.12); }
+        .exclusive .price-features li::before { background: var(--gold-200); box-shadow: 0 0 0 3px rgba(212,175,55,.14); }
 
         /* Stats band + trust badges (below pricing) */
         .stats {
@@ -492,6 +493,8 @@
         @media (prefers-reduced-motion: no-preference) { .faq-item.open .faq-answer { animation: faqIn var(--dur-3) var(--ease-out); } }
         @keyframes faqIn { from { opacity: 0; transform: translateY(-6px); } }
         .faq-answer p { max-width: 70ch; font-size: 15.5px; line-height: 1.85; color: var(--text-dim); }
+        :root:not(.js) .faq-answer { display: block; }        /* JavaScript off: every answer is shown */
+        :root:not(.js) .faq-icon { display: none; }
 
         /* ── Responsive ── */
         /* ≥ 1100px: two-column hero — copy (start-aligned) beside the HUD, rune circle behind the HUD */
@@ -518,15 +521,36 @@
             .hero-visual { max-width: none; margin: 0; }
             .hud { --step-w: 28px; padding: 16px; }
         }
+        /* until the container stops growing (≈1340px) the chips would sit inside the page gutter:
+           pull the outer chip in (the heal chip on the right, or the keys chip on the left in RTL) */
+        @media (min-width: 1100px) and (max-width: 1339px) {
+            .hud-chip--heal { right: -10px; }
+            [dir="rtl"] .hud-chip--keys { left: -10px; }
+        }
         @media (min-width: 1360px) {
             .hud { --step-w: 32px; padding: 18px; }
             .hud-skills { gap: 9px; }
         }
-        /* below 1100px the HUD is a compact band after the trust line: sequence + skill bar only */
+        /* below 1100px the HUD is a compact band (sequence + skill bar) right under the CTAs,
+           before the trust line, so the product shows on the first screen */
         @media (max-width: 1099px) {
+            .hero-inner { display: flex; flex-direction: column; }
+            .hero-copy { display: contents; }
+            .hero-eyebrow { align-self: center; }
+            .hero-visual { order: 1; }
+            .hero-trust { order: 2; }
+            .hero-divider { display: none; }
+            .hero-description { margin-top: clamp(18px, 2.6vh, 26px); }
             .hud-bar, .hud-chip { display: none; }
             .hud { padding: 12px; border-radius: 18px; }
             .hud::after { inset: 5px; border-radius: 13px; }
+        }
+        /* tablets: no full-viewport hero, so the Chrome Web Store card stays above the fold */
+        @media (min-width: 641px) and (max-width: 1099px) {
+            .hero { min-height: 0; padding-top: 36px; padding-bottom: 48px; }
+            .hero-eyebrow { margin-bottom: 28px; }
+            .hero-trust { display: grid; grid-template-columns: repeat(2, max-content); justify-content: center; gap: 10px 28px; margin-top: 24px; }
+            .hero-visual { margin-top: 26px; }
         }
         @media (max-width: 1180px) {
             .price-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -542,6 +566,7 @@
             .price-card.featured::after { inset: -17px -1px; }
             .price-card.featured .price-badge { top: -16px; }
         }
+        @media (min-width: 961px) { .security__intro .section-tag::before { display: none; } }
         @media (max-width: 960px) {
             .features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
             .security__grid { grid-template-columns: minmax(0, 1fr); }
@@ -572,6 +597,11 @@
             .hud-key svg { width: 42%; height: 42%; margin-top: 4px; }
             .hud-key::after { top: 3px; left: 4px; font-size: 9px; }
             .features-grid, .sec-grid { grid-template-columns: minmax(0, 1fr); }
+            .sec-grid { gap: 12px; }
+            .sec-card { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; align-items: center; padding: 18px; }
+            .sec-card-icon { grid-row: 1 / span 2; margin: 0; }
+            .sec-card-title { align-self: end; margin-bottom: 2px; }
+            .sec-card-text { align-self: start; }
             .price-grid { grid-template-columns: minmax(0, 1fr); }
             .features .feature-card { padding: 26px 22px 28px; }
             .features .feature-card::after { top: 22px; inset-inline-end: 20px; font-size: 46px; }
@@ -697,6 +727,29 @@
     <script>window.__PRERENDERED_LANG__="de";</script>
 </head>
 <body>
+    <script>document.documentElement.classList.add('js')</script>
+    <!-- Gold line glyphs (HUD keycaps, skill slots) — referenced with <use href="#g-…"> -->
+    <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 10c0 5.65-7 10-7 10z"/></symbol>
+        <symbol id="g-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.3-2.9 7.9-7 9.5-4.1-1.6-7-5.2-7-9.5V6l7-3z"/><path d="M9 12l2.2 2.2L15.5 10"/></symbol>
+        <symbol id="g-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4L12 3z"/></symbol>
+        <symbol id="g-bolt" viewBox="0 0 24 24"><path d="M13 2.5L5 13.5h6l-1 8 8-11h-6l1-8z"/></symbol>
+        <symbol id="g-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+        <symbol id="g-cross" viewBox="0 0 24 24"><path d="M9.5 3.5h5v6h6v5h-6v6h-5v-6h-6v-5h6z"/></symbol>
+        <symbol id="g-rain" viewBox="0 0 24 24"><path d="M7 14.5a4 4 0 0 1 .4-8 5.2 5.2 0 0 1 9.9 1.6 3.3 3.3 0 0 1-.3 6.4H7z"/><path d="M8.5 17.5l-1 2.5M12.5 17.5l-1 2.5M16.5 17.5l-1 2.5"/></symbol>
+        <symbol id="g-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v5.5L5 17a2.2 2.2 0 0 0 1.9 3.3h10.2A2.2 2.2 0 0 0 19 17l-5-8.5V3"/><path d="M7.5 14.5h9"/></symbol>
+        <symbol id="g-loop" viewBox="0 0 24 24"><path fill="none" d="M4.5 11a7.5 7.5 0 0 1 13-4.6l2 2.1M19.5 4v4.5H15M19.5 13a7.5 7.5 0 0 1-13 4.6l-2-2.1M4.5 20v-4.5H9"/></symbol>
+        <symbol id="g-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+        <symbol id="g-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
+        <symbol id="g-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4.5M12 17.5V22M2 12h4.5M17.5 12H22"/><circle cx="12" cy="12" r=".4"/></symbol>
+        <symbol id="g-palette" viewBox="0 0 24 24"><path d="M12 3.2a8.8 8.8 0 1 0 0 17.6c1.1 0 1.8-.8 1.8-1.7 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-.9.8-1.7 1.7-1.7h2a4.3 4.3 0 0 0 4.3-4.3c0-4.3-3.9-7.5-8.8-7.5z"/><circle cx="7.5" cy="11.5" r="1.1"/><circle cx="10.2" cy="7.4" r="1.1"/><circle cx="14.8" cy="7.6" r="1.1"/></symbol>
+        <symbol id="g-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3c2.4 2.5 3.7 5.5 3.7 9s-1.3 6.5-3.7 9c-2.4-2.5-3.7-5.5-3.7-9S9.6 5.5 12 3z"/><path fill="none" d="M3 12h18M4.6 7.5h14.8M4.6 16.5h14.8"/></symbol>
+        <symbol id="g-key" viewBox="0 0 24 24"><circle cx="8" cy="15.5" r="4.2"/><circle cx="7.2" cy="16.3" r="1"/><path fill="none" d="M11 12.5L19.5 4M16.2 7.3l2.6 2.6M13.9 9.6l2 2"/></symbol>
+        <symbol id="g-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.2"/><path fill="none" d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/><path d="M12 14.3v2.6"/></symbol>
+        <symbol id="g-card" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.2"/><path d="M3 9.8h18M6.5 14.8h4.5"/></symbol>
+        <symbol id="g-cloud" viewBox="0 0 24 24"><path d="M7.5 18.5a4.5 4.5 0 0 1-.3-9 5.6 5.6 0 0 1 10.8 1.7 3.7 3.7 0 0 1-.6 7.3h-9.9z"/><path fill="none" d="M9.5 14l1.8 1.8 3.4-3.4"/></symbol>
+        <symbol id="g-chat" viewBox="0 0 24 24"><path d="M20 11.3c0 4.1-3.6 7.4-8 7.4-1.2 0-2.3-.2-3.3-.6L4 19.6l1.4-3.8C4.5 14.5 4 13 4 11.3 4 7.2 7.6 3.9 12 3.9s8 3.3 8 7.4z"/><path d="M8.5 10h7M8.5 13.2h4.5"/></symbol>
+    </svg>
 
     <!-- ═══ Header — glass, sticky, collapses to a menu on small screens ═══ -->
     <header class="site-header">
@@ -837,28 +890,15 @@
           </div>
             <!-- In-game HUD: the keys you configured, pressed in order on a timer (decorative, language-neutral, always LTR) -->
             <div class="hero-visual" aria-hidden="true" dir="ltr">
-                <svg class="hud-sprite" focusable="false">
-                    <symbol id="hud-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 10c0 5.65-7 10-7 10z"/></symbol>
-                    <symbol id="hud-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.3-2.9 7.9-7 9.5-4.1-1.6-7-5.2-7-9.5V6l7-3z"/><path d="M9 12l2.2 2.2L15.5 10"/></symbol>
-                    <symbol id="hud-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4L12 3z"/></symbol>
-                    <symbol id="hud-bolt" viewBox="0 0 24 24"><path d="M13 2.5L5 13.5h6l-1 8 8-11h-6l1-8z"/></symbol>
-                    <symbol id="hud-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
-                    <symbol id="hud-cross" viewBox="0 0 24 24"><path d="M9.5 3.5h5v6h6v5h-6v6h-5v-6h-6v-5h6z"/></symbol>
-                    <symbol id="hud-rain" viewBox="0 0 24 24"><path d="M7 14.5a4 4 0 0 1 .4-8 5.2 5.2 0 0 1 9.9 1.6 3.3 3.3 0 0 1-.3 6.4H7z"/><path d="M8.5 17.5l-1 2.5M12.5 17.5l-1 2.5M16.5 17.5l-1 2.5"/></symbol>
-                    <symbol id="hud-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v5.5L5 17a2.2 2.2 0 0 0 1.9 3.3h10.2A2.2 2.2 0 0 0 19 17l-5-8.5V3"/><path d="M7.5 14.5h9"/></symbol>
-                    <symbol id="hud-loop" viewBox="0 0 24 24"><path d="M4.5 11a7.5 7.5 0 0 1 13-4.6l2 2.1M19.5 4v4.5H15M19.5 13a7.5 7.5 0 0 1-13 4.6l-2-2.1M4.5 20v-4.5H9"/></symbol>
-                    <symbol id="hud-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
-                    <symbol id="hud-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
-                </svg>
                 <div class="hud">
                     <div class="hud-bar">
                         <span class="hud-brand"><span class="hud-mark">R</span>Reborn Assistant</span>
-                        <span class="hud-auto">AUTO <span class="hud-switch"><span class="hud-knob"></span></span></span>
+                        <span class="hud-auto"><svg class="hud-gl"><use href="#g-loop"/></svg><span class="hud-switch"><span class="hud-knob"></span></span></span>
                     </div>
                     <div class="hud-seq">
                         <div class="hud-seq-head">
-                            <span><svg class="hud-gl"><use href="#hud-loop"/></svg>05:00</span>
-                            <span><svg class="hud-gl"><use href="#hud-clock"/></svg>1.0s</span>
+                            <span><svg class="hud-gl"><use href="#g-loop"/></svg>05:00</span>
+                            <span><svg class="hud-gl"><use href="#g-clock"/></svg>1.0s</span>
                         </div>
                         <div class="hud-steps">
                             <span class="hud-rail"><i></i></span>
@@ -867,21 +907,21 @@
                         </div>
                     </div>
                     <div class="hud-skills">
-                        <span class="hud-key" data-key="1"><svg class="hud-gl"><use href="#hud-heart"/></svg></span>
-                        <span class="hud-key cd-a" data-key="2"><svg class="hud-gl"><use href="#hud-shield"/></svg><span class="cd-pane cd-r"></span><span class="cd-pane cd-l"></span></span>
-                        <span class="hud-key" data-key="3"><svg class="hud-gl"><use href="#hud-spark"/></svg></span>
-                        <span class="hud-key is-press" data-key="4"><svg class="hud-gl"><use href="#hud-bolt"/></svg></span>
-                        <span class="hud-key" data-key="5"><svg class="hud-gl"><use href="#hud-eye"/></svg></span>
-                        <span class="hud-key" data-key="6"><svg class="hud-gl"><use href="#hud-cross"/></svg></span>
-                        <span class="hud-key hud-key--heal cd-b" data-key="R"><svg class="hud-gl"><use href="#hud-rain"/></svg><span class="cd-pane cd-r"></span><span class="cd-pane cd-l"></span></span>
-                        <span class="hud-key" data-key="Q"><svg class="hud-gl"><use href="#hud-flask"/></svg></span>
+                        <span class="hud-key" data-key="1"><svg class="hud-gl"><use href="#g-heart"/></svg></span>
+                        <span class="hud-key cd-a" data-key="2"><svg class="hud-gl"><use href="#g-shield"/></svg><span class="cd-pane cd-r"></span><span class="cd-pane cd-l"></span></span>
+                        <span class="hud-key" data-key="3"><svg class="hud-gl"><use href="#g-spark"/></svg></span>
+                        <span class="hud-key is-press" data-key="4"><svg class="hud-gl"><use href="#g-bolt"/></svg></span>
+                        <span class="hud-key" data-key="5"><svg class="hud-gl"><use href="#g-eye"/></svg></span>
+                        <span class="hud-key" data-key="6"><svg class="hud-gl"><use href="#g-cross"/></svg></span>
+                        <span class="hud-key hud-key--heal cd-b" data-key="R"><svg class="hud-gl"><use href="#g-rain"/></svg><span class="cd-pane cd-r"></span><span class="cd-pane cd-l"></span></span>
+                        <span class="hud-key" data-key="Q"><svg class="hud-gl"><use href="#g-flask"/></svg></span>
                     </div>
                 </div>
                 <div class="hud-chip hud-chip--heal">
-                    <span class="hud-chip__ico"><svg class="hud-gl"><use href="#hud-rain"/></svg></span>
-                    <span class="hud-chip__txt"><b>Heal Rain</b><span><svg class="hud-gl"><use href="#hud-loop"/></svg>0:15</span></span>
+                    <span class="hud-chip__ico"><svg class="hud-gl"><use href="#g-rain"/></svg></span>
+                    <span class="hud-chip__txt"><b>Heal Rain</b><span><svg class="hud-gl"><use href="#g-loop"/></svg>0:15</span></span>
                 </div>
-                <div class="hud-chip hud-chip--keys"><kbd>CTRL</kbd>+<kbd>A</kbd><span class="hud-chip__play"><svg><use href="#hud-play"/></svg></span></div>
+                <div class="hud-chip hud-chip--keys"><kbd>CTRL</kbd>+<kbd>A</kbd><span class="hud-chip__play"><svg><use href="#g-play"/></svg></span></div>
             </div>
         </div>
     </section>
@@ -924,7 +964,7 @@
             <div class="features-grid reveal">
                 <div class="feature-card gild-hover" data-skill="I">
                     <div class="feature-card__top">
-                        <span class="feature-icon skill-slot" data-hotkey="F1">⚡</span>
+                        <span class="feature-icon skill-slot" data-hotkey="F1" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-bolt"/></svg><span class="slot-src" aria-hidden="true">⚡</span></span>
                         <div class="skill-badge skill-active" data-i18n="features.card1.badge">Aktiv</div>
                     </div>
                     <h3 class="feature-title" data-i18n="features.card1.title">Vollständige Automatisierung</h3>
@@ -932,7 +972,7 @@
                 </div>
                 <div class="feature-card gild-hover" data-skill="II">
                     <div class="feature-card__top">
-                        <span class="feature-icon skill-slot" data-hotkey="F2">🛡️</span>
+                        <span class="feature-icon skill-slot" data-hotkey="F2" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-shield"/></svg><span class="slot-src" aria-hidden="true">🛡️</span></span>
                         <div class="skill-badge skill-passive" data-i18n="features.card2.badge">Passiv</div>
                     </div>
                     <h3 class="feature-title" data-i18n="features.card2.title">Maximale Sicherheit</h3>
@@ -940,7 +980,7 @@
                 </div>
                 <div class="feature-card gild-hover" data-skill="III">
                     <div class="feature-card__top">
-                        <span class="feature-icon skill-slot" data-hotkey="F3">🎯</span>
+                        <span class="feature-icon skill-slot" data-hotkey="F3" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-target"/></svg><span class="slot-src" aria-hidden="true">🎯</span></span>
                         <div class="skill-badge skill-active" data-i18n="features.card3.badge">Aktiv</div>
                     </div>
                     <h3 class="feature-title" data-i18n="features.card3.title">Anpassbare Makros</h3>
@@ -948,7 +988,7 @@
                 </div>
                 <div class="feature-card gild-hover" data-skill="IV">
                     <div class="feature-card__top">
-                        <span class="feature-icon skill-slot" data-hotkey="F4">🎨</span>
+                        <span class="feature-icon skill-slot" data-hotkey="F4" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-palette"/></svg><span class="slot-src" aria-hidden="true">🎨</span></span>
                         <div class="skill-badge skill-passive" data-i18n="features.card4.badge">Passiv</div>
                     </div>
                     <h3 class="feature-title" data-i18n="features.card4.title">Anpassbare Oberfläche</h3>
@@ -956,7 +996,7 @@
                 </div>
                 <div class="feature-card gild-hover" data-skill="V">
                     <div class="feature-card__top">
-                        <span class="feature-icon skill-slot" data-hotkey="F5">🌐</span>
+                        <span class="feature-icon skill-slot" data-hotkey="F5" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-globe"/></svg><span class="slot-src" aria-hidden="true">🌐</span></span>
                         <div class="skill-badge skill-passive" data-i18n="features.card5.badge">Passiv</div>
                     </div>
                     <h3 class="feature-title" data-i18n="features.card5.title">Mehrsprachig</h3>
@@ -964,7 +1004,7 @@
                 </div>
                 <div class="feature-card gild-hover" data-skill="VI">
                     <div class="feature-card__top">
-                        <span class="feature-icon skill-slot" data-hotkey="F6">🔄</span>
+                        <span class="feature-icon skill-slot" data-hotkey="F6" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-loop"/></svg><span class="slot-src" aria-hidden="true">🔄</span></span>
                         <div class="skill-badge skill-passive" data-i18n="features.card6.badge">Kostenlos</div>
                     </div>
                     <h3 class="feature-title" data-i18n="features.card6.title">Kostenlose Version</h3>
@@ -978,8 +1018,7 @@
     <section class="security" id="security">
         <div class="container security__grid">
             <div class="security__intro reveal">
-                <div class="security-tag">
-                    <span class="pulse-dot" aria-hidden="true"></span>
+                <div class="section-tag">
                     <span data-i18n="security.tag">Sicherheit</span>
                 </div>
                 <h2 class="section-title security__title">
@@ -989,22 +1028,22 @@
             </div>
             <div class="sec-grid reveal">
                 <div class="sec-card">
-                    <div class="sec-card-icon skill-slot skill-slot--sm skill-slot--round">🔐</div>
+                    <div class="sec-card-icon skill-slot skill-slot--sm skill-slot--round" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-key"/></svg><span class="slot-src" aria-hidden="true">🔐</span></div>
                     <div class="sec-card-title" data-i18n="security.card1Title">JWT-Verschlüsselung</div>
                     <div class="sec-card-text" data-i18n="security.card1Text">Sichere Authentifizierung auf Bankniveau</div>
                 </div>
                 <div class="sec-card">
-                    <div class="sec-card-icon skill-slot skill-slot--sm skill-slot--round">💳</div>
+                    <div class="sec-card-icon skill-slot skill-slot--sm skill-slot--round" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-card"/></svg><span class="slot-src" aria-hidden="true">💳</span></div>
                     <div class="sec-card-title" data-i18n="security.card2Title">Stripe-Zahlung</div>
                     <div class="sec-card-text" data-i18n="security.card2Text">Zahlungsanbieter von Amazon & Google</div>
                 </div>
                 <div class="sec-card">
-                    <div class="sec-card-icon skill-slot skill-slot--sm skill-slot--round">🛡️</div>
+                    <div class="sec-card-icon skill-slot skill-slot--sm skill-slot--round" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-shield"/></svg><span class="slot-src" aria-hidden="true">🛡️</span></div>
                     <div class="sec-card-title" data-i18n="security.card3Title">Null Tracking</div>
                     <div class="sec-card-text" data-i18n="security.card3Text">Ihre Daten verlassen niemals Ihr Gerät</div>
                 </div>
                 <div class="sec-card">
-                    <div class="sec-card-icon skill-slot skill-slot--sm skill-slot--round">🔒</div>
+                    <div class="sec-card-icon skill-slot skill-slot--sm skill-slot--round" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-cloud"/></svg><span class="slot-src" aria-hidden="true">🔒</span></div>
                     <div class="sec-card-title">Google Cloud</div>
                     <div class="sec-card-text" data-i18n="security.card4Text">Sichere Google Cloud-Infrastruktur</div>
                 </div>
@@ -1092,7 +1131,7 @@
                     </div>
 
                     <div class="price-card exclusive">
-                        <div class="price-badge price-badge--emerald" data-i18n="pricing.legende.badge">⚡ Begrenztes Angebot</div>
+                        <div class="price-badge price-badge--outline" data-i18n="pricing.legende.badge">⚡ Begrenztes Angebot</div>
                         <div class="price-head">
                             <div class="price-rank" data-i18n="pricing.legende.rank">Rang IV · Legende</div>
                             <div class="price-plan" data-i18n="pricing.legende.plan">Lebenslang</div>
@@ -1100,7 +1139,7 @@
                             <div class="price-period" data-i18n="pricing.legende.period">Einmalzahlung · nie wieder zahlen</div>
                         </div>
                         <div class="price-actions">
-                            <a href="https://buy.stripe.com/6oU14m2464TwcuC3bde3e00" target="_blank" class="btn btn-gilt btn-full" data-i18n="pricing.legende.btn">Kaufen</a>
+                            <a href="https://buy.stripe.com/6oU14m2464TwcuC3bde3e00" target="_blank" class="btn btn-secondary btn-full" data-i18n="pricing.legende.btn">Kaufen</a>
                             <div class="price-guarantee" data-i18n="pricing.legende.guarantee">🔒 Einmalzahlung · Lebenslanger Zugang garantiert</div>
                             <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" class="btn-download"><svg width="13" height="13" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span data-i18n="pricing.legende.download">Zu Chrome hinzufügen</span></a>
                         </div>
@@ -1130,10 +1169,10 @@
             <!-- Trust badges -->
             <div class="trust-bar reveal">
                 <div class="trust-badges">
-                    <div class="trust-badge"><div class="trust-badge-icon skill-slot skill-slot--round">🔒</div> <span data-i18n="trust.badge1">SSL-gesicherte Zahlung</span></div>
-                    <div class="trust-badge"><div class="trust-badge-icon skill-slot skill-slot--round">⚡</div> <span data-i18n="trust.badge2">Sofortiger Zugang</span></div>
-                    <div class="trust-badge"><div class="trust-badge-icon skill-slot skill-slot--round">🛡️</div> <span data-i18n="trust.badge3">100% private Daten</span></div>
-                    <div class="trust-badge"><div class="trust-badge-icon skill-slot skill-slot--round">💬</div> <span data-i18n="trust.badge4">Reaktiver Support</span></div>
+                    <div class="trust-badge"><div class="trust-badge-icon skill-slot skill-slot--round" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-lock"/></svg><span class="slot-src" aria-hidden="true">🔒</span></div> <span data-i18n="trust.badge1">SSL-gesicherte Zahlung</span></div>
+                    <div class="trust-badge"><div class="trust-badge-icon skill-slot skill-slot--round" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-bolt"/></svg><span class="slot-src" aria-hidden="true">⚡</span></div> <span data-i18n="trust.badge2">Sofortiger Zugang</span></div>
+                    <div class="trust-badge"><div class="trust-badge-icon skill-slot skill-slot--round" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-shield"/></svg><span class="slot-src" aria-hidden="true">🛡️</span></div> <span data-i18n="trust.badge3">100% private Daten</span></div>
+                    <div class="trust-badge"><div class="trust-badge-icon skill-slot skill-slot--round" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-chat"/></svg><span class="slot-src" aria-hidden="true">💬</span></div> <span data-i18n="trust.badge4">Reaktiver Support</span></div>
                 </div>
             </div>
 
@@ -1269,8 +1308,16 @@
                 header.classList.toggle('nav-open', open);
                 toggle.setAttribute('aria-expanded', String(open));
             };
-            toggle.addEventListener('click', () => setMenu(!header.classList.contains('nav-open')));
+            toggle.addEventListener('click', () => {
+                const open = !header.classList.contains('nav-open');
+                setMenu(open);
+                if (open) nav.querySelector('a').focus({ preventScroll: true });   // keyboard users land in the menu
+            });
             nav.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+            // one panel at a time: opening the language list closes the menu
+            header.querySelector('.lang-select-btn')?.addEventListener('click', () => setMenu(false));
+            // focus leaving the header closes the menu (not when the window itself loses focus)
+            header.addEventListener('focusout', e => { if (e.relatedTarget && !header.contains(e.relatedTarget)) setMenu(false); });
             document.addEventListener('click', e => { if (!header.contains(e.target)) setMenu(false); });
             document.addEventListener('keydown', e => {
                 if (e.key === 'Escape' && header.classList.contains('nav-open')) { setMenu(false); toggle.focus(); }

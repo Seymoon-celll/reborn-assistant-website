@@ -53,7 +53,7 @@
         .docs-hero h1 {
             margin-bottom: 14px; padding-inline-start: .16em;
             font-family: var(--font-display); font-size: clamp(28px, 3.4vw + 12px, 50px); font-weight: 700; line-height: 1.15; letter-spacing: .16em;
-            background: var(--gilt-text); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+            background: var(--gilt-text) 0 0 / 100% 1.15em repeat-y; background-origin: content-box; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
         }
         .version { font-size: calc(var(--fs-label) + 1px); font-weight: 600; line-height: 1.6; letter-spacing: var(--track-lg); text-transform: uppercase; color: var(--text-dim); }
         .docs-hero .ornament { margin-top: 26px; }
@@ -84,7 +84,6 @@
         }
         .card:hover { transform: translateY(-3px); }
         .card-icon { grid-row: 1 / span 2; }
-        .card-icon--duo { font-size: 17px; letter-spacing: -2px; }
         .card-title { grid-column: 2; align-self: end; margin-bottom: 4px; font-family: var(--font-display); font-size: 17px; font-weight: 700; line-height: 1.35; color: var(--gold-200); }
         .card-desc { grid-column: 2; align-self: start; font-size: 14px; line-height: 1.6; color: var(--text-dim); }
         .card::after {                  /* chevron, mirrored in RTL */
@@ -118,7 +117,7 @@
             .docs-sigil svg { opacity: .6; }
             .logo { width: 42px; height: 42px; font-size: 21px; border-radius: 11px; }
             .logo::after { inset: 4px; border-radius: 8px; }
-            .docs-hero h1 { align-self: end; margin-bottom: 4px; padding-inline-start: 0; font-size: clamp(19px, 5.6vw, 24px); letter-spacing: .08em; line-height: 1.2; }
+            .docs-hero h1 { align-self: end; margin-bottom: 4px; padding-inline-start: 0; font-size: clamp(19px, 5.6vw, 24px); letter-spacing: .08em; line-height: 1.2; background-size: 100% 1.2em; }
             .version { align-self: start; font-size: 10.5px; letter-spacing: .12em; line-height: 1.5; }
             .docs-hero .ornament { display: none; }
             .codex-chapter:first-of-type { margin-top: 22px; }
@@ -159,6 +158,20 @@
     <script>window.__PRERENDERED_LANG__="fr";</script>
 </head>
 <body>
+    <!-- Gold line glyphs for the skill slots — referenced with <use href="#g-…"> -->
+    <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-rocket" viewBox="0 0 24 24"><path d="M12 2.8c3 2 4.5 5.5 4.1 9.8l-1.9 3.4H9.8l-1.9-3.4C7.5 8.3 9 4.8 12 2.8z"/><circle cx="12" cy="9" r="1.8"/><path d="M7.9 12.6L5 15.8l3.6.6M16.1 12.6l2.9 3.2-3.6.6M10.4 18.7l1.6 2.7 1.6-2.7"/></symbol>
+        <symbol id="g-bolt" viewBox="0 0 24 24"><path d="M13 2.5L5 13.5h6l-1 8 8-11h-6l1-8z"/></symbol>
+        <symbol id="g-gem" viewBox="0 0 24 24"><path d="M6.8 4.5h10.4L21 9.4 12 20.5 3 9.4z"/><path fill="none" d="M3 9.4h18M9.8 4.5L8.4 9.4 12 20.5l3.6-11.1-1.4-4.9"/></symbol>
+        <symbol id="g-palette" viewBox="0 0 24 24"><path d="M12 3.2a8.8 8.8 0 1 0 0 17.6c1.1 0 1.8-.8 1.8-1.7 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-.9.8-1.7 1.7-1.7h2a4.3 4.3 0 0 0 4.3-4.3c0-4.3-3.9-7.5-8.8-7.5z"/><circle cx="7.5" cy="11.5" r="1.1"/><circle cx="10.2" cy="7.4" r="1.1"/><circle cx="14.8" cy="7.6" r="1.1"/></symbol>
+        <symbol id="g-gear" viewBox="0 0 24 24"><path d="M9.9 5.2l.3-2.3h3.6l.3 2.3 1.2.5 1.8-1.5 2.6 2.6-1.5 1.8.5 1.2 2.3.3v3.7l-2.3.2-.5 1.2 1.5 1.8-2.6 2.6-1.8-1.5-1.2.5-.3 2.3h-3.6l-.3-2.3-1.2-.5-1.8 1.5-2.6-2.6 1.5-1.8-.5-1.2-2.3-.3v-3.6l2.3-.3.5-1.2-1.5-1.8 2.6-2.6 1.8 1.5z"/><circle cx="12" cy="12" r="3"/></symbol>
+        <symbol id="g-trophy" viewBox="0 0 24 24"><path d="M7.5 3.5h9v5.2a4.5 4.5 0 0 1-9 0z"/><path fill="none" d="M7.5 5.5H5a2.6 2.6 0 0 0 2.9 4.4M16.5 5.5H19a2.6 2.6 0 0 1-2.9 4.4M12 13.2v3.6M8.5 20.5h7"/><path d="M9.8 20.5l.6-3.7h3.2l.6 3.7"/></symbol>
+        <symbol id="g-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4.5M12 17.5V22M2 12h4.5M17.5 12H22"/><circle cx="12" cy="12" r=".4"/></symbol>
+        <symbol id="g-keyboard" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2.2"/><path d="M6 9.6h1.2M9.4 9.6h1.2M12.8 9.6h1.2M16.2 9.6h1.8M6 12.4h1.8M10 12.4h1.2M13.4 12.4h1.2M16.8 12.4h1.2M8 15h8"/></symbol>
+        <symbol id="g-wrench" viewBox="0 0 24 24"><path d="M15.6 3.4a5 5 0 0 0-4.8 6.6L3.9 16.9a2 2 0 0 0 2.8 2.8l6.9-6.9a5 5 0 0 0 6.6-4.8l-3.3 1.6-2.7-1.4-.4-3z"/></symbol>
+        <symbol id="g-scales" viewBox="0 0 24 24"><path fill="none" d="M12 4v16M8.5 20h7M5 7h14"/><circle cx="12" cy="4" r=".9"/><path d="M5 7l-2.6 6.2a2.6 2.6 0 0 0 5.2 0zM19 7l-2.6 6.2a2.6 2.6 0 0 0 5.2 0z"/></symbol>
+    </svg>
+
     <!-- ═══ Header ═══ -->
     <header class="site-header">
         <div class="site-header__inner">
@@ -240,25 +253,25 @@
             <h2 class="doc-category" data-i18n="docsHome.userGuide">Guide d'utilisation</h2>
             <div class="grid grid-section">
                 <a href="quickstart.html" class="card gild-hover">
-                    <div class="card-icon skill-slot" aria-hidden="true">🚀</div>
+                    <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-rocket"/></svg><span class="slot-src" aria-hidden="true">🚀</span></div>
                     <h3 class="card-title" data-i18n="docsHome.quickstartTitle">Démarrage Rapide</h3>
                     <div class="card-desc" data-i18n="docsHome.quickstartDesc">Installation, configuration initiale et premiers pas avec Reborn Assistant.</div>
                 </a>
 
                 <a href="features.html" class="card gild-hover">
-                    <div class="card-icon skill-slot" aria-hidden="true">⚡</div>
+                    <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-bolt"/></svg><span class="slot-src" aria-hidden="true">⚡</span></div>
                     <h3 class="card-title" data-i18n="docsHome.featuresTitle">Fonctionnalités</h3>
                     <div class="card-desc" data-i18n="docsHome.featuresDesc">Détail complet des fonctionnalités gratuites et Premium avec tableau comparatif.</div>
                 </a>
 
                 <a href="premium.html" class="card gild-hover">
-                    <div class="card-icon skill-slot" aria-hidden="true">💎</div>
+                    <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-gem"/></svg><span class="slot-src" aria-hidden="true">💎</span></div>
                     <h3 class="card-title"><span data-i18n="docsHome.premiumTitle">Guide Premium</span> <span class="premium-badge">PREMIUM</span></h3>
                     <div class="card-desc" data-i18n="docsHome.premiumDesc">Séquences automatiques, macros personnalisables et macro périodique.</div>
                 </a>
 
                 <a href="interface.html" class="card gild-hover">
-                    <div class="card-icon skill-slot" aria-hidden="true">🎨</div>
+                    <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-palette"/></svg><span class="slot-src" aria-hidden="true">🎨</span></div>
                     <h3 class="card-title" data-i18n="docsHome.interfaceTitle">Interface &amp; Personnalisation</h3>
                     <div class="card-desc" data-i18n="docsHome.interfaceDesc">Thèmes visuels, langues et options de personnalisation.</div>
                 </a>
@@ -270,22 +283,22 @@
             <h2 class="doc-category" data-i18n="docsHome.articles">Articles &amp; Guides Flyff Universe</h2>
             <div class="grid grid-section">
                 <a href="/docs/automatiser-ringmaster-flyff-universe.html" class="card gild-hover" data-bonus-fr="/docs/automatiser-ringmaster-flyff-universe.html" data-bonus-en="/en/docs/automate-ringmaster-flyff-universe.html">
-                    <div class="card-icon skill-slot" aria-hidden="true">⚙️</div>
+                    <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-gear"/></svg><span class="slot-src" aria-hidden="true">⚙️</span></div>
                     <h3 class="card-title" data-i18n="docsHome.articleAutomateTitle">Automatiser son Ringmaster</h3>
                     <div class="card-desc" data-i18n="docsHome.articleAutomateDesc">Tutoriel pas à pas pour automatiser votre Ringmaster sur Flyff Universe avec Reborn Assistant.</div>
                 </a>
                 <a href="/docs/meilleurs-outils-flyff-universe-2026.html" class="card gild-hover" data-bonus-fr="/docs/meilleurs-outils-flyff-universe-2026.html" data-bonus-en="/en/docs/best-flyff-universe-tools-2026.html">
-                    <div class="card-icon skill-slot" aria-hidden="true">🔧</div>
+                    <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-trophy"/></svg><span class="slot-src" aria-hidden="true">🔧</span></div>
                     <h3 class="card-title" data-i18n="docsHome.articleToolsTitle">Meilleurs outils Flyff Universe 2026</h3>
                     <div class="card-desc" data-i18n="docsHome.articleToolsDesc">Comparatif des extensions, traducteurs et calculateurs testés pour Flyff Universe.</div>
                 </a>
                 <a href="/docs/guide-ringmaster-flyff-universe.html" class="card gild-hover" data-bonus-fr="/docs/guide-ringmaster-flyff-universe.html" data-bonus-en="/en/docs/flyff-universe-ringmaster-class-guide.html">
-                    <div class="card-icon skill-slot" aria-hidden="true">🎯</div>
+                    <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-target"/></svg><span class="slot-src" aria-hidden="true">🎯</span></div>
                     <h3 class="card-title" data-i18n="docsHome.articleGuideTitle">Guide complet du Ringmaster</h3>
                     <div class="card-desc" data-i18n="docsHome.articleGuideDesc">Rôle, buffs, builds STA/INT, équipement : tout sur la classe support Flyff Universe.</div>
                 </a>
                 <a href="/docs/raccourcis-clavier-flyff-universe.html" class="card gild-hover" data-bonus-fr="/docs/raccourcis-clavier-flyff-universe.html" data-bonus-en="/en/docs/flyff-universe-keyboard-shortcuts.html">
-                    <div class="card-icon skill-slot" aria-hidden="true">⌨️</div>
+                    <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-keyboard"/></svg><span class="slot-src" aria-hidden="true">⌨️</span></div>
                     <h3 class="card-title" data-i18n="docsHome.articleShortcutsTitle">Raccourcis clavier Flyff Universe</h3>
                     <div class="card-desc" data-i18n="docsHome.articleShortcutsDesc">Liste complète des raccourcis Flyff Universe et configuration recommandée par classe.</div>
                 </a>
@@ -298,7 +311,7 @@
                 <h2 class="doc-category" data-i18n="docsHome.support">Support</h2>
                 <div class="grid grid-section">
                     <a href="troubleshooting.html" class="card gild-hover">
-                        <div class="card-icon skill-slot" aria-hidden="true">🔧</div>
+                        <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-wrench"/></svg><span class="slot-src" aria-hidden="true">🔧</span></div>
                         <h3 class="card-title" data-i18n="docsHome.troubleshootingTitle">Dépannage</h3>
                         <div class="card-desc" data-i18n="docsHome.troubleshootingDesc">Solutions aux problèmes courants, FAQ et optimisation des performances.</div>
                     </a>
@@ -309,7 +322,7 @@
                 <h2 class="doc-category" data-i18n="docsHome.legal">Informations légales</h2>
                 <div class="grid grid-section">
                     <a href="privacy.html" class="card gild-hover">
-                        <div class="card-icon card-icon--duo skill-slot" aria-hidden="true">⚖️🔒</div>
+                        <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-scales"/></svg><span class="slot-src" aria-hidden="true">⚖️🔒</span></div>
                         <h3 class="card-title" data-i18n="docsHome.legalTitle">Légal &amp; Confidentialité</h3>
                         <div class="card-desc" data-i18n="docsHome.legalDesc">Disclaimer, mentions légales, termes de licence, politique de confidentialité et changelog.</div>
                     </a>

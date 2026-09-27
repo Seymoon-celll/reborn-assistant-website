@@ -146,13 +146,26 @@ document.addEventListener('click', e => {
 });
 
 /* Accessibility, once for every page: aria-expanded mirrors the open state
-   (whoever toggles the class), Escape closes the menu and returns focus. */
+   (whoever toggles the class), Escape closes the menu and returns focus.
+   The open menu is also nudged back inside the viewport (8px margin) when its
+   button sits too close to an edge (legacy headers on narrow phones). */
 (function langMenuA11y() {
   const el = document.querySelector('.lang-select');
   const btn = el && el.querySelector('.lang-select-btn');
   if (!btn) return;
   if (!btn.hasAttribute('aria-haspopup')) btn.setAttribute('aria-haspopup', 'true');
-  const sync = () => btn.setAttribute('aria-expanded', String(el.classList.contains('open')));
+  const menu = el.querySelector('.lang-select-menu');
+  const sync = () => {
+    const open = el.classList.contains('open');
+    btn.setAttribute('aria-expanded', String(open));
+    if (!menu) return;
+    menu.style.translate = '';
+    if (open) {
+      const r = menu.getBoundingClientRect();
+      const dx = r.left < 8 ? 8 - r.left : Math.min(0, innerWidth - 8 - r.right);
+      if (dx) menu.style.translate = dx + 'px 0';
+    }
+  };
   sync();
   new MutationObserver(sync).observe(el, { attributes: true, attributeFilter: ['class'] });
   document.addEventListener('keydown', e => {

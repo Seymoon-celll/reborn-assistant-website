@@ -99,6 +99,11 @@
     <script>window.__PRERENDERED_LANG__="es";</script>
 </head>
 <body>
+    <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-swords" viewBox="0 0 24 24"><path fill="none" d="M4 4l10.6 10.6M20 4L9.4 14.6M12.4 16.8l4.4-4.4M7.2 12.4l4.4 4.4M14.6 14.6l3.8 3.8M9.4 14.6l-3.8 3.8"/><circle cx="19.3" cy="19.3" r="1.2"/><circle cx="4.7" cy="19.3" r="1.2"/></symbol>
+        <symbol id="g-boss" viewBox="0 0 24 24"><path d="M12 5.5c-4 0-7 2.8-7 6.6 0 2.2 1 3.9 2.6 4.9v2.4c0 .8.6 1.4 1.4 1.4h6c.8 0 1.4-.6 1.4-1.4V17c1.6-1 2.6-2.7 2.6-4.9 0-3.8-3-6.6-7-6.6z"/><path fill="none" d="M6.3 8.2L3.2 3.5l5 2.3M17.7 8.2l3.1-4.7-5 2.3M10.5 20.5v-2M13.5 20.5v-2"/><circle cx="9.3" cy="12.6" r="1.4"/><circle cx="14.7" cy="12.6" r="1.4"/></symbol>
+        <symbol id="g-trophy" viewBox="0 0 24 24"><path d="M7.5 3.5h9v5.2a4.5 4.5 0 0 1-9 0z"/><path fill="none" d="M7.5 5.5H5a2.6 2.6 0 0 0 2.9 4.4M16.5 5.5H19a2.6 2.6 0 0 1-2.9 4.4M12 13.2v3.6M8.5 20.5h7"/><path d="M9.8 20.5l.6-3.7h3.2l.6 3.7"/></symbol>
+    </svg>
     <!-- ═══ Header ═══ -->
     <header class="site-header">
         <div class="site-header__inner">
@@ -139,19 +144,19 @@
         <p>Tres roles principales según el contexto de juego:</p>
 
         <div class="role-card">
-            <div class="role-icon">⚔️</div>
+            <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-swords"/></svg><span class="slot-src" aria-hidden="true">⚔️</span></div>
             <h3 style="margin-top:0;">Farm rápido (PvE clásico)</h3>
             <p>Acompañas a uno o varios DPS en un spot de farm. Tu trabajo: rebuffear cada 5 minutos, lanzar Heal Rain en continuo, vigilar los FP. Muy repetitivo — es exactamente la situación donde la automatización cobra todo su sentido.</p>
         </div>
 
         <div class="role-card">
-            <div class="role-icon">🐉</div>
+            <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-boss"/></svg><span class="slot-src" aria-hidden="true">🐉</span></div>
             <h3 style="margin-top:0;">Raids y boss</h3>
             <p>Boss con gran burst damage tipo Glaphan, Bang, Aibatt. El ritmo cambia: menos heal periódico, más heals burst manuales, a veces Resurrection que anticipar. La automatización pasa a segundo plano aquí — debes conservar el control.</p>
         </div>
 
         <div class="role-card">
-            <div class="role-icon">🏆</div>
+            <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-trophy"/></svg><span class="slot-src" aria-hidden="true">🏆</span></div>
             <h3 style="margin-top:0;">FWC (Flyff World Championships)</h3>
             <p>Competición organizada, metagame ultra-preciso. Los RM ya no son un mero servicio utility: contribuyen a comps optimizadas con timings de buffs sincronizados. Conocer las rotaciones de memoria se vuelve crítico. La automatización puede estar prohibida según las reglas del torneo — siempre verifica.</p>
         </div>
