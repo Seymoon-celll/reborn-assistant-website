@@ -396,6 +396,17 @@ main, section, .site-footer { position: relative; z-index: 1; }
     position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
     clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
 }
+/* Inline glyph beside a translated label whose string STARTS with an OS emoji ("📚 Docs", "🎁 7 jours gratuits").
+   The string can't change (data-i18n), so the emoji stays in the text (screen readers still read it) and
+   .emoji-lead hides it visually; the glyph is a sibling, never a child of the data-i18n element:
+       <a class="hdr-btn"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-book"/></svg><span class="emoji-lead" data-i18n="nav.docsFull">📚 Docs</span></a>
+   Use .emoji-lead ONLY on a key whose string begins with an emoji in all 15 langs/*.js (otherwise it hides a
+   real first letter). It must be a block container: a flex item is; a plain inline <span> is not. */
+.inline-gl {
+    display: block; width: 16px; height: 16px; flex-shrink: 0; overflow: visible;
+    fill: rgba(244,208,63,.12); stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+}
+.emoji-lead::first-letter { font-size: 0; color: transparent; float: left; }   /* zero-size float: the space after it collapses too */
 
 
 /* ── 8. Header & navigation ──────────────────────────────────────────────── */
@@ -415,8 +426,8 @@ main, section, .site-footer { position: relative; z-index: 1; }
 /* Docs pages and articles ship without a scroll script: their header is always the dense glass */
 .site-header:not(:has(.site-nav)) { background: var(--ink-glass-strong); }
 .site-header.nav-open { background: var(--ink-1); }
-.site-header__inner {
-    max-width: calc(1320px + 2 * var(--gutter)); height: var(--header-h);
+.site-header__inner {          /* same grid as .container: brand and actions line up with the page content */
+    max-width: calc(var(--container) + 2 * var(--gutter)); height: var(--header-h);
     margin-inline: auto; padding-inline: var(--gutter);
     display: flex; align-items: center; gap: clamp(10px, 2vw, 32px);
 }
@@ -496,6 +507,10 @@ main, section, .site-footer { position: relative; z-index: 1; }
 }
 .btn-manage:hover::before { opacity: 1; }
 .btn-manage-short, .btn-docs-short { display: none; }
+/* With a glyph, the short docs label ("📚" in every language) only names the link for assistive tech */
+.hdr-docs .inline-gl ~ .btn-docs-short {
+    position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+}
 
 /* Back link — used in docs headers (wraps onto two lines rather than overflowing) */
 .back-link {
@@ -602,8 +617,7 @@ main, section, .site-footer { position: relative; z-index: 1; }
     position: absolute; top: calc(100% + 8px); inset-inline-end: 0; z-index: 999;
     min-width: 188px; max-height: min(70vh, 560px); overflow-y: auto; overscroll-behavior: contain;
     display: none; flex-direction: column; gap: 2px; padding: 6px;
-    background: rgba(12,11,8,.97); border: 1px solid rgba(212,175,55,.3); border-radius: 12px;
-    -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+    background: var(--ink-1); border: 1px solid rgba(212,175,55,.3); border-radius: 12px;   /* opaque: the header's backdrop-filter would let the page bleed through a translucent panel */
     box-shadow: 0 24px 60px -12px rgba(0,0,0,.85), 0 0 0 1px rgba(0,0,0,.6), inset 0 1px 0 rgba(245,230,184,.06);
 }
 .lang-select.open .lang-select-menu { display: flex; }
@@ -1150,17 +1164,6 @@ kbd { display: inline-block; min-width: 1.9em; text-align: center; line-height: 
     position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
     clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
 }
-.pulse-dot {
-    position: relative; display: inline-block; width: 7px; height: 7px; flex-shrink: 0; border-radius: 50%;
-    background: var(--green); box-shadow: 0 0 8px rgba(76,175,80,.8);
-}
-.pulse-dot::after {
-    content: ''; position: absolute; inset: -4px; border-radius: 50%; border: 1px solid rgba(76,175,80,.6); opacity: 0;
-}
-@media (prefers-reduced-motion: no-preference) {
-    .pulse-dot::after { animation: pulseRing 2.4s var(--ease-out) infinite; }
-}
-@keyframes pulseRing { 0% { transform: scale(.5); opacity: .9; } 100% { transform: scale(1.7); opacity: 0; } }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
 @keyframes fadeIn { from { opacity: 0; } }
 @keyframes spin { to { transform: rotate(360deg); } }

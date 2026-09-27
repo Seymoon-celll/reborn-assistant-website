@@ -246,7 +246,7 @@
             .cd-a .cd-l::before { animation: cdL 4.5s linear -1.6s infinite; }
             .cd-b .cd-r::before { animation: cdR 6s linear -3.8s infinite; }
             .cd-b .cd-l::before { animation: cdL 6s linear -3.8s infinite; }
-            .hud-key.is-press::before { animation: keyPress 2.4s var(--ease-out) infinite; }
+            .hud-key.is-press::before { animation: keyPress 12s linear infinite; }     /* on the playhead's clock */
             .hud-knob { animation: knobGlow 2.8s var(--ease-in-out) infinite; }
         }
         @keyframes hudPlay {
@@ -257,7 +257,8 @@
         @keyframes hudRail { 0% { transform: scaleX(0); opacity: 1; } 80% { transform: scaleX(1); opacity: 1; } 90%, 100% { transform: scaleX(1); opacity: 0; } }
         @keyframes cdR { 0% { transform: rotate(180deg); } 50%, 100% { transform: rotate(360deg); } }
         @keyframes cdL { 0%, 50% { transform: rotate(180deg); } 100% { transform: rotate(360deg); } }
-        @keyframes keyPress { 0%, 100% { opacity: 1; } 55% { opacity: .35; } }
+        /* hudPlay holds step i from 0.8·i s to 0.8·(i+1) s: key 4 (step index 4) is pressed 3.2s → 4.0s */
+        @keyframes keyPress { 0%, 26.6% { opacity: 0; } 26.7%, 33.3% { opacity: 1; } 33.4%, 100% { opacity: 0; } }
         @keyframes knobGlow { 0%, 100% { opacity: 1; } 50% { opacity: .7; } }
 
         /* ── Chrome Web Store card ── */
@@ -270,23 +271,28 @@
             transition: transform var(--dur-3) var(--ease-out);
         }
         .store-card:hover { transform: translateY(-3px); }
-        .store-card__stripe { display: block; height: 3px; background: linear-gradient(90deg, #4285F4 25%, #EA4335 25% 50%, #FBBC05 50% 75%, #34A853 75%); }
+        .store-card__stripe { display: block; height: 1px; background: linear-gradient(90deg, transparent, var(--line-3) 18%, rgba(245,230,184,.6) 50%, var(--line-3) 82%, transparent); }
         .store-card__body { display: flex; align-items: center; gap: 18px; padding: 24px 28px; }
         .store-card__icon { width: 56px; height: 56px; flex-shrink: 0; object-fit: contain; border-radius: 14px; border: 1px solid rgba(255,255,255,.08); }
         .store-card__meta { flex: 1; min-width: 0; }
         .store-card__name { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; font-size: 16px; font-weight: 700; color: rgba(255,255,255,.94); }
         .store-card__name svg, .store-card__source svg { flex-shrink: 0; }
         .store-card__source { display: flex; align-items: center; gap: 7px; font-size: 12px; color: rgba(255,255,255,.6); }
-        .store-card__cta {
-            flex-shrink: 0; padding: 11px 22px; border-radius: 9px; background: #1a73e8; color: #fff;     /* Chrome Web Store blue */
-            font-size: 14px; font-weight: 600; letter-spacing: .01em; text-align: center;
-            box-shadow: 0 6px 18px -6px rgba(26,115,232,.7), inset 0 1px 0 rgba(255,255,255,.2);
+        .store-card__cta {          /* gilt-outline secondary: the green CTA stays the only conversion colour */
+            flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 22px;
+            border-radius: var(--r-md); border: 1px solid transparent;
+            background: var(--surface-well) padding-box, var(--gilt-edge) border-box;
+            box-shadow: var(--inner-hi), 0 10px 28px -16px rgba(0,0,0,.9);
+            font-size: 14px; font-weight: 600; line-height: 1.3; letter-spacing: .01em; text-align: center; color: var(--gold-100);
+            transition: color var(--dur-2) var(--ease-out), background-color var(--dur-2) var(--ease-out);
         }
+        .store-card:hover .store-card__cta { color: #fff; background: linear-gradient(180deg, rgba(212,175,55,.14), rgba(212,175,55,.03)) padding-box, var(--surface-well) padding-box, var(--gilt-edge) border-box; }
         .store-card__status {
             display: flex; align-items: center; gap: 12px; padding: 12px 28px;
             background: rgba(52,168,83,.07); border-top: 1px solid rgba(52,168,83,.15);
             font-size: 12.5px; font-weight: 500; line-height: 1.45; color: var(--emerald-400);
         }
+        .store-card__dot { width: 7px; height: 7px; flex-shrink: 0; border-radius: 50%; background: var(--emerald-400); box-shadow: 0 0 0 3px rgba(76,175,80,.14); }   /* static: no pulsing dots */
 
         /* ── Features (skill cards) — homepage only, scoped under .features ── */
         .features { padding-block: calc(var(--section-y) * .9) var(--section-y); }
@@ -341,19 +347,24 @@
         .sec-card-title { font-family: var(--font-display); font-size: 15.5px; font-weight: 700; line-height: 1.35; color: var(--gold-200); margin-bottom: 6px; }
         .sec-card-text { font-size: 13.5px; line-height: 1.6; color: var(--text-dim); }
 
-        /* ── Pricing — rank → price → action → perks; CTA rows aligned across cards (subgrid) ── */
+        /* ── Pricing — rank → plan → price → period → CTA → guarantee → secondary action → perks.
+              Every item sits on its own shared row (subgrid; .price-head / .price-actions are display:contents),
+              so a label that wraps in one card moves that row in all four and the prices always line up. ── */
         .pricing { padding-block: var(--section-y); background: radial-gradient(60% 38% at 50% 34%, rgba(212,175,55,.06), transparent 70%); }
         .price-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 20px; row-gap: 0; padding-top: 18px; }
         .price-card {
-            position: relative; isolation: isolate; grid-row: span 3; display: grid; grid-template-rows: subgrid; row-gap: 0;
+            position: relative; isolation: isolate; grid-row: span 8; display: grid; grid-template-rows: subgrid; row-gap: 0;
             padding: 36px 26px 26px; border-radius: 20px; border: 1px solid transparent;
             background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box;
             box-shadow: var(--shadow-md);
         }
+        .price-head, .price-actions { display: contents; }
+        .price-body { grid-row: -2 / -1; padding-top: 22px; }      /* always the last row (the free card has no secondary action) */
         @supports not (grid-template-rows: subgrid) {
             .price-card { display: flex; flex-direction: column; }
+            .price-head, .price-actions { display: flex; flex-direction: column; }
             .price-head { min-height: 212px; }
-            .price-actions { min-height: 150px; }
+            .price-actions { min-height: 128px; }
         }
         .price-card--free { background: var(--surface-well) padding-box, linear-gradient(160deg, rgba(212,175,55,.22), rgba(212,175,55,.06) 40%, rgba(212,175,55,.12)) border-box; }
         .price-card.featured, .price-card.featured::before {
@@ -378,23 +389,24 @@
         @keyframes halo { to { opacity: 1; } }
         .price-badge {
             position: absolute; top: 0; left: 50%; z-index: 2; transform: translate(-50%, -50%);
-            width: max-content; max-width: calc(100% - 32px); padding: 7px 16px; border-radius: var(--r-pill);
-            font-size: calc(var(--fs-label) - 1px); font-weight: 700; line-height: 1.3; letter-spacing: var(--track-md); text-transform: uppercase; text-align: center;
+            display: flex; align-items: center; justify-content: center; gap: 7px;
+            width: max-content; max-width: calc(100% - 12px); padding: 7px 14px; border-radius: var(--r-pill);
+            font-size: calc(var(--fs-label) - 1px); font-weight: 700; line-height: 1.3; letter-spacing: min(var(--track-md), .1em); text-transform: uppercase; text-align: center; text-wrap: balance;
             color: var(--on-gold); background: var(--gilt);
             box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 8px 22px -8px rgba(212,175,55,.75), 0 0 0 3px var(--ink-1);
         }
+        .price-badge .inline-gl { width: 12px; height: 12px; fill: none; }
         .price-badge--outline {          /* a label, not a button: gilt outline, never the CTA gradient */
             color: var(--gold-100); border: 1px solid transparent;
             background: var(--surface-slot) padding-box, var(--gilt-edge-strong) border-box;
             box-shadow: inset 0 1px 0 rgba(245,230,184,.12), 0 8px 22px -10px rgba(212,175,55,.45), 0 0 0 3px var(--ink-1);
         }
-        .price-head { display: flex; flex-direction: column; }
         .price-rank {
-            display: flex; align-items: center; gap: 10px; margin-bottom: 20px;
-            font-size: calc(var(--fs-label) - .5px); font-weight: 600; line-height: 1.4; letter-spacing: var(--track-lg); text-transform: uppercase; text-align: center;
+            display: flex; align-items: center; align-self: end; gap: 10px; margin-bottom: 20px;
+            font-size: calc(var(--fs-label) - .5px); font-weight: 600; line-height: 1.4; letter-spacing: min(var(--track-lg), .16em); text-transform: uppercase; text-align: center;
             color: var(--text-dim);
         }
-        .price-rank::before, .price-rank::after { content: ''; flex: 1; min-width: 12px; height: 1px; background: var(--line-2); }
+        .price-rank::before, .price-rank::after { content: ''; flex: 1; min-width: 0; height: 1px; background: var(--line-2); }
         :is(.featured, .exclusive) .price-rank { color: var(--gold-200); }
         :is(.featured, .exclusive) .price-rank::before, :is(.featured, .exclusive) .price-rank::after { background: var(--line-3); }
         .price-plan { font-family: var(--font-display); font-size: 14px; font-weight: 700; letter-spacing: var(--track-md); text-transform: uppercase; color: var(--gold-200); margin-bottom: 10px; }
@@ -406,9 +418,12 @@
             filter: drop-shadow(0 0 24px rgba(212,175,55,.22));
         }
         .price-period { font-size: 14px; line-height: 1.45; color: var(--text-dim); padding-bottom: 22px; }
-        .price-actions { display: flex; flex-direction: column; padding-bottom: 22px; }
-        .price-card .btn { min-height: 50px; padding: 12px 16px; font-size: 15.5px; }
-        .price-guarantee { margin-top: 10px; font-size: 12.5px; line-height: 1.5; text-align: center; color: var(--text-dim); }
+        .price-card .btn { min-height: 50px; padding: 12px 14px; font-size: 15.5px; }
+        .price-guarantee {          /* glyph + note, start-aligned like the rest of the card (a wrapped line hangs under the text) */
+            display: flex; align-items: flex-start; gap: 7px; margin-top: 11px; padding-inline: 2px;
+            font-size: 12.5px; line-height: 1.5; text-align: start; color: var(--text-dim);
+        }
+        .price-guarantee .inline-gl { width: 13px; height: 13px; margin-top: calc((1.5em - 13px) / 2); color: var(--gold-300); }
         .btn-download {
             display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; min-height: 42px;
             margin-top: 12px; padding: 9px 14px; border-radius: 10px;
@@ -521,6 +536,10 @@
             .hero-visual { max-width: none; margin: 0; }
             .hud { --step-w: 28px; padding: 16px; }
         }
+        @media (min-width: 1100px) {
+            .store { max-width: calc(var(--container) + 2 * var(--gutter)); margin-inline: auto; }
+            .store-card { max-width: calc(100% - clamp(440px, 38vw, 540px) - clamp(48px, 5vw, 96px)); margin-inline: 0; }   /* = the copy column */
+        }
         /* until the container stops growing (≈1340px) the chips would sit inside the page gutter:
            pull the outer chip in (the heal chip on the right, or the keys chip on the left in RTL) */
         @media (min-width: 1100px) and (max-width: 1339px) {
@@ -556,6 +575,13 @@
             .price-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
             .price-card { margin-bottom: 34px; }
         }
+        /* four narrow cards (1181–1365px): tighter insets so the longest CTA labels (nl "Toevoegen aan Chrome",
+           ru "Попробовать Бесплатно") stay on one line and the CTA row keeps its 50px height */
+        @media (min-width: 1181px) and (max-width: 1365px) {
+            .price-card { padding-inline: 20px; }
+            .price-card .btn, .price-card--free .btn-download { padding-inline: 8px; font-size: 14.5px; }
+            .price-card--free .btn-download { gap: 7px; }
+        }
         @media (min-width: 1181px) {
             /* Champion stands taller: its frame (drawn by ::before) extends 16px above and below,
                while its content stays on the shared rows so every CTA lines up. */
@@ -566,7 +592,10 @@
             .price-card.featured::after { inset: -17px -1px; }
             .price-card.featured .price-badge { top: -16px; }
         }
-        @media (min-width: 961px) { .security__intro .section-tag::before { display: none; } }
+        @media (min-width: 961px) {
+            .security__intro .section-tag::before { display: none; }
+            :lang(ja) .security__title { font-size: clamp(28px, 1.6vw + 16px, 40px); }   /* keeps 「プロフェッショナルレベルの」 on one line */
+        }
         @media (max-width: 960px) {
             .features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
             .security__grid { grid-template-columns: minmax(0, 1fr); }
@@ -616,6 +645,10 @@
             .store-card__icon { width: 48px; height: 48px; }
             .store-card__cta { width: 100%; }
             .store-card__status { padding: 11px 20px; }
+        }
+        @media (max-width: 400px) {
+            .stat-item { padding-inline: 8px; }
+            .stat-label { letter-spacing: min(var(--track-md), .08em); }
         }
         @media (max-width: 360px) {
             .hud { --step-w: 20px; padding: 8px; }
@@ -749,6 +782,9 @@
         <symbol id="g-card" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.2"/><path d="M3 9.8h18M6.5 14.8h4.5"/></symbol>
         <symbol id="g-cloud" viewBox="0 0 24 24"><path d="M7.5 18.5a4.5 4.5 0 0 1-.3-9 5.6 5.6 0 0 1 10.8 1.7 3.7 3.7 0 0 1-.6 7.3h-9.9z"/><path fill="none" d="M9.5 14l1.8 1.8 3.4-3.4"/></symbol>
         <symbol id="g-chat" viewBox="0 0 24 24"><path d="M20 11.3c0 4.1-3.6 7.4-8 7.4-1.2 0-2.3-.2-3.3-.6L4 19.6l1.4-3.8C4.5 14.5 4 13 4 11.3 4 7.2 7.6 3.9 12 3.9s8 3.3 8 7.4z"/><path d="M8.5 10h7M8.5 13.2h4.5"/></symbol>
+        <symbol id="g-book" viewBox="0 0 24 24"><path d="M12 6.6C10.2 5.2 7.7 4.5 3.5 4.5v13.2c4.2 0 6.7.7 8.5 2.1 1.8-1.4 4.3-2.1 8.5-2.1V4.5c-4.2 0-6.7.7-8.5 2.1z"/><path fill="none" d="M12 6.6v13.2"/></symbol>
+        <symbol id="g-gift" viewBox="0 0 24 24"><rect x="3.5" y="8.5" width="17" height="4" rx="1"/><path d="M5 12.5v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"/><path fill="none" d="M12 8.5v12M12 8.5C10.7 5.9 8.1 4.3 6.9 5.6c-1.2 1.4.7 2.9 5.1 2.9zM12 8.5c1.3-2.6 3.9-4.2 5.1-2.9 1.2 1.4-.7 2.9-5.1 2.9z"/></symbol>
+        <symbol id="g-star" viewBox="0 0 24 24"><path d="M12 3.3l2.12 6.09 6.44.13-5.14 3.89 1.87 6.17L12 15.9l-5.29 3.68 1.87-6.17-5.14-3.89 6.44-.13z"/></symbol>
     </svg>
 
     <!-- ═══ Header — glass, sticky, collapses to a menu on small screens ═══ -->
@@ -769,12 +805,12 @@
             <div class="header-actions">
                 <a class="hdr-btn rv-btn" href="https://reborn-vision.com" target="_blank" rel="noopener" title="Reborn Vision Extension" aria-label="Reborn Vision Extension"><img src="https://reborn-vision.com/favicon.svg" alt="Logo Reborn Vision" width="20" height="20" onerror="this.style.display='none'"><svg class="rv-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12Z"/><path d="M12 8.6 15.4 12 12 15.4 8.6 12Z"/></svg><span class="rv-label">Reborn Vision Extension</span></a>
                 <div class="lang-select">
-                    <button class="lang-select-btn" type="button" aria-haspopup="true" aria-expanded="false" onclick="toggleLangMenu()">
+                    <button class="lang-select-btn" type="button" aria-expanded="false" aria-controls="lang-menu" onclick="toggleLangMenu()">
                         <span class="lang-flag">🇨🇳</span>
                         <span class="lang-code">ZH</span>
                         <span class="lang-chevron">▾</span>
                     </button>
-                    <div class="lang-select-menu">
+                    <div class="lang-select-menu" id="lang-menu">
                         <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
                         <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
                         <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
@@ -792,7 +828,7 @@
                         <button class="lang-option" data-lang="ar" onclick="setLang('ar')">🇸🇦 العربية</button>
                     </div>
                 </div>
-                <a href="/zh/docs/index.html" class="hdr-btn hdr-docs"><span class="btn-docs-full" data-i18n="nav.docsFull">📚 文档</span><span class="btn-docs-short" data-i18n="nav.docsShort">📚 Docs</span></a>
+                <a href="/zh/docs/index.html" class="hdr-btn hdr-docs"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-book"/></svg><span class="btn-docs-full emoji-lead" data-i18n="nav.docsFull">📚 文档</span><span class="btn-docs-short" data-i18n="nav.docsShort">📚 Docs</span></a>
                 <button type="button" onclick="openStripeWindow()" class="btn-manage"><span class="btn-manage-full" data-i18n="nav.manageFull">管理订阅</span><span class="btn-manage-short" data-i18n="nav.manageShort">管理</span></button>
                 <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-labelledby="nav-toggle-label"><span class="nav-toggle__bars" aria-hidden="true"></span><span class="visually-hidden" id="nav-toggle-label" data-i18n="nav.menu">菜单</span></button>
             </div>
@@ -946,7 +982,7 @@
                 <div class="store-card__cta" data-i18n="store.install">安装</div>
             </div>
             <div class="store-card__status">
-                <span class="pulse-dot" aria-hidden="true"></span>
+                <span class="store-card__dot" aria-hidden="true"></span>
                 <span data-i18n="store.available">免费提供 · Google 认证的官方扩展</span>
             </div>
         </a>
@@ -1072,7 +1108,7 @@
                         </div>
                         <div class="price-actions">
                             <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" class="btn-download"><svg width="13" height="13" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span data-i18n="pricing.voyageur.download">添加到 Chrome</span></a>
-                            <div class="price-guarantee" data-i18n="pricing.voyageur.guarantee">🔒 永久免费</div>
+                            <div class="price-guarantee"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-lock"/></svg><span class="emoji-lead" data-i18n="pricing.voyageur.guarantee">🔒 永久免费</span></div>
                         </div>
                         <div class="price-body">
                             <div class="price-divider"></div>
@@ -1094,7 +1130,7 @@
                         </div>
                         <div class="price-actions">
                             <a href="https://buy.stripe.com/bJe3cufUWbhUcuCeTVe3e02" target="_blank" class="btn btn-secondary btn-full" data-i18n="pricing.aventurier.btn">免费试用</a>
-                            <div class="price-guarantee" data-i18n="pricing.aventurier.guarantee">🎁 7 天免费 · 无需信用卡</div>
+                            <div class="price-guarantee"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-gift"/></svg><span class="emoji-lead" data-i18n="pricing.aventurier.guarantee">🎁 7 天免费 · 无需信用卡</span></div>
                             <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" class="btn-download"><svg width="13" height="13" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span data-i18n="pricing.aventurier.download">添加到 Chrome</span></a>
                         </div>
                         <div class="price-body">
@@ -1108,7 +1144,7 @@
                     </div>
 
                     <div class="price-card featured">
-                        <div class="price-badge" data-i18n="pricing.champion.badge">⭐ 热门 -17%</div>
+                        <div class="price-badge"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="emoji-lead" data-i18n="pricing.champion.badge">⭐ 热门 -17%</span></div>
                         <div class="price-head">
                             <div class="price-rank" data-i18n="pricing.champion.rank">等级 III · 冠军</div>
                             <div class="price-plan" data-i18n="pricing.champion.plan">年度</div>
@@ -1117,7 +1153,7 @@
                         </div>
                         <div class="price-actions">
                             <a href="https://buy.stripe.com/5kQ9AS38a85IbqyeTVe3e01" target="_blank" class="btn btn-primary btn-full" data-i18n="pricing.champion.btn">免费试用</a>
-                            <div class="price-guarantee" data-i18n="pricing.champion.guarantee">🎁 7 天免费 · 无需信用卡</div>
+                            <div class="price-guarantee"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-gift"/></svg><span class="emoji-lead" data-i18n="pricing.champion.guarantee">🎁 7 天免费 · 无需信用卡</span></div>
                             <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" class="btn-download"><svg width="13" height="13" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span data-i18n="pricing.champion.download">添加到 Chrome</span></a>
                         </div>
                         <div class="price-body">
@@ -1131,7 +1167,7 @@
                     </div>
 
                     <div class="price-card exclusive">
-                        <div class="price-badge price-badge--outline" data-i18n="pricing.legende.badge">⚡ 限时优惠</div>
+                        <div class="price-badge price-badge--outline"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-bolt"/></svg><span class="emoji-lead" data-i18n="pricing.legende.badge">⚡ 限时优惠</span></div>
                         <div class="price-head">
                             <div class="price-rank" data-i18n="pricing.legende.rank">等级 IV · 传奇</div>
                             <div class="price-plan" data-i18n="pricing.legende.plan">终身</div>
@@ -1140,7 +1176,7 @@
                         </div>
                         <div class="price-actions">
                             <a href="https://buy.stripe.com/6oU14m2464TwcuC3bde3e00" target="_blank" class="btn btn-secondary btn-full" data-i18n="pricing.legende.btn">购买</a>
-                            <div class="price-guarantee" data-i18n="pricing.legende.guarantee">🔒 一次性付款 · 保证终身访问</div>
+                            <div class="price-guarantee"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-lock"/></svg><span class="emoji-lead" data-i18n="pricing.legende.guarantee">🔒 一次性付款 · 保证终身访问</span></div>
                             <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" class="btn-download"><svg width="13" height="13" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span data-i18n="pricing.legende.download">添加到 Chrome</span></a>
                         </div>
                         <div class="price-body">

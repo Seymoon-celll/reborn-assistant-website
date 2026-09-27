@@ -98,10 +98,20 @@
         .codex-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
         .codex-row .grid { grid-template-columns: minmax(0, 1fr); }
 
-        @media (max-width: 760px) {
+        /* One column until two cards can each hold the longest translated title (nl "Probleemoplossing") */
+        @media (max-width: 900px) {
             .grid, .codex-row { grid-template-columns: minmax(0, 1fr); }
+        }
+        @media (max-width: 760px) {
             .card { column-gap: 16px; padding: 18px; min-height: 0; }
             .card .skill-slot { width: 52px; height: 52px; font-size: 22px; }
+        }
+        /* Small phones: drop the chevron (the whole card is the link) and tighten the well so titles never split mid-word */
+        @media (max-width: 400px) {
+            .card { grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; padding: 16px; }
+            .card::after { display: none; }
+            .card .skill-slot { width: 44px; height: 44px; }
+            .card-title { font-size: 15.5px; }
         }
         @media (prefers-reduced-motion: no-preference) {
             .docs-sigil svg { animation: spin 240s linear infinite; will-change: transform; }
@@ -182,12 +192,12 @@
             <div class="header-actions">
                 <a href="/pt/" class="back-link" data-i18n="docsNav.backToMainSite">← Voltar ao site principal</a>
                 <div class="lang-select">
-                    <button class="lang-select-btn" type="button" aria-haspopup="true" aria-expanded="false" onclick="toggleLangMenu()">
+                    <button class="lang-select-btn" type="button" aria-expanded="false" aria-controls="lang-menu" onclick="toggleLangMenu()">
                         <span class="lang-flag">🇧🇷</span>
                         <span class="lang-code">PT</span>
                         <span class="lang-chevron">▾</span>
                     </button>
-                    <div class="lang-select-menu">
+                    <div class="lang-select-menu" id="lang-menu">
                         <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
                         <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
                         <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>

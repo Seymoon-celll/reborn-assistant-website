@@ -15,7 +15,7 @@
     '.lang-flag{font-size:15px;line-height:1;}',
     '.lang-chevron{font-size:9px;opacity:.7;transition:transform .2s ease;}',
     '.lang-select.open .lang-chevron{transform:rotate(180deg);}',
-    '.lang-select-menu{position:absolute;top:calc(100% + 8px);inset-inline-end:0;z-index:999;min-width:188px;max-height:min(70vh,560px);overflow-y:auto;overscroll-behavior:contain;display:none;flex-direction:column;gap:2px;padding:6px;background:rgba(12,11,8,0.97);border:1px solid rgba(212,175,55,0.3);border-radius:12px;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 24px 60px -12px rgba(0,0,0,.85),0 0 0 1px rgba(0,0,0,.6),inset 0 1px 0 rgba(245,230,184,.06);}',
+    '.lang-select-menu{position:absolute;top:calc(100% + 8px);inset-inline-end:0;z-index:999;min-width:188px;max-height:min(70vh,560px);overflow-y:auto;overscroll-behavior:contain;display:none;flex-direction:column;gap:2px;padding:6px;background:#0a0908;border:1px solid rgba(212,175,55,0.3);border-radius:12px;box-shadow:0 24px 60px -12px rgba(0,0,0,.85),0 0 0 1px rgba(0,0,0,.6),inset 0 1px 0 rgba(245,230,184,.06);}',
     '.lang-select.open .lang-select-menu{display:flex;}',
     '@media (min-width:720px){.lang-select-menu{min-width:330px;}.lang-select.open .lang-select-menu{display:grid;grid-template-columns:1fr 1fr;}}',
     '.lang-option{display:flex;align-items:center;gap:9px;width:100%;min-height:40px;padding:0 12px;background:transparent;border:0;border-radius:8px;font-family:\'Inter\',system-ui,sans-serif;font-size:13px;font-weight:500;text-align:start;color:#a39b80;cursor:pointer;transition:background-color .15s ease,color .15s ease;}',
@@ -145,15 +145,17 @@ document.addEventListener('click', e => {
   if (el && !el.contains(e.target)) el.classList.remove('open');
 });
 
-/* Accessibility, once for every page: aria-expanded mirrors the open state
-   (whoever toggles the class), Escape closes the menu and returns focus.
+/* Accessibility, once for every page (disclosure pattern: a button with
+   aria-expanded that shows a list of buttons — no aria-haspopup, no role=menu):
+   aria-expanded mirrors the open state (whoever toggles the class), Escape
+   closes the menu and returns focus, and the menu closes when keyboard focus
+   leaves it so it never covers the next focus stop.
    The open menu is also nudged back inside the viewport (8px margin) when its
    button sits too close to an edge (legacy headers on narrow phones). */
 (function langMenuA11y() {
   const el = document.querySelector('.lang-select');
   const btn = el && el.querySelector('.lang-select-btn');
   if (!btn) return;
-  if (!btn.hasAttribute('aria-haspopup')) btn.setAttribute('aria-haspopup', 'true');
   const menu = el.querySelector('.lang-select-menu');
   const sync = () => {
     const open = el.classList.contains('open');
@@ -170,6 +172,10 @@ document.addEventListener('click', e => {
   new MutationObserver(sync).observe(el, { attributes: true, attributeFilter: ['class'] });
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && el.classList.contains('open')) { el.classList.remove('open'); btn.focus(); }
+  });
+  /* relatedTarget is null for a mouse click in Safari: leave that case to the click handlers */
+  el.addEventListener('focusout', e => {
+    if (e.relatedTarget && !el.contains(e.relatedTarget)) el.classList.remove('open');
   });
 })();
 
