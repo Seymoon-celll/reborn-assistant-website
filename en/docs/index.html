@@ -31,196 +31,83 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Marcellus&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css?v=2">
     <style>
-        :root {
-            --gold: #d4af37;
-            --gold-light: #f4d03f;
-            --gold-dark: #b8941f;
-            --dark-bg: #080808;
-            --dark-card: #141410;
-            --green: #4CAF50;
-            --text: #f0ead6;
-            --text-dim: #9a9278;
-            --border: rgba(212, 175, 55, 0.2);
-        }
+        /* ═══ Docs hub — page-specific layout (tokens & components: /assets/css/site.css) ═══ */
+        body { counter-reset: chapter; }
+        .docs-hub { padding-block: clamp(36px, 5vw, 64px) clamp(56px, 7vw, 96px); }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px;
-        }
-
-        body::before {
-            content: '';
-            position: fixed; inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-            pointer-events: none; opacity: 0.3;
-        }
-
-        .container {
-            max-width: 1200px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
+        /* Title page of the codex */
+        .docs-hero { text-align: center; margin-bottom: clamp(36px, 5vw, 56px); }
+        .docs-sigil { position: relative; display: grid; place-items: center; width: 176px; height: 176px; margin: 0 auto 22px; }
+        .docs-sigil svg { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--gold); opacity: .75; animation: spin 240s linear infinite; will-change: transform; }
+        .docs-sigil::before { content: ''; position: absolute; inset: 18%; border-radius: 50%; background: radial-gradient(circle, rgba(212,175,55,.22), transparent 70%); }
         .logo {
-            width: 80px; height: 80px;
-            background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Cinzel', serif;
-            font-size: 40px;
-            font-weight: 900;
-            color: #000;
-            border-radius: 12px;
-            box-shadow: 0 0 40px rgba(212,175,55,0.4);
-            margin-bottom: 20px;
+            position: relative; display: grid; place-items: center; width: 72px; height: 72px;
+            font-family: 'Cinzel', serif; font-size: 36px; font-weight: 900; line-height: 1; color: #171204;
+            background: var(--gilt); border-radius: 18px;
+            box-shadow: inset 0 0 0 1px rgba(255,248,220,.55), inset 0 -10px 18px rgba(125,100,32,.45), 0 0 0 1px rgba(0,0,0,.65), 0 14px 40px -12px rgba(212,175,55,.7);
         }
-
-        h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 36px;
-            color: var(--gold);
-            letter-spacing: 3px;
-            margin-bottom: 12px;
+        .logo::after { content: ''; position: absolute; inset: 6px; border-radius: 13px; border: 1px solid rgba(46,34,8,.32); }
+        .docs-hero h1 {
+            margin-bottom: 14px; padding-inline-start: .16em;
+            font-family: var(--font-display); font-size: clamp(28px, 3.4vw + 12px, 50px); font-weight: 700; line-height: 1.15; letter-spacing: .16em;
+            background: var(--gilt-text); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
         }
+        .version { font-size: calc(var(--fs-label) + 1px); font-weight: 600; line-height: 1.6; letter-spacing: var(--track-lg); text-transform: uppercase; color: var(--text-dim); }
+        .docs-hero .ornament { margin-top: 26px; }
 
-        .version {
-            font-size: 14px;
-            color: var(--text-dim);
-            letter-spacing: 2px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-        }
-
-        .card {
-            background: rgba(20,20,16,0.6);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 32px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-        }
-
-        .card:hover {
-            border-color: var(--gold);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(212,175,55,0.2);
-        }
-
-        .card-icon { font-size: 32px; margin-bottom: 16px; }
-
-        .card-title {
-            font-family: 'Cinzel', serif;
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--gold);
-            margin-bottom: 12px;
-            letter-spacing: 1px;
-        }
-
-        .card-desc {
-            font-size: 14px;
-            line-height: 1.6;
-            color: var(--text-dim);
-        }
-
-        .premium-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
-            color: #000;
-            font-size: 10px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 12px;
-            letter-spacing: 1px;
-            margin-left: 8px;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid var(--border);
-            font-size: 12px;
-            color: var(--text-dim);
-        }
-
-        body::after {
-            content: '';
-            position: fixed;
-            top: -20%; left: 50%; transform: translateX(-50%);
-            width: 900px; height: 600px;
-            background: radial-gradient(ellipse, rgba(212,175,55,0.05) 0%, transparent 70%);
-            pointer-events: none; z-index: 0;
-        }
-
-        .logo { animation: logoGlow 3s ease-in-out infinite; }
-        @keyframes logoGlow {
-            0%, 100% { box-shadow: 0 0 40px rgba(212,175,55,0.4); }
-            50% { box-shadow: 0 0 60px rgba(212,175,55,0.6), 0 0 100px rgba(212,175,55,0.2); }
-        }
-
-        .card { position: relative; overflow: hidden; }
-        .card::before {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 20%; right: 20%; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .card:hover::before { opacity: 0.5; }
-
+        /* Chapters (auto-numbered in roman numerals) */
+        .codex-chapter { counter-increment: chapter; margin-top: clamp(34px, 4.5vw, 52px); }
         .doc-category {
-            font-family: 'Inter', sans-serif;
-            font-size: 9px;
-            font-weight: 600;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--gold);
-            opacity: 0.5;
-            text-align: center;
-            margin: 40px 0 20px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
+            display: flex; align-items: center; gap: 16px; margin-bottom: 20px;
+            font-family: var(--font-display); font-size: 14px; font-weight: 700; line-height: 1.35;
+            letter-spacing: var(--track-md); text-transform: uppercase; color: var(--gold-200);
         }
-        .doc-category::before, .doc-category::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: rgba(212,175,55,0.2);
+        .doc-category::before {
+            content: counter(chapter, upper-roman); flex-shrink: 0; display: grid; place-items: center;
+            min-width: 38px; height: 38px; padding: 0 8px; border-radius: 10px;
+            font-family: 'Cinzel', serif; font-size: 13px; font-weight: 900; letter-spacing: .04em; color: #1a1405;
+            background: var(--gilt); box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 8px 20px -10px rgba(212,175,55,.8);
         }
-        .grid-section { margin-bottom: 8px; }
+        .doc-category::after { content: ''; flex: 1; min-width: 24px; height: 1px; background: linear-gradient(var(--to-end), var(--line-3), transparent); }
 
-        .top-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            gap: 12px;
+        /* Entry cards */
+        .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+        .card {
+            position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 20px; align-items: center;
+            min-height: 112px; padding: 20px 22px; border-radius: 16px; text-decoration: none; border: 1px solid transparent;
+            background: radial-gradient(90% 90% at 0% 0%, rgba(212,175,55,.06), transparent 60%) padding-box, var(--surface-1) padding-box, var(--gilt-edge-soft) border-box;
+            box-shadow: var(--shadow-md);
+            transition: transform var(--dur-3) var(--ease-out);
+        }
+        .card:hover { transform: translateY(-3px); }
+        .card-icon { grid-row: 1 / span 2; }
+        .card-icon--duo { font-size: 17px; letter-spacing: -2px; }
+        .card-title { grid-column: 2; align-self: end; margin-bottom: 4px; font-family: var(--font-display); font-size: 17px; font-weight: 700; line-height: 1.35; color: var(--gold-200); }
+        .card-desc { grid-column: 2; align-self: start; font-size: 14px; line-height: 1.6; color: var(--text-dim); }
+        .card::after {                  /* chevron, mirrored in RTL */
+            content: ''; grid-column: 3; grid-row: 1 / span 2; width: 9px; height: 9px; margin-inline: 4px 6px;
+            border-top: 1.5px solid var(--gold-300); border-right: 1.5px solid var(--gold-300);
+            transform: rotate(45deg); opacity: .55; transition: transform var(--dur-3) var(--ease-out), opacity var(--dur-3) var(--ease-out);
+        }
+        .card:hover::after { opacity: 1; transform: translateX(3px) rotate(45deg); }
+        [dir="rtl"] .card::after { transform: rotate(-135deg); }
+        [dir="rtl"] .card:hover::after { transform: translateX(-3px) rotate(-135deg); }
+        .card-title .premium-badge { margin-inline-start: 8px; vertical-align: 2px; }
+        .codex-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
+        .codex-row .grid { grid-template-columns: minmax(0, 1fr); }
+
+        @media (max-width: 760px) {
+            .grid, .codex-row { grid-template-columns: minmax(0, 1fr); }
+            .card { column-gap: 16px; padding: 18px; min-height: 0; }
+            .card .skill-slot { width: 52px; height: 52px; font-size: 22px; }
+        }
+        @media (max-width: 640px) {
+            .docs-sigil { width: 144px; height: 144px; }
+            .logo { width: 60px; height: 60px; font-size: 30px; border-radius: 15px; }
+            .docs-hero h1 { letter-spacing: .1em; padding-inline-start: .1em; }
         }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -257,114 +144,187 @@
     <script>window.__PRERENDERED_LANG__="en";</script>
 </head>
 <body>
-    <div class="container">
-        <div class="top-bar">
-            <a href="/en/" style="display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.color='var(--text-dim)';this.style.borderColor='var(--border)'" data-i18n="docsNav.backToMainSite">← Back to main site</a>
-            <div class="lang-select">
-                <button class="lang-select-btn" onclick="toggleLangMenu()">
-                    <span class="lang-flag">🇬🇧</span>
-                    <span class="lang-code">EN</span>
-                    <span class="lang-chevron">▾</span>
-                </button>
-                <div class="lang-select-menu">
-                    <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
-                    <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
-                    <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
-                    <button class="lang-option" data-lang="de" onclick="setLang('de')">🇩🇪 Deutsch</button>
-                    <button class="lang-option" data-lang="pt" onclick="setLang('pt')">🇧🇷 Português</button>
-                    <button class="lang-option" data-lang="it" onclick="setLang('it')">🇮🇹 Italiano</button>
-                    <button class="lang-option" data-lang="nl" onclick="setLang('nl')">🇳🇱 Nederlands</button>
-                    <button class="lang-option" data-lang="pl" onclick="setLang('pl')">🇵🇱 Polski</button>
-                    <button class="lang-option" data-lang="ru" onclick="setLang('ru')">🇷🇺 Русский</button>
-                    <button class="lang-option" data-lang="tr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
-                    <button class="lang-option" data-lang="ja" onclick="setLang('ja')">🇯🇵 日本語</button>
-                    <button class="lang-option" data-lang="ko" onclick="setLang('ko')">🇰🇷 한국어</button>
-                    <button class="lang-option" data-lang="tl" onclick="setLang('tl')">🇵🇭 Filipino</button>
-                    <button class="lang-option" data-lang="zh" onclick="setLang('zh')">🇨🇳 中文</button>
-                    <button class="lang-option" data-lang="ar" onclick="setLang('ar')">🇸🇦 العربية</button>
+    <!-- ═══ Header ═══ -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="/en/" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+                <span class="brand__word">Reborn</span>
+            </a>
+            <div class="header-actions">
+                <a href="/en/" class="back-link" data-i18n="docsNav.backToMainSite">← Back to main site</a>
+                <div class="lang-select">
+                    <button class="lang-select-btn" type="button" aria-haspopup="true" aria-expanded="false" onclick="toggleLangMenu()">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span class="lang-code">EN</span>
+                        <span class="lang-chevron">▾</span>
+                    </button>
+                    <div class="lang-select-menu">
+                        <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
+                        <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
+                        <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
+                        <button class="lang-option" data-lang="de" onclick="setLang('de')">🇩🇪 Deutsch</button>
+                        <button class="lang-option" data-lang="pt" onclick="setLang('pt')">🇧🇷 Português</button>
+                        <button class="lang-option" data-lang="it" onclick="setLang('it')">🇮🇹 Italiano</button>
+                        <button class="lang-option" data-lang="nl" onclick="setLang('nl')">🇳🇱 Nederlands</button>
+                        <button class="lang-option" data-lang="pl" onclick="setLang('pl')">🇵🇱 Polski</button>
+                        <button class="lang-option" data-lang="ru" onclick="setLang('ru')">🇷🇺 Русский</button>
+                        <button class="lang-option" data-lang="tr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
+                        <button class="lang-option" data-lang="ja" onclick="setLang('ja')">🇯🇵 日本語</button>
+                        <button class="lang-option" data-lang="ko" onclick="setLang('ko')">🇰🇷 한국어</button>
+                        <button class="lang-option" data-lang="tl" onclick="setLang('tl')">🇵🇭 Filipino</button>
+                        <button class="lang-option" data-lang="zh" onclick="setLang('zh')">🇨🇳 中文</button>
+                        <button class="lang-option" data-lang="ar" onclick="setLang('ar')">🇸🇦 العربية</button>
+                    </div>
                 </div>
             </div>
         </div>
+    </header>
 
-        <div class="header">
-            <div class="logo">R</div>
+    <main class="container docs-hub">
+        <!-- Title page -->
+        <div class="docs-hero">
+            <div class="docs-sigil" aria-hidden="true">
+                <svg viewBox="-300 -300 600 600" fill="none" stroke="currentColor" focusable="false">
+                    <defs>
+                        <path id="rn-a" d="M-3 8V-8M-3-3L4-8M-3 2L4-3"/>
+                        <path id="rn-b" d="M0 8V-8M0-1L-5-8M0-1L5-8"/>
+                        <path id="rn-c" d="M0-8L5-2L0 4L-5-2ZM-1 3L-5 8M1 3L5 8"/>
+                        <path id="rn-d" d="M-3 8V-8L3-4L-3 0L4 8"/>
+                        <path id="rn-e" d="M-4 8V-8L4 0M4 8V-8L-4 0"/>
+                        <path id="rn-f" d="M-3-8L3-3L-3 3L3 8"/>
+                    </defs>
+                    <circle r="292" stroke-width="3" stroke-opacity=".5"/>
+                    <circle r="270" stroke-width="12" stroke-opacity=".3" stroke-dasharray="2 12"/>
+                    <circle r="250" stroke-width="3" stroke-opacity=".45"/>
+                    <circle r="170" stroke-width="3" stroke-opacity=".45"/>
+                    <g stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".85">
+                        <use href="#rn-a" transform="rotate(0) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-d" transform="rotate(30) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-b" transform="rotate(60) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-c" transform="rotate(90) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-e" transform="rotate(120) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-f" transform="rotate(150) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-b" transform="rotate(180) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-a" transform="rotate(210) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-f" transform="rotate(240) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-d" transform="rotate(270) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-c" transform="rotate(300) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-e" transform="rotate(330) translate(0 -210) scale(2.4)"/>
+                    </g>
+                </svg>
+                <div class="logo">R</div>
+            </div>
             <h1>REBORN ASSISTANT</h1>
             <div class="version" data-i18n="docsHome.version">VERSION 1.3.3 · COMPLETE DOCUMENTATION</div>
+            <div class="ornament" aria-hidden="true"></div>
         </div>
 
-        <div class="doc-category" data-i18n="docsHome.userGuide">User Guide</div>
-        <div class="grid grid-section">
-            <a href="/en/docs/quickstart.html" class="card">
-                <div class="card-icon">🚀</div>
-                <div class="card-title" data-i18n="docsHome.quickstartTitle">Quick Start</div>
-                <div class="card-desc" data-i18n="docsHome.quickstartDesc">Installation, initial setup and first steps with Reborn Assistant.</div>
-            </a>
+        <!-- I. User guide -->
+        <section class="codex-chapter">
+            <h2 class="doc-category" data-i18n="docsHome.userGuide">User Guide</h2>
+            <div class="grid grid-section">
+                <a href="/en/docs/quickstart.html" class="card gild-hover">
+                    <div class="card-icon skill-slot" aria-hidden="true">🚀</div>
+                    <h3 class="card-title" data-i18n="docsHome.quickstartTitle">Quick Start</h3>
+                    <div class="card-desc" data-i18n="docsHome.quickstartDesc">Installation, initial setup and first steps with Reborn Assistant.</div>
+                </a>
 
-            <a href="/en/docs/features.html" class="card">
-                <div class="card-icon">⚡</div>
-                <div class="card-title" data-i18n="docsHome.featuresTitle">Features</div>
-                <div class="card-desc" data-i18n="docsHome.featuresDesc">Full detail of free and Premium features with comparison table.</div>
-            </a>
+                <a href="/en/docs/features.html" class="card gild-hover">
+                    <div class="card-icon skill-slot" aria-hidden="true">⚡</div>
+                    <h3 class="card-title" data-i18n="docsHome.featuresTitle">Features</h3>
+                    <div class="card-desc" data-i18n="docsHome.featuresDesc">Full detail of free and Premium features with comparison table.</div>
+                </a>
 
-            <a href="/en/docs/premium.html" class="card">
-                <div class="card-icon">💎</div>
-                <div class="card-title"><span data-i18n="docsHome.premiumTitle">Premium Guide</span> <span class="premium-badge">PREMIUM</span></div>
-                <div class="card-desc" data-i18n="docsHome.premiumDesc">Automatic sequences, customizable macros and periodic macro.</div>
-            </a>
+                <a href="/en/docs/premium.html" class="card gild-hover">
+                    <div class="card-icon skill-slot" aria-hidden="true">💎</div>
+                    <h3 class="card-title"><span data-i18n="docsHome.premiumTitle">Premium Guide</span> <span class="premium-badge">PREMIUM</span></h3>
+                    <div class="card-desc" data-i18n="docsHome.premiumDesc">Automatic sequences, customizable macros and periodic macro.</div>
+                </a>
 
-            <a href="/en/docs/interface.html" class="card">
-                <div class="card-icon">🎨</div>
-                <div class="card-title" data-i18n="docsHome.interfaceTitle">Interface & Customization</div>
-                <div class="card-desc" data-i18n="docsHome.interfaceDesc">Visual themes, languages and customization options.</div>
-            </a>
+                <a href="/en/docs/interface.html" class="card gild-hover">
+                    <div class="card-icon skill-slot" aria-hidden="true">🎨</div>
+                    <h3 class="card-title" data-i18n="docsHome.interfaceTitle">Interface & Customization</h3>
+                    <div class="card-desc" data-i18n="docsHome.interfaceDesc">Visual themes, languages and customization options.</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- II. Articles -->
+        <section class="codex-chapter">
+            <h2 class="doc-category" data-i18n="docsHome.articles">Flyff Universe Articles & Guides</h2>
+            <div class="grid grid-section">
+                <a href="/en/docs/automate-ringmaster-flyff-universe.html" class="card gild-hover" data-bonus-fr="/docs/automatiser-ringmaster-flyff-universe.html" data-bonus-en="/en/docs/automate-ringmaster-flyff-universe.html">
+                    <div class="card-icon skill-slot" aria-hidden="true">⚙️</div>
+                    <h3 class="card-title" data-i18n="docsHome.articleAutomateTitle">Automate your Ringmaster</h3>
+                    <div class="card-desc" data-i18n="docsHome.articleAutomateDesc">Step-by-step tutorial to automate your Ringmaster on Flyff Universe with Reborn Assistant.</div>
+                </a>
+                <a href="/en/docs/best-flyff-universe-tools-2026.html" class="card gild-hover" data-bonus-fr="/docs/meilleurs-outils-flyff-universe-2026.html" data-bonus-en="/en/docs/best-flyff-universe-tools-2026.html">
+                    <div class="card-icon skill-slot" aria-hidden="true">🔧</div>
+                    <h3 class="card-title" data-i18n="docsHome.articleToolsTitle">Best Flyff Universe tools 2026</h3>
+                    <div class="card-desc" data-i18n="docsHome.articleToolsDesc">Comparison of extensions, translators and calculators tested for Flyff Universe.</div>
+                </a>
+                <a href="/en/docs/flyff-universe-ringmaster-class-guide.html" class="card gild-hover" data-bonus-fr="/docs/guide-ringmaster-flyff-universe.html" data-bonus-en="/en/docs/flyff-universe-ringmaster-class-guide.html">
+                    <div class="card-icon skill-slot" aria-hidden="true">🎯</div>
+                    <h3 class="card-title" data-i18n="docsHome.articleGuideTitle">Complete Ringmaster guide</h3>
+                    <div class="card-desc" data-i18n="docsHome.articleGuideDesc">Role, buffs, STA/INT builds, gear: everything about the Flyff Universe support class.</div>
+                </a>
+                <a href="/docs/raccourcis-clavier-flyff-universe.html" class="card gild-hover" data-bonus-fr="/docs/raccourcis-clavier-flyff-universe.html" data-bonus-en="/en/docs/flyff-universe-keyboard-shortcuts.html">
+                    <div class="card-icon skill-slot" aria-hidden="true">⌨️</div>
+                    <h3 class="card-title" data-i18n="docsHome.articleShortcutsTitle">Flyff Universe Keyboard Shortcuts</h3>
+                    <div class="card-desc" data-i18n="docsHome.articleShortcutsDesc">Complete list of Flyff Universe shortcuts and recommended configuration per class.</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- III. Support · IV. Legal -->
+        <div class="codex-row">
+            <section class="codex-chapter">
+                <h2 class="doc-category" data-i18n="docsHome.support">Support</h2>
+                <div class="grid grid-section">
+                    <a href="/en/docs/troubleshooting.html" class="card gild-hover">
+                        <div class="card-icon skill-slot" aria-hidden="true">🔧</div>
+                        <h3 class="card-title" data-i18n="docsHome.troubleshootingTitle">Troubleshooting</h3>
+                        <div class="card-desc" data-i18n="docsHome.troubleshootingDesc">Solutions to common issues, FAQ and performance optimization.</div>
+                    </a>
+                </div>
+            </section>
+
+            <section class="codex-chapter">
+                <h2 class="doc-category" data-i18n="docsHome.legal">Legal information</h2>
+                <div class="grid grid-section">
+                    <a href="/en/docs/privacy.html" class="card gild-hover">
+                        <div class="card-icon card-icon--duo skill-slot" aria-hidden="true">⚖️🔒</div>
+                        <h3 class="card-title" data-i18n="docsHome.legalTitle">Legal & Privacy</h3>
+                        <div class="card-desc" data-i18n="docsHome.legalDesc">Disclaimer, legal notices, license terms, privacy policy and changelog.</div>
+                    </a>
+                </div>
+            </section>
         </div>
+    </main>
 
-        <div class="doc-category" data-i18n="docsHome.articles">Flyff Universe Articles & Guides</div>
-        <div class="grid grid-section">
-            <a href="/en/docs/automate-ringmaster-flyff-universe.html" class="card" data-bonus-fr="/docs/automatiser-ringmaster-flyff-universe.html" data-bonus-en="/en/docs/automate-ringmaster-flyff-universe.html">
-                <div class="card-icon">⚙️</div>
-                <div class="card-title" data-i18n="docsHome.articleAutomateTitle">Automate your Ringmaster</div>
-                <div class="card-desc" data-i18n="docsHome.articleAutomateDesc">Step-by-step tutorial to automate your Ringmaster on Flyff Universe with Reborn Assistant.</div>
-            </a>
-            <a href="/en/docs/best-flyff-universe-tools-2026.html" class="card" data-bonus-fr="/docs/meilleurs-outils-flyff-universe-2026.html" data-bonus-en="/en/docs/best-flyff-universe-tools-2026.html">
-                <div class="card-icon">🔧</div>
-                <div class="card-title" data-i18n="docsHome.articleToolsTitle">Best Flyff Universe tools 2026</div>
-                <div class="card-desc" data-i18n="docsHome.articleToolsDesc">Comparison of extensions, translators and calculators tested for Flyff Universe.</div>
-            </a>
-            <a href="/en/docs/flyff-universe-ringmaster-class-guide.html" class="card" data-bonus-fr="/docs/guide-ringmaster-flyff-universe.html" data-bonus-en="/en/docs/flyff-universe-ringmaster-class-guide.html">
-                <div class="card-icon">🎯</div>
-                <div class="card-title" data-i18n="docsHome.articleGuideTitle">Complete Ringmaster guide</div>
-                <div class="card-desc" data-i18n="docsHome.articleGuideDesc">Role, buffs, STA/INT builds, gear: everything about the Flyff Universe support class.</div>
-            </a>
-            <a href="/docs/raccourcis-clavier-flyff-universe.html" class="card" data-bonus-fr="/docs/raccourcis-clavier-flyff-universe.html" data-bonus-en="/en/docs/flyff-universe-keyboard-shortcuts.html">
-                <div class="card-icon">⌨️</div>
-                <div class="card-title" data-i18n="docsHome.articleShortcutsTitle">Flyff Universe Keyboard Shortcuts</div>
-                <div class="card-desc" data-i18n="docsHome.articleShortcutsDesc">Complete list of Flyff Universe shortcuts and recommended configuration per class.</div>
-            </a>
+    <!-- ═══ Footer ═══ -->
+    <footer class="site-footer site-footer--compact">
+        <div class="container footer-content">
+            <div class="footer-logo">REBORN ASSISTANT</div>
+            <div class="ornament" aria-hidden="true"></div>
+            <div class="copyright"><span data-i18n="docsHome.footer">© 2026 Reborn Assistant — Developed by Seymoon · All rights reserved</span></div>
         </div>
+    </footer>
 
-        <div class="doc-category" data-i18n="docsHome.support">Support</div>
-        <div class="grid grid-section">
-            <a href="/en/docs/troubleshooting.html" class="card">
-                <div class="card-icon">🔧</div>
-                <div class="card-title" data-i18n="docsHome.troubleshootingTitle">Troubleshooting</div>
-                <div class="card-desc" data-i18n="docsHome.troubleshootingDesc">Solutions to common issues, FAQ and performance optimization.</div>
-            </a>
-        </div>
-
-        <div class="doc-category" data-i18n="docsHome.legal">Legal information</div>
-        <div class="grid grid-section">
-            <a href="/en/docs/privacy.html" class="card">
-                <div class="card-icon">⚖️🔒</div>
-                <div class="card-title" data-i18n="docsHome.legalTitle">Legal & Privacy</div>
-                <div class="card-desc" data-i18n="docsHome.legalDesc">Disclaimer, legal notices, license terms, privacy policy and changelog.</div>
-            </a>
-        </div>
-
-        <footer>
-            <span data-i18n="docsHome.footer">© 2026 Reborn Assistant — Developed by Seymoon · All rights reserved</span>
-        </footer>
-    </div>
     <script type="module" src="/langs/index.js"></script>
+    <script>
+        // ── Language dropdown: mirror its open state (toggled by langs/index.js) into aria-expanded; Escape closes it ──
+        (function () {
+            const ls = document.querySelector('.lang-select');
+            const lb = ls && ls.querySelector('.lang-select-btn');
+            if (!ls || !lb) return;
+            new MutationObserver(() => lb.setAttribute('aria-expanded', String(ls.classList.contains('open'))))
+                .observe(ls, { attributes: true, attributeFilter: ['class'] });
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && ls.classList.contains('open')) { ls.classList.remove('open'); lb.focus(); }
+            });
+        })();
+    </script>
 </body>
 </html>

@@ -32,7 +32,7 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- ── hreflang ────────────────────────────────────────────── -->
     <!-- ── hreflang ──────────────────────────────────── -->
@@ -54,42 +54,12 @@
     <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html">
     <!-- ── /hreflang ── -->
 
+    <link rel="stylesheet" href="/assets/css/site.css?v=2">
     <style>
-        :root { --gold:#d4af37;--gold-light:#f4d03f;--gold-dark:#b8941f;--dark-bg:#080808;--green:#4CAF50;--red:#ff6b6b;--blue:#5dade2;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
-        * { margin:0;padding:0;box-sizing:border-box; }
-        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.8; }
-        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
-        .container { max-width:880px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
-        .breadcrumb { font-size:12px;color:var(--text-dim);margin-bottom:32px;letter-spacing:1px; }
-        .breadcrumb a { color:var(--gold);text-decoration:none; }
-        h1 { font-family:'Cinzel',serif;font-size:clamp(30px,5vw,44px);color:var(--gold);letter-spacing:1.5px;line-height:1.1;margin-bottom:20px; }
-        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:48px;line-height:1.6; }
-        h2 { font-family:'Cinzel',serif;font-size:26px;color:var(--text);margin:56px 0 20px;padding-bottom:14px;border-bottom:1px solid var(--border);letter-spacing:0.5px; }
-        h3 { font-size:19px;color:var(--gold);margin:28px 0 12px;font-weight:600; }
-        p { margin-bottom:18px;font-size:15.5px; }
-        ul, ol { margin:14px 0 22px 24px; }
-        li { margin:8px 0;font-size:15.5px; }
-        strong { color:var(--gold); }
-        code { background:rgba(20,20,16,0.9);padding:3px 9px;border-radius:4px;font-family:'Courier New',monospace;font-size:13px;color:var(--gold-light); }
-        .stats-table { width:100%;border-collapse:collapse;margin:24px 0;background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;overflow:hidden; }
-        .stats-table th { background:rgba(212,175,55,0.1);padding:14px 16px;font-weight:600;text-align:left;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--gold); }
-        .stats-table td { padding:14px 16px;border-top:1px solid var(--border);font-size:14px; }
-        .stats-table tr:hover { background:rgba(212,175,55,0.03); }
-        .buff-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:24px 0; }
-        .buff-card { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:10px;padding:20px; }
-        .buff-card.priority { border-color:var(--gold);background:rgba(212,175,55,0.04); }
-        .buff-name { font-family:'Cinzel',serif;color:var(--gold);font-size:16px;font-weight:600;margin-bottom:8px; }
-        .buff-meta { font-size:11px;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px; }
-        .buff-desc { font-size:13px;line-height:1.6;color:var(--text-dim); }
-        .callout { background:rgba(212,175,55,0.08);border-left:4px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:4px; }
-        .callout strong { color:var(--gold); }
-        .role-card { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;padding:24px;margin:20px 0; }
-        .role-icon { font-size:28px;margin-bottom:10px; }
-        .back-link { display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;text-decoration:none;transition:all 0.3s; }
-        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
-        .cta-box { background:linear-gradient(160deg,rgba(212,175,55,0.06),rgba(20,20,16,0.6));border:1px solid var(--gold);border-radius:14px;padding:32px;margin:48px 0;text-align:center; }
-        .cta-box h3 { color:var(--gold);font-family:'Cinzel',serif;font-size:22px;margin-bottom:14px; }
-        .btn-cta { display:inline-block;background:linear-gradient(135deg,#2d5016,#4CAF50,#5dd87a);color:#fff;padding:14px 32px;text-decoration:none;font-family:'Cinzel',serif;font-weight:600;letter-spacing:1.5px;border-radius:6px;font-size:13px;text-transform:uppercase;margin-top:8px; }
+        /* ═══ Long-tail article — page-specific tweaks (codex components: /assets/css/site.css) ═══ */
+        .article-head .breadcrumb { margin-bottom: 20px; }
+        .article .role-card p { margin-bottom: 16px; }
+        .article .callout { margin-block: 34px; }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
@@ -129,14 +99,29 @@
     <script>window.__PRERENDERED_LANG__="ko";</script>
 </head>
 <body>
-    <div class="container">
-        <a href="/ko/docs/index.html" class="back-link">← 문서로 돌아가기</a>
-        <div class="breadcrumb" style="margin-top:24px;">
-            <a href="../index.html">홈</a> › <a href="/ko/docs/index.html">문서</a> › Ringmaster 가이드
+    <!-- ═══ Header ═══ -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="../index.html" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+                <span class="brand__word">Reborn</span>
+            </a>
+            <div class="header-actions">
+                <a href="/ko/docs/index.html" class="back-link">← 문서로 돌아가기</a>
+            </div>
         </div>
+    </header>
 
-        <h1>Flyff Universe Ringmaster — 2026 완벽 가이드</h1>
-        <p class="subtitle">역할, 버프, 빌드, 장비, 로테이션까지. 60레벨 구간부터 엔드게임까지 2026년 Flyff Universe에서 Ringmaster를 플레이하기 위해 알아야 할 모든 것입니다.</p>
+    <main class="container article">
+        <header class="article-head">
+            <div class="breadcrumb" style="margin-top:24px;">
+                <a href="../index.html">홈</a> › <a href="/ko/docs/index.html">문서</a> › Ringmaster 가이드
+            </div>
+
+            <h1>Flyff Universe Ringmaster — 2026 완벽 가이드</h1>
+            <p class="subtitle">역할, 버프, 빌드, 장비, 로테이션까지. 60레벨 구간부터 엔드게임까지 2026년 Flyff Universe에서 Ringmaster를 플레이하기 위해 알아야 할 모든 것입니다.</p>
+            <div class="ornament" aria-hidden="true"></div>
+        </header>
 
         <h2>Ringmaster란 무엇인가?</h2>
         <p><strong>Ringmaster</strong>(RM)는 Flyff Universe에서 Assist 계열의 최종 전직 클래스입니다. <strong>게임을 대표하는 서포트 클래스</strong>로, 주된 역할은 피해를 가하는 것이 아니라 <em>장시간 버프와 반복적인 AOE 힐로 파티를 살아 있게 유지하고 더 강하게 만드는 것</em>입니다. Ringmaster가 없는 엔드게임 파티는 같은 지역을 클리어하는 데 2~3배의 시간이 걸리고, 우발적인 풀에서 훨씬 더 쉽게 무너집니다.</p>
@@ -215,42 +200,44 @@
         <h2>빌드 STA vs INT — 어느 빌드를 선택할까?</h2>
         <p>2026년 기준 주요한 두 가지 학파가 있습니다.</p>
 
-        <table class="stats-table">
-            <thead>
-                <tr>
-                    <th>기준</th>
-                    <th>풀 STA 빌드</th>
-                    <th>INT 하이브리드 빌드</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>주요 스탯</strong></td>
-                    <td>풀 STA, INT는 버프에 필요한 최소치만</td>
-                    <td>STA/INT 약 50/50, 레벨에 따라 30/70까지</td>
-                </tr>
-                <tr>
-                    <td><strong>HP / 생존력</strong></td>
-                    <td>훌륭함 — HP 풀이 거대해 우발적인 풀에도 살아남음</td>
-                    <td>보통 — 플레이어의 더 많은 주의가 필요</td>
-                </tr>
-                <tr>
-                    <td><strong>힐량</strong></td>
-                    <td>괜찮음 — 대부분의 상황에 충분</td>
-                    <td>훌륭함 — Heal Rain과 다른 힐들이 INT에 크게 비례</td>
-                </tr>
-                <tr>
-                    <td><strong>FP 풀</strong></td>
-                    <td>낮음 — 포션이 더 많이 필요</td>
-                    <td>높음 — FP 관리가 훨씬 편함</td>
-                </tr>
-                <tr>
-                    <td><strong>추천 대상</strong></td>
-                    <td>초보 플레이어, 위험도 낮은 사냥, 솔로 유틸리티 RM</td>
-                    <td>숙련 플레이어, 어려운 레이드, FWC, 엔드게임</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-scroll">
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>기준</th>
+                        <th>풀 STA 빌드</th>
+                        <th>INT 하이브리드 빌드</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>주요 스탯</strong></td>
+                        <td>풀 STA, INT는 버프에 필요한 최소치만</td>
+                        <td>STA/INT 약 50/50, 레벨에 따라 30/70까지</td>
+                    </tr>
+                    <tr>
+                        <td><strong>HP / 생존력</strong></td>
+                        <td>훌륭함 — HP 풀이 거대해 우발적인 풀에도 살아남음</td>
+                        <td>보통 — 플레이어의 더 많은 주의가 필요</td>
+                    </tr>
+                    <tr>
+                        <td><strong>힐량</strong></td>
+                        <td>괜찮음 — 대부분의 상황에 충분</td>
+                        <td>훌륭함 — Heal Rain과 다른 힐들이 INT에 크게 비례</td>
+                    </tr>
+                    <tr>
+                        <td><strong>FP 풀</strong></td>
+                        <td>낮음 — 포션이 더 많이 필요</td>
+                        <td>높음 — FP 관리가 훨씬 편함</td>
+                    </tr>
+                    <tr>
+                        <td><strong>추천 대상</strong></td>
+                        <td>초보 플레이어, 위험도 낮은 사냥, 솔로 유틸리티 RM</td>
+                        <td>숙련 플레이어, 어려운 레이드, FWC, 엔드게임</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <p>풀 STA 빌드는 여전히 가장 너그럽고 가장 많이 플레이됩니다. INT 하이브리드 빌드는 더 까다롭지만 압도적으로 높은 힐량으로 보상받습니다. 경쟁 콘텐츠라면 필수입니다.</p>
 
@@ -313,6 +300,17 @@
         <p style="margin-top:48px;text-align:center;color:var(--text-dim);font-size:14px;">
             2026년 5월 16일 업데이트된 가이드 — Flyff Universe (Gala Lab).
         </p>
-    </div>
+    </main>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="site-footer site-footer--compact">
+        <div class="container footer-content">
+            <a class="brand" href="../index.html" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+            </a>
+            <div class="footer-logo">REBORN ASSISTANT</div>
+            <div class="ornament" aria-hidden="true"></div>
+        </div>
+    </footer>
 </body>
 </html>

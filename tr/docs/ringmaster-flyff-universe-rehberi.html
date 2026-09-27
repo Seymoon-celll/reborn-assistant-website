@@ -32,7 +32,7 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- ── hreflang ────────────────────────────────────────────── -->
     <!-- ── hreflang ──────────────────────────────────── -->
@@ -54,42 +54,12 @@
     <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html">
     <!-- ── /hreflang ── -->
 
+    <link rel="stylesheet" href="/assets/css/site.css?v=2">
     <style>
-        :root { --gold:#d4af37;--gold-light:#f4d03f;--gold-dark:#b8941f;--dark-bg:#080808;--green:#4CAF50;--red:#ff6b6b;--blue:#5dade2;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
-        * { margin:0;padding:0;box-sizing:border-box; }
-        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.8; }
-        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
-        .container { max-width:880px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
-        .breadcrumb { font-size:12px;color:var(--text-dim);margin-bottom:32px;letter-spacing:1px; }
-        .breadcrumb a { color:var(--gold);text-decoration:none; }
-        h1 { font-family:'Cinzel',serif;font-size:clamp(30px,5vw,44px);color:var(--gold);letter-spacing:1.5px;line-height:1.1;margin-bottom:20px; }
-        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:48px;line-height:1.6; }
-        h2 { font-family:'Cinzel',serif;font-size:26px;color:var(--text);margin:56px 0 20px;padding-bottom:14px;border-bottom:1px solid var(--border);letter-spacing:0.5px; }
-        h3 { font-size:19px;color:var(--gold);margin:28px 0 12px;font-weight:600; }
-        p { margin-bottom:18px;font-size:15.5px; }
-        ul, ol { margin:14px 0 22px 24px; }
-        li { margin:8px 0;font-size:15.5px; }
-        strong { color:var(--gold); }
-        code { background:rgba(20,20,16,0.9);padding:3px 9px;border-radius:4px;font-family:'Courier New',monospace;font-size:13px;color:var(--gold-light); }
-        .stats-table { width:100%;border-collapse:collapse;margin:24px 0;background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;overflow:hidden; }
-        .stats-table th { background:rgba(212,175,55,0.1);padding:14px 16px;font-weight:600;text-align:left;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--gold); }
-        .stats-table td { padding:14px 16px;border-top:1px solid var(--border);font-size:14px; }
-        .stats-table tr:hover { background:rgba(212,175,55,0.03); }
-        .buff-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:24px 0; }
-        .buff-card { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:10px;padding:20px; }
-        .buff-card.priority { border-color:var(--gold);background:rgba(212,175,55,0.04); }
-        .buff-name { font-family:'Cinzel',serif;color:var(--gold);font-size:16px;font-weight:600;margin-bottom:8px; }
-        .buff-meta { font-size:11px;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px; }
-        .buff-desc { font-size:13px;line-height:1.6;color:var(--text-dim); }
-        .callout { background:rgba(212,175,55,0.08);border-left:4px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:4px; }
-        .callout strong { color:var(--gold); }
-        .role-card { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;padding:24px;margin:20px 0; }
-        .role-icon { font-size:28px;margin-bottom:10px; }
-        .back-link { display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;text-decoration:none;transition:all 0.3s; }
-        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
-        .cta-box { background:linear-gradient(160deg,rgba(212,175,55,0.06),rgba(20,20,16,0.6));border:1px solid var(--gold);border-radius:14px;padding:32px;margin:48px 0;text-align:center; }
-        .cta-box h3 { color:var(--gold);font-family:'Cinzel',serif;font-size:22px;margin-bottom:14px; }
-        .btn-cta { display:inline-block;background:linear-gradient(135deg,#2d5016,#4CAF50,#5dd87a);color:#fff;padding:14px 32px;text-decoration:none;font-family:'Cinzel',serif;font-weight:600;letter-spacing:1.5px;border-radius:6px;font-size:13px;text-transform:uppercase;margin-top:8px; }
+        /* ═══ Long-tail article — page-specific tweaks (codex components: /assets/css/site.css) ═══ */
+        .article-head .breadcrumb { margin-bottom: 20px; }
+        .article .role-card p { margin-bottom: 16px; }
+        .article .callout { margin-block: 34px; }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
@@ -129,14 +99,29 @@
     <script>window.__PRERENDERED_LANG__="tr";</script>
 </head>
 <body>
-    <div class="container">
-        <a href="/tr/docs/index.html" class="back-link">← Dokümantasyona dön</a>
-        <div class="breadcrumb" style="margin-top:24px;">
-            <a href="../index.html">Ana Sayfa</a> › <a href="/tr/docs/index.html">Dokümantasyon</a> › Ringmaster Rehberi
+    <!-- ═══ Header ═══ -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="../index.html" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+                <span class="brand__word">Reborn</span>
+            </a>
+            <div class="header-actions">
+                <a href="/tr/docs/index.html" class="back-link">← Dokümantasyona dön</a>
+            </div>
         </div>
+    </header>
 
-        <h1>Flyff Universe Ringmaster — Kapsamlı 2026 Rehberi</h1>
-        <p class="subtitle">Rol, buff'lar, build'ler, ekipman, rotasyon: 2026'da Flyff Universe'de Ringmaster oynamak için, seviye 60'tan end-game'e kadar bilmeniz gereken her şey.</p>
+    <main class="container article">
+        <header class="article-head">
+            <div class="breadcrumb" style="margin-top:24px;">
+                <a href="../index.html">Ana Sayfa</a> › <a href="/tr/docs/index.html">Dokümantasyon</a> › Ringmaster Rehberi
+            </div>
+
+            <h1>Flyff Universe Ringmaster — Kapsamlı 2026 Rehberi</h1>
+            <p class="subtitle">Rol, buff'lar, build'ler, ekipman, rotasyon: 2026'da Flyff Universe'de Ringmaster oynamak için, seviye 60'tan end-game'e kadar bilmeniz gereken her şey.</p>
+            <div class="ornament" aria-hidden="true"></div>
+        </header>
 
         <h2>Ringmaster nedir?</h2>
         <p><strong>Ringmaster</strong> (RM), Flyff Universe'deki Assist dalının son ilerlemesidir. <strong>Oyunun destek sınıfıdır</strong>: temel rolü hasar vermek değil, uzun süreli buff'lar ve döngülü AOE heal aracılığıyla bir <em>grubu hayatta tutmak ve onu daha güçlü kılmaktır</em>. Ringmaster olmadan bir end-game grubu, bir bölgeyi temizlemek için iki ila üç kat daha fazla zaman harcar — ve kazara pull'lara karşı çok daha kötü hayatta kalır.</p>
@@ -215,42 +200,44 @@
         <h2>STA vs INT Build — Hangi build'i seçmeli?</h2>
         <p>2026'da iki ana ekol:</p>
 
-        <table class="stats-table">
-            <thead>
-                <tr>
-                    <th>Kriter</th>
-                    <th>Tam STA Build</th>
-                    <th>Hibrit INT Build</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Ana stat'lar</strong></td>
-                    <td>Tam STA, buff'lar için minimum gerekli INT</td>
-                    <td>~50/50 STA/INT, seviyeye göre bazen 30/70</td>
-                </tr>
-                <tr>
-                    <td><strong>HP / Hayatta kalma</strong></td>
-                    <td>Mükemmel — devasa pool, kazara pull'lara dayanır</td>
-                    <td>Orta — oyuncudan daha fazla dikkat ister</td>
-                </tr>
-                <tr>
-                    <td><strong>Heal gücü</strong></td>
-                    <td>Yeterli — çoğu durum için yeterlidir</td>
-                    <td>Mükemmel — Heal Rain ve diğer heal'ler INT ile güçlü ölçeklenir</td>
-                </tr>
-                <tr>
-                    <td><strong>FP havuzu</strong></td>
-                    <td>Düşük — daha fazla iksir gerektirir</td>
-                    <td>Yüksek — daha rahat FP yönetimi</td>
-                </tr>
-                <tr>
-                    <td><strong>Şunlar için önerilir</strong></td>
-                    <td>Yeni başlayan oyuncular, az tehlikeli farm, solo-utility RM</td>
-                    <td>Deneyimli oyuncular, zor raid'ler, FWC, end-game</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-scroll">
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>Kriter</th>
+                        <th>Tam STA Build</th>
+                        <th>Hibrit INT Build</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Ana stat'lar</strong></td>
+                        <td>Tam STA, buff'lar için minimum gerekli INT</td>
+                        <td>~50/50 STA/INT, seviyeye göre bazen 30/70</td>
+                    </tr>
+                    <tr>
+                        <td><strong>HP / Hayatta kalma</strong></td>
+                        <td>Mükemmel — devasa pool, kazara pull'lara dayanır</td>
+                        <td>Orta — oyuncudan daha fazla dikkat ister</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Heal gücü</strong></td>
+                        <td>Yeterli — çoğu durum için yeterlidir</td>
+                        <td>Mükemmel — Heal Rain ve diğer heal'ler INT ile güçlü ölçeklenir</td>
+                    </tr>
+                    <tr>
+                        <td><strong>FP havuzu</strong></td>
+                        <td>Düşük — daha fazla iksir gerektirir</td>
+                        <td>Yüksek — daha rahat FP yönetimi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Şunlar için önerilir</strong></td>
+                        <td>Yeni başlayan oyuncular, az tehlikeli farm, solo-utility RM</td>
+                        <td>Deneyimli oyuncular, zor raid'ler, FWC, end-game</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <p>Tam STA build'i en bağışlayıcı ve en çok oynanan olmaya devam eder. Hibrit INT build'i daha zorlayıcıdır ancak önemli ölçüde daha yüksek heal output'u ile ödüllendirir — rekabetçi içerik için olmazsa olmaz.</p>
 
@@ -313,6 +300,17 @@
         <p style="margin-top:48px;text-align:center;color:var(--text-dim);font-size:14px;">
             Rehber 16 Mayıs 2026'da güncellendi — Flyff Universe (Gala Lab).
         </p>
-    </div>
+    </main>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="site-footer site-footer--compact">
+        <div class="container footer-content">
+            <a class="brand" href="../index.html" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+            </a>
+            <div class="footer-logo">REBORN ASSISTANT</div>
+            <div class="ornament" aria-hidden="true"></div>
+        </div>
+    </footer>
 </body>
 </html>
