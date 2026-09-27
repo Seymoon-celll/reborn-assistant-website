@@ -20,7 +20,7 @@
     '@media (min-width:720px){.lang-select-menu{min-width:330px;}.lang-select.open .lang-select-menu{display:grid;grid-template-columns:1fr 1fr;}}',
     '.lang-option{display:flex;align-items:center;gap:9px;width:100%;min-height:40px;padding:0 12px;background:transparent;border:0;border-radius:8px;font-family:\'Inter\',system-ui,sans-serif;font-size:13px;font-weight:500;text-align:start;color:#a39b80;cursor:pointer;transition:background-color .15s ease,color .15s ease;}',
     '.lang-option:hover{background:rgba(212,175,55,0.1);color:#ecd58c;}',
-    '.lang-option:focus-visible{outline:none;background:rgba(212,175,55,0.1);color:#ecd58c;box-shadow:inset 0 0 0 1px rgba(245,230,184,.6);}',
+    '.lang-option:focus-visible{outline:2px solid transparent;outline-offset:-2px;background:rgba(212,175,55,0.1);color:#ecd58c;box-shadow:inset 0 0 0 1px rgba(245,230,184,.6);}',
     '.lang-option.active{color:#d4af37;background:rgba(212,175,55,0.08);font-weight:600;}',
     '.lang-option.active::after{content:"";width:6px;height:6px;margin-inline-start:auto;background:#d4af37;transform:rotate(45deg);}',
   ].join('');
@@ -58,7 +58,8 @@ function resolve(obj, path) {
    Built with new RegExp in a try: an engine without these Unicode properties simply skips the check. */
 let SAFE_EMOJI_LEAD = null;
 try {
-  SAFE_EMOJI_LEAD = new RegExp('^\\s*(?:\\p{Regional_Indicator}{2}|(?!\\p{P})\\p{Extended_Pictographic}[\\u{FE0F}\\u{20E3}\\p{Emoji_Modifier}]*(?:\\u{200D}\\p{Extended_Pictographic}[\\u{FE0F}\\p{Emoji_Modifier}]*)*)(?!\\s*\\p{P})', 'u');
+  /* the emoji cluster is matched atomically ((?=(…))\1), so it cannot give back a VS16 / skin tone / ZWJ to pass the punctuation test */
+  SAFE_EMOJI_LEAD = new RegExp('^\\s*(?=((?:\\p{Regional_Indicator}{2}|(?!\\p{P})\\p{Extended_Pictographic}[\\u{FE0F}\\u{20E3}\\p{Emoji_Modifier}]*(?:\\u{200D}\\p{Extended_Pictographic}[\\u{FE0F}\\p{Emoji_Modifier}]*)*)))\\1(?!\\s*\\p{P})', 'u');
 } catch (e) { /* unsupported: keep the build's classes */ }
 function guardEmojiLabel(el) {
   if (!SAFE_EMOJI_LEAD) return;

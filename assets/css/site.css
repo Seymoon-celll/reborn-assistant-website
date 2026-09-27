@@ -536,9 +536,14 @@ main, section, .site-footer { position: relative; z-index: 1; }
 }
 .btn-manage:hover::before { opacity: 1; }
 .btn-manage-short, .btn-docs-short { display: none; }
-/* With a glyph, the short docs label ("📚" in every language) only names the link for assistive tech */
-.hdr-docs .inline-gl ~ .btn-docs-short {
-    position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+/* The docs link always shows a word beside its gold book: the full label ("📚 Documentation") > 1180 px, the short one
+   ("📚 Docs", .emoji-lead) from 561 to 1180 px, where the full one would squeeze the header in es/pt/ru/tl. ≤ 560 px it
+   moves into the menu (.nav-compact); only with JavaScript off (no menu) does the header keep it there, as the book
+   alone — the short label then only names the link for assistive tech. */
+@media (max-width: 560px) {
+    .hdr-docs .inline-gl ~ .btn-docs-short {
+        position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+    }
 }
 
 /* Back link — used in docs headers (wraps onto two lines rather than overflowing) */
@@ -569,14 +574,28 @@ main, section, .site-footer { position: relative; z-index: 1; }
 .nav-open .nav-toggle__bars { background: transparent; }
 .nav-open .nav-toggle__bars::before { transform: rotate(45deg); }
 .nav-open .nav-toggle__bars::after { transform: rotate(-45deg); }
+/* Forced colours (Windows contrast themes) turn a background into Canvas: draw the bars in the button text colour */
+@media (forced-colors: active) {
+    .nav-toggle__bars, .nav-toggle__bars::before, .nav-toggle__bars::after { forced-color-adjust: none; background: ButtonText; }
+    .nav-open .nav-toggle__bars { background: transparent; }
+}
 
 /* Condense progressively */
 @media (max-width: 1280px) { .rv-label { display: none; } }
 @media (max-width: 1180px) {
     .btn-docs-full { display: none; } .btn-docs-short { display: inline; }
 }
-@media (max-width: 1060px) {
+@media (max-width: 1100px) {
     .btn-manage-full { display: none; } .btn-manage-short { display: inline; }
+}
+/* 961–1100 px: the inline nav and four labelled buttons share one row (ru "Возможности … Документация Управление"):
+   tighter minimum gaps. (With room to spare the nav's auto margins absorb the difference.) */
+@media (min-width: 961px) and (max-width: 1100px) {
+    .site-header__inner:has(> .site-nav) { gap: 12px; }
+    .site-nav { gap: 2px; }
+    .site-nav a { padding-inline: 8px; }
+    .site-nav a::after { inset-inline: 8px; }
+    .site-nav + .header-actions { gap: 8px; }
 }
 @media (max-width: 960px) {
     .nav-toggle { display: inline-grid; }
@@ -661,7 +680,8 @@ main, section, .site-footer { position: relative; z-index: 1; }
     color: var(--text-dim); cursor: pointer; transition: background-color .15s ease, color .15s ease;
 }
 .lang-option:hover { background: rgba(212,175,55,.1); color: var(--gold-200); }
-.lang-option:focus-visible { outline: none; background: rgba(212,175,55,.1); color: var(--gold-200); box-shadow: inset 0 0 0 1px rgba(245,230,184,.6); }
+/* The transparent outline is invisible here but painted in a system colour in forced-colours mode, where the box-shadow is dropped */
+.lang-option:focus-visible { outline: 2px solid transparent; outline-offset: -2px; background: rgba(212,175,55,.1); color: var(--gold-200); box-shadow: inset 0 0 0 1px rgba(245,230,184,.6); }
 .lang-option.active { color: var(--gold); background: rgba(212,175,55,.08); font-weight: 600; }
 .lang-option.active::after { content: ''; width: 6px; height: 6px; margin-inline-start: auto; background: var(--gold); transform: rotate(45deg); }
 
@@ -811,7 +831,8 @@ main, section, .site-footer { position: relative; z-index: 1; }
     line-height: 1.35; letter-spacing: .01em; color: var(--gold-200); text-wrap: balance;
 }
 .article h4 { margin: 20px 0 8px; font-size: 13px; font-weight: 700; letter-spacing: var(--track-sm); text-transform: uppercase; color: var(--gold-200); }
-.article p, .article li { font-size: var(--fs-md); line-height: var(--lh-read); color: var(--text-soft); }
+/* pretty: no lone last-line fragment — French puts a space before ":" ("Macro 1 – Automatisation répétitive :"), "§)", "🇹🇷)" */
+.article p, .article li { font-size: var(--fs-md); line-height: var(--lh-read); color: var(--text-soft); text-wrap: pretty; }
 .article p { margin-bottom: 18px; }
 .article strong { color: var(--gold-200); font-weight: 600; }
 .article em { color: var(--text-strong); }
@@ -971,6 +992,27 @@ kbd, :is(.keycaps, .shortcut-list) code {
     .comparison-table :is(th, td):first-child { padding-inline-start: 14px; }
     .comparison-table td:first-child { -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 12 5 5; }   /* long compounds (de "Tastenkombinationen") */
     .comparison-table :is(th, td):not(:first-child) { width: 1%; padding-inline: 8px; }
+}
+/* Narrow phones: tighter, smaller cells for the three-column tables. A translated stats table can still hold more long
+   words than a phone line (tl "nangangailangan" up to ~440 px, es "experimentados,", ru "большинстве"), and so can the
+   shortcuts key table below 340 px (FR "situationnelles)"): their text columns may then break inside a word —
+   hyphenated where the browser can — instead of pushing the last column off-screen. The first column (row labels,
+   keycaps) never does. The em/vw floor keeps a text column from being squeezed below a long word while the table still
+   has room (Chromium honours min-width on cells). The key table only gets it where it needs it: above 340 px it fits
+   whole, and an avoidable split ("familier" / ")") would be the only effect. */
+@media (max-width: 460px) {
+    .article :is(.stats-table, .key-table:not(.key-table--pair)) :is(th, td) { padding-inline: 8px; }
+    .article :is(.stats-table, .key-table:not(.key-table--pair)) td { font-size: 13.5px; }
+    .article .stats-table td:not(:first-child) {
+        overflow-wrap: anywhere; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 12 5 5;
+        min-width: min(7em, 24vw);
+    }
+}
+@media (max-width: 340px) {
+    .article .key-table:not(.key-table--pair) td:not(:first-child) {
+        overflow-wrap: anywhere; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 12 5 5;
+        min-width: min(7em, 24vw);
+    }
 }
 @media (max-width: 360px) {
     .comparison-table th { font-size: 10.5px; }
@@ -1311,7 +1353,7 @@ kbd, :is(.keycaps, .shortcut-list) code {
     background: radial-gradient(circle at 50% 28%, rgba(212,175,55,.2), transparent 62%) padding-box, var(--surface-slot) padding-box, var(--gilt) border-box;
     box-shadow: inset 0 0 0 3px rgba(8,7,5,.92), inset 0 0 0 4px rgba(212,175,55,.3), 0 10px 22px -10px rgba(0,0,0,.95);
 }
-.feature-grid .feature-title { margin-bottom: 8px; font-size: 17px; font-weight: 600; line-height: 1.4; color: var(--gold-100); }
+.feature-grid .feature-title { margin-bottom: 8px; font-size: 17px; font-weight: 600; line-height: 1.4; color: var(--gold-100); text-wrap: pretty; }
 .feature-desc { font-size: 14.5px; line-height: 1.65; color: var(--text-dim); }
 .article .feature-list { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--line-1); }
 .article .feature-list li { margin: 6px 0; font-size: 14px; line-height: 1.55; color: var(--text-soft); padding-inline-start: 20px; }
@@ -1365,6 +1407,12 @@ kbd, :is(.keycaps, .shortcut-list) code {
 .faq-q:has(> .inline-gl) { display: flex; align-items: flex-start; gap: 12px; }
 .faq-q > .inline-gl { width: 20px; height: 20px; margin-top: .14em; color: var(--gold-300); }
 .faq-q > span { flex: 1; min-width: 0; text-wrap: pretty; }
+/* A question whose emoji must stay (.emoji-keep, §6a′: "❌ «…»", es "❓ ¿…") shows it as a gold silhouette, like the
+   💎 of a gilt heading: nothing is hidden, so the punctuation after it is safe; the text keeps the question colour. */
+.faq-q > .emoji-keep {
+    background: var(--gold-100); -webkit-background-clip: text; background-clip: text;
+    color: transparent; -webkit-text-fill-color: transparent;
+}
 .faq-a { font-size: 15.5px; line-height: 1.75; color: var(--text-soft); }
 .faq-a .alert { margin: 4px 0 16px; font-size: 15px; }
 @media (min-width: 600px) { .faq-q:has(> .inline-gl + .emoji-lead) + .faq-a { padding-inline-start: 32px; } }   /* not under a kept OS emoji (.emoji-keep) */

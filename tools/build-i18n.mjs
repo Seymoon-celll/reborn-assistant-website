@@ -251,7 +251,10 @@ function setActiveLangInHeader(html, lang) {
  */
 const EMOJI_CLUSTER = String.raw`(?:\p{Regional_Indicator}{2}|(?!\p{P})\p{Extended_Pictographic}[\u{FE0F}\u{20E3}\p{Emoji_Modifier}]*(?:\u{200D}\p{Extended_Pictographic}[\u{FE0F}\p{Emoji_Modifier}]*)*)`;
 const STARTS_WITH_EMOJI_RE = /^\s*(?:\p{Extended_Pictographic}|\p{Regional_Indicator})/u;
-const SAFE_EMOJI_LEAD_RE = new RegExp(String.raw`^\s*${EMOJI_CLUSTER}(?!\s*\p{P})`, 'u');
+// The cluster is matched atomically (lookahead + backreference: JS has no atomic groups). A plain `${EMOJI_CLUSTER}(?!…)`
+// could backtrack and give back a trailing VS16 / skin tone / ZWJ, so the punctuation test would run against that
+// extender instead of the punctuation: "⚠️ ¿Qué?", "👍🏽 ¡Bravo!", "⚠️«Texte»" would pass as SAFE.
+const SAFE_EMOJI_LEAD_RE = new RegExp(String.raw`^\s*(?=(${EMOJI_CLUSTER}))\1(?!\s*\p{P})`, 'u');
 const EMOJI_LABEL_RE = /<(\w+)\b([^>]*?\bclass=")([^"]*\bemoji-(?:lead|keep)\b[^"]*)("[^>]*)>([\s\S]*?)<\/\1>/g;
 // A .callout--gl frame and its first child (the title): the first letter of that child is hidden.
 const CALLOUT_GL_RE = /<(\w+)\b([^>]*?\bclass=")([^"]*\bcallout--gl\b[^"]*)("[^>]*)>(\s*<(\w+)\b[^>]*>([\s\S]*?)<\/\6>)?/g;
