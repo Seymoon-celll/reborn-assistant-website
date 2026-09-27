@@ -230,7 +230,7 @@ body {
 }
 /* CJK: phrase-aware line breaking; only break inside a word when it cannot fit at all */
 :lang(ja), :lang(zh) { line-break: strict; }
-:lang(ja) :is(h1, h2, h3, .section-title, .section-subtitle, .subtitle,
+:lang(ja) :is(h1, h2, h3, .section-title, .section-subtitle, .subtitle, .version,
     .step-title, .card-title, .next-card__title, .feature-title, .faq-q, .faq-a strong, .param-name, .example-title) { word-break: auto-phrase; }
 :lang(ko) body { word-break: keep-all; }          /* Korean breaks at spaces (eojeol), never inside a word */
 img, svg, video { max-width: 100%; }
@@ -582,17 +582,21 @@ main, section, .site-footer { position: relative; z-index: 1; }
 
 /* Condense progressively */
 @media (max-width: 1280px) { .rv-label { display: none; } }
+/* Above 1280 px the header row is capped at the container width, so its room never grows: with the full
+   "Reborn Vision Extension", docs and manage labels, es/pt/pl/ru/tl run out of inline padding (ru/tl: 0 px).
+   Those languages drop the English brand text (the button keeps its logo, aria-label and title, as ≤ 1280 px),
+   never the manage label's object ("Gestionar suscripción", "Управление подпиской"). */
+:is(:lang(es), :lang(pt), :lang(pl), :lang(ru), :lang(tl)) .rv-label { display: none; }
 @media (max-width: 1180px) {
     .btn-docs-full { display: none; } .btn-docs-short { display: inline; }
 }
+/* ≤ 1100 px the button shows the short label, but its accessible name stays the full one: the full label is only
+   visually hidden and the short one is aria-hidden in the markup (the short word is part of the full label in every
+   language, so a voice user saying the visible word still reaches the button). */
 @media (max-width: 1100px) {
-    .btn-manage-full { display: none; } .btn-manage-short { display: inline; }
+    .btn-manage-full { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+    .btn-manage-short { display: inline; }
 }
-/* Above 1100 px the header row is capped at the container width, so its room never grows: with the full
-   "Reborn Vision Extension", docs and manage labels, es/pt/pl/ru/tl run out of inline padding (ru/tl: 0 px).
-   Those languages keep the short manage label at every width. */
-:is(:lang(es), :lang(pt), :lang(pl), :lang(ru), :lang(tl)) .btn-manage-full { display: none; }
-:is(:lang(es), :lang(pt), :lang(pl), :lang(ru), :lang(tl)) .btn-manage-short { display: inline; }
 /* 961–1100 px: the inline nav and four labelled buttons share one row (ru "Возможности … Документация Управление"):
    tighter minimum gaps. (With room to spare the nav's auto margins absorb the difference.) */
 @media (min-width: 961px) and (max-width: 1100px) {
@@ -668,16 +672,14 @@ main, section, .site-footer { position: relative; z-index: 1; }
 .lang-select.open .lang-chevron { transform: rotate(180deg); }
 .lang-select-menu {
     position: absolute; top: calc(100% + 8px); inset-inline-end: 0; z-index: 999;
-    min-width: 188px; max-height: min(70vh, 560px); overflow-y: auto; overscroll-behavior: contain;
-    display: none; flex-direction: column; gap: 2px; padding: 6px;
+    min-width: min(330px, calc(100vw - 24px)); max-height: min(70vh, 560px); overflow-y: auto; overscroll-behavior: contain;
+    display: none; grid-template-columns: 1fr 1fr; gap: 2px; padding: 6px;
     background: var(--ink-1); border: 1px solid rgba(212,175,55,.3); border-radius: 12px;   /* opaque: the header's backdrop-filter would let the page bleed through a translucent panel */
     box-shadow: 0 24px 60px -12px rgba(0,0,0,.85), 0 0 0 1px rgba(0,0,0,.6), inset 0 1px 0 rgba(245,230,184,.06);
 }
-.lang-select.open .lang-select-menu { display: flex; }
-@media (min-width: 720px) {
-    .lang-select-menu { min-width: 330px; }
-    .lang-select.open .lang-select-menu { display: grid; grid-template-columns: 1fr 1fr; }
-}
+/* Two columns at every width: a one-column list of 15 × 40 px options ran past a phone's viewport (the last languages
+   hid behind an inner scroll); in two columns the whole list is 348 px tall and fits a 320 × 568 screen. */
+.lang-select.open .lang-select-menu { display: grid; }
 .lang-option {
     display: flex; align-items: center; gap: 9px; width: 100%; min-height: 40px; padding: 0 12px;
     background: transparent; border: 0; border-radius: 8px;
@@ -1359,6 +1361,9 @@ kbd, :is(.keycaps, .shortcut-list) code {
     box-shadow: inset 0 0 0 3px rgba(8,7,5,.92), inset 0 0 0 4px rgba(212,175,55,.3), 0 10px 22px -10px rgba(0,0,0,.95);
 }
 .feature-grid .feature-title { margin-bottom: 8px; font-size: 17px; font-weight: 600; line-height: 1.4; color: var(--gold-100); text-wrap: pretty; }
+/* ja: a 12-kana word (キーボードショートカット) is one phrase that auto-phrase cannot break; beside the phone icon well it
+   only fits at 17 px from ~340 px, so it scales down with the viewport below 355 px instead of stranding its last kana */
+:lang(ja) .feature-grid .feature-title { font-size: min(17px, 4.8vw); }
 .feature-desc { font-size: 14.5px; line-height: 1.65; color: var(--text-dim); }
 .article .feature-list { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--line-1); }
 .article .feature-list li { margin: 6px 0; font-size: 14px; line-height: 1.55; color: var(--text-soft); padding-inline-start: 20px; }
