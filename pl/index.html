@@ -35,238 +35,642 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css?v=4">
     <style>
-        :root {
-            --gold: #d4af37; --gold-light: #f4d03f; --gold-dark: #b8941f;
-            --dark-bg: #080808; --dark-card: #141410; --dark-header: #1a1810;
-            --green: #4CAF50; --green-dark: #2d5016; --green-glow: rgba(76,175,80,0.4);
-            --text: #f0ead6; --text-dim: #9a9278; --border: rgba(212,175,55,0.2);
+        /* ═══ Homepage — page-specific layout (tokens & shared components: /assets/css/site.css) ═══ */
+
+        /* ── Hero ── */
+        .hero {
+            position: relative; z-index: 1; display: grid; place-items: center; text-align: center;
+            min-height: min(calc(100svh - var(--header-h)), 980px);
+            padding: clamp(40px, 7vh, 88px) var(--gutter) clamp(56px, 8vh, 96px);
+            overflow-x: clip;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--dark-bg); color: var(--text); overflow-x: hidden; }
-        body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; opacity: 0.4; }
-        body::after { content: ''; position: fixed; top: -20%; left: 50%; transform: translateX(-50%); width: 900px; height: 600px; background: radial-gradient(ellipse, rgba(212,175,55,0.06) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+        @supports not (overflow: clip) { .hero { overflow: hidden; } }
+        .hero-rays {        /* static god rays falling from the crown of the page */
+            position: absolute; inset: 0 0 auto; height: min(88vh, 820px); z-index: 0; pointer-events: none; overflow: hidden;
+            -webkit-mask: linear-gradient(180deg, #000 0%, rgba(0,0,0,.5) 45%, transparent 90%);
+            mask: linear-gradient(180deg, #000 0%, rgba(0,0,0,.5) 45%, transparent 90%);
+        }
+        .hero-rays::before {
+            content: ''; position: absolute; top: -2%; left: 50%; width: 190%; height: 110%; transform: translateX(-50%);
+            background: conic-gradient(from 146deg at 50% 0%,
+                transparent 0deg, rgba(245,230,184,.05) 7deg, transparent 13deg,
+                transparent 20deg, rgba(245,230,184,.085) 27deg, transparent 34deg,
+                transparent 38deg, rgba(236,213,140,.06) 43deg, transparent 49deg,
+                transparent 54deg, rgba(245,230,184,.045) 60deg, transparent 67deg, transparent 360deg);
+        }
+        .hero-inner { position: relative; z-index: 1; width: 100%; max-width: 940px; }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 14px; margin-bottom: clamp(26px, 4vh, 40px);
+            padding: 9px 22px; border-radius: var(--r-pill); border: 1px solid transparent;
+            background: linear-gradient(rgba(12,11,8,.92), rgba(12,11,8,.92)) padding-box, var(--gilt-edge) border-box;
+            font-size: 11px; font-weight: 600; letter-spacing: .34em; text-transform: uppercase; color: var(--gold-200);
+        }
+        .hero-eyebrow span { width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
 
-        header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 18px 60px; display: flex; justify-content: space-between; align-items: center; background: rgba(8,8,8,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); animation: slideDown 0.8s ease-out; }
-        @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-        .logo-container { display: flex; align-items: center; gap: 14px; }
-        .logo-icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--gold-dark), var(--gold-light)); display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 22px; font-weight: 900; color: #000; border-radius: 6px; box-shadow: 0 0 20px rgba(212,175,55,0.35); }
-        .logo-text { font-family: 'Cinzel', serif; font-size: 20px; font-weight: 700; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; }
-        .status-badge { background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.35); padding: 7px 18px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; color: var(--gold); text-transform: uppercase; letter-spacing: 2.5px; }
+        /* Title block + slowly turning rune circle behind it (behind the HUD from 1100px) */
+        .hero-title { position: relative; isolation: isolate; }
+        .hero-sigil {
+            position: absolute; left: 50%; top: 50%; z-index: -1; pointer-events: none;
+            width: min(860px, 150vw); aspect-ratio: 1; transform: translate(-50%, -50%);
+            color: var(--gold); opacity: .6;
+            /* fade the rim, and the lower half so it never competes with the copy below */
+            -webkit-mask: radial-gradient(closest-side, #000 58%, rgba(0,0,0,.55) 78%, transparent 100%), linear-gradient(180deg, #000 38%, rgba(0,0,0,.3) 66%, transparent 86%);
+            -webkit-mask-composite: source-in;
+            mask: radial-gradient(closest-side, #000 58%, rgba(0,0,0,.55) 78%, transparent 100%) intersect, linear-gradient(180deg, #000 38%, rgba(0,0,0,.3) 66%, transparent 86%);
+        }
+        .hero-sigil::before {
+            content: ''; position: absolute; inset: 22%; border-radius: 50%;
+            background: radial-gradient(circle, rgba(212,175,55,.16) 0%, rgba(212,175,55,.05) 45%, transparent 70%);
+        }
+        .rune-ring { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 
-        /* Lang dropdown */
-        .lang-select{position:relative;display:inline-block;user-select:none;}
-        .lang-select-btn{display:flex;align-items:center;gap:7px;background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.25);border-radius:8px;padding:7px 13px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--gold);cursor:pointer;transition:all 0.2s ease;letter-spacing:0.5px;white-space:nowrap;}
-        .lang-select-btn:hover{background:rgba(212,175,55,0.12);border-color:rgba(212,175,55,0.45);}
-        .lang-chevron{font-size:9px;transition:transform 0.2s ease;opacity:0.6;margin-left:2px;}
-        .lang-select.open .lang-chevron{transform:rotate(180deg);}
-        .lang-select-menu{position:absolute;top:calc(100% + 6px);right:0;min-width:130px;background:rgba(10,10,8,0.97);border:1px solid rgba(212,175,55,0.25);border-radius:8px;overflow:hidden;display:none;flex-direction:column;backdrop-filter:blur(16px);box-shadow:0 12px 40px rgba(0,0,0,0.6),0 0 0 1px rgba(212,175,55,0.08);z-index:999;}
-        .lang-select.open .lang-select-menu{display:flex;}
-        .lang-option{display:flex;align-items:center;gap:9px;width:100%;background:transparent;border:none;border-bottom:1px solid rgba(212,175,55,0.08);padding:10px 14px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;color:var(--text-dim);cursor:pointer;transition:all 0.15s ease;text-align:left;}
-        .lang-option:last-child{border-bottom:none;}
-        .lang-option:hover{background:rgba(212,175,55,0.09);color:var(--gold);}
-        .lang-option.active{color:var(--gold);background:rgba(212,175,55,0.05);font-weight:600;}
-
-        .hero { min-height: 85vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 100px 40px 60px; position: relative; z-index: 1; }
-        .hero-inner { max-width: 900px; position: relative; }
-        .hero-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 36px; padding: 8px 20px; border: 1px solid var(--border); border-radius: 20px; animation: fadeUp 1s ease-out 0.2s both; }
-        .hero-eyebrow span { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; display: inline-block; }
-        h1 { font-family: 'Cinzel', serif; font-size: clamp(52px, 9vw, 100px); font-weight: 900; line-height: 1.05; margin-bottom: 12px; background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 50%, var(--gold-dark) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: -1px; animation: fadeUp 1s ease-out 0.35s both; }
-        .hero-subtitle { font-family: 'Cinzel', serif; font-size: clamp(14px, 2vw, 18px); color: var(--text-dim); letter-spacing: 6px; text-transform: uppercase; margin-bottom: 40px; animation: fadeUp 1s ease-out 0.45s both; }
-        .hero-divider { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 40px; animation: fadeUp 1s ease-out 0.5s both; }
-        .hero-description { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 300; color: var(--text-dim); max-width: 620px; margin: 0 auto 56px; line-height: 1.9; animation: fadeUp 1s ease-out 0.6s both; }
-        .cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; animation: fadeUp 1s ease-out 0.75s both; }
-        .hero-trust { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-top: 32px; animation: fadeUp 1s ease-out 0.9s both; }
-        .hero-trust-item { display: flex; align-items: center; gap: 7px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 400; color: var(--text-dim); }
-        .hero-trust-item .dot-green { width: 7px; height: 7px; background: var(--green); border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 6px rgba(76,175,80,0.6); }
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-
-        .btn { padding: 16px 40px; font-family: 'Cinzel', serif; font-size: 13px; font-weight: 600; text-decoration: none; border-radius: 6px; border: 1px solid; cursor: pointer; position: relative; overflow: hidden; transition: all 0.35s ease; text-transform: uppercase; letter-spacing: 2px; display: inline-block; }
-        .btn::before { content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.35s ease; }
-        .btn-primary { background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 60%, #5dd87a 100%); border-color: var(--green); color: #fff; box-shadow: 0 4px 24px var(--green-glow); }
-        .btn-primary::before { background: rgba(255,255,255,0.12); }
-        .btn-primary::after { content: ''; position: absolute; top: 0; left: -100%; width: 55%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent); transition: left 0.55s ease; }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px var(--green-glow); }
-        .btn-primary:hover::before { opacity: 1; }
-        .btn-primary:hover::after { left: 160%; }
-        .btn-secondary { background: transparent; border-color: rgba(212,175,55,0.5); color: var(--gold); }
-        .btn-secondary::before { background: rgba(212,175,55,0.07); }
-        .btn-secondary:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(212,175,55,0.15); }
-        .btn-secondary:hover::before { opacity: 1; }
-
-        section { position: relative; z-index: 1; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
-        .section-header { text-align: center; margin-bottom: 80px; }
-        .section-tag { display: inline-block; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; padding: 5px 16px; border: 1px solid var(--border); border-radius: 20px; position: relative; }
-        .section-title { font-family: 'Cinzel', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 700; color: var(--text); margin-bottom: 20px; letter-spacing: -0.5px; }
-        .section-title em { font-style: normal; background: linear-gradient(135deg, var(--gold-dark), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .section-subtitle { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 300; color: var(--text-dim); max-width: 560px; margin: 0 auto; line-height: 1.8; }
-
-        .features { padding: 120px 0; }
-        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; -webkit-transform: translateZ(0); transform: translateZ(0); }
-        .feature-card { background: var(--dark-card); padding: 48px 40px; position: relative; transition: background 0.3s ease; }
-        /* Safari fix: overflow:hidden ne clippe pas les grilles — border-radius direct sur les coins */
-        .feature-card:first-child { border-top-left-radius: 11px; }
-        .feature-card:nth-child(3) { border-top-right-radius: 11px; }
-        .feature-card:nth-child(4) { border-bottom-left-radius: 11px; }
-        .feature-card:last-child { border-bottom-right-radius: 11px; }
-        .feature-card::after { content: ''; position: absolute; bottom: 0; left: 40px; right: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0; transition: opacity 0.3s ease; }
-        .feature-card:hover { background: var(--dark-header); }
-        .feature-card:hover::after { opacity: 0.6; }
-        .feature-icon { font-size: 36px; margin-bottom: 24px; display: block; filter: drop-shadow(0 0 8px rgba(212,175,55,0.3)); transition: all 0.3s ease; }
-        .feature-title { font-family: 'Cinzel', serif; font-size: 17px; font-weight: 600; margin-bottom: 14px; color: var(--gold); letter-spacing: 0.5px; }
-        .feature-description { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: var(--text-dim); line-height: 1.8; }
-
-        .stats { padding: 60px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(212,175,55,0.02); }
-        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; text-align: center; }
-        .stat-item { padding: 30px 20px; border-right: 1px solid var(--border); }
-        .stat-item:last-child { border-right: none; }
-        .stat-number { font-family: 'Cinzel', serif; font-size: 42px; font-weight: 900; background: linear-gradient(135deg, var(--gold-dark), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; line-height: 1; }
-        .stat-label { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 400; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; }
-
-        .trust-bar { padding: 50px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-        .trust-badges { display: flex; justify-content: center; align-items: center; gap: 48px; flex-wrap: wrap; }
-        .trust-badge { display: flex; align-items: center; gap: 10px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; color: var(--text-dim); }
-        .trust-badge-icon { width: 36px; height: 36px; background: rgba(212,175,55,0.08); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
-
-        .pricing { padding: 120px 0; background: linear-gradient(180deg, transparent 0%, rgba(212,175,55,0.03) 50%, transparent 100%); }
-
-        .price-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+        .hero h1 {
+            font-family: var(--font-display); font-size: var(--fs-hero); font-weight: 900; line-height: .98; letter-spacing: .015em;
+            /* metallic gradient repeated per line (each line gets its own highlight band) */
+            background: var(--gilt-title) 0 0 / 100% .98em repeat-y;
+            background-origin: content-box;
+            -webkit-background-clip: text; background-clip: text;
+            color: transparent; -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 0 rgba(0,0,0,.55)) drop-shadow(0 0 42px rgba(212,175,55,.2));
+        }
+        .hero-subtitle {
+            margin-top: 20px; padding-inline-start: .5em;
+            font-family: var(--font-display); font-size: clamp(12px, 1.2vw + 6px, 17px); font-weight: 600;
+            letter-spacing: .5em; text-transform: uppercase; color: var(--text-dim);
+        }
+        .hero-divider { margin-block: clamp(26px, 4vh, 38px); }
+        .hero-description {
+            max-width: 640px; margin: 0 auto clamp(34px, 5vh, 44px);
+            font-size: clamp(16px, .4vw + 14px, 18.5px); line-height: 1.8; color: var(--text-lead); text-wrap: pretty;
+        }
+        /* Japanese short copy: break at phrase boundaries, never mid-word */
+        :lang(ja) :is(.hero-description, .feature-description, .sec-card-text, .price-period, .price-guarantee, .price-features li, .stat-label, .trust-badge, .faq-question) { word-break: auto-phrase; }
+        .cta-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+        .cta-group .btn { min-width: 220px; min-height: 54px; font-size: 16.5px; }
+        .hero-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 26px; margin-top: 30px; }
+        .hero-trust-item { display: flex; align-items: center; gap: 9px; font-size: 13.5px; color: var(--text-dim); }
+        .hero-trust-item .dot-green {         /* gold lozenge (the class name is historical: green is reserved for the CTA) */
+            width: 6px; height: 6px; flex-shrink: 0; transform: rotate(45deg);
+            background: var(--gold); box-shadow: 0 0 0 3px rgba(212,175,55,.1);
         }
 
-        .price-card { background: var(--dark-card); border: 1px solid var(--border); border-radius: 16px; padding: 36px 28px; position: relative; box-sizing: border-box; display: flex; flex-direction: column; }
-        .price-card.featured { border-color: var(--gold); background: linear-gradient(160deg, rgba(42,36,10,0.9) 0%, var(--dark-card) 100%); box-shadow: 0 0 60px rgba(212,175,55,0.12), inset 0 1px 0 rgba(212,175,55,0.3); padding-top: 50px; }
-        .price-card.exclusive { border-color: rgba(50,200,80,0.6); background: linear-gradient(160deg, rgba(5,30,10,0.95) 0%, var(--dark-card) 100%); box-shadow: 0 0 50px rgba(50,200,80,0.12), inset 0 1px 0 rgba(50,200,80,0.2); padding-top: 56px; }
-        .price-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--gold-dark), var(--gold-light)); color: #000; padding: 6px 16px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; white-space: nowrap; }
-        .price-plan { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; color: var(--gold); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 24px; }
-        .price-amount { font-family: 'Cinzel', serif; font-size: 48px; font-weight: 900; line-height: 1; margin-bottom: 8px; background: linear-gradient(135deg, var(--gold-dark), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .price-period { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 300; color: var(--text-dim); margin-bottom: 40px; }
-        .price-divider { height: 1px; background: var(--border); margin-bottom: 32px; }
-        .price-features { list-style: none; margin-bottom: 40px; flex: 1; }
-        .price-features li { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; padding: 13px 0; border-bottom: 1px solid rgba(212,175,55,0.08); color: var(--text-dim); display: flex; align-items: center; gap: 12px; }
-        .price-features li::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; flex-shrink: 0; opacity: 0.7; }
-        .btn-full { width: 100%; text-align: center; }
-        .price-guarantee { text-align: center; margin-top: 14px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400; color: var(--text-dim); opacity: 0.6; display: flex; align-items: center; justify-content: center; gap: 5px; }
-        .btn-download { display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; margin-top: 12px; padding: 11px 16px; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.4); text-decoration: none; border: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.02); letter-spacing: 0.4px; transition: all 0.25s ease; }
-        .btn-download:hover { color: rgba(255,255,255,0.8); border-color: rgba(66,133,244,0.35); background: rgba(66,133,244,0.07); }
+        /* Entrance + ring rotation — only when the visitor allows motion */
+        @media (prefers-reduced-motion: no-preference) {
+            .hero-eyebrow { animation: fadeUp 1s var(--ease-out) .1s both; }
+            .hero h1 { animation: fadeUp 1s var(--ease-out) .2s both; }
+            .hero-subtitle, .hero-divider { animation: fadeUp 1s var(--ease-out) .3s both; }
+            .hero-description { animation: fadeUp 1s var(--ease-out) .38s both; }
+            .cta-group, .hero-trust { animation: fadeUp 1s var(--ease-out) .46s both; }
+            .hero-visual { animation: fadeIn 1.2s var(--ease-out) .5s both; }
+            .hero-sigil { animation: fadeIn 2.4s var(--ease-out) .1s both; }
+            .rune-ring { will-change: transform; }
+            .rune-ring--outer { animation: spin 200s linear infinite; }
+            .rune-ring--inner { animation: spin 260s linear infinite reverse; }
+        }
 
-        .faq { padding: 120px 0; }
-        .faq-list { max-width: 720px; margin: 0 auto; }
-        .faq-item { border-bottom: 1px solid var(--border); overflow: hidden; }
-        .faq-question { width: 100%; background: none; border: none; cursor: pointer; padding: 24px 0; display: flex; justify-content: space-between; align-items: center; font-family: 'Cinzel', serif; font-size: 16px; font-weight: 600; color: var(--text); text-align: left; gap: 16px; transition: color 0.3s ease; }
-        .faq-question:hover { color: var(--gold); }
-        .faq-icon { font-size: 20px; color: var(--gold); flex-shrink: 0; transition: transform 0.3s ease; }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
-        .faq-answer p { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: var(--text-dim); line-height: 1.9; padding-bottom: 24px; }
+        /* ── Hero HUD — product proof. It shows only what the extension really does:
+              press the keys YOU configured, in order, on a timer. No game-state readouts.
+              Decorative (aria-hidden), always LTR, language-neutral labels.
+              Motion: 8 transform/opacity animations; the default styles ARE the
+              deliberate static frame used under prefers-reduced-motion. ── */
+        .hero-visual { position: relative; width: 100%; max-width: 560px; margin: 36px auto 0; text-align: left; }
+        .hud-gl { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+        .hud {
+            --step-w: 30px; --steps: 12; --seg: 11;
+            position: relative; isolation: isolate; padding: 16px; border-radius: 22px; border: 1px solid transparent;
+            background:
+                radial-gradient(90% 60% at 72% 0%, rgba(212,175,55,.13), transparent 70%) padding-box,
+                linear-gradient(180deg, rgba(27,24,16,.97), rgba(10,9,7,.98)) padding-box,
+                var(--gilt-edge) border-box;
+            box-shadow: 0 0 0 1px rgba(0,0,0,.7), var(--inner-hi), 0 50px 110px -30px rgba(0,0,0,.95), 0 0 90px -30px rgba(212,175,55,.35);
+            font-family: var(--font-body); color: var(--text); font-variant-numeric: tabular-nums;
+        }
+        .hud::after {           /* rune corner brackets */
+            content: ''; position: absolute; inset: 7px; border-radius: 16px; pointer-events: none; opacity: .6;
+            background:
+                linear-gradient(var(--gold-300), var(--gold-300)) top left / 16px 1px no-repeat,
+                linear-gradient(var(--gold-300), var(--gold-300)) top left / 1px 16px no-repeat,
+                linear-gradient(var(--gold-300), var(--gold-300)) top right / 16px 1px no-repeat,
+                linear-gradient(var(--gold-300), var(--gold-300)) top right / 1px 16px no-repeat,
+                linear-gradient(var(--gold-300), var(--gold-300)) bottom left / 16px 1px no-repeat,
+                linear-gradient(var(--gold-300), var(--gold-300)) bottom left / 1px 16px no-repeat,
+                linear-gradient(var(--gold-300), var(--gold-300)) bottom right / 16px 1px no-repeat,
+                linear-gradient(var(--gold-300), var(--gold-300)) bottom right / 1px 16px no-repeat;
+        }
+        /* title bar: brand + AUTO switch */
+        .hud-bar { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 4px 6px 16px; margin-bottom: 14px; }
+        .hud-bar::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--line-3) 20%, rgba(245,230,184,.5) 50%, var(--line-3) 80%, transparent); }
+        .hud-brand { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; color: var(--text-soft); }
+        .hud-mark {
+            position: relative; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 7px;
+            font: 900 13px/1 'Cinzel', Georgia, serif; color: var(--on-gold); background: var(--gilt);
+            box-shadow: inset 0 0 0 1px rgba(255,248,220,.5), 0 4px 12px -4px rgba(212,175,55,.6);
+        }
+        .hud-auto { display: flex; align-items: center; gap: 10px; color: var(--emerald-400); }
+        .hud-auto svg { width: 16px; height: 16px; }
+        .hud-switch { position: relative; width: 38px; height: 22px; border-radius: var(--r-pill); background: rgba(76,175,80,.24); border: 1px solid rgba(143,224,163,.55); box-shadow: 0 0 16px -2px rgba(76,175,80,.6); }
+        .hud-knob { position: absolute; top: 3px; left: 3px; width: 14px; height: 14px; border-radius: 50%; background: var(--emerald-300); transform: translateX(16px); box-shadow: 0 0 10px rgba(143,224,163,.9); }
+
+        /* macro sequence: F2 → 1 … 9 → 0 → F1, with a playhead */
+        .hud-seq { padding: 12px 14px 16px; border-radius: 14px; background: rgba(0,0,0,.36); border: 1px solid var(--line-1); }
+        .hud-seq-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; font-size: 11px; font-weight: 600; line-height: 1; color: var(--text-dim); }
+        .hud-seq-head span { display: inline-flex; align-items: center; gap: 7px; }
+        .hud-seq-head svg { width: 14px; height: 14px; color: var(--gold-300); }
+        .hud-steps { position: relative; display: flex; justify-content: space-between; container-type: inline-size; }
+        .hud-rail { position: absolute; left: calc(var(--step-w) / 2); right: calc(var(--step-w) / 2); top: 50%; height: 2px; margin-top: -1px; border-radius: 2px; background: rgba(245,230,184,.1); }
+        .hud-rail i { position: absolute; inset: 0; border-radius: inherit; transform-origin: left center; transform: scaleX(calc(4 / var(--seg))); background: linear-gradient(90deg, var(--gold-700), var(--gold-200)); box-shadow: 0 0 10px rgba(244,208,63,.55); }
+        .hud-step {
+            position: relative; z-index: 1; display: grid; place-items: center; width: var(--step-w); height: var(--step-w); border-radius: 8px;
+            font-size: 11px; font-weight: 700; line-height: 1; color: var(--text-dim);
+            background: var(--surface-key); border: 1px solid rgba(245,230,184,.14); border-bottom-color: rgba(0,0,0,.8);
+            box-shadow: inset 0 1px 0 rgba(245,230,184,.1);
+        }
+        .hud-step:nth-child(-n+5) { color: var(--gold-200); border-color: var(--line-3); }   /* already pressed (static frame) */
+        .hud-step:nth-child(6) { color: var(--text-strong); }
+        .hud-playhead {
+            position: absolute; left: 0; top: 0; z-index: 2; width: var(--step-w); height: var(--step-w); border-radius: 8px; pointer-events: none;
+            border: 1px solid var(--gold-200); background: rgba(244,208,63,.14);
+            box-shadow: 0 0 16px rgba(244,208,63,.6), inset 0 0 8px rgba(244,208,63,.3);
+            transform: translateX(calc((100cqw - var(--step-w)) * 4 / var(--seg)));
+        }
+
+        /* skill bar: gilt keycaps with hotkeys; cooldown sweeps = two rotating half-panes */
+        .hud-skills { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 8px; margin-top: 14px; }
+        .hud-key {
+            position: relative; aspect-ratio: 1; display: grid; place-items: center; overflow: hidden; color: var(--gold-200);
+            border-radius: 11px; border: 1px solid transparent;
+            background: radial-gradient(circle at 50% 30%, rgba(212,175,55,.2), transparent 64%) padding-box, var(--surface-slot) padding-box, var(--gilt) border-box;
+            box-shadow: inset 0 0 0 2px rgba(8,7,5,.9), inset 0 0 0 3px rgba(212,175,55,.22), inset 0 -8px 14px rgba(0,0,0,.45), 0 8px 18px -10px rgba(0,0,0,.95);
+        }
+        .hud-key svg { width: 50%; height: 50%; fill: rgba(244,208,63,.1); }
+        .hud-key::after { content: attr(data-key); position: absolute; top: 4px; left: 6px; z-index: 3; font-size: 10px; font-weight: 700; line-height: 1; color: var(--text-strong); text-shadow: 0 1px 2px #000, 0 0 4px #000; }
+        .hud-key--heal { color: var(--emerald-300); background: radial-gradient(circle at 50% 30%, rgba(76,175,80,.24), transparent 64%) padding-box, var(--surface-emerald) padding-box, var(--emerald-edge) border-box; }
+        .hud-key--heal svg { fill: rgba(143,224,163,.12); }
+        .hud-key.is-press::before { content: ''; position: absolute; inset: 0; z-index: 2; border-radius: inherit; box-shadow: inset 0 0 0 1px var(--gold-100), inset 0 0 18px rgba(244,208,63,.5); }
+        .cd-pane { position: absolute; top: 0; bottom: 0; z-index: 1; overflow: hidden; pointer-events: none; }
+        .cd-r { left: 50%; right: 0; }
+        .cd-l { left: 0; right: 50%; }
+        .cd-pane::before { content: ''; position: absolute; top: -50%; bottom: -50%; width: 200%; background: rgba(4,4,3,.68); }
+        .cd-r::before { right: 100%; transform-origin: 100% 50%; transform: rotate(var(--r)); }
+        .cd-l::before { left: 100%; transform-origin: 0 50%; transform: rotate(var(--l)); }
+        /* static frame: revealed fraction p → r = 180 + min(p,.5)·360, l = 180 + max(p-.5,0)·360 */
+        .cd-a { --r: 306deg; --l: 180deg; }
+        .cd-b { --r: 360deg; --l: 234deg; }
+
+        /* floating chips: periodic buff timer + global shortcut */
+        .hud-chip {
+            position: absolute; z-index: 2; display: flex; align-items: center; gap: 10px; padding: 9px 14px 9px 9px; border-radius: 14px; border: 1px solid transparent;
+            background: linear-gradient(180deg, rgba(26,23,15,.97), rgba(11,10,8,.97)) padding-box, var(--gilt-edge) border-box;
+            box-shadow: 0 24px 50px -16px rgba(0,0,0,.9), var(--inner-hi); font-family: var(--font-body);
+        }
+        .hud-chip--heal { top: -40px; right: -30px; }
+        .hud-chip--keys { bottom: -40px; left: -30px; gap: 8px; padding: 9px 9px 9px 12px; font-size: 13px; font-weight: 600; color: var(--text-dim); }
+        .hud-chip__ico { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; color: var(--emerald-300); background: rgba(76,175,80,.14); border: 1px solid rgba(143,224,163,.4); }
+        .hud-chip__ico svg { width: 20px; height: 20px; }
+        .hud-chip__txt { display: grid; gap: 5px; line-height: 1; }
+        .hud-chip__txt b { font-size: 13px; font-weight: 600; color: var(--text-strong); }
+        .hud-chip__txt span { display: flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 600; color: var(--emerald-400); }
+        .hud-chip__txt svg { width: 12px; height: 12px; }
+        .hud-chip kbd { min-width: 0; padding: 5px 8px; font: 700 11.5px/1 var(--font-body); color: var(--gold-100); background: var(--surface-key); border: 1px solid var(--line-3); border-radius: 7px; box-shadow: inset 0 -2px 0 rgba(0,0,0,.5), inset 0 1px 0 rgba(245,230,184,.12); }
+        .hud-chip__play { display: grid; place-items: center; width: 28px; height: 28px; margin-left: 4px; border-radius: 50%; color: var(--on-gold); background: var(--gilt); box-shadow: 0 4px 12px -4px rgba(212,175,55,.7); }
+        .hud-chip__play svg { width: 11px; height: 11px; margin-left: 2px; fill: currentColor; stroke: none; }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .hud-step:nth-child(n) { color: var(--text-dim); border-color: rgba(245,230,184,.14); }
+            .hud-playhead { animation: hudPlay 12s steps(var(--steps), jump-none) infinite; }
+            .hud-rail i { animation: hudRail 12s steps(var(--steps), jump-none) infinite; }
+            .cd-a .cd-r::before { animation: cdR 4.5s linear -1.6s infinite; }
+            .cd-a .cd-l::before { animation: cdL 4.5s linear -1.6s infinite; }
+            .cd-b .cd-r::before { animation: cdR 6s linear -3.8s infinite; }
+            .cd-b .cd-l::before { animation: cdL 6s linear -3.8s infinite; }
+            .hud-key.is-press::before { animation: keyPress 12s linear infinite; }     /* on the playhead's clock */
+            .hud-knob { animation: knobGlow 2.8s var(--ease-in-out) infinite; }
+        }
+        @keyframes hudPlay {
+            0%        { transform: translateX(0); opacity: 1; }
+            80%       { transform: translateX(calc(100cqw - var(--step-w))); opacity: 1; }
+            90%, 100% { transform: translateX(calc(100cqw - var(--step-w))); opacity: 0; }
+        }
+        @keyframes hudRail { 0% { transform: scaleX(0); opacity: 1; } 80% { transform: scaleX(1); opacity: 1; } 90%, 100% { transform: scaleX(1); opacity: 0; } }
+        @keyframes cdR { 0% { transform: rotate(180deg); } 50%, 100% { transform: rotate(360deg); } }
+        @keyframes cdL { 0%, 50% { transform: rotate(180deg); } 100% { transform: rotate(360deg); } }
+        /* hudPlay holds step i from 0.8·i s to 0.8·(i+1) s: key 4 (step index 4) is pressed 3.2s → 4.0s */
+        @keyframes keyPress { 0%, 26.6% { opacity: 0; } 26.7%, 33.3% { opacity: 1; } 33.4%, 100% { opacity: 0; } }
+        @keyframes knobGlow { 0%, 100% { opacity: 1; } 50% { opacity: .7; } }
+        /* No container-query units (Safari ≤ 15.x): the playhead's cqw transforms are dropped, so it would sit on F2 while
+           the rail shows step 4. Show the static frame instead: playhead on step 4 by percentage, nothing travels. */
+        @supports not (width: 1cqw) {
+            .hud-playhead { transform: none; left: calc((100% - var(--step-w)) * 4 / var(--seg)); animation: none; }
+            .hud-rail i, .hud-key.is-press::before { animation: none; }
+            .hud-step:nth-child(-n+5) { color: var(--gold-200); border-color: var(--line-3); }
+            .hud-step:nth-child(6) { color: var(--text-strong); }
+        }
+
+        /* ── Chrome Web Store card ── */
+        .store { position: relative; z-index: 2; padding-inline: var(--gutter); margin-top: calc(-1 * clamp(8px, 2vh, 28px)); }
+        .store-card {
+            position: relative; display: block; max-width: 600px; margin-inline: auto; overflow: hidden;
+            text-decoration: none; border-radius: 20px; border: 1px solid transparent;
+            background: var(--surface-well) padding-box, var(--gilt-edge-soft) border-box;
+            box-shadow: var(--shadow-lg), var(--inner-hi);
+            transition: transform var(--dur-3) var(--ease-out);
+        }
+        .store-card:hover { transform: translateY(-3px); }
+        .store-card__stripe { display: block; height: 1px; background: linear-gradient(90deg, transparent, var(--line-3) 18%, rgba(245,230,184,.6) 50%, var(--line-3) 82%, transparent); }
+        .store-card__body { display: flex; align-items: center; gap: 18px; padding: 24px 28px; }
+        .store-card__icon { width: 56px; height: 56px; flex-shrink: 0; object-fit: contain; border-radius: 14px; border: 1px solid rgba(255,255,255,.08); }
+        .store-card__meta { flex: 1; min-width: 0; }
+        .store-card__name { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; font-size: 16px; font-weight: 700; color: rgba(255,255,255,.94); }
+        .store-card__name svg, .store-card__source svg { flex-shrink: 0; }
+        .store-card__source { display: flex; align-items: center; gap: 7px; font-size: 12px; color: rgba(255,255,255,.6); }
+        .store-card__cta {          /* gilt-outline secondary: the green CTA stays the only conversion colour */
+            flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 22px;
+            border-radius: var(--r-md); border: 1px solid transparent;
+            background: var(--surface-well) padding-box, var(--gilt-edge) border-box;
+            box-shadow: var(--inner-hi), 0 10px 28px -16px rgba(0,0,0,.9);
+            font-size: 14px; font-weight: 600; line-height: 1.3; letter-spacing: .01em; text-align: center; color: var(--gold-100);
+            transition: color var(--dur-2) var(--ease-out), background-color var(--dur-2) var(--ease-out);
+        }
+        .store-card:hover .store-card__cta { color: #fff; background: linear-gradient(180deg, rgba(212,175,55,.14), rgba(212,175,55,.03)) padding-box, var(--surface-well) padding-box, var(--gilt-edge) border-box; }
+        .store-card__status {
+            display: flex; align-items: center; gap: 12px; padding: 12px 28px;
+            background: rgba(52,168,83,.07); border-top: 1px solid rgba(52,168,83,.15);
+            font-size: 12.5px; font-weight: 500; line-height: 1.45; color: var(--emerald-400);
+        }
+        .store-card__dot { width: 7px; height: 7px; flex-shrink: 0; border-radius: 50%; background: var(--emerald-400); box-shadow: 0 0 0 3px rgba(76,175,80,.14); }   /* static: no pulsing dots */
+
+        /* ── Features (skill cards) — homepage only, scoped under .features ── */
+        .features { padding-block: calc(var(--section-y) * .9) var(--section-y); }
+        .features-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+        .features .feature-card {
+            position: relative; isolation: isolate; display: flex; flex-direction: column;
+            padding: 30px 30px 34px; border-radius: var(--r-lg); border: 1px solid transparent;
+            background:
+                radial-gradient(110% 65% at 50% 0%, rgba(212,175,55,.075), transparent 62%) padding-box,
+                var(--surface-1) padding-box,
+                var(--gilt-edge-soft) border-box;
+            box-shadow: var(--shadow-md);
+            transition: transform var(--dur-3) var(--ease-out);
+        }
+        .features .feature-card:hover { transform: translateY(-4px); }
+        .features .feature-card::after {          /* roman numeral — top/end corner, clear of the copy */
+            content: attr(data-skill); position: absolute; top: 24px; inset-inline-end: 26px; z-index: -1;
+            font-family: 'Cinzel', serif; font-size: 52px; font-weight: 900; line-height: 1; letter-spacing: -.02em;
+            color: rgba(212,175,55,.085);
+        }
+        .features .feature-card__top { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding-inline-end: 72px; }
+        .skill-badge {
+            display: inline-flex; align-items: center; padding: 5px 10px; border-radius: 6px;
+            font-size: calc(var(--fs-label) - 1px); font-weight: 700; line-height: 1.3; letter-spacing: var(--track-md); text-transform: uppercase;
+        }
+        .skill-active {
+            color: var(--on-gold); text-shadow: 0 1px 0 rgba(255,245,210,.35); border: 1px solid transparent;
+            background: var(--gilt) padding-box, linear-gradient(180deg, var(--gold-50), var(--gold-800)) border-box;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 6px 16px -8px rgba(212,175,55,.6);
+        }
+        .skill-passive { background: rgba(212,175,55,.07); border: 1px solid rgba(212,175,55,.32); color: var(--gold-200); }
+        .features .feature-title { font-family: var(--font-display); font-size: 19px; font-weight: 700; line-height: 1.3; letter-spacing: .01em; color: var(--gold-200); margin-bottom: 10px; }
+        .features .feature-description { font-size: 15px; line-height: 1.75; color: var(--text-dim); }
+
+        /* ── Security ── */
+        .security { padding-block: calc(var(--section-y) * .55) var(--section-y); background: linear-gradient(180deg, transparent, rgba(76,175,80,.022) 50%, transparent); }
+        .security__grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(40px, 6vw, 96px); align-items: center; }
+        .security__intro { text-align: start; }
+        .security__title { font-size: clamp(30px, 2.4vw + 14px, 46px); margin-bottom: 22px; }
+        .security__desc { max-width: 560px; font-size: 17px; line-height: 1.85; color: var(--text-dim); }
+        .security__desc strong { font-weight: 600; }
+        .sec-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+        .sec-card {
+            position: relative; padding: 26px 24px 24px; border-radius: 16px; border: 1px solid transparent;
+            background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box; box-shadow: var(--shadow-md);
+            transition: transform var(--dur-3) var(--ease-out);
+        }
+        .sec-card:nth-child(even) { transform: translateY(28px); }
+        .sec-card:hover { transform: translateY(-3px); }
+        .sec-card:nth-child(even):hover { transform: translateY(25px); }
+        .sec-card-icon { margin-bottom: 18px; }
+        .sec-card-title { font-family: var(--font-display); font-size: 15.5px; font-weight: 700; line-height: 1.35; color: var(--gold-200); margin-bottom: 6px; }
+        .sec-card-text { font-size: 13.5px; line-height: 1.6; color: var(--text-dim); }
+
+        /* ── Pricing — rank → plan → price → period → CTA → guarantee → secondary action → perks.
+              Every item sits on its own shared row (subgrid; .price-head / .price-actions are display:contents),
+              so a label that wraps in one card moves that row in all four and the prices always line up. ── */
+        .pricing { padding-block: var(--section-y); background: radial-gradient(60% 38% at 50% 34%, rgba(212,175,55,.06), transparent 70%); }
+        .price-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 20px; row-gap: 0; padding-top: 18px; }
+        .price-card {
+            position: relative; isolation: isolate; grid-row: span 8; display: grid; grid-template-rows: subgrid; row-gap: 0;
+            padding: 36px 26px 26px; border-radius: 20px; border: 1px solid transparent;
+            background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box;
+            box-shadow: var(--shadow-md);
+        }
+        .price-head, .price-actions { display: contents; }
+        .price-body { grid-row: -2 / -1; padding-top: 22px; }      /* always the last row (the free card has no secondary action) */
+        @supports not (grid-template-rows: subgrid) {
+            .price-card { display: flex; flex-direction: column; }
+            .price-head, .price-actions { display: flex; flex-direction: column; }
+            .price-head { min-height: 212px; }
+            .price-actions { min-height: 128px; }
+        }
+        .price-card--free { background: var(--surface-well) padding-box, linear-gradient(160deg, rgba(212,175,55,.22), rgba(212,175,55,.06) 40%, rgba(212,175,55,.12)) border-box; }
+        .price-card.featured, .price-card.featured::before {
+            background:
+                radial-gradient(120% 55% at 50% 0%, rgba(212,175,55,.17), transparent 62%) padding-box,
+                var(--surface-2) padding-box,
+                var(--gilt-edge-strong) border-box;
+            box-shadow: 0 34px 90px -34px rgba(212,175,55,.42), var(--shadow-lg);
+        }
+        .price-card.exclusive {          /* legendary: obsidian surface in a strong gilt frame */
+            background:
+                radial-gradient(120% 55% at 50% 0%, rgba(212,175,55,.12), transparent 62%) padding-box,
+                var(--surface-2) padding-box,
+                var(--gilt-edge-strong) border-box;
+            box-shadow: 0 30px 80px -36px rgba(212,175,55,.32), var(--shadow-md);
+        }
+        .price-card.featured::after {   /* slow breathing halo — opacity only */
+            content: ''; position: absolute; inset: -1px; z-index: -1; border-radius: inherit; pointer-events: none;
+            box-shadow: 0 0 70px -6px rgba(212,175,55,.35); opacity: .35;
+        }
+        @media (prefers-reduced-motion: no-preference) { .price-card.featured::after { animation: halo 4s var(--ease-in-out) infinite alternate; } }
+        @keyframes halo { to { opacity: 1; } }
+        .price-badge {
+            position: absolute; top: 0; left: 50%; z-index: 2; transform: translate(-50%, -50%);
+            display: flex; align-items: center; justify-content: center; gap: 7px;
+            width: max-content; max-width: calc(100% - 12px); padding: 7px 14px; border-radius: var(--r-pill);
+            font-size: calc(var(--fs-label) - 1px); font-weight: 700; line-height: 1.3; letter-spacing: min(var(--track-md), .1em); text-transform: uppercase; text-align: center; text-wrap: balance;
+            color: var(--on-gold); background: var(--gilt);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 8px 22px -8px rgba(212,175,55,.75), 0 0 0 3px var(--ink-1);
+        }
+        .price-badge .inline-gl { width: 12px; height: 12px; fill: none; }
+        .price-badge--outline {          /* a label, not a button: gilt outline, never the CTA gradient */
+            color: var(--gold-100); border: 1px solid transparent;
+            background: var(--surface-slot) padding-box, var(--gilt-edge-strong) border-box;
+            box-shadow: inset 0 1px 0 rgba(245,230,184,.12), 0 8px 22px -10px rgba(212,175,55,.45), 0 0 0 3px var(--ink-1);
+        }
+        .price-rank {
+            display: flex; align-items: center; align-self: end; gap: 10px; margin-bottom: 20px;
+            font-size: calc(var(--fs-label) - .5px); font-weight: 600; line-height: 1.4; letter-spacing: min(var(--track-lg), .16em); text-transform: uppercase; text-align: center;
+            color: var(--text-dim);
+        }
+        .price-rank::before, .price-rank::after { content: ''; flex: 1; min-width: 0; height: 1px; background: var(--line-2); }
+        :is(.featured, .exclusive) .price-rank { color: var(--gold-200); }
+        :is(.featured, .exclusive) .price-rank::before, :is(.featured, .exclusive) .price-rank::after { background: var(--line-3); }
+        .price-plan { font-family: var(--font-display); font-size: 14px; font-weight: 700; letter-spacing: var(--track-md); text-transform: uppercase; color: var(--gold-200); margin-bottom: 10px; }
+        .price-amount {
+            font-family: var(--font-display); font-size: clamp(38px, 2.2vw + 16px, 52px); font-weight: 900; line-height: 1;
+            letter-spacing: -.01em; margin-bottom: 10px;
+            background: var(--gilt-text); -webkit-background-clip: text; background-clip: text;
+            color: transparent; -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 24px rgba(212,175,55,.22));
+        }
+        .price-period { font-size: 14px; line-height: 1.45; color: var(--text-dim); padding-bottom: 22px; }
+        .price-card .btn { min-height: 50px; padding: 12px 14px; font-size: 15.5px; }
+        .price-guarantee {          /* glyph + note, start-aligned like the rest of the card (a wrapped line hangs under the text) */
+            display: flex; align-items: flex-start; gap: 7px; margin-top: 11px; padding-inline: 2px;
+            font-size: 12.5px; line-height: 1.5; text-align: start; color: var(--text-dim);
+        }
+        .price-guarantee .inline-gl { width: 13px; height: 13px; margin-top: calc((1.5em - 13px) / 2); color: var(--gold-300); }
+        .btn-download {
+            display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; min-height: 42px;
+            margin-top: 12px; padding: 9px 14px; border-radius: 10px;
+            font-size: 13.5px; font-weight: 600; letter-spacing: .01em; text-decoration: none; color: rgba(255,255,255,.72);
+            border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.025);
+            transition: color var(--dur-2) var(--ease-out), border-color var(--dur-2) var(--ease-out), background-color var(--dur-2) var(--ease-out);
+        }
+        .btn-download svg { flex-shrink: 0; }
+        .btn-download:hover { color: #fff; border-color: rgba(66,133,244,.4); background: rgba(66,133,244,.08); }
+        .price-card--free .btn-download {          /* the free rank's main action — gold outline */
+            min-height: 50px; margin-top: 0; border-radius: var(--r-md); font-size: 15.5px; color: var(--gold-100);
+            border: 1px solid transparent; background: var(--surface-well) padding-box, var(--gilt-edge) border-box;
+            box-shadow: var(--inner-hi), 0 10px 28px -16px rgba(0,0,0,.9);
+        }
+        .price-card--free .btn-download:hover { color: #fff; }
+        .price-body { display: flex; flex-direction: column; }
+        .price-divider { position: relative; height: 1px; margin-bottom: 8px; background: linear-gradient(90deg, transparent, var(--line-3), transparent); }
+        .price-divider::after {
+            content: ''; position: absolute; left: 50%; top: 50%; width: 7px; height: 7px;
+            transform: translate(-50%, -50%) rotate(45deg); background: var(--ink-2); border: 1px solid var(--gold-300);
+        }
+        .price-features { list-style: none; }
+        .price-features li {
+            display: flex; align-items: baseline; gap: 12px; padding: 11px 0;
+            font-size: 14.5px; line-height: 1.45; color: var(--text-soft); border-bottom: 1px solid var(--line-1);
+        }
+        .price-features li:last-child { border-bottom: 0; padding-bottom: 0; }
+        .price-features li::before {
+            content: ''; width: 6px; height: 6px; flex-shrink: 0; transform: translateY(-2px) rotate(45deg);
+            background: var(--gold); box-shadow: 0 0 0 3px rgba(212,175,55,.1);
+        }
+        .exclusive .price-features li::before { background: var(--gold-200); box-shadow: 0 0 0 3px rgba(212,175,55,.14); }
+
+        /* Stats band + trust badges (below pricing) */
+        .stats {
+            margin-top: clamp(64px, 8vw, 104px); border-radius: 20px; border: 1px solid transparent;
+            background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box;
+            box-shadow: var(--shadow-md);
+        }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); text-align: center; }
+        .stat-item { position: relative; padding: 34px 16px 30px; }
+        .stat-item + .stat-item::before {
+            content: ''; position: absolute; inset-inline-start: 0; top: 24%; bottom: 24%; width: 1px;
+            background: linear-gradient(180deg, transparent, var(--line-3), transparent);
+        }
+        .stat-number {
+            font-family: 'Cinzel', serif; font-size: clamp(36px, 2.4vw + 14px, 52px); font-weight: 900; line-height: 1; margin-bottom: 12px;
+            background: var(--gilt-text); -webkit-background-clip: text; background-clip: text;
+            color: transparent; -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 22px rgba(212,175,55,.25));
+        }
+        .stat-label { font-size: calc(var(--fs-label) + .5px); font-weight: 500; line-height: 1.45; letter-spacing: var(--track-md); text-transform: uppercase; color: var(--text-dim); }
+        .trust-bar { padding-top: 40px; }
+        .trust-badges { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px 44px; }
+        .trust-badge { display: flex; align-items: center; gap: 12px; min-width: 0; font-size: 13.5px; font-weight: 500; color: var(--text-dim); }
+        .trust-badge-icon.skill-slot { width: 40px; height: 40px; font-size: 17px; }
+
+        /* ── FAQ ── */
+        .faq { padding-block: calc(var(--section-y) * .6) var(--section-y); }
+        .faq-list { display: grid; gap: 12px; max-width: 820px; margin-inline: auto; }
+        .faq-item {
+            border-radius: 14px; border: 1px solid transparent;
+            background: var(--surface-well) padding-box, var(--gilt-edge-soft) border-box;
+        }
+        .faq-item.open { background: radial-gradient(100% 80% at 50% 0%, rgba(212,175,55,.07), transparent 70%) padding-box, var(--surface-1) padding-box, var(--gilt-edge) border-box; }
+        .faq-question {
+            display: flex; align-items: center; justify-content: space-between; gap: 20px; width: 100%; min-height: 64px;
+            padding: 16px 22px; padding-inline-start: 24px; background: none; border: 0; border-radius: 14px; cursor: pointer; text-align: start;
+            font-family: var(--font-body); font-size: 16.5px; font-weight: 600; line-height: 1.45; letter-spacing: 0; color: var(--text-strong); text-wrap: pretty;
+            transition: color var(--dur-2) var(--ease-out);
+        }
+        .faq-question:hover, .faq-item.open .faq-question { color: var(--gold-100); }
+        .faq-icon {
+            display: grid; place-items: center; width: 32px; height: 32px; flex-shrink: 0; border-radius: 9px;
+            border: 1px solid var(--line-3); background: rgba(212,175,55,.05);
+            font-family: var(--font-body); font-size: 19px; font-weight: 400; line-height: 1; color: var(--gold-200);
+            transition: transform var(--dur-3) var(--ease-out);
+        }
         .faq-item.open .faq-icon { transform: rotate(45deg); }
-        .faq-item.open .faq-answer { max-height: 1200px; }
+        .faq-answer { display: none; padding: 0 24px 22px; }
+        .faq-item.open .faq-answer { display: block; }
+        @media (prefers-reduced-motion: no-preference) { .faq-item.open .faq-answer { animation: faqIn var(--dur-3) var(--ease-out); } }
+        @keyframes faqIn { from { opacity: 0; transform: translateY(-6px); } }
+        .faq-answer p { max-width: 70ch; font-size: 15.5px; line-height: 1.85; color: var(--text-dim); }
+        :root:not(.js) .faq-answer { display: block; }        /* JavaScript off: every answer is shown */
+        :root:not(.js) .faq-icon { display: none; }
 
-        footer { padding: 80px 0 40px; border-top: 1px solid var(--border); position: relative; z-index: 1; }
-        .footer-content { text-align: center; }
-        .footer-logo { font-family: 'Cinzel', serif; font-size: 26px; font-weight: 700; color: var(--gold); letter-spacing: 4px; margin-bottom: 36px; opacity: 0.7; }
-        .footer-links { display: flex; gap: 36px; justify-content: center; margin-bottom: 48px; flex-wrap: wrap; }
-        .footer-links a { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 400; color: var(--text-dim); text-decoration: none; letter-spacing: 0.5px; transition: color 0.3s ease; }
-        .footer-links a:hover { color: var(--gold); }
-        .copyright { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 300; color: var(--text-dim); opacity: 0.5; line-height: 2; padding-top: 32px; border-top: 1px solid rgba(212,175,55,0.08); }
-
-        .particle { position: fixed; border-radius: 50%; background: var(--gold); pointer-events: none; z-index: 0; opacity: 0; animation: particleFloat linear infinite; }
-        @keyframes particleFloat { 0% { transform: translateY(100vh) scale(0); opacity: 0; } 10% { opacity: 0.4; } 90% { opacity: 0.15; } 100% { transform: translateY(-20px) scale(1); opacity: 0; } }
-        @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.2); } }
-
-        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        @media (max-width: 1024px) {
-            .price-grid { grid-template-columns: repeat(2, 1fr); }
+        /* ── Responsive ── */
+        /* ≥ 1100px: two-column hero — copy (start-aligned) beside the HUD, rune circle behind the HUD */
+        @media (min-width: 1100px) {
+            .hero { text-align: start; min-height: min(calc(100svh - var(--header-h)), 900px); padding-block: clamp(48px, 7vh, 88px) clamp(72px, 10vh, 112px); }
+            .hero-inner {
+                --visual-w: clamp(440px, 38vw, 540px);
+                max-width: var(--container); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, var(--visual-w));
+                column-gap: clamp(48px, 5vw, 96px); align-items: center; isolation: isolate;
+            }
+            .hero-title { position: static; isolation: auto; }
+            .hero-sigil {
+                left: calc(100% - var(--visual-w) / 2); width: 780px; opacity: .5;
+                -webkit-mask: radial-gradient(closest-side, #000 52%, rgba(0,0,0,.5) 76%, transparent 100%);
+                mask: radial-gradient(closest-side, #000 52%, rgba(0,0,0,.5) 76%, transparent 100%);
+            }
+            [dir="rtl"] .hero-sigil { left: calc(var(--visual-w) / 2); }
+            .hero h1 { font-size: clamp(60px, 6vw, 96px); overflow-wrap: normal; }
+            .hero-subtitle { padding-inline-start: 0; }
+            .hero-divider { margin-inline: 0; }
+            .hero-description { margin-inline: 0; max-width: 600px; }
+            .cta-group { justify-content: flex-start; }
+            .hero-trust { display: grid; grid-template-columns: repeat(2, max-content); justify-content: start; gap: 12px 34px; }
+            .hero-visual { max-width: none; margin: 0; }
+            .hud { --step-w: 28px; padding: 16px; }
         }
-
-        .btn-manage-short { display: none; }
-        .btn-docs-short { display: none; }
-
-        @media (max-width: 900px) {
-            .container { padding: 0 32px; } header { padding: 16px 32px; }
-            .features-grid { grid-template-columns: repeat(2, 1fr); }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .stat-item:nth-child(2) { border-right: none; }
-            .trust-badges { gap: 24px; }
-            /* 2 colonnes : coins top-right = card 2, bottom-left = card 5 */
-            .feature-card:nth-child(3) { border-top-right-radius: 0; }
-            .feature-card:nth-child(2) { border-top-right-radius: 11px; }
-            .feature-card:nth-child(4) { border-bottom-left-radius: 0; }
-            .feature-card:nth-child(5) { border-bottom-left-radius: 11px; }
+        @media (min-width: 1100px) {
+            .store { max-width: calc(var(--container) + 2 * var(--gutter)); margin-inline: auto; }
+            .store-card { max-width: calc(100% - clamp(440px, 38vw, 540px) - clamp(48px, 5vw, 96px)); margin-inline: 0; }   /* = the copy column */
         }
-
+        /* until the container stops growing (≈1340px) the chips would sit inside the page gutter:
+           pull the outer chip in (the heal chip on the right, or the keys chip on the left in RTL) */
+        @media (min-width: 1100px) and (max-width: 1339px) {
+            .hud-chip--heal { right: -10px; }
+            [dir="rtl"] .hud-chip--keys { left: -10px; }
+        }
+        @media (min-width: 1360px) {
+            .hud { --step-w: 32px; padding: 18px; }
+            .hud-skills { gap: 9px; }
+        }
+        /* below 1100px the HUD is a compact band (sequence + skill bar) right under the CTAs,
+           before the trust line, so the product shows on the first screen */
+        @media (max-width: 1099px) {
+            .hero-inner { display: flex; flex-direction: column; }
+            .hero-copy { display: contents; }
+            .hero-eyebrow { align-self: center; }
+            .hero-visual { order: 1; }
+            .hero-trust { order: 2; }
+            .hero-divider { display: none; }
+            .hero-description { margin-top: clamp(18px, 2.6vh, 26px); }
+            .hud-bar, .hud-chip { display: none; }
+            .hud { padding: 12px; border-radius: 18px; }
+            .hud::after { inset: 5px; border-radius: 13px; }
+        }
+        /* tablets: no full-viewport hero, so the Chrome Web Store card stays above the fold */
+        @media (min-width: 641px) and (max-width: 1099px) {
+            .hero { min-height: 0; padding-top: 36px; padding-bottom: 48px; }
+            .hero-eyebrow { margin-bottom: 28px; }
+            .hero-trust { display: grid; grid-template-columns: repeat(2, max-content); justify-content: center; gap: 10px 28px; margin-top: 24px; }
+            .hero-visual { margin-top: 26px; }
+        }
+        @media (max-width: 1180px) {
+            .price-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .price-card { margin-bottom: 34px; }
+        }
+        /* four narrow cards (1181–1365px): tighter insets so the longest CTA labels (nl "Toevoegen aan Chrome",
+           ru "Попробовать Бесплатно") stay on one line and the CTA row keeps its 50px height */
+        @media (min-width: 1181px) and (max-width: 1365px) {
+            .price-card { padding-inline: 20px; }
+            .price-card .btn, .price-card--free .btn-download { padding-inline: 8px; font-size: 14.5px; }
+            .price-card--free .btn-download { gap: 7px; }
+        }
+        @media (min-width: 1181px) {
+            /* Champion stands taller: its frame (drawn by ::before) extends 16px above and below,
+               while its content stays on the shared rows so every CTA lines up. */
+            .price-card.featured { background: none; box-shadow: none; }
+            .price-card.featured::before {
+                content: ''; position: absolute; inset: -17px -1px; z-index: -1; border-radius: inherit; border: 1px solid transparent; pointer-events: none;
+            }
+            .price-card.featured::after { inset: -17px -1px; }
+            .price-card.featured .price-badge { top: -16px; }
+        }
+        @media (min-width: 961px) {
+            .security__intro .section-tag::before { display: none; }
+            :lang(ja) .security__title { font-size: clamp(28px, 1.6vw + 16px, 40px); }   /* keeps 「プロフェッショナルレベルの」 on one line */
+        }
+        @media (max-width: 960px) {
+            .features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .security__grid { grid-template-columns: minmax(0, 1fr); }
+            .security__intro { text-align: center; }
+            .security__desc { margin-inline: auto; }
+            .sec-card:nth-child(even), .sec-card:nth-child(even):hover { transform: none; }
+            .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .stat-item:nth-child(3)::before { display: none; }
+            .stat-item:nth-child(n+3) { border-top: 1px solid var(--line-1); }
+        }
         @media (max-width: 640px) {
-            .container { padding: 0 20px; } header { padding: 14px 20px; }
-            .logo-text { display: none; } h1 { font-size: 46px; }
-            .lang-code { display: none; }
-            .lang-select-btn { padding: 6px 8px; gap: 4px; }
-            .rv-label { display: none; }
-            .rv-btn { padding: 6px 8px; gap: 0; }
-            .btn-manage { padding: 6px 12px; font-size: 10px; letter-spacing: 1.5px; border-radius: 6px; }
-            .btn-manage-full { display: none; }
-            .btn-manage-short { display: inline; }
-            .btn-docs-full { display: none; }
-            .btn-docs-short { display: inline; }
-            .features-grid { grid-template-columns: 1fr; }
-            /* 1 colonne : card 1 = top-left+top-right, card 6 = bottom-left+bottom-right */
-            .feature-card:nth-child(2) { border-top-right-radius: 0; }
-            .feature-card:nth-child(5) { border-bottom-left-radius: 0; }
-            .feature-card:first-child { border-top-right-radius: 11px; }
-            .feature-card:last-child { border-bottom-left-radius: 11px; }
-            .cta-group { flex-direction: column; } .btn { width: 100%; text-align: center; }
-            .features, .pricing, .faq { padding: 50px 0; }
-            .price-card { padding: 40px 24px; }
-            .hero-trust { flex-direction: column; gap: 12px; }
-            .hero-inner { width: 100%; }
-            .price-grid { grid-template-columns: 1fr; }
+            .hero { min-height: 0; padding-top: 36px; padding-bottom: 56px; }
+            .hero-eyebrow { font-size: 10px; letter-spacing: .26em; padding: 8px 16px; gap: 10px; }
+            .hero-subtitle { letter-spacing: .42em; padding-inline-start: .42em; }
+            .hero-description { margin-bottom: 30px; }
+            .cta-group { flex-direction: column; }
+            .cta-group .btn { width: 100%; min-width: 0; }
+            .hero-trust { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 14px; text-align: start; margin-top: 26px; }
+            .hero-trust-item { font-size: 12.5px; line-height: 1.4; }
+            .hero-visual { margin-top: 30px; }
+            .hud { --step-w: 22px; padding: 10px; }
+            .hud-seq { padding: 10px 10px 12px; }
+            .hud-seq-head { margin-bottom: 11px; font-size: 10.5px; }
+            .hud-step { font-size: 9.5px; border-radius: 6px; }
+            .hud-playhead { border-radius: 6px; }
+            .hud-skills { gap: 6px; margin-top: 10px; }
+            .hud-key { border-radius: 9px; }
+            .hud-key svg { width: 42%; height: 42%; margin-top: 4px; }
+            .hud-key::after { top: 3px; left: 4px; font-size: 9px; }
+            .features-grid, .sec-grid { grid-template-columns: minmax(0, 1fr); }
+            .sec-grid { gap: 12px; }
+            .sec-card { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; align-items: center; padding: 18px; }
+            .sec-card-icon { grid-row: 1 / span 2; margin: 0; }
+            .sec-card-title { align-self: end; margin-bottom: 2px; }
+            .sec-card-text { align-self: start; }
+            .price-grid { grid-template-columns: minmax(0, 1fr); }
+            .features .feature-card { padding: 26px 22px 28px; }
+            .features .feature-card::after { top: 22px; inset-inline-end: 20px; font-size: 46px; }
+            .price-card { padding: 34px 22px 22px; }
+            .trust-badges { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+            .trust-badge { font-size: 13px; line-height: 1.35; }
+            .faq-question { font-size: 16px; padding: 14px 16px; padding-inline-start: 18px; }
+            .faq-answer { padding: 0 18px 18px; }
         }
-
-        /* ═══ MMORPG Visual Enhancements ═══ */
-        .hero-bracket { position: absolute; width: 48px; height: 48px; opacity: 0.2; pointer-events: none; }
-        .hero-bracket.tl { top: -8px; left: -8px; border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); }
-        .hero-bracket.tr { top: -8px; right: -8px; border-top: 2px solid var(--gold); border-right: 2px solid var(--gold); }
-        .hero-bracket.bl { bottom: -8px; left: -8px; border-bottom: 2px solid var(--gold); border-left: 2px solid var(--gold); }
-        .hero-bracket.br { bottom: -8px; right: -8px; border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold); }
-
-        .skill-badge { display: inline-block; font-family: 'Inter', sans-serif; font-size: 8px; font-weight: 700; padding: 3px 8px; border-radius: 3px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
-        .skill-active { background: rgba(76,175,80,0.12); border: 1px solid rgba(76,175,80,0.35); color: var(--green); }
-        .skill-passive { background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.3); color: var(--gold); }
-
-        .feature-card::before { content: attr(data-skill); position: absolute; bottom: 20px; right: 20px; font-family: 'Cinzel', serif; font-size: 28px; font-weight: 900; color: rgba(212,175,55,0.06); line-height: 1; pointer-events: none; }
-
-        .price-rank { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 20px; opacity: 0.7; display: flex; align-items: center; gap: 8px; }
-        .price-rank::before, .price-rank::after { content: ''; flex: 1; height: 1px; background: rgba(212,175,55,0.15); }
-        .price-card.featured .price-rank { color: var(--gold); opacity: 0.8; }
-        .price-card.featured .price-rank::before, .price-card.featured .price-rank::after { background: rgba(212,175,55,0.3); }
-        .price-card.exclusive .price-rank { color: var(--green); opacity: 0.8; }
-        .price-card.exclusive .price-rank::before, .price-card.exclusive .price-rank::after { background: rgba(76,175,80,0.25); }
-
-        .section-ornament { display: flex; align-items: center; gap: 14px; margin: 0 auto 24px; max-width: 280px; }
-        .section-ornament::before, .section-ornament::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(212,175,55,0.4)); }
-        .section-ornament::after { background: linear-gradient(90deg, rgba(212,175,55,0.4), transparent); }
-        .section-ornament span { font-size: 10px; color: var(--gold); opacity: 0.6; letter-spacing: 4px; white-space: nowrap; }
-
-        .price-card.featured { animation: featuredPulse 3s ease-in-out infinite; }
-        @keyframes featuredPulse { 0%, 100% { box-shadow: 0 0 60px rgba(212,175,55,0.12), inset 0 1px 0 rgba(212,175,55,0.3); } 50% { box-shadow: 0 0 80px rgba(212,175,55,0.2), inset 0 1px 0 rgba(212,175,55,0.4); } }
-        .stat-number { text-shadow: 0 0 30px rgba(212,175,55,0.3); }
-        .feature-card:hover .feature-icon { filter: drop-shadow(0 0 14px rgba(212,175,55,0.6)); transform: scale(1.05); }
-
-        /* Security section cards */
-        .sec-card { padding: 28px 24px; background: var(--dark-card); border: 1px solid var(--border); border-radius: 12px; transition: background 0.3s ease; }
-        .sec-card:hover { background: var(--dark-header); }
-        .sec-card-icon { font-size: 32px; margin-bottom: 12px; }
-        .sec-card-title { font-family: 'Cinzel', serif; font-size: 14px; font-weight: 600; color: var(--gold); margin-bottom: 8px; }
-        .sec-card-text { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-dim); line-height: 1.6; }
-
-        /* Bouton gérer abonnement */
-        .btn-manage { background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.35); padding: 7px 18px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; color: var(--gold); text-transform: uppercase; letter-spacing: 2.5px; text-decoration: none; transition: background 0.3s ease, border-color 0.3s ease; white-space: nowrap; }
-        .btn-manage:hover { background: rgba(212,175,55,0.16); border-color: rgba(212,175,55,0.7); }
+        @media (max-width: 480px) {
+            .store-card__body { flex-wrap: wrap; gap: 14px; padding: 20px; }
+            .store-card__icon { width: 48px; height: 48px; }
+            .store-card__cta { width: 100%; }
+            .store-card__status { padding: 11px 20px; }
+        }
+        @media (max-width: 400px) {
+            .stat-item { padding-inline: 8px; }
+            .stat-label { letter-spacing: min(var(--track-md), .08em); }
+        }
+        @media (max-width: 360px) {
+            .hud { --step-w: 20px; padding: 8px; }
+            .hud-seq { padding: 9px 8px 11px; }
+            .hud-step { font-size: 9px; }
+            .hud-skills { gap: 5px; }
+            .trust-badges { grid-template-columns: minmax(0, 1fr); }
+        }
+        /* Forced colours: HUD glyphs take their label's system colour (site.css does the same for .slot-gl/.inline-gl),
+           and the pricing lozenges — backgrounds, which become Canvas — are redrawn in the text colour */
+        @media (forced-colors: active) {
+            .hud-gl { color: inherit !important; }
+            .price-features li::before { forced-color-adjust: none; background: CanvasText; box-shadow: none; }
+        }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
@@ -370,53 +774,160 @@
     <script>window.__PRERENDERED_LANG__="pl";</script>
 </head>
 <body>
+    <script>document.documentElement.classList.add('js')</script>
+    <!-- Gold line glyphs (HUD keycaps, skill slots) — referenced with <use href="#g-…"> -->
+    <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 10c0 5.65-7 10-7 10z"/></symbol>
+        <symbol id="g-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.3-2.9 7.9-7 9.5-4.1-1.6-7-5.2-7-9.5V6l7-3z"/><path d="M9 12l2.2 2.2L15.5 10"/></symbol>
+        <symbol id="g-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4L12 3z"/></symbol>
+        <symbol id="g-bolt" viewBox="0 0 24 24"><path d="M13 2.5L5 13.5h6l-1 8 8-11h-6l1-8z"/></symbol>
+        <symbol id="g-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+        <symbol id="g-cross" viewBox="0 0 24 24"><path d="M9.5 3.5h5v6h6v5h-6v6h-5v-6h-6v-5h6z"/></symbol>
+        <symbol id="g-rain" viewBox="0 0 24 24"><path d="M7 14.5a4 4 0 0 1 .4-8 5.2 5.2 0 0 1 9.9 1.6 3.3 3.3 0 0 1-.3 6.4H7z"/><path d="M8.5 17.5l-1 2.5M12.5 17.5l-1 2.5M16.5 17.5l-1 2.5"/></symbol>
+        <symbol id="g-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v5.5L5 17a2.2 2.2 0 0 0 1.9 3.3h10.2A2.2 2.2 0 0 0 19 17l-5-8.5V3"/><path d="M7.5 14.5h9"/></symbol>
+        <symbol id="g-loop" viewBox="0 0 24 24"><path fill="none" d="M4.5 11a7.5 7.5 0 0 1 13-4.6l2 2.1M19.5 4v4.5H15M19.5 13a7.5 7.5 0 0 1-13 4.6l-2-2.1M4.5 20v-4.5H9"/></symbol>
+        <symbol id="g-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+        <symbol id="g-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
+        <symbol id="g-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4.5M12 17.5V22M2 12h4.5M17.5 12H22"/><circle cx="12" cy="12" r=".4"/></symbol>
+        <symbol id="g-palette" viewBox="0 0 24 24"><path d="M12 3.2a8.8 8.8 0 1 0 0 17.6c1.1 0 1.8-.8 1.8-1.7 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-.9.8-1.7 1.7-1.7h2a4.3 4.3 0 0 0 4.3-4.3c0-4.3-3.9-7.5-8.8-7.5z"/><circle cx="7.5" cy="11.5" r="1.1"/><circle cx="10.2" cy="7.4" r="1.1"/><circle cx="14.8" cy="7.6" r="1.1"/></symbol>
+        <symbol id="g-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3c2.4 2.5 3.7 5.5 3.7 9s-1.3 6.5-3.7 9c-2.4-2.5-3.7-5.5-3.7-9S9.6 5.5 12 3z"/><path fill="none" d="M3 12h18M4.6 7.5h14.8M4.6 16.5h14.8"/></symbol>
+        <symbol id="g-key" viewBox="0 0 24 24"><circle cx="8" cy="15.5" r="4.2"/><circle cx="7.2" cy="16.3" r="1"/><path fill="none" d="M11 12.5L19.5 4M16.2 7.3l2.6 2.6M13.9 9.6l2 2"/></symbol>
+        <symbol id="g-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.2"/><path fill="none" d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/><path d="M12 14.3v2.6"/></symbol>
+        <symbol id="g-card" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.2"/><path d="M3 9.8h18M6.5 14.8h4.5"/></symbol>
+        <symbol id="g-cloud" viewBox="0 0 24 24"><path d="M7.5 18.5a4.5 4.5 0 0 1-.3-9 5.6 5.6 0 0 1 10.8 1.7 3.7 3.7 0 0 1-.6 7.3h-9.9z"/><path fill="none" d="M9.5 14l1.8 1.8 3.4-3.4"/></symbol>
+        <symbol id="g-chat" viewBox="0 0 24 24"><path d="M20 11.3c0 4.1-3.6 7.4-8 7.4-1.2 0-2.3-.2-3.3-.6L4 19.6l1.4-3.8C4.5 14.5 4 13 4 11.3 4 7.2 7.6 3.9 12 3.9s8 3.3 8 7.4z"/><path d="M8.5 10h7M8.5 13.2h4.5"/></symbol>
+        <symbol id="g-book" viewBox="0 0 24 24"><path d="M12 6.6C10.2 5.2 7.7 4.5 3.5 4.5v13.2c4.2 0 6.7.7 8.5 2.1 1.8-1.4 4.3-2.1 8.5-2.1V4.5c-4.2 0-6.7.7-8.5 2.1z"/><path fill="none" d="M12 6.6v13.2"/></symbol>
+        <symbol id="g-gift" viewBox="0 0 24 24"><rect x="3.5" y="8.5" width="17" height="4" rx="1"/><path d="M5 12.5v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"/><path fill="none" d="M12 8.5v12M12 8.5C10.7 5.9 8.1 4.3 6.9 5.6c-1.2 1.4.7 2.9 5.1 2.9zM12 8.5c1.3-2.6 3.9-4.2 5.1-2.9 1.2 1.4-.7 2.9-5.1 2.9z"/></symbol>
+        <symbol id="g-star" viewBox="0 0 24 24"><path d="M12 3.3l2.12 6.09 6.44.13-5.14 3.89 1.87 6.17L12 15.9l-5.29 3.68 1.87-6.17-5.14-3.89 6.44-.13z"/></symbol>
+    </svg>
 
-    <header>
-        <div class="logo-container">
-            <div class="logo-icon">R</div>
-            <div class="logo-text">Reborn</div>
-        </div>
-        <div style="display:flex; align-items:center; gap:10px;">
-            <a class="rv-btn" href="https://reborn-vision.com" target="_blank" rel="noopener" title="Reborn Vision Extension" aria-label="Reborn Vision Extension" style="display:flex;align-items:center;gap:7px;background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.25);border-radius:8px;padding:6px 12px;text-decoration:none;transition:all 0.2s ease;" onmouseover="this.style.background='rgba(212,175,55,0.12)';this.style.borderColor='rgba(212,175,55,0.45)'" onmouseout="this.style.background='rgba(212,175,55,0.06)';this.style.borderColor='rgba(212,175,55,0.25)'"><img src="https://reborn-vision.com/favicon.svg" alt="Logo Reborn Vision" width="20" height="20" style="border-radius:4px;flex-shrink:0;" onerror="this.style.display='none'"><span class="rv-label" style="font-family:'Cinzel',serif;font-size:10px;font-weight:600;letter-spacing:1px;color:var(--gold);">Reborn Vision Extension</span></a>
-            <div class="lang-select">
-                <button class="lang-select-btn" onclick="toggleLangMenu()">
-                    <span class="lang-flag">🇵🇱</span>
-                    <span class="lang-code">PL</span>
-                    <span class="lang-chevron">▾</span>
-                </button>
-                <div class="lang-select-menu">
-                    <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
-                    <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
-                    <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
-                    <button class="lang-option" data-lang="de" onclick="setLang('de')">🇩🇪 Deutsch</button>
-                    <button class="lang-option" data-lang="pt" onclick="setLang('pt')">🇧🇷 Português</button>
-                    <button class="lang-option" data-lang="it" onclick="setLang('it')">🇮🇹 Italiano</button>
-                    <button class="lang-option" data-lang="nl" onclick="setLang('nl')">🇳🇱 Nederlands</button>
-                    <button class="lang-option" data-lang="pl" onclick="setLang('pl')">🇵🇱 Polski</button>
-                    <button class="lang-option" data-lang="ru" onclick="setLang('ru')">🇷🇺 Русский</button>
-                    <button class="lang-option" data-lang="tr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
-                    <button class="lang-option" data-lang="ja" onclick="setLang('ja')">🇯🇵 日本語</button>
-                    <button class="lang-option" data-lang="ko" onclick="setLang('ko')">🇰🇷 한국어</button>
-                    <button class="lang-option" data-lang="tl" onclick="setLang('tl')">🇵🇭 Filipino</button>
-                    <button class="lang-option" data-lang="zh" onclick="setLang('zh')">🇨🇳 中文</button>
-                    <button class="lang-option" data-lang="ar" onclick="setLang('ar')">🇸🇦 العربية</button>
+    <!-- ═══ Header — glass, sticky, collapses to a menu on small screens ═══ -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand logo-container" href="#" aria-label="Reborn Assistant">
+                <span class="brand__sigil logo-icon" aria-hidden="true">R</span>
+                <span class="brand__word logo-text">Reborn</span>
+            </a>
+            <nav class="site-nav" id="site-nav">
+                <a href="#features" data-i18n="nav.features">Funkcje</a>
+                <a href="#security" data-i18n="nav.security">Bezpieczeństwo</a>
+                <a href="#pricing" data-i18n="nav.pricing">Cennik</a>
+                <a href="#faq" data-i18n="nav.faq">FAQ</a>
+                <a href="/pl/docs/index.html" class="nav-compact" data-i18n="nav.docs">Dokumentacja</a>
+                <a href="https://reborn-vision.com" target="_blank" rel="noopener" class="nav-compact">Reborn Vision</a>
+            </nav>
+            <div class="header-actions">
+                <a class="hdr-btn rv-btn" href="https://reborn-vision.com" target="_blank" rel="noopener" title="Reborn Vision Extension" aria-label="Reborn Vision Extension"><img src="https://reborn-vision.com/favicon.svg" alt="Logo Reborn Vision" width="20" height="20" onerror="this.style.display='none'"><svg class="rv-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12Z"/><path d="M12 8.6 15.4 12 12 15.4 8.6 12Z"/></svg><span class="rv-label">Reborn Vision Extension</span></a>
+                <div class="lang-select">
+                    <button class="lang-select-btn" type="button" aria-expanded="false" aria-controls="lang-menu" onclick="toggleLangMenu()">
+                        <span class="lang-flag">🇵🇱</span>
+                        <span class="lang-code">PL</span>
+                        <span class="lang-chevron" aria-hidden="true">▾</span>
+                    </button>
+                    <div class="lang-select-menu" id="lang-menu">
+                        <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
+                        <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
+                        <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
+                        <button class="lang-option" data-lang="de" onclick="setLang('de')">🇩🇪 Deutsch</button>
+                        <button class="lang-option" data-lang="pt" onclick="setLang('pt')">🇧🇷 Português</button>
+                        <button class="lang-option" data-lang="it" onclick="setLang('it')">🇮🇹 Italiano</button>
+                        <button class="lang-option" data-lang="nl" onclick="setLang('nl')">🇳🇱 Nederlands</button>
+                        <button class="lang-option" data-lang="pl" onclick="setLang('pl')">🇵🇱 Polski</button>
+                        <button class="lang-option" data-lang="ru" onclick="setLang('ru')">🇷🇺 Русский</button>
+                        <button class="lang-option" data-lang="tr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
+                        <button class="lang-option" data-lang="ja" onclick="setLang('ja')">🇯🇵 日本語</button>
+                        <button class="lang-option" data-lang="ko" onclick="setLang('ko')">🇰🇷 한국어</button>
+                        <button class="lang-option" data-lang="tl" onclick="setLang('tl')">🇵🇭 Filipino</button>
+                        <button class="lang-option" data-lang="zh" onclick="setLang('zh')">🇨🇳 中文</button>
+                        <button class="lang-option" data-lang="ar" onclick="setLang('ar')">🇸🇦 العربية</button>
+                    </div>
                 </div>
+                <a href="/pl/docs/index.html" class="hdr-btn hdr-docs"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-book"/></svg><span class="btn-docs-full emoji-lead" data-i18n="nav.docsFull">📚 Dokumentacja</span><span class="btn-docs-short emoji-lead" data-i18n="nav.docsShort">📚 Docs</span></a>
+                <button type="button" onclick="openStripeWindow()" class="btn-manage"><span class="btn-manage-full" data-i18n="nav.manageFull">Zarządzaj subskrypcją</span><span class="btn-manage-short" aria-hidden="true" data-i18n="nav.manageShort">Zarządzaj</span></button>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-labelledby="nav-toggle-label"><span class="nav-toggle__bars" aria-hidden="true"></span><span class="visually-hidden" id="nav-toggle-label" data-i18n="nav.menu">Menu</span></button>
             </div>
-            <a href="/pl/docs/index.html" style="font-family:'Cinzel',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;color:var(--gold);padding:6px 12px;border:1px solid rgba(212,175,55,0.4);border-radius:6px;transition:all 0.3s ease;background:rgba(212,175,55,0.05);" onmouseover="this.style.background='rgba(212,175,55,0.12)';this.style.borderColor='var(--gold)'" onmouseout="this.style.background='rgba(212,175,55,0.05)';this.style.borderColor='rgba(212,175,55,0.4)'" ><span class="btn-docs-full" data-i18n="nav.docsFull">📚 Dokumentacja</span><span class="btn-docs-short" data-i18n="nav.docsShort">📚 Docs</span></a>
-            <a onclick="openStripeWindow()" class="btn-manage" style="cursor:pointer;" role="button"><span class="btn-manage-full" data-i18n="nav.manageFull">Zarządzaj subskrypcją</span><span class="btn-manage-short" data-i18n="nav.manageShort">Zarządzaj</span></a>
         </div>
     </header>
 
+    <main id="main">
+
+    <!-- ═══ Hero — monumental title, rune circle, and the in-game HUD (product proof) ═══ -->
     <section class="hero">
+        <div class="hero-rays" aria-hidden="true"></div>
         <div class="hero-inner">
-            <div class="hero-bracket tl"></div>
-            <div class="hero-bracket tr"></div>
-            <div class="hero-bracket bl"></div>
-            <div class="hero-bracket br"></div>
+          <div class="hero-copy">
             <div class="hero-eyebrow"><span></span> Browser Automation <span></span></div>
-            <h1>REBORN<br>ASSISTANT</h1>
+            <div class="hero-title">
+                <div class="hero-sigil" aria-hidden="true">
+                    <svg class="rune-ring rune-ring--outer" viewBox="-300 -300 600 600" fill="none" stroke="currentColor" focusable="false">
+                        <defs>
+                            <path id="rn-a" d="M-3 8V-8M-3-3L4-8M-3 2L4-3"/>
+                            <path id="rn-b" d="M0 8V-8M0-1L-5-8M0-1L5-8"/>
+                            <path id="rn-c" d="M0-8L5-2L0 4L-5-2ZM-1 3L-5 8M1 3L5 8"/>
+                            <path id="rn-d" d="M-3 8V-8L3-4L-3 0L4 8"/>
+                            <path id="rn-e" d="M-4 8V-8L4 0M4 8V-8L-4 0"/>
+                            <path id="rn-f" d="M-3-8L3-3L-3 3L3 8"/>
+                            <path id="rn-g" d="M-3 8V-8M-3-4L3 0L-3 4"/>
+                            <path id="rn-h" d="M0 8V-8M-5-3L0-8L5-3"/>
+                        </defs>
+                        <circle r="297" stroke-opacity=".38"/>
+                        <circle r="290" stroke-opacity=".16"/>
+                        <circle r="274" stroke-width="9" stroke-opacity=".26" stroke-dasharray="1.2 7.4"/>
+                        <circle r="258" stroke-opacity=".34"/>
+                        <circle r="222" stroke-opacity=".34"/>
+                        <g stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".8">
+                            <use href="#rn-a" transform="rotate(0) translate(0 -240)"/>
+                            <use href="#rn-d" transform="rotate(15) translate(0 -240)"/>
+                            <use href="#rn-b" transform="rotate(30) translate(0 -240)"/>
+                            <use href="#rn-g" transform="rotate(45) translate(0 -240)"/>
+                            <use href="#rn-c" transform="rotate(60) translate(0 -240)"/>
+                            <use href="#rn-h" transform="rotate(75) translate(0 -240)"/>
+                            <use href="#rn-e" transform="rotate(90) translate(0 -240)"/>
+                            <use href="#rn-f" transform="rotate(105) translate(0 -240)"/>
+                            <use href="#rn-b" transform="rotate(120) translate(0 -240)"/>
+                            <use href="#rn-f" transform="rotate(135) translate(0 -240)"/>
+                            <use href="#rn-a" transform="rotate(150) translate(0 -240)"/>
+                            <use href="#rn-e" transform="rotate(165) translate(0 -240)"/>
+                            <use href="#rn-d" transform="rotate(180) translate(0 -240)"/>
+                            <use href="#rn-c" transform="rotate(195) translate(0 -240)"/>
+                            <use href="#rn-h" transform="rotate(210) translate(0 -240)"/>
+                            <use href="#rn-g" transform="rotate(225) translate(0 -240)"/>
+                            <use href="#rn-c" transform="rotate(240) translate(0 -240)"/>
+                            <use href="#rn-a" transform="rotate(255) translate(0 -240)"/>
+                            <use href="#rn-h" transform="rotate(270) translate(0 -240)"/>
+                            <use href="#rn-d" transform="rotate(285) translate(0 -240)"/>
+                            <use href="#rn-f" transform="rotate(300) translate(0 -240)"/>
+                            <use href="#rn-b" transform="rotate(315) translate(0 -240)"/>
+                            <use href="#rn-g" transform="rotate(330) translate(0 -240)"/>
+                            <use href="#rn-e" transform="rotate(345) translate(0 -240)"/>
+                        </g>
+                        <g fill="currentColor" stroke="none" fill-opacity=".85">
+                            <path d="M0-282L6-274L0-266L-6-274Z"/>
+                            <path d="M0-282L6-274L0-266L-6-274Z" transform="rotate(90)"/>
+                            <path d="M0-282L6-274L0-266L-6-274Z" transform="rotate(180)"/>
+                            <path d="M0-282L6-274L0-266L-6-274Z" transform="rotate(270)"/>
+                        </g>
+                    </svg>
+                    <svg class="rune-ring rune-ring--inner" viewBox="-300 -300 600 600" fill="none" stroke="currentColor" focusable="false">
+                        <circle r="206" stroke-opacity=".34"/>
+                        <path d="M0-206L206 0L0 206L-206 0Z" stroke-opacity=".3"/>
+                        <path d="M145.7-145.7L145.7 145.7L-145.7 145.7L-145.7-145.7Z" stroke-opacity=".3"/>
+                        <circle r="145.7" stroke-opacity=".3" stroke-dasharray="2 6"/>
+                        <path d="M0-132L114.3 66L-114.3 66Z" stroke-opacity=".22"/>
+                        <path d="M0 132L114.3-66L-114.3-66Z" stroke-opacity=".22"/>
+                        <circle r="66" stroke-opacity=".2"/>
+                        <g fill="#0a0908" stroke-opacity=".6">
+                            <circle cx="0" cy="-206" r="4.5"/><circle cx="145.7" cy="-145.7" r="4.5"/>
+                            <circle cx="206" cy="0" r="4.5"/><circle cx="145.7" cy="145.7" r="4.5"/>
+                            <circle cx="0" cy="206" r="4.5"/><circle cx="-145.7" cy="145.7" r="4.5"/>
+                            <circle cx="-206" cy="0" r="4.5"/><circle cx="-145.7" cy="-145.7" r="4.5"/>
+                        </g>
+                    </svg>
+                </div>
+                <h1>REBORN<br>ASSISTANT</h1>
+            </div>
             <div class="hero-subtitle">Premium Automation</div>
-            <div class="hero-divider"></div>
+            <div class="hero-divider ornament" aria-hidden="true"></div>
             <p class="hero-description" data-i18n="hero.description">Rozszerzenie automatyzacji przeglądarki z zaawansowanymi makrami. Automatyzuj powtarzające się czynności, skróty i sekwencje, aby zoptymalizować swoją produktywność.</p>
             <div class="cta-group">
                 <a href="#pricing" class="btn btn-primary" data-i18n="hero.ctaPrimary">Zacznij teraz</a>
@@ -428,50 +939,72 @@
                 <div class="hero-trust-item"><span class="dot-green"></span> <span data-i18n="hero.trust3">100% bezpieczna płatność</span></div>
                 <div class="hero-trust-item"><span class="dot-green"></span> <span data-i18n="hero.trust4">Automatyczne aktualizacje</span></div>
             </div>
+          </div>
+            <!-- In-game HUD: the keys you configured, pressed in order on a timer (decorative, language-neutral, always LTR) -->
+            <div class="hero-visual" aria-hidden="true" dir="ltr">
+                <div class="hud">
+                    <div class="hud-bar">
+                        <span class="hud-brand"><span class="hud-mark">R</span>Reborn Assistant</span>
+                        <span class="hud-auto"><svg class="hud-gl"><use href="#g-loop"/></svg><span class="hud-switch"><span class="hud-knob"></span></span></span>
+                    </div>
+                    <div class="hud-seq">
+                        <div class="hud-seq-head">
+                            <span><svg class="hud-gl"><use href="#g-loop"/></svg>05:00</span>
+                            <span><svg class="hud-gl"><use href="#g-clock"/></svg>1.0s</span>
+                        </div>
+                        <div class="hud-steps">
+                            <span class="hud-rail"><i></i></span>
+                            <span class="hud-step">F2</span><span class="hud-step">1</span><span class="hud-step">2</span><span class="hud-step">3</span><span class="hud-step">4</span><span class="hud-step">5</span><span class="hud-step">6</span><span class="hud-step">7</span><span class="hud-step">8</span><span class="hud-step">9</span><span class="hud-step">0</span><span class="hud-step">F1</span>
+                            <span class="hud-playhead"></span>
+                        </div>
+                    </div>
+                    <div class="hud-skills">
+                        <span class="hud-key" data-key="1"><svg class="hud-gl"><use href="#g-heart"/></svg></span>
+                        <span class="hud-key cd-a" data-key="2"><svg class="hud-gl"><use href="#g-shield"/></svg><span class="cd-pane cd-r"></span><span class="cd-pane cd-l"></span></span>
+                        <span class="hud-key" data-key="3"><svg class="hud-gl"><use href="#g-spark"/></svg></span>
+                        <span class="hud-key is-press" data-key="4"><svg class="hud-gl"><use href="#g-bolt"/></svg></span>
+                        <span class="hud-key" data-key="5"><svg class="hud-gl"><use href="#g-eye"/></svg></span>
+                        <span class="hud-key" data-key="6"><svg class="hud-gl"><use href="#g-cross"/></svg></span>
+                        <span class="hud-key hud-key--heal cd-b" data-key="R"><svg class="hud-gl"><use href="#g-rain"/></svg><span class="cd-pane cd-r"></span><span class="cd-pane cd-l"></span></span>
+                        <span class="hud-key" data-key="Q"><svg class="hud-gl"><use href="#g-flask"/></svg></span>
+                    </div>
+                </div>
+                <div class="hud-chip hud-chip--heal">
+                    <span class="hud-chip__ico"><svg class="hud-gl"><use href="#g-rain"/></svg></span>
+                    <span class="hud-chip__txt"><b>Heal Rain</b><span><svg class="hud-gl"><use href="#g-loop"/></svg>0:15</span></span>
+                </div>
+                <div class="hud-chip hud-chip--keys"><kbd>CTRL</kbd>+<kbd>A</kbd><span class="hud-chip__play"><svg><use href="#g-play"/></svg></span></div>
+            </div>
         </div>
     </section>
 
-    <!-- Chrome Web Store — Badge client -->
-    <div class="reveal" style="margin-top:16px;margin-bottom:16px;padding:0 40px;">
-        <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" style="display:block;max-width:560px;margin:0 auto;text-decoration:none;">
-        <div style="background:rgba(14,14,12,0.95);border:1px solid rgba(255,255,255,0.08);border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.45);transition:transform 0.25s ease,box-shadow 0.25s ease;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 28px 70px rgba(0,0,0,0.55)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 20px 60px rgba(0,0,0,0.45)'">
-
-            <!-- Bande Google en haut -->
-            <div style="height:3px;background:linear-gradient(90deg,#4285F4 25%,#EA4335 25%,#EA4335 50%,#FBBC05 50%,#FBBC05 75%,#34A853 75%);"></div>
-
-            <div style="padding:28px 32px;display:flex;align-items:center;gap:20px;">
-
-                <!-- Icône extension -->
-                <img src="/favicon.svg" alt="Reborn Assistant" width="56" height="56" style="object-fit:contain;border-radius:14px;border:1px solid rgba(255,255,255,0.08);flex-shrink:0;">
-
-                <!-- Texte central -->
-                <div style="flex:1;min-width:0;">
-                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;">
-                        <span style="font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:rgba(255,255,255,0.92);">Reborn Assistant</span>
+    <!-- ═══ Chrome Web Store — badge client ═══ -->
+    <div class="store reveal">
+        <a class="store-card" href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank">
+            <span class="store-card__stripe" aria-hidden="true"></span>
+            <div class="store-card__body">
+                <img class="store-card__icon" src="/favicon.svg" alt="Reborn Assistant" width="56" height="56">
+                <div class="store-card__meta">
+                    <div class="store-card__name">
+                        <span>Reborn Assistant</span>
                         <!-- Pastille vérifiée -->
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" title="Vérifié par Google"><circle cx="8" cy="8" r="8" fill="#34A853"/><path d="M4.5 8l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" title="Vérifié par Google" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#34A853"/><path d="M4.5 8l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </div>
-                    <div style="display:flex;align-items:center;gap:6px;">
-                        <svg width="13" height="13" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-                        <span style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:0.2px;">Google Chrome Web Store</span>
+                    <div class="store-card__source">
+                        <svg width="13" height="13" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                        <span>Google Chrome Web Store</span>
                     </div>
                 </div>
-
-                <!-- CTA bouton -->
-                <div style="flex-shrink:0;background:#1a73e8;border-radius:8px;padding:10px 20px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:#fff;letter-spacing:0.3px;white-space:nowrap;" data-i18n="store.install">Zainstaluj</div>
-
+                <div class="store-card__cta" data-i18n="store.install">Zainstaluj</div>
             </div>
-
-            <!-- Bande verte statut -->
-            <div style="padding:10px 32px;background:rgba(52,168,83,0.06);border-top:1px solid rgba(52,168,83,0.12);display:flex;align-items:center;gap:8px;">
-                <div style="width:6px;height:6px;background:#34A853;border-radius:50%;box-shadow:0 0 6px rgba(52,168,83,0.7);animation:pulse 2s infinite;flex-shrink:0;"></div>
-                <span style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(52,168,83,0.9);font-weight:500;letter-spacing:0.3px;" data-i18n="store.available">Dostępne za darmo · Oficjalne rozszerzenie zweryfikowane przez Google</span>
+            <div class="store-card__status">
+                <span class="store-card__dot" aria-hidden="true"></span>
+                <span data-i18n="store.available">Dostępne za darmo · Oficjalne rozszerzenie zweryfikowane przez Google</span>
             </div>
-
-        </div>
         </a>
     </div>
 
+    <!-- ═══ Features — skill cards ═══ -->
     <section class="features" id="features">
         <div class="container">
             <div class="section-header reveal">
@@ -481,39 +1014,51 @@
                 <p class="section-subtitle" data-i18n="features.subtitle">Odkryj wyjątkowe możliwości Reborn Assistant.</p>
             </div>
             <div class="features-grid reveal">
-                <div class="feature-card" data-skill="I">
-                    <div class="skill-badge skill-active" data-i18n="features.card1.badge">Aktywny</div>
-                    <span class="feature-icon">⚡</span>
+                <div class="feature-card gild-hover" data-skill="I">
+                    <div class="feature-card__top">
+                        <span class="feature-icon skill-slot" data-hotkey="F1" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-bolt"/></svg><span class="slot-src" aria-hidden="true">⚡</span></span>
+                        <div class="skill-badge skill-active" data-i18n="features.card1.badge">Aktywny</div>
+                    </div>
                     <h3 class="feature-title" data-i18n="features.card1.title">Pełna Automatyzacja</h3>
                     <p class="feature-description" data-i18n="features.card1.description">Makra klawiszy, automatyczne sekwencje i konfigurowalne akcje dla kompletnej automatyzacji.</p>
                 </div>
-                <div class="feature-card" data-skill="II">
-                    <div class="skill-badge skill-passive" data-i18n="features.card2.badge">Pasywny</div>
-                    <span class="feature-icon">🛡️</span>
+                <div class="feature-card gild-hover" data-skill="II">
+                    <div class="feature-card__top">
+                        <span class="feature-icon skill-slot" data-hotkey="F2" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-shield"/></svg><span class="slot-src" aria-hidden="true">🛡️</span></span>
+                        <div class="skill-badge skill-passive" data-i18n="features.card2.badge">Pasywny</div>
+                    </div>
                     <h3 class="feature-title" data-i18n="features.card2.title">Maksymalne Bezpieczeństwo</h3>
                     <p class="feature-description" data-i18n="features.card2.description">Twoje dane pozostają lokalne. Bez śledzenia, bez telemetrii.</p>
                 </div>
-                <div class="feature-card" data-skill="III">
-                    <div class="skill-badge skill-active" data-i18n="features.card3.badge">Aktywny</div>
-                    <span class="feature-icon">🎯</span>
+                <div class="feature-card gild-hover" data-skill="III">
+                    <div class="feature-card__top">
+                        <span class="feature-icon skill-slot" data-hotkey="F3" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-target"/></svg><span class="slot-src" aria-hidden="true">🎯</span></span>
+                        <div class="skill-badge skill-active" data-i18n="features.card3.badge">Aktywny</div>
+                    </div>
                     <h3 class="feature-title" data-i18n="features.card3.title">Konfigurowalne Makra</h3>
                     <p class="feature-description" data-i18n="features.card3.description">3 konfigurowalne makra z automatycznymi wyzwalaczami i skrótami klawiszowymi.</p>
                 </div>
-                <div class="feature-card" data-skill="IV">
-                    <div class="skill-badge skill-passive" data-i18n="features.card4.badge">Pasywny</div>
-                    <span class="feature-icon">🎨</span>
+                <div class="feature-card gild-hover" data-skill="IV">
+                    <div class="feature-card__top">
+                        <span class="feature-icon skill-slot" data-hotkey="F4" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-palette"/></svg><span class="slot-src" aria-hidden="true">🎨</span></span>
+                        <div class="skill-badge skill-passive" data-i18n="features.card4.badge">Pasywny</div>
+                    </div>
                     <h3 class="feature-title" data-i18n="features.card4.title">Konfigurowalny Interfejs</h3>
                     <p class="feature-description" data-i18n="features.card4.description">Wybierz spośród 6 motywów i dostosuj interfejs do swoich potrzeb.</p>
                 </div>
-                <div class="feature-card" data-skill="V">
-                    <div class="skill-badge skill-passive" data-i18n="features.card5.badge">Pasywny</div>
-                    <span class="feature-icon">🌐</span>
+                <div class="feature-card gild-hover" data-skill="V">
+                    <div class="feature-card__top">
+                        <span class="feature-icon skill-slot" data-hotkey="F5" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-globe"/></svg><span class="slot-src" aria-hidden="true">🌐</span></span>
+                        <div class="skill-badge skill-passive" data-i18n="features.card5.badge">Pasywny</div>
+                    </div>
                     <h3 class="feature-title" data-i18n="features.card5.title">Wielojęzyczny</h3>
                     <p class="feature-description" data-i18n="features.card5.description">Dostępny w 15 językach. Wsparcie na całym świecie z zlokalizowanymi interfejsami.</p>
                 </div>
-                <div class="feature-card" data-skill="VI">
-                    <div class="skill-badge skill-passive" data-i18n="features.card6.badge">Darmowy</div>
-                    <span class="feature-icon">🔄</span>
+                <div class="feature-card gild-hover" data-skill="VI">
+                    <div class="feature-card__top">
+                        <span class="feature-icon skill-slot" data-hotkey="F6" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-loop"/></svg><span class="slot-src" aria-hidden="true">🔄</span></span>
+                        <div class="skill-badge skill-passive" data-i18n="features.card6.badge">Darmowy</div>
+                    </div>
                     <h3 class="feature-title" data-i18n="features.card6.title">Darmowa Wersja</h3>
                     <p class="feature-description" data-i18n="features.card6.description">Wypróbuj za darmo z podstawowymi funkcjami w zestawie.</p>
                 </div>
@@ -521,47 +1066,44 @@
         </div>
     </section>
 
-    <!-- Section Sécurité Premium -->
-    <section style="padding:100px 0;background:linear-gradient(180deg,rgba(212,175,55,0.02) 0%,transparent 100%);position:relative;z-index:1;">
-        <div class="container">
-            <div class="reveal" style="max-width:900px;margin:0 auto;text-align:center;">
-                <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:32px;padding:10px 24px;border:1px solid rgba(76,175,80,0.3);border-radius:30px;background:rgba(76,175,80,0.05);">
-                    <div style="width:8px;height:8px;background:#4CAF50;border-radius:50%;box-shadow:0 0 10px rgba(76,175,80,0.8);animation:pulse 2s infinite;"></div>
-                    <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:600;color:#4CAF50;text-transform:uppercase;letter-spacing:3px;" data-i18n="security.tag">Bezpieczeństwo</span>
+    <!-- ═══ Security ═══ -->
+    <section class="security" id="security">
+        <div class="container security__grid">
+            <div class="security__intro reveal">
+                <div class="section-tag">
+                    <span data-i18n="security.tag">Bezpieczeństwo</span>
                 </div>
-
-                <h2 style="font-family:'Cinzel',serif;font-size:clamp(28px,4vw,42px);font-weight:700;color:var(--text);margin-bottom:24px;line-height:1.2;">
-                    <span data-i18n="security.titleBefore">Bezpieczeństwo na poziomie </span><span style="background:linear-gradient(135deg,var(--gold-dark),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;" data-i18n="security.titleEm">profesjonalnym</span><span data-i18n="security.titleAfter"></span>
+                <h2 class="section-title security__title">
+                    <span data-i18n="security.titleBefore">Bezpieczeństwo na poziomie </span><span class="gilt-text" data-i18n="security.titleEm">profesjonalnym</span><span data-i18n="security.titleAfter"></span>
                 </h2>
-
-                <p style="font-family:'Inter',sans-serif;font-size:17px;font-weight:300;color:var(--text-dim);line-height:1.9;margin-bottom:48px;" data-i18n="security.description">Reborn Assistant stosuje te same standardy bezpieczeństwa co światowe platformy streamingowe. Twoje dane uwierzytelniające są chronione przez <strong style='color:var(--gold);'>szyfrowanie JWT</strong>, płatności zabezpieczone przez <strong style='color:var(--gold);'>Stripe</strong>, a dane pozostają <strong style='color:var(--gold);'>w 100% lokalne</strong>. Bez śledzenia, bez odsprzedaży danych.</p>
-
-                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-top:48px;">
-                    <div class="sec-card">
-                        <div class="sec-card-icon">🔐</div>
-                        <div class="sec-card-title" data-i18n="security.card1Title">Szyfrowanie JWT</div>
-                        <div class="sec-card-text" data-i18n="security.card1Text">Bezpieczne uwierzytelnianie na poziomie bankowym</div>
-                    </div>
-                    <div class="sec-card">
-                        <div class="sec-card-icon">💳</div>
-                        <div class="sec-card-title" data-i18n="security.card2Title">Płatność przez Stripe</div>
-                        <div class="sec-card-text" data-i18n="security.card2Text">Procesor używany przez Amazon i Google</div>
-                    </div>
-                    <div class="sec-card">
-                        <div class="sec-card-icon">🛡️</div>
-                        <div class="sec-card-title" data-i18n="security.card3Title">Zero Śledzenia</div>
-                        <div class="sec-card-text" data-i18n="security.card3Text">Twoje dane nigdy nie opuszczają Twojego urządzenia</div>
-                    </div>
-                    <div class="sec-card">
-                        <div class="sec-card-icon">🔒</div>
-                        <div class="sec-card-title">Google Cloud</div>
-                        <div class="sec-card-text" data-i18n="security.card4Text">Bezpieczna infrastruktura Google Cloud</div>
-                    </div>
+                <p class="security__desc" data-i18n="security.description">Reborn Assistant stosuje te same standardy bezpieczeństwa co światowe platformy streamingowe. Twoje dane uwierzytelniające są chronione przez <strong style='color:var(--gold);'>szyfrowanie JWT</strong>, płatności zabezpieczone przez <strong style='color:var(--gold);'>Stripe</strong>, a dane pozostają <strong style='color:var(--gold);'>w 100% lokalne</strong>. Bez śledzenia, bez odsprzedaży danych.</p>
+            </div>
+            <div class="sec-grid reveal">
+                <div class="sec-card">
+                    <div class="sec-card-icon skill-slot skill-slot--sm skill-slot--round" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-key"/></svg><span class="slot-src" aria-hidden="true">🔐</span></div>
+                    <div class="sec-card-title" data-i18n="security.card1Title">Szyfrowanie JWT</div>
+                    <div class="sec-card-text" data-i18n="security.card1Text">Bezpieczne uwierzytelnianie na poziomie bankowym</div>
+                </div>
+                <div class="sec-card">
+                    <div class="sec-card-icon skill-slot skill-slot--sm skill-slot--round" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-card"/></svg><span class="slot-src" aria-hidden="true">💳</span></div>
+                    <div class="sec-card-title" data-i18n="security.card2Title">Płatność przez Stripe</div>
+                    <div class="sec-card-text" data-i18n="security.card2Text">Procesor używany przez Amazon i Google</div>
+                </div>
+                <div class="sec-card">
+                    <div class="sec-card-icon skill-slot skill-slot--sm skill-slot--round" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-shield"/></svg><span class="slot-src" aria-hidden="true">🛡️</span></div>
+                    <div class="sec-card-title" data-i18n="security.card3Title">Zero Śledzenia</div>
+                    <div class="sec-card-text" data-i18n="security.card3Text">Twoje dane nigdy nie opuszczają Twojego urządzenia</div>
+                </div>
+                <div class="sec-card">
+                    <div class="sec-card-icon skill-slot skill-slot--sm skill-slot--round" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-cloud"/></svg><span class="slot-src" aria-hidden="true">🔒</span></div>
+                    <div class="sec-card-title">Google Cloud</div>
+                    <div class="sec-card-text" data-i18n="security.card4Text">Bezpieczna infrastruktura Google Cloud</div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ═══ Pricing — four ranks ═══ -->
     <section class="pricing" id="pricing">
         <div class="container">
             <div class="section-header reveal">
@@ -573,76 +1115,101 @@
 
             <div class="reveal">
                 <div class="price-grid">
-                    <div class="price-card">
-                        <div class="price-rank" data-i18n="pricing.voyageur.rank">Ranga I · Podróżnik</div>
-                        <div class="price-plan" data-i18n="pricing.voyageur.plan">Darmowy</div>
-                        <div class="price-amount">0€</div>
-                        <div class="price-period" data-i18n="pricing.voyageur.period">na zawsze</div>
-                        <div class="price-divider"></div>
-                        <ul class="price-features">
-                            <li data-i18n="pricing.voyageur.feat1">Makro leczenia</li>
-                            <li data-i18n="pricing.voyageur.feat2">6 motywów wizualnych</li>
-                            <li data-i18n="pricing.voyageur.feat3">15 dostępnych języków</li>
-                            <li data-i18n="pricing.voyageur.feat4">Pływający interfejs</li>
-                        </ul>
-                        <div class="price-guarantee" data-i18n="pricing.voyageur.guarantee">🔒 Darmowy na zawsze</div>
-                        <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" class="btn-download"><svg width="13" height="13" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span data-i18n="pricing.voyageur.download">Dodaj do Chrome</span></a>
+                    <div class="price-card price-card--free">
+                        <div class="price-head">
+                            <div class="price-rank" data-i18n="pricing.voyageur.rank">Ranga I · Podróżnik</div>
+                            <div class="price-plan" data-i18n="pricing.voyageur.plan">Darmowy</div>
+                            <div class="price-amount">0€</div>
+                            <div class="price-period" data-i18n="pricing.voyageur.period">na zawsze</div>
+                        </div>
+                        <div class="price-actions">
+                            <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" class="btn-download"><svg width="13" height="13" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span data-i18n="pricing.voyageur.download">Dodaj do Chrome</span></a>
+                            <div class="price-guarantee"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-lock"/></svg><span class="emoji-lead" data-i18n="pricing.voyageur.guarantee">🔒 Darmowy na zawsze</span></div>
+                        </div>
+                        <div class="price-body">
+                            <div class="price-divider"></div>
+                            <ul class="price-features">
+                                <li data-i18n="pricing.voyageur.feat1">Makro leczenia</li>
+                                <li data-i18n="pricing.voyageur.feat2">6 motywów wizualnych</li>
+                                <li data-i18n="pricing.voyageur.feat3">15 dostępnych języków</li>
+                                <li data-i18n="pricing.voyageur.feat4">Pływający interfejs</li>
+                            </ul>
+                        </div>
                     </div>
 
                     <div class="price-card">
-                        <div class="price-rank" data-i18n="pricing.aventurier.rank">Ranga II · Przygodnik</div>
-                        <div class="price-plan" data-i18n="pricing.aventurier.plan">Miesięczny</div>
-                        <div class="price-amount">2,99€</div>
-                        <div class="price-period" data-i18n="pricing.aventurier.period">miesięcznie</div>
-                        <div class="price-divider"></div>
-                        <ul class="price-features">
-                            <li data-i18n="pricing.aventurier.feat1">Wszystkie funkcje Premium</li>
-                            <li data-i18n="pricing.aventurier.feat2">Priorytetowe wsparcie</li>
-                            <li data-i18n="pricing.aventurier.feat3">Darmowe aktualizacje</li>
-                        </ul>
-                        <a href="https://buy.stripe.com/bJe3cufUWbhUcuCeTVe3e02" target="_blank" class="btn btn-primary btn-full" data-i18n="pricing.aventurier.btn">Wypróbuj Za Darmo</a>
-                        <div class="price-guarantee" data-i18n="pricing.aventurier.guarantee">🎁 7 dni za darmo · Bez karty bankowej</div>
-                        <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" class="btn-download"><svg width="13" height="13" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span data-i18n="pricing.aventurier.download">Dodaj do Chrome</span></a>
+                        <div class="price-head">
+                            <div class="price-rank" data-i18n="pricing.aventurier.rank">Ranga II · Przygodnik</div>
+                            <div class="price-plan" data-i18n="pricing.aventurier.plan">Miesięczny</div>
+                            <div class="price-amount">2,99€</div>
+                            <div class="price-period" data-i18n="pricing.aventurier.period">miesięcznie</div>
+                        </div>
+                        <div class="price-actions">
+                            <a href="https://buy.stripe.com/bJe3cufUWbhUcuCeTVe3e02" target="_blank" class="btn btn-secondary btn-full" data-i18n="pricing.aventurier.btn">Wypróbuj Za Darmo</a>
+                            <div class="price-guarantee"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-gift"/></svg><span class="emoji-lead" data-i18n="pricing.aventurier.guarantee">🎁 7 dni za darmo · Bez karty bankowej</span></div>
+                            <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" class="btn-download"><svg width="13" height="13" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span data-i18n="pricing.aventurier.download">Dodaj do Chrome</span></a>
+                        </div>
+                        <div class="price-body">
+                            <div class="price-divider"></div>
+                            <ul class="price-features">
+                                <li data-i18n="pricing.aventurier.feat1">Wszystkie funkcje Premium</li>
+                                <li data-i18n="pricing.aventurier.feat2">Priorytetowe wsparcie</li>
+                                <li data-i18n="pricing.aventurier.feat3">Darmowe aktualizacje</li>
+                            </ul>
+                        </div>
                     </div>
 
                     <div class="price-card featured">
-                        <div class="price-badge" data-i18n="pricing.champion.badge">⭐ Popularny -17%</div>
-                        <div class="price-rank" data-i18n="pricing.champion.rank">Ranga III · Mistrz</div>
-                        <div class="price-plan" data-i18n="pricing.champion.plan">Roczny</div>
-                        <div class="price-amount">29,99€</div>
-                        <div class="price-period" data-i18n="pricing.champion.period">rocznie · 2,50€/mies.</div>
-                        <div class="price-divider"></div>
-                        <ul class="price-features">
-                            <li data-i18n="pricing.champion.feat1">Wszystkie funkcje Premium</li>
-                            <li data-i18n="pricing.champion.feat2">Priorytetowe wsparcie</li>
-                            <li data-i18n="pricing.champion.feat3">Darmowe aktualizacje</li>
-                        </ul>
-                        <a href="https://buy.stripe.com/5kQ9AS38a85IbqyeTVe3e01" target="_blank" class="btn btn-primary btn-full" data-i18n="pricing.champion.btn">Wypróbuj Za Darmo</a>
-                        <div class="price-guarantee" data-i18n="pricing.champion.guarantee">🎁 7 dni za darmo · Bez karty bankowej</div>
-                        <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" class="btn-download"><svg width="13" height="13" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span data-i18n="pricing.champion.download">Dodaj do Chrome</span></a>
+                        <div class="price-badge"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="emoji-lead" data-i18n="pricing.champion.badge">⭐ Popularny -17%</span></div>
+                        <div class="price-head">
+                            <div class="price-rank" data-i18n="pricing.champion.rank">Ranga III · Mistrz</div>
+                            <div class="price-plan" data-i18n="pricing.champion.plan">Roczny</div>
+                            <div class="price-amount">29,99€</div>
+                            <div class="price-period" data-i18n="pricing.champion.period">rocznie · 2,50€/mies.</div>
+                        </div>
+                        <div class="price-actions">
+                            <a href="https://buy.stripe.com/5kQ9AS38a85IbqyeTVe3e01" target="_blank" class="btn btn-primary btn-full" data-i18n="pricing.champion.btn">Wypróbuj Za Darmo</a>
+                            <div class="price-guarantee"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-gift"/></svg><span class="emoji-lead" data-i18n="pricing.champion.guarantee">🎁 7 dni za darmo · Bez karty bankowej</span></div>
+                            <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" class="btn-download"><svg width="13" height="13" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span data-i18n="pricing.champion.download">Dodaj do Chrome</span></a>
+                        </div>
+                        <div class="price-body">
+                            <div class="price-divider"></div>
+                            <ul class="price-features">
+                                <li data-i18n="pricing.champion.feat1">Wszystkie funkcje Premium</li>
+                                <li data-i18n="pricing.champion.feat2">Priorytetowe wsparcie</li>
+                                <li data-i18n="pricing.champion.feat3">Darmowe aktualizacje</li>
+                            </ul>
+                        </div>
                     </div>
 
                     <div class="price-card exclusive">
-                        <div class="price-badge" style="background:linear-gradient(135deg,#1a5c28,#2ea84a);color:#fff;border:none;" data-i18n="pricing.legende.badge">⚡ Oferta Limitowana</div>
-                        <div class="price-rank" data-i18n="pricing.legende.rank">Ranga IV · Legenda</div>
-                        <div class="price-plan" data-i18n="pricing.legende.plan">Dożywotni</div>
-                        <div class="price-amount">99,99€</div>
-                        <div class="price-period" data-i18n="pricing.legende.period">jednorazowa płatność · już nigdy</div>
-                        <div class="price-divider"></div>
-                        <ul class="price-features">
-                            <li data-i18n="pricing.legende.feat1">Dostęp dożywotni</li>
-                            <li data-i18n="pricing.legende.feat2">Wszystkie przyszłe aktualizacje</li>
-                            <li data-i18n="pricing.legende.feat3">Dedykowane wsparcie premium</li>
-                            <li data-i18n="pricing.legende.feat4">Najlepsza relacja jakość-cena</li>
-                        </ul>
-                        <a href="https://buy.stripe.com/6oU14m2464TwcuC3bde3e00" target="_blank" class="btn btn-secondary btn-full" data-i18n="pricing.legende.btn">Kup</a>
-                        <div class="price-guarantee" data-i18n="pricing.legende.guarantee">🔒 Jednorazowa płatność · Gwarantowany dostęp dożywotni</div>
-                        <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" class="btn-download"><svg width="13" height="13" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span data-i18n="pricing.legende.download">Dodaj do Chrome</span></a>
+                        <div class="price-badge price-badge--outline"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-bolt"/></svg><span class="emoji-lead" data-i18n="pricing.legende.badge">⚡ Oferta Limitowana</span></div>
+                        <div class="price-head">
+                            <div class="price-rank" data-i18n="pricing.legende.rank">Ranga IV · Legenda</div>
+                            <div class="price-plan" data-i18n="pricing.legende.plan">Dożywotni</div>
+                            <div class="price-amount">99,99€</div>
+                            <div class="price-period" data-i18n="pricing.legende.period">jednorazowa płatność · już nigdy</div>
+                        </div>
+                        <div class="price-actions">
+                            <a href="https://buy.stripe.com/6oU14m2464TwcuC3bde3e00" target="_blank" class="btn btn-secondary btn-full" data-i18n="pricing.legende.btn">Kup</a>
+                            <div class="price-guarantee"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-lock"/></svg><span class="emoji-lead" data-i18n="pricing.legende.guarantee">🔒 Jednorazowa płatność · Gwarantowany dostęp dożywotni</span></div>
+                            <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" class="btn-download"><svg width="13" height="13" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span data-i18n="pricing.legende.download">Dodaj do Chrome</span></a>
+                        </div>
+                        <div class="price-body">
+                            <div class="price-divider"></div>
+                            <ul class="price-features">
+                                <li data-i18n="pricing.legende.feat1">Dostęp dożywotni</li>
+                                <li data-i18n="pricing.legende.feat2">Wszystkie przyszłe aktualizacje</li>
+                                <li data-i18n="pricing.legende.feat3">Dedykowane wsparcie premium</li>
+                                <li data-i18n="pricing.legende.feat4">Najlepsza relacja jakość-cena</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <!-- Stats sous le pricing -->
-            <div class="stats reveal" style="margin-top:60px;border-radius:12px;">
+            <div class="stats reveal">
                 <div class="stats-grid">
                     <div class="stat-item"><div class="stat-number">15</div><div class="stat-label" data-i18n="stats.label1">Dostępne języki</div></div>
                     <div class="stat-item"><div class="stat-number">6</div><div class="stat-label" data-i18n="stats.label2">Motywy wizualne</div></div>
@@ -652,18 +1219,19 @@
             </div>
 
             <!-- Trust badges -->
-            <div class="trust-bar reveal" style="border-top:none;margin-top:0;">
+            <div class="trust-bar reveal">
                 <div class="trust-badges">
-                    <div class="trust-badge"><div class="trust-badge-icon">🔒</div> <span data-i18n="trust.badge1">Bezpieczna płatność SSL</span></div>
-                    <div class="trust-badge"><div class="trust-badge-icon">⚡</div> <span data-i18n="trust.badge2">Natychmiastowy dostęp</span></div>
-                    <div class="trust-badge"><div class="trust-badge-icon">🛡️</div> <span data-i18n="trust.badge3">Dane w 100% prywatne</span></div>
-                    <div class="trust-badge"><div class="trust-badge-icon">💬</div> <span data-i18n="trust.badge4">Reaktywne wsparcie</span></div>
+                    <div class="trust-badge"><div class="trust-badge-icon skill-slot skill-slot--round" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-lock"/></svg><span class="slot-src" aria-hidden="true">🔒</span></div> <span data-i18n="trust.badge1">Bezpieczna płatność SSL</span></div>
+                    <div class="trust-badge"><div class="trust-badge-icon skill-slot skill-slot--round" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-bolt"/></svg><span class="slot-src" aria-hidden="true">⚡</span></div> <span data-i18n="trust.badge2">Natychmiastowy dostęp</span></div>
+                    <div class="trust-badge"><div class="trust-badge-icon skill-slot skill-slot--round" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-shield"/></svg><span class="slot-src" aria-hidden="true">🛡️</span></div> <span data-i18n="trust.badge3">Dane w 100% prywatne</span></div>
+                    <div class="trust-badge"><div class="trust-badge-icon skill-slot skill-slot--round" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-chat"/></svg><span class="slot-src" aria-hidden="true">💬</span></div> <span data-i18n="trust.badge4">Reaktywne wsparcie</span></div>
                 </div>
             </div>
 
         </div>
     </section>
 
+    <!-- ═══ FAQ ═══ -->
     <section class="faq" id="faq">
         <div class="container">
             <div class="section-header reveal">
@@ -674,37 +1242,42 @@
             </div>
             <div class="faq-list reveal">
                 <div class="faq-item">
-                    <button class="faq-question"><span data-i18n="faq.q1">Czy bezpłatny okres próbny wymaga karty bankowej?</span> <span class="faq-icon">+</span></button>
-                    <div class="faq-answer"><p data-i18n="faq.a1">Nie, żadna karta bankowa nie jest wymagana. Pierwsze 7 dni jest całkowicie bezpłatne, bez zobowiązań. Wystarczy założyć konto, aby natychmiast zacząć.</p></div>
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a1"><span data-i18n="faq.q1">Czy bezpłatny okres próbny wymaga karty bankowej?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+                    <div class="faq-answer" id="faq-a1"><p data-i18n="faq.a1">Nie, żadna karta bankowa nie jest wymagana. Pierwsze 7 dni jest całkowicie bezpłatne, bez zobowiązań. Wystarczy założyć konto, aby natychmiast zacząć.</p></div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question"><span data-i18n="faq.q2">Czy mogę zmienić plan w dowolnym momencie?</span> <span class="faq-icon">+</span></button>
-                    <div class="faq-answer"><p data-i18n="faq.a2">Tak, możesz przejść na wyższy lub niższy plan w dowolnym momencie ze swojego konta. Bez opłat za zmianę.</p></div>
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a2"><span data-i18n="faq.q2">Czy mogę zmienić plan w dowolnym momencie?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+                    <div class="faq-answer" id="faq-a2"><p data-i18n="faq.a2">Tak, możesz przejść na wyższy lub niższy plan w dowolnym momencie ze swojego konta. Bez opłat za zmianę.</p></div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question"><span data-i18n="faq.q3">Czy plan Dożywotni naprawdę obejmuje wszystkie przyszłe aktualizacje?</span> <span class="faq-icon">+</span></button>
-                    <div class="faq-answer"><p data-i18n="faq.a3">Absolutnie. Plan Dożywotni gwarantuje dostęp do wszystkich przyszłych aktualizacji i nowych funkcji, bez żadnych dodatkowych opłat.</p></div>
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a3"><span data-i18n="faq.q3">Czy plan Dożywotni naprawdę obejmuje wszystkie przyszłe aktualizacje?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+                    <div class="faq-answer" id="faq-a3"><p data-i18n="faq.a3">Absolutnie. Plan Dożywotni gwarantuje dostęp do wszystkich przyszłych aktualizacji i nowych funkcji, bez żadnych dodatkowych opłat.</p></div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question"><span data-i18n="faq.q4">Czy moje dane są bezpieczne?</span> <span class="faq-icon">+</span></button>
-                    <div class="faq-answer"><p data-i18n="faq.a4">Wszystkie Twoje dane są przechowywane lokalnie na Twoim urządzeniu. Nie zbieramy danych osobowych ani nie używamy śledzenia czy telemetrii.</p></div>
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a4"><span data-i18n="faq.q4">Czy moje dane są bezpieczne?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+                    <div class="faq-answer" id="faq-a4"><p data-i18n="faq.a4">Wszystkie Twoje dane są przechowywane lokalnie na Twoim urządzeniu. Nie zbieramy danych osobowych ani nie używamy śledzenia czy telemetrii.</p></div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question"><span data-i18n="faq.q5">Jak skontaktować się z pomocą techniczną?</span> <span class="faq-icon">+</span></button>
-                    <div class="faq-answer"><p data-i18n="faq.a5">Skontaktuj się z nami przez e-mail na adres seymoon@constellation-89.fr lub na Discordzie (Seymoon). Subskrybenci premium otrzymują priorytetową odpowiedź.</p></div>
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a5"><span data-i18n="faq.q5">Jak skontaktować się z pomocą techniczną?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+                    <div class="faq-answer" id="faq-a5"><p data-i18n="faq.a5">Skontaktuj się z nami przez e-mail na adres seymoon@constellation-89.fr lub na Discordzie (Seymoon). Subskrybenci premium otrzymują priorytetową odpowiedź.</p></div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question"><span data-i18n="faq.q6">Czy Reborn Assistant to bot?</span> <span class="faq-icon">+</span></button>
-                    <div class="faq-answer"><p data-i18n="faq.a6">Nie, Reborn Assistant nie jest botem. To rozszerzenie z konfigurowalnymi makrami, które automatyzuje sekwencje klawiszy zdefiniowane przez Ciebie. Bez sztucznej inteligencji, bez interakcji z serwerem gry, bez odczytu pamięci. Rozszerzenie nie odczytuje ani nie modyfikuje danych gry — symuluje tylko klawisze, które wcisnąłbyś ręcznie. Musisz pozostać przy komputerze, aby grać: Reborn Assistant nie rozwiązuje captcha, nie wskrzesza Twojej postaci ani nie odsyła Cię z powrotem do miejsca po śmierci. To narzędzie do uproszczenia gry, a nie do zastąpienia Ciebie.</p></div>
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a6"><span data-i18n="faq.q6">Czy Reborn Assistant to bot?</span> <span class="faq-icon" aria-hidden="true">+</span></button>
+                    <div class="faq-answer" id="faq-a6"><p data-i18n="faq.a6">Nie, Reborn Assistant nie jest botem. To rozszerzenie z konfigurowalnymi makrami, które automatyzuje sekwencje klawiszy zdefiniowane przez Ciebie. Bez sztucznej inteligencji, bez interakcji z serwerem gry, bez odczytu pamięci. Rozszerzenie nie odczytuje ani nie modyfikuje danych gry — symuluje tylko klawisze, które wcisnąłbyś ręcznie. Musisz pozostać przy komputerze, aby grać: Reborn Assistant nie rozwiązuje captcha, nie wskrzesza Twojej postaci ani nie odsyła Cię z powrotem do miejsca po śmierci. To narzędzie do uproszczenia gry, a nie do zastąpienia Ciebie.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
+    </main>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
+                <span class="brand__sigil footer-sigil" aria-hidden="true">R</span>
                 <div class="footer-logo">REBORN ASSISTANT</div>
+                <div class="ornament" aria-hidden="true"></div>
                 <div class="footer-links">
                     <a href="/pl/docs/index.html">Documentation</a>
                     <a href="/pl/docs/privacy.html#confidentialite" data-i18n="footer.privacy">Prywatność</a>
@@ -720,33 +1293,102 @@
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script type="module" src="/langs/index.js"></script>
     <script>
-        // ── Particles ──
-        for (let i = 0; i < 25; i++) {
-            const p = document.createElement('div');
-            p.className = 'particle';
-            p.style.left = (Math.random() * 100) + '%';
-            const s = (Math.random() * 3 + 2) + 'px';
-            p.style.width = p.style.height = s;
-            p.style.animationDuration = (Math.random() * 12 + 8) + 's';
-            p.style.animationDelay = (Math.random() * 12) + 's';
-            document.body.appendChild(p);
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // ── Particles (light: 6 motes, transform/opacity only, skipped when motion is reduced) ──
+        if (!reduceMotion) {
+            for (let i = 0; i < 6; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.style.left = (Math.random() * 100) + '%';
+                const s = (Math.random() * 2.5 + 1.5) + 'px';
+                p.style.width = p.style.height = s;
+                p.style.animationDuration = (Math.random() * 14 + 12) + 's';
+                p.style.animationDelay = (Math.random() * 14) + 's';
+                document.body.appendChild(p);
+            }
         }
 
-        // ── Reveal on scroll ──
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        // ── Reveal on scroll: content is only hidden when IntersectionObserver exists and motion is
+        //    allowed; whatever is already in view is marked visible before the first paint ──
+        (function () {
+            const els = document.querySelectorAll('.reveal');
+            if (reduceMotion || !('IntersectionObserver' in window) || !els.length) return;
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+            }, { rootMargin: '0px 0px -8% 0px' });
+            const vh = window.innerHeight;
+            els.forEach(el => {
+                const r = el.getBoundingClientRect();
+                if (r.top < vh && r.bottom > 0) el.classList.add('visible');
+                else io.observe(el);
+            });
+            document.documentElement.classList.add('js-reveal');
+        })();
 
-        // ── FAQ accordion ──
+        // ── FAQ accordion (one open at a time, aria-expanded kept in sync) ──
         document.querySelectorAll('.faq-question').forEach(btn => {
             btn.addEventListener('click', () => {
                 const item = btn.closest('.faq-item');
                 const wasOpen = item.classList.contains('open');
-                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-                if (!wasOpen) item.classList.add('open');
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.classList.remove('open');
+                    i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                });
+                if (!wasOpen) {
+                    item.classList.add('open');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
             });
         });
+
+        // ── Header: glass density on scroll, mobile menu, section highlight.
+        //    (The language dropdown's aria-expanded + Escape handling lives in langs/index.js.) ──
+        (function () {
+            const header = document.querySelector('.site-header');
+            const nav = document.getElementById('site-nav');
+            const toggle = header.querySelector('.nav-toggle');
+
+            let ticking = false;
+            const onScroll = () => {
+                if (ticking) return;
+                ticking = true;
+                requestAnimationFrame(() => { header.classList.toggle('is-scrolled', window.scrollY > 8); ticking = false; });
+            };
+            onScroll();
+            window.addEventListener('scroll', onScroll, { passive: true });
+
+            const setMenu = open => {
+                header.classList.toggle('nav-open', open);
+                toggle.setAttribute('aria-expanded', String(open));
+            };
+            toggle.addEventListener('click', () => {
+                const open = !header.classList.contains('nav-open');
+                setMenu(open);
+                if (open) nav.querySelector('a').focus({ preventScroll: true });   // keyboard users land in the menu
+            });
+            nav.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+            // one panel at a time: opening the language list closes the menu
+            header.querySelector('.lang-select-btn')?.addEventListener('click', () => setMenu(false));
+            // focus leaving the header closes the menu (not when the window itself loses focus)…
+            header.addEventListener('focusout', e => { if (e.relatedTarget && !header.contains(e.relatedTarget)) setMenu(false); });
+            // …and focus coming back from the browser UI anywhere else (Shift+Tab wraps to the footer) closes it too
+            document.addEventListener('focusin', e => { if (header.classList.contains('nav-open') && !header.contains(e.target)) setMenu(false); });
+            document.addEventListener('click', e => { if (!header.contains(e.target)) setMenu(false); });
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && header.classList.contains('nav-open')) { setMenu(false); toggle.focus(); }
+            });
+
+            // Highlight the nav link of the section currently in view
+            const links = [...nav.querySelectorAll('a[href^="#"]')];
+            const spy = new IntersectionObserver(entries => {
+                entries.forEach(en => {
+                    if (!en.isIntersecting) return;
+                    links.forEach(l => { if (l.getAttribute('href') === '#' + en.target.id) l.setAttribute('aria-current', 'location'); else l.removeAttribute('aria-current'); });
+                });
+            }, { rootMargin: '-45% 0px -50% 0px' });
+            links.forEach(l => { const s = document.getElementById(l.getAttribute('href').slice(1)); if (s) spy.observe(s); });
+        })();
 
         // ── Stripe Billing Window ──
         function openStripeWindow() {

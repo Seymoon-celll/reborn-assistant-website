@@ -29,37 +29,44 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css?v=4">
     <style>
-        :root { --gold:#d4af37;--dark-bg:#080808;--red:#ff6b6b;--green:#4CAF50;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
-        * { margin:0;padding:0;box-sizing:border-box; }
-        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.7; }
-        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
-        .container { max-width:900px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
-        .back-link { display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease; }
-        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
-        h1 { font-family:'Cinzel',serif;font-size:42px;color:var(--gold);letter-spacing:2px;margin-bottom:16px; }
-        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:40px; }
-        h2 { font-family:'Cinzel',serif;font-size:28px;color:var(--text);margin:60px 0 24px;padding-bottom:16px;border-bottom:1px solid var(--border); }
-        h3 { font-size:20px;color:var(--gold);margin:32px 0 16px; }
-        .legal-block { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;padding:32px;margin:24px 0; }
-        .warning-box { background:rgba(255,107,107,0.08);border-left:4px solid var(--red);padding:24px;margin:32px 0;border-radius:4px; }
-        .success-box { background:rgba(76,175,80,0.08);border-left:4px solid var(--green);padding:24px;margin:32px 0;border-radius:4px; }
-        ul { margin:16px 0 16px 20px; }
-        li { margin:8px 0;font-size:15px; }
-        p { margin-bottom:16px;font-size:15px; }
-        strong { color:var(--gold); }
-        a { color:var(--gold);text-decoration:none; }
-        a:hover { text-decoration:underline; }
-        code { background:rgba(20,20,16,0.9);padding:3px 10px;border-radius:4px;font-family:'Courier New',monospace;font-size:13px;color:#f4d03f; }
-        .contact-box { background:rgba(212,175,55,0.08);border:1px solid var(--border);border-radius:8px;padding:20px;margin:24px 0;text-align:center; }
-        .section-nav { display:flex;gap:12px;flex-wrap:wrap;margin-bottom:60px; }
-        .section-nav a { display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border:1px solid var(--border);border-radius:20px;font-size:12px;font-weight:500;color:var(--text-dim);text-decoration:none;letter-spacing:0.5px;transition:all 0.2s ease; }
-        .section-nav a:hover { color:var(--gold);border-color:rgba(212,175,55,0.5);background:rgba(212,175,55,0.05);text-decoration:none; }
-        .page-separator { margin:80px 0;display:flex;align-items:center;gap:16px; }
-        .page-separator::before,.page-separator::after { content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,0.4)); }
-        .page-separator::after { background:linear-gradient(90deg,rgba(212,175,55,0.4),transparent); }
-        .page-separator span { font-family:'Cinzel',serif;font-size:10px;color:var(--gold);opacity:0.5;letter-spacing:4px;white-space:nowrap; }
+        /* ═══ Legal & privacy — page-specific layout only (tokens & components: /assets/css/site.css) ═══ */
+
+        /* Data deletion: three numbered paths, divided by hairlines */
+        .article .legal-steps > p { margin: 0; }
+        .article .legal-steps > p + p { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line-1); }
+
+        /* Changelog — releases on a gilded timeline; the current one is lit */
+        .changelog { position: relative; padding-inline-start: 34px; }
+        .changelog::before {
+            content: ''; position: absolute; inset-inline-start: 7.5px; top: calc(clamp(20px, 3.4vw, 30px) + 13px); bottom: 30px; width: 1px;
+            background: linear-gradient(180deg, var(--gold-300), var(--line-2) 55%, rgba(212,175,55,.04));
+        }
+        @media (min-width: 960px) { .changelog { margin-inline-start: -34px; } }   /* the rail hangs in the margin: cards keep the column's edges */
+        .changelog > .legal-block { position: relative; }
+        .changelog > .legal-block::before {
+            content: ''; position: absolute; inset-inline-start: -31px; top: calc(clamp(20px, 3.4vw, 30px) + 8px);
+            width: 10px; height: 10px; transform: rotate(45deg); background: var(--ink-1); border: 1px solid var(--gold-300);
+            box-shadow: 0 0 0 4px var(--dark-bg);
+        }
+        .changelog > .release--current {
+            background: radial-gradient(120% 60% at 50% 0%, rgba(212,175,55,.12), transparent 62%) padding-box, var(--surface-2) padding-box, var(--gilt-edge) border-box;
+        }
+        .changelog > .release--current::before { background: var(--gilt); border-color: var(--gold-100); box-shadow: 0 0 0 4px var(--dark-bg), 0 0 14px rgba(212,175,55,.7); }
+        .cl-label { display: flex; align-items: center; gap: 10px; margin: 22px 0 6px; color: var(--gold-300); }
+        .cl-label::after { content: ''; flex: 1; min-width: 12px; height: 1px; background: linear-gradient(var(--to-end), var(--line-2), transparent); }
+        .cl-label .inline-gl { width: 15px; height: 15px; }
+        .article .cl-label > p {
+            margin: 0; font-size: var(--fs-label); font-weight: 700; line-height: 1.5; letter-spacing: var(--track-md); text-transform: uppercase; color: inherit;
+        }
+        @media (max-width: 480px) {
+            .article h3 { font-size: 16.5px; }        /* nl "Gebruikersverantwoordelijkheid" (30 letters) keeps to one line from 390px */
+            .changelog { padding-inline-start: 22px; }
+            .changelog::before { inset-inline-start: 4px; }
+            .changelog > .legal-block::before { inset-inline-start: -22px; top: 28px; width: 9px; height: 9px; }
+        }
     </style>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="apple-touch-icon" href="../favicon.svg">
@@ -96,18 +103,37 @@
     <script>window.__PRERENDERED_LANG__="fr";</script>
 </head>
 <body>
-    <div class="container">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:12px;">
-            <a href="index.html" class="back-link" data-i18n="docsNav.backToDocs">← Retour aux docs</a>
-            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-                <a href="../index.html" style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:7px 16px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.color='var(--text-dim)';this.style.borderColor='var(--border)'" data-i18n="docsNav.mainSite">⌂ Site principal</a>
+    <!-- Gold line glyphs (shared library, DESIGN-SYSTEM §6a) — referenced with <use href="#g-…"> -->
+    <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-scales" viewBox="0 0 24 24"><path fill="none" d="M12 4v16M8.5 20h7M5 7h14"/><circle cx="12" cy="4" r=".9"/><path d="M5 7l-2.6 6.2a2.6 2.6 0 0 0 5.2 0zM19 7l-2.6 6.2a2.6 2.6 0 0 0 5.2 0z"/></symbol>
+        <symbol id="g-key" viewBox="0 0 24 24"><circle cx="8" cy="15.5" r="4.2"/><circle cx="7.2" cy="16.3" r="1"/><path fill="none" d="M11 12.5L19.5 4M16.2 7.3l2.6 2.6M13.9 9.6l2 2"/></symbol>
+        <symbol id="g-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.2"/><path fill="none" d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/><path d="M12 14.3v2.6"/></symbol>
+        <symbol id="g-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+        <symbol id="g-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.3-2.9 7.9-7 9.5-4.1-1.6-7-5.2-7-9.5V6l7-3z"/><path d="M9 12l2.2 2.2L15.5 10"/></symbol>
+        <symbol id="g-card" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.2"/><path d="M3 9.8h18M6.5 14.8h4.5"/></symbol>
+        <symbol id="g-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.2"/><path fill="none" d="M4.2 7.4l7.8 5.8 7.8-5.8"/></symbol>
+        <symbol id="g-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4L12 3z"/></symbol>
+        <symbol id="g-wrench" viewBox="0 0 24 24"><path d="M15.6 3.4a5 5 0 0 0-4.8 6.6L3.9 16.9a2 2 0 0 0 2.8 2.8l6.9-6.9a5 5 0 0 0 6.6-4.8l-3.3 1.6-2.7-1.4-.4-3z"/></symbol>
+        <symbol id="g-bug" viewBox="0 0 24 24"><path d="M8.6 10.2a3.4 3.4 0 0 1 6.8 0v4.6a3.4 3.4 0 0 1-6.8 0z"/><path fill="none" d="M9.6 7.4a2.4 2.4 0 0 1 4.8 0M12 10.6v7.4M8.6 12.4H5M15.4 12.4H19M8.8 16.2l-3 1.6M15.2 16.2l3 1.6M9 8.8L6.4 7.2M15 8.8l2.6-1.6"/></symbol>
+    </svg>
+
+    <!-- ═══ Header ═══ -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="../index.html" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+                <span class="brand__word">Reborn</span>
+            </a>
+            <div class="header-actions">
+                <a href="index.html" class="back-link" data-i18n="docsNav.backToDocs">← Retour aux docs</a>
+                <a href="../index.html" class="hdr-btn hdr-home" data-i18n="docsNav.mainSite">⌂ Site principal</a>
                 <div class="lang-select">
-                    <button class="lang-select-btn" onclick="toggleLangMenu()">
+                    <button class="lang-select-btn" type="button" aria-expanded="false" aria-controls="lang-menu" onclick="toggleLangMenu()">
                         <span class="lang-flag">🇫🇷</span>
                         <span class="lang-code">FR</span>
-                        <span class="lang-chevron">▾</span>
+                        <span class="lang-chevron" aria-hidden="true">▾</span>
                     </button>
-                    <div class="lang-select-menu">
+                    <div class="lang-select-menu" id="lang-menu">
                         <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
                         <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
                         <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
@@ -127,20 +153,26 @@
                 </div>
             </div>
         </div>
+    </header>
 
-        <h1 data-i18n="docPrivacy.h1">⚖️ Légal &amp; Confidentialité</h1>
-        <p class="subtitle" data-i18n="docPrivacy.subtitle">Disclaimer, mentions légales, termes de licence et politique de confidentialité</p>
+    <main class="container article">
+        <header class="article-head">
+            <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-scales"/></svg></div>
+            <h1 class="emoji-lead" data-i18n="docPrivacy.h1">⚖️ Légal &amp; Confidentialité</h1>
+            <p class="subtitle" data-i18n="docPrivacy.subtitle">Disclaimer, mentions légales, termes de licence et politique de confidentialité</p>
+            <div class="ornament" aria-hidden="true"></div>
+        </header>
 
         <nav class="section-nav">
-            <a href="#legal" data-i18n="docPrivacy.navLegal">⚖️ Informations Légales</a>
-            <a href="#licence" data-i18n="docPrivacy.navLicence">© Licence</a>
-            <a href="#confidentialite" data-i18n="docPrivacy.navPrivacy">🔒 Confidentialité</a>
-            <a href="#changelog">📋 Changelog</a>
+            <a href="#legal"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-scales"/></svg><span class="emoji-lead" data-i18n="docPrivacy.navLegal">⚖️ Informations Légales</span></a>
+            <a href="#licence"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-key"/></svg><span class="emoji-lead" data-i18n="docPrivacy.navLicence">© Licence</span></a>
+            <a href="#confidentialite"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-lock"/></svg><span class="emoji-lead" data-i18n="docPrivacy.navPrivacy">🔒 Confidentialité</span></a>
+            <a href="#changelog"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-clock"/></svg><span class="emoji-lead">📋 Changelog</span></a>
         </nav>
 
         <!-- LEGAL -->
-        <h2 id="legal" data-i18n="docPrivacy.disclaimerH2">⚠️ Disclaimer</h2>
-        <div class="warning-box" data-i18n="docPrivacy.disclaimerBox"><strong>⚠️ Avertissement important :</strong> Reborn Assistant est un outil d'automatisation. Son utilisation peut violer les Conditions Générales d'Utilisation de certains services en ligne. L'utilisation de cet outil est entièrement à vos risques et périls.</div>
+        <h2 id="legal" class="emoji-lead" data-i18n="docPrivacy.disclaimerH2">⚠️ Disclaimer</h2>
+        <div class="warning-box callout--gl" data-i18n="docPrivacy.disclaimerBox"><strong>⚠️ Avertissement important :</strong> Reborn Assistant est un outil d'automatisation. Son utilisation peut violer les Conditions Générales d'Utilisation de certains services en ligne. L'utilisation de cet outil est entièrement à vos risques et périls.</div>
 
         <div class="legal-block">
             <h3 data-i18n="docPrivacy.respH3">Responsabilité de l'utilisateur</h3>
@@ -159,7 +191,7 @@
             <p data-i18n="docPrivacy.warrantText">Le logiciel est fourni "TEL QUEL" sans garantie d'aucune sorte. L'auteur ne garantit pas que le logiciel fonctionnera de manière ininterrompue ou sans erreur, ni qu'il sera compatible avec tous les services ou navigateurs.</p>
         </div>
 
-        <h2 data-i18n="docPrivacy.legalH2">📄 Mentions légales</h2>
+        <h2 class="emoji-lead" data-i18n="docPrivacy.legalH2">📄 Mentions légales</h2>
 
         <div class="legal-block">
             <h3 data-i18n="docPrivacy.copyrightH3">Droits d'auteur &amp; Propriété intellectuelle</h3>
@@ -190,18 +222,18 @@
         </div>
 
         <!-- LICENCE -->
-        <h2 id="licence" data-i18n="docPrivacy.licenceH2">© Termes de licence</h2>
+        <h2 id="licence" class="emoji-lead" data-i18n="docPrivacy.licenceH2">© Termes de licence</h2>
 
         <div class="legal-block">
             <h3 data-i18n="docPrivacy.licenceH3">Licence d'utilisation</h3>
             <p data-i18n="docPrivacy.licenceIntro">L'achat d'un plan Reborn Assistant vous accorde une licence personnelle, non exclusive et non transférable d'utilisation du logiciel.</p>
             <p data-i18n="docPrivacy.licenceAllows"><strong>Cette licence vous autorise à :</strong></p>
-            <ul>
+            <ul class="list-yes">
                 <li data-i18n="docPrivacy.licenceLi1">Utiliser le logiciel à des fins personnelles sur vos propres appareils</li>
                 <li data-i18n="docPrivacy.licenceLi2">Bénéficier des mises à jour incluses dans votre plan</li>
             </ul>
             <p data-i18n="docPrivacy.licenceForbids"><strong>Cette licence ne vous autorise pas à :</strong></p>
-            <ul>
+            <ul class="list-no">
                 <li data-i18n="docPrivacy.licenceLi3">Redistribuer, revendre ou partager votre accès</li>
                 <li data-i18n="docPrivacy.licenceLi4">Modifier, décompiler ou procéder à une rétro-ingénierie du logiciel</li>
                 <li data-i18n="docPrivacy.licenceLi5">Utiliser le logiciel à des fins commerciales sans accord écrit préalable</li>
@@ -214,15 +246,18 @@
             <p data-i18n="docPrivacy.terminationText">La licence peut être résiliée immédiatement en cas de violation de ces termes. Pour les plans avec abonnement, vous pouvez résilier à tout moment depuis votre portail Stripe.</p>
         </div>
 
-        <div class="success-box" data-i18n="docPrivacy.refundBox"><strong>✅ Politique de remboursement :</strong> Si vous n'êtes pas satisfait dans les 7 jours suivant votre achat, contactez notre support pour un remboursement intégral. Au-delà de cette période, aucun remboursement ne sera accordé sauf cas exceptionnel.</div>
+        <div class="success-box callout--gl" data-i18n="docPrivacy.refundBox"><strong>✅ Politique de remboursement :</strong> Si vous n'êtes pas satisfait dans les 7 jours suivant votre achat, contactez notre support pour un remboursement intégral. Au-delà de cette période, aucun remboursement ne sera accordé sauf cas exceptionnel.</div>
 
         <!-- CONFIDENTIALITE -->
         <div class="page-separator"><span>◆ ◆ ◆</span></div>
 
-        <h2 id="confidentialite" style="font-family:'Cinzel',serif;font-size:36px;color:var(--gold);letter-spacing:2px;margin-bottom:12px;border:none;padding:0;" data-i18n="docPrivacy.privacyH1">🔒 Politique de Confidentialité</h2>
-        <p class="subtitle" data-i18n="docPrivacy.privacySubtitle">Comment nous protégeons vos données personnelles</p>
+        <div class="part-head">
+            <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-lock"/></svg></div>
+            <h2 id="confidentialite" class="part-title emoji-lead" data-i18n="docPrivacy.privacyH1">🔒 Politique de Confidentialité</h2>
+            <p class="subtitle" data-i18n="docPrivacy.privacySubtitle">Comment nous protégeons vos données personnelles</p>
+        </div>
 
-        <div class="success-box" data-i18n="docPrivacy.privacyBox"><strong>✅ Votre vie privée est notre priorité</strong><br>Version gratuite : aucune donnée personnelle collectée. Version Premium : seules les données strictement nécessaires à la vérification de votre licence sont traitées.</div>
+        <div class="success-box callout--gl" data-i18n="docPrivacy.privacyBox"><strong>✅ Votre vie privée est notre priorité</strong><br>Version gratuite : aucune donnée personnelle collectée. Version Premium : seules les données strictement nécessaires à la vérification de votre licence sont traitées.</div>
 
         <h2 data-i18n="docPrivacy.collectH2">Collecte de données</h2>
         <div class="legal-block">
@@ -238,10 +273,10 @@
             </ul>
             <p data-i18n="docPrivacy.collectPremBasis"><strong>Base légale :</strong> exécution du contrat (art. 6.1.b RGPD).</p>
             <h3 data-i18n="docPrivacy.collectNotH3">Données jamais collectées</h3>
-            <ul>
-                <li data-i18n="docPrivacy.collectNotLi1">❌ Aucune donnée de gameplay ou d'activité</li>
-                <li data-i18n="docPrivacy.collectNotLi2">❌ Aucun historique de navigation</li>
-                <li data-i18n="docPrivacy.collectNotLi3">❌ Aucun cookie publicitaire ou de tracking</li>
+            <ul class="list-no">
+                <li class="emoji-lead" data-i18n="docPrivacy.collectNotLi1">❌ Aucune donnée de gameplay ou d'activité</li>
+                <li class="emoji-lead" data-i18n="docPrivacy.collectNotLi2">❌ Aucun historique de navigation</li>
+                <li class="emoji-lead" data-i18n="docPrivacy.collectNotLi3">❌ Aucun cookie publicitaire ou de tracking</li>
             </ul>
         </div>
 
@@ -262,16 +297,16 @@
         <div class="legal-block">
             <h3 data-i18n="docPrivacy.thirdH3">Services utilisés (version Premium)</h3>
             <p data-i18n="docPrivacy.thirdDesc">Pour l'authentification et les paiements, Reborn Assistant utilise :</p>
-            <ul>
-                <li data-i18n="docPrivacy.thirdLi1">🔐 <strong>Google</strong> — Authentification et stockage sécurisé des données de licence</li>
-                <li data-i18n="docPrivacy.thirdLi2">💳 <strong>Stripe</strong> — Traitement des paiements Premium (vos données bancaires ne transitent jamais par nos serveurs)</li>
+            <ul class="service-list">
+                <li><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-shield"/></svg><span class="emoji-lead" data-i18n="docPrivacy.thirdLi1">🔐 <strong>Google</strong> — Authentification et stockage sécurisé des données de licence</span></li>
+                <li><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-card"/></svg><span class="emoji-lead" data-i18n="docPrivacy.thirdLi2">💳 <strong>Stripe</strong> — Traitement des paiements Premium (vos données bancaires ne transitent jamais par nos serveurs)</span></li>
             </ul>
             <p data-i18n="docPrivacy.thirdTransfer">Ces prestataires sont conformes au RGPD et disposent des garanties appropriées pour les transferts internationaux de données.</p>
             <h3 data-i18n="docPrivacy.thirdNoH3">Aucun tracking, aucune publicité</h3>
-            <ul>
-                <li data-i18n="docPrivacy.thirdLi3">❌ Aucun service d'analyse ou de statistiques</li>
-                <li data-i18n="docPrivacy.thirdLi4">❌ Aucune publicité ni marketing ciblé</li>
-                <li data-i18n="docPrivacy.thirdLi5">❌ Aucun cookie tiers ou suivi comportemental</li>
+            <ul class="list-no">
+                <li class="emoji-lead" data-i18n="docPrivacy.thirdLi3">❌ Aucun service d'analyse ou de statistiques</li>
+                <li class="emoji-lead" data-i18n="docPrivacy.thirdLi4">❌ Aucune publicité ni marketing ciblé</li>
+                <li class="emoji-lead" data-i18n="docPrivacy.thirdLi5">❌ Aucun cookie tiers ou suivi comportemental</li>
             </ul>
         </div>
 
@@ -300,18 +335,18 @@
         <h2 data-i18n="docPrivacy.rightsH2">Vos droits (RGPD)</h2>
         <div class="legal-block">
             <p data-i18n="docPrivacy.rightsText">Conformément au RGPD, vous disposez des droits suivants sur vos données :</p>
-            <ul>
-                <li data-i18n="docPrivacy.rightsLi1">✅ <strong>Accès</strong> — Obtenir une copie de vos données personnelles</li>
-                <li data-i18n="docPrivacy.rightsLi2">✅ <strong>Rectification</strong> — Corriger des données inexactes</li>
-                <li data-i18n="docPrivacy.rightsLi3">✅ <strong>Effacement</strong> — Demander la suppression de votre compte et de vos données</li>
-                <li data-i18n="docPrivacy.rightsLi4">✅ <strong>Portabilité</strong> — Recevoir vos données dans un format lisible</li>
-                <li data-i18n="docPrivacy.rightsLi5">✅ <strong>Réclamation</strong> — Déposer une plainte auprès de la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>)</li>
+            <ul class="list-yes">
+                <li class="emoji-lead" data-i18n="docPrivacy.rightsLi1">✅ <strong>Accès</strong> — Obtenir une copie de vos données personnelles</li>
+                <li class="emoji-lead" data-i18n="docPrivacy.rightsLi2">✅ <strong>Rectification</strong> — Corriger des données inexactes</li>
+                <li class="emoji-lead" data-i18n="docPrivacy.rightsLi3">✅ <strong>Effacement</strong> — Demander la suppression de votre compte et de vos données</li>
+                <li class="emoji-lead" data-i18n="docPrivacy.rightsLi4">✅ <strong>Portabilité</strong> — Recevoir vos données dans un format lisible</li>
+                <li class="emoji-lead" data-i18n="docPrivacy.rightsLi5">✅ <strong>Réclamation</strong> — Déposer une plainte auprès de la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>)</li>
             </ul>
             <p style="margin-top:16px;" data-i18n="docPrivacy.rightsExercise">Pour exercer ces droits, contactez-nous à : <a href="mailto:seymoon@constellation-89.fr">seymoon@constellation-89.fr</a> ou sur Discord (Seymoon)</p>
         </div>
 
         <h2 data-i18n="docPrivacy.deleteH2">Suppression de vos données</h2>
-        <div class="legal-block">
+        <div class="legal-block legal-steps">
             <p data-i18n="docPrivacy.deleteText1"><strong>1. Désinstallation de l'extension</strong><br>En désinstallant Reborn Assistant, toutes les données locales sont automatiquement supprimées.</p>
             <p data-i18n="docPrivacy.deleteText2"><strong>2. Réinitialisation manuelle</strong><br>Vous pouvez réinitialiser les paramètres depuis l'interface de Reborn à tout moment.</p>
             <p data-i18n="docPrivacy.deleteText3"><strong>3. Suppression du compte (Premium)</strong><br>Pour supprimer votre compte Premium et toutes les données associées, contactez-nous par email.</p>
@@ -320,87 +355,106 @@
         <h2 data-i18n="docPrivacy.contactH2">Contact</h2>
         <div class="contact-box">
             <p data-i18n="docPrivacy.contactText">Pour toute question concernant les informations légales ou la politique de confidentialité :</p>
-            <p style="margin-top:16px;"><strong>📧 Email :</strong> <a href="mailto:seymoon@constellation-89.fr">seymoon@constellation-89.fr</a></p>
-            <p style="margin-top:8px;"><strong><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:6px;"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.053a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>Discord :</strong> Seymoon</p>
+            <div class="contact-links">
+                <p class="contact-chip"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-mail"/></svg><span><strong class="emoji-lead">📧 Email :</strong> <a href="mailto:seymoon@constellation-89.fr">seymoon@constellation-89.fr</a></span></p>
+                <p class="contact-chip"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.053a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg><span><strong>Discord :</strong> Seymoon</span></p>
+            </div>
         </div>
 
         <!-- CHANGELOG -->
         <div class="page-separator"><span>◆ ◆ ◆</span></div>
 
-        <h2 id="changelog" data-i18n="docPrivacy.changelogH2">📋 Changelog</h2>
-
-        <div class="legal-block">
-            <h3 data-i18n="docPrivacy.v130H3">Version 1.3.0 (Mars 2026) · Actuelle</h3>
-
-            <p style="font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);opacity:0.7;margin:18px 0 10px;" data-i18n="docPrivacy.v130newLabel">✨ Nouveautés</p>
-            <ul>
-                <li data-i18n="docPrivacy.v130Li1">⏱ Mini-timer flottant déplaçable — petite fenêtre flottante affichant les timers de buff et ceux de plus d'1 minute, se rouvre automatiquement au prochain lancement et suit le skin actif.</li>
-                <li data-i18n="docPrivacy.v130Li2">⚡ Macros prioritaires — les macros passent avant les soins/PV/mana, avec un gel du soin de 0,5s avant et après chaque exécution pour éviter les conflits.</li>
-                <li data-i18n="docPrivacy.v130Li3">🧠 Gestion intelligente du buff — le buff s'exécute en priorité, les macros silencées sont mises en file et relancées automatiquement après sa fin (délai réduit à 2s).</li>
-                <li data-i18n="docPrivacy.v130Li4">💾 Mémorisation des positions — les fenêtres flottantes retiennent leur position entre les sessions.</li>
-                <li data-i18n="docPrivacy.v130Li5">🇸🇦 Support de l'arabe — 15ème langue disponible dans l'extension.</li>
-                <li data-i18n="docPrivacy.v130Li6">💳 Paiement Stripe en popup — s'ouvre dans une fenêtre dédiée avec fermeture automatique, sans quitter l'extension.</li>
-            </ul>
-
-            <p style="font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);opacity:0.7;margin:18px 0 10px;" data-i18n="docPrivacy.v130improvLabel">🔧 Améliorations</p>
-            <ul>
-                <li data-i18n="docPrivacy.v130Li7">🐾 Familier : correction du bug où le pet ne sortait pas au premier buff + meilleur suivi du mode F1/F2 pour le rangement au stop.</li>
-                <li data-i18n="docPrivacy.v130Li8">⏱ Timer : refonte visuelle du design premium + opacité 55% au repos → 95% au survol pour une meilleure lisibilité.</li>
-                <li data-i18n="docPrivacy.v130Li9">💳 Portail billing : une seule fenêtre active en mémoire avec fermeture automatique.</li>
-            </ul>
-
-            <p style="font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);opacity:0.7;margin:18px 0 10px;" data-i18n="docPrivacy.v130fixLabel">🐛 Corrections</p>
-            <ul>
-                <li data-i18n="docPrivacy.v130Li10">Correction de plusieurs fuites mémoire dans le contenu et le popup.</li>
-                <li data-i18n="docPrivacy.v130Li16">Alignement UI sur la limite de 2 appareils max (cohérence avec le backend).</li>
-            </ul>
+        <div class="part-head">
+            <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-clock"/></svg></div>
+            <h2 id="changelog" class="part-title emoji-lead" data-i18n="docPrivacy.changelogH2">📋 Changelog</h2>
         </div>
 
-        <div class="legal-block">
-            <h3 data-i18n="docPrivacy.v120H3">Version 1.2.0 (Mars 2026)</h3>
-            <ul>
-                <li data-i18n="docPrivacy.v120Li1">✨ Les 6 skins ont été retravaillés avec un effet de transparence subtil.</li>
-                <li data-i18n="docPrivacy.v120Li2">🔐 Visualisez et gérez votre appareil enregistré directement depuis l'extension.</li>
-                <li data-i18n="docPrivacy.v120Li3">💳 Accédez à votre abonnement en un clic depuis l'extension.</li>
-                <li data-i18n="docPrivacy.v120Li4">🔔 Notification instantanée si votre compte est utilisé sur un autre appareil.</li>
-            </ul>
-        </div>
+        <div class="changelog">
+            <div class="legal-block release--current">
+                <h3 data-i18n="docPrivacy.v130H3">Version 1.3.0 (Mars 2026) · Actuelle</h3>
 
-        <div class="legal-block">
-            <h3 data-i18n="docPrivacy.v12H3">Version 1.2 (Février 2026)</h3>
-            <ul>
-                <li data-i18n="docPrivacy.v12Li1">Support de 15 langues (ajout Turc 🇹🇷)</li>
-                <li data-i18n="docPrivacy.v12Li2">Refonte visuelle du site web</li>
-                <li data-i18n="docPrivacy.v12Li3">Fusion des pages légales en une seule page unifiée</li>
-                <li data-i18n="docPrivacy.v12Li4">Traduction complète FR/EN du site</li>
-            </ul>
-        </div>
+                <div class="cl-label"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-spark"/></svg><p class="emoji-lead" data-i18n="docPrivacy.v130newLabel">✨ Nouveautés</p></div>
+                <ul>
+                    <li class="emoji-lead" data-i18n="docPrivacy.v130Li1">⏱ Mini-timer flottant déplaçable — petite fenêtre flottante affichant les timers de buff et ceux de plus d'1 minute, se rouvre automatiquement au prochain lancement et suit le skin actif.</li>
+                    <li class="emoji-lead" data-i18n="docPrivacy.v130Li2">⚡ Macros prioritaires — les macros passent avant les soins/PV/mana, avec un gel du soin de 0,5s avant et après chaque exécution pour éviter les conflits.</li>
+                    <li class="emoji-lead" data-i18n="docPrivacy.v130Li3">🧠 Gestion intelligente du buff — le buff s'exécute en priorité, les macros silencées sont mises en file et relancées automatiquement après sa fin (délai réduit à 2s).</li>
+                    <li class="emoji-lead" data-i18n="docPrivacy.v130Li4">💾 Mémorisation des positions — les fenêtres flottantes retiennent leur position entre les sessions.</li>
+                    <li class="emoji-lead" data-i18n="docPrivacy.v130Li5">🇸🇦 Support de l'arabe — 15ème langue disponible dans l'extension.</li>
+                    <li class="emoji-lead" data-i18n="docPrivacy.v130Li6">💳 Paiement Stripe en popup — s'ouvre dans une fenêtre dédiée avec fermeture automatique, sans quitter l'extension.</li>
+                </ul>
 
-        <div class="legal-block">
-            <h3 data-i18n="docPrivacy.v11H3">Version 1.1.1 (Février 2026)</h3>
-            <ul>
-                <li data-i18n="docPrivacy.v11Li1">Ajout de la macro périodique automatique (15s + auto-stockage)</li>
-                <li data-i18n="docPrivacy.v11Li2">Raccourcis clavier CTRL+A / CTRL+O</li>
-                <li data-i18n="docPrivacy.v11Li3">Support de 15 langues (ajout Filipino + Turc)</li>
-                <li data-i18n="docPrivacy.v11Li4">Amélioration de la stabilité de la licence Premium</li>
-                <li data-i18n="docPrivacy.v11Li5">Corrections de bugs sur la rotation de séquences</li>
-            </ul>
-        </div>
+                <div class="cl-label"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-wrench"/></svg><p class="emoji-lead" data-i18n="docPrivacy.v130improvLabel">🔧 Améliorations</p></div>
+                <ul>
+                    <li class="emoji-lead" data-i18n="docPrivacy.v130Li7">🐾 Familier : correction du bug où le pet ne sortait pas au premier buff + meilleur suivi du mode F1/F2 pour le rangement au stop.</li>
+                    <li class="emoji-lead" data-i18n="docPrivacy.v130Li8">⏱ Timer : refonte visuelle du design premium + opacité 55% au repos → 95% au survol pour une meilleure lisibilité.</li>
+                    <li class="emoji-lead" data-i18n="docPrivacy.v130Li9">💳 Portail billing : une seule fenêtre active en mémoire avec fermeture automatique.</li>
+                </ul>
 
-        <div class="legal-block">
-            <h3 data-i18n="docPrivacy.v10H3">Version 1.0 (2025) · Initiale</h3>
-            <ul>
-                <li data-i18n="docPrivacy.v10Li1">Lancement de Reborn Assistant</li>
-                <li data-i18n="docPrivacy.v10Li2">Actions automatiques de type 1 et 2</li>
-                <li data-i18n="docPrivacy.v10Li3">Rotation séquence automatique (F2 → 1-9 → 0 → F1)</li>
-                <li data-i18n="docPrivacy.v10Li4">3 macros personnalisables</li>
-                <li data-i18n="docPrivacy.v10Li5">6 thèmes visuels et 12 langues</li>
-                <li data-i18n="docPrivacy.v10Li6">Système de licence Premium via Firebase</li>
-            </ul>
+                <div class="cl-label"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-bug"/></svg><p class="emoji-lead" data-i18n="docPrivacy.v130fixLabel">🐛 Corrections</p></div>
+                <ul>
+                    <li data-i18n="docPrivacy.v130Li10">Correction de plusieurs fuites mémoire dans le contenu et le popup.</li>
+                    <li data-i18n="docPrivacy.v130Li16">Alignement UI sur la limite de 2 appareils max (cohérence avec le backend).</li>
+                </ul>
+            </div>
+
+            <div class="legal-block">
+                <h3 data-i18n="docPrivacy.v120H3">Version 1.2.0 (Mars 2026)</h3>
+                <ul>
+                    <li class="emoji-lead" data-i18n="docPrivacy.v120Li1">✨ Les 6 skins ont été retravaillés avec un effet de transparence subtil.</li>
+                    <li class="emoji-lead" data-i18n="docPrivacy.v120Li2">🔐 Visualisez et gérez votre appareil enregistré directement depuis l'extension.</li>
+                    <li class="emoji-lead" data-i18n="docPrivacy.v120Li3">💳 Accédez à votre abonnement en un clic depuis l'extension.</li>
+                    <li class="emoji-lead" data-i18n="docPrivacy.v120Li4">🔔 Notification instantanée si votre compte est utilisé sur un autre appareil.</li>
+                </ul>
+            </div>
+
+            <div class="legal-block">
+                <h3 data-i18n="docPrivacy.v12H3">Version 1.2 (Février 2026)</h3>
+                <ul>
+                    <li data-i18n="docPrivacy.v12Li1">Support de 15 langues (ajout Turc 🇹🇷)</li>
+                    <li data-i18n="docPrivacy.v12Li2">Refonte visuelle du site web</li>
+                    <li data-i18n="docPrivacy.v12Li3">Fusion des pages légales en une seule page unifiée</li>
+                    <li data-i18n="docPrivacy.v12Li4">Traduction complète FR/EN du site</li>
+                </ul>
+            </div>
+
+            <div class="legal-block">
+                <h3 data-i18n="docPrivacy.v11H3">Version 1.1.1 (Février 2026)</h3>
+                <ul>
+                    <li data-i18n="docPrivacy.v11Li1">Ajout de la macro périodique automatique (15s + auto-stockage)</li>
+                    <li data-i18n="docPrivacy.v11Li2">Raccourcis clavier CTRL+A / CTRL+O</li>
+                    <li data-i18n="docPrivacy.v11Li3">Support de 15 langues (ajout Filipino + Turc)</li>
+                    <li data-i18n="docPrivacy.v11Li4">Amélioration de la stabilité de la licence Premium</li>
+                    <li data-i18n="docPrivacy.v11Li5">Corrections de bugs sur la rotation de séquences</li>
+                </ul>
+            </div>
+
+            <div class="legal-block">
+                <h3 data-i18n="docPrivacy.v10H3">Version 1.0 (2025) · Initiale</h3>
+                <ul>
+                    <li data-i18n="docPrivacy.v10Li1">Lancement de Reborn Assistant</li>
+                    <li data-i18n="docPrivacy.v10Li2">Actions automatiques de type 1 et 2</li>
+                    <li data-i18n="docPrivacy.v10Li3">Rotation séquence automatique (F2 → 1-9 → 0 → F1)</li>
+                    <li data-i18n="docPrivacy.v10Li4">3 macros personnalisables</li>
+                    <li data-i18n="docPrivacy.v10Li5">6 thèmes visuels et 12 langues</li>
+                    <li data-i18n="docPrivacy.v10Li6">Système de licence Premium via Firebase</li>
+                </ul>
+            </div>
         </div>
 
         <p style="margin-top:60px;text-align:center;color:var(--text-dim);font-size:13px;" data-i18n="docPrivacy.pageFooter">© 2026 Reborn Assistant — Développé par Seymoon · Tous droits réservés</p>
-    </div>
+    </main>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="site-footer site-footer--compact">
+        <div class="container footer-content">
+            <a class="brand" href="../index.html" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+            </a>
+            <div class="footer-logo">REBORN ASSISTANT</div>
+            <div class="ornament" aria-hidden="true"></div>
+        </div>
+    </footer>
+
     <script type="module" src="../langs/index.js"></script>
 </body>
 </html>

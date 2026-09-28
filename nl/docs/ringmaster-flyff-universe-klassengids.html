@@ -32,7 +32,7 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- ── hreflang ────────────────────────────────────────────── -->
     <!-- ── hreflang ──────────────────────────────────── -->
@@ -54,43 +54,7 @@
     <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html">
     <!-- ── /hreflang ── -->
 
-    <style>
-        :root { --gold:#d4af37;--gold-light:#f4d03f;--gold-dark:#b8941f;--dark-bg:#080808;--green:#4CAF50;--red:#ff6b6b;--blue:#5dade2;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
-        * { margin:0;padding:0;box-sizing:border-box; }
-        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.8; }
-        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
-        .container { max-width:880px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
-        .breadcrumb { font-size:12px;color:var(--text-dim);margin-bottom:32px;letter-spacing:1px; }
-        .breadcrumb a { color:var(--gold);text-decoration:none; }
-        h1 { font-family:'Cinzel',serif;font-size:clamp(30px,5vw,44px);color:var(--gold);letter-spacing:1.5px;line-height:1.1;margin-bottom:20px; }
-        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:48px;line-height:1.6; }
-        h2 { font-family:'Cinzel',serif;font-size:26px;color:var(--text);margin:56px 0 20px;padding-bottom:14px;border-bottom:1px solid var(--border);letter-spacing:0.5px; }
-        h3 { font-size:19px;color:var(--gold);margin:28px 0 12px;font-weight:600; }
-        p { margin-bottom:18px;font-size:15.5px; }
-        ul, ol { margin:14px 0 22px 24px; }
-        li { margin:8px 0;font-size:15.5px; }
-        strong { color:var(--gold); }
-        code { background:rgba(20,20,16,0.9);padding:3px 9px;border-radius:4px;font-family:'Courier New',monospace;font-size:13px;color:var(--gold-light); }
-        .stats-table { width:100%;border-collapse:collapse;margin:24px 0;background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;overflow:hidden; }
-        .stats-table th { background:rgba(212,175,55,0.1);padding:14px 16px;font-weight:600;text-align:left;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--gold); }
-        .stats-table td { padding:14px 16px;border-top:1px solid var(--border);font-size:14px; }
-        .stats-table tr:hover { background:rgba(212,175,55,0.03); }
-        .buff-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:24px 0; }
-        .buff-card { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:10px;padding:20px; }
-        .buff-card.priority { border-color:var(--gold);background:rgba(212,175,55,0.04); }
-        .buff-name { font-family:'Cinzel',serif;color:var(--gold);font-size:16px;font-weight:600;margin-bottom:8px; }
-        .buff-meta { font-size:11px;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px; }
-        .buff-desc { font-size:13px;line-height:1.6;color:var(--text-dim); }
-        .callout { background:rgba(212,175,55,0.08);border-left:4px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:4px; }
-        .callout strong { color:var(--gold); }
-        .role-card { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;padding:24px;margin:20px 0; }
-        .role-icon { font-size:28px;margin-bottom:10px; }
-        .back-link { display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;text-decoration:none;transition:all 0.3s; }
-        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
-        .cta-box { background:linear-gradient(160deg,rgba(212,175,55,0.06),rgba(20,20,16,0.6));border:1px solid var(--gold);border-radius:14px;padding:32px;margin:48px 0;text-align:center; }
-        .cta-box h3 { color:var(--gold);font-family:'Cinzel',serif;font-size:22px;margin-bottom:14px; }
-        .btn-cta { display:inline-block;background:linear-gradient(135deg,#2d5016,#4CAF50,#5dd87a);color:#fff;padding:14px 32px;text-decoration:none;font-family:'Cinzel',serif;font-weight:600;letter-spacing:1.5px;border-radius:6px;font-size:13px;text-transform:uppercase;margin-top:8px; }
-    </style>
+    <link rel="stylesheet" href="/assets/css/site.css?v=4">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
 
@@ -129,14 +93,35 @@
     <script>window.__PRERENDERED_LANG__="nl";</script>
 </head>
 <body>
-    <div class="container">
-        <a href="/nl/docs/index.html" class="back-link">← Terug naar de documentatie</a>
-        <div class="breadcrumb" style="margin-top:24px;">
-            <a href="../index.html">Home</a> › <a href="/nl/docs/index.html">Documentatie</a> › Ringmaster-gids
+    <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4.5M12 17.5V22M2 12h4.5M17.5 12H22"/><circle cx="12" cy="12" r=".4"/></symbol>
+        <symbol id="g-swords" viewBox="0 0 24 24"><path fill="none" d="M4 4l10.6 10.6M20 4L9.4 14.6M12.4 16.8l4.4-4.4M7.2 12.4l4.4 4.4M14.6 14.6l3.8 3.8M9.4 14.6l-3.8 3.8"/><circle cx="19.3" cy="19.3" r="1.2"/><circle cx="4.7" cy="19.3" r="1.2"/></symbol>
+        <symbol id="g-boss" viewBox="0 0 24 24"><path d="M12 5.5c-4 0-7 2.8-7 6.6 0 2.2 1 3.9 2.6 4.9v2.4c0 .8.6 1.4 1.4 1.4h6c.8 0 1.4-.6 1.4-1.4V17c1.6-1 2.6-2.7 2.6-4.9 0-3.8-3-6.6-7-6.6z"/><path fill="none" d="M6.3 8.2L3.2 3.5l5 2.3M17.7 8.2l3.1-4.7-5 2.3M10.5 20.5v-2M13.5 20.5v-2"/><circle cx="9.3" cy="12.6" r="1.4"/><circle cx="14.7" cy="12.6" r="1.4"/></symbol>
+        <symbol id="g-trophy" viewBox="0 0 24 24"><path d="M7.5 3.5h9v5.2a4.5 4.5 0 0 1-9 0z"/><path fill="none" d="M7.5 5.5H5a2.6 2.6 0 0 0 2.9 4.4M16.5 5.5H19a2.6 2.6 0 0 1-2.9 4.4M12 13.2v3.6M8.5 20.5h7"/><path d="M9.8 20.5l.6-3.7h3.2l.6 3.7"/></symbol>
+    </svg>
+    <!-- ═══ Header ═══ -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="../index.html" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+                <span class="brand__word">Reborn</span>
+            </a>
+            <div class="header-actions">
+                <a href="/nl/docs/index.html" class="back-link">← Terug naar de documentatie</a>
+            </div>
         </div>
+    </header>
 
-        <h1>Ringmaster Flyff Universe — Volledige gids 2026</h1>
-        <p class="subtitle">Rol, buffs, builds, equipment, rotatie: alles wat je moet weten om Ringmaster te spelen in Flyff Universe in 2026, van level 60 tot end-game.</p>
+    <main class="container article">
+        <header class="article-head">
+            <div class="breadcrumb" style="margin-top:24px;">
+                <a href="../index.html">Home</a> › <a href="/nl/docs/index.html">Documentatie</a> › Ringmaster-gids
+            </div>
+            <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-target"/></svg></div>
+            <h1>Ringmaster Flyff Universe — Volledige gids 2026</h1>
+            <p class="subtitle">Rol, buffs, builds, equipment, rotatie: alles wat je moet weten om Ringmaster te spelen in Flyff Universe in 2026, van level 60 tot end-game.</p>
+            <div class="ornament" aria-hidden="true"></div>
+        </header>
 
         <h2>Wat is een Ringmaster?</h2>
         <p>De <strong>Ringmaster</strong> (RM) is de eindpromotie van de Assist-tak in Flyff Universe. Het is <strong>de support-class van het spel</strong>: zijn hoofdrol is niet schade aanrichten, maar <em>een groep in leven houden en sterker maken</em> via buffs van lange duur en een AOE-heal in loop. Zonder Ringmaster doet een end-game groep er twee tot drie keer langer over om een zone te clearen — en overleeft veel slechter de accidentele pulls.</p>
@@ -154,19 +139,19 @@
         <p>Drie hoofdrollen afhankelijk van de speelcontext:</p>
 
         <div class="role-card">
-            <div class="role-icon">⚔️</div>
+            <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-swords"/></svg><span class="slot-src" aria-hidden="true">⚔️</span></div>
             <h3 style="margin-top:0;">Snel farmen (klassieke PvE)</h3>
             <p>Je vergezelt een of meer DPS'ers op een farm-spot. Je taak: elke 5 minuten rebuffen, doorlopend Heal Rain casten, de FP in de gaten houden. Heel repetitief — precies de situatie waarin automatisering al haar nut bewijst.</p>
         </div>
 
         <div class="role-card">
-            <div class="role-icon">🐉</div>
+            <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-boss"/></svg><span class="slot-src" aria-hidden="true">🐉</span></div>
             <h3 style="margin-top:0;">Raids & bosses</h3>
             <p>Bosses met hoge burst damage zoals Glaphan, Bang, Aibatt. Het tempo verandert: minder periodieke heal, meer handmatige burst-heals, soms Resurrection te anticiperen. Automatisering komt hier op de tweede plaats — je moet de touwtjes in handen houden.</p>
         </div>
 
         <div class="role-card">
-            <div class="role-icon">🏆</div>
+            <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-trophy"/></svg><span class="slot-src" aria-hidden="true">🏆</span></div>
             <h3 style="margin-top:0;">FWC (Flyff World Championships)</h3>
             <p>Georganiseerde competitie, ultranauwkeurige meta-game. RM's zijn niet langer slechts een utility-service: ze dragen bij aan geoptimaliseerde teamcomposities met gesynchroniseerde buff-timings. De rotaties uit het hoofd kennen wordt cruciaal. Automatisering kan volgens toernooireglement verboden zijn — altijd controleren.</p>
         </div>
@@ -215,42 +200,44 @@
         <h2>Build STA vs INT — Welke build kies je?</h2>
         <p>Twee hoofdscholen in 2026:</p>
 
-        <table class="stats-table">
-            <thead>
-                <tr>
-                    <th>Criterium</th>
-                    <th>Full STA-build</th>
-                    <th>Hybride INT-build</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Hoofdstats</strong></td>
-                    <td>Volledig STA, INT minimaal vereist voor de buffs</td>
-                    <td>~50/50 STA/INT, soms 30/70 afhankelijk van het level</td>
-                </tr>
-                <tr>
-                    <td><strong>HP / Overleving</strong></td>
-                    <td>Uitstekend — enorme pool, overleeft accidentele pulls</td>
-                    <td>Gemiddeld — vraagt meer aandacht van de speler</td>
-                </tr>
-                <tr>
-                    <td><strong>Kracht van de heals</strong></td>
-                    <td>Acceptabel — voldoet in de meeste situaties</td>
-                    <td>Uitstekend — Heal Rain en andere heals schalen sterk op INT</td>
-                </tr>
-                <tr>
-                    <td><strong>FP pool</strong></td>
-                    <td>Laag — vereist meer potions</td>
-                    <td>Hoog — comfortabeler FP-beheer</td>
-                </tr>
-                <tr>
-                    <td><strong>Aanbevolen voor</strong></td>
-                    <td>Beginnende spelers, ongevaarlijk farmen, solo-utility RM</td>
-                    <td>Ervaren spelers, lastige raids, FWC, end-game</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-scroll">
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>Criterium</th>
+                        <th>Full STA-build</th>
+                        <th>Hybride INT-build</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Hoofdstats</strong></td>
+                        <td>Volledig STA, INT minimaal vereist voor de buffs</td>
+                        <td>~50/50 STA/INT, soms 30/70 afhankelijk van het level</td>
+                    </tr>
+                    <tr>
+                        <td><strong>HP / Overleving</strong></td>
+                        <td>Uitstekend — enorme pool, overleeft accidentele pulls</td>
+                        <td>Gemiddeld — vraagt meer aandacht van de speler</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kracht van de heals</strong></td>
+                        <td>Acceptabel — voldoet in de meeste situaties</td>
+                        <td>Uitstekend — Heal Rain en andere heals schalen sterk op INT</td>
+                    </tr>
+                    <tr>
+                        <td><strong>FP pool</strong></td>
+                        <td>Laag — vereist meer potions</td>
+                        <td>Hoog — comfortabeler FP-beheer</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Aanbevolen voor</strong></td>
+                        <td>Beginnende spelers, ongevaarlijk farmen, solo-utility RM</td>
+                        <td>Ervaren spelers, lastige raids, FWC, end-game</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <p>De Full STA-build blijft de meest vergevingsgezinde en meest gespeelde. De hybride INT-build is veeleisender, maar beloont met een aanzienlijk hogere heal-output — een must voor competitieve content.</p>
 
@@ -282,7 +269,7 @@
 
         <p>De eerste twee timings zijn mechanisch en perfect voor <strong>automatisering</strong>. De derde vraagt om je menselijke aandacht. Dat is de sleutelafweging van de moderne Ringmaster: automatiseren wat repetitief is om <strong>je energie te bewaren voor de beslissende momenten</strong>.</p>
 
-        <div class="callout">
+        <div class="callout callout--gl">
             <strong>💡 Praktische tutorial beschikbaar</strong>
             We hebben een <a href="/nl/docs/ringmaster-automatiseren-flyff-universe.html" style="color:var(--gold);">stap-voor-stap tutorial geschreven om je Ringmaster te automatiseren</a> met Reborn Assistant: configuratie van rotaties, interval tussen cycli, Heal Rain-macro en valkuilen om te vermijden.
         </div>
@@ -313,6 +300,17 @@
         <p style="margin-top:48px;text-align:center;color:var(--text-dim);font-size:14px;">
             Gids bijgewerkt op 16 mei 2026 — Flyff Universe (Gala Lab).
         </p>
-    </div>
+    </main>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="site-footer site-footer--compact">
+        <div class="container footer-content">
+            <a class="brand" href="../index.html" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+            </a>
+            <div class="footer-logo">REBORN ASSISTANT</div>
+            <div class="ornament" aria-hidden="true"></div>
+        </div>
+    </footer>
 </body>
 </html>

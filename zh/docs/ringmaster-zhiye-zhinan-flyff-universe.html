@@ -32,7 +32,7 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- ── hreflang ────────────────────────────────────────────── -->
     <!-- ── hreflang ──────────────────────────────────── -->
@@ -54,43 +54,7 @@
     <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html">
     <!-- ── /hreflang ── -->
 
-    <style>
-        :root { --gold:#d4af37;--gold-light:#f4d03f;--gold-dark:#b8941f;--dark-bg:#080808;--green:#4CAF50;--red:#ff6b6b;--blue:#5dade2;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
-        * { margin:0;padding:0;box-sizing:border-box; }
-        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.8; }
-        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
-        .container { max-width:880px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
-        .breadcrumb { font-size:12px;color:var(--text-dim);margin-bottom:32px;letter-spacing:1px; }
-        .breadcrumb a { color:var(--gold);text-decoration:none; }
-        h1 { font-family:'Cinzel',serif;font-size:clamp(30px,5vw,44px);color:var(--gold);letter-spacing:1.5px;line-height:1.1;margin-bottom:20px; }
-        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:48px;line-height:1.6; }
-        h2 { font-family:'Cinzel',serif;font-size:26px;color:var(--text);margin:56px 0 20px;padding-bottom:14px;border-bottom:1px solid var(--border);letter-spacing:0.5px; }
-        h3 { font-size:19px;color:var(--gold);margin:28px 0 12px;font-weight:600; }
-        p { margin-bottom:18px;font-size:15.5px; }
-        ul, ol { margin:14px 0 22px 24px; }
-        li { margin:8px 0;font-size:15.5px; }
-        strong { color:var(--gold); }
-        code { background:rgba(20,20,16,0.9);padding:3px 9px;border-radius:4px;font-family:'Courier New',monospace;font-size:13px;color:var(--gold-light); }
-        .stats-table { width:100%;border-collapse:collapse;margin:24px 0;background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;overflow:hidden; }
-        .stats-table th { background:rgba(212,175,55,0.1);padding:14px 16px;font-weight:600;text-align:left;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--gold); }
-        .stats-table td { padding:14px 16px;border-top:1px solid var(--border);font-size:14px; }
-        .stats-table tr:hover { background:rgba(212,175,55,0.03); }
-        .buff-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:24px 0; }
-        .buff-card { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:10px;padding:20px; }
-        .buff-card.priority { border-color:var(--gold);background:rgba(212,175,55,0.04); }
-        .buff-name { font-family:'Cinzel',serif;color:var(--gold);font-size:16px;font-weight:600;margin-bottom:8px; }
-        .buff-meta { font-size:11px;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px; }
-        .buff-desc { font-size:13px;line-height:1.6;color:var(--text-dim); }
-        .callout { background:rgba(212,175,55,0.08);border-left:4px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:4px; }
-        .callout strong { color:var(--gold); }
-        .role-card { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;padding:24px;margin:20px 0; }
-        .role-icon { font-size:28px;margin-bottom:10px; }
-        .back-link { display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;text-decoration:none;transition:all 0.3s; }
-        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
-        .cta-box { background:linear-gradient(160deg,rgba(212,175,55,0.06),rgba(20,20,16,0.6));border:1px solid var(--gold);border-radius:14px;padding:32px;margin:48px 0;text-align:center; }
-        .cta-box h3 { color:var(--gold);font-family:'Cinzel',serif;font-size:22px;margin-bottom:14px; }
-        .btn-cta { display:inline-block;background:linear-gradient(135deg,#2d5016,#4CAF50,#5dd87a);color:#fff;padding:14px 32px;text-decoration:none;font-family:'Cinzel',serif;font-weight:600;letter-spacing:1.5px;border-radius:6px;font-size:13px;text-transform:uppercase;margin-top:8px; }
-    </style>
+    <link rel="stylesheet" href="/assets/css/site.css?v=4">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
 
@@ -129,14 +93,35 @@
     <script>window.__PRERENDERED_LANG__="zh";</script>
 </head>
 <body>
-    <div class="container">
-        <a href="/zh/docs/index.html" class="back-link">← 返回文档</a>
-        <div class="breadcrumb" style="margin-top:24px;">
-            <a href="../index.html">首页</a> › <a href="/zh/docs/index.html">文档</a> › Ringmaster 指南
+    <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4.5M12 17.5V22M2 12h4.5M17.5 12H22"/><circle cx="12" cy="12" r=".4"/></symbol>
+        <symbol id="g-swords" viewBox="0 0 24 24"><path fill="none" d="M4 4l10.6 10.6M20 4L9.4 14.6M12.4 16.8l4.4-4.4M7.2 12.4l4.4 4.4M14.6 14.6l3.8 3.8M9.4 14.6l-3.8 3.8"/><circle cx="19.3" cy="19.3" r="1.2"/><circle cx="4.7" cy="19.3" r="1.2"/></symbol>
+        <symbol id="g-boss" viewBox="0 0 24 24"><path d="M12 5.5c-4 0-7 2.8-7 6.6 0 2.2 1 3.9 2.6 4.9v2.4c0 .8.6 1.4 1.4 1.4h6c.8 0 1.4-.6 1.4-1.4V17c1.6-1 2.6-2.7 2.6-4.9 0-3.8-3-6.6-7-6.6z"/><path fill="none" d="M6.3 8.2L3.2 3.5l5 2.3M17.7 8.2l3.1-4.7-5 2.3M10.5 20.5v-2M13.5 20.5v-2"/><circle cx="9.3" cy="12.6" r="1.4"/><circle cx="14.7" cy="12.6" r="1.4"/></symbol>
+        <symbol id="g-trophy" viewBox="0 0 24 24"><path d="M7.5 3.5h9v5.2a4.5 4.5 0 0 1-9 0z"/><path fill="none" d="M7.5 5.5H5a2.6 2.6 0 0 0 2.9 4.4M16.5 5.5H19a2.6 2.6 0 0 1-2.9 4.4M12 13.2v3.6M8.5 20.5h7"/><path d="M9.8 20.5l.6-3.7h3.2l.6 3.7"/></symbol>
+    </svg>
+    <!-- ═══ Header ═══ -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="../index.html" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+                <span class="brand__word">Reborn</span>
+            </a>
+            <div class="header-actions">
+                <a href="/zh/docs/index.html" class="back-link">← 返回文档</a>
+            </div>
         </div>
+    </header>
 
-        <h1>Flyff Universe Ringmaster — 2026 完整指南</h1>
-        <p class="subtitle">定位、buff、配装、装备、循环:2026 年在 Flyff Universe 玩 Ringmaster 你需要知道的一切,从 60 级阶段一直到 end-game。</p>
+    <main class="container article">
+        <header class="article-head">
+            <div class="breadcrumb" style="margin-top:24px;">
+                <a href="../index.html">首页</a> › <a href="/zh/docs/index.html">文档</a> › Ringmaster 指南
+            </div>
+            <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-target"/></svg></div>
+            <h1>Flyff Universe Ringmaster — 2026 完整指南</h1>
+            <p class="subtitle">定位、buff、配装、装备、循环:2026 年在 Flyff Universe 玩 Ringmaster 你需要知道的一切,从 60 级阶段一直到 end-game。</p>
+            <div class="ornament" aria-hidden="true"></div>
+        </header>
 
         <h2>什么是 Ringmaster?</h2>
         <p><strong>Ringmaster</strong>(RM)是 Flyff Universe 中 Assist 分支的最终进阶。它是 <strong>游戏里的辅助职业</strong>:核心定位不是输出,而是 <em>让队伍活下来并变得更强</em>,靠的是长时间持续的 buff 和循环 AOE 治疗。没有 Ringmaster,end-game 队伍清图要多花两到三倍的时间 — 而且抗意外拉怪的能力差得多。</p>
@@ -154,19 +139,19 @@
         <p>根据游戏场景,有三种主要定位:</p>
 
         <div class="role-card">
-            <div class="role-icon">⚔️</div>
+            <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-swords"/></svg><span class="slot-src" aria-hidden="true">⚔️</span></div>
             <h3 style="margin-top:0;">快速刷怪(经典 PvE)</h3>
             <p>你陪一个或几个 DPS 在刷怪点。你的工作:每 5 分钟重 buff、持续放 Heal Rain、盯着 FP。非常重复 — 这正是自动化最能发挥作用的场景。</p>
         </div>
 
         <div class="role-card">
-            <div class="role-icon">🐉</div>
+            <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-boss"/></svg><span class="slot-src" aria-hidden="true">🐉</span></div>
             <h3 style="margin-top:0;">团本与 Boss</h3>
             <p>面对 Glaphan、Bang、Aibatt 这类高爆发 Boss。节奏变了:周期性治疗减少,手动爆发治疗更多,有时还要预判复活时机。自动化退居二线 — 你必须自己掌控。</p>
         </div>
 
         <div class="role-card">
-            <div class="role-icon">🏆</div>
+            <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-trophy"/></svg><span class="slot-src" aria-hidden="true">🏆</span></div>
             <h3 style="margin-top:0;">FWC(Flyff 世界锦标赛)</h3>
             <p>正式组织的比赛,meta 极其精细。RM 不只是工具人:他们参与优化阵容、同步 buff 时间点。把循环背得滚瓜烂熟变得至关重要。根据赛事规则,自动化可能被禁 — 一定要先确认。</p>
         </div>
@@ -215,42 +200,44 @@
         <h2>STA 还是 INT — 怎么选配装?</h2>
         <p>2026 年有两大主流流派:</p>
 
-        <table class="stats-table">
-            <thead>
-                <tr>
-                    <th>标准</th>
-                    <th>纯 STA 配装</th>
-                    <th>INT 混合配装</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>主属性</strong></td>
-                    <td>全 STA,只加 buff 所需的最低 INT</td>
-                    <td>STA/INT 约 50/50,有时 30/70 取决于等级</td>
-                </tr>
-                <tr>
-                    <td><strong>HP / 生存</strong></td>
-                    <td>优秀 — HP 池巨大,扛得住意外拉怪</td>
-                    <td>中等 — 玩家要更专心</td>
-                </tr>
-                <tr>
-                    <td><strong>治疗强度</strong></td>
-                    <td>尚可 — 大部分情况够用</td>
-                    <td>优秀 — Heal Rain 等治疗对 INT 收益很高</td>
-                </tr>
-                <tr>
-                    <td><strong>FP 池</strong></td>
-                    <td>少 — 需要更多药水</td>
-                    <td>多 — FP 管理更轻松</td>
-                </tr>
-                <tr>
-                    <td><strong>推荐给</strong></td>
-                    <td>新手玩家、低风险刷怪、RM solo-utility</td>
-                    <td>老手玩家、高难度团本、FWC、end-game</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-scroll">
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>标准</th>
+                        <th>纯 STA 配装</th>
+                        <th>INT 混合配装</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>主属性</strong></td>
+                        <td>全 STA,只加 buff 所需的最低 INT</td>
+                        <td>STA/INT 约 50/50,有时 30/70 取决于等级</td>
+                    </tr>
+                    <tr>
+                        <td><strong>HP / 生存</strong></td>
+                        <td>优秀 — HP 池巨大,扛得住意外拉怪</td>
+                        <td>中等 — 玩家要更专心</td>
+                    </tr>
+                    <tr>
+                        <td><strong>治疗强度</strong></td>
+                        <td>尚可 — 大部分情况够用</td>
+                        <td>优秀 — Heal Rain 等治疗对 INT 收益很高</td>
+                    </tr>
+                    <tr>
+                        <td><strong>FP 池</strong></td>
+                        <td>少 — 需要更多药水</td>
+                        <td>多 — FP 管理更轻松</td>
+                    </tr>
+                    <tr>
+                        <td><strong>推荐给</strong></td>
+                        <td>新手玩家、低风险刷怪、RM solo-utility</td>
+                        <td>老手玩家、高难度团本、FWC、end-game</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <p>纯 STA 配装容错最高、最多人玩。INT 混合配装要求更高,但回报是治疗量明显更高 — 竞技内容的必选。</p>
 
@@ -282,7 +269,7 @@
 
         <p>前两个时间节点是机械操作,正好适合 <strong>自动化</strong>。第三个需要人脑判断。这就是现代 Ringmaster 的核心取舍:把重复的交给自动化,<strong>把精力留给决定性的时刻</strong>。</p>
 
-        <div class="callout">
+        <div class="callout callout--gl">
             <strong>💡 配套实操教程</strong>
             我们写了一篇 <a href="/zh/docs/ringmaster-zidonghua-flyff-universe.html" style="color:var(--gold);">用 Reborn Assistant 自动化 Ringmaster 的一步步教程</a>:循环配置、循环间隔、Heal Rain 宏以及要避开的坑。
         </div>
@@ -313,6 +300,17 @@
         <p style="margin-top:48px;text-align:center;color:var(--text-dim);font-size:14px;">
             指南更新于 2026 年 5 月 16 日 — Flyff Universe(Gala Lab)。
         </p>
-    </div>
+    </main>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="site-footer site-footer--compact">
+        <div class="container footer-content">
+            <a class="brand" href="../index.html" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+            </a>
+            <div class="footer-logo">REBORN ASSISTANT</div>
+            <div class="ornament" aria-hidden="true"></div>
+        </div>
+    </footer>
 </body>
 </html>

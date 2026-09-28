@@ -30,26 +30,24 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css?v=4">
     <style>
-        :root { --gold:#d4af37;--dark-bg:#080808;--green:#4CAF50;--red:#ff6b6b;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
-        * { margin:0;padding:0;box-sizing:border-box; }
-        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.7; }
-        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
-        .container { max-width:900px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
-        .back-link { display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease; }
-        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
-        h1 { font-family:'Cinzel',serif;font-size:42px;color:var(--gold);letter-spacing:2px;margin-bottom:16px; }
-        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:60px; }
-        h2 { font-family:'Cinzel',serif;font-size:28px;color:var(--text);margin:60px 0 24px;padding-bottom:16px;border-bottom:1px solid var(--border); }
-        .faq { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;padding:28px;margin:20px 0; }
-        .faq-q { font-size:18px;font-weight:600;color:var(--gold);margin-bottom:12px; }
-        .faq-a { font-size:15px;line-height:1.7;color:var(--text-dim); }
-        .alert { background:rgba(255,107,107,0.08);border-left:4px solid var(--red);padding:20px 24px;margin:16px 0;border-radius:4px; }
-        .success { background:rgba(76,175,80,0.08);border-left:4px solid var(--green);padding:20px 24px;margin:24px 0;border-radius:4px; }
-        code { background:rgba(20,20,16,0.9);padding:3px 10px;border-radius:4px;font-family:'Courier New',monospace;font-size:13px;color:#f4d03f; }
-        ul { margin:16px 0;padding-left:24px; }
-        li { margin:8px 0;font-size:15px; }
+        /* ═══ Troubleshooting — page-specific layout only (tokens & components: /assets/css/site.css) ═══ */
+
+        /* Q/A answers are translated spans, one block each (the glyph-led questions are site.css .faq-q) */
+        .faq-a > span { display: block; }
+
+        /* Support — a gilded "write to us" panel: glyph well + title, the checklist, then the site.css contact chips */
+        .support-box {
+            position: relative; margin: 26px 0 0; padding: clamp(22px, 4vw, 34px); border-radius: 18px; border: 1px solid transparent;
+            background: radial-gradient(90% 80% at 50% 0%, rgba(212,175,55,.1), transparent 70%) padding-box, var(--surface-raised) padding-box, var(--gilt-edge) border-box;
+            box-shadow: var(--shadow-md);
+        }
+        .support-head { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+        .support-title { min-width: 0; font-family: var(--font-display); font-size: var(--fs-xl); font-weight: 700; line-height: 1.3; letter-spacing: .01em; }
+        .article .support-box .support-text { margin-bottom: 24px; }
+        @media (max-width: 480px) { .support-box { padding: 22px 16px; } }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
@@ -86,18 +84,33 @@
     <script>window.__PRERENDERED_LANG__="pt";</script>
 </head>
 <body>
-    <div class="container">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:12px;">
-            <a href="/pt/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← Voltar à documentação</a>
-            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-                <a href="/pt/" style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:7px 16px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.color='var(--text-dim)';this.style.borderColor='var(--border)'" data-i18n="docsNav.mainSite">⌂ Site principal</a>
+    <!-- Gold line glyphs (shared library, DESIGN-SYSTEM §6a) — referenced with <use href="#g-…"> -->
+    <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-wrench" viewBox="0 0 24 24"><path d="M15.6 3.4a5 5 0 0 0-4.8 6.6L3.9 16.9a2 2 0 0 0 2.8 2.8l6.9-6.9a5 5 0 0 0 6.6-4.8l-3.3 1.6-2.7-1.4-.4-3z"/></symbol>
+        <symbol id="g-fault" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path fill="none" d="M9.3 9.3l5.4 5.4M14.7 9.3l-5.4 5.4"/></symbol>
+        <symbol id="g-bulb" viewBox="0 0 24 24"><path d="M9.3 16.6v-1.2c0-1.1-.5-1.9-1.3-2.7a6 6 0 1 1 8 0c-.8.8-1.3 1.6-1.3 2.7v1.2z"/><path fill="none" d="M9.6 19.2h4.8M10.6 21.6h2.8M10.4 11.6l1.6 1.4 1.6-1.4M12 13v3.6"/></symbol>
+        <symbol id="g-question" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path fill="none" d="M9.6 9.7a2.5 2.5 0 0 1 4.9.5c0 1.7-2.5 2.1-2.5 3.8"/><circle cx="12" cy="16.9" r=".35"/></symbol>
+        <symbol id="g-chat" viewBox="0 0 24 24"><path d="M20 11.3c0 4.1-3.6 7.4-8 7.4-1.2 0-2.3-.2-3.3-.6L4 19.6l1.4-3.8C4.5 14.5 4 13 4 11.3 4 7.2 7.6 3.9 12 3.9s8 3.3 8 7.4z"/><path d="M8.5 10h7M8.5 13.2h4.5"/></symbol>
+        <symbol id="g-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.2"/><path fill="none" d="M4.2 7.4l7.8 5.8 7.8-5.8"/></symbol>
+    </svg>
+
+    <!-- ═══ Header ═══ -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="/pt/" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+                <span class="brand__word">Reborn</span>
+            </a>
+            <div class="header-actions">
+                <a href="/pt/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← Voltar à documentação</a>
+                <a href="/pt/" class="hdr-btn hdr-home" data-i18n="docsNav.mainSite">⌂ Site principal</a>
                 <div class="lang-select">
-                    <button class="lang-select-btn" onclick="toggleLangMenu()">
+                    <button class="lang-select-btn" type="button" aria-expanded="false" aria-controls="lang-menu" onclick="toggleLangMenu()">
                         <span class="lang-flag">🇧🇷</span>
                         <span class="lang-code">PT</span>
-                        <span class="lang-chevron">▾</span>
+                        <span class="lang-chevron" aria-hidden="true">▾</span>
                     </button>
-                    <div class="lang-select-menu">
+                    <div class="lang-select-menu" id="lang-menu">
                         <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
                         <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
                         <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
@@ -117,100 +130,123 @@
                 </div>
             </div>
         </div>
+    </header>
 
-        <h1 data-i18n="docTroubleshooting.h1">🔧 Solução de problemas</h1>
-        <p class="subtitle" data-i18n="docTroubleshooting.subtitle">Soluções para problemas comuns e perguntas frequentes</p>
+    <main class="container article">
+        <header class="article-head">
+            <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-wrench"/></svg></div>
+            <h1 class="emoji-lead" data-i18n="docTroubleshooting.h1">🔧 Solução de problemas</h1>
+            <p class="subtitle" data-i18n="docTroubleshooting.subtitle">Soluções para problemas comuns e perguntas frequentes</p>
+            <div class="ornament" aria-hidden="true"></div>
+        </header>
 
         <h2 data-i18n="docTroubleshooting.installH2">Problemas de instalação</h2>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq1Q">❌ A extensão não aparece na barra de ferramentas</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq1Q">❌ A extensão não aparece na barra de ferramentas</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq1A"><strong>Soluções:</strong><br>1. Verifique se a extensão está instalada pela <strong>Chrome Web Store</strong><br>2. Fixe a extensão: clique no ícone de quebra-cabeça 🧩 na barra de ferramentas e fixe o Reborn Assistant<br>3. Reinicie seu navegador<br>4. Se o problema persistir, desinstale e reinstale a extensão pela Chrome Web Store</div>
         </div>
 
         <h2 data-i18n="docTroubleshooting.connH2">Problemas de conexão</h2>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq2Q">❌ "Conexão falhou" ou "Licença inválida"</div>
+            <h3 class="faq-q"><svg class="inline-gl inline-gl--off" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-keep" data-i18n="docTroubleshooting.faq2Q">❌ "Conexão falhou" ou "Licença inválida"</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq2A"><strong>Possíveis causas:</strong><br>• Conexão de internet ruim<br>• Servidores do Google Cloud temporariamente indisponíveis<br>• Licença expirada ou revogada<br><br><strong>Soluções:</strong><br>1. Verifique sua conexão com a internet<br>2. Saia e faça login novamente com o Google<br>3. Verifique o status da sua licença no portal Stripe<br>4. Entre em contato com o suporte se o problema persistir</div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq3Q">❌ O painel mostra "FREE" mesmo tendo Premium</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq3Q">❌ O painel mostra "FREE" mesmo tendo Premium</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq3A">1. Saia da sua conta Google<br>2. Feche completamente o navegador<br>3. Reabra e faça login novamente<br>4. Se o problema persistir, verifique se está conectado com a conta Google correta (a usada na compra)</div>
         </div>
 
         <h2 data-i18n="docTroubleshooting.funcH2">Problemas de funcionamento</h2>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq4Q">❌ As ações tipo 1/2 não são ativadas</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq4Q">❌ As ações tipo 1/2 não são ativadas</span></h3>
             <div class="faq-a">
-                <div class="alert" data-i18n="docTroubleshooting.faq4Alert"><strong>⚠️ IMPORTANTE</strong><br>As ações tipo 1 e 2 são funções <strong>EXCLUSIVAMENTE PREMIUM</strong>. Apenas a ação automática tipo 1 (HP) está disponível na versão gratuita.</div>
+                <div class="alert callout--gl" data-i18n="docTroubleshooting.faq4Alert"><strong>⚠️ IMPORTANTE</strong><br>As ações tipo 1 e 2 são funções <strong>EXCLUSIVAMENTE PREMIUM</strong>. Apenas a ação automática tipo 1 (HP) está disponível na versão gratuita.</div>
                 <span data-i18n="docTroubleshooting.faq4Prem"><strong>Se você tem Premium:</strong><br>1. A automação está ativa? <code>CTRL+A</code><br>2. Os toggles de disparo estão ativados? (indicador verde «ON»)<br>3. As teclas configuradas estão corretas?</span>
             </div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq5Q">❌ As sequências / macros / macro periódica / atalhos não funcionam</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq5Q">❌ As sequências / macros / macro periódica / atalhos não funcionam</span></h3>
             <div class="faq-a">
-                <div class="alert" data-i18n="docTroubleshooting.faq5Alert"><strong>⚠️ IMPORTANTE</strong><br>Os atalhos de teclado, sequências, macros e macro periódica são funções <strong>EXCLUSIVAMENTE PREMIUM</strong>. Na versão gratuita, apenas a ação automática tipo 1 (HP) está disponível.</div>
+                <div class="alert callout--gl" data-i18n="docTroubleshooting.faq5Alert"><strong>⚠️ IMPORTANTE</strong><br>Os atalhos de teclado, sequências, macros e macro periódica são funções <strong>EXCLUSIVAMENTE PREMIUM</strong>. Na versão gratuita, apenas a ação automática tipo 1 (HP) está disponível.</div>
                 <span data-i18n="docTroubleshooting.faq5Prem"><strong>Se você tem Premium:</strong><br>1. Verifique se sua licença Premium está ativa (ícone 💎 no painel)<br>2. Os interruptores correspondentes estão ligados?<br>3. Verifique os intervalos e atrasos configurados</span>
             </div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq6Q">❌ A automação para sozinha</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq6Q">❌ A automação para sozinha</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq6A"><strong>Causas possíveis:</strong><br>• Conexão perdida com Google Cloud<br>• Detecção de DevTools<br>• A URL da página mudou<br><br><strong>Soluções:</strong><br>1. Reinicie a automação com <code>CTRL+A</code> (Premium) ou pelo painel<br>2. Recarregue a página afetada<br>3. Verifique sua conexão à internet<br>4. Não abra DevTools se estiver no Premium</div>
         </div>
 
         <h2 data-i18n="docTroubleshooting.optH2">Otimização & Desempenho</h2>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq7Q">💡 A extensão consome muitos recursos</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-bulb"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq7Q">💡 A extensão consome muitos recursos</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq7A"><strong>Recomendações:</strong><br>• Aumente os intervalos de macros e sequências (menos ações = menos CPU)<br>• Desative os sistemas que não precisa<br>• Feche abas desnecessárias<br>• Use um navegador otimizado (Brave, Edge são mais leves que o Chrome)</div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq8Q">💡 Como otimizar a configuração?</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-bulb"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq8Q">💡 Como otimizar a configuração?</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq8A"><strong>Configuração recomendada:</strong><br>• <strong>Intervalo sequências:</strong> 5-25 minutos (conforme duração das suas sequências)<br>• <strong>Atraso entre teclas:</strong> 1-2 segundos (evita erros)<br>• <strong>Macros:</strong> Intervalos de 10-30s conforme o uso</div>
         </div>
 
         <h2 data-i18n="docTroubleshooting.genH2">Perguntas Frequentes</h2>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq9Q">❓ Posso usar o Reborn em vários navegadores?</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq9Q">❓ Posso usar o Reborn em vários navegadores?</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq9A">Sim, mas você deve instalar a extensão em cada navegador. Sua licença Premium funciona em todos os seus dispositivos enquanto você fizer login com a mesma conta Google (máx. 1 conexão simultânea).</div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq10Q">❓ Meus dados são salvos?</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq10Q">❓ Meus dados são salvos?</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq10A">Todas as suas configurações (teclas, macros, tema, idioma) são salvas <strong>localmente</strong> no navegador. Persistem entre sessões. No entanto, se você desinstalar a extensão, perderá esses dados.</div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq11Q">❓ O Reborn pode causar um banimento?</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq11Q">❓ O Reborn pode causar um banimento?</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq11A">O uso de ferramentas de automação pode violar os Termos de Serviço de alguns serviços. <strong>Você é o único responsável</strong> pela forma como usa o Reborn. Consulte os termos de uso do serviço antes de usar esta ferramenta.</div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq12Q">❓ Como cancelar minha assinatura Premium?</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq12Q">❓ Como cancelar minha assinatura Premium?</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq12A">Você pode cancelar a qualquer momento pelo seu portal de gerenciamento Stripe (link recebido por e-mail após o pagamento). O cancelamento tem efeito no final do seu período atual. Sem taxas de cancelamento.</div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq13Q">❓ O que acontece com o plano Vitalício se o serviço encerrar?</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq13Q">❓ O que acontece com o plano Vitalício se o serviço encerrar?</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq13A">O plano Vitalício garante o acesso enquanto o serviço estiver ativo. Uma vez instalada, a extensão funciona localmente; apenas a verificação de licença requer conexão com a internet.</div>
         </div>
 
         <h2 data-i18n="docTroubleshooting.supportH2">Precisa de mais ajuda?</h2>
-        <div class="success">
-            <strong data-i18n="docTroubleshooting.supportTitle">📧 Suporte</strong><br>
-            <span data-i18n="docTroubleshooting.supportText">Se o seu problema persistir, entre em contato com o suporte diretamente por e-mail. Inclua na sua mensagem:<br><br>• Uma descrição detalhada do problema<br>• Os passos que você já tentou<br>• Capturas de tela, se relevantes<br>• Seu navegador e sistema operacional</span>
-            <br><br>
-            <a href="mailto:seymoon@constellation-89.fr" style="color:var(--gold);">📧 seymoon@constellation-89.fr</a><br>
-            <span style="color:var(--gold);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:4px;"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.053a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>Discord : Seymoon</span>
+        <div class="support-box">
+            <div class="support-head">
+                <span class="skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-chat"/></svg></span>
+                <strong class="support-title emoji-lead" data-i18n="docTroubleshooting.supportTitle">📧 Suporte</strong>
+            </div>
+            <p class="support-text" data-i18n="docTroubleshooting.supportText">Se o seu problema persistir, entre em contato com o suporte diretamente por e-mail. Inclua na sua mensagem:<br><br>• Uma descrição detalhada do problema<br>• Os passos que você já tentou<br>• Capturas de tela, se relevantes<br>• Seu navegador e sistema operacional</p>
+            <div class="contact-links">
+                <a href="mailto:seymoon@constellation-89.fr" class="contact-chip" style="color:var(--gold);"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-mail"/></svg><span class="emoji-lead">📧 seymoon@constellation-89.fr</span></a>
+                <span class="contact-chip" style="color:var(--gold);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.053a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg><span>Discord : Seymoon</span></span>
+            </div>
         </div>
-    </div>
+    </main>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="site-footer site-footer--compact">
+        <div class="container footer-content">
+            <a class="brand" href="/pt/" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+            </a>
+            <div class="footer-logo">REBORN ASSISTANT</div>
+            <div class="ornament" aria-hidden="true"></div>
+            <div class="copyright"><span data-i18n="docsNav.footer">© 2026 Reborn Assistant — Desenvolvido por Seymoon · Todos os direitos reservados</span></div>
+        </div>
+    </footer>
+
     <script type="module" src="/langs/index.js"></script>
 </body>
 </html>

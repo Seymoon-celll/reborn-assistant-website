@@ -31,196 +31,87 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Marcellus&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css?v=4">
     <style>
-        :root {
-            --gold: #d4af37;
-            --gold-light: #f4d03f;
-            --gold-dark: #b8941f;
-            --dark-bg: #080808;
-            --dark-card: #141410;
-            --green: #4CAF50;
-            --text: #f0ead6;
-            --text-dim: #9a9278;
-            --border: rgba(212, 175, 55, 0.2);
-        }
+        /* ═══ Docs hub — page-specific layout (tokens & components: /assets/css/site.css) ═══ */
+        body { counter-reset: chapter; }
+        .docs-hub { padding-block: clamp(36px, 5vw, 64px) clamp(56px, 7vw, 96px); }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px;
-        }
-
-        body::before {
-            content: '';
-            position: fixed; inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-            pointer-events: none; opacity: 0.3;
-        }
-
-        .container {
-            max-width: 1200px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
+        /* Title page of the codex */
+        .docs-hero { text-align: center; margin-bottom: clamp(36px, 5vw, 56px); }
+        .docs-sigil { position: relative; display: grid; place-items: center; width: 176px; height: 176px; margin: 0 auto 22px; }
+        .docs-sigil svg { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--gold); opacity: .75; }
+        @media (forced-colors: active) { .docs-sigil svg { color: inherit; } }    /* the rune ring takes the system text colour, not gold on a light Canvas */
+        .docs-sigil::before { content: ''; position: absolute; inset: 18%; border-radius: 50%; background: radial-gradient(circle, rgba(212,175,55,.22), transparent 70%); }
         .logo {
-            width: 80px; height: 80px;
-            background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Cinzel', serif;
-            font-size: 40px;
-            font-weight: 900;
-            color: #000;
-            border-radius: 12px;
-            box-shadow: 0 0 40px rgba(212,175,55,0.4);
-            margin-bottom: 20px;
+            position: relative; display: grid; place-items: center; width: 72px; height: 72px;
+            font-family: 'Cinzel', serif; font-size: 36px; font-weight: 900; line-height: 1; color: var(--on-gold);
+            background: var(--gilt); border-radius: 18px;
+            box-shadow: inset 0 0 0 1px rgba(255,248,220,.55), inset 0 -10px 18px rgba(125,100,32,.45), 0 0 0 1px rgba(0,0,0,.65), 0 14px 40px -12px rgba(212,175,55,.7);
         }
-
-        h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 36px;
-            color: var(--gold);
-            letter-spacing: 3px;
-            margin-bottom: 12px;
+        .logo::after { content: ''; position: absolute; inset: 6px; border-radius: 13px; border: 1px solid rgba(46,34,8,.32); }
+        .docs-hero h1 {
+            margin-bottom: 14px; padding-inline-start: .16em;
+            font-family: var(--font-display); font-size: clamp(28px, 3.4vw + 12px, 50px); font-weight: 700; line-height: 1.15; letter-spacing: .16em;
+            background: var(--gilt-text) 0 0 / 100% 1.15em repeat-y; background-origin: content-box; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
         }
+        .version { font-size: calc(var(--fs-label) + 1px); font-weight: 600; line-height: 1.6; letter-spacing: var(--track-lg); text-transform: uppercase; color: var(--text-dim); }
+        .docs-hero .ornament { margin-top: 26px; }
 
-        .version {
-            font-size: 14px;
-            color: var(--text-dim);
-            letter-spacing: 2px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-        }
-
-        .card {
-            background: rgba(20,20,16,0.6);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 32px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-        }
-
-        .card:hover {
-            border-color: var(--gold);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(212,175,55,0.2);
-        }
-
-        .card-icon { font-size: 32px; margin-bottom: 16px; }
-
-        .card-title {
-            font-family: 'Cinzel', serif;
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--gold);
-            margin-bottom: 12px;
-            letter-spacing: 1px;
-        }
-
-        .card-desc {
-            font-size: 14px;
-            line-height: 1.6;
-            color: var(--text-dim);
-        }
-
-        .premium-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
-            color: #000;
-            font-size: 10px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 12px;
-            letter-spacing: 1px;
-            margin-left: 8px;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid var(--border);
-            font-size: 12px;
-            color: var(--text-dim);
-        }
-
-        body::after {
-            content: '';
-            position: fixed;
-            top: -20%; left: 50%; transform: translateX(-50%);
-            width: 900px; height: 600px;
-            background: radial-gradient(ellipse, rgba(212,175,55,0.05) 0%, transparent 70%);
-            pointer-events: none; z-index: 0;
-        }
-
-        .logo { animation: logoGlow 3s ease-in-out infinite; }
-        @keyframes logoGlow {
-            0%, 100% { box-shadow: 0 0 40px rgba(212,175,55,0.4); }
-            50% { box-shadow: 0 0 60px rgba(212,175,55,0.6), 0 0 100px rgba(212,175,55,0.2); }
-        }
-
-        .card { position: relative; overflow: hidden; }
-        .card::before {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 20%; right: 20%; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .card:hover::before { opacity: 0.5; }
-
+        /* Chapters (auto-numbered in roman numerals) */
+        .codex-chapter { counter-increment: chapter; margin-top: clamp(34px, 4.5vw, 52px); }
         .doc-category {
-            font-family: 'Inter', sans-serif;
-            font-size: 9px;
-            font-weight: 600;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--gold);
-            opacity: 0.5;
-            text-align: center;
-            margin: 40px 0 20px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
+            display: flex; align-items: center; gap: 16px; margin-bottom: 20px;
+            font-family: var(--font-display); font-size: 14px; font-weight: 700; line-height: 1.35;
+            letter-spacing: var(--track-md); text-transform: uppercase; color: var(--gold-200);
         }
-        .doc-category::before, .doc-category::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: rgba(212,175,55,0.2);
+        .doc-category::before {
+            content: counter(chapter, upper-roman); flex-shrink: 0; display: grid; place-items: center;
+            min-width: 38px; height: 38px; padding: 0 8px; border-radius: 10px;
+            font-family: 'Cinzel', serif; font-size: 13px; font-weight: 900; letter-spacing: .04em; color: var(--on-gold);
+            background: var(--gilt); box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 8px 20px -10px rgba(212,175,55,.8);
         }
-        .grid-section { margin-bottom: 8px; }
+        .doc-category::after { content: ''; flex: 1; min-width: 0; height: 1px; background: linear-gradient(var(--to-end), var(--line-3), transparent); }
 
-        .top-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            gap: 12px;
+        /* Entry cards (site.css .entry-card: frame, chevron, hover) — title above its description, well spanning both */
+        .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+        .card { min-height: 112px; }
+        .card-icon { grid-row: 1 / span 2; }
+        .card-title { grid-column: 2; align-self: end; margin-bottom: 4px; font-family: var(--font-display); font-size: 17px; font-weight: 700; line-height: 1.35; color: var(--gold-200); }
+        .card-desc { grid-column: 2; align-self: start; font-size: 14px; line-height: 1.6; color: var(--text-dim); }
+        .card::after { grid-column: 3; grid-row: 1 / span 2; }
+        .card-title .premium-badge { margin-inline-start: 8px; vertical-align: 2px; }
+        .codex-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
+        .codex-row .grid { grid-template-columns: minmax(0, 1fr); grid-auto-rows: 1fr; }
+        .codex-row > .codex-chapter { display: grid; grid-template-rows: auto 1fr; }   /* side-by-side cards end on one line */
+
+        /* One column until two cards can each hold the longest translated title (nl "Probleemoplossing") */
+        @media (max-width: 900px) {
+            .grid, .codex-row { grid-template-columns: minmax(0, 1fr); }
+        }
+        @media (max-width: 760px) { .card { min-height: 0; } }
+        @media (max-width: 760px) and (min-width: 401px) { .card .skill-slot { width: 52px; height: 52px; } }
+        @media (max-width: 400px) { .card-title { font-size: 15.5px; } }   /* site.css drops the chevron and shrinks the well */
+        @media (prefers-reduced-motion: no-preference) {
+            .docs-sigil svg { animation: spin 240s linear infinite; will-change: transform; }
+        }
+        /* Phones: the crest becomes a compact horizontal title block (≈ 100px) so the first entry card shows early */
+        @media (max-width: 640px) {
+            .docs-hub { padding-top: 24px; }
+            .docs-hero {
+                display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; align-items: center;
+                margin-bottom: 8px; text-align: start;
+            }
+            .docs-sigil { grid-row: 1 / span 2; width: 88px; height: 88px; margin: 0; }
+            .docs-sigil svg { opacity: .6; }
+            .logo { width: 42px; height: 42px; font-size: 21px; border-radius: 11px; }
+            .logo::after { inset: 4px; border-radius: 8px; }
+            .docs-hero h1 { align-self: end; margin-bottom: 4px; padding-inline-start: 0; font-size: clamp(19px, 5.6vw, 24px); letter-spacing: .08em; line-height: 1.2; background-size: 100% 1.2em; }
+            .version { align-self: start; font-size: 10.5px; letter-spacing: .12em; line-height: 1.5; }
+            .docs-hero .ornament { display: none; }
+            .codex-chapter:first-of-type { margin-top: 22px; }
+            .doc-category { gap: 12px; font-size: 12.5px; letter-spacing: .08em; overflow-wrap: anywhere; }
         }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -257,114 +148,191 @@
     <script>window.__PRERENDERED_LANG__="pl";</script>
 </head>
 <body>
-    <div class="container">
-        <div class="top-bar">
-            <a href="/pl/" style="display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.color='var(--text-dim)';this.style.borderColor='var(--border)'" data-i18n="docsNav.backToMainSite">← Powrót do strony głównej</a>
-            <div class="lang-select">
-                <button class="lang-select-btn" onclick="toggleLangMenu()">
-                    <span class="lang-flag">🇵🇱</span>
-                    <span class="lang-code">PL</span>
-                    <span class="lang-chevron">▾</span>
-                </button>
-                <div class="lang-select-menu">
-                    <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
-                    <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
-                    <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
-                    <button class="lang-option" data-lang="de" onclick="setLang('de')">🇩🇪 Deutsch</button>
-                    <button class="lang-option" data-lang="pt" onclick="setLang('pt')">🇧🇷 Português</button>
-                    <button class="lang-option" data-lang="it" onclick="setLang('it')">🇮🇹 Italiano</button>
-                    <button class="lang-option" data-lang="nl" onclick="setLang('nl')">🇳🇱 Nederlands</button>
-                    <button class="lang-option" data-lang="pl" onclick="setLang('pl')">🇵🇱 Polski</button>
-                    <button class="lang-option" data-lang="ru" onclick="setLang('ru')">🇷🇺 Русский</button>
-                    <button class="lang-option" data-lang="tr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
-                    <button class="lang-option" data-lang="ja" onclick="setLang('ja')">🇯🇵 日本語</button>
-                    <button class="lang-option" data-lang="ko" onclick="setLang('ko')">🇰🇷 한국어</button>
-                    <button class="lang-option" data-lang="tl" onclick="setLang('tl')">🇵🇭 Filipino</button>
-                    <button class="lang-option" data-lang="zh" onclick="setLang('zh')">🇨🇳 中文</button>
-                    <button class="lang-option" data-lang="ar" onclick="setLang('ar')">🇸🇦 العربية</button>
+    <!-- Gold line glyphs for the skill slots — referenced with <use href="#g-…"> -->
+    <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-rocket" viewBox="0 0 24 24"><path d="M12 2.8c3 2 4.5 5.5 4.1 9.8l-1.9 3.4H9.8l-1.9-3.4C7.5 8.3 9 4.8 12 2.8z"/><circle cx="12" cy="9" r="1.8"/><path d="M7.9 12.6L5 15.8l3.6.6M16.1 12.6l2.9 3.2-3.6.6M10.4 18.7l1.6 2.7 1.6-2.7"/></symbol>
+        <symbol id="g-bolt" viewBox="0 0 24 24"><path d="M13 2.5L5 13.5h6l-1 8 8-11h-6l1-8z"/></symbol>
+        <symbol id="g-gem" viewBox="0 0 24 24"><path d="M6.8 4.5h10.4L21 9.4 12 20.5 3 9.4z"/><path fill="none" d="M3 9.4h18M9.8 4.5L8.4 9.4 12 20.5l3.6-11.1-1.4-4.9"/></symbol>
+        <symbol id="g-palette" viewBox="0 0 24 24"><path d="M12 3.2a8.8 8.8 0 1 0 0 17.6c1.1 0 1.8-.8 1.8-1.7 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-.9.8-1.7 1.7-1.7h2a4.3 4.3 0 0 0 4.3-4.3c0-4.3-3.9-7.5-8.8-7.5z"/><circle cx="7.5" cy="11.5" r="1.1"/><circle cx="10.2" cy="7.4" r="1.1"/><circle cx="14.8" cy="7.6" r="1.1"/></symbol>
+        <symbol id="g-gear" viewBox="0 0 24 24"><path d="M9.9 5.2l.3-2.3h3.6l.3 2.3 1.2.5 1.8-1.5 2.6 2.6-1.5 1.8.5 1.2 2.3.3v3.7l-2.3.2-.5 1.2 1.5 1.8-2.6 2.6-1.8-1.5-1.2.5-.3 2.3h-3.6l-.3-2.3-1.2-.5-1.8 1.5-2.6-2.6 1.5-1.8-.5-1.2-2.3-.3v-3.6l2.3-.3.5-1.2-1.5-1.8 2.6-2.6 1.8 1.5z"/><circle cx="12" cy="12" r="3"/></symbol>
+        <symbol id="g-trophy" viewBox="0 0 24 24"><path d="M7.5 3.5h9v5.2a4.5 4.5 0 0 1-9 0z"/><path fill="none" d="M7.5 5.5H5a2.6 2.6 0 0 0 2.9 4.4M16.5 5.5H19a2.6 2.6 0 0 1-2.9 4.4M12 13.2v3.6M8.5 20.5h7"/><path d="M9.8 20.5l.6-3.7h3.2l.6 3.7"/></symbol>
+        <symbol id="g-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4.5M12 17.5V22M2 12h4.5M17.5 12H22"/><circle cx="12" cy="12" r=".4"/></symbol>
+        <symbol id="g-keyboard" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2.2"/><path d="M6 9.6h1.2M9.4 9.6h1.2M12.8 9.6h1.2M16.2 9.6h1.8M6 12.4h1.8M10 12.4h1.2M13.4 12.4h1.2M16.8 12.4h1.2M8 15h8"/></symbol>
+        <symbol id="g-wrench" viewBox="0 0 24 24"><path d="M15.6 3.4a5 5 0 0 0-4.8 6.6L3.9 16.9a2 2 0 0 0 2.8 2.8l6.9-6.9a5 5 0 0 0 6.6-4.8l-3.3 1.6-2.7-1.4-.4-3z"/></symbol>
+        <symbol id="g-scales" viewBox="0 0 24 24"><path fill="none" d="M12 4v16M8.5 20h7M5 7h14"/><circle cx="12" cy="4" r=".9"/><path d="M5 7l-2.6 6.2a2.6 2.6 0 0 0 5.2 0zM19 7l-2.6 6.2a2.6 2.6 0 0 0 5.2 0z"/></symbol>
+    </svg>
+
+    <!-- ═══ Header ═══ -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="/pl/" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+                <span class="brand__word">Reborn</span>
+            </a>
+            <div class="header-actions">
+                <a href="/pl/" class="back-link" data-i18n="docsNav.backToMainSite">← Powrót do strony głównej</a>
+                <div class="lang-select">
+                    <button class="lang-select-btn" type="button" aria-expanded="false" aria-controls="lang-menu" onclick="toggleLangMenu()">
+                        <span class="lang-flag">🇵🇱</span>
+                        <span class="lang-code">PL</span>
+                        <span class="lang-chevron" aria-hidden="true">▾</span>
+                    </button>
+                    <div class="lang-select-menu" id="lang-menu">
+                        <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
+                        <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
+                        <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
+                        <button class="lang-option" data-lang="de" onclick="setLang('de')">🇩🇪 Deutsch</button>
+                        <button class="lang-option" data-lang="pt" onclick="setLang('pt')">🇧🇷 Português</button>
+                        <button class="lang-option" data-lang="it" onclick="setLang('it')">🇮🇹 Italiano</button>
+                        <button class="lang-option" data-lang="nl" onclick="setLang('nl')">🇳🇱 Nederlands</button>
+                        <button class="lang-option" data-lang="pl" onclick="setLang('pl')">🇵🇱 Polski</button>
+                        <button class="lang-option" data-lang="ru" onclick="setLang('ru')">🇷🇺 Русский</button>
+                        <button class="lang-option" data-lang="tr" onclick="setLang('tr')">🇹🇷 Türkçe</button>
+                        <button class="lang-option" data-lang="ja" onclick="setLang('ja')">🇯🇵 日本語</button>
+                        <button class="lang-option" data-lang="ko" onclick="setLang('ko')">🇰🇷 한국어</button>
+                        <button class="lang-option" data-lang="tl" onclick="setLang('tl')">🇵🇭 Filipino</button>
+                        <button class="lang-option" data-lang="zh" onclick="setLang('zh')">🇨🇳 中文</button>
+                        <button class="lang-option" data-lang="ar" onclick="setLang('ar')">🇸🇦 العربية</button>
+                    </div>
                 </div>
             </div>
         </div>
+    </header>
 
-        <div class="header">
-            <div class="logo">R</div>
+    <main class="container docs-hub">
+        <!-- Title page -->
+        <div class="docs-hero">
+            <div class="docs-sigil" aria-hidden="true">
+                <svg viewBox="-300 -300 600 600" fill="none" stroke="currentColor" focusable="false">
+                    <defs>
+                        <path id="rn-a" d="M-3 8V-8M-3-3L4-8M-3 2L4-3"/>
+                        <path id="rn-b" d="M0 8V-8M0-1L-5-8M0-1L5-8"/>
+                        <path id="rn-c" d="M0-8L5-2L0 4L-5-2ZM-1 3L-5 8M1 3L5 8"/>
+                        <path id="rn-d" d="M-3 8V-8L3-4L-3 0L4 8"/>
+                        <path id="rn-e" d="M-4 8V-8L4 0M4 8V-8L-4 0"/>
+                        <path id="rn-f" d="M-3-8L3-3L-3 3L3 8"/>
+                    </defs>
+                    <circle r="292" stroke-width="3" stroke-opacity=".5"/>
+                    <circle r="270" stroke-width="12" stroke-opacity=".3" stroke-dasharray="2 12"/>
+                    <circle r="250" stroke-width="3" stroke-opacity=".45"/>
+                    <circle r="170" stroke-width="3" stroke-opacity=".45"/>
+                    <g stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".85">
+                        <use href="#rn-a" transform="rotate(0) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-d" transform="rotate(30) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-b" transform="rotate(60) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-c" transform="rotate(90) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-e" transform="rotate(120) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-f" transform="rotate(150) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-b" transform="rotate(180) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-a" transform="rotate(210) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-f" transform="rotate(240) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-d" transform="rotate(270) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-c" transform="rotate(300) translate(0 -210) scale(2.4)"/>
+                        <use href="#rn-e" transform="rotate(330) translate(0 -210) scale(2.4)"/>
+                    </g>
+                </svg>
+                <div class="logo">R</div>
+            </div>
             <h1>REBORN ASSISTANT</h1>
             <div class="version" data-i18n="docsHome.version">WERSJA 1.3.3 · PEŁNA DOKUMENTACJA</div>
+            <div class="ornament" aria-hidden="true"></div>
         </div>
 
-        <div class="doc-category" data-i18n="docsHome.userGuide">Przewodnik użytkownika</div>
-        <div class="grid grid-section">
-            <a href="/pl/docs/quickstart.html" class="card">
-                <div class="card-icon">🚀</div>
-                <div class="card-title" data-i18n="docsHome.quickstartTitle">Szybki Start</div>
-                <div class="card-desc" data-i18n="docsHome.quickstartDesc">Instalacja, konfiguracja początkowa i pierwsze kroki z Reborn Assistant.</div>
-            </a>
+        <!-- I. User guide -->
+        <section class="codex-chapter">
+            <h2 class="doc-category" data-i18n="docsHome.userGuide">Przewodnik użytkownika</h2>
+            <div class="grid grid-section">
+                <a href="/pl/docs/quickstart.html" class="card entry-card gild-hover">
+                    <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-rocket"/></svg><span class="slot-src" aria-hidden="true">🚀</span></div>
+                    <h3 class="card-title" data-i18n="docsHome.quickstartTitle">Szybki Start</h3>
+                    <div class="card-desc" data-i18n="docsHome.quickstartDesc">Instalacja, konfiguracja początkowa i pierwsze kroki z Reborn Assistant.</div>
+                </a>
 
-            <a href="/pl/docs/features.html" class="card">
-                <div class="card-icon">⚡</div>
-                <div class="card-title" data-i18n="docsHome.featuresTitle">Funkcjonalności</div>
-                <div class="card-desc" data-i18n="docsHome.featuresDesc">Pełny opis darmowych i Premium funkcji z tabelą porównawczą.</div>
-            </a>
+                <a href="/pl/docs/features.html" class="card entry-card gild-hover">
+                    <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-bolt"/></svg><span class="slot-src" aria-hidden="true">⚡</span></div>
+                    <h3 class="card-title" data-i18n="docsHome.featuresTitle">Funkcjonalności</h3>
+                    <div class="card-desc" data-i18n="docsHome.featuresDesc">Pełny opis darmowych i Premium funkcji z tabelą porównawczą.</div>
+                </a>
 
-            <a href="/pl/docs/premium.html" class="card">
-                <div class="card-icon">💎</div>
-                <div class="card-title"><span data-i18n="docsHome.premiumTitle">Przewodnik Premium</span> <span class="premium-badge">PREMIUM</span></div>
-                <div class="card-desc" data-i18n="docsHome.premiumDesc">Automatyczne sekwencje, konfigurowalne makra i makro okresowe.</div>
-            </a>
+                <a href="/pl/docs/premium.html" class="card entry-card gild-hover">
+                    <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-gem"/></svg><span class="slot-src" aria-hidden="true">💎</span></div>
+                    <h3 class="card-title"><span data-i18n="docsHome.premiumTitle">Przewodnik Premium</span> <span class="premium-badge">PREMIUM</span></h3>
+                    <div class="card-desc" data-i18n="docsHome.premiumDesc">Automatyczne sekwencje, konfigurowalne makra i makro okresowe.</div>
+                </a>
 
-            <a href="/pl/docs/interface.html" class="card">
-                <div class="card-icon">🎨</div>
-                <div class="card-title" data-i18n="docsHome.interfaceTitle">Interfejs & Personalizacja</div>
-                <div class="card-desc" data-i18n="docsHome.interfaceDesc">Motywy wizualne, języki i opcje personalizacji.</div>
-            </a>
+                <a href="/pl/docs/interface.html" class="card entry-card gild-hover">
+                    <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-palette"/></svg><span class="slot-src" aria-hidden="true">🎨</span></div>
+                    <h3 class="card-title" data-i18n="docsHome.interfaceTitle">Interfejs & Personalizacja</h3>
+                    <div class="card-desc" data-i18n="docsHome.interfaceDesc">Motywy wizualne, języki i opcje personalizacji.</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- II. Articles -->
+        <section class="codex-chapter">
+            <h2 class="doc-category" data-i18n="docsHome.articles">Articles &amp; Guides Flyff Universe</h2>
+            <div class="grid grid-section">
+                <a href="/pl/docs/automatyzacja-ringmaster-flyff-universe.html" class="card entry-card gild-hover" data-bonus-fr="/docs/automatiser-ringmaster-flyff-universe.html" data-bonus-en="/en/docs/automate-ringmaster-flyff-universe.html">
+                    <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-gear"/></svg><span class="slot-src" aria-hidden="true">⚙️</span></div>
+                    <h3 class="card-title" data-i18n="docsHome.articleAutomateTitle">Automatiser son Ringmaster</h3>
+                    <div class="card-desc" data-i18n="docsHome.articleAutomateDesc">Tutoriel pas à pas pour automatiser votre Ringmaster sur Flyff Universe avec Reborn Assistant.</div>
+                </a>
+                <a href="/pl/docs/najlepsze-narzedzia-flyff-universe-2026.html" class="card entry-card gild-hover" data-bonus-fr="/docs/meilleurs-outils-flyff-universe-2026.html" data-bonus-en="/en/docs/best-flyff-universe-tools-2026.html">
+                    <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-trophy"/></svg><span class="slot-src" aria-hidden="true">🔧</span></div>
+                    <h3 class="card-title" data-i18n="docsHome.articleToolsTitle">Meilleurs outils Flyff Universe 2026</h3>
+                    <div class="card-desc" data-i18n="docsHome.articleToolsDesc">Comparatif des extensions, traducteurs et calculateurs testés pour Flyff Universe.</div>
+                </a>
+                <a href="/pl/docs/poradnik-ringmaster-flyff-universe.html" class="card entry-card gild-hover" data-bonus-fr="/docs/guide-ringmaster-flyff-universe.html" data-bonus-en="/en/docs/flyff-universe-ringmaster-class-guide.html">
+                    <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-target"/></svg><span class="slot-src" aria-hidden="true">🎯</span></div>
+                    <h3 class="card-title" data-i18n="docsHome.articleGuideTitle">Guide complet du Ringmaster</h3>
+                    <div class="card-desc" data-i18n="docsHome.articleGuideDesc">Rôle, buffs, builds STA/INT, équipement : tout sur la classe support Flyff Universe.</div>
+                </a>
+                <a href="/docs/raccourcis-clavier-flyff-universe.html" class="card entry-card gild-hover" data-bonus-fr="/docs/raccourcis-clavier-flyff-universe.html" data-bonus-en="/en/docs/flyff-universe-keyboard-shortcuts.html">
+                    <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-keyboard"/></svg><span class="slot-src" aria-hidden="true">⌨️</span></div>
+                    <h3 class="card-title" data-i18n="docsHome.articleShortcutsTitle">Raccourcis clavier Flyff Universe</h3>
+                    <div class="card-desc" data-i18n="docsHome.articleShortcutsDesc">Liste complète des raccourcis Flyff Universe et configuration recommandée par classe.</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- III. Support · IV. Legal -->
+        <div class="codex-row">
+            <section class="codex-chapter">
+                <h2 class="doc-category" data-i18n="docsHome.support">Wsparcie</h2>
+                <div class="grid grid-section">
+                    <a href="/pl/docs/troubleshooting.html" class="card entry-card gild-hover">
+                        <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-wrench"/></svg><span class="slot-src" aria-hidden="true">🔧</span></div>
+                        <h3 class="card-title" data-i18n="docsHome.troubleshootingTitle">Rozwiązywanie problemów</h3>
+                        <div class="card-desc" data-i18n="docsHome.troubleshootingDesc">Rozwiązania typowych problemów, często zadawane pytania i optymalizacja wydajności.</div>
+                    </a>
+                </div>
+            </section>
+
+            <section class="codex-chapter">
+                <h2 class="doc-category" data-i18n="docsHome.legal">Informacje prawne</h2>
+                <div class="grid grid-section">
+                    <a href="/pl/docs/privacy.html" class="card entry-card gild-hover">
+                        <div class="card-icon skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-scales"/></svg><span class="slot-src" aria-hidden="true">⚖️🔒</span></div>
+                        <h3 class="card-title" data-i18n="docsHome.legalTitle">Prawne & Prywatność</h3>
+                        <div class="card-desc" data-i18n="docsHome.legalDesc">Zastrzeżenie prawne, wzmianki prawne, warunki licencji, polityka prywatności i dziennik zmian.</div>
+                    </a>
+                </div>
+            </section>
         </div>
+    </main>
 
-        <div class="doc-category" data-i18n="docsHome.articles">Articles &amp; Guides Flyff Universe</div>
-        <div class="grid grid-section">
-            <a href="/pl/docs/automatyzacja-ringmaster-flyff-universe.html" class="card" data-bonus-fr="/docs/automatiser-ringmaster-flyff-universe.html" data-bonus-en="/en/docs/automate-ringmaster-flyff-universe.html">
-                <div class="card-icon">⚙️</div>
-                <div class="card-title" data-i18n="docsHome.articleAutomateTitle">Automatiser son Ringmaster</div>
-                <div class="card-desc" data-i18n="docsHome.articleAutomateDesc">Tutoriel pas à pas pour automatiser votre Ringmaster sur Flyff Universe avec Reborn Assistant.</div>
+    <!-- ═══ Footer ═══ -->
+    <footer class="site-footer site-footer--compact">
+        <div class="container footer-content">
+            <a class="brand" href="/pl/" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
             </a>
-            <a href="/pl/docs/najlepsze-narzedzia-flyff-universe-2026.html" class="card" data-bonus-fr="/docs/meilleurs-outils-flyff-universe-2026.html" data-bonus-en="/en/docs/best-flyff-universe-tools-2026.html">
-                <div class="card-icon">🔧</div>
-                <div class="card-title" data-i18n="docsHome.articleToolsTitle">Meilleurs outils Flyff Universe 2026</div>
-                <div class="card-desc" data-i18n="docsHome.articleToolsDesc">Comparatif des extensions, traducteurs et calculateurs testés pour Flyff Universe.</div>
-            </a>
-            <a href="/pl/docs/poradnik-ringmaster-flyff-universe.html" class="card" data-bonus-fr="/docs/guide-ringmaster-flyff-universe.html" data-bonus-en="/en/docs/flyff-universe-ringmaster-class-guide.html">
-                <div class="card-icon">🎯</div>
-                <div class="card-title" data-i18n="docsHome.articleGuideTitle">Guide complet du Ringmaster</div>
-                <div class="card-desc" data-i18n="docsHome.articleGuideDesc">Rôle, buffs, builds STA/INT, équipement : tout sur la classe support Flyff Universe.</div>
-            </a>
-            <a href="/docs/raccourcis-clavier-flyff-universe.html" class="card" data-bonus-fr="/docs/raccourcis-clavier-flyff-universe.html" data-bonus-en="/en/docs/flyff-universe-keyboard-shortcuts.html">
-                <div class="card-icon">⌨️</div>
-                <div class="card-title" data-i18n="docsHome.articleShortcutsTitle">Raccourcis clavier Flyff Universe</div>
-                <div class="card-desc" data-i18n="docsHome.articleShortcutsDesc">Liste complète des raccourcis Flyff Universe et configuration recommandée par classe.</div>
-            </a>
+            <div class="footer-logo">REBORN ASSISTANT</div>
+            <div class="ornament" aria-hidden="true"></div>
+            <div class="copyright"><span data-i18n="docsHome.footer">© 2026 Reborn Assistant — Opracowany przez Seymoon · Wszelkie prawa zastrzeżone</span></div>
         </div>
+    </footer>
 
-        <div class="doc-category" data-i18n="docsHome.support">Wsparcie</div>
-        <div class="grid grid-section">
-            <a href="/pl/docs/troubleshooting.html" class="card">
-                <div class="card-icon">🔧</div>
-                <div class="card-title" data-i18n="docsHome.troubleshootingTitle">Rozwiązywanie problemów</div>
-                <div class="card-desc" data-i18n="docsHome.troubleshootingDesc">Rozwiązania typowych problemów, często zadawane pytania i optymalizacja wydajności.</div>
-            </a>
-        </div>
-
-        <div class="doc-category" data-i18n="docsHome.legal">Informacje prawne</div>
-        <div class="grid grid-section">
-            <a href="/pl/docs/privacy.html" class="card">
-                <div class="card-icon">⚖️🔒</div>
-                <div class="card-title" data-i18n="docsHome.legalTitle">Prawne & Prywatność</div>
-                <div class="card-desc" data-i18n="docsHome.legalDesc">Zastrzeżenie prawne, wzmianki prawne, warunki licencji, polityka prywatności i dziennik zmian.</div>
-            </a>
-        </div>
-
-        <footer>
-            <span data-i18n="docsHome.footer">© 2026 Reborn Assistant — Opracowany przez Seymoon · Wszelkie prawa zastrzeżone</span>
-        </footer>
-    </div>
     <script type="module" src="/langs/index.js"></script>
 </body>
 </html>

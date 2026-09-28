@@ -32,56 +32,14 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- ── hreflang ────────────────────────────────────────────── -->
     <link rel="alternate" hreflang="fr" href="https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html">
     <link rel="alternate" hreflang="en" href="https://reborn-assistance.fr/en/docs/automate-ringmaster-flyff-universe.html">
     <link rel="alternate" hreflang="x-default" href="https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html">
 
-    <style>
-        :root { --gold:#d4af37;--gold-light:#f4d03f;--gold-dark:#b8941f;--dark-bg:#080808;--green:#4CAF50;--red:#ff6b6b;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
-        * { margin:0;padding:0;box-sizing:border-box; }
-        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.8; }
-        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
-        .container { max-width:880px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
-        .breadcrumb { font-size:12px;color:var(--text-dim);margin-bottom:32px;letter-spacing:1px; }
-        .breadcrumb a { color:var(--gold);text-decoration:none; }
-        .breadcrumb a:hover { text-decoration:underline; }
-        h1 { font-family:'Cinzel',serif;font-size:clamp(32px,5vw,46px);color:var(--gold);letter-spacing:1.5px;line-height:1.1;margin-bottom:20px; }
-        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:56px;line-height:1.6; }
-        h2 { font-family:'Cinzel',serif;font-size:26px;color:var(--text);margin:56px 0 20px;padding-bottom:14px;border-bottom:1px solid var(--border);letter-spacing:0.5px; }
-        h3 { font-size:19px;color:var(--gold);margin:32px 0 14px;font-weight:600; }
-        p { margin-bottom:18px;font-size:15.5px; }
-        ul, ol { margin:14px 0 22px 24px; }
-        li { margin:8px 0;font-size:15.5px; }
-        strong { color:var(--gold); }
-        code { background:rgba(20,20,16,0.9);padding:3px 9px;border-radius:4px;font-family:'Courier New',monospace;font-size:13px;color:var(--gold-light); }
-        .step { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin:24px 0; }
-        .step-number { display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;background:linear-gradient(135deg,var(--gold-dark),var(--gold-light));color:#000;font-weight:700;border-radius:8px;margin-bottom:14px;font-family:'Cinzel',serif; }
-        .step-title { font-size:18px;font-weight:600;color:var(--gold);margin-bottom:10px; }
-        .callout { background:rgba(212,175,55,0.08);border-left:4px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:4px; }
-        .callout strong { color:var(--gold);display:block;margin-bottom:6px; }
-        .warning { background:rgba(255,107,107,0.08);border-left-color:var(--red); }
-        .warning strong { color:var(--red); }
-        .cta-box { background:linear-gradient(160deg,rgba(212,175,55,0.06),rgba(20,20,16,0.6));border:1px solid var(--gold);border-radius:14px;padding:36px;margin:48px 0;text-align:center; }
-        .cta-box h3 { color:var(--gold);font-family:'Cinzel',serif;font-size:22px;margin-bottom:14px; }
-        .btn-cta { display:inline-block;background:linear-gradient(135deg,#2d5016,#4CAF50,#5dd87a);color:#fff;padding:14px 32px;text-decoration:none;font-family:'Cinzel',serif;font-weight:600;letter-spacing:1.5px;border-radius:6px;font-size:13px;text-transform:uppercase;margin-top:8px;box-shadow:0 4px 20px rgba(76,175,80,0.3); }
-        .btn-cta:hover { transform:translateY(-2px);box-shadow:0 8px 30px rgba(76,175,80,0.5); }
-        .back-link { display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;text-decoration:none;transition:all 0.3s; }
-        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
-        .toc { background:rgba(20,20,16,0.5);border:1px solid var(--border);border-radius:10px;padding:24px 32px;margin:32px 0 48px; }
-        .toc-title { font-family:'Cinzel',serif;font-size:13px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:14px; }
-        .toc ol { margin:0;padding-left:20px; }
-        .toc li { margin:6px 0;font-size:14px; }
-        .toc a { color:var(--text);text-decoration:none; }
-        .toc a:hover { color:var(--gold); }
-        .related { display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:48px 0 0; }
-        .related-card { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:10px;padding:20px;text-decoration:none;transition:all 0.3s; }
-        .related-card:hover { border-color:var(--gold);transform:translateY(-2px); }
-        .related-tag { font-family:'Cinzel',serif;font-size:9px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;display:block; }
-        .related-title { color:var(--gold);font-weight:600;font-size:14px;line-height:1.4; }
-    </style>
+    <link rel="stylesheet" href="/assets/css/site.css?v=4">
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="apple-touch-icon" href="../favicon.svg">
 
@@ -140,14 +98,32 @@
     </script>
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="back-link">← Retour aux docs</a>
-        <div class="breadcrumb" style="margin-top:24px;">
-            <a href="../index.html">Accueil</a> › <a href="index.html">Documentation</a> › Automatiser son Ringmaster
+    <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-gear" viewBox="0 0 24 24"><path d="M9.9 5.2l.3-2.3h3.6l.3 2.3 1.2.5 1.8-1.5 2.6 2.6-1.5 1.8.5 1.2 2.3.3v3.7l-2.3.2-.5 1.2 1.5 1.8-2.6 2.6-1.8-1.5-1.2.5-.3 2.3h-3.6l-.3-2.3-1.2-.5-1.8 1.5-2.6-2.6 1.5-1.8-.5-1.2-2.3-.3v-3.6l2.3-.3.5-1.2-1.5-1.8 2.6-2.6 1.8 1.5z"/><circle cx="12" cy="12" r="3"/></symbol>
+    </svg>
+    <!-- ═══ Header ═══ -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="../index.html" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+                <span class="brand__word">Reborn</span>
+            </a>
+            <div class="header-actions">
+                <a href="index.html" class="back-link">← Retour aux docs</a>
+            </div>
         </div>
+    </header>
 
-        <h1>Automatiser son Ringmaster sur Flyff Universe — Guide complet 2026</h1>
-        <p class="subtitle">Buffs, séquences, AOE heal, gestion HP/FP : le tutoriel pas à pas pour transformer votre Ringmaster en pilier de groupe sans y laisser la main.</p>
+    <main class="container article">
+        <header class="article-head">
+            <div class="breadcrumb" style="margin-top:24px;">
+                <a href="../index.html">Accueil</a> › <a href="index.html">Documentation</a> › Automatiser son Ringmaster
+            </div>
+            <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-gear"/></svg></div>
+            <h1>Automatiser son Ringmaster sur Flyff Universe — Guide complet 2026</h1>
+            <p class="subtitle">Buffs, séquences, AOE heal, gestion HP/FP : le tutoriel pas à pas pour transformer votre Ringmaster en pilier de groupe sans y laisser la main.</p>
+            <div class="ornament" aria-hidden="true"></div>
+        </header>
 
         <div class="toc">
             <div class="toc-title">◆ Sommaire</div>
@@ -167,7 +143,7 @@
         <p>Le Ringmaster (souvent abrégé <strong>RM</strong>) est la classe support emblématique de Flyff Universe. Son rôle est clair : maintenir le groupe en vie via des buffs (Heart of Power, Beef Up, Mental Sign…) qui durent entre 5 et 30 minutes selon le niveau, et soigner les dégâts via Heal Rain en AOE. Sur le papier, c'est limpide. En pratique, c'est l'une des classes les plus fatigantes à jouer en farm prolongé : vous passez 80% de votre temps à <strong>rebuff toutes les 5 minutes</strong>, à <strong>relancer Heal Rain toutes les 10-15 secondes</strong> et à <strong>maintenir un œil sur les barres FP</strong> de chaque membre du groupe.</p>
         <p>L'automatisation ne remplace pas votre jugement. Elle décharge votre clavier des routines mécaniques : la séquence de rebuff complète, le heal périodique, l'utilisation des potions FP. Vous gardez les mains libres pour les <strong>moments où ça compte vraiment</strong> : un wipe imminent, un wave qui dérape, un boss qui shoot le RM en premier.</p>
 
-        <div class="callout">
+        <div class="callout callout--gl">
             <strong>💡 Cas d'usage typique</strong>
             Vous lancez un farm de 4 heures sur Glaphan ou Asteria. Sans automatisation : 240 minutes ÷ 5 minutes = 48 cycles de rebuff manuel. Avec Reborn Assistant configuré : 1 cycle, le reste tourne en arrière-plan. Vous reprenez la main uniquement si la composition change ou si un membre meurt.
         </div>
@@ -247,7 +223,7 @@
             <p>Réglez l'intervalle de la section SOIN sur la durée typique de votre Heal Rain (généralement 12 à 15 secondes). Basculez le toggle <strong>ON</strong>. L'extension déclenchera votre touche toutes les X secondes, en parallèle de la rotation de buffs et des autres systèmes.</p>
         </div>
 
-        <div class="callout warning">
+        <div class="callout warning callout--gl">
             <strong>⚠️ Attention au positionnement</strong>
             Heal Rain est une AOE centrée sur vous. Si vous bougez constamment (kite ou repositionnement), Heal Rain ne couvrira pas votre groupe. Restez statique ou définissez un point de rallye fixe pour vos alliés.
         </div>
@@ -307,6 +283,17 @@
                 <span class="related-title">Guide complet des fonctionnalités Premium</span>
             </a>
         </div>
-    </div>
+    </main>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="site-footer site-footer--compact">
+        <div class="container footer-content">
+            <a class="brand" href="../index.html" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+            </a>
+            <div class="footer-logo">REBORN ASSISTANT</div>
+            <div class="ornament" aria-hidden="true"></div>
+        </div>
+    </footer>
 </body>
 </html>

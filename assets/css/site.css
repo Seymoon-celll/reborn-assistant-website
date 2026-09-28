@@ -1,0 +1,1563 @@
+/* © 2026 Reborn Assistant — All rights reserved.
+ * ═══════════════════════════════════════════════════════════════════════════
+ *  Reborn Assistant — shared design system  ·  "Arcane Luxe"
+ *  Linked on every page as /assets/css/site.css?v=N, BEFORE the page's inline
+ *  <style> (which holds page-specific LAYOUT only and wins). Vanilla CSS, no
+ *  build step. Reference: DESIGN-SYSTEM.md. Any pattern used by two pages
+ *  lives here, not in page styles. Bump ?v= on every page when a change here
+ *  is required by new page markup (old cached CSS would mis-render it).
+ *
+ *   1. Tokens (+ glyph masks)  8. Header & navigation
+ *   2. Base / reset            9. Language dropdown (single source of truth)
+ *   3. Atmosphere             10. Section headers
+ *   4. Layout                 11. Footer
+ *   5. Ornaments              12. Article typography — needs .article (crest,
+ *   6. Buttons                    phone title scale, code/keycaps, list markers)
+ *   7. Gilded frames          13. Codex components (tables, callouts, cards,
+ *      & skill slots              steps, toc, entry cards, tool cards…)
+ *                             14. Docs-page components (feature cards, Q/A,
+ *                                 legal, contact chips, 404)
+ *                             15. Utilities & motion
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+
+/* ── 1. Tokens ─────────────────────────────────────────────────────────────── */
+:root {
+    /* Legacy brand names — kept: translation strings use var(--gold) */
+    --gold: #d4af37;
+    --gold-light: #f4d03f;
+    --gold-dark: #b8941f;
+    --dark-bg: #080808;
+    --dark-card: #141410;
+    --dark-header: #1a1810;
+    --green: #4CAF50;
+    --green-dark: #2d5016;
+    --green-glow: rgba(76, 175, 80, 0.4);
+    --red: #ff6b6b;
+    --blue: #5dade2;
+    --text: #f0ead6;
+    --text-dim: #a39b80;
+    --border: rgba(212, 175, 55, 0.2);
+
+    /* Gold ramp (champagne → bronze) */
+    --gold-50: #fbf4dc;
+    --gold-100: #f5e6b8;
+    --gold-200: #ecd58c;
+    --gold-300: #e2c263;
+    --gold-500: #d4af37;
+    --gold-700: #a8862a;
+    --gold-800: #7d6420;
+    --gold-900: #4a3b13;
+
+    /* Ink surfaces (warm blacks) */
+    --ink-0: #050505;
+    --ink-1: #0a0908;
+    --ink-2: #0f0e0b;
+    --ink-3: #15130e;
+    --ink-4: #1c1911;
+    --ink-glass: rgba(8, 8, 8, .68);        /* sticky header */
+    --ink-glass-strong: rgba(8, 8, 8, .88);
+
+    /* Text */
+    --text-strong: #faf5e6;
+    --text-soft: #d8d0b6;          /* long-form reading */
+    --text-lead: #cdc4a8;          /* lead paragraphs & subtitles */
+    --text-faint: #7f7862;         /* decorative only — never body copy */
+    --on-gold: #1a1405;            /* ink on gilt fills */
+    --on-emerald: #fff;
+
+    /* Emerald (conversion colour) */
+    --emerald-300: #8fe0a3;
+    --emerald-400: #72d38c;        /* emerald text on dark */
+    --emerald-500: #43a047;
+    --emerald-600: #2e7d32;
+    --emerald-800: #1b4d20;
+    --red-300: #ffb4a8;
+
+    /* Lines */
+    --line-1: rgba(212, 175, 55, 0.12);
+    --line-2: rgba(212, 175, 55, 0.22);
+    --line-3: rgba(212, 175, 55, 0.42);
+
+    /* Gilt — fills, text and frame edges */
+    --gilt: linear-gradient(135deg, #7d6420 0%, #d4af37 24%, #f5e6b8 46%, #d4af37 64%, #8d7024 100%);
+    --gilt-text: linear-gradient(180deg, #fbf4dc 0%, #ecd58c 32%, #d4af37 60%, #a8862a 100%);
+    --gilt-edge: linear-gradient(160deg, rgba(245,230,184,.72) 0%, rgba(212,175,55,.34) 22%, rgba(212,175,55,.1) 50%, rgba(212,175,55,.3) 78%, rgba(245,230,184,.62) 100%);
+    --gilt-edge-soft: linear-gradient(160deg, rgba(245,230,184,.36) 0%, rgba(212,175,55,.14) 28%, rgba(212,175,55,.06) 55%, rgba(212,175,55,.2) 100%);
+    --gilt-edge-strong: linear-gradient(150deg, #f5e6b8 0%, #d4af37 24%, #6d5719 50%, #d4af37 76%, #f5e6b8 100%);
+    --emerald-edge: linear-gradient(160deg, rgba(143,224,163,.7) 0%, rgba(67,160,71,.32) 28%, rgba(67,160,71,.1) 55%, rgba(212,175,55,.42) 100%);
+    --surface-1: linear-gradient(180deg, #13120d 0%, #0c0b08 100%);
+    --surface-2: linear-gradient(180deg, #1a170f 0%, #0e0d09 100%);
+    --surface-well: linear-gradient(180deg, #13110c 0%, #0b0a08 100%);   /* outline buttons, pills */
+    --surface-raised: linear-gradient(180deg, #17140d 0%, #0b0a08 100%); /* CTA boxes, manage pill */
+    --surface-emerald: linear-gradient(180deg, #0c1a0f 0%, #090b08 100%); /* emerald-tier cards */
+    --surface-slot: linear-gradient(180deg, #1f1b11 0%, #0a0907 100%);   /* skill-slot / keycap wells */
+    --surface-key: linear-gradient(180deg, #25221a 0%, #131209 100%);    /* small keycaps, hotkey tags */
+    --gilt-title: linear-gradient(180deg, #fff6d8 8%, #f1d98e 34%, #d4af37 58%, #a8862a 76%, #e3c56e 96%); /* monumental titles */
+
+    /* Green conversion button — ONE gradient shared by .btn-primary and .btn-cta.
+       Every stop keeps a white label ≥ 4.6:1 (#2f8537 = 4.63:1, darker stops more). */
+    --grad-cta: linear-gradient(180deg, #2f8537 0%, #256b2b 52%, #1b5220 100%);
+    --grad-cta-edge: linear-gradient(180deg, #9fe3ae, #2e7d32 55%, #174a1b);
+    --shadow-cta: inset 0 1px 0 rgba(255,255,255,.2), 0 10px 28px -12px rgba(76,175,80,.7), 0 0 0 1px rgba(0,0,0,.45);
+
+    /* Type */
+    --font-display: 'Cinzel', 'Trajan Pro', Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+    --font-accent: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
+    --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, 'Courier New', monospace;
+    --accent-style: italic;
+    --fs-2xs: 11px;
+    --fs-xs: 12px;
+    --fs-sm: 14px;
+    --fs-base: 16px;
+    --fs-md: 17px;
+    --fs-lg: 19px;
+    --fs-xl: clamp(21px, 1.1vw + 16px, 24px);
+    --fs-2xl: clamp(25px, 1.6vw + 18px, 32px);
+    --fs-3xl: clamp(32px, 3.4vw + 16px, 56px);
+    --fs-hero: clamp(46px, 8.2vw, 118px);
+    --fs-btn: 16px;
+    --lh-tight: 1.1;
+    --lh-snug: 1.3;
+    --lh-body: 1.7;
+    --lh-read: 1.8;
+    --track-xs: .02em;
+    --track-sm: .06em;
+    --track-md: .14em;
+    --track-lg: .24em;
+    --track-xl: .36em;
+    --fs-label: 11px;              /* uppercase micro-labels (eyebrows, ranks, badges) */
+
+    /* Spacing */
+    --sp-1: 4px;
+    --sp-2: 8px;
+    --sp-3: 12px;
+    --sp-4: 16px;
+    --sp-5: 24px;
+    --sp-6: 32px;
+    --sp-7: 48px;
+    --sp-8: 64px;
+    --sp-9: 96px;
+    --sp-10: 128px;
+    --section-y: clamp(64px, 7.5vw, 112px);
+    --gutter: clamp(16px, 4vw, 56px);
+    --container: 1200px;
+    --container-read: 760px;
+    --header-h: 72px;
+    --tap: 40px;                   /* minimum interactive size in the header */
+
+    /* Radii */
+    --r-xs: 4px;
+    --r-sm: 8px;
+    --r-md: 12px;
+    --r-lg: 18px;
+    --r-xl: 24px;
+    --r-pill: 999px;
+
+    /* Elevation */
+    --shadow-sm: 0 2px 8px -2px rgba(0,0,0,.6);
+    --shadow-md: 0 18px 40px -18px rgba(0,0,0,.85), 0 2px 6px -2px rgba(0,0,0,.5);
+    --shadow-lg: 0 40px 90px -30px rgba(0,0,0,.9), 0 8px 24px -12px rgba(0,0,0,.7);
+    --inner-hi: inset 0 1px 0 rgba(245,230,184,.07);
+
+    /* Motion */
+    --ease-out: cubic-bezier(.22, .8, .24, 1);
+    --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+    --dur-1: 140ms;
+    --dur-2: 240ms;
+    --dur-3: 420ms;
+    --dur-4: 800ms;
+
+    /* Writing direction helpers (gradients that must mirror in RTL) */
+    --to-end: to right;
+    --to-start: to left;
+
+    /* Line glyphs as CSS masks — the same drawings as the inline sprite library (DESIGN-SYSTEM §6a), for places
+       where no <svg> may be added (callout titles, §13). Paint = background colour; fill-opacity .16 = faint fill. */
+    --gl-bulb: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' fill-opacity='.16' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9.3 16.6v-1.2c0-1.1-.5-1.9-1.3-2.7a6 6 0 1 1 8 0c-.8.8-1.3 1.6-1.3 2.7v1.2z'/%3E%3Cpath fill='none' d='M9.6 19.2h4.8M10.6 21.6h2.8M10.4 11.6l1.6 1.4 1.6-1.4M12 13v3.6'/%3E%3C/svg%3E");
+    --gl-alert: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' fill-opacity='.16' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.4 4.3a1.85 1.85 0 0 1 3.2 0l7.6 13.4a1.85 1.85 0 0 1-1.6 2.8H4.4a1.85 1.85 0 0 1-1.6-2.8z'/%3E%3Cpath fill='none' d='M12 9.3v4.8'/%3E%3Ccircle cx='12' cy='17.1' r='.4'/%3E%3C/svg%3E");
+    --gl-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' fill-opacity='.16' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='8.5'/%3E%3Cpath fill='none' d='M8.3 12.3l2.6 2.6 4.9-5.1'/%3E%3C/svg%3E");
+    --gl-book: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' fill-opacity='.16' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 6.6C10.2 5.2 7.7 4.5 3.5 4.5v13.2c4.2 0 6.7.7 8.5 2.1 1.8-1.4 4.3-2.1 8.5-2.1V4.5c-4.2 0-6.7.7-8.5 2.1z'/%3E%3Cpath fill='none' d='M12 6.6v13.2'/%3E%3C/svg%3E");
+    --gl-scales: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' fill-opacity='.16' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='none' d='M12 4v16M8.5 20h7M5 7h14'/%3E%3Ccircle cx='12' cy='4' r='.9'/%3E%3Cpath d='M5 7l-2.6 6.2a2.6 2.6 0 0 0 5.2 0zM19 7l-2.6 6.2a2.6 2.6 0 0 0 5.2 0z'/%3E%3C/svg%3E");
+
+    color-scheme: dark;
+}
+:root[dir="rtl"] { --to-end: to left; --to-start: to right; }
+
+/* Scripts without letter-case / with connected letters: no tracking, no faux italics */
+:root:lang(ar) {
+    --track-sm: 0; --track-md: 0; --track-lg: 0; --track-xl: 0; --fs-label: 13px;
+    --font-accent: var(--font-body); --accent-style: normal;
+}
+:root:lang(ja), :root:lang(zh), :root:lang(ko) {
+    --track-md: .04em; --track-lg: .08em; --track-xl: .12em; --fs-label: 12px;
+    --font-accent: var(--font-body); --accent-style: normal;
+}
+:root:lang(ja) { --font-display: 'Cinzel', 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', serif; }
+/* Cinzel has no Cyrillic: Russian letters fall back to Cormorant Garamond (the brand's accent face, loaded with its
+   Cyrillic subset at 500/700) instead of the OS serif; Latin letters and digits stay in Cinzel. */
+:root:lang(ru) { --font-display: 'Cinzel', 'Cormorant Garamond', Georgia, 'Times New Roman', serif; }
+/* Cormorant's lowercase is smaller than Cinzel's small caps: on small display titles, scale the fallback glyphs to
+   Cinzel's x-height (from-font = the primary face's own ratio, so Cinzel/Inter text is unchanged). h1/h2 keep their size. */
+:lang(ru) :is(.article h3, .card-title, .next-card__title, .buff-name, .cta-box h3, .features .feature-title, .sec-card-title,
+    :is(.callout, .alert, .warning-box, .success-box, .success, .example) > :first-child) { font-size-adjust: from-font; }
+/* Table heads too (not below 340px, where the RU features table would start to scroll), and phone h2s, which would
+   otherwise read smaller than the Inter card titles under them. */
+@media (min-width: 340px) { :lang(ru) .article th { font-size-adjust: from-font; } }
+@media (max-width: 480px) { :lang(ru) .article h2:not(.part-title) { font-size-adjust: from-font; } }
+
+
+/* ── 2. Base / reset ──────────────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html {
+    -webkit-text-size-adjust: 100%; text-size-adjust: 100%;
+    scroll-padding-top: calc(var(--header-h) + 16px);   /* anchors land below the sticky header */
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+    min-height: 100vh;
+    font-family: var(--font-body);
+    font-size: var(--fs-base);
+    line-height: var(--lh-body);
+    background-color: var(--dark-bg);
+    color: var(--text);
+    overflow-x: hidden;
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-wrap: break-word;
+}
+/* CJK: phrase-aware line breaking; only break inside a word when it cannot fit at all */
+:lang(ja), :lang(zh) { line-break: strict; }
+:lang(ja) :is(h1, h2, h3, .section-title, .section-subtitle, .subtitle, .version,
+    .step-title, .card-title, .next-card__title, .feature-title, .faq-q, .faq-a strong, .param-name, .example-title) { word-break: auto-phrase; }
+:lang(ko) body { word-break: keep-all; }          /* Korean breaks at spaces (eojeol), never inside a word */
+img, svg, video { max-width: 100%; }
+img { height: auto; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+::selection { background: rgba(212,175,55,.34); color: var(--text-strong); }
+
+/* Visible, on-brand keyboard focus everywhere */
+:focus-visible { outline: 2px solid var(--gold-100); outline-offset: 3px; }
+:focus:not(:focus-visible) { outline: none; }
+
+
+/* ── 3. Atmosphere (grain + crown light) ─────────────────────────────────── */
+body::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .35;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+}
+body::after {
+    content: ''; position: fixed; top: -30vh; left: 50%; width: min(1100px, 160vw); height: 80vh;
+    transform: translateX(-50%); pointer-events: none; z-index: 0;
+    background: radial-gradient(ellipse at center, rgba(212,175,55,.075) 0%, rgba(212,175,55,.02) 45%, transparent 70%);
+}
+main, section, .site-footer { position: relative; z-index: 1; }
+
+/* Decorative drifting motes (created by JS only when motion is allowed) */
+.particle {
+    position: fixed; bottom: 0; border-radius: 50%; background: var(--gold-200); pointer-events: none;
+    z-index: 0; opacity: 0; will-change: transform, opacity; animation: particleFloat linear infinite;
+}
+@keyframes particleFloat {
+    0%   { transform: translateY(0) scale(.4); opacity: 0; }
+    12%  { opacity: .35; }
+    85%  { opacity: .12; }
+    100% { transform: translateY(-105vh) scale(1); opacity: 0; }
+}
+
+
+/* ── 4. Layout ────────────────────────────────────────────────────────────── */
+.container {
+    width: 100%;
+    max-width: calc(var(--container) + 2 * var(--gutter));
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+}
+.container--read { max-width: calc(var(--container-read) + 2 * var(--gutter)); }
+.page-section { padding-block: var(--section-y); }
+
+
+/* ── 5. Ornaments ─────────────────────────────────────────────────────────── */
+/* Gilded rule with a central lozenge: <div class="ornament" aria-hidden="true"></div> */
+.ornament {
+    position: relative; width: min(220px, 60%); height: 10px; margin-inline: auto;
+    background: linear-gradient(90deg, transparent, var(--line-3) 30%, var(--gold-200) 50%, var(--line-3) 70%, transparent) center / 100% 1px no-repeat;
+}
+.ornament::before, .ornament::after {
+    content: ''; position: absolute; top: 50%; left: 50%;
+    width: 9px; height: 9px; transform: translate(-50%, -50%) rotate(45deg);
+    background: var(--ink-1); border: 1px solid var(--gold-300);
+}
+.ornament::after { width: 3px; height: 3px; background: var(--gold-200); border: 0; }
+
+/* Lozenge bullet used by lists */
+.lozenge { display: inline-block; width: 6px; height: 6px; transform: rotate(45deg); background: var(--gold); flex-shrink: 0; }
+
+
+/* ── 6. Buttons ───────────────────────────────────────────────────────────── */
+/* Labels are set in Inter 600 (legible in every script, incl. CJK/Arabic fallbacks);
+   Cinzel is reserved for titles, prices and the wordmark. */
+.btn {
+    position: relative; isolation: isolate;
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 52px; padding: 13px 30px;
+    font-family: var(--font-body); font-size: var(--fs-btn); font-weight: 600; line-height: 1.3;
+    letter-spacing: .005em; text-decoration: none; text-align: center;
+    border: 1px solid transparent; border-radius: var(--r-md); cursor: pointer;
+    transition: transform var(--dur-2) var(--ease-out);
+}
+/* light sheet (hover, top third only — never under the label) and outer halo — opacity-only transitions */
+.btn::before, .btn::after {
+    content: ''; position: absolute; border-radius: inherit; pointer-events: none;
+    opacity: 0; transition: opacity var(--dur-2) var(--ease-out);
+}
+.btn::before { inset: 0; background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,0) 34%); }
+.btn::after { inset: -1px; z-index: -1; }
+.btn:hover { transform: translateY(-2px); }
+.btn:hover::before, .btn:hover::after { opacity: 1; }
+.btn:active { transform: translateY(0); }
+
+.btn-primary {
+    color: var(--on-emerald); text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    background: var(--grad-cta) padding-box, var(--grad-cta-edge) border-box;
+    box-shadow: var(--shadow-cta);
+}
+.btn-primary::after { box-shadow: 0 16px 46px -10px rgba(76,175,80,.75); }
+
+.btn-secondary {
+    color: var(--gold-100);
+    background: var(--surface-well) padding-box, var(--gilt-edge) border-box;
+    box-shadow: var(--inner-hi), 0 10px 28px -16px rgba(0,0,0,.9);
+}
+.btn-secondary::before { background: linear-gradient(180deg, rgba(212,175,55,.14), rgba(212,175,55,.02)); }
+.btn-secondary::after { box-shadow: 0 14px 40px -14px rgba(212,175,55,.45); }
+
+.btn-gilt {
+    color: var(--on-gold); text-shadow: 0 1px 0 rgba(255,245,210,.4);
+    background: var(--gilt) padding-box, linear-gradient(180deg, var(--gold-50), var(--gold-800)) border-box;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 12px 32px -14px rgba(212,175,55,.7);
+}
+.btn-gilt::after { box-shadow: 0 16px 46px -12px rgba(212,175,55,.7); }
+
+.btn-full { width: 100%; }
+.btn-sm { min-height: 40px; padding: 8px 18px; font-size: 14px; border-radius: var(--r-sm); }
+
+
+/* ── 7. Gilded frames & skill slots ──────────────────────────────────────── */
+/* (a) Opaque surfaces: two background layers — the fill clipped to the padding
+       box, the gilt gradient visible only through the transparent 1px border.  */
+.gilded {
+    --gilded-fill: var(--surface-1);
+    --gilded-edge: var(--gilt-edge-soft);
+    border: 1px solid transparent;
+    background: var(--gilded-fill) padding-box, var(--gilded-edge) border-box;
+}
+/* (b) Any surface (even translucent): a masked ring drawn by a pseudo-element.
+       Used for hover states, fading in with opacity only.                      */
+.gild-ring { position: relative; }
+.gild-ring::before, .gild-hover::before {
+    content: ''; position: absolute; inset: -1px; border-radius: inherit; padding: 1px; pointer-events: none;
+    background: var(--gilt-edge-strong);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+.gild-hover::before { opacity: 0; transition: opacity var(--dur-3) var(--ease-out); }
+.gild-hover:hover::before, .gild-hover:focus-within::before { opacity: 1; }
+
+/* MMO skill slot — framed icon well with an optional hotkey (data-hotkey) */
+.skill-slot {
+    position: relative; isolation: isolate;
+    display: inline-grid; place-items: center; flex-shrink: 0;
+    width: 64px; height: 64px; font-size: 28px; line-height: 1; font-style: normal;
+    border: 1px solid transparent; border-radius: 14px;
+    background:
+        radial-gradient(circle at 50% 28%, rgba(212,175,55,.2), transparent 62%) padding-box,
+        var(--surface-slot) padding-box,
+        var(--gilt) border-box;
+    box-shadow:
+        inset 0 0 0 3px rgba(8,7,5,.92),
+        inset 0 0 0 4px rgba(212,175,55,.3),
+        inset 0 10px 18px -6px rgba(0,0,0,.85),
+        0 10px 22px -10px rgba(0,0,0,.95);
+}
+.skill-slot::before {        /* activation glow, faded in on hover */
+    content: ''; position: absolute; inset: 4px; border-radius: 10px; z-index: -1; pointer-events: none;
+    background: radial-gradient(circle at 50% 50%, rgba(245,230,184,.28), transparent 70%);
+    opacity: 0; transition: opacity var(--dur-3) var(--ease-out);
+}
+.skill-slot[data-hotkey]::after {
+    content: attr(data-hotkey);
+    position: absolute; inset-block-end: -7px; inset-inline-end: -7px;
+    min-width: 22px; height: 18px; padding: 0 5px; display: grid; place-items: center;
+    font-family: var(--font-body); font-size: 9.5px; font-weight: 700; letter-spacing: .04em; color: var(--gold-100);
+    background: var(--surface-key); border: 1px solid var(--line-3); border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.7);
+}
+.skill-slot--sm { width: 48px; height: 48px; font-size: 22px; border-radius: 12px; }
+.skill-slot--sm::before { border-radius: 8px; }
+.skill-slot--round { border-radius: 50%; }
+.skill-slot--round::before { border-radius: 50%; }
+:is(.feature-card, .sec-card, .card, .trust-badge):hover .skill-slot::before, .skill-slot:hover::before { opacity: 1; }
+
+/* Gold line glyphs — the icon language of every slot (HUD keycaps, skill slots, docs cards).
+   One inline sprite per page, first thing in <body>:
+       <svg class="glyph-sprite" aria-hidden="true" focusable="false"><symbol id="g-bolt" viewBox="0 0 24 24">…</symbol>…</svg>
+   In a slot, the glyph replaces the OS emoji; the emoji stays in the DOM (visually hidden)
+   because it is part of the page text:
+       <span class="skill-slot"><svg class="slot-gl" aria-hidden="true"><use href="#g-bolt"/></svg><span class="slot-src" aria-hidden="true">⚡</span></span> */
+.glyph-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.slot-gl {
+    display: block; width: 46%; height: auto; aspect-ratio: 1; flex-shrink: 0; overflow: visible; color: var(--gold-200);
+    fill: rgba(244,208,63,.1); stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
+    filter: drop-shadow(0 0 6px rgba(212,175,55,.35));
+}
+.skill-slot--sm .slot-gl, .role-icon .slot-gl { width: 50%; }
+.slot-src {
+    position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+/* Inline glyph beside a translated label whose string STARTS with an OS emoji ("📚 Docs", "🎁 7 jours gratuits").
+   The string can't change (data-i18n), so the emoji stays in the text (screen readers still read it) and
+   .emoji-lead hides it visually; the glyph is a sibling, never a child of the data-i18n element:
+       <a class="hdr-btn"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-book"/></svg><span class="emoji-lead" data-i18n="nav.docsFull">📚 Docs</span></a>
+   Use .emoji-lead ONLY on a key whose string begins with an emoji in all 15 langs/*.js (otherwise it hides a
+   real first letter). It must be a block container: a flex item is; a plain inline <span> is not. */
+.inline-gl {
+    display: block; width: 16px; height: 16px; flex-shrink: 0; overflow: visible;
+    fill: rgba(244,208,63,.12); stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+}
+/* zero-size float: the space after it collapses too; letter-spacing 0, or a tracked label keeps a sliver of the emoji */
+.emoji-lead::first-letter { font-size: 0; color: transparent; float: left; letter-spacing: 0; }
+/* ::first-letter also swallows punctuation next to the emoji (「 in Chromium ≤ 155, ¿ " « after the space in Safari ≤ 18).
+   When a translation continues with punctuation, tools/build-i18n.mjs (and langs/index.js) swap .emoji-lead for
+   .emoji-keep: nothing is hidden, the OS emoji shows alone and its gold stand-in steps aside. The build and langs/index.js
+   also mark the glyph right before the label .inline-gl--off (engines without :has(): Firefox ESR 115, Safari ≤ 15.3);
+   the :has() rule stays for pages cached before that class existed. Keep them two rules: a selector list containing
+   :has() is dropped whole where :has() is unknown. */
+.inline-gl.inline-gl--off { display: none; }
+.inline-gl:has(+ .emoji-keep) { display: none; }
+/* Forced colours (Windows contrast themes) keep an SVG's own color (UA: forced-color-adjust: preserve-parent-color), so
+   gold glyphs stayed gold on a white Canvas (1.45:1). Let them take the forced colour of their label instead (CanvasText,
+   LinkText in a link…); !important because context rules colour them at a higher specificity (.faq-q > .inline-gl…). */
+@media (forced-colors: active) {
+    :is(.slot-gl, .inline-gl, .rv-glyph, .contact-chip > svg) { color: inherit !important; filter: none; }
+}
+
+
+/* ── 8. Header & navigation ──────────────────────────────────────────────── */
+/* Every visible header control is ≥ 40×40 px (var(--tap)) at every width.     */
+.site-header {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--ink-glass);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    backdrop-filter: blur(18px) saturate(140%);
+    transition: background-color var(--dur-3) var(--ease-out);
+}
+.site-header::after {           /* gilded hairline */
+    content: ''; position: absolute; inset-inline: 0; bottom: -1px; height: 1px; pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgba(212,175,55,.28) 18%, rgba(245,230,184,.6) 50%, rgba(212,175,55,.28) 82%, transparent);
+}
+.site-header.is-scrolled { background: var(--ink-glass-strong); }
+/* Docs pages and articles ship without a scroll script: their header is always the dense glass */
+.site-header:not(:has(.site-nav)) { background: var(--ink-glass-strong); }
+.site-header.nav-open { background: var(--ink-1); }
+.site-header__inner {          /* same grid as .container: brand and actions line up with the page content */
+    max-width: calc(var(--container) + 2 * var(--gutter)); height: var(--header-h);
+    margin-inline: auto; padding-inline: var(--gutter);
+    display: flex; align-items: center; gap: clamp(10px, 2vw, 32px);
+}
+
+/* Brand mark — gilt sigil + wordmark */
+.brand {
+    display: inline-flex; align-items: center; justify-content: center; gap: 12px; flex-shrink: 0;
+    min-width: 44px; min-height: 44px;
+    text-decoration: none; border-radius: var(--r-sm);
+}
+.brand__sigil {
+    position: relative; display: grid; place-items: center; width: 40px; height: 40px; flex-shrink: 0;
+    font-family: 'Cinzel', Georgia, serif; font-size: 20px; font-weight: 900; line-height: 1; color: var(--on-gold);
+    background: var(--gilt); border-radius: 10px;
+    box-shadow: inset 0 0 0 1px rgba(255,248,220,.55), inset 0 -8px 14px rgba(125,100,32,.45), 0 0 0 1px rgba(0,0,0,.65), 0 8px 22px -8px rgba(212,175,55,.6);
+}
+.brand__sigil::after {
+    content: ''; position: absolute; inset: 4px; border-radius: 7px; border: 1px solid rgba(46,34,8,.32); pointer-events: none;
+}
+.brand__word {
+    font-family: 'Cinzel', Georgia, serif; font-size: 17px; font-weight: 700; letter-spacing: .3em; line-height: 1;
+    text-transform: uppercase; white-space: nowrap;
+    background: var(--gilt-text); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* Primary navigation (anchor links) */
+.site-nav { display: flex; align-items: center; gap: clamp(2px, .7vw, 12px); margin-inline: auto; }
+.site-nav a {
+    position: relative; display: inline-flex; align-items: center; justify-content: center;
+    min-height: var(--tap); min-width: var(--tap); padding-inline: 10px; border-radius: var(--r-sm);
+    font-size: 13.5px; font-weight: 500; letter-spacing: var(--track-xs); white-space: nowrap;
+    color: var(--text-dim); text-decoration: none; transition: color var(--dur-2) var(--ease-out);
+}
+.site-nav a::after {
+    content: ''; position: absolute; inset-inline: 10px; bottom: 6px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-200), transparent);
+    transform: scaleX(0); opacity: 0; transition: transform var(--dur-3) var(--ease-out), opacity var(--dur-3) var(--ease-out);
+}
+.site-nav a:hover, .site-nav a[aria-current] { color: var(--text-strong); }
+.site-nav a:hover::after, .site-nav a[aria-current]::after { transform: scaleX(1); opacity: 1; }
+.site-nav .nav-compact { display: none; }
+
+/* Header actions (right / inline-end cluster) */
+.header-actions { display: flex; align-items: center; gap: 10px; min-width: 0; margin-inline-start: auto; }
+.site-nav + .header-actions { margin-inline-start: 0; }
+.hdr-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    height: var(--tap); min-width: var(--tap); padding: 0 14px; border-radius: 10px;
+    font-family: var(--font-body); font-size: 12.5px; font-weight: 600; letter-spacing: var(--track-xs); white-space: nowrap;
+    color: var(--gold-200); text-decoration: none; cursor: pointer;
+    background: rgba(212,175,55,.05); border: 1px solid var(--line-2);
+    transition: background-color var(--dur-2) var(--ease-out), border-color var(--dur-2) var(--ease-out), color var(--dur-2) var(--ease-out);
+}
+.hdr-btn:hover { background: rgba(212,175,55,.12); border-color: var(--line-3); color: var(--gold-100); }
+
+/* Reborn Vision (sister extension) — logo with an inline-SVG fallback when it can't load */
+.rv-btn { position: relative; padding: 0 11px; }
+.rv-btn img { width: 20px; height: 20px; border-radius: 5px; flex-shrink: 0; }
+.rv-glyph { display: none; width: 20px; height: 20px; flex-shrink: 0; color: var(--gold-200); }
+.rv-btn img[style*="none"] + .rv-glyph { display: block; }
+.rv-label { font-family: var(--font-body); font-size: 12.5px; font-weight: 600; letter-spacing: var(--track-xs); }
+
+/* "Manage subscription" — gilded pill, a real <button> */
+.btn-manage {
+    position: relative; display: inline-flex; align-items: center; justify-content: center;
+    height: var(--tap); min-width: var(--tap); padding: 0 18px; border-radius: var(--r-pill);
+    font-family: var(--font-body); font-size: 12.5px; font-weight: 600; letter-spacing: var(--track-xs);
+    white-space: nowrap; color: var(--gold-100); cursor: pointer;
+    border: 1px solid transparent;
+    background: var(--surface-raised) padding-box, var(--gilt-edge-strong) border-box;
+    box-shadow: var(--inner-hi), 0 6px 18px -10px rgba(212,175,55,.55);
+}
+.btn-manage::before {
+    content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    background: radial-gradient(120% 140% at 50% 0%, rgba(245,230,184,.18), transparent 60%);
+    opacity: 0; transition: opacity var(--dur-2) var(--ease-out);
+}
+.btn-manage:hover::before { opacity: 1; }
+.btn-manage-short, .btn-docs-short { display: none; }
+/* The docs link always shows a word beside its gold book: the full label ("📚 Documentation") > 1180 px, the short one
+   ("📚 Docs", .emoji-lead) from 561 to 1180 px, where the full one would squeeze the header in es/pt/ru/tl. ≤ 560 px it
+   moves into the menu (.nav-compact); only with JavaScript off (no menu) does the header keep it there, as the book
+   alone — the short label then only names the link for assistive tech. */
+@media (max-width: 560px) {
+    .hdr-docs .inline-gl ~ .btn-docs-short {
+        position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+    }
+}
+
+/* Back link — used in docs headers (wraps onto two lines rather than overflowing) */
+.back-link {
+    display: inline-flex; align-items: center; gap: 8px; min-height: var(--tap); padding: 7px 16px;
+    font-size: 12.5px; font-weight: 600; letter-spacing: var(--track-xs); line-height: 1.25;
+    color: var(--text-dim); text-decoration: none; border-radius: 10px; border: 1px solid var(--line-2);
+    background: rgba(212,175,55,.03);
+    transition: color var(--dur-2) var(--ease-out), border-color var(--dur-2) var(--ease-out), background-color var(--dur-2) var(--ease-out);
+}
+.back-link:hover { color: var(--gold-100); border-color: var(--line-3); background: rgba(212,175,55,.08); }
+.site-header .back-link { min-width: 0; flex: 0 1 auto; }
+
+/* Mobile menu toggle (hamburger → cross). Its accessible name comes from a
+   translated, visually-hidden <span data-i18n="nav.menu"> via aria-labelledby. */
+.nav-toggle {
+    display: none; place-items: center; width: 44px; height: 44px; flex-shrink: 0; cursor: pointer;
+    border-radius: 10px; border: 1px solid var(--line-2); background: rgba(212,175,55,.05); color: var(--gold-200);
+}
+.nav-toggle__bars, .nav-toggle__bars::before, .nav-toggle__bars::after {
+    display: block; width: 16px; height: 1.5px; border-radius: 2px; background: currentColor;
+    transition: transform var(--dur-2) var(--ease-out), opacity var(--dur-2) var(--ease-out);
+}
+.nav-toggle__bars { position: relative; }
+.nav-toggle__bars::before, .nav-toggle__bars::after { content: ''; position: absolute; inset-inline-start: 0; }
+.nav-toggle__bars::before { transform: translateY(-5px); }
+.nav-toggle__bars::after { transform: translateY(5px); }
+.nav-open .nav-toggle__bars { background: transparent; }
+.nav-open .nav-toggle__bars::before { transform: rotate(45deg); }
+.nav-open .nav-toggle__bars::after { transform: rotate(-45deg); }
+/* Forced colours (Windows contrast themes) turn a background into Canvas: draw the bars in the button text colour */
+@media (forced-colors: active) {
+    .nav-toggle__bars, .nav-toggle__bars::before, .nav-toggle__bars::after { forced-color-adjust: none; background: ButtonText; }
+    .nav-open .nav-toggle__bars { background: transparent; }
+}
+
+/* Condense progressively */
+@media (max-width: 1280px) { .rv-label { display: none; } }
+/* Above 1280 px the header row is capped at the container width, so its room never grows: with the full
+   "Reborn Vision Extension", docs and manage labels, es/pt/pl/ru/tl run out of inline padding (ru/tl: 0 px).
+   Those languages drop the English brand text (the button keeps its logo, aria-label and title, as ≤ 1280 px),
+   never the manage label's object ("Gestionar suscripción", "Управление подпиской"). */
+:is(:lang(es), :lang(pt), :lang(pl), :lang(ru), :lang(tl)) .rv-label { display: none; }
+@media (max-width: 1180px) {
+    .btn-docs-full { display: none; } .btn-docs-short { display: inline; }
+}
+/* ≤ 1100 px the button shows the short label, but its accessible name stays the full one: the full label is only
+   visually hidden and the short one is aria-hidden in the markup (the short word is part of the full label in every
+   language, so a voice user saying the visible word still reaches the button). */
+@media (max-width: 1100px) {
+    .btn-manage-full { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+    .btn-manage-short { display: inline; }
+}
+/* 961–1100 px: the inline nav and four labelled buttons share one row (ru "Возможности … Документация Управление"):
+   tighter minimum gaps. (With room to spare the nav's auto margins absorb the difference.) */
+@media (min-width: 961px) and (max-width: 1100px) {
+    .site-header__inner:has(> .site-nav) { gap: 12px; }
+    .site-nav { gap: 2px; }
+    .site-nav a { padding-inline: 8px; }
+    .site-nav a::after { inset-inline: 8px; }
+    .site-nav + .header-actions { gap: 8px; }
+}
+@media (max-width: 960px) {
+    .nav-toggle { display: inline-grid; }
+    .site-nav {       /* drop-down panel — fully opaque, nothing ghosts through */
+        position: absolute; top: 100%; inset-inline: 0; margin: 0;
+        flex-direction: column; align-items: stretch; gap: 0;
+        padding: 8px var(--gutter) 18px;
+        background: var(--ink-1);
+        border-bottom: 1px solid var(--line-2);
+        box-shadow: 0 30px 60px -20px rgba(0,0,0,.9);
+        opacity: 0; visibility: hidden; transform: translateY(-8px);
+        transition: opacity var(--dur-2) var(--ease-out), transform var(--dur-2) var(--ease-out), visibility 0s linear var(--dur-2);
+    }
+    .nav-open .site-nav { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+    .site-nav a {
+        justify-content: flex-start; min-height: 52px; gap: 14px; padding-inline: 4px; border-radius: 0;
+        font-size: 16px; color: var(--text-soft); border-bottom: 1px solid var(--line-1);
+    }
+    .site-nav a:last-child { border-bottom: 0; }
+    .site-nav a::before { content: ''; width: 6px; height: 6px; transform: rotate(45deg); background: var(--gold); opacity: .7; flex-shrink: 0; }
+    .site-nav a::after { display: none; }
+    .site-nav + .header-actions { margin-inline-start: auto; }
+    /* JavaScript off (the homepage adds .js to <html> first thing in <body>): no menu to open */
+    :root:not(.js) :is(.nav-toggle, .site-nav) { display: none; }
+}
+@media (max-width: 640px) {
+    :root { --header-h: 64px; }
+    .brand__word { display: none; }
+    /* the flag alone is shown, but the code stays in the button's accessible name ("🇬🇧 EN", the chevron is aria-hidden) */
+    .lang-code { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+    .site-header__inner { gap: 8px; }
+    .header-actions { gap: 6px; }
+    .hdr-btn { padding: 0 10px; }
+    .btn-manage { padding: 0 14px; font-size: 12px; }
+    .site-header .back-link { padding: 6px 12px; font-size: 12px; }
+    .hdr-home { display: none; }           /* the brand mark already links home */
+}
+@media (max-width: 560px) {
+    .header-actions .rv-btn, .header-actions .hdr-docs { display: none; }
+    .site-nav .nav-compact { display: flex; }
+    :root:not(.js) .header-actions :is(.rv-btn, .hdr-docs) { display: inline-flex; }   /* JS off: the menu is gone, keep these routes */
+}
+@media (max-width: 360px) {
+    :root { --gutter: 12px; }
+    .brand__sigil { width: 36px; height: 36px; font-size: 18px; }
+    .btn-manage { padding: 0 11px; }
+    .site-header .back-link { padding-inline: 10px; }
+}
+
+
+/* ── 9. Language dropdown — SINGLE SOURCE OF TRUTH ────────────────────────────
+   langs/index.js injects a resolved copy of these rules ONLY on pages that do
+   not link this stylesheet (legacy / cached pages). Change both together.     */
+.lang-select { position: relative; display: inline-block; user-select: none; }
+.lang-select-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    height: var(--tap); min-width: var(--tap); padding: 0 12px;
+    background: rgba(212,175,55,.06); border: 1px solid rgba(212,175,55,.28); border-radius: 10px;
+    font-family: var(--font-body); font-size: 12px; font-weight: 600; letter-spacing: .04em; white-space: nowrap;
+    color: var(--gold); cursor: pointer;
+    transition: background-color .2s ease, border-color .2s ease;
+}
+.lang-select-btn:hover, .lang-select.open .lang-select-btn { background: rgba(212,175,55,.12); border-color: rgba(212,175,55,.5); }
+.lang-flag { font-size: 15px; line-height: 1; }
+.lang-chevron { font-size: 9px; opacity: .7; transition: transform .2s ease; }
+.lang-select.open .lang-chevron { transform: rotate(180deg); }
+.lang-select-menu {
+    position: absolute; top: calc(100% + 8px); inset-inline-end: 0; z-index: 999;
+    min-width: min(330px, calc(100vw - 24px)); max-height: min(70vh, 560px); overflow-y: auto; overscroll-behavior: contain;
+    display: none; grid-template-columns: 1fr 1fr; gap: 2px; padding: 6px;
+    background: var(--ink-1); border: 1px solid rgba(212,175,55,.3); border-radius: 12px;   /* opaque: the header's backdrop-filter would let the page bleed through a translucent panel */
+    box-shadow: 0 24px 60px -12px rgba(0,0,0,.85), 0 0 0 1px rgba(0,0,0,.6), inset 0 1px 0 rgba(245,230,184,.06);
+}
+/* Two columns at every width: a one-column list of 15 × 40 px options ran past a phone's viewport (the last languages
+   hid behind an inner scroll); in two columns the whole list is 348 px tall and fits a 320 × 568 screen. */
+.lang-select.open .lang-select-menu { display: grid; }
+.lang-option {
+    display: flex; align-items: center; gap: 9px; width: 100%; min-height: 40px; padding: 0 12px;
+    background: transparent; border: 0; border-radius: 8px;
+    font-family: var(--font-body); font-size: 13px; font-weight: 500; text-align: start;
+    color: var(--text-dim); cursor: pointer; transition: background-color .15s ease, color .15s ease;
+}
+.lang-option:hover { background: rgba(212,175,55,.1); color: var(--gold-200); }
+/* The transparent outline is invisible here but painted in a system colour in forced-colours mode, where the box-shadow is dropped */
+.lang-option:focus-visible { outline: 2px solid transparent; outline-offset: -2px; background: rgba(212,175,55,.1); color: var(--gold-200); box-shadow: inset 0 0 0 1px rgba(245,230,184,.6); }
+.lang-option.active { color: var(--gold); background: rgba(212,175,55,.08); font-weight: 600; }
+.lang-option.active::after { content: ''; width: 6px; height: 6px; margin-inline-start: auto; background: var(--gold); transform: rotate(45deg); }
+
+
+/* ── 10. Section headers ─────────────────────────────────────────────────── */
+.section-header { max-width: 780px; margin: 0 auto clamp(48px, 6vw, 76px); text-align: center; }
+.section-tag {
+    display: inline-flex; align-items: center; gap: 14px; margin-bottom: 22px;
+    font-size: var(--fs-label); font-weight: 600; letter-spacing: var(--track-xl); text-transform: uppercase; line-height: 1.4;
+    color: var(--gold);
+}
+.section-tag::before, .section-tag::after { content: ''; width: 40px; height: 1px; flex-shrink: 0; }
+.section-tag::before { background: linear-gradient(var(--to-end), transparent, var(--gold)); }
+.section-tag::after { background: linear-gradient(var(--to-end), var(--gold), transparent); margin-inline-start: calc(-1 * var(--track-xl)); }
+.section-title {
+    font-family: var(--font-display); font-size: var(--fs-3xl); font-weight: 700; line-height: 1.12;
+    letter-spacing: .005em; color: var(--text-strong); margin-bottom: 20px; text-wrap: balance;
+}
+.section-title em, .gilt-text {
+    font-style: normal;
+    background: var(--gilt-text); -webkit-background-clip: text; background-clip: text;
+    color: transparent; -webkit-text-fill-color: transparent;
+}
+.section-ornament { display: flex; align-items: center; justify-content: center; gap: 14px; max-width: 280px; margin: 0 auto 22px; }
+.section-ornament::before, .section-ornament::after { content: ''; flex: 1; height: 1px; }
+.section-ornament::before { background: linear-gradient(var(--to-end), transparent, var(--line-3)); }
+.section-ornament::after { background: linear-gradient(var(--to-end), var(--line-3), transparent); }
+.section-ornament span { font-size: 8px; line-height: 1; letter-spacing: .6em; margin-inline-end: -.6em; color: var(--gold-300); white-space: nowrap; }
+.section-subtitle {
+    max-width: 600px; margin-inline: auto;
+    font-family: var(--font-accent); font-style: var(--accent-style); font-weight: 500;
+    font-size: clamp(19px, 1.2vw + 12px, 23px); line-height: 1.5; color: var(--text-lead); text-wrap: pretty;
+}
+:lang(ar) .section-subtitle, :lang(ja) .section-subtitle, :lang(zh) .section-subtitle, :lang(ko) .section-subtitle { font-size: 17px; line-height: 1.8; font-weight: 400; }
+/* CJK: smaller display headings on phones so phrases never split mid-word */
+@media (max-width: 480px) {
+    :is(:lang(ja), :lang(zh), :lang(ko)) .section-title { font-size: clamp(21px, 6.6vw, 28px); line-height: 1.3; }
+}
+
+
+/* ── 11. Footer ───────────────────────────────────────────────────────────── */
+.site-footer {
+    padding: clamp(64px, 8vw, 96px) 0 40px;
+    background: linear-gradient(180deg, transparent, rgba(212,175,55,.035));
+}
+.site-footer::before {
+    content: ''; position: absolute; top: 0; inset-inline: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line-3) 25%, rgba(245,230,184,.5) 50%, var(--line-3) 75%, transparent);
+}
+.footer-content { display: grid; justify-items: center; gap: 26px; text-align: center; }
+.footer-logo {
+    font-family: 'Cinzel', Georgia, serif; font-size: clamp(20px, 2vw, 26px); font-weight: 700; letter-spacing: .32em;
+    margin-inline-end: -.32em; line-height: 1.2;
+    background: var(--gilt-text) 0 0 / 100% 1.2em repeat-y; background-origin: content-box;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 30px; }
+.footer-links a {
+    display: inline-flex; align-items: center; min-height: 40px; padding-inline: 4px;
+    font-size: 13.5px; color: var(--text-dim); text-decoration: none; letter-spacing: var(--track-xs);
+    transition: color var(--dur-2) var(--ease-out);
+}
+.footer-links a:hover { color: var(--gold-100); }
+.copyright {
+    width: 100%; max-width: 640px; padding-top: 26px; border-top: 1px solid var(--line-1);
+    font-size: 12.5px; line-height: 1.9; color: var(--text-dim);
+}
+.site-footer--compact { padding: 56px 0 36px; }
+.site-footer--compact .footer-content { gap: 18px; }
+.site-footer--compact .copyright { border-top: 0; padding-top: 0; }
+
+
+/* ── 12. Article ("codex") typography ────────────────────────────────────────
+   Everything in this section is scoped to the .article wrapper:
+       <main class="container article"> … </main>
+   Without it, headings/paragraphs/lists keep the browser defaults.           */
+.article { max-width: calc(800px + 2 * var(--gutter)); padding-block: clamp(36px, 5vw, 64px) clamp(40px, 5vw, 64px); }
+.article--wide { max-width: calc(1000px + 2 * var(--gutter)); }
+.article-head { text-align: center; padding-bottom: clamp(32px, 4vw, 48px); margin-bottom: clamp(8px, 2vw, 16px); }
+.article-head .ornament { margin-top: 30px; }
+
+/* Title crest — every docs page and article: the docs-hub card's glyph in a gilded slot above the h1
+   (after the breadcrumb on long-tail articles). When the h1 string starts with an emoji, the h1 gets
+   .emoji-lead so the emoji stays in the text but only the gold glyph shows.
+       <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-bolt"/></svg></div> */
+.article-crest {
+    display: grid; margin: 0 auto 24px;
+    box-shadow: inset 0 0 0 3px rgba(8,7,5,.92), inset 0 0 0 4px rgba(212,175,55,.3), inset 0 10px 18px -6px rgba(0,0,0,.85), 0 12px 40px -10px rgba(212,175,55,.45);
+}
+/* A crest can also head a part title (privacy: "Politique de confidentialité", "Changelog") */
+.part-head { text-align: center; }
+.part-head > .article-crest { margin-bottom: 20px; }
+.article .part-head > h2 { scroll-margin-top: 104px; }          /* a jump from a section nav keeps the crest in view */
+.article .part-head > h2:last-child { margin-bottom: 34px; }
+
+.breadcrumb { font-size: 12.5px; line-height: 1.6; letter-spacing: var(--track-xs); color: var(--text-dim); margin-bottom: 20px; }
+.breadcrumb a { color: var(--gold-200); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color var(--dur-2); }
+.breadcrumb a:hover { border-bottom-color: var(--line-3); }
+
+.article h1 {
+    font-family: var(--font-display); font-size: clamp(31px, 3.6vw + 14px, 52px); font-weight: 700;
+    line-height: 1.12; letter-spacing: .01em; margin-bottom: 22px; text-wrap: balance;
+    /* one metal band per line (background height = line-height), so every line reads the same */
+    background: var(--gilt-text) 0 0 / 100% 1.12em repeat-y; background-origin: content-box;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+.article .subtitle {
+    max-width: 640px;
+    font-family: var(--font-accent); font-style: var(--accent-style); font-weight: 500;
+    font-size: clamp(20px, 1.1vw + 14px, 24px); line-height: 1.5; color: var(--text-lead); text-wrap: balance;
+}
+.article-head .subtitle { margin-inline: auto; }
+.article > .subtitle { margin-bottom: 28px; }               /* a subtitle below a part title (privacy page) */
+:lang(ar) .article .subtitle, :lang(ja) .article .subtitle, :lang(zh) .article .subtitle, :lang(ko) .article .subtitle { font-size: 18px; line-height: 1.75; }
+
+.article h2 {
+    position: relative; margin: clamp(52px, 6vw, 72px) 0 22px; padding-bottom: 16px; padding-inline-start: 26px;
+    font-family: var(--font-display); font-size: var(--fs-2xl); font-weight: 700; line-height: 1.25;
+    letter-spacing: .01em; color: var(--text-strong); text-wrap: balance;   /* short display lines: no lone last word (a gilt 💎) */
+}
+.article h2::before {          /* lozenge marker hanging before the first line */
+    content: ''; position: absolute; inset-inline-start: 2px; top: .5em; width: 9px; height: 9px;
+    transform: rotate(45deg); background: var(--ink-1); border: 1px solid var(--gold-300);
+    box-shadow: 0 0 0 3px rgba(212,175,55,.08);
+}
+.article h2::after {           /* gilded underline fading out */
+    content: ''; position: absolute; inset-inline: 0; bottom: 0; height: 1px;
+    background: linear-gradient(var(--to-end), var(--gold-300), rgba(212,175,55,.2) 45%, transparent);
+}
+/* Part title — an h2 that opens a new part of a long page (e.g. privacy → "Politique de confidentialité") */
+.article h2.part-title {
+    margin-top: 0; padding: 0; text-align: center; font-size: clamp(28px, 2.4vw + 16px, 40px); line-height: 1.2;
+    background: var(--gilt-text) 0 0 / 100% 1.2em repeat-y; background-origin: content-box; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+}
+.article h2.part-title::before, .article h2.part-title::after { display: none; }
+.article h2.part-title + .subtitle { margin: 12px auto 32px; text-align: center; }
+/* Gilt chapter title — keeps an emoji inside a translated heading on-palette (it renders as a gilt silhouette):
+   features "PREMIUM 💎" (h2), quickstart "Version PREMIUM 💎" (h3). One metal band per line = the line-height. */
+.article :is(h2, h3).h2-gilt {
+    background: var(--gilt-text) 0 0 / 100% 1.25em repeat-y; background-origin: content-box;
+    -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+}
+.article h3.h2-gilt { background-size: 100% 1.35em; }
+.article h3 {
+    margin: 32px 0 12px; font-family: var(--font-display); font-size: var(--fs-lg); font-weight: 700;
+    line-height: 1.35; letter-spacing: .01em; color: var(--gold-200); text-wrap: balance;
+}
+.article h4 { margin: 20px 0 8px; font-size: 13px; font-weight: 700; letter-spacing: var(--track-sm); text-transform: uppercase; color: var(--gold-200); }
+/* pretty: no lone last-line fragment — French puts a space before ":" ("Macro 1 – Automatisation répétitive :"), "§)", "🇹🇷)" */
+.article p, .article li { font-size: var(--fs-md); line-height: var(--lh-read); color: var(--text-soft); text-wrap: pretty; }
+.article p { margin-bottom: 18px; }
+.article strong { color: var(--gold-200); font-weight: 600; }
+.article em { color: var(--text-strong); }
+.article a:not([class]) {
+    color: var(--gold-200); text-decoration: underline; text-decoration-color: rgba(212,175,55,.45);
+    text-decoration-thickness: 1px; text-underline-offset: 3px; transition: text-decoration-color var(--dur-2);
+}
+.article a:not([class]):hover { text-decoration-color: var(--gold-200); }
+/* quickstart step 1: the translated Chrome Web Store link carries style="text-decoration:none" (+ hover handlers); an inline
+   link must not be told apart by colour alone (WCAG 1.4.1), so its underline always wins */
+.article .step p a:not([class]) { text-decoration-line: underline !important; text-underline-offset: 3px; }
+.article ul, .article ol { margin: 14px 0 24px; padding-inline-start: 4px; }
+.article ul { list-style: none; }
+.article ol { padding-inline-start: 1.4em; }
+.article ol li::marker { color: var(--gold); font-family: var(--font-display); font-weight: 700; }
+.article li { margin: 9px 0; }
+.article ul > li { position: relative; padding-inline-start: 26px; }
+.article ul > li::before {
+    content: ''; position: absolute; inset-inline-start: 4px; top: .72em;
+    width: 6px; height: 6px; transform: rotate(45deg); background: var(--gold);
+    box-shadow: 0 0 0 3px rgba(212,175,55,.1);
+}
+.article > :first-child { margin-top: 0; }
+:is(.callout, .legal-block, .step, .section, .faq, .tool-card, .codex-card, .role-card, .toc, .example, .param) > :is(h2, h3, h4):first-child { margin-top: 0; }
+:is(.callout, .legal-block, .step, .section, .faq, .tool-card, .codex-card, .role-card, .example, .param, .pros, .cons) > :last-child { margin-bottom: 0; }
+/* (the .article-scoped repeat at the end of §13 outranks the frames' own margin shorthands) */
+
+/* Illuminated initial (Latin/Cyrillic scripts only) — one per article: on the intro paragraph right under the
+   title block, or on the first paragraph of the first chapter (no current page has both). A paragraph that is
+   only a one-line lead-in opts out with class="no-initial". */
+:root:not([dir="rtl"]):not(:lang(ja)):not(:lang(zh)):not(:lang(ko)) .article > :is(.article-head, h2:first-of-type) + p:not(.no-initial)::first-letter {
+    float: left; margin: 7px 10px 0 0;
+    font-family: var(--font-display); font-size: 3.5em; font-weight: 700; line-height: .8;
+    color: var(--gold-200); text-shadow: 0 0 24px rgba(212,175,55,.35);
+}
+
+/* Phones: one title scale for every article, sized so the longest single words of all 15 languages
+   (nl "Functioneringsproblemen", de "Tastenkombinationen", tr "Otomatikleştirmeden", tl "Pinakamahuhusay")
+   stay whole at 320 px — no per-page or per-language caps needed. */
+@media (max-width: 480px) {
+    .article h1 { font-size: clamp(25px, 7.8vw, 31px); }
+    .article h2 { font-size: clamp(17.5px, 5.5vw, 25px); padding-inline-start: 22px; }
+    .article h2.part-title { font-size: clamp(21px, 6.9vw, 28px); padding: 0; }
+    .article h3 { font-size: clamp(16px, 4.6vw, 19px); -webkit-hyphens: auto; hyphens: auto; }
+}
+
+/* Inline code & keycaps. Always LTR and bidi-isolated (key sequences read left-to-right on /ar/ too);
+   a pill that wraps is closed on every line (box-decoration-break). */
+code, kbd {
+    font-family: var(--font-mono); font-size: .86em;
+    padding: 2px 7px; border-radius: 5px; color: var(--gold-100);
+    background: rgba(20,18,12,.95); border: 1px solid var(--line-2);
+    direction: ltr; unicode-bidi: isolate; -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+/* Keycap: every <kbd>, and every <code> inside .keycaps (a translated line listing shortcuts) or .shortcut-list */
+kbd, :is(.keycaps, .shortcut-list) code {
+    display: inline-block; min-width: 1.9em; text-align: center; line-height: 1.5; font-weight: 600;
+    background: var(--surface-key); border-color: var(--line-3); border-radius: 7px;
+    box-shadow: inset 0 -2px 0 rgba(0,0,0,.45), inset 0 1px 0 rgba(245,230,184,.12), 0 3px 8px -4px rgba(0,0,0,.8);
+}
+.keycaps code { padding-inline: 10px; margin-inline-end: .2em; }
+/* Shortcut tiles: a list whose items each start with keycaps (interface page) */
+.article .shortcut-list {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 12px;
+    margin: 16px 0 26px; padding: 0;
+}
+.article .shortcut-list > li {
+    margin: 0; padding: 14px 18px; border-radius: 14px; border: 1px solid transparent;
+    background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box; box-shadow: var(--shadow-md);
+}
+.article .shortcut-list > li::before { display: none; }
+.shortcut-list code { display: inline-block; margin-inline-end: 4px; white-space: nowrap; }
+
+/* Meaningful list markers: ✓ granted (emerald, like .check) · ✕ never (dim, like .cross) · red lozenge = pitfalls.
+   A ✅/❌ that leads an item stays in the text, hidden with li.emoji-lead. */
+.article :is(.list-yes, .list-no, .list-warn) > li::before { box-shadow: none; }
+.article .list-yes > li::before {
+    top: .38em; inset-inline-start: 6px; width: 6px; height: 11px; background: none; border-radius: 0;
+    border: solid var(--emerald-300); border-width: 0 1.7px 1.7px 0; transform: rotate(45deg);
+}
+.article .list-no > li::before {
+    top: .62em; inset-inline-start: 3px; width: 10px; height: 10px; border-radius: 0; background:
+        linear-gradient(var(--text-dim), var(--text-dim)) center / 100% 1.6px no-repeat,
+        linear-gradient(var(--text-dim), var(--text-dim)) center / 1.6px 100% no-repeat;
+}
+.article .list-warn > li::before { background: var(--red-300); box-shadow: 0 0 0 3px rgba(255,107,107,.12); }
+/* A gold glyph as the bullet (third-party services): <li><svg class="inline-gl">…</svg><span>…</span></li> */
+.article .service-list > li { display: flex; align-items: flex-start; gap: 8px; padding-inline-start: 0; }
+.article .service-list > li::before { display: none; }
+.service-list .inline-gl { width: 18px; height: 18px; margin-top: .3em; color: var(--gold-200); }    /* 18 + 8 = the 26px text indent of every list */
+.service-list li > span { flex: 1; min-width: 0; }
+/* Forced colours replace backgrounds with Canvas and drop gradients: the lozenge bullets and the ✕ of .list-no would
+   vanish and leave a blank indent (the ✓ of .list-yes is a border and survives). Redraw them in the system text colour. */
+@media (forced-colors: active) {
+    .article ul:not(.list-yes):not(.list-no) > li::before { forced-color-adjust: none; background: CanvasText; box-shadow: none; }
+    .article .list-no > li::before {
+        forced-color-adjust: none; background:
+            linear-gradient(CanvasText, CanvasText) center / 100% 1.6px no-repeat,
+            linear-gradient(CanvasText, CanvasText) center / 1.6px 100% no-repeat;
+    }
+}
+
+
+/* ── 13. Codex components ────────────────────────────────────────────────── */
+/* Tables — wrap every table in <div class="table-scroll"> so wide tables scroll
+   instead of the page. Add .table-scroll--sticky to pin the first column.     */
+.table-scroll {
+    position: relative; margin: 26px 0 30px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    border-radius: 14px; border: 1px solid transparent;
+    background:
+        linear-gradient(90deg, var(--ink-2) 30%, rgba(15,14,11,0)) left center / 32px 100% no-repeat local padding-box,
+        linear-gradient(270deg, var(--ink-2) 30%, rgba(15,14,11,0)) right center / 32px 100% no-repeat local padding-box,
+        radial-gradient(farthest-side at 0 50%, rgba(212,175,55,.28), transparent) left center / 12px 100% no-repeat scroll padding-box,
+        radial-gradient(farthest-side at 100% 50%, rgba(212,175,55,.28), transparent) right center / 12px 100% no-repeat scroll padding-box,
+        linear-gradient(var(--ink-2), var(--ink-2)) padding-box,
+        var(--gilt-edge-soft) border-box;
+    box-shadow: var(--shadow-md);
+}
+.table-scroll table { width: 100%; min-width: 560px; border-collapse: collapse; }
+/* The site's tables fit a phone instead of scrolling (a hidden column reads as a finished table): the yes/no comparison,
+   the stats comparison (guide), key tables. The 560px minimum only remains for a future wide .doc-table. */
+.table-scroll :is(.comparison-table, .stats-table, .key-table) { min-width: 0; }
+/* Unwrapped tables still get the codex look (but cannot scroll — wrap them). */
+:is(.key-table, .comparison-table, .stats-table, .doc-table) {
+    width: 100%; border-collapse: collapse; font-size: 14.5px;
+}
+:not(.table-scroll) > :is(.key-table, .comparison-table, .stats-table, .doc-table) {
+    margin: 26px 0 30px; border-collapse: separate; border-spacing: 0; overflow: hidden;
+    border: 1px solid var(--line-2); border-radius: 14px; background: var(--ink-2);
+}
+:is(.table-scroll, .key-table, .comparison-table, .stats-table, .doc-table) th {
+    padding: 15px 18px; text-align: start; vertical-align: bottom;
+    font-family: var(--font-display); font-size: 12.5px; font-weight: 700; letter-spacing: var(--track-sm);
+    color: var(--gold-200); background: rgba(212,175,55,.08); border-bottom: 1px solid var(--line-3);
+}
+:is(.table-scroll, .key-table, .comparison-table, .stats-table, .doc-table) td {
+    padding: 14px 18px; vertical-align: top; font-size: 14.5px; line-height: 1.6; color: var(--text-soft);
+    border-top: 1px solid var(--line-1);
+}
+:is(.table-scroll, .key-table, .comparison-table, .stats-table, .doc-table) tbody tr:first-child td { border-top: 0; }
+:is(.table-scroll, .key-table, .comparison-table, .stats-table, .doc-table) tbody tr:nth-child(even) td { background: rgba(212,175,55,.02); }
+:is(.table-scroll, .key-table, .comparison-table, .stats-table, .doc-table) tbody tr:hover td { background: rgba(212,175,55,.045); }
+:is(.stats-table, .key-table) td:first-child { white-space: nowrap; }
+.key-table td { vertical-align: middle; }
+.key-table--pair :is(th, td):first-child { width: 36%; }          /* every pair table shares one key column */
+.comparison-table :is(th, td):not(:first-child) { width: 7.5em; text-align: center; vertical-align: middle; }
+.comparison-table :is(.check, .cross) { font-size: 16px; }
+/* Pinned first column. The cells stay OPAQUE on zebra and hover rows too (the translucent row tints above
+   outrank a plain background-color, which let scrolled text show through): tint layered over --ink-3. */
+.table-scroll--sticky :is(th, td):first-child {
+    position: sticky; inset-inline-start: 0; z-index: 1; background-color: var(--ink-3);
+    box-shadow: inset -1px 0 0 var(--line-2);
+}
+.table-scroll--sticky th:first-child { background: linear-gradient(rgba(212,175,55,.08), rgba(212,175,55,.08)) var(--ink-3); }
+.table-scroll--sticky tbody tr:nth-child(even) td:first-child { background: linear-gradient(rgba(212,175,55,.02), rgba(212,175,55,.02)) var(--ink-3); }
+.table-scroll--sticky tbody tr:hover td:first-child { background: linear-gradient(rgba(212,175,55,.045), rgba(212,175,55,.045)) var(--ink-3); }
+[dir="rtl"] .table-scroll--sticky :is(th, td):first-child { box-shadow: inset 1px 0 0 var(--line-2); }
+/* Phones: tighter cells; key columns may wrap between keycaps; comparison checks shrink to their content */
+@media (max-width: 560px) {
+    .key-table :is(th, td) { padding-inline: 14px; }
+    .key-table td:first-child { white-space: normal; }
+    :is(.stats-table, .key-table:not(.key-table--pair)) :is(th, td) { padding: 12px 10px; }
+    .stats-table td:first-child { white-space: normal; }
+    .key-table--pair :is(th, td):first-child { width: 40%; }
+    .comparison-table th { padding: 12px 10px; font-size: 11.5px; letter-spacing: 0; }
+    .comparison-table td { padding: 12px 10px; font-size: 14px; }
+    .comparison-table :is(th, td):first-child { padding-inline-start: 14px; }
+    .comparison-table td:first-child { -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 12 5 5; }   /* long compounds (de "Tastenkombinationen") */
+    .comparison-table :is(th, td):not(:first-child) { width: 1%; padding-inline: 8px; }
+}
+/* Narrow phones: tighter, smaller cells for the three-column tables. A translated stats table can still hold more long
+   words than a phone line (tl "nangangailangan" up to ~440 px, es "experimentados,", ru "большинстве"), and so can the
+   shortcuts key table below 340 px (FR "situationnelles)"): their text columns may then break inside a word —
+   hyphenated where the browser can — instead of pushing the last column off-screen. The first column (row labels,
+   keycaps) never does. The em/vw floor keeps a text column from being squeezed below a long word while the table still
+   has room (Chromium honours min-width on cells). The key table only gets it where it needs it: above 340 px it fits
+   whole, and an avoidable split ("familier" / ")") would be the only effect. */
+@media (max-width: 460px) {
+    .article :is(.stats-table, .key-table:not(.key-table--pair)) :is(th, td) { padding-inline: 8px; }
+    .article :is(.stats-table, .key-table:not(.key-table--pair)) td { font-size: 13.5px; }
+    .article .stats-table td:not(:first-child) {
+        overflow-wrap: anywhere; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 12 5 5;
+        min-width: min(7em, 24vw);
+    }
+}
+@media (max-width: 340px) {
+    .article .key-table:not(.key-table--pair) td:not(:first-child) {
+        overflow-wrap: anywhere; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 12 5 5;
+        min-width: min(7em, 24vw);
+    }
+}
+@media (max-width: 360px) {
+    .comparison-table th { font-size: 10.5px; }
+    .comparison-table td { font-size: 13px; }
+    .comparison-table :is(th, td):first-child { padding-inline: 12px 8px; }
+    .comparison-table :is(th, td):not(:first-child) { padding-inline: 6px; }
+}
+.article .check { color: var(--emerald-300); font-weight: 700; }
+.article .cross { color: var(--text-dim); }
+
+/* Callouts — one frame, three tones. Every alias below shares it:
+     gold (info):       .callout  .article .alert  .article .example
+     red (warning):     .callout.warning  .callout--warning  .warning-box  .alert-warning  .faq-a .alert
+     emerald (success): .callout--success  .success-box  .alert-success  .article .success
+   Tones only set custom properties (the default sits in a zero-specificity :where), so a tone class
+   always wins over the frame it is combined with (e.g. class="alert alert-success").              */
+:where(.callout, .warning-box, .success-box, .alert, .success, .example) {
+    --callout-spine: linear-gradient(180deg, var(--gold-100), var(--gold) 50%, var(--gold-800));
+    --callout-tint: rgba(212,175,55,.09);
+    --callout-title: var(--gold-200);
+    --callout-marker: var(--gold);
+    --callout-halo: rgba(212,175,55,.1);
+    --callout-gl: var(--gl-bulb);
+}
+:is(.callout.warning, .callout--warning, .warning-box, .alert-warning, .faq-a .alert) {
+    --callout-spine: linear-gradient(180deg, var(--red-300), var(--red));
+    --callout-tint: rgba(255,107,107,.08);
+    --callout-title: var(--red-300);
+    --callout-marker: var(--red-300);
+    --callout-halo: rgba(255,107,107,.12);
+    --callout-gl: var(--gl-alert);
+}
+:is(.callout--success, .success-box, .alert-success), .article .success {
+    --callout-spine: linear-gradient(180deg, var(--emerald-300), var(--emerald-600));
+    --callout-tint: rgba(76,175,80,.08);
+    --callout-title: var(--emerald-300);
+    --callout-marker: var(--emerald-300);
+    --callout-halo: rgba(76,175,80,.12);
+    --callout-gl: var(--gl-check);
+}
+:is(.callout, .warning-box, .success-box), .article :is(.alert, .success, .example) {
+    position: relative; margin: 32px 0; padding: 22px 26px; padding-inline-start: 30px;
+    border-radius: 14px; border: 1px solid transparent; font-size: var(--fs-md); line-height: var(--lh-read); color: var(--text-soft);
+    background:
+        linear-gradient(135deg, var(--callout-tint), rgba(212,175,55,.02) 60%) padding-box,
+        linear-gradient(var(--ink-2), var(--ink-2)) padding-box,
+        var(--gilt-edge-soft) border-box;
+}
+:is(.callout, .warning-box, .success-box)::before, .article :is(.alert, .success, .example)::before {   /* gilded spine on the inline-start edge */
+    content: ''; position: absolute; inset-block: 14px; inset-inline-start: -1px; width: 3px; border-radius: 3px;
+    background: var(--callout-spine);
+}
+/* Title: the frame's first child when it is a <strong>, an <h3>/<h4> or .example-title — Cinzel in the tone's colour.
+   A <br> right after a <strong> title is hidden (the title is already its own line). */
+:is(.callout, .alert, .warning-box, .success-box, .success, .example) > :is(strong, h3, h4, .example-title):first-child {
+    display: block; margin: 0 0 8px; font-family: var(--font-display); font-size: 15px; font-weight: 700;
+    line-height: 1.5; letter-spacing: .02em; color: var(--callout-title); -webkit-hyphens: auto; hyphens: auto;
+}
+:is(.callout, .alert, .warning-box, .success-box, .success, .example) > strong:first-child + br { display: none; }
+@media (max-width: 360px) {   /* de "Rückerstattungsrichtlinie:" must fit beside the glyph at 320px */
+    :is(.callout, .alert, .warning-box, .success-box, .success, .example) > :is(strong, h3, h4, .example-title):first-child { font-size: 14px; letter-spacing: 0; }
+}
+/* Title glyph — for a title that STARTS with an OS emoji (💡 ⚠️ ✅ 📌 📚 in every language), add .callout--gl to the
+   frame. The emoji stays in the text (screen readers, translations, verify.sh) and is hidden like .emoji-lead; a line
+   glyph in the tone's colour is drawn in its place: bulb (info), alert (warning), check (success) — or pick one with
+   .gl-bulb / .gl-alert / .gl-check / .gl-book / .gl-scales. Nothing inside the title changes, so it also works when the
+   whole frame is a data-i18n element and on long-tail articles (only a class on the frame is added). In a language whose
+   title continues with punctuation ("✅ ¡…"), tools/build-i18n.mjs drops callout--gl: the OS emoji stays (§7). */
+.callout--gl > :first-child { position: relative; padding-inline-start: 27px; }
+.callout--gl > :first-child::before {
+    content: ''; position: absolute; inset-inline-start: 0; top: calc(.75em - 8.5px); width: 17px; height: 17px; pointer-events: none;
+    background: var(--callout-title);
+    -webkit-mask: var(--callout-gl) center / contain no-repeat; mask: var(--callout-gl) center / contain no-repeat;
+}
+.callout--gl > :first-child::first-letter { font-size: 0; color: transparent; float: left; letter-spacing: 0; }
+.callout--gl.gl-bulb { --callout-gl: var(--gl-bulb); }
+.callout--gl.gl-alert { --callout-gl: var(--gl-alert); }
+.callout--gl.gl-check { --callout-gl: var(--gl-check); }
+.callout--gl.gl-book { --callout-gl: var(--gl-book); }
+.callout--gl.gl-scales { --callout-gl: var(--gl-scales); }
+/* Forced colours drop the fill of the masked glyph (a background) while ::first-letter still hides the OS emoji:
+   paint the glyph in the system text colour, or the title keeps an empty 27px indent */
+@media (forced-colors: active) {
+    .callout--gl > :first-child::before { forced-color-adjust: none; background: CanvasText; }
+}
+
+:is(.warning-box, .success-box, .success) strong { color: var(--callout-title); }
+.callout a, .article .alert a { color: var(--gold-200); text-underline-offset: 3px; }
+.article :is(.callout, .alert, .warning-box, .success-box, .success, .example) p { font-size: inherit; }
+.article :is(.callout, .alert, .warning-box, .success-box, .success, .example) ul > li::before { background: var(--callout-marker); box-shadow: 0 0 0 3px var(--callout-halo); }
+.article .example ul { margin-bottom: 12px; }
+/* Phones: frames give their width back to the text; a frame nested in a frame even more */
+@media (max-width: 480px) {
+    :is(.callout, .warning-box, .success-box), .article :is(.alert, .success, .example) { padding: 18px; padding-inline-start: 22px; }
+    .article :is(.section, .faq-a) :is(.callout, .alert, .example, .param) { padding: 16px; padding-inline-start: 20px; }
+}
+
+/* Codex cards (buffs, roles, generic entries) */
+.codex-card, .buff-card, .role-card {
+    position: relative; border-radius: 16px; border: 1px solid transparent;
+    background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box;
+    box-shadow: var(--shadow-md);
+}
+.codex-card { padding: clamp(20px, 3vw, 30px); margin: 24px 0; }
+.buff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px; margin: 26px 0 30px; }
+.buff-card { padding: 22px 22px 20px; }
+.buff-card.priority {
+    background: radial-gradient(120% 70% at 50% 0%, rgba(212,175,55,.13), transparent 65%) padding-box, var(--surface-2) padding-box, var(--gilt-edge) border-box;
+}
+.buff-card.priority::after {   /* corner crest */
+    content: ''; position: absolute; top: 16px; inset-inline-end: 16px; width: 8px; height: 8px;
+    transform: rotate(45deg); background: var(--gilt); box-shadow: 0 0 12px rgba(212,175,55,.6);
+}
+.buff-name { font-family: var(--font-display); font-size: 17px; font-weight: 700; line-height: 1.3; color: var(--gold-200); margin-bottom: 8px; padding-inline-end: 18px; }
+.buff-meta { font-size: var(--fs-label); font-weight: 600; letter-spacing: var(--track-md); text-transform: uppercase; color: var(--gold-300); margin-bottom: 10px; opacity: .85; }
+.article .buff-desc, .buff-desc { font-size: 14.5px; line-height: 1.65; color: var(--text-dim); margin: 0; }
+
+/* Role card — glyph well beside a heading, then text/list. minmax(0, 1fr): a long word never widens the column. */
+.role-card {
+    display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 20px; align-items: start;
+    padding: 24px 26px; margin: 18px 0;
+}
+.role-card > :not(.role-icon) { grid-column: 2; }
+.role-icon {
+    grid-row: span 2; display: grid; place-items: center; width: 56px; height: 56px; font-size: 26px; line-height: 1;
+    border-radius: 14px; border: 1px solid transparent;
+    background: radial-gradient(circle at 50% 30%, rgba(212,175,55,.2), transparent 62%) padding-box, var(--surface-slot) padding-box, var(--gilt) border-box;
+    box-shadow: inset 0 0 0 3px rgba(8,7,5,.92), inset 0 0 0 4px rgba(212,175,55,.3), 0 10px 22px -10px rgba(0,0,0,.95);
+}
+.article .role-card > h3 { margin: 0 0 6px; }
+.article .role-card > p { margin: 0 0 12px; }
+.article .role-card > :is(ul, ol) { margin: 10px 0 0; }
+.article .role-card > p + :is(ul, ol) { margin-top: 0; }
+.article .role-card > :is(ul, ol) > li:first-child { margin-top: 0; }
+@media (max-width: 640px) {
+    .role-card { column-gap: 14px; padding: 20px; }
+    .role-icon { grid-row: auto; width: 46px; height: 46px; font-size: 22px; border-radius: 12px; }
+    .role-card > :not(.role-icon):not(h3) { grid-column: 1 / -1; }
+    .article .role-card > h3 { align-self: center; margin-bottom: 0; }
+    .article .role-card > h3 + * { margin-top: 14px; }
+}
+
+/* CTA box — framed like a sealed page */
+.cta-box {
+    position: relative; isolation: isolate; overflow: hidden; text-align: center;
+    margin: clamp(48px, 6vw, 72px) 0; padding: clamp(32px, 5vw, 48px) clamp(22px, 5vw, 48px);
+    border-radius: 22px; border: 1px solid transparent;
+    background:
+        radial-gradient(90% 70% at 50% 0%, rgba(212,175,55,.16), transparent 70%) padding-box,
+        var(--surface-raised) padding-box,
+        var(--gilt-edge) border-box;
+    box-shadow: var(--shadow-lg);
+}
+.cta-box::before {             /* faint concentric rings (sigil echo) */
+    content: ''; position: absolute; left: 50%; top: 50%; width: 520px; height: 520px; z-index: -1;
+    transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none;
+    background: repeating-radial-gradient(circle, transparent 0 58px, rgba(212,175,55,.07) 58px 59px);
+    -webkit-mask: radial-gradient(circle, #000 30%, transparent 70%); mask: radial-gradient(circle, #000 30%, transparent 70%);
+}
+.article .cta-box h3, .cta-box h3 { margin: 0 0 14px; font-family: var(--font-display); font-size: var(--fs-xl); color: var(--gold-100); text-wrap: balance; }
+.article .cta-box p, .cta-box p { max-width: 560px; margin: 0 auto 22px; color: var(--text-soft); }
+.btn-cta {
+    display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 13px 30px;
+    font-family: var(--font-body); font-size: var(--fs-btn); font-weight: 600; letter-spacing: .005em;
+    text-decoration: none; text-align: center; line-height: 1.3; color: var(--on-emerald);
+    text-shadow: 0 1px 1px rgba(0,0,0,.4); border-radius: var(--r-md); border: 1px solid transparent;
+    background: var(--grad-cta) padding-box, var(--grad-cta-edge) border-box;
+    box-shadow: var(--shadow-cta);
+    transition: transform var(--dur-2) var(--ease-out);
+}
+.btn-cta:hover { transform: translateY(-2px); }
+@media (max-width: 480px) { .btn-cta { width: 100%; padding-inline: 18px; } }
+
+/* Inline call-to-action link ("→ Tester Reborn Assistant") */
+.cta-inline {
+    display: inline-flex; align-items: center; min-height: 40px; gap: 6px;
+    font-weight: 600; color: var(--gold-200); text-decoration: none;
+    border-bottom: 1px solid var(--line-3); transition: color var(--dur-2), border-color var(--dur-2);
+}
+.cta-inline:hover { color: var(--gold-100); border-bottom-color: var(--gold-200); }
+
+/* Badges */
+.badge, .premium-badge, .free-badge {
+    display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; border-radius: 6px; vertical-align: middle;
+    font-family: var(--font-body); font-size: 10px; font-weight: 700; letter-spacing: .12em; line-height: 1.5; text-transform: uppercase;
+    -webkit-text-fill-color: currentColor;       /* stays solid inside gilt headings */
+}
+.premium-badge { color: var(--on-gold); background: var(--gilt); box-shadow: inset 0 1px 0 rgba(255,255,255,.45); }
+.free-badge { color: var(--emerald-300); background: rgba(76,175,80,.12); border: 1px solid rgba(76,175,80,.35); }
+:is(h1, h2, h3) .premium-badge { margin-inline-start: 10px; vertical-align: .2em; }
+
+/* Table of contents (tutorial articles) */
+.toc {
+    margin: 28px 0 40px; padding: 22px 26px; border-radius: 16px; border: 1px solid transparent;
+    background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box;
+}
+.toc-title { font-family: var(--font-display); font-size: 14px; font-weight: 700; letter-spacing: var(--track-md); text-transform: uppercase; color: var(--gold-200); margin-bottom: 10px; }
+.article .toc ol { margin: 0; padding-inline-start: 1.6em; }
+.article .toc li { margin-block: 0; padding-block: 2px; font-size: 15px; line-height: 1.5; }   /* padding, not margins: a column break truncates margins */
+.toc a, .article .toc a { display: inline-flex; align-items: center; min-height: 40px; padding-block: 4px; color: var(--text-soft); text-decoration: none; transition: color var(--dur-2); }
+.toc a:hover, .article .toc a:hover { color: var(--gold-100); }
+@media (min-width: 720px) { .article .toc ol { columns: 2; column-gap: 32px; } .article .toc li { break-inside: avoid; } }
+
+/* Steps — numbered badge + title on one row, body below at full width */
+.step {
+    position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; align-items: center;
+    margin: 22px 0; padding: 22px 24px; border-radius: 16px; border: 1px solid transparent;
+    background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box; box-shadow: var(--shadow-md);
+}
+/* badge | title on the first row, everything else full width; a step without a badge (quickstart tiers) has a full-width title */
+.step > :not(.step-number):not(.step-title), .step > .step-title:first-child { grid-column: 1 / -1; }
+.step-number {
+    display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 10px;
+    font-family: var(--font-display); font-weight: 900; color: var(--on-gold); background: var(--gilt);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 6px 16px -6px rgba(212,175,55,.6);
+}
+.step-title { font-family: var(--font-body); font-size: 17.5px; font-weight: 600; line-height: 1.4; color: var(--gold-100); }
+.step-title + * { margin-top: 12px; }
+.article .step p:last-child { margin-bottom: 0; }
+/* .step is a grid, so its children's margins don't collapse: keep the body copy's paragraph → list rhythm */
+.article .step > p + :is(ul, ol) { margin-top: 0; }
+.article .step > :is(ul, ol) > li:first-child { margin-top: 0; }
+.article .step > :is(ul, ol) > li:last-child { margin-bottom: 0; }
+
+/* Related articles (end of long-tail articles) */
+.related { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 16px; margin: 48px 0 0; }
+.related-card {
+    position: relative; display: flex; flex-direction: column; gap: 8px; padding: 20px 22px; border-radius: 14px;
+    text-decoration: none; border: 1px solid transparent;
+    background: radial-gradient(90% 90% at 0% 0%, rgba(212,175,55,.06), transparent 60%) padding-box, var(--surface-1) padding-box, var(--gilt-edge-soft) border-box;
+    box-shadow: var(--shadow-md); transition: transform var(--dur-3) var(--ease-out);
+}
+.related-card:hover { transform: translateY(-3px); }
+.related-tag { font-size: var(--fs-label); font-weight: 600; letter-spacing: var(--track-md); text-transform: uppercase; color: var(--gold-300); }
+.related-title { font-size: 15px; font-weight: 600; line-height: 1.45; color: var(--gold-100); text-wrap: balance; }
+
+/* Entry cards — a whole-card link with a glyph well and a chevron (mirrored in RTL): docs hub chapters, quickstart
+   "next steps". The page places the title/description; the chevron and the well shrink away on small phones.
+       <a class="card entry-card gild-hover" href="…"><span class="skill-slot" aria-hidden="true">…</span><span …>Title</span></a> */
+.entry-card {
+    position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; column-gap: 20px;
+    padding: 20px 22px; border-radius: 16px; text-decoration: none; border: 1px solid transparent;
+    background: radial-gradient(90% 90% at 0% 0%, rgba(212,175,55,.06), transparent 60%) padding-box, var(--surface-1) padding-box, var(--gilt-edge-soft) border-box;
+    box-shadow: var(--shadow-md); transition: transform var(--dur-3) var(--ease-out);
+}
+.entry-card:hover { transform: translateY(-3px); }
+.entry-card::after {
+    content: ''; width: 9px; height: 9px; margin-inline: 4px 6px;
+    border-top: 1.5px solid var(--gold-300); border-right: 1.5px solid var(--gold-300);
+    transform: rotate(45deg); opacity: .55; transition: transform var(--dur-3) var(--ease-out), opacity var(--dur-3) var(--ease-out);
+}
+.entry-card:hover::after { opacity: 1; transform: translateX(3px) rotate(45deg); }
+[dir="rtl"] .entry-card::after { transform: rotate(-135deg); }
+[dir="rtl"] .entry-card:hover::after { transform: translateX(-3px) rotate(-135deg); }
+@media (max-width: 760px) { .entry-card { column-gap: 16px; padding: 18px; } }
+/* Small phones: drop the chevron (the whole card is the link) and tighten the well so titles never split mid-word */
+@media (max-width: 400px) {
+    .entry-card { grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; padding: 16px; }
+    .entry-card::after { display: none; }
+    .entry-card .skill-slot { width: 44px; height: 44px; }
+}
+
+/* Tool review cards (comparison articles) */
+.tool-card {
+    position: relative; margin: 24px 0 36px; padding: clamp(22px, 3.4vw, 32px); border-radius: 18px; border: 1px solid transparent;
+    background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box; box-shadow: var(--shadow-md);
+}
+.tool-card.featured {
+    background: radial-gradient(120% 60% at 50% 0%, rgba(212,175,55,.13), transparent 65%) padding-box, var(--surface-2) padding-box, var(--gilt-edge-strong) border-box;
+    box-shadow: 0 30px 80px -36px rgba(212,175,55,.35), var(--shadow-md);
+}
+.tool-rank { margin-bottom: 12px; font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: var(--track-md); text-transform: uppercase; color: var(--gold-200); }
+.tool-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; }
+.tool-tag {
+    display: inline-flex; align-items: center; padding: 4px 11px; border-radius: var(--r-pill);
+    font-size: 12px; font-weight: 600; line-height: 1.4; color: var(--gold-200);
+    background: rgba(212,175,55,.07); border: 1px solid var(--line-2);
+}
+.tool-tag.free { color: var(--emerald-300); background: rgba(76,175,80,.1); border-color: rgba(76,175,80,.32); }
+.tool-tag.paid { color: var(--on-gold); background: var(--gilt); border-color: transparent; }
+/* Optional card head: a decorative glyph well beside the rank line and the tags
+       <div class="tool-head"><span class="tool-icon skill-slot skill-slot--sm" aria-hidden="true">…</span><div class="tool-rank">…</div><div class="tool-meta">…</div></div> */
+.tool-head {
+    display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "icon rank" "icon meta";
+    align-items: center; column-gap: 18px; row-gap: 10px; margin-bottom: 22px;
+}
+.tool-head > .tool-icon { grid-area: icon; }
+.tool-head > .tool-rank { grid-area: rank; align-self: end; margin: 0; }
+.tool-head > .tool-meta { grid-area: meta; align-self: start; margin: 0; }
+.tool-card.featured .tool-icon { width: 56px; height: 56px; }
+@media (max-width: 520px) {
+    .tool-head { grid-template-areas: "icon rank" "meta meta"; column-gap: 14px; row-gap: 14px; }
+    .tool-head > .tool-rank { align-self: center; }
+    .tool-card.featured .tool-icon { width: 48px; height: 48px; }
+}
+
+/* Pros / cons pair */
+.pros-cons { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 20px 0; }
+.pros, .cons { position: relative; padding: 16px 18px; padding-inline-start: 20px; border-radius: 12px; background: rgba(8,8,8,.45); border: 1px solid var(--line-1); }
+.pros::before, .cons::before { content: ''; position: absolute; inset-block: 12px; inset-inline-start: -1px; width: 3px; border-radius: 3px; }
+.pros::before { background: linear-gradient(180deg, var(--emerald-300), var(--emerald-600)); }
+.cons::before { background: linear-gradient(180deg, var(--red-300), var(--red)); }
+.pros-cons h4 { margin: 0 0 8px; font-size: 12px; font-weight: 700; letter-spacing: var(--track-sm); text-transform: uppercase; }
+.pros h4 { color: var(--emerald-300); }
+.cons h4 { color: var(--red-300); }
+.article .pros-cons ul { margin: 0; }
+.article .pros-cons li { font-size: 14.5px; line-height: 1.6; margin: 5px 0; padding-inline-start: 20px; }
+.article .pros-cons li::before { width: 5px; height: 5px; inset-inline-start: 2px; }
+.article .pros li::before { background: var(--emerald-300); box-shadow: none; }
+.article .cons li::before { background: var(--red-300); box-shadow: none; }
+@media (max-width: 640px) { .pros-cons { grid-template-columns: minmax(0, 1fr); } }
+
+/* Colophon line at the end of an article */
+.article-end { margin-top: 56px; text-align: center; font-size: 14px; color: var(--text-dim); }
+
+
+/* Frames never add their last child's margin to their own padding (grid/flex children don't collapse margins, and
+   e.g. a callout's 32px margin used to survive as a .section's last child). Scoped to .article so it outranks the
+   frames' own margin shorthands (".article .alert" = 0,2,0). */
+.article :is(.callout, .alert, .warning-box, .success-box, .success, .example, .param, .section, .step, .faq, .faq-a,
+    .tool-card, .codex-card, .role-card, .buff-card, .legal-block, .contact-box, .toc, .pros, .cons) > :last-child { margin-bottom: 0; }
+.article :is(.callout, .alert, .warning-box, .success-box, .success, .example, .section, .step, .faq, .faq-a,
+    .tool-card, .codex-card, .role-card, .legal-block, .pros, .cons) > :is(ul, ol):last-child > li:last-child { margin-bottom: 0; }
+
+
+/* ── 14. Docs-page components ───────────────────────────────────────────────
+   Generic class names used by the docs pages are scoped to .article so they
+   never collide with the homepage (.faq section, .feature-card skill cards).   */
+
+/* Features page — docs feature cards (homepage cards live under .features) */
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 18px; margin: 28px 0 40px; }
+.feature-grid .feature-card {
+    position: relative; display: flex; flex-direction: column; padding: 24px; border-radius: 16px; border: 1px solid transparent;
+    background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box; box-shadow: var(--shadow-md);
+}
+.feature-grid .feature-card.premium {
+    background: radial-gradient(120% 60% at 50% 0%, rgba(212,175,55,.12), transparent 62%) padding-box, var(--surface-2) padding-box, var(--gilt-edge) border-box;
+}
+.feature-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+.feature-grid .feature-icon {
+    display: grid; place-items: center; width: 50px; height: 50px; flex-shrink: 0; font-size: 23px; line-height: 1;
+    border-radius: 13px; border: 1px solid transparent;
+    background: radial-gradient(circle at 50% 28%, rgba(212,175,55,.2), transparent 62%) padding-box, var(--surface-slot) padding-box, var(--gilt) border-box;
+    box-shadow: inset 0 0 0 3px rgba(8,7,5,.92), inset 0 0 0 4px rgba(212,175,55,.3), 0 10px 22px -10px rgba(0,0,0,.95);
+}
+.feature-grid .feature-title { margin-bottom: 8px; font-size: 17px; font-weight: 600; line-height: 1.4; color: var(--gold-100); text-wrap: pretty; }
+/* ja: a 12-kana word (キーボードショートカット) is one phrase that auto-phrase cannot break; beside the phone icon well it
+   only fits at 17 px from ~340 px, so it scales down with the viewport below 355 px instead of stranding its last kana */
+:lang(ja) .feature-grid .feature-title { font-size: min(17px, 4.8vw); }
+.feature-desc { font-size: 14.5px; line-height: 1.65; color: var(--text-dim); }
+.article .feature-list { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--line-1); }
+.article .feature-list li { margin: 6px 0; font-size: 14px; line-height: 1.55; color: var(--text-soft); padding-inline-start: 20px; }
+.article .feature-list li::before { width: 5px; height: 5px; top: .62em; inset-inline-start: 3px; }
+
+/* Interface page — theme swatches and language chips */
+.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); gap: 14px; margin: 24px 0 28px; }
+.theme-card { padding: 12px 12px 14px; text-align: center; border-radius: 14px; border: 1px solid transparent; background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box; }
+.theme-preview { height: 64px; margin-bottom: 12px; border-radius: 9px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.12), inset 0 -18px 30px -18px rgba(0,0,0,.5); }
+.theme-name { font-size: 14px; font-weight: 600; color: var(--gold-100); }
+.lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 132px), 1fr)); gap: 10px; margin: 20px 0 28px; }
+.lang-item { padding: 10px 12px; border-radius: 10px; text-align: center; font-size: 14px; color: var(--text-soft); background: rgba(212,175,55,.04); border: 1px solid var(--line-2); }
+
+/* Premium page — framed chapters with parameter rows */
+.article .section {
+    margin: 32px 0; padding: clamp(22px, 3.6vw, 36px); border-radius: 18px; border: 1px solid transparent;
+    background: radial-gradient(120% 50% at 50% 0%, rgba(212,175,55,.08), transparent 65%) padding-box, var(--surface-1) padding-box, var(--gilt-edge) border-box;
+    box-shadow: var(--shadow-md);
+}
+.article .section > h2 { margin-top: 0; }
+@media (max-width: 480px) { .article .section { padding: 20px 16px; } }
+.article .section > code { display: block; margin: 8px 0 18px; padding: 12px 16px; line-height: 1.9; white-space: normal; }
+.article .param {
+    position: relative; margin: 14px 0; padding: 14px 18px; padding-inline-start: 22px; border-radius: 12px;
+    background: rgba(212,175,55,.05); border: 1px solid var(--line-1);
+}
+.article .param::before { content: ''; position: absolute; inset-block: 10px; inset-inline-start: -1px; width: 3px; border-radius: 3px; background: linear-gradient(180deg, var(--gold-100), var(--gold-700)); }
+.param-name { margin-bottom: 4px; font-weight: 600; color: var(--gold-100); }
+.param-desc { font-size: 15px; line-height: 1.65; color: var(--text-dim); }
+
+/* Quickstart — requirement rows */
+.article .requirement { display: flex; align-items: center; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line-1); font-size: 16px; line-height: 1.6; color: var(--text-soft); }
+.article .requirement:last-of-type { border-bottom: 0; }
+.requirement-icon {
+    display: grid; place-items: center; width: 44px; height: 44px; flex-shrink: 0; font-size: 20px; line-height: 1;
+    border-radius: 12px; background: rgba(212,175,55,.06); border: 1px solid var(--line-2);
+}
+
+/* Q/A cards — troubleshooting, and the FAQ of long-tail articles (the homepage FAQ accordion is a different component).
+   The question is a heading (<h3 class="faq-q"> or a plain <h3> as first child) set like a UI label: Inter 600.
+   A question led by a gold glyph: <h3 class="faq-q"><svg class="inline-gl">…</svg><span class="emoji-lead" data-i18n>❓ …</span></h3>
+   — the answer then hangs under the question text from 600px. */
+.article .faq {
+    margin: 16px 0; padding: 22px 26px; border-radius: 16px; border: 1px solid transparent;
+    background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box; box-shadow: var(--shadow-md);
+}
+.faq-q, .article .faq > :is(h3, .faq-q):first-child {
+    margin: 0 0 10px; font-family: var(--font-body); font-size: 17px; font-weight: 600; line-height: 1.45;
+    letter-spacing: 0; color: var(--gold-100); text-wrap: pretty;
+}
+/* glyph + label on one row: a flex item is a block container, so the label's ::first-letter reaches its emoji (no :has():
+   an engine without it would show the OS emoji and put the glyph on a line of its own) */
+.faq-q { display: flex; align-items: flex-start; gap: 12px; }
+.faq-q > .inline-gl { width: 20px; height: 20px; margin-top: .14em; color: var(--gold-300); }
+.faq-q > span { flex: 1; min-width: 0; text-wrap: pretty; }
+/* A question whose emoji must stay (.emoji-keep, §6a′: "❌ «…»", es "❓ ¿…") shows it as a gold silhouette, like the
+   💎 of a gilt heading: nothing is hidden, so the punctuation after it is safe; the text keeps the question colour. */
+.faq-q > .emoji-keep {
+    background: var(--gold-100); -webkit-background-clip: text; background-clip: text;
+    color: transparent; -webkit-text-fill-color: transparent;
+}
+.faq-a { font-size: 15.5px; line-height: 1.75; color: var(--text-soft); }
+.faq-a .alert { margin: 4px 0 16px; font-size: 15px; }
+@media (min-width: 600px) { .faq-q:has(> .inline-gl + .emoji-lead) + .faq-a { padding-inline-start: 32px; } }   /* not under a kept OS emoji (.emoji-keep) */
+@media (max-width: 480px) {
+    .article .faq { padding: 18px; }
+    .article .faq > :is(h3, .faq-q):first-child { font-size: 16px; }
+    .faq-q { gap: 10px; }
+    .faq-q > .inline-gl { width: 18px; height: 18px; }
+}
+
+/* Legal & privacy */
+.legal-block {
+    margin: 22px 0; padding: clamp(20px, 3.4vw, 30px); border-radius: 16px; border: 1px solid transparent;
+    background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box; box-shadow: var(--shadow-md);
+}
+.section-nav { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 clamp(36px, 5vw, 56px); }
+.article-head + .section-nav { justify-content: center; }
+.section-nav a, .article .section-nav a {
+    display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 6px 16px; border-radius: var(--r-pill);
+    font-size: 13px; font-weight: 600; color: var(--text-soft); text-decoration: none;
+    background: rgba(212,175,55,.04); border: 1px solid var(--line-2);
+    transition: color var(--dur-2), border-color var(--dur-2), background-color var(--dur-2);
+}
+.section-nav a:hover, .article .section-nav a:hover { color: var(--gold-100); border-color: var(--line-3); background: rgba(212,175,55,.1); }
+.section-nav .inline-gl { width: 15px; height: 15px; color: var(--gold-300); }     /* a pill led by its part's glyph */
+.section-nav a:hover .inline-gl { color: var(--gold-100); }
+.page-separator { display: flex; align-items: center; gap: 16px; margin: clamp(56px, 8vw, 88px) 0 clamp(32px, 5vw, 48px); }
+.page-separator::before, .page-separator::after { content: ''; flex: 1; height: 1px; }
+.page-separator::before { background: linear-gradient(var(--to-end), transparent, var(--line-3)); }
+.page-separator::after { background: linear-gradient(var(--to-end), var(--line-3), transparent); }
+.page-separator span { font-size: 9px; letter-spacing: .6em; margin-inline-end: -.6em; color: var(--gold-300); white-space: nowrap; }
+.contact-box {
+    margin: 24px 0; padding: clamp(22px, 4vw, 32px); text-align: center; border-radius: 16px; border: 1px solid transparent;
+    background: radial-gradient(90% 80% at 50% 0%, rgba(212,175,55,.1), transparent 70%) padding-box, var(--surface-raised) padding-box, var(--gilt-edge) border-box;
+}
+.contact-box a { color: var(--gold-200); }
+@media (max-width: 480px) {
+    .legal-block { padding: 20px 16px; }
+    .contact-box { padding: 22px 16px; }
+}
+
+/* Contact chips — one per contact route (e-mail, Discord), 44px tall, gilt outline. The chip is either the link itself
+   (<a class="contact-chip">) or holds one (<p class="contact-chip">…<a>…</a></p>, stretched over the whole chip).
+   The address never splits at its hyphen; chips stack full width on phones. */
+.contact-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.contact-box .contact-links { justify-content: center; margin-top: 18px; }
+.contact-chip, .article .contact-chip {
+    position: relative; display: inline-flex; align-items: center; gap: 10px; max-width: 100%; min-height: 44px; margin: 0; padding: 8px 16px;
+    border-radius: 12px; font-size: 15px; font-weight: 600; line-height: 1.35; color: var(--text-soft); text-decoration: none;
+    background: rgba(212,175,55,.05); border: 1px solid var(--line-2);
+    transition: background-color var(--dur-2) var(--ease-out), border-color var(--dur-2) var(--ease-out);
+}
+a.contact-chip:hover { background: rgba(212,175,55,.11); border-color: var(--line-3); }
+.contact-chip:has(a):hover { background: rgba(212,175,55,.11); border-color: var(--line-3); }   /* own rule: unknown :has() drops the whole list */
+.contact-chip > svg { flex-shrink: 0; width: 16px; height: 16px; color: var(--gold-200); }
+.contact-chip > span { min-width: 0; text-align: start; }
+a.contact-chip > span, .contact-chip a { white-space: nowrap; }
+.contact-chip .emoji-lead { display: inline-block; }
+.contact-chip a::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
+.article .contact-chip a { text-decoration: none; }
+@media (max-width: 480px) {
+    .contact-links { flex-direction: column; align-items: stretch; }
+    .contact-chip, .article .contact-chip { justify-content: flex-start; font-size: 14px; padding-inline: 12px; }
+}
+@media (max-width: 339px) { .contact-chip, .article .contact-chip { gap: 8px; padding-inline: 10px; font-size: 13.5px; } }
+
+/* 404 — add class="error-page" to its wrapper, "divider ornament" to its rule and btn classes to its two links.
+   The message sits centred in the screen below the sticky header; both actions share one width. */
+.error-page {
+    position: relative; z-index: 1; display: grid; justify-items: center; align-content: center; gap: 0; max-width: 620px;
+    min-height: calc(100vh - var(--header-h)); min-height: calc(100svh - var(--header-h));
+    margin-inline: auto; padding: clamp(48px, 10vh, 120px) var(--gutter); text-align: center;
+}
+.error-page .code {
+    font-family: var(--font-display); font-size: clamp(88px, 20vw, 168px); font-weight: 900; line-height: 1; margin-bottom: 8px;
+    background: var(--gilt-text); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 40px rgba(212,175,55,.25));
+}
+.error-page h1 { margin-bottom: 18px; font-family: var(--font-display); font-size: clamp(22px, 3vw, 32px); font-weight: 700; letter-spacing: .08em; color: var(--gold-200); }
+.error-page .divider { width: min(220px, 60%); height: 10px; margin: 0 auto 26px; background: linear-gradient(90deg, transparent, var(--line-3) 30%, var(--gold-200) 50%, var(--line-3) 70%, transparent) center / 100% 1px no-repeat; }
+.error-page p { max-width: 480px; margin: 0 auto 34px; font-size: 16px; line-height: 1.8; color: var(--text-soft); }
+.error-page .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+.error-page .actions .btn { min-width: 12rem; }
+
+
+/* ── 15. Utilities & motion ──────────────────────────────────────────────── */
+.visually-hidden {
+    position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+@keyframes fadeIn { from { opacity: 0; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Reveal-on-scroll. Content is only hidden when the page script has confirmed
+   IntersectionObserver support AND that motion is allowed (it then adds
+   .js-reveal to <html>; elements already in view get .visible first). The
+   transition lives on .visible only, so hiding never animates (no flash).   */
+.js-reveal .reveal:not(.visible) { opacity: 0; transform: translateY(26px); }            /* hide instantly… */
+.js-reveal .reveal.visible { transition: opacity var(--dur-4) var(--ease-out), transform var(--dur-4) var(--ease-out); }  /* …fade in */
+
+/* Reduced motion: every animation and transition off (delays included), content visible */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition-duration: 0s !important; transition-delay: 0s !important; scroll-behavior: auto !important;
+    }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    .particle { display: none !important; }
+}

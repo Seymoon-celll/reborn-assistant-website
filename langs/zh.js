@@ -548,5 +548,11 @@ export default {
     docsShort:   "📚 Docs",
     manageFull:  "管理订阅",
     manageShort: "管理",
+    features:    "功能",
+    security:    "安全",
+    pricing:     "价格",
+    faq:         "常见问题",
+    docs:        "文档",
+    menu:        "菜单",
   },
 };

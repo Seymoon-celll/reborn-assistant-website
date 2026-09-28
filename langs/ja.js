@@ -548,5 +548,11 @@ export default {
     docsShort:   "📚 Docs",
     manageFull:  "サブスクリプションを管理",
     manageShort: "管理",
+    features:    "機能",
+    security:    "セキュリティ",
+    pricing:     "料金",
+    faq:         "よくある質問",
+    docs:        "ドキュメント",
+    menu:        "メニュー",
   },
 };

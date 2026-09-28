@@ -555,5 +555,11 @@ export default {
     docsShort:   "📚 Docs",
     manageFull:  "إدارة اشتراكي",
     manageShort: "إدارة",
+    features:    "الميزات",
+    security:    "الأمان",
+    pricing:     "الأسعار",
+    faq:         "الأسئلة الشائعة",
+    docs:        "التوثيق",
+    menu:        "القائمة",
   },
 };

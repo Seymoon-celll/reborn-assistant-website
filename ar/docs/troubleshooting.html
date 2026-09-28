@@ -30,26 +30,24 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css?v=4">
     <style>
-        :root { --gold:#d4af37;--dark-bg:#080808;--green:#4CAF50;--red:#ff6b6b;--text:#f0ead6;--text-dim:#9a9278;--border:rgba(212,175,55,0.2); }
-        * { margin:0;padding:0;box-sizing:border-box; }
-        body { font-family:'Inter',sans-serif;background-color:var(--dark-bg);color:var(--text);line-height:1.7; }
-        body::before { content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;opacity:0.3; }
-        .container { max-width:900px;margin:0 auto;padding:80px 40px 100px;position:relative;z-index:1; }
-        .back-link { display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease; }
-        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
-        h1 { font-family:'Cinzel',serif;font-size:42px;color:var(--gold);letter-spacing:2px;margin-bottom:16px; }
-        .subtitle { font-size:18px;color:var(--text-dim);margin-bottom:60px; }
-        h2 { font-family:'Cinzel',serif;font-size:28px;color:var(--text);margin:60px 0 24px;padding-bottom:16px;border-bottom:1px solid var(--border); }
-        .faq { background:rgba(20,20,16,0.6);border:1px solid var(--border);border-radius:12px;padding:28px;margin:20px 0; }
-        .faq-q { font-size:18px;font-weight:600;color:var(--gold);margin-bottom:12px; }
-        .faq-a { font-size:15px;line-height:1.7;color:var(--text-dim); }
-        .alert { background:rgba(255,107,107,0.08);border-left:4px solid var(--red);padding:20px 24px;margin:16px 0;border-radius:4px; }
-        .success { background:rgba(76,175,80,0.08);border-left:4px solid var(--green);padding:20px 24px;margin:24px 0;border-radius:4px; }
-        code { background:rgba(20,20,16,0.9);padding:3px 10px;border-radius:4px;font-family:'Courier New',monospace;font-size:13px;color:#f4d03f; }
-        ul { margin:16px 0;padding-left:24px; }
-        li { margin:8px 0;font-size:15px; }
+        /* ═══ Troubleshooting — page-specific layout only (tokens & components: /assets/css/site.css) ═══ */
+
+        /* Q/A answers are translated spans, one block each (the glyph-led questions are site.css .faq-q) */
+        .faq-a > span { display: block; }
+
+        /* Support — a gilded "write to us" panel: glyph well + title, the checklist, then the site.css contact chips */
+        .support-box {
+            position: relative; margin: 26px 0 0; padding: clamp(22px, 4vw, 34px); border-radius: 18px; border: 1px solid transparent;
+            background: radial-gradient(90% 80% at 50% 0%, rgba(212,175,55,.1), transparent 70%) padding-box, var(--surface-raised) padding-box, var(--gilt-edge) border-box;
+            box-shadow: var(--shadow-md);
+        }
+        .support-head { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+        .support-title { min-width: 0; font-family: var(--font-display); font-size: var(--fs-xl); font-weight: 700; line-height: 1.3; letter-spacing: .01em; }
+        .article .support-box .support-text { margin-bottom: 24px; }
+        @media (max-width: 480px) { .support-box { padding: 22px 16px; } }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
@@ -86,18 +84,33 @@
     <script>window.__PRERENDERED_LANG__="ar";</script>
 </head>
 <body>
-    <div class="container">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:12px;">
-            <a href="/ar/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← العودة إلى التوثيق</a>
-            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-                <a href="/ar/" style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:7px 16px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.color='var(--text-dim)';this.style.borderColor='var(--border)'" data-i18n="docsNav.mainSite">⌂ الموقع الرئيسي</a>
+    <!-- Gold line glyphs (shared library, DESIGN-SYSTEM §6a) — referenced with <use href="#g-…"> -->
+    <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-wrench" viewBox="0 0 24 24"><path d="M15.6 3.4a5 5 0 0 0-4.8 6.6L3.9 16.9a2 2 0 0 0 2.8 2.8l6.9-6.9a5 5 0 0 0 6.6-4.8l-3.3 1.6-2.7-1.4-.4-3z"/></symbol>
+        <symbol id="g-fault" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path fill="none" d="M9.3 9.3l5.4 5.4M14.7 9.3l-5.4 5.4"/></symbol>
+        <symbol id="g-bulb" viewBox="0 0 24 24"><path d="M9.3 16.6v-1.2c0-1.1-.5-1.9-1.3-2.7a6 6 0 1 1 8 0c-.8.8-1.3 1.6-1.3 2.7v1.2z"/><path fill="none" d="M9.6 19.2h4.8M10.6 21.6h2.8M10.4 11.6l1.6 1.4 1.6-1.4M12 13v3.6"/></symbol>
+        <symbol id="g-question" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path fill="none" d="M9.6 9.7a2.5 2.5 0 0 1 4.9.5c0 1.7-2.5 2.1-2.5 3.8"/><circle cx="12" cy="16.9" r=".35"/></symbol>
+        <symbol id="g-chat" viewBox="0 0 24 24"><path d="M20 11.3c0 4.1-3.6 7.4-8 7.4-1.2 0-2.3-.2-3.3-.6L4 19.6l1.4-3.8C4.5 14.5 4 13 4 11.3 4 7.2 7.6 3.9 12 3.9s8 3.3 8 7.4z"/><path d="M8.5 10h7M8.5 13.2h4.5"/></symbol>
+        <symbol id="g-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.2"/><path fill="none" d="M4.2 7.4l7.8 5.8 7.8-5.8"/></symbol>
+    </svg>
+
+    <!-- ═══ Header ═══ -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="/ar/" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+                <span class="brand__word">Reborn</span>
+            </a>
+            <div class="header-actions">
+                <a href="/ar/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← العودة إلى التوثيق</a>
+                <a href="/ar/" class="hdr-btn hdr-home" data-i18n="docsNav.mainSite">⌂ الموقع الرئيسي</a>
                 <div class="lang-select">
-                    <button class="lang-select-btn" onclick="toggleLangMenu()">
+                    <button class="lang-select-btn" type="button" aria-expanded="false" aria-controls="lang-menu" onclick="toggleLangMenu()">
                         <span class="lang-flag">🇸🇦</span>
                         <span class="lang-code">AR</span>
-                        <span class="lang-chevron">▾</span>
+                        <span class="lang-chevron" aria-hidden="true">▾</span>
                     </button>
-                    <div class="lang-select-menu">
+                    <div class="lang-select-menu" id="lang-menu">
                         <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
                         <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
                         <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
@@ -117,100 +130,123 @@
                 </div>
             </div>
         </div>
+    </header>
 
-        <h1 data-i18n="docTroubleshooting.h1">🔧 استكشاف الأخطاء وإصلاحها</h1>
-        <p class="subtitle" data-i18n="docTroubleshooting.subtitle">حلول للمشاكل الشائعة والأسئلة الشائعة</p>
+    <main class="container article">
+        <header class="article-head">
+            <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-wrench"/></svg></div>
+            <h1 class="emoji-lead" data-i18n="docTroubleshooting.h1">🔧 استكشاف الأخطاء وإصلاحها</h1>
+            <p class="subtitle" data-i18n="docTroubleshooting.subtitle">حلول للمشاكل الشائعة والأسئلة الشائعة</p>
+            <div class="ornament" aria-hidden="true"></div>
+        </header>
 
         <h2 data-i18n="docTroubleshooting.installH2">مشاكل التثبيت</h2>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq1Q">❌ الامتداد لا يظهر في شريط الأدوات</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq1Q">❌ الامتداد لا يظهر في شريط الأدوات</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq1A"><strong>الحلول :</strong><br>1. تحقق من تثبيت الامتداد من <strong>Chrome Web Store</strong><br>2. ثبّت الامتداد: انقر على أيقونة الأحجية 🧩 في شريط الأدوات وثبّت Reborn Assistant<br>3. أعد تشغيل المتصفح<br>4. إذا استمرت المشكلة، أزل الامتداد وأعد تثبيته من Chrome Web Store</div>
         </div>
 
         <h2 data-i18n="docTroubleshooting.connH2">مشاكل الاتصال</h2>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq2Q">❌ "فشل الاتصال" أو "ترخيص غير صالح"</div>
+            <h3 class="faq-q"><svg class="inline-gl inline-gl--off" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-keep" data-i18n="docTroubleshooting.faq2Q">❌ "فشل الاتصال" أو "ترخيص غير صالح"</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq2A"><strong>الأسباب المحتملة :</strong><br>• اتصال إنترنت سيئ<br>• خوادم Google Cloud غير متاحة مؤقتاً<br>• الترخيص منتهي الصلاحية أو ملغى<br><br><strong>الحلول :</strong><br>1. تحقق من اتصالك بالإنترنت<br>2. قم بتسجيل الخروج وإعادة تسجيل الدخول بـ Google<br>3. تحقق من حالة ترخيصك في مساحة Stripe<br>4. تواصل مع الدعم إذا استمرت المشكلة</div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq3Q">❌ اللوحة تظهر "FREE" رغم امتلاكي Premium</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq3Q">❌ اللوحة تظهر "FREE" رغم امتلاكي Premium</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq3A">1. قم بتسجيل الخروج من حساب Google<br>2. أغلق المتصفح بالكامل<br>3. أعد فتحه وسجّل دخولك مجدداً<br>4. إذا استمرت المشكلة، تحقق من تسجيل الدخول بحساب Google الصحيح (المستخدم عند الشراء)</div>
         </div>
 
         <h2 data-i18n="docTroubleshooting.funcH2">مشاكل التشغيل</h2>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq4Q">❌ إجراءات النوع 1/2 لا تُفعَّل</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq4Q">❌ إجراءات النوع 1/2 لا تُفعَّل</span></h3>
             <div class="faq-a">
-                <div class="alert" data-i18n="docTroubleshooting.faq4Alert"><strong>⚠️ مهم</strong><br>إجراءات النوع 1 و2 مميزات <strong>PREMIUM فقط</strong>. الإجراء التلقائي من النوع 1 (HP) متاح فقط في النسخة المجانية.</div>
+                <div class="alert callout--gl" data-i18n="docTroubleshooting.faq4Alert"><strong>⚠️ مهم</strong><br>إجراءات النوع 1 و2 مميزات <strong>PREMIUM فقط</strong>. الإجراء التلقائي من النوع 1 (HP) متاح فقط في النسخة المجانية.</div>
                 <span data-i18n="docTroubleshooting.faq4Prem"><strong>إذا كان لديك Premium:</strong><br>1. هل الأتمتة نشطة؟ <code>CTRL+A</code><br>2. هل تم تفعيل مفاتيح التشغيل؟ (مؤشر أخضر «ON»)<br>3. هل المفاتيح المكوّنة صحيحة؟</span>
             </div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq5Q">❌ التسلسلات / الماكرو / الماكرو الدوري / الاختصارات لا تعمل</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq5Q">❌ التسلسلات / الماكرو / الماكرو الدوري / الاختصارات لا تعمل</span></h3>
             <div class="faq-a">
-                <div class="alert" data-i18n="docTroubleshooting.faq5Alert"><strong>⚠️ مهم</strong><br>اختصارات لوحة المفاتيح والتسلسلات والماكرو والماكرو الدوري مميزات <strong>PREMIUM فقط</strong>. في النسخة المجانية، يتاح فقط الإجراء التلقائي من النوع 1 (HP).</div>
+                <div class="alert callout--gl" data-i18n="docTroubleshooting.faq5Alert"><strong>⚠️ مهم</strong><br>اختصارات لوحة المفاتيح والتسلسلات والماكرو والماكرو الدوري مميزات <strong>PREMIUM فقط</strong>. في النسخة المجانية، يتاح فقط الإجراء التلقائي من النوع 1 (HP).</div>
                 <span data-i18n="docTroubleshooting.faq5Prem"><strong>إذا كان لديك Premium :</strong><br>1. تحقق من أن ترخيص Premium نشط (أيقونة 💎 في اللوحة)<br>2. هل تم تفعيل مفاتيح التبديل المقابلة؟<br>3. تحقق من الفترات والتأخيرات المكوّنة</span>
             </div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq6Q">❌ تتوقف الأتمتة تلقائيًا</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-fault"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq6Q">❌ تتوقف الأتمتة تلقائيًا</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq6A"><strong>الأسباب المحتملة:</strong><br>• فقدان الاتصال بـ Google Cloud<br>• اكتشاف DevTools<br>• تغير عنوان URL للصفحة<br><br><strong>الحلول:</strong><br>1. أعد تشغيل الأتمتة باستخدام <code>CTRL+A</code> (Premium) أو من اللوحة<br>2. أعد تحميل الصفحة المعنية<br>3. تحقق من اتصال الإنترنت<br>4. لا تفتح DevTools إذا كنت على Premium</div>
         </div>
 
         <h2 data-i18n="docTroubleshooting.optH2">التحسين والأداء</h2>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq7Q">💡 الامتداد يستهلك الكثير من الموارد</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-bulb"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq7Q">💡 الامتداد يستهلك الكثير من الموارد</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq7A"><strong>التوصيات :</strong><br>• زد فترات الماكرو والتسلسلات (إجراءات أقل = معالج أقل)<br>• عطّل الأنظمة التي لا تحتاجها<br>• أغلق التبويبات الأخرى غير الضرورية<br>• استخدم متصفحاً محسّناً (Brave وEdge أخف من Chrome)</div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq8Q">💡 كيف أحسّن الإعدادات؟</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-bulb"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq8Q">💡 كيف أحسّن الإعدادات؟</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq8A"><strong>الإعداد الموصى به :</strong><br>• <strong>فترة التسلسلات :</strong> 5-25 دقيقة (حسب مدة تسلسلاتك)<br>• <strong>التأخير بين المفاتيح :</strong> 1-2 ثانية (يتجنب الأخطاء)<br>• <strong>الماكرو :</strong> فترات 10-30 ثانية حسب الاستخدام</div>
         </div>
 
         <h2 data-i18n="docTroubleshooting.genH2">الأسئلة الشائعة العامة</h2>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq9Q">❓ هل يمكنني استخدام Reborn على متصفحات متعددة؟</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq9Q">❓ هل يمكنني استخدام Reborn على متصفحات متعددة؟</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq9A">نعم، لكن يجب تثبيت الامتداد على كل متصفح. ترخيص Premium الخاص بك يعمل على جميع أجهزتك ما دمت تسجل دخولك بنفس حساب Google (اتصال متزامن واحد كحد أقصى).</div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq10Q">❓ هل يتم حفظ بياناتي؟</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq10Q">❓ هل يتم حفظ بياناتي؟</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq10A">يتم حفظ جميع إعداداتك (المفاتيح والماكرو والثيم واللغة) <strong>محلياً</strong> في المتصفح. وتستمر بين الجلسات. لكن إذا قمت بإزالة الامتداد، ستفقد هذه البيانات.</div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq11Q">❓ هل يمكن لـ Reborn أن يسبب حظراً؟</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq11Q">❓ هل يمكن لـ Reborn أن يسبب حظراً؟</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq11A">قد يخالف استخدام أدوات الأتمتة شروط الاستخدام لبعض الخدمات. <strong>أنت وحدك المسؤول</strong> عن استخدامك لـ Reborn. راجع شروط استخدام الخدمة المعنية قبل استخدام هذه الأداة.</div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq12Q">❓ كيف يمكنني إلغاء اشتراك Premium؟</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq12Q">❓ كيف يمكنني إلغاء اشتراك Premium؟</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq12A">يمكنك الإلغاء في أي وقت من بوابة إدارة Stripe (الرابط الذي تلقيته بالبريد الإلكتروني بعد الدفع). يسري الإلغاء في نهاية فترتك الحالية. لا رسوم إلغاء.</div>
         </div>
 
         <div class="faq">
-            <div class="faq-q" data-i18n="docTroubleshooting.faq13Q">❓ ماذا عن خطة مدى الحياة إذا أغلقت الخدمة؟</div>
+            <h3 class="faq-q"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-question"/></svg><span class="emoji-lead" data-i18n="docTroubleshooting.faq13Q">❓ ماذا عن خطة مدى الحياة إذا أغلقت الخدمة؟</span></h3>
             <div class="faq-a" data-i18n="docTroubleshooting.faq13A">تضمن خطة مدى الحياة الوصول طالما الخدمة نشطة. الامتداد بمجرد تثبيته يعمل محلياً؛ فقط التحقق من الترخيص يتطلب اتصالاً بالإنترنت.</div>
         </div>
 
         <h2 data-i18n="docTroubleshooting.supportH2">تحتاج إلى مساعدة إضافية؟</h2>
-        <div class="success">
-            <strong data-i18n="docTroubleshooting.supportTitle">📧 الدعم</strong><br>
-            <span data-i18n="docTroubleshooting.supportText">إذا استمرت مشكلتك، تواصل مع الدعم مباشرةً عبر البريد الإلكتروني. أدرج في رسالتك :<br><br>• وصفاً تفصيلياً للمشكلة<br>• الخطوات التي جربتها بالفعل<br>• لقطات شاشة إذا كانت مناسبة<br>• متصفحك ونظام التشغيل</span>
-            <br><br>
-            <a href="mailto:seymoon@constellation-89.fr" style="color:var(--gold);">📧 seymoon@constellation-89.fr</a><br>
-            <span style="color:var(--gold);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:4px;"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.053a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>Discord : Seymoon</span>
+        <div class="support-box">
+            <div class="support-head">
+                <span class="skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-chat"/></svg></span>
+                <strong class="support-title emoji-lead" data-i18n="docTroubleshooting.supportTitle">📧 الدعم</strong>
+            </div>
+            <p class="support-text" data-i18n="docTroubleshooting.supportText">إذا استمرت مشكلتك، تواصل مع الدعم مباشرةً عبر البريد الإلكتروني. أدرج في رسالتك :<br><br>• وصفاً تفصيلياً للمشكلة<br>• الخطوات التي جربتها بالفعل<br>• لقطات شاشة إذا كانت مناسبة<br>• متصفحك ونظام التشغيل</p>
+            <div class="contact-links">
+                <a href="mailto:seymoon@constellation-89.fr" class="contact-chip" style="color:var(--gold);"><svg class="inline-gl" aria-hidden="true" focusable="false"><use href="#g-mail"/></svg><span class="emoji-lead">📧 seymoon@constellation-89.fr</span></a>
+                <span class="contact-chip" style="color:var(--gold);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.053a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg><span>Discord : Seymoon</span></span>
+            </div>
         </div>
-    </div>
+    </main>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="site-footer site-footer--compact">
+        <div class="container footer-content">
+            <a class="brand" href="/ar/" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+            </a>
+            <div class="footer-logo">REBORN ASSISTANT</div>
+            <div class="ornament" aria-hidden="true"></div>
+            <div class="copyright"><span data-i18n="docsNav.footer">© 2026 Reborn Assistant — تطوير Seymoon · جميع الحقوق محفوظة</span></div>
+        </div>
+    </footer>
+
     <script type="module" src="/langs/index.js"></script>
 </body>
 </html>

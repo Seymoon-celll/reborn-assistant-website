@@ -30,33 +30,64 @@
     <!-- ── Performance ────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Marcellus&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css?v=4">
     <style>
-        :root {
-            --gold: #d4af37; --gold-light: #f4d03f; --gold-dark: #b8941f;
-            --dark-bg: #080808; --green: #4CAF50; --red: #ff6b6b;
-            --text: #f0ead6; --text-dim: #9a9278; --border: rgba(212,175,55,0.2);
+        /* ═══ Quick start — page-specific layout only (tokens & components: /assets/css/site.css) ═══ */
+
+        /* Requirements & shortcuts — framed lists (same frame as the docs cards) */
+        .req-list, .shortcut-panel {
+            margin: 22px 0 8px; padding: 6px 22px; border-radius: 16px; border: 1px solid transparent;
+            background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box; box-shadow: var(--shadow-md);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--dark-bg); color: var(--text); line-height: 1.7; }
-        body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; opacity: 0.3; }
-        .container { max-width: 900px; margin: 0 auto; padding: 80px 40px 100px; position: relative; z-index: 1; }
-        .back-link { display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:9px 20px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease; }
-        .back-link:hover { color:var(--gold);border-color:rgba(212,175,55,0.5); }
-        h1 { font-family: 'Cinzel', serif; font-size: 42px; color: var(--gold); letter-spacing: 2px; margin-bottom: 16px; }
-        .subtitle { font-size: 18px; color: var(--text-dim); margin-bottom: 60px; }
-        h2 { font-family: 'Cinzel', serif; font-size: 28px; color: var(--text); margin: 60px 0 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
-        h3 { font-size: 20px; color: var(--gold); margin: 40px 0 16px; }
-        p { margin-bottom: 20px; font-size: 15px; }
-        .step { background: rgba(20,20,16,0.6); border: 1px solid var(--border); border-radius: 12px; padding: 32px; margin-bottom: 24px; }
-        .step-number { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: linear-gradient(135deg, var(--gold-dark), var(--gold-light)); color: #000; font-weight: 700; border-radius: 8px; margin-bottom: 16px; }
-        .step-title { font-size: 18px; font-weight: 600; color: var(--gold); margin-bottom: 12px; }
-        .alert { background: rgba(212,175,55,0.08); border-left: 4px solid var(--gold); padding: 20px 24px; margin: 24px 0; border-radius: 4px; }
-        .alert-warning { background: rgba(255,107,107,0.08); border-left-color: var(--red); }
-        .alert strong { color: var(--gold); display: block; margin-bottom: 8px; }
-        code { background: rgba(20,20,16,0.8); padding: 2px 8px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 13px; color: var(--gold-light); }
-        .requirement { display: flex; align-items: center; gap: 12px; padding: 12px 0; }
-        .requirement-icon { font-size: 20px; }
+        .article .requirement { padding-block: 14px; }
+        .article .requirement > div { min-width: 0; }
+
+        /* Installation steps threaded on a gilded line (it shows in the gaps, behind the opaque cards) */
+        .step-trail { position: relative; }
+        .step-trail::before {
+            content: ''; position: absolute; inset-inline-start: 42.5px; top: 44px; bottom: 44px; width: 1px;
+            background: rgba(226,194,99,.5);
+        }
+        .article .step .step-tip { margin-top: -4px; font-size: 14px; line-height: 1.6; color: var(--text-dim); }
+        /* the tip's leading 💡 is hidden (.emoji-lead) and drawn as the gold bulb of the callouts, out of flow so
+           ::first-letter still reaches the emoji; mirrored in RTL */
+        .article .step .step-tip.emoji-lead { position: relative; padding-inline-start: 24px; }
+        .article .step .step-tip.emoji-lead::before {
+            content: ''; position: absolute; inset-inline-start: 0; top: calc(.8em - 8px); width: 16px; height: 16px;
+            background: var(--gold-300); -webkit-mask: var(--gl-bulb) center / contain no-repeat; mask: var(--gl-bulb) center / contain no-repeat;
+        }
+        @media (forced-colors: active) {      /* the masked background would become Canvas: paint the bulb in the text colour */
+            .article .step .step-tip.emoji-lead::before { forced-color-adjust: none; background: CanvasText; }
+        }
+
+        /* Free / Premium set-up — two framed tiers; hierarchy by gilt intensity, not hue */
+        .article .tier { margin: 26px 0; }
+        .article .tier--free { background: var(--surface-1) padding-box, var(--gilt-edge-soft) border-box; }
+        .article .tier > p { margin-bottom: 10px; }
+        .article .tier .step {
+            margin: 22px 0 0; box-shadow: none;
+            background: var(--surface-well) padding-box, var(--gilt-edge-soft) border-box;
+        }
+
+        /* Keyboard shortcuts — the translated line's codes are site.css keycaps (.keycaps) */
+        .shortcut-panel { padding-block: 12px; }
+        .article .shortcuts { margin: 0; line-height: 2.8; }
+
+        /* Next steps — site.css entry cards: one per row until the column is at full width, then three tiles, glyph above the title */
+        .next-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; margin: 24px 0 8px; }
+        .next-card__title { font-family: var(--font-display); font-size: 16px; font-weight: 700; line-height: 1.35; color: var(--gold-200); text-wrap: balance; }
+        @media (min-width: 920px) {
+            .next-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            .next-card { grid-template-columns: minmax(0, 1fr); align-content: start; align-items: start; row-gap: 16px; padding: 20px 20px 22px; }
+            .next-card::after { position: absolute; top: 40px; inset-inline-end: 22px; margin: 0; }
+        }
+
+        @media (max-width: 480px) {
+            .req-list, .shortcut-panel { padding-inline: 16px; }
+            .article .requirement { align-items: flex-start; gap: 14px; }
+            .article .tier .step { padding: 18px 16px; }
+        }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.svg">
@@ -93,18 +124,34 @@
     <script>window.__PRERENDERED_LANG__="tr";</script>
 </head>
 <body>
-    <div class="container">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:12px;">
-            <a href="/tr/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← Belgelere dön</a>
-            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-                <a href="/tr/" style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-dim);padding:7px 16px;border:1px solid var(--border);border-radius:6px;transition:all 0.3s ease;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='rgba(212,175,55,0.5)'" onmouseout="this.style.color='var(--text-dim)';this.style.borderColor='var(--border)'" data-i18n="docsNav.mainSite">⌂ Ana site</a>
+    <!-- Gold line glyphs (shared library, DESIGN-SYSTEM §6a) — referenced with <use href="#g-…"> -->
+    <svg class="glyph-sprite" aria-hidden="true" focusable="false">
+        <symbol id="g-rocket" viewBox="0 0 24 24"><path d="M12 2.8c3 2 4.5 5.5 4.1 9.8l-1.9 3.4H9.8l-1.9-3.4C7.5 8.3 9 4.8 12 2.8z"/><circle cx="12" cy="9" r="1.8"/><path d="M7.9 12.6L5 15.8l3.6.6M16.1 12.6l2.9 3.2-3.6.6M10.4 18.7l1.6 2.7 1.6-2.7"/></symbol>
+        <symbol id="g-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3c2.4 2.5 3.7 5.5 3.7 9s-1.3 6.5-3.7 9c-2.4-2.5-3.7-5.5-3.7-9S9.6 5.5 12 3z"/><path fill="none" d="M3 12h18M4.6 7.5h14.8M4.6 16.5h14.8"/></symbol>
+        <symbol id="g-wrench" viewBox="0 0 24 24"><path d="M15.6 3.4a5 5 0 0 0-4.8 6.6L3.9 16.9a2 2 0 0 0 2.8 2.8l6.9-6.9a5 5 0 0 0 6.6-4.8l-3.3 1.6-2.7-1.4-.4-3z"/></symbol>
+        <symbol id="g-gamepad" viewBox="0 0 24 24"><path d="M7.2 7h9.6a4.6 4.6 0 0 1 4.5 3.7l.9 4.9a2.5 2.5 0 0 1-4.3 2.2L15.5 15.4h-7L6.1 17.8a2.5 2.5 0 0 1-4.3-2.2l.9-4.9A4.6 4.6 0 0 1 7.2 7z"/><path fill="none" d="M7.5 9.7v3.4M5.8 11.4h3.4"/><circle cx="15.8" cy="10.4" r=".7"/><circle cx="17.6" cy="12.3" r=".7"/></symbol>
+        <symbol id="g-bolt" viewBox="0 0 24 24"><path d="M13 2.5L5 13.5h6l-1 8 8-11h-6l1-8z"/></symbol>
+        <symbol id="g-gem" viewBox="0 0 24 24"><path d="M6.8 4.5h10.4L21 9.4 12 20.5 3 9.4z"/><path fill="none" d="M3 9.4h18M9.8 4.5L8.4 9.4 12 20.5l3.6-11.1-1.4-4.9"/></symbol>
+        <symbol id="g-cross" viewBox="0 0 24 24"><path d="M9.5 3.5h5v6h6v5h-6v6h-5v-6h-6v-5h6z"/></symbol>
+    </svg>
+
+    <!-- ═══ Header ═══ -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="/tr/" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+                <span class="brand__word">Reborn</span>
+            </a>
+            <div class="header-actions">
+                <a href="/tr/docs/index.html" class="back-link" data-i18n="docsNav.backToDocs">← Belgelere dön</a>
+                <a href="/tr/" class="hdr-btn hdr-home" data-i18n="docsNav.mainSite">⌂ Ana site</a>
                 <div class="lang-select">
-                    <button class="lang-select-btn" onclick="toggleLangMenu()">
+                    <button class="lang-select-btn" type="button" aria-expanded="false" aria-controls="lang-menu" onclick="toggleLangMenu()">
                         <span class="lang-flag">🇹🇷</span>
                         <span class="lang-code">TR</span>
-                        <span class="lang-chevron">▾</span>
+                        <span class="lang-chevron" aria-hidden="true">▾</span>
                     </button>
-                    <div class="lang-select-menu">
+                    <div class="lang-select-menu" id="lang-menu">
                         <button class="lang-option" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
                         <button class="lang-option" data-lang="en" onclick="setLang('en')">🇬🇧 English</button>
                         <button class="lang-option" data-lang="es" onclick="setLang('es')">🇪🇸 Español</button>
@@ -124,93 +171,133 @@
                 </div>
             </div>
         </div>
+    </header>
 
-        <h1 data-i18n="docQuickstart.h1">🚀 Hızlı Başlangıç</h1>
-        <p class="subtitle" data-i18n="docQuickstart.subtitle">Reborn Assistant'ı birkaç dakikada yükleyin ve yapılandırın</p>
+    <main class="container article">
+        <header class="article-head">
+            <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-rocket"/></svg></div>
+            <h1 class="emoji-lead" data-i18n="docQuickstart.h1">🚀 Hızlı Başlangıç</h1>
+            <p class="subtitle" data-i18n="docQuickstart.subtitle">Reborn Assistant'ı birkaç dakikada yükleyin ve yapılandırın</p>
+            <div class="ornament" aria-hidden="true"></div>
+        </header>
 
         <h2 data-i18n="docQuickstart.reqH2">Gereksinimler</h2>
-        <div class="requirement">
-            <span class="requirement-icon">🌐</span>
-            <div data-i18n="docQuickstart.req1"><strong>Uyumlu tarayıcı:</strong> Google Chrome, Microsoft Edge, Brave veya Chromium tabanlı herhangi bir tarayıcı</div>
-        </div>
-        <div class="requirement">
-            <span class="requirement-icon">🔧</span>
-            <div data-i18n="docQuickstart.req2"><strong>Google hesabı:</strong> Yalnızca Premium kimlik doğrulaması için gereklidir (ücretsiz sürüm için isteğe bağlı)</div>
-        </div>
-        <div class="requirement">
-            <span class="requirement-icon">🎮</span>
-            <div data-i18n="docQuickstart.req3"><strong>Uyumlu site:</strong> Standart web siteleriyle uyumlu</div>
+        <div class="req-list">
+            <div class="requirement">
+                <span class="requirement-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-globe"/></svg><span class="slot-src" aria-hidden="true">🌐</span></span>
+                <div data-i18n="docQuickstart.req1"><strong>Uyumlu tarayıcı:</strong> Google Chrome, Microsoft Edge, Brave veya Chromium tabanlı herhangi bir tarayıcı</div>
+            </div>
+            <div class="requirement">
+                <span class="requirement-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-wrench"/></svg><span class="slot-src" aria-hidden="true">🔧</span></span>
+                <div data-i18n="docQuickstart.req2"><strong>Google hesabı:</strong> Yalnızca Premium kimlik doğrulaması için gereklidir (ücretsiz sürüm için isteğe bağlı)</div>
+            </div>
+            <div class="requirement">
+                <span class="requirement-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-gamepad"/></svg><span class="slot-src" aria-hidden="true">🎮</span></span>
+                <div data-i18n="docQuickstart.req3"><strong>Uyumlu site:</strong> Standart web siteleriyle uyumlu</div>
+            </div>
         </div>
 
         <h2 data-i18n="docQuickstart.installH2">Kurulum</h2>
 
-        <div class="step">
-            <div class="step-number">1</div>
-            <div class="step-title" data-i18n="docQuickstart.step1Title">Chrome Web Store'u ziyaret edin</div>
-            <p data-i18n="docQuickstart.step1p"><a href='https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme' target='_blank' style='color:var(--gold);text-decoration:none;' onmouseover='this.style.textDecoration="underline"' onmouseout='this.style.textDecoration="none"'>Chrome Web Store</a>'daki Reborn Assistant sayfasına gidin ve <strong>«Chrome'a ekle»</strong> düğmesine tıklayın.</p>
-            <p style="margin-top:12px;font-size:13px;color:var(--text-dim);" data-i18n="docQuickstart.step1tip">💡 Google Chrome, Microsoft Edge, Brave ve Chromium tabanlı herhangi bir tarayıcıyla uyumludur.</p>
+        <div class="step-trail">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-title" data-i18n="docQuickstart.step1Title">Chrome Web Store'u ziyaret edin</div>
+                <p data-i18n="docQuickstart.step1p"><a href='https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme' target='_blank' style='color:var(--gold);text-decoration:none;' onmouseover='this.style.textDecoration="underline"' onmouseout='this.style.textDecoration="none"'>Chrome Web Store</a>'daki Reborn Assistant sayfasına gidin ve <strong>«Chrome'a ekle»</strong> düğmesine tıklayın.</p>
+                <p class="step-tip emoji-lead" data-i18n="docQuickstart.step1tip">💡 Google Chrome, Microsoft Edge, Brave ve Chromium tabanlı herhangi bir tarayıcıyla uyumludur.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-title" data-i18n="docQuickstart.step2Title">Kurulumu onaylayın</div>
+                <p data-i18n="docQuickstart.step2p">Onay penceresinde <strong>«Uzantı ekle»</strong> düğmesine tıklayın. Uzantı otomatik olarak yüklenir.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-title" data-i18n="docQuickstart.step3Title">Uzantıyı sabitleyin</div>
+                <p data-i18n="docQuickstart.step3p">Tarayıcı araç çubuğundaki bulmaca simgesine 🧩 tıklayın ve hızlı erişim için Reborn Assistant'ı sabitleyin.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-title" data-i18n="docQuickstart.step4Title">Giriş yapın (Premium için isteğe bağlı)</div>
+                <p data-i18n="docQuickstart.step4p">• Araç çubuğundaki Reborn simgesine tıklayın<br>• Premium için: Google hesabınızla giriş yapın<br>• Ücretsiz için: Giriş yapmadan doğrudan kullanın</p>
+            </div>
         </div>
 
-        <div class="step">
-            <div class="step-number">2</div>
-            <div class="step-title" data-i18n="docQuickstart.step2Title">Kurulumu onaylayın</div>
-            <p data-i18n="docQuickstart.step2p">Onay penceresinde <strong>«Uzantı ekle»</strong> düğmesine tıklayın. Uzantı otomatik olarak yüklenir.</p>
-        </div>
-
-        <div class="step">
-            <div class="step-number">3</div>
-            <div class="step-title" data-i18n="docQuickstart.step3Title">Uzantıyı sabitleyin</div>
-            <p data-i18n="docQuickstart.step3p">Tarayıcı araç çubuğundaki bulmaca simgesine 🧩 tıklayın ve hızlı erişim için Reborn Assistant'ı sabitleyin.</p>
-        </div>
-
-        <div class="step">
-            <div class="step-number">4</div>
-            <div class="step-title" data-i18n="docQuickstart.step4Title">Giriş yapın (Premium için isteğe bağlı)</div>
-            <p data-i18n="docQuickstart.step4p">• Araç çubuğundaki Reborn simgesine tıklayın<br>• Premium için: Google hesabınızla giriş yapın<br>• Ücretsiz için: Giriş yapmadan doğrudan kullanın</p>
-        </div>
-
-        <div class="alert">
+        <div class="alert alert-success callout--gl">
             <strong data-i18n="docQuickstart.alertTitle">✅ Kurulum başarılı!</strong>
             <span data-i18n="docQuickstart.alertText">Uzantı aktifken Reborn simgesi yeşile döner. Artık özelliklerinizi yapılandırabilirsiniz.</span>
         </div>
 
         <h2 data-i18n="docQuickstart.configH2">İlk yapılandırma</h2>
 
-        <h3 data-i18n="docQuickstart.freeH3">ÜCRETSİZ Sürüm</h3>
-        <p data-i18n="docQuickstart.freeTitle"><strong>Giriş yapmadan kullanılabilen özellikler:</strong></p>
-        <p data-i18n="docQuickstart.freeText">• Otomatik tip 1 eylemi (yalnızca HP)<br>• 6 görsel tema<br>• 15 dil desteği</p>
+        <div class="section tier tier--free">
+            <h3 data-i18n="docQuickstart.freeH3">ÜCRETSİZ Sürüm</h3>
+            <p data-i18n="docQuickstart.freeTitle"><strong>Giriş yapmadan kullanılabilen özellikler:</strong></p>
+            <p data-i18n="docQuickstart.freeText">• Otomatik tip 1 eylemi (yalnızca HP)<br>• 6 görsel tema<br>• 15 dil desteği</p>
 
-        <div class="step">
-            <div class="step-title" data-i18n="docQuickstart.freeStepTitle">Otomatik tip 1 eylemini yapılandırın</div>
-            <p data-i18n="docQuickstart.freeStepText">1. Reborn panelini açın (simgeye tıklayın)<br>2. HP eylem zamanlayıcısını ayarlayın (varsayılan: 2sn)<br>3. Eylem otomatik olarak etkinleşir<br>4. Giriş gerekmez</p>
+            <div class="step">
+                <div class="step-title" data-i18n="docQuickstart.freeStepTitle">Otomatik tip 1 eylemini yapılandırın</div>
+                <p data-i18n="docQuickstart.freeStepText">1. Reborn panelini açın (simgeye tıklayın)<br>2. HP eylem zamanlayıcısını ayarlayın (varsayılan: 2sn)<br>3. Eylem otomatik olarak etkinleşir<br>4. Giriş gerekmez</p>
+            </div>
         </div>
 
-        <h3 data-i18n="docQuickstart.premiumH3">PREMIUM Sürüm 💎</h3>
-        <p data-i18n="docQuickstart.premiumFeatTitle"><strong>Ek özellikler (Google girişi gerektirir):</strong></p>
-        <p data-i18n="docQuickstart.premiumFeatText">• Otomatik tetikleyici 1 makrosu (yapılandırılabilir zamanlayıcı + kısayol)<br>• Otomatik tetikleyici 2 makrosu (yapılandırılabilir zamanlayıcı + kısayol)<br>• Klavye kısayolları (CTRL+A / CTRL+O)<br>• Otomatik dizi rotasyonu (F2 → 1-9 → 0 → F1)<br>• Tuş dizileriyle 3 özelleştirilebilir makro<br>• Otomatik periyodik makro sistemi (her 15sn'de çağırma + kaydetme)</p>
+        <div class="section tier tier--premium">
+            <h3 class="h2-gilt" data-i18n="docQuickstart.premiumH3">PREMIUM Sürüm 💎</h3>
+            <p data-i18n="docQuickstart.premiumFeatTitle"><strong>Ek özellikler (Google girişi gerektirir):</strong></p>
+            <p data-i18n="docQuickstart.premiumFeatText">• Otomatik tetikleyici 1 makrosu (yapılandırılabilir zamanlayıcı + kısayol)<br>• Otomatik tetikleyici 2 makrosu (yapılandırılabilir zamanlayıcı + kısayol)<br>• Klavye kısayolları (CTRL+A / CTRL+O)<br>• Otomatik dizi rotasyonu (F2 → 1-9 → 0 → F1)<br>• Tuş dizileriyle 3 özelleştirilebilir makro<br>• Otomatik periyodik makro sistemi (her 15sn'de çağırma + kaydetme)</p>
 
-        <div class="step">
-            <div class="step-title" data-i18n="docQuickstart.premConfigTitle">Premium Yapılandırma</div>
-            <p data-i18n="docQuickstart.premConfigSeq"><strong>Otomatik diziler:</strong><br>• Panelde «Dizi Rotasyonu»nu etkinleştirin<br>• Döngüler arası aralığı yapılandırın (varsayılan: 5 dk)<br>• Her tuş arası gecikmeyi ayarlayın (varsayılan: 1sn)</p>
+            <div class="step">
+                <div class="step-title" data-i18n="docQuickstart.premConfigTitle">Premium Yapılandırma</div>
+                <p data-i18n="docQuickstart.premConfigSeq"><strong>Otomatik diziler:</strong><br>• Panelde «Dizi Rotasyonu»nu etkinleştirin<br>• Döngüler arası aralığı yapılandırın (varsayılan: 5 dk)<br>• Her tuş arası gecikmeyi ayarlayın (varsayılan: 1sn)</p>
 
-            <p data-i18n="docQuickstart.premConfigMacro"><strong>Makrolar:</strong><br>• Makro 1, 2 veya 3'ü etkinleştirin<br>• Tuş dizisini tanımlayın (örn. <code>1,2,3,4</code>)<br>• Tekrar aralığını yapılandırın</p>
+                <p data-i18n="docQuickstart.premConfigMacro"><strong>Makrolar:</strong><br>• Makro 1, 2 veya 3'ü etkinleştirin<br>• Tuş dizisini tanımlayın (örn. <code>1,2,3,4</code>)<br>• Tekrar aralığını yapılandırın</p>
 
-            <p data-i18n="docQuickstart.premConfigPer"><strong>Periyodik makro:</strong><br>• «Periyodik makro» anahtarını etkinleştirin<br>• Sistem periyodik makronuzu her 15sn'de otomatik çağırır<br>• Çağrı sonrası otomatik kaydetme</p>
+                <p data-i18n="docQuickstart.premConfigPer"><strong>Periyodik makro:</strong><br>• «Periyodik makro» anahtarını etkinleştirin<br>• Sistem periyodik makronuzu her 15sn'de otomatik çağırır<br>• Çağrı sonrası otomatik kaydetme</p>
+            </div>
         </div>
 
-        <div class="alert alert-warning">
+        <div class="alert alert-warning callout--gl">
             <strong data-i18n="docQuickstart.warnTitle">⚠️ Önemli not</strong>
             <span data-i18n="docQuickstart.warnText">Premium özellikler (Tetikleyici makrolar 1 ve 2, Otomatik diziler, Otomatik periyodik makro, 3 yapılandırılabilir makro) geçerli bir Premium lisansı ve Google girişi gerektirir. Lisans olmadan yalnızca temel makro kullanılabilir.</span>
         </div>
 
         <h2 data-i18n="docQuickstart.shortcutsH2">Klavye kısayolları</h2>
-        <p data-i18n="docQuickstart.shortcutsText"><code>CTRL + A</code>: Otomasyonu başlat<br><code>CTRL + O</code>: Otomasyonu durdur</p>
+        <div class="shortcut-panel">
+            <p class="shortcuts keycaps" data-i18n="docQuickstart.shortcutsText"><code>CTRL + A</code>: Otomasyonu başlat<br><code>CTRL + O</code>: Otomasyonu durdur</p>
+        </div>
 
         <h2 data-i18n="docQuickstart.nextH2">Sonraki adımlar</h2>
-        <p>• <a href="/tr/docs/features.html" style="color:var(--gold);" data-i18n="docQuickstart.link1">Tüm özellikleri keşfedin</a><br>
-        • <a href="/tr/docs/premium.html" style="color:var(--gold);" data-i18n="docQuickstart.link2">Tam Premium kılavuzu</a><br>
-        • <a href="/tr/docs/troubleshooting.html" style="color:var(--gold);" data-i18n="docQuickstart.link3">Yaygın sorunların çözümleri</a></p>
-    </div>
+        <div class="next-grid">
+            <a href="/tr/docs/features.html" class="next-card entry-card gild-hover">
+                <span class="skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-bolt"/></svg></span>
+                <span class="next-card__title" data-i18n="docQuickstart.link1">Tüm özellikleri keşfedin</span>
+            </a>
+            <a href="/tr/docs/premium.html" class="next-card entry-card gild-hover">
+                <span class="skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-gem"/></svg></span>
+                <span class="next-card__title" data-i18n="docQuickstart.link2">Tam Premium kılavuzu</span>
+            </a>
+            <a href="/tr/docs/troubleshooting.html" class="next-card entry-card gild-hover">
+                <span class="skill-slot skill-slot--sm" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-cross"/></svg></span>
+                <span class="next-card__title" data-i18n="docQuickstart.link3">Yaygın sorunların çözümleri</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="site-footer site-footer--compact">
+        <div class="container footer-content">
+            <a class="brand" href="/tr/" aria-label="Reborn Assistant">
+                <span class="brand__sigil" aria-hidden="true">R</span>
+            </a>
+            <div class="footer-logo">REBORN ASSISTANT</div>
+            <div class="ornament" aria-hidden="true"></div>
+            <div class="copyright"><span data-i18n="docsNav.footer">© 2026 Reborn Assistant — Seymoon tarafından geliştirildi · Tüm hakları saklıdır</span></div>
+        </div>
+    </footer>
+
     <script type="module" src="/langs/index.js"></script>
 </body>
 </html>
