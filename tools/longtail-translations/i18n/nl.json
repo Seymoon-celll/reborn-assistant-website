@@ -110,7 +110,7 @@
     ],
     [
       "<a href=\"#prerequis\">Prérequis avant d'automatiser</a>",
-      "<a href=\"#prerequis\">Voorwaarden voor automatisering</a>"
+      "<a href=\"#prerequis\">Vereisten voordat u automatiseert</a>"
     ],
     [
       "<a href=\"#sequences\">Choisir les buffs à automatiser</a>",
@@ -142,7 +142,7 @@
     ],
     [
       "Le Ringmaster (souvent abrégé <strong>RM</strong>) est la classe support emblématique de Flyff Universe&nbsp;: c'est la branche soins et buffs de l'Assist, accessible au niveau 60, dont la 3e classe, le Seraph, est arrivée avec l'extension Muran's Awakening (v1.5.0, novembre 2025). Son rôle est clair&nbsp;: renforcer ses alliés avec des buffs (Protect, Spirit Fortune, Geburah Tiphreth, et les buffs d'Assist comme Heap Up, Beef Up ou Mental Sign) et soigner le groupe avec Heal Rain. Sur le papier, c'est limpide. En pratique, c'est l'une des classes les plus répétitives à jouer en farm prolongé&nbsp;: vous passez une bonne partie de votre temps à <strong>relancer vos buffs dès qu'ils expirent</strong>, à <strong>relancer Geburah Tiphreth</strong>, qui ne dure que 30 secondes plus 0,15 seconde par point d'INT, à <strong>enchaîner les Heal Rain</strong> et à <strong>surveiller votre MP</strong> en plus des PV du groupe.",
-      "De Ringmaster (vaak afgekort tot <strong>RM</strong>) is de iconische supportklasse van Flyff Universe: de heal- en bufftak van de Assist, beschikbaar vanaf level 60, waarvan de 3e klasse, de Seraph, verscheen met de uitbreiding Muran's Awakening (v1.5.0, november 2025). Zijn rol is duidelijk: bondgenoten versterken met buffs (Protect, Spirit Fortune, Geburah Tiphreth en Assist-buffs zoals Heap Up, Beef Up of Mental Sign) en de groep genezen met Heal Rain. Op papier is het eenvoudig. In de praktijk is het een van de meest repetitieve klassen tijdens lange farmsessies: u bent een groot deel van uw tijd bezig met <strong>uw buffs opnieuw casten zodra ze verlopen</strong>, <strong>Geburah Tiphreth opnieuw casten</strong>, die maar 30 seconden plus 0,15 seconde per punt INT duurt, <strong>de ene Heal Rain na de andere casten</strong> en <strong>uw MP bewaken</strong>, naast de HP van de groep."
+      "De Ringmaster (vaak afgekort tot <strong>RM</strong>) is de iconische supportklasse van Flyff Universe: de heal- en bufftak van de Assist, beschikbaar vanaf level 60, waarvan de 3e klasse, de Seraph, verscheen met de uitbreiding Muran's Awakening (v1.5.0, november 2025). Zijn rol is duidelijk: bondgenoten versterken met buffs (Protect, Spirit Fortune, Geburah Tiphreth en Assist-buffs zoals Heap Up, Beef Up of Mental Sign) en de groep genezen met Heal Rain. Op papier is het eenvoudig. In de praktijk is het een van de meest repetitieve klassen tijdens lange farmsessies: u bent een groot deel van uw tijd bezig om <strong>uw buffs opnieuw te casten zodra ze verlopen</strong>, <strong>Geburah Tiphreth opnieuw te casten</strong>, die maar 30 seconden plus 0,15 seconde per punt INT duurt, <strong>de ene Heal Rain na de andere te casten</strong> en <strong>uw MP te bewaken</strong>, naast de HP van de groep."
     ],
     [
       "L'automatisation ne remplace pas votre jugement. Elle décharge votre clavier des routines mécaniques&nbsp;: le cycle de rebuff complet, Geburah Tiphreth, le Heal Rain périodique, les potions de MP. Reborn Assistant ne voit ni l'écran ni les barres de vie&nbsp;: il appuie sur les touches que vous avez configurées, au rythme que vous avez choisi. Vous gardez les mains libres pour les <strong>moments où ça compte vraiment</strong>&nbsp;: un membre qui tombe, un pack de monstres qui dérape, un boss qui cible le RM en premier.",
@@ -150,7 +150,7 @@
     ],
     [
       "Prérequis avant d'automatiser",
-      "Voorwaarden voor automatisering"
+      "Vereisten voordat u automatiseert"
     ],
     [
       "Avant d'activer quoi que ce soit, posez les bases solides. Rappel utile&nbsp;: dans Flyff Universe, les touches F1 à F9 affichent l'une de vos 9 barres de raccourcis, et les touches 1 à 0 déclenchent les emplacements de la barre affichée.",
@@ -178,7 +178,7 @@
     ],
     [
       "<strong>Un groupe formé et un spot où il reste regroupé</strong>&nbsp;: Heal Rain et Geburah Tiphreth ne touchent que les membres de votre groupe situés à moins de 13 mètres de vous.",
-      "<strong>Een gevormde groep en een spot waar die bij elkaar blijft</strong>: Heal Rain en Geburah Tiphreth raken alleen groepsleden binnen 13 meter van u."
+      "<strong>Een groep die al gevormd is, en een spot waar die bij elkaar blijft</strong>: Heal Rain en Geburah Tiphreth raken alleen groepsleden binnen 13 meter van u."
     ],
     [
       "Choisir les buffs à automatiser",
@@ -410,7 +410,7 @@
     ],
     [
       "Glissez Heal Rain sur l'emplacement 0 de votre 1re et de votre 2e barre (voir les prérequis). Reportez ensuite cette même touche, <code>0</code>, dans le champ «&nbsp;Touche&nbsp;» de la section SOIN du panneau Reborn.",
-      "Sleep Heal Rain naar slot 0 van uw 1e en uw 2e balk (zie de voorwaarden). Vul daarna diezelfde toets, <code>0</code>, in bij het veld “Toets” van de genezingssectie in het Reborn-paneel."
+      "Sleep Heal Rain naar slot 0 van uw 1e en uw 2e balk (zie de vereisten). Vul daarna diezelfde toets, <code>0</code>, in bij het veld “Toets” van de genezingssectie in het Reborn-paneel."
     ],
     [
       "Aucun intervalle n'est imposé par le jeu&nbsp;: choisissez-le selon les dégâts que subit votre groupe et votre réserve de MP. Plus il est court, plus vous soignez, et plus vous consommez&nbsp;: au niveau 10, un Heal Rain toutes les 5 secondes coûte environ 2000 MP par minute. Partez d'une valeur prudente, observez, puis ajustez. Basculez le toggle <strong>ON</strong>. L'extension déclenchera votre touche toutes les X secondes, en parallèle de la rotation de buffs et des autres systèmes, que le groupe soit blessé ou non, puisqu'elle ne lit pas les barres de vie.",
@@ -466,7 +466,7 @@
     ],
     [
       "Auto-clic souris (Premium)",
-      "Muis-auto-klik (Premium)"
+      "Auto-klik met de muis (Premium)"
     ],
     [
       "Clic à une position fixe de l'écran toutes les 2 secondes. Activez en cliquant sur l'icône <strong>🖱</strong> dans l'en-tête du panneau, puis cliquez sur l'endroit où vous voulez que les clics se déclenchent. Un point rouge clignotant indique la position active. Cliquez le ✕ à côté du point pour arrêter.",
@@ -522,7 +522,7 @@
     ],
     [
       "<strong>💡 Cas d'usage typique</strong>\n            Vous accompagnez un partenaire pendant 4 heures de farm, par exemple en Darkon 3, où vivent les Glaphans (niveaux 102 à 109). Avec 300 d'INT, vos buffs au niveau maximum durent 250 + 600 = 850 secondes, soit environ 14 minutes. Sans automatisation&nbsp;: environ 17 cycles de rebuff complets, plus près de 200 relances de Geburah Tiphreth (75 secondes chacune). Avec Reborn Assistant configuré une fois, ces cycles tournent en arrière-plan. Vous restez devant votre écran et reprenez la main si la composition change ou si quelqu'un meurt.",
-      "<strong>💡 Typisch gebruiksscenario</strong>\n            U begeleidt een partner tijdens 4 uur farmen, bijvoorbeeld in Darkon 3, waar de Glaphans leven (level 102 tot 109). Met 300 INT duren uw buffs op het maximale level 250 + 600 = 850 seconden, ongeveer 14 minuten. Zonder automatisering: ongeveer 17 volledige rebuffcycli, plus bijna 200 keer Geburah Tiphreth opnieuw casten (75 seconden per keer). Met Reborn Assistant, eenmalig ingesteld, draaien deze cycli op de achtergrond. U blijft achter uw scherm en neemt het over als de groepssamenstelling verandert of als iemand sterft."
+      "<strong>💡 Typisch gebruiksscenario</strong>\n            U begeleidt een partner tijdens een farmsessie van 4 uur, bijvoorbeeld in Darkon 3, waar de Glaphans leven (level 102 tot 109). Met 300 INT duren uw buffs op het maximale level 250 + 600 = 850 seconden, ongeveer 14 minuten. Zonder automatisering: ongeveer 17 volledige rebuffcycli, plus bijna 200 keer Geburah Tiphreth opnieuw casten (75 seconden per keer). Met Reborn Assistant, eenmalig ingesteld, draaien deze cycli op de achtergrond. U blijft achter uw scherm en neemt het over als de groepssamenstelling verandert of als iemand sterft."
     ],
     [
       "<strong>⚠️ Attention au positionnement</strong>\n            Heal Rain soigne instantanément les membres de votre groupe situés à moins de 13 mètres de vous au moment où il part&nbsp;: ce n'est pas une zone qui reste au sol. Un allié trop loin à cet instant, ou un joueur qui n'est pas dans votre groupe, ne reçoit rien. Restez à portée de vos alliés ou définissez un point de rallye fixe pour le groupe.",
@@ -530,7 +530,7 @@
     ],
     [
       "<a href=\"meilleurs-outils-flyff-universe-2026.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Article lié</span>\n                <span class=\"related-title\">Les meilleurs outils & extensions Flyff Universe 2026</span>\n            </a>\n            <a href=\"guide-ringmaster-flyff-universe.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Article lié</span>\n                <span class=\"related-title\">Guide complet de la classe Ringmaster Flyff Universe</span>\n            </a>\n            <a href=\"premium.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Documentation</span>\n                <span class=\"related-title\">Guide complet des fonctionnalités Premium</span>\n            </a>",
-      "<a href=\"meilleurs-outils-flyff-universe-2026.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Gerelateerd artikel</span>\n                <span class=\"related-title\">De beste tools & extensies voor Flyff Universe 2026</span>\n            </a>\n            <a href=\"guide-ringmaster-flyff-universe.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Gerelateerd artikel</span>\n                <span class=\"related-title\">Complete klassengids: Ringmaster in Flyff Universe</span>\n            </a>\n            <a href=\"premium.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Documentatie</span>\n                <span class=\"related-title\">Complete gids voor de Premium-functies</span>\n            </a>"
+      "<a href=\"meilleurs-outils-flyff-universe-2026.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Gerelateerd artikel</span>\n                <span class=\"related-title\">De beste tools & extensies voor Flyff Universe in 2026</span>\n            </a>\n            <a href=\"guide-ringmaster-flyff-universe.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Gerelateerd artikel</span>\n                <span class=\"related-title\">Complete klassengids: Ringmaster in Flyff Universe</span>\n            </a>\n            <a href=\"premium.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Documentatie</span>\n                <span class=\"related-title\">Complete gids voor de Premium-functies</span>\n            </a>"
     ],
     [
       "R",
@@ -571,6 +571,30 @@
     [
       "REBORN ASSISTANT",
       "REBORN ASSISTANT"
+    ],
+    [
+      "\"inLanguage\": \"fr\"",
+      "\"inLanguage\": \"nl\""
+    ],
+    [
+      "\"name\": \"Accueil\"",
+      "\"name\": \"Home\""
+    ],
+    [
+      "\"name\": \"Documentation\"",
+      "\"name\": \"Documentatie\""
+    ],
+    [
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html\"",
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/nl/docs/ringmaster-automatiseren-flyff-universe.html\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/\"",
+      "\"item\": \"https://reborn-assistance.fr/nl/docs/\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html\"",
+      "\"item\": \"https://reborn-assistance.fr/nl/docs/ringmaster-automatiseren-flyff-universe.html\""
     ]
   ],
   "tools-2026": [
@@ -584,7 +608,7 @@
     ],
     [
       "Les Meilleurs Outils & Extensions Flyff Universe 2026",
-      "De beste tools & extensies voor Flyff Universe 2026"
+      "De beste tools & extensies voor Flyff Universe in 2026"
     ],
     [
       "Comparatif 2026 des outils Flyff Universe : Flyffipedia, Flyffulator, Madrigal Inside, simulateur de compétences, API officielle et extension de macros.",
@@ -592,7 +616,7 @@
     ],
     [
       "Reborn Assistant — Extension de macros clavier pour Ringmaster",
-      "Reborn Assistant — Extensie voor toetsenbordmacro's voor de Ringmaster"
+      "Reborn Assistant — Toetsenbordmacro-extensie voor de Ringmaster"
     ],
     [
       "Flyffipedia — Base de données du jeu",
@@ -688,7 +712,7 @@
     ],
     [
       "Flyffipedia (flyffipedia.com) est une base de données Flyff Universe alimentée par les données du jeu et tenue par un mainteneur, swaight. C'est une référence très citée par les ressources communautaires, qui renvoient vers ses fiches détaillées d'objets, de monstres, de compétences, de quêtes et de PNJ.",
-      "Flyffipedia (flyffipedia.com) is een Flyff Universe-database die gevoed wordt met de spelgegevens en wordt onderhouden door één beheerder, swaight. Het is een veelgeciteerde referentie in communitybronnen, die doorverwijzen naar de gedetailleerde pagina's over items, monsters, skills, quests en NPC's."
+      "Flyffipedia (flyffipedia.com) is een Flyff Universe-database die gevoed wordt met de spelgegevens en wordt onderhouden door swaight. Communitybronnen citeren de site vaak en verwijzen door naar de gedetailleerde pagina's over items, monsters, skills, quests en NPC's."
     ],
     [
       "Le bon réflexe pour vérifier une compétence, retrouver un objet ou préparer une quête. À garder en favori.",
@@ -828,7 +852,7 @@
     ],
     [
       "<strong>📌 Méthodologie</strong>\n            Hormis Reborn Assistant, chaque outil retenu figure parmi les ressources actives recensées en août 2026 par <a href=\"https://github.com/muzsor/universe-doc\" target=\"_blank\" rel=\"noopener\">universe-doc</a>, un index communautaire de Flyff Universe tenu sur GitHub. Pour les projets open source, les dates de mise à jour citées viennent de leur dépôt public (GitHub ou npm). Le classement, lui, reste subjectif&nbsp;: il suit l'utilité pour un joueur régulier. Aucun partenariat commercial. Transparence&nbsp;: Reborn Assistant, en tête de liste, est l'extension éditée par l'auteur de ce site.",
-      "<strong>📌 Methodologie</strong>\n            Afgezien van Reborn Assistant staat elke geselecteerde tool tussen de actieve bronnen die in augustus 2026 werden opgesomd door <a href=\"https://github.com/muzsor/universe-doc\" target=\"_blank\" rel=\"noopener\">universe-doc</a>, een community-index van Flyff Universe die op GitHub wordt bijgehouden. Voor de open-sourceprojecten komen de vermelde updatedata uit hun openbare repository (GitHub of npm). De rangschikking zelf blijft subjectief: ze volgt het nut voor een regelmatige speler. Geen commerciële partnerschappen. Transparantie: Reborn Assistant, bovenaan de lijst, is de extensie van de auteur van deze site."
+      "<strong>📌 Methodologie</strong>\n            Afgezien van Reborn Assistant staat elke geselecteerde tool tussen de actieve bronnen die in augustus 2026 werden opgesomd door <a href=\"https://github.com/muzsor/universe-doc\" target=\"_blank\" rel=\"noopener\">universe-doc</a>, een community-index van Flyff Universe die op GitHub wordt bijgehouden. Voor de open-sourceprojecten komen de vermelde updatedatums uit hun openbare repository (GitHub of npm). De rangschikking zelf blijft subjectief: ze volgt het nut voor een regelmatige speler. Geen commerciële partnerschappen. Transparantie: Reborn Assistant, bovenaan de lijst, is de extensie van de auteur van deze site."
     ],
     [
       "<span class=\"tool-tag free\">Version gratuite</span>\n                    <span class=\"tool-tag paid\">Premium 2,99&nbsp;€/mois</span>\n                    <span class=\"tool-tag\">Chrome / Edge / Brave</span>",
@@ -917,6 +941,30 @@
     [
       "REBORN ASSISTANT",
       "REBORN ASSISTANT"
+    ],
+    [
+      "\"inLanguage\": \"fr\"",
+      "\"inLanguage\": \"nl\""
+    ],
+    [
+      "\"name\": \"Accueil\"",
+      "\"name\": \"Home\""
+    ],
+    [
+      "\"name\": \"Documentation\"",
+      "\"name\": \"Documentatie\""
+    ],
+    [
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/meilleurs-outils-flyff-universe-2026.html\"",
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/nl/docs/beste-flyff-universe-tools-2026.html\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/\"",
+      "\"item\": \"https://reborn-assistance.fr/nl/docs/\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/meilleurs-outils-flyff-universe-2026.html\"",
+      "\"item\": \"https://reborn-assistance.fr/nl/docs/beste-flyff-universe-tools-2026.html\""
     ]
   ],
   "guide-rm": [
@@ -934,7 +982,7 @@
     ],
     [
       "Guide complet du Ringmaster sur Flyff Universe : parcours de classe jusqu'au Seraph, skills et buffs (effets et durées réels), builds Full Support, AoE et Hit-and-Run, sticks et sets d'armure par palier, rotation.",
-      "Volledige gids voor de Ringmaster in Flyff Universe: klassepad tot Seraph, skills en buffs (echte effecten en duur), Full Support-, AoE- en Hit-and-Run-builds, sticks en armorsets per levelfase, rotatie."
+      "Volledige gids voor de Ringmaster in Flyff Universe: klassenpad tot Seraph, skills en buffs (echte effecten en duur), Full Support-, AoE- en Hit-and-Run-builds, sticks en armorsets per levelfase, rotatie."
     ],
     [
       "Flyff Universe",
@@ -950,7 +998,7 @@
     ],
     [
       "Parcours de classe, skills, buffs et leurs vraies durées, builds, équipement, rotation&nbsp;: le Ringmaster de Flyff Universe tel qu'il se joue en 2026, du niveau 60 jusqu'au Seraph.",
-      "Klassepad, skills, buffs en hun echte duur, builds, uitrusting, rotatie: de Ringmaster van Flyff Universe zoals hij in 2026 gespeeld wordt, van level 60 tot Seraph."
+      "Klassenpad, skills, buffs en hun echte duur, builds, uitrusting, rotatie: de Ringmaster van Flyff Universe zoals hij in 2026 gespeeld wordt, van level 60 tot Seraph."
     ],
     [
       "<a href=\"#ringmaster\">Qu'est-ce qu'un Ringmaster&nbsp;?</a>",
@@ -998,7 +1046,7 @@
     ],
     [
       "Le parcours de classe",
-      "Het klassepad"
+      "Het klassenpad"
     ],
     [
       "<strong>Niveaux 1 à 15&nbsp;: Vagrant</strong>, la classe de départ de tous les personnages.",
@@ -1006,7 +1054,7 @@
     ],
     [
       "<strong>Niveau 15&nbsp;: Assist</strong> (1er changement de classe, niveaux 15 à 60). Vous y apprenez les soins et les buffs que le Ringmaster gardera.",
-      "<strong>Level 15: Assist</strong> (1e klassewissel, level 15 tot 60). Hier leert u de heals en buffs die de Ringmaster behoudt."
+      "<strong>Level 15: Assist</strong> (1e klassenwissel, level 15 tot 60). Hier leert u de heals en buffs die de Ringmaster behoudt."
     ],
     [
       "<strong>Niveau 60&nbsp;: Ringmaster</strong> (niveaux 60 à 165), ou Billposter si vous préférez le combat au poing.",
@@ -1066,7 +1114,7 @@
     ],
     [
       "Les Guild Sieges se disputent par tranches de niveau&nbsp;: la tranche 60 est réservée aux personnages qui n'ont pas fait leur 2e changement de classe (un Ringmaster n'y entre donc pas), la tranche 80 aux joueurs jusqu'au niveau 80, et les textes du jeu prévoient aussi une tranche 165. Le Flyff World Championship (FWC), lui, a lieu chaque année depuis 2023&nbsp;; l'édition 2026 a débuté le 23 avril 2026.",
-      "Guild Sieges worden per levelcategorie uitgevochten: de categorie 60 is voorbehouden aan personages die hun 2e klassewissel nog niet hebben gedaan (een Ringmaster kan er dus niet aan meedoen), de categorie 80 aan spelers tot level 80, en de teksten van het spel voorzien ook in een categorie 165. Het Flyff World Championship (FWC) vindt sinds 2023 elk jaar plaats; de editie van 2026 begon op 23 april 2026."
+      "Guild Sieges worden per levelcategorie uitgevochten: de categorie 60 is voorbehouden aan personages die hun 2e klassenwissel nog niet hebben gedaan (een Ringmaster kan er dus niet aan meedoen), de categorie 80 aan spelers tot level 80, en de teksten van het spel voorzien ook in een categorie 165. Het Flyff World Championship (FWC) vindt sinds 2023 elk jaar plaats; de editie van 2026 begon op 23 april 2026."
     ],
     [
       "Les skills du Ringmaster",
@@ -1074,7 +1122,7 @@
     ],
     [
       "Le Ringmaster apprend neuf skills entre les niveaux 60 et 100. Chaque niveau de skill coûte 3 points (2 pour ceux de l'Assist), tous demandent un stick et tous consomment des MP. Valeurs au niveau maximum du skill&nbsp;:",
-      "De Ringmaster leert negen skills tussen level 60 en 100. Elk level van een skill kost 3 punten (2 voor die van de Assist), alle skills vereisen een stick en alle kosten MP. Waarden op het maximale level van de skill:"
+      "De Ringmaster leert negen skills tussen level 60 en 100. Elk level van een skill kost 3 punten (2 voor die van de Assist); ze vereisen allemaal een stick en kosten allemaal MP. Waarden op het maximale level van de skill:"
     ],
     [
       "Skill (niveau)",
@@ -1194,7 +1242,7 @@
     ],
     [
       "Attention à la chaîne de prérequis de Heal Rain&nbsp;: il demande Merkaba Hanzelrusha 3, qui demande lui-même Prevention 4, au bout de la chaîne Heal 3 → Patience 4 → Resurrection 4 → Circle Healing 4. Même un Full Support passe donc par Merkaba. Holycross, lui, ne coûte que 3 points et ouvre Spirit Fortune.",
-      "Let op de vereistenketen van Heal Rain: deze skill vereist Merkaba Hanzelrusha 3, dat op zijn beurt Prevention 4 vereist, aan het einde van de keten Heal 3 → Patience 4 → Resurrection 4 → Circle Healing 4. Zelfs een Full Support moet dus langs Merkaba. Holycross kost daarentegen maar 3 punten en ontgrendelt Spirit Fortune."
+      "Let op de vereistenketen van Heal Rain: deze skill vereist Merkaba Hanzelrusha 3, die op zijn beurt Prevention 4 vereist, aan het einde van de keten Heal 3 → Patience 4 → Resurrection 4 → Circle Healing 4. Zelfs een Full Support moet dus langs Merkaba. Holycross kost daarentegen maar 3 punten en ontgrendelt Spirit Fortune."
     ],
     [
       "Les buffs&nbsp;: ce qu'ils augmentent vraiment",
@@ -1386,7 +1434,7 @@
     ],
     [
       "Ordre de montée des skills",
-      "Volgorde om skills op te waarderen"
+      "Skillvolgorde"
     ],
     [
       "<strong>Full Support</strong>&nbsp;: Holycross d'abord (un seul point, prérequis de Spirit Fortune), puis Protect, Spirit Fortune et Geburah Tiphreth au maximum. Geburah Tiphreth demande aussi Holyguard 4&nbsp;; au-delà, Holyguard sert surtout quand vous accompagnez un AoE. Heal au niveau 3 suffit pour soutenir un seul joueur, grâce à l'INT.",
@@ -1418,7 +1466,7 @@
     ],
     [
       "<strong>Stick (canne)</strong> — l'arme du Ringmaster&nbsp;: tous ses skills de classe en demandent un. Dans Flyff Universe, tous les sticks se tiennent à deux mains, jusqu'au niveau 190&nbsp;: pas de bouclier.",
-      "<strong>Stick (stok)</strong> — het wapen van de Ringmaster: al zijn klasseskills vereisen er een. In Flyff Universe zijn alle sticks tweehandig, tot en met level 190: geen schild dus."
+      "<strong>Stick (stok)</strong> — het wapen van de Ringmaster: al zijn klassenskills vereisen er een. In Flyff Universe zijn alle sticks tweehandig, tot en met level 190: geen schild dus."
     ],
     [
       "<strong>Knuckles</strong> — à une main et réservés à l'Assist et à ses classes (bouclier possible), pour les attaques au poing de l'Assist&nbsp;: Temping Hole, Burst Crack, Power Fist. Ils ne permettent pas de lancer les skills du Ringmaster.",
@@ -1775,6 +1823,30 @@
     [
       "REBORN ASSISTANT",
       "REBORN ASSISTANT"
+    ],
+    [
+      "\"inLanguage\": \"fr\"",
+      "\"inLanguage\": \"nl\""
+    ],
+    [
+      "\"name\": \"Accueil\"",
+      "\"name\": \"Home\""
+    ],
+    [
+      "\"name\": \"Documentation\"",
+      "\"name\": \"Documentatie\""
+    ],
+    [
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html\"",
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/nl/docs/ringmaster-flyff-universe-klassengids.html\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/\"",
+      "\"item\": \"https://reborn-assistance.fr/nl/docs/\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html\"",
+      "\"item\": \"https://reborn-assistance.fr/nl/docs/ringmaster-flyff-universe-klassengids.html\""
     ]
   ]
 }
