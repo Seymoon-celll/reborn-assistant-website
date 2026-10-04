@@ -405,6 +405,30 @@ function writeOutput(outRel, content) {
   fs.writeFileSync(outPath, content);
 }
 
+/** Breadcrumb label of the home page in the long-tail JSON-LD (no langs/*.js key carries it). */
+const HOME_LABEL = { en: 'Home', es: 'Inicio', de: 'Startseite', pt: 'Início', it: 'Home', nl: 'Home', pl: 'Strona główna', ru: 'Главная',
+  tr: 'Ana sayfa', ja: 'ホーム', ko: '홈', tl: 'Home', zh: '首页', ar: 'الرئيسية' };
+
+/**
+ * Inside the JSON-LD blocks of a generated long-tail page: inLanguage, the "Accueil"/"Documentation" breadcrumb
+ * labels and every reborn-assistance.fr URL (home, docs hub, the three long-tail FR slugs) point to the target
+ * language. Idempotent, so translation maps that already did part of it are fine.
+ */
+function localizeLongtailJsonLd(html, lang, strings) {
+  const docsLabel = strings?.nav?.docs || 'Documentation';
+  return html.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/g, (_, open, json, close) => {
+    json = json.replace(/"inLanguage": "fr"/g, `"inLanguage": "${lang}"`);
+    json = json.replace(/"name": "Accueil"/g, `"name": "${HOME_LABEL[lang] || 'Home'}"`);
+    json = json.replace(/"name": "Documentation"/g, `"name": ${JSON.stringify(docsLabel)}`);
+    for (const other of LONGTAIL_PAGES) {
+      json = json.replaceAll(`"${SITE}/${other.slugs.fr}"`, `"${SITE}/${other.slugs[lang]}"`);
+    }
+    json = json.replaceAll(`"${SITE}/docs/"`, `"${SITE}/${lang}/docs/"`);
+    json = json.replace(/("(?:item|@id|url)": )"https:\/\/reborn-assistance\.fr\/"/g, `$1"${SITE}/${lang}/"`);
+    return open + json + close;
+  });
+}
+
 /**
  * Render one long-tail SEO page from its FR source into a target language.
  *
@@ -416,7 +440,7 @@ function writeOutput(outRel, content) {
  * 5. Convert relative asset paths (../favicon.svg, etc.) to absolute.
  * 6. Rewrite the related-card links so they point to the same language.
  */
-function renderLongtailPage(frHtml, page, lang) {
+function renderLongtailPage(frHtml, page, lang, strings) {
   let html = frHtml;
   const seo = page.seo[lang] || page.seo.en || page.seo.fr;
   const targetSlug = page.slugs[lang];
@@ -427,6 +451,10 @@ function renderLongtailPage(frHtml, page, lang) {
   for (const [fr, tr] of Object.entries(contentMap)) {
     html = html.replaceAll(fr, tr);
   }
+
+  // 1b. JSON-LD: language, breadcrumb labels and site URLs follow the target language
+  //     (idempotent — a translation map may already have done part of it)
+  html = localizeLongtailJsonLd(html, lang, strings);
 
   // 2. <html lang> + dir
   const dirAttr = RTL_LONGTAIL_LANGS.has(lang) ? ' dir="rtl"' : '';
@@ -525,7 +553,7 @@ async function build() {
     guardEmojiLabels(readSource(page.slugs.en), page.slugs.en, { fix: false });
     for (const lang of LONGTAIL_LANGS) {
       if (lang === 'fr' || lang === 'en') continue; // hand-written sources
-      const out = guardEmojiLabels(renderLongtailPage(frHtml, page, lang), page.slugs[lang]);
+      const out = guardEmojiLabels(renderLongtailPage(frHtml, page, lang, strings[lang]), page.slugs[lang]);
       writeOutput(page.slugs[lang], out);
       longtailCount++;
     }
