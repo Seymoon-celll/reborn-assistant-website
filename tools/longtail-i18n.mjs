@@ -143,7 +143,7 @@ export const LONGTAIL_PAGES = [
 export const BILINGUAL_LONGTAIL_PAGES = [
   {
     id: 'keyboard-shortcuts',
-    fr: { slug: 'docs/raccourcis-clavier-flyff-universe.html', title: 'Raccourcis Clavier Flyff Universe — Liste Complète 2026' },
-    en: { slug: 'en/docs/flyff-universe-keyboard-shortcuts.html', title: 'Flyff Universe Keyboard Shortcuts — Complete 2026 List' },
+    fr: { slug: 'docs/raccourcis-clavier-flyff-universe.html', title: 'Raccourcis Clavier Flyff Universe — Guide 2026' },
+    en: { slug: 'en/docs/flyff-universe-keyboard-shortcuts.html', title: 'Flyff Universe Keyboard Shortcuts — 2026 Guide' },
   },
 ];
