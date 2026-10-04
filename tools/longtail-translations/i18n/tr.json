@@ -2,7 +2,7 @@
   "automate-rm": [
     [
       "automatiser Ringmaster, RM Flyff Universe, macro Ringmaster, auto buff Flyff, séquences RM, support Flyff, Reborn Assistant Ringmaster",
-      "Ringmaster otomatikleştirme, RM Flyff Universe, Ringmaster makro, Flyff otomatik buff, RM dizileri, Flyff destek sınıfı, Reborn Assistant Ringmaster"
+      "Ringmaster otomatikleştirme, Flyff Universe Ringmaster makro, RM Flyff Universe, Flyff oto buff, Flyff Universe makro, Flyff destek sınıfı, Reborn Assistant Ringmaster"
     ],
     [
       "Reborn Assistant",
@@ -158,7 +158,7 @@
     ],
     [
       "<strong>Reborn Assistant Premium</strong> installé (la version gratuite ne couvre que la macro soin de base). Voir le <a href=\"quickstart.html\">guide d'installation</a>.",
-      "<strong>Reborn Assistant Premium</strong> kurulu olmalı (ücretsiz sürüm yalnızca temel heal makrosunu kapsar). <a href=\"quickstart.html\">Kurulum rehberine</a> bakın."
+      "<strong>Reborn Assistant Premium</strong> kurulu olmalı (ücretsiz sürüm yalnızca temel iyileştirme makrosunu kapsar). <a href=\"quickstart.html\">Kurulum rehberine</a> bakın."
     ],
     [
       "<strong>Vos buffs de rotation sur votre 2e barre</strong> (celle qu'affiche <code>F2</code>), emplacements 1 à 9 — c'est elle que la rotation de Reborn Assistant parcourt.",
@@ -170,7 +170,7 @@
     ],
     [
       "<strong>Heal Rain sur l'emplacement 0 de vos deux barres</strong>, et aucun buff sur l'emplacement 0 de la 2e barre&nbsp;: la touche 0 lance ainsi Heal Rain, que la 1re ou la 2e barre soit affichée au moment du soin. Les touches se réassignent dans Options › Raccourcis&nbsp;; si vous préférez une lettre, évitez <code>T</code>, qui ouvre la fenêtre de statut.",
-      "<strong>Heal Rain iki çubuğunuzun da 0 slotunda</strong>, 2. çubuğun 0 slotunda ise hiçbir buff olmasın: böylece iyileştirme anında 1. ya da 2. çubuk görüntülense de 0 tuşu Heal Rain'i kullanır. Tuşlar Seçenekler › Kısayollar menüsünden yeniden atanabilir; bir harf tercih ediyorsanız durum penceresini açan <code>T</code> tuşundan kaçının."
+      "<strong>Heal Rain iki çubuğunuzun da 0 slotunda</strong>, 2. çubuğun 0 slotunda ise hiçbir buff olmasın: böylece iyileştirme anında 1. ya da 2. çubuk görüntülense de 0 tuşu Heal Rain'i kullanır. Tuşlar Options › Controls (Seçenekler › Kontroller) menüsünden yeniden atanabilir; bir harf tercih ediyorsanız durum penceresini açan <code>T</code> tuşundan kaçının."
     ],
     [
       "<strong>Une réserve de potions de MP</strong> (Refreshers)&nbsp;: tous les sorts du Ringmaster consomment du MP, pas de FP — l'automatisation n'invente pas les ressources.",
@@ -246,7 +246,7 @@
     ],
     [
       "450 s (7&nbsp;min&nbsp;30)",
-      "450 s (7&nbsp;dk&nbsp;30&nbsp;s)"
+      "450 sn (7&nbsp;dk&nbsp;30&nbsp;sn)"
     ],
     [
       "45 s",
@@ -258,7 +258,7 @@
     ],
     [
       "650 s (10&nbsp;min&nbsp;50)",
-      "650 s (10&nbsp;dk&nbsp;50&nbsp;s)"
+      "650 sn (10&nbsp;dk&nbsp;50&nbsp;sn)"
     ],
     [
       "60 s",
@@ -270,7 +270,7 @@
     ],
     [
       "850 s (14&nbsp;min&nbsp;10)",
-      "850 s (14&nbsp;dk&nbsp;10&nbsp;s)"
+      "850 sn (14&nbsp;dk&nbsp;10&nbsp;sn)"
     ],
     [
       "75 s",
@@ -282,7 +282,7 @@
     ],
     [
       "1050 s (17&nbsp;min&nbsp;30)",
-      "1050 s (17&nbsp;dk&nbsp;30&nbsp;s)"
+      "1050 sn (17&nbsp;dk&nbsp;30&nbsp;sn)"
     ],
     [
       "90 s",
@@ -294,7 +294,7 @@
     ],
     [
       "1250 s (20&nbsp;min&nbsp;50)",
-      "1250 s (20&nbsp;dk&nbsp;50&nbsp;s)"
+      "1250 sn (20&nbsp;dk&nbsp;50&nbsp;sn)"
     ],
     [
       "105 s",
@@ -462,7 +462,7 @@
     ],
     [
       "Appui répété sur une touche dédiée (par défaut <code>F</code> dans l'extension) toutes les 5 secondes. Dans Flyff Universe, l'action qui suit la cible sélectionnée est sur <code>Z</code> par défaut d'après les outils tiers qui l'utilisent&nbsp;: vérifiez-la dans Options › Raccourcis et reportez exactement la même touche dans l'extension. Idéal pour suivre votre partenaire pendant que vous buffez et soignez&nbsp;: comme il reste sélectionné, il reste aussi la cible de vos buffs. Seule la touche est configurable, l'intervalle de 5 secondes est fixe.",
-      "Ayrılmış bir tuşa (uzantıda varsayılan <code>F</code>) her 5 saniyede bir tekrar tekrar basar. Flyff Universe'de seçili hedefi takip etme eylemi, onu kullanan üçüncü taraf araçlara göre varsayılan olarak <code>Z</code> tuşundadır: bunu Seçenekler › Kısayollar'dan kontrol edin ve uzantıya birebir aynı tuşu girin. Buff ve heal atarken partnerinizi takip etmek için idealdir: seçili kaldığı için buff'larınızın hedefi de o olmaya devam eder. Yalnızca tuş yapılandırılabilir, 5 saniyelik aralık sabittir."
+      "Bu işe atanmış bir tuşa (uzantıda varsayılan <code>F</code>) her 5 saniyede bir basar. Flyff Universe'de seçili hedefi takip etme eylemi, onu kullanan üçüncü taraf araçlara göre varsayılan olarak <code>Z</code> tuşundadır: bunu oyundaki Options › Controls menüsünden kontrol edin ve uzantıya birebir aynı tuşu girin. Buff ve heal atarken partnerinizi takip etmek için idealdir: seçili kaldığı için buff'larınızın hedefi de o olmaya devam eder. Yalnızca tuş yapılandırılabilir, 5 saniyelik aralık sabittir."
     ],
     [
       "Auto-clic souris (Premium)",
@@ -470,7 +470,7 @@
     ],
     [
       "Clic à une position fixe de l'écran toutes les 2 secondes. Activez en cliquant sur l'icône <strong>🖱</strong> dans l'en-tête du panneau, puis cliquez sur l'endroit où vous voulez que les clics se déclenchent. Un point rouge clignotant indique la position active. Cliquez le ✕ à côté du point pour arrêter.",
-      "Ekranda sabit bir konuma her 2 saniyede tıklama. Etkinleştirmek için panel başlığındaki <strong>🖱</strong> simgesine tıklayın, sonra tıklamaların tetikleneceği yere tıklayın. Yanıp sönen kırmızı bir nokta aktif konumu gösterir. Durdurmak için noktanın yanındaki ✕'e tıklayın."
+      "Ekranda sabit bir konuma her 2 saniyede bir tıklar. Etkinleştirmek için panel başlığındaki <strong>🖱</strong> simgesine tıklayın, sonra tıklamaların yapılacağı yere tıklayın. Yanıp sönen kırmızı bir nokta aktif konumu gösterir. Durdurmak için noktanın yanındaki ✕'e tıklayın."
     ],
     [
       "Optimisation et erreurs courantes",
@@ -486,7 +486,7 @@
     ],
     [
       "<strong>MP qui s'épuise au milieu d'un cycle</strong> — l'extension continue d'appuyer, mais le jeu ne lance plus rien, et Reborn Assistant ne le voit pas. Un cycle de neuf buffs au niveau maximum coûte déjà près de 600 MP. Activez la macro de potion de MP ou augmentez votre INT&nbsp;: chaque point d'INT donne 16,2 MP max au Ringmaster.",
-      "<strong>Döngünün ortasında MP'nin bitmesi</strong> — uzantı basmaya devam eder ama oyun artık hiçbir şey kullanmaz ve Reborn Assistant bunu görmez. Maksimum seviyede dokuz buff'lık bir döngü tek başına 600 MP'ye yakın tutar. MP iksiri makrosunu etkinleştirin veya INT'inizi yükseltin: her INT puanı Ringmaster'a 16,2 maks. MP kazandırır."
+      "<strong>Döngünün ortasında MP'nin bitmesi</strong> — uzantı tuşlara basmaya devam eder ama oyunda artık hiçbir skill çıkmaz ve Reborn Assistant bunu göremez. Maksimum seviyede dokuz buff'lık bir döngü tek başına 600 MP'ye yakın tutar. MP iksiri makrosunu etkinleştirin veya INT'inizi yükseltin: her INT puanı Ringmaster'a 16,2 maks. MP kazandırır."
     ],
     [
       "<strong>Membres du groupe hors de portée</strong> — le heal périodique ne soigne que les membres de votre groupe situés à moins de 13 mètres de vous, et Geburah Tiphreth a la même portée. Communiquez avec le groupe&nbsp;: ils doivent rester à portée.",
@@ -510,7 +510,7 @@
     ],
     [
       "Prêt à libérer votre Ringmaster ?",
-      "Ringmaster'ınızı özgürleştirmeye hazır mısınız?"
+      "Ringmaster'ınızı otomatiğe almaya hazır mısınız?"
     ],
     [
       "Installez Reborn Assistant en 30 secondes depuis le Chrome Web Store. 7 jours d'essai Premium gratuits, sans carte bancaire.",
@@ -518,7 +518,7 @@
     ],
     [
       "<a href=\"../index.html\">Accueil</a> › <a href=\"index.html\">Documentation</a> › Automatiser son Ringmaster",
-      "<a href=\"../index.html\">Ana Sayfa</a> › <a href=\"index.html\">Dokümantasyon</a> › Ringmaster'ı Otomatikleştirme"
+      "<a href=\"../index.html\">Ana Sayfa</a> › <a href=\"index.html\">Belgeler</a> › Ringmaster'ı Otomatikleştirme"
     ],
     [
       "<strong>💡 Cas d'usage typique</strong>\n            Vous accompagnez un partenaire pendant 4 heures de farm, par exemple en Darkon 3, où vivent les Glaphans (niveaux 102 à 109). Avec 300 d'INT, vos buffs au niveau maximum durent 250 + 600 = 850 secondes, soit environ 14 minutes. Sans automatisation&nbsp;: environ 17 cycles de rebuff complets, plus près de 200 relances de Geburah Tiphreth (75 secondes chacune). Avec Reborn Assistant configuré une fois, ces cycles tournent en arrière-plan. Vous restez devant votre écran et reprenez la main si la composition change ou si quelqu'un meurt.",
@@ -530,7 +530,7 @@
     ],
     [
       "<a href=\"meilleurs-outils-flyff-universe-2026.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Article lié</span>\n                <span class=\"related-title\">Les meilleurs outils & extensions Flyff Universe 2026</span>\n            </a>\n            <a href=\"guide-ringmaster-flyff-universe.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Article lié</span>\n                <span class=\"related-title\">Guide complet de la classe Ringmaster Flyff Universe</span>\n            </a>\n            <a href=\"premium.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Documentation</span>\n                <span class=\"related-title\">Guide complet des fonctionnalités Premium</span>\n            </a>",
-      "<a href=\"meilleurs-outils-flyff-universe-2026.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ İlgili makale</span>\n                <span class=\"related-title\">En iyi Flyff Universe araçları ve uzantıları 2026</span>\n            </a>\n            <a href=\"guide-ringmaster-flyff-universe.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ İlgili makale</span>\n                <span class=\"related-title\">Flyff Universe Ringmaster sınıfı kapsamlı rehberi</span>\n            </a>\n            <a href=\"premium.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Dokümantasyon</span>\n                <span class=\"related-title\">Premium özelliklerin kapsamlı rehberi</span>\n            </a>"
+      "<a href=\"meilleurs-outils-flyff-universe-2026.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ İlgili makale</span>\n                <span class=\"related-title\">En iyi Flyff Universe araçları ve uzantıları 2026</span>\n            </a>\n            <a href=\"guide-ringmaster-flyff-universe.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ İlgili makale</span>\n                <span class=\"related-title\">Flyff Universe Ringmaster sınıfı kapsamlı rehberi</span>\n            </a>\n            <a href=\"premium.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Belgeler</span>\n                <span class=\"related-title\">Premium özelliklerin kapsamlı rehberi</span>\n            </a>"
     ],
     [
       "R",
@@ -542,7 +542,7 @@
     ],
     [
       "← Retour aux docs",
-      "← Dokümantasyona dön"
+      "← Belgelere dön"
     ],
     [
       "◆ Sommaire",
@@ -571,12 +571,52 @@
     [
       "REBORN ASSISTANT",
       "REBORN ASSISTANT"
+    ],
+    [
+      "<td>45 s</td>",
+      "<td>45 sn</td>"
+    ],
+    [
+      "<td>60 s</td>",
+      "<td>60 sn</td>"
+    ],
+    [
+      "<td>75 s</td>",
+      "<td>75 sn</td>"
+    ],
+    [
+      "<td>90 s</td>",
+      "<td>90 sn</td>"
+    ],
+    [
+      "<td>105 s</td>",
+      "<td>105 sn</td>"
+    ],
+    [
+      "\"name\": \"Accueil\", \"item\": \"https://reborn-assistance.fr/\" }",
+      "\"name\": \"Ana Sayfa\", \"item\": \"https://reborn-assistance.fr/tr/\" }"
+    ],
+    [
+      "\"name\": \"Documentation\", \"item\": \"https://reborn-assistance.fr/docs/\" }",
+      "\"name\": \"Belgeler\", \"item\": \"https://reborn-assistance.fr/tr/docs/\" }"
+    ],
+    [
+      "\"inLanguage\": \"fr\"",
+      "\"inLanguage\": \"tr\""
+    ],
+    [
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html\"",
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/tr/docs/ringmaster-otomatiklestirme-flyff-universe.html\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html\" }",
+      "\"item\": \"https://reborn-assistance.fr/tr/docs/ringmaster-otomatiklestirme-flyff-universe.html\" }"
     ]
   ],
   "tools-2026": [
     [
       "outils Flyff Universe, extensions Flyff, Flyffipedia, Flyffulator, Madrigal Inside, simulateur de compétences Flyff, API Flyff Universe, base de données Flyff",
-      "Flyff Universe araçları, Flyff uzantıları, Flyffipedia, Flyffulator, Madrigal Inside, Flyff yetenek simülatörü, Flyff Universe API, Flyff veritabanı"
+      "Flyff Universe araçları, Flyff uzantıları, Flyffipedia, Flyffulator, Madrigal Inside, Flyff skill simülatörü, Flyff Universe API, Flyff veritabanı"
     ],
     [
       "Reborn Assistant",
@@ -640,7 +680,7 @@
     ],
     [
       "L'extension ne lit ni ne modifie les données du jeu&nbsp;: elle simule seulement les touches que vous taperiez vous-même, au rythme que vous avez réglé (seule la macro périodique tourne à un intervalle fixe de 15&nbsp;s). La version gratuite inclut la macro soin, 6 thèmes, 15 langues d'interface et l'interface flottante. Premium (2,99&nbsp;€/mois, 29,99&nbsp;€/an ou 99,99&nbsp;€ à vie) ajoute notamment la rotation de séquences, les 3 macros personnalisables et la macro périodique&nbsp;; les formules mensuelle et annuelle commencent par 7 jours d'essai gratuits, sans carte bancaire. Pour la mise en place pas à pas, voyez notre tutoriel <a href=\"automatiser-ringmaster-flyff-universe.html\">Automatiser son Ringmaster</a>.",
-      "Uzantı oyun verilerini ne okur ne de değiştirir: yalnızca sizin yazacağınız tuşları, ayarladığınız tempoda simüle eder (yalnızca periyodik makro 15&nbsp;saniyelik sabit bir aralıkla çalışır). Ücretsiz sürüm iyileştirme makrosunu, 6 temayı, 15 arayüz dilini ve kayan arayüzü içerir. Premium (aylık 2,99&nbsp;€, yıllık 29,99&nbsp;€ veya ömür boyu 99,99&nbsp;€) özellikle dizi rotasyonunu, 3 özelleştirilebilir makroyu ve periyodik makroyu ekler; aylık ve yıllık planlar banka kartı gerektirmeyen 7 günlük ücretsiz denemeyle başlar. Adım adım kurulum için <a href=\"automatiser-ringmaster-flyff-universe.html\">Ringmaster'ı Otomatikleştirme</a> rehberimize göz atın."
+      "Uzantı oyun verilerini ne okur ne de değiştirir: yalnızca kendi basacağınız tuşları, ayarladığınız tempoda simüle eder (sabit 15&nbsp;saniyelik aralıkla çalışan tek sistem periyodik makrodur). Ücretsiz sürüm iyileştirme makrosunu, 6 temayı, 15 arayüz dilini ve kayan arayüzü içerir. Premium (aylık 2,99&nbsp;€, yıllık 29,99&nbsp;€ veya ömür boyu 99,99&nbsp;€) özellikle dizi rotasyonunu, 3 özelleştirilebilir makroyu ve periyodik makroyu ekler; aylık ve yıllık planlar banka kartı gerektirmeyen 7 günlük ücretsiz denemeyle başlar. Adım adım kurulum için <a href=\"automatiser-ringmaster-flyff-universe.html\">Ringmaster'ı Otomatikleştirme</a> rehberimize göz atın."
     ],
     [
       "✓ Points forts",
@@ -712,7 +752,7 @@
     ],
     [
       "Madrigal Inside (madrigalinside.com) réunit des fiches de données du jeu (compétences, objets, quêtes) et des guides de classe. Côté Ringmaster, on y trouve notamment des guides de base Support, AoE et Hit-and-Run&nbsp;: un bon point de départ pour choisir votre orientation.",
-      "Madrigal Inside (madrigalinside.com), oyun verisi sayfalarını (yetenekler, eşyalar, görevler) ve sınıf rehberlerini bir araya getirir. Ringmaster tarafında özellikle temel Support, AoE ve Hit-and-Run rehberleri bulunur: yöneliminizi seçmek için iyi bir başlangıç noktası."
+      "Madrigal Inside (madrigalinside.com), oyun verisi sayfalarını (yetenekler, eşyalar, görevler) ve sınıf rehberlerini bir araya getirir. Ringmaster tarafında özellikle temel Support, AoE ve Hit-and-Run rehberleri bulunur: hangi build'e yöneleceğinizi seçmek için iyi bir başlangıç noktası."
     ],
     [
       "Comme pour tout guide, regardez sa date et, après un patch important, croisez ses chiffres avec des données à jour (Flyffipedia, Flyffulator).",
@@ -728,11 +768,11 @@
     ],
     [
       "Vous croiserez aussi Skillulator (skillulator.lol), pratique pour partager un build de compétences par simple lien. Attention&nbsp;: il n'a plus été mis à jour depuis juillet 2025, avant l'arrivée des 3e classes.",
-      "Bir yetenek build'ini basit bir bağlantıyla paylaşmak için pratik olan Skillulator (skillulator.lol) ile de karşılaşacaksınız. Dikkat: Temmuz 2025'ten, yani 3. sınıfların gelişinden bu yana güncellenmedi."
+      "Bir yetenek build'ini basit bir bağlantıyla paylaşmak için pratik olan Skillulator (skillulator.lol) ile de karşılaşacaksınız. Dikkat: Temmuz 2025'ten, yani 3. sınıflar gelmeden önceki dönemden beri güncellenmiyor."
     ],
     [
       "6. L'API officielle Flyff Universe — Les données à la source",
-      "6. Resmî Flyff Universe API'si — Kaynağındaki veriler"
+      "6. Resmî Flyff Universe API'si — Doğrudan kaynaktan veriler"
     ],
     [
       "Gala Lab met à disposition une API publique sur api.flyff.com. Elle expose les données du jeu&nbsp;: classes, compétences, monstres, objets, panoplies, PNJ, quêtes, mondes, donjons, succès, et même les images. Plusieurs outils de cette liste s'appuient dessus, dont Flyffulator et Flyff Skill Simulator.",
@@ -740,7 +780,7 @@
     ],
     [
       "Elle intéressera surtout les curieux qui veulent vérifier une valeur à la source et les joueurs qui codent leur propre outil. Attention, les bibliothèques communautaires qui facilitent son usage sont anciennes&nbsp;: flyff.js (TypeScript) n'a pas été publiée depuis mars 2024, et Pyff (Python) n'a plus été modifiée depuis mars 2023.",
-      "Özellikle bir değeri kaynağından doğrulamak isteyen meraklıların ve kendi aracını kodlayan oyuncuların ilgisini çekecektir. Ancak kullanımını kolaylaştıran topluluk kütüphanelerinin eski olduğunu unutmayın: flyff.js (TypeScript) Mart 2024'ten beri yayımlanmadı, Pyff (Python) ise Mart 2023'ten beri değiştirilmedi."
+      "Özellikle bir değeri kaynağından doğrulamak isteyen meraklıların ve kendi aracını kodlayan oyuncuların ilgisini çekecektir. Ancak kullanımını kolaylaştıran topluluk kütüphanelerinin eski olduğunu unutmayın: flyff.js (TypeScript) için Mart 2024'ten beri yeni sürüm yayımlanmadı, Pyff (Python) ise Mart 2023'ten beri güncellenmedi."
     ],
     [
       "Autres ressources utiles",
@@ -752,7 +792,7 @@
     ],
     [
       "<strong>Flyff-Universe-Translations</strong> (<a href=\"https://github.com/Gala-Lab/Flyff-Universe-Translations\" target=\"_blank\" rel=\"noopener\">dépôt GitHub</a>) — le dépôt officiel des traductions du jeu, tenu par Gala Lab. Il accepte les propositions de la communauté&nbsp;: si une traduction française vous semble fausse, c'est là que vous pouvez suggérer une correction. Il couvre près de vingt langues et suit les versions du jeu (version 1.5.6-5 au 1er octobre 2026).",
-      "<strong>Flyff-Universe-Translations</strong> (<a href=\"https://github.com/Gala-Lab/Flyff-Universe-Translations\" target=\"_blank\" rel=\"noopener\">GitHub deposu</a>) — Gala Lab tarafından yönetilen, oyun çevirilerinin resmî deposu. Topluluk önerilerini kabul eder: kendi dilinizdeki bir çeviri size yanlış görünüyorsa düzeltme önerebileceğiniz yer burasıdır. Yaklaşık yirmi dili kapsar ve oyunun sürümlerini takip eder (1 Ekim 2026 itibarıyla sürüm 1.5.6-5)."
+      "<strong>Flyff-Universe-Translations</strong> (<a href=\"https://github.com/Gala-Lab/Flyff-Universe-Translations\" target=\"_blank\" rel=\"noopener\">GitHub deposu</a>) — Gala Lab tarafından yönetilen, oyun çevirilerinin resmî deposu. Topluluk önerilerini kabul eder: oynadığınız dildeki bir çeviri size yanlış görünüyorsa düzeltme önerebileceğiniz yer burasıdır. Yaklaşık yirmi dili kapsar ve oyunun sürümlerini takip eder (1 Ekim 2026 itibarıyla sürüm 1.5.6-5)."
     ],
     [
       "<strong>Gothante</strong> (<a href=\"https://gothante.wiki/\" target=\"_blank\" rel=\"noopener\">gothante.wiki</a>) — présenté comme un outil de recherche généraliste sur Flyff Universe.",
@@ -824,7 +864,7 @@
     ],
     [
       "<a href=\"../index.html\">Accueil</a> › <a href=\"index.html\">Documentation</a> › Meilleurs outils Flyff Universe",
-      "<a href=\"../index.html\">Ana Sayfa</a> › <a href=\"index.html\">Dokümantasyon</a> › En İyi Flyff Universe Araçları"
+      "<a href=\"../index.html\">Ana Sayfa</a> › <a href=\"index.html\">Belgeler</a> › En İyi Flyff Universe Araçları"
     ],
     [
       "<strong>📌 Méthodologie</strong>\n            Hormis Reborn Assistant, chaque outil retenu figure parmi les ressources actives recensées en août 2026 par <a href=\"https://github.com/muzsor/universe-doc\" target=\"_blank\" rel=\"noopener\">universe-doc</a>, un index communautaire de Flyff Universe tenu sur GitHub. Pour les projets open source, les dates de mise à jour citées viennent de leur dépôt public (GitHub ou npm). Le classement, lui, reste subjectif&nbsp;: il suit l'utilité pour un joueur régulier. Aucun partenariat commercial. Transparence&nbsp;: Reborn Assistant, en tête de liste, est l'extension éditée par l'auteur de ce site.",
@@ -864,11 +904,11 @@
     ],
     [
       "← Retour aux docs",
-      "← Dokümantasyona dön"
+      "← Belgelere dön"
     ],
     [
       "★ Rang I · Notre extension",
-      "★ Sıra I · Uzantımız"
+      "★ I. Sıra · Uzantımız"
     ],
     [
       "→ Tester Reborn Assistant",
@@ -876,7 +916,7 @@
     ],
     [
       "★ Rang II",
-      "★ Sıra II"
+      "★ II. Sıra"
     ],
     [
       "→ Ouvrir Flyffipedia",
@@ -884,7 +924,7 @@
     ],
     [
       "★ Rang III",
-      "★ Sıra III"
+      "★ III. Sıra"
     ],
     [
       "→ Ouvrir Flyffulator",
@@ -892,7 +932,7 @@
     ],
     [
       "★ Rang IV",
-      "★ Sıra IV"
+      "★ IV. Sıra"
     ],
     [
       "→ Ouvrir Madrigal Inside",
@@ -900,7 +940,7 @@
     ],
     [
       "★ Rang V",
-      "★ Sıra V"
+      "★ V. Sıra"
     ],
     [
       "→ Ouvrir Flyff Skill Simulator",
@@ -908,7 +948,7 @@
     ],
     [
       "★ Rang VI",
-      "★ Sıra VI"
+      "★ VI. Sıra"
     ],
     [
       "→ Ouvrir api.flyff.com",
@@ -917,6 +957,26 @@
     [
       "REBORN ASSISTANT",
       "REBORN ASSISTANT"
+    ],
+    [
+      "\"name\": \"Accueil\", \"item\": \"https://reborn-assistance.fr/\" }",
+      "\"name\": \"Ana Sayfa\", \"item\": \"https://reborn-assistance.fr/tr/\" }"
+    ],
+    [
+      "\"name\": \"Documentation\", \"item\": \"https://reborn-assistance.fr/docs/\" }",
+      "\"name\": \"Belgeler\", \"item\": \"https://reborn-assistance.fr/tr/docs/\" }"
+    ],
+    [
+      "\"inLanguage\": \"fr\"",
+      "\"inLanguage\": \"tr\""
+    ],
+    [
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/meilleurs-outils-flyff-universe-2026.html\"",
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/tr/docs/en-iyi-flyff-universe-araclari-2026.html\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/meilleurs-outils-flyff-universe-2026.html\" }",
+      "\"item\": \"https://reborn-assistance.fr/tr/docs/en-iyi-flyff-universe-araclari-2026.html\" }"
     ]
   ],
   "guide-rm": [
@@ -1006,7 +1066,7 @@
     ],
     [
       "<strong>Niveau 15&nbsp;: Assist</strong> (1er changement de classe, niveaux 15 à 60). Vous y apprenez les soins et les buffs que le Ringmaster gardera.",
-      "<strong>Seviye 15: Assist</strong> (1. sınıf değişimi, seviye 15 ile 60 arası). Burada Ringmaster'ın koruyacağı iyileştirmeleri ve buff'ları öğrenirsiniz."
+      "<strong>Seviye 15: Assist</strong> (1. sınıf değişimi, seviye 15 ile 60 arası). Ringmaster'a geçtiğinizde de kullanmaya devam edeceğiniz iyileştirmeleri ve buff'ları burada öğrenirsiniz."
     ],
     [
       "<strong>Niveau 60&nbsp;: Ringmaster</strong> (niveaux 60 à 165), ou Billposter si vous préférez le combat au poing.",
@@ -1202,7 +1262,7 @@
     ],
     [
       "Le Ringmaster garde les buffs de l'Assist et y ajoute les siens. Tous ceux présentés ci-dessous ciblent un seul joueur, sauf Geburah Tiphreth qui touche tout le groupe à moins de 13&nbsp;m. Les neuf buffs de stats de l'Assist durent 150&nbsp;s (2 min 30) au niveau 1 et 250&nbsp;s (4 min 10) au niveau 20&nbsp;; Protect et Spirit Fortune, de 160 à 250&nbsp;s. Dans tous les cas, ajoutez <strong>2&nbsp;s par point d'INT du lanceur</strong>, sans plafond. Exemple&nbsp;: à 300 INT, un buff de niveau max dure 250 + 300 × 2 = 850&nbsp;s, soit un peu plus de 14 minutes. Geburah Tiphreth fait exception&nbsp;: 30&nbsp;s + 0,15&nbsp;s par point d'INT, quel que soit son niveau (75&nbsp;s à 300 INT).",
-      "Ringmaster, Assist'in buff'larını korur ve bunlara kendi buff'larını ekler. Aşağıda sunulanların hepsi tek bir oyuncuyu hedefler; yalnızca Geburah Tiphreth 13&nbsp;m içindeki tüm grubu etkiler. Assist'in dokuz stat buff'ı seviye 1'de 150&nbsp;sn (2 dk 30 sn), seviye 20'de 250&nbsp;sn (4 dk 10 sn) sürer; Protect ve Spirit Fortune ise 160 ila 250&nbsp;sn. Her durumda, üst sınır olmaksızın <strong>buff'ı atanın INT puanı başına 2&nbsp;sn</strong> ekleyin. Örnek: 300 INT'te maksimum seviyedeki bir buff 250 + 300 × 2 = 850&nbsp;sn, yani 14 dakikadan biraz fazla sürer. Geburah Tiphreth istisnadır: seviyesi ne olursa olsun 30&nbsp;sn + INT puanı başına 0,15&nbsp;sn (300 INT'te 75&nbsp;sn)."
+      "Ringmaster, Assist'in buff'larını kullanmaya devam eder ve bunlara kendi buff'larını ekler. Aşağıda sunulanların hepsi tek bir oyuncuyu hedefler; yalnızca Geburah Tiphreth 13&nbsp;m içindeki tüm grubu etkiler. Assist'in dokuz stat buff'ı seviye 1'de 150&nbsp;sn (2 dk 30 sn), seviye 20'de 250&nbsp;sn (4 dk 10 sn) sürer; Protect ve Spirit Fortune ise 160 ila 250&nbsp;sn. Her durumda, üst sınır olmaksızın <strong>buff'ı atanın INT puanı başına 2&nbsp;sn</strong> ekleyin. Örnek: 300 INT'te maksimum seviyedeki bir buff 250 + 300 × 2 = 850&nbsp;sn, yani 14 dakikadan biraz fazla sürer. Geburah Tiphreth istisnadır: seviyesi ne olursa olsun 30&nbsp;sn + INT puanı başına 0,15&nbsp;sn (300 INT'te 75&nbsp;sn)."
     ],
     [
       "Les guides support conseillent de monter en priorité trois des buffs propres au Ringmaster&nbsp;:",
@@ -1222,7 +1282,7 @@
     ],
     [
       "Le Ringmaster garde aussi les neuf buffs de stats de l'Assist, tous à cible unique&nbsp;:",
-      "Ringmaster, Assist'in hepsi tek hedefli olan dokuz stat buff'ını da korur:"
+      "Ringmaster, Assist'in hepsi tek hedefli dokuz stat buff'ını da kullanmaya devam eder:"
     ],
     [
       "Buff (niveau)",
@@ -1418,7 +1478,7 @@
     ],
     [
       "<strong>Stick (canne)</strong> — l'arme du Ringmaster&nbsp;: tous ses skills de classe en demandent un. Dans Flyff Universe, tous les sticks se tiennent à deux mains, jusqu'au niveau 190&nbsp;: pas de bouclier.",
-      "<strong>Stick (sopa)</strong> — Ringmaster'ın silahı: tüm sınıf skill'leri bir stick gerektirir. Flyff Universe'de seviye 190'a kadar tüm stick'ler iki elle tutulur: kalkan yok."
+      "<strong>Stick (değnek)</strong> — Ringmaster'ın silahı: tüm sınıf skill'leri bir stick gerektirir. Flyff Universe'de seviye 190'a kadar tüm stick'ler iki elle tutulur: kalkan yok."
     ],
     [
       "<strong>Knuckles</strong> — à une main et réservés à l'Assist et à ses classes (bouclier possible), pour les attaques au poing de l'Assist&nbsp;: Temping Hole, Burst Crack, Power Fist. Ils ne permettent pas de lancer les skills du Ringmaster.",
@@ -1714,7 +1774,7 @@
     ],
     [
       "<a href=\"../index.html\">Accueil</a> › <a href=\"index.html\">Documentation</a> › Guide Ringmaster",
-      "<a href=\"../index.html\">Ana Sayfa</a> › <a href=\"index.html\">Dokümantasyon</a> › Ringmaster Rehberi"
+      "<a href=\"../index.html\">Ana Sayfa</a> › <a href=\"index.html\">Belgeler</a> › Ringmaster Rehberi"
     ],
     [
       "<strong>⚠️ Automatisation et règles du jeu</strong>\n            Le client officiel affiche un message de bannissement lorsqu'il détecte un logiciel de triche, et demande de ne plus utiliser aucun outil externe. Cela vaut partout, pas seulement en compétition&nbsp;: lisez les conditions d'utilisation de Flyff Universe avant d'automatiser quoi que ce soit.",
@@ -1722,7 +1782,7 @@
     ],
     [
       "<strong>💡 Tutoriel pratique disponible</strong>\n            Nous avons rédigé un <a href=\"automatiser-ringmaster-flyff-universe.html\" style=\"color:var(--gold);\">tutoriel pas à pas pour automatiser votre Ringmaster</a> avec Reborn Assistant&nbsp;: configuration de la rotation, intervalle entre cycles, macros et erreurs à éviter.",
-      "<strong>💡 Uygulamalı eğitim mevcut</strong>\n            Reborn Assistant ile <a href=\"automatiser-ringmaster-flyff-universe.html\" style=\"color:var(--gold);\">Ringmaster'ınızı otomatikleştirmek için adım adım bir eğitim</a> hazırladık: rotasyon yapılandırması, döngüler arası aralık, makrolar ve kaçınılması gereken hatalar."
+      "<strong>💡 Uygulamalı rehber hazır</strong>\n            Reborn Assistant ile <a href=\"automatiser-ringmaster-flyff-universe.html\" style=\"color:var(--gold);\">Ringmaster'ınızı otomatikleştirmek için adım adım bir rehber</a> hazırladık: rotasyon yapılandırması, döngüler arası aralık, makrolar ve kaçınılması gereken hatalar."
     ],
     [
       "<strong>📌 Sources et méthode</strong>\n            Les valeurs des skills, des objets et des sets viennent des données de l'API officielle de Flyff Universe (relevé d'août 2026 publié par le projet open source Flyffulator). Les répartitions de stats, ordres de skills et choix de bijoux viennent des guides communautaires (Madrigal Inside, Flyff Universe Wiki)&nbsp;: ce sont des recommandations de joueurs, pas des règles du jeu. Un patch peut modifier ces chiffres.",
@@ -1738,7 +1798,7 @@
     ],
     [
       "← Retour aux docs",
-      "← Dokümantasyona dön"
+      "← Belgelere dön"
     ],
     [
       "◆ Sommaire",
@@ -1775,6 +1835,26 @@
     [
       "REBORN ASSISTANT",
       "REBORN ASSISTANT"
+    ],
+    [
+      "\"name\": \"Accueil\", \"item\": \"https://reborn-assistance.fr/\" }",
+      "\"name\": \"Ana Sayfa\", \"item\": \"https://reborn-assistance.fr/tr/\" }"
+    ],
+    [
+      "\"name\": \"Documentation\", \"item\": \"https://reborn-assistance.fr/docs/\" }",
+      "\"name\": \"Belgeler\", \"item\": \"https://reborn-assistance.fr/tr/docs/\" }"
+    ],
+    [
+      "\"inLanguage\": \"fr\"",
+      "\"inLanguage\": \"tr\""
+    ],
+    [
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html\"",
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/tr/docs/ringmaster-flyff-universe-rehberi.html\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html\" }",
+      "\"item\": \"https://reborn-assistance.fr/tr/docs/ringmaster-flyff-universe-rehberi.html\" }"
     ]
   ]
 }
