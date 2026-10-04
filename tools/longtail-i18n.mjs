@@ -95,21 +95,21 @@ const AUTOMATE_SEO = {
 };
 
 const TOOLS_SEO = {
-  fr: { title: "Les Meilleurs Outils & Extensions Flyff Universe 2026", description: "Comparatif 2026 des meilleurs outils Flyff Universe : extensions, traducteurs, calculateurs, base de données. Sélection testée pour optimiser votre gameplay.", ogLocale: 'fr_FR' },
-  en: { title: "Best Flyff Universe Tools & Extensions in 2026", description: "2026 comparison of the best Flyff Universe tools: extensions, translators, calculators, databases. Tested selection to optimize your gameplay.", ogLocale: 'en_US' },
-  es: { title: "Las Mejores Herramientas y Extensiones Flyff Universe 2026", description: "Comparativa 2026 de las mejores herramientas Flyff Universe: extensiones, traductores, calculadoras, bases de datos. Selección probada.", ogLocale: 'es_ES' },
-  de: { title: "Die Besten Flyff Universe Tools & Erweiterungen 2026", description: "Vergleich 2026 der besten Flyff Universe Tools: Erweiterungen, Übersetzer, Rechner, Datenbanken. Getestete Auswahl für besseres Gameplay.", ogLocale: 'de_DE' },
-  pt: { title: "As Melhores Ferramentas e Extensões Flyff Universe 2026", description: "Comparativo 2026 das melhores ferramentas Flyff Universe: extensões, tradutores, calculadoras, bancos de dados. Seleção testada.", ogLocale: 'pt_BR' },
-  it: { title: "I Migliori Strumenti ed Estensioni Flyff Universe 2026", description: "Confronto 2026 dei migliori strumenti Flyff Universe: estensioni, traduttori, calcolatori, database. Selezione testata per il tuo gameplay.", ogLocale: 'it_IT' },
-  nl: { title: "De Beste Flyff Universe Tools & Extensies in 2026", description: "Vergelijking 2026 van de beste Flyff Universe tools: extensies, vertalers, calculators, databases. Geteste selectie voor je gameplay.", ogLocale: 'nl_NL' },
-  pl: { title: "Najlepsze Narzędzia i Rozszerzenia Flyff Universe 2026", description: "Porównanie 2026 najlepszych narzędzi Flyff Universe: rozszerzenia, tłumacze, kalkulatory, bazy danych. Testowany wybór.", ogLocale: 'pl_PL' },
-  ru: { title: "Лучшие Инструменты и Расширения Flyff Universe 2026", description: "Сравнение 2026 лучших инструментов Flyff Universe: расширения, переводчики, калькуляторы, базы данных. Проверенная подборка.", ogLocale: 'ru_RU' },
-  tr: { title: "2026'da En İyi Flyff Universe Araçları ve Uzantıları", description: "2026 karşılaştırması: en iyi Flyff Universe araçları — uzantılar, çevirmenler, hesap makineleri, veritabanları. Test edilmiş seçim.", ogLocale: 'tr_TR' },
-  ja: { title: "2026年最高のFlyff Universeツールと拡張機能", description: "2026年比較: 最高のFlyff Universeツール — 拡張機能、翻訳機、計算機、データベース。ゲームプレイ最適化のためのテスト済み選定。", ogLocale: 'ja_JP' },
-  ko: { title: "2026년 최고의 Flyff Universe 도구 및 확장 프로그램", description: "2026 비교: 최고의 Flyff Universe 도구 — 확장 프로그램, 번역기, 계산기, 데이터베이스. 게임플레이 최적화를 위한 테스트된 선택.", ogLocale: 'ko_KR' },
-  tl: { title: "Pinakamahusay na Flyff Universe Tools at Extensions 2026", description: "2026 paghahambing ng pinakamahusay na Flyff Universe tools: extensions, translators, calculators, databases. Sinubukang seleksyon.", ogLocale: 'tl_PH' },
-  zh: { title: "2026年最佳 Flyff Universe 工具与扩展程序", description: "2026 比较：最佳 Flyff Universe 工具 — 扩展程序、翻译器、计算器、数据库。经过测试的精选。", ogLocale: 'zh_CN' },
-  ar: { title: "أفضل أدوات وامتدادات Flyff Universe لعام 2026", description: "مقارنة 2026 لأفضل أدوات Flyff Universe: امتدادات، مترجمات، حاسبات، قواعد بيانات. اختيار مُختبر لتحسين اللعب.", ogLocale: 'ar_SA' },
+  fr: { title: "Les Meilleurs Outils & Extensions Flyff Universe 2026", description: "Comparatif 2026 des outils Flyff Universe : Flyffipedia, Flyffulator, Madrigal Inside, simulateur de compétences, API officielle et extension de macros.", ogLocale: 'fr_FR' },
+  en: { title: "Best Flyff Universe Tools & Extensions in 2026", description: "2026 comparison of Flyff Universe tools: Flyffipedia, Flyffulator, Madrigal Inside, a skill simulator, the official API and a keyboard macro extension.", ogLocale: 'en_US' },
+  es: { title: "Las Mejores Herramientas y Extensiones Flyff Universe 2026", description: "Comparativa 2026 de herramientas de Flyff Universe: Flyffipedia, Flyffulator, Madrigal Inside, un simulador de habilidades, la API oficial y una extensión de macros.", ogLocale: 'es_ES' },
+  de: { title: "Die Besten Flyff Universe Tools & Erweiterungen 2026", description: "Vergleich 2026 der Flyff Universe Tools: Flyffipedia, Flyffulator, Madrigal Inside, ein Skill-Simulator, die offizielle API und eine Tastatur-Makro-Erweiterung.", ogLocale: 'de_DE' },
+  pt: { title: "As Melhores Ferramentas e Extensões Flyff Universe 2026", description: "Comparativo 2026 de ferramentas de Flyff Universe: Flyffipedia, Flyffulator, Madrigal Inside, um simulador de habilidades, a API oficial e uma extensão de macros.", ogLocale: 'pt_BR' },
+  it: { title: "I Migliori Strumenti ed Estensioni Flyff Universe 2026", description: "Confronto 2026 degli strumenti Flyff Universe: Flyffipedia, Flyffulator, Madrigal Inside, un simulatore di abilità, l'API ufficiale e un'estensione di macro.", ogLocale: 'it_IT' },
+  nl: { title: "De Beste Flyff Universe Tools & Extensies in 2026", description: "Vergelijking 2026 van Flyff Universe tools: Flyffipedia, Flyffulator, Madrigal Inside, een skillsimulator, de officiële API en een extensie voor toetsenbordmacro's.", ogLocale: 'nl_NL' },
+  pl: { title: "Najlepsze Narzędzia i Rozszerzenia Flyff Universe 2026", description: "Porównanie 2026 narzędzi Flyff Universe: Flyffipedia, Flyffulator, Madrigal Inside, symulator umiejętności, oficjalne API i rozszerzenie z makrami klawiatury.", ogLocale: 'pl_PL' },
+  ru: { title: "Лучшие Инструменты и Расширения Flyff Universe 2026", description: "Сравнение инструментов Flyff Universe 2026: Flyffipedia, Flyffulator, Madrigal Inside, симулятор навыков, официальный API и расширение с клавиатурными макросами.", ogLocale: 'ru_RU' },
+  tr: { title: "2026'da En İyi Flyff Universe Araçları ve Uzantıları", description: "2026 Flyff Universe araçları karşılaştırması: Flyffipedia, Flyffulator, Madrigal Inside, yetenek simülatörü, resmî API ve klavye makro uzantısı.", ogLocale: 'tr_TR' },
+  ja: { title: "2026年最高のFlyff Universeツールと拡張機能", description: "2026年版 Flyff Universe ツール比較：Flyffipedia、Flyffulator、Madrigal Inside、スキルシミュレーター、公式API、キーボードマクロ拡張機能。", ogLocale: 'ja_JP' },
+  ko: { title: "2026년 최고의 Flyff Universe 도구 및 확장 프로그램", description: "2026 Flyff Universe 도구 비교: Flyffipedia, Flyffulator, Madrigal Inside, 스킬 시뮬레이터, 공식 API, 키보드 매크로 확장 프로그램.", ogLocale: 'ko_KR' },
+  tl: { title: "Pinakamahusay na Flyff Universe Tools at Extensions 2026", description: "Paghahambing ng mga tool sa Flyff Universe para sa 2026: Flyffipedia, Flyffulator, Madrigal Inside, skill simulator, opisyal na API at isang keyboard macro extension.", ogLocale: 'tl_PH' },
+  zh: { title: "2026年最佳 Flyff Universe 工具与扩展程序", description: "2026 年 Flyff Universe 工具对比：Flyffipedia、Flyffulator、Madrigal Inside、技能模拟器、官方 API 以及键盘宏扩展程序。", ogLocale: 'zh_CN' },
+  ar: { title: "أفضل أدوات وامتدادات Flyff Universe لعام 2026", description: "مقارنة 2026 لأدوات Flyff Universe: Flyffipedia وFlyffulator وMadrigal Inside ومحاكي المهارات وواجهة API الرسمية وامتداد ماكرو للوحة المفاتيح.", ogLocale: 'ar_SA' },
 };
 
 const GUIDE_SEO = {
