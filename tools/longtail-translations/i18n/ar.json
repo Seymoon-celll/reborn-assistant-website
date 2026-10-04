@@ -66,11 +66,11 @@
   ],
   [
    "Placez vos buffs mono-cible sur les emplacements 1 à 9 de votre 2e barre de raccourcis, puis activez la rotation de séquences (F2, les emplacements de cette barre dans l'ordre, puis F1) avec un intervalle un peu inférieur à la durée de vos buffs (250 secondes plus 2 secondes par point d'INT au niveau maximum).",
-   "ضع تعزيزاتك أحادية الهدف في الخانات 1 إلى 9 من شريط الاختصارات الـ2، ثم فعّل تدوير التسلسل (F2، ثم خانات هذا الشريط بالترتيب، ثم F1) بفترة أقل قليلاً من مدة تعزيزاتك (250 ثانية زائد 2 ثانية لكل نقطة INT في المستوى الأقصى)."
+   "ضع تعزيزاتك أحادية الهدف في الخانات 1 إلى 9 من شريط الاختصارات الثاني، ثم فعّل تدوير التسلسل (F2، ثم خانات هذا الشريط بالترتيب، ثم F1) بفترة أقل قليلاً من مدة تعزيزاتك (250 ثانية زائد 2 ثانية لكل نقطة INT في المستوى الأقصى)."
   ],
   [
    "Programmer le Heal automatique",
-   "إعداد Heal التلقائي"
+   "إعداد الشفاء التلقائي"
   ],
   [
    "Placez Heal Rain sur l'emplacement 0 de vos deux premières barres, reportez la touche 0 dans la section SOIN du panneau Reborn, choisissez l'intervalle selon les dégâts subis et votre MP, puis activez le toggle ON.",
@@ -126,7 +126,7 @@
   ],
   [
    "<a href=\"#macros\">Macros, Familier, Suivre, Auto-clic</a>",
-   "<a href=\"#macros\">الماكرو، المرافق، المتابعة، النقر التلقائي</a>"
+   "<a href=\"#macros\">الماكرو، الحيوان الأليف، المتابعة، النقر التلقائي</a>"
   ],
   [
    "<a href=\"#optimisation\">Optimisation et erreurs courantes</a>",
@@ -142,7 +142,7 @@
   ],
   [
    "Le Ringmaster (souvent abrégé <strong>RM</strong>) est la classe support emblématique de Flyff Universe&nbsp;: c'est la branche soins et buffs de l'Assist, accessible au niveau 60, dont la 3e classe, le Seraph, est arrivée avec l'extension Muran's Awakening (v1.5.0, novembre 2025). Son rôle est clair&nbsp;: renforcer ses alliés avec des buffs (Protect, Spirit Fortune, Geburah Tiphreth, et les buffs d'Assist comme Heap Up, Beef Up ou Mental Sign) et soigner le groupe avec Heal Rain. Sur le papier, c'est limpide. En pratique, c'est l'une des classes les plus répétitives à jouer en farm prolongé&nbsp;: vous passez une bonne partie de votre temps à <strong>relancer vos buffs dès qu'ils expirent</strong>, à <strong>relancer Geburah Tiphreth</strong>, qui ne dure que 30 secondes plus 0,15 seconde par point d'INT, à <strong>enchaîner les Heal Rain</strong> et à <strong>surveiller votre MP</strong> en plus des PV du groupe.",
-   "الـ Ringmaster (ويُختصر غالباً إلى <strong>RM</strong>) هو فئة الدعم الأبرز في Flyff Universe: إنه فرع الشفاء والتعزيزات لفئة Assist، ويُتاح من المستوى 60، وقد وصلت فئته الـ3، Seraph، مع توسعة Muran's Awakening (v1.5.0، نوفمبر 2025). دوره واضح: تقوية حلفائه بالتعزيزات (Protect وSpirit Fortune وGeburah Tiphreth، وتعزيزات Assist مثل Heap Up أو Beef Up أو Mental Sign) وشفاء الفريق بـ Heal Rain. على الورق، الأمر بسيط. أما عملياً، فهو من أكثر الفئات تكراراً في أسلوب لعبها خلال جلسات الفارم الطويلة: تقضي جزءاً كبيراً من وقتك في <strong>إعادة إلقاء تعزيزاتك فور انتهائها</strong>، و<strong>إعادة إلقاء Geburah Tiphreth</strong> الذي لا يدوم سوى 30 ثانية زائد 0.15 ثانية لكل نقطة INT، و<strong>إلقاء Heal Rain تباعاً</strong>، و<strong>مراقبة MP لديك</strong> إلى جانب HP الفريق."
+   "الـ Ringmaster (ويُختصر غالباً إلى <strong>RM</strong>) هو فئة الدعم الأبرز في Flyff Universe: إنه فرع الشفاء والتعزيزات لفئة Assist، ويُتاح من المستوى 60، وقد وصلت فئته الثالثة، Seraph، مع توسعة Muran's Awakening (v1.5.0، نوفمبر 2025). دوره واضح: تقوية حلفائه بالتعزيزات (Protect وSpirit Fortune وGeburah Tiphreth، وتعزيزات Assist مثل Heap Up أو Beef Up أو Mental Sign) وشفاء الفريق بـ Heal Rain. على الورق، الأمر بسيط. أما عملياً، فهو من أكثر الفئات تكراراً في أسلوب لعبها خلال جلسات الفارم الطويلة: تقضي جزءاً كبيراً من وقتك في <strong>إعادة إلقاء تعزيزاتك فور انتهائها</strong>، و<strong>إعادة إلقاء Geburah Tiphreth</strong> الذي لا يدوم سوى 30 ثانية زائد 0.15 ثانية لكل نقطة INT، و<strong>إلقاء Heal Rain تباعاً</strong>، و<strong>مراقبة MP لديك</strong> إلى جانب HP الفريق."
   ],
   [
    "L'automatisation ne remplace pas votre jugement. Elle décharge votre clavier des routines mécaniques&nbsp;: le cycle de rebuff complet, Geburah Tiphreth, le Heal Rain périodique, les potions de MP. Reborn Assistant ne voit ni l'écran ni les barres de vie&nbsp;: il appuie sur les touches que vous avez configurées, au rythme que vous avez choisi. Vous gardez les mains libres pour les <strong>moments où ça compte vraiment</strong>&nbsp;: un membre qui tombe, un pack de monstres qui dérape, un boss qui cible le RM en premier.",
@@ -154,7 +154,7 @@
   ],
   [
    "Avant d'activer quoi que ce soit, posez les bases solides. Rappel utile&nbsp;: dans Flyff Universe, les touches F1 à F9 affichent l'une de vos 9 barres de raccourcis, et les touches 1 à 0 déclenchent les emplacements de la barre affichée.",
-   "قبل تفعيل أي شيء، ضع أسساً متينة. تذكير مفيد: في Flyff Universe، تعرض المفاتيح F1 إلى F9 أحد أشرطة الاختصارات الـ9 لديك، وتُشغّل المفاتيح 1 إلى 0 خانات الشريط المعروض."
+   "قبل تفعيل أي شيء، ضع أسساً متينة. تذكير مفيد: في Flyff Universe، تعرض المفاتيح F1 إلى F9 أحد أشرطة الاختصارات التسعة لديك، وتُشغّل المفاتيح 1 إلى 0 خانات الشريط المعروض."
   ],
   [
    "<strong>Reborn Assistant Premium</strong> installé (la version gratuite ne couvre que la macro soin de base). Voir le <a href=\"quickstart.html\">guide d'installation</a>.",
@@ -162,15 +162,15 @@
   ],
   [
    "<strong>Vos buffs de rotation sur votre 2e barre</strong> (celle qu'affiche <code>F2</code>), emplacements 1 à 9 — c'est elle que la rotation de Reborn Assistant parcourt.",
-   "<strong>تعزيزات التدوير على شريطك الـ2</strong> (الذي يعرضه <code>F2</code>)، في الخانات 1 إلى 9 — فهو الشريط الذي يمرّ عليه تدوير Reborn Assistant."
+   "<strong>تعزيزات التدوير على شريطك الثاني</strong> (الذي يعرضه <code>F2</code>)، في الخانات 1 إلى 9 — فهو الشريط الذي يمرّ عليه تدوير Reborn Assistant."
   ],
   [
    "<strong>Geburah Tiphreth et vos potions sur votre 1re barre</strong> (<code>F1</code>), celle sur laquelle la rotation vous ramène à la fin de chaque cycle.",
-   "<strong>Geburah Tiphreth وجرعاتك على شريطك الـ1</strong> (<code>F1</code>)، وهو الشريط الذي يعيدك إليه التدوير في نهاية كل دورة."
+   "<strong>Geburah Tiphreth وجرعاتك على شريطك الأول</strong> (<code>F1</code>)، وهو الشريط الذي يعيدك إليه التدوير في نهاية كل دورة."
   ],
   [
    "<strong>Heal Rain sur l'emplacement 0 de vos deux barres</strong>, et aucun buff sur l'emplacement 0 de la 2e barre&nbsp;: la touche 0 lance ainsi Heal Rain, que la 1re ou la 2e barre soit affichée au moment du soin. Les touches se réassignent dans Options › Raccourcis&nbsp;; si vous préférez une lettre, évitez <code>T</code>, qui ouvre la fenêtre de statut.",
-   "<strong>Heal Rain في الخانة 0 من الشريطين</strong>، مع ترك الخانة 0 من الشريط الـ2 خالية من أي تعزيز: بهذا يُلقي المفتاح 0 مهارة Heal Rain سواء كان الشريط الـ1 أو الـ2 معروضاً لحظة الشفاء. يمكن إعادة تعيين المفاتيح من Options › Controls؛ وإن كنت تفضّل حرفاً، فتجنّب <code>T</code> الذي يفتح نافذة الحالة."
+   "<strong>Heal Rain في الخانة 0 من الشريطين</strong>، مع ترك الخانة 0 من الشريط الثاني خالية من أي تعزيز: بهذا يُلقي المفتاح 0 مهارة Heal Rain سواء كان الشريط الأول أو الثاني معروضاً لحظة الشفاء. يمكن إعادة تعيين المفاتيح من Options › Controls؛ وإن كنت تفضّل حرفاً، فتجنّب <code>T</code> الذي يفتح نافذة الحالة."
   ],
   [
    "<strong>Une réserve de potions de MP</strong> (Refreshers)&nbsp;: tous les sorts du Ringmaster consomment du MP, pas de FP — l'automatisation n'invente pas les ressources.",
@@ -302,7 +302,7 @@
   ],
   [
    "Un buff court à part&nbsp;: Geburah Tiphreth",
-   "تعزيز قصير على حدة: Geburah Tiphreth"
+   "الاستثناء: Geburah Tiphreth، تعزيز قصير المدة"
   ],
   [
    "Geburah Tiphreth est le seul buff de groupe du Ringmaster&nbsp;: au niveau 10, il donne Attaque +10%, vitesse d'attaque +15% et temps d'incantation −10% à vous et aux membres du groupe situés à moins de 13 mètres. Mais il ne dure que 30 secondes plus 0,15 seconde par point d'INT, quel que soit son niveau, et n'a pas de temps de recharge. Il est bien trop court pour la rotation&nbsp;: donnez-lui sa propre macro (voir plus bas).",
@@ -342,11 +342,11 @@
   ],
   [
    "C'est le cœur du système. Reborn Assistant peut dérouler à intervalle régulier une séquence de touches fixe, qui commence par <code>F2</code>, enchaîne les touches d'emplacement dans l'ordre (<code>1</code>, <code>2</code>, <code>3</code>…) et se termine par <code>F1</code>. Dans le jeu, F2 affiche votre 2e barre de raccourcis, les touches 1 à 9 déclenchent les buffs que vous y avez placés, et F1 vous ramène à votre 1re barre. Voici comment l'aligner avec votre RM&nbsp;:",
-   "هذا هو قلب النظام. يستطيع Reborn Assistant تنفيذ تسلسل مفاتيح ثابت على فترات منتظمة: يبدأ بـ <code>F2</code>، ثم يضغط مفاتيح الخانات بالترتيب (<code>1</code>، <code>2</code>، <code>3</code>…) وينتهي بـ <code>F1</code>. في اللعبة، يعرض F2 شريط الاختصارات الـ2، وتُشغّل المفاتيح 1 إلى 9 التعزيزات التي وضعتها عليه، ويعيدك F1 إلى شريطك الـ1. إليك كيف تضبطه مع الـ RM الخاص بك:"
+   "هذا هو قلب النظام. يستطيع Reborn Assistant تنفيذ تسلسل مفاتيح ثابت على فترات منتظمة: يبدأ بـ <code>F2</code>، ثم يضغط مفاتيح الخانات بالترتيب (<code>1</code>، <code>2</code>، <code>3</code>…) وينتهي بـ <code>F1</code>. في اللعبة، يعرض F2 شريط الاختصارات الثاني، وتُشغّل المفاتيح 1 إلى 9 التعزيزات التي وضعتها عليه، ويعيدك F1 إلى شريطك الأول. إليك كيف تضبطه مع الـ RM الخاص بك:"
   ],
   [
    "Ouvrez la fenêtre des compétences (touche <code>K</code>), affichez votre 2e barre avec <code>F2</code> et glissez-y vos buffs dans cet ordre&nbsp;:",
-   "افتح نافذة المهارات (المفتاح <code>K</code>)، واعرض شريطك الـ2 بـ <code>F2</code>، واسحب إليه تعزيزاتك بهذا الترتيب:"
+   "افتح نافذة المهارات (المفتاح <code>K</code>)، واعرض شريطك الثاني بـ <code>F2</code>، واسحب إليه تعزيزاتك بهذا الترتيب:"
   ],
   [
    "Touche 1 → Protect",
@@ -374,7 +374,7 @@
   ],
   [
    "Touche 0 → Heal Rain, comme sur votre 1re barre (voir le soin automatique plus bas)",
-   "المفتاح 0 ← Heal Rain، كما في شريطك الـ1 (انظر الشفاء التلقائي أدناه)"
+   "المفتاح 0 ← Heal Rain، كما في شريطك الأول (انظر الشفاء التلقائي أدناه)"
   ],
   [
    "Ces buffs sont mono-cible&nbsp;: chaque cycle les lance sur le personnage sélectionné à ce moment-là. Gardez votre partenaire sélectionné pendant le farm.",
@@ -410,7 +410,7 @@
   ],
   [
    "Glissez Heal Rain sur l'emplacement 0 de votre 1re et de votre 2e barre (voir les prérequis). Reportez ensuite cette même touche, <code>0</code>, dans le champ «&nbsp;Touche&nbsp;» de la section SOIN du panneau Reborn.",
-   "اسحب Heal Rain إلى الخانة 0 من شريطك الـ1 والـ2 (انظر المتطلبات). ثم أدخل المفتاح نفسه، <code>0</code>، في حقل «المفتاح» ضمن قسم الشفاء في لوحة Reborn."
+   "اسحب Heal Rain إلى الخانة 0 من شريطيك الأول والثاني (انظر المتطلبات). ثم أدخل المفتاح نفسه، <code>0</code>، في حقل «المفتاح» ضمن قسم الشفاء في لوحة Reborn."
   ],
   [
    "Aucun intervalle n'est imposé par le jeu&nbsp;: choisissez-le selon les dégâts que subit votre groupe et votre réserve de MP. Plus il est court, plus vous soignez, et plus vous consommez&nbsp;: au niveau 10, un Heal Rain toutes les 5 secondes coûte environ 2000 MP par minute. Partez d'une valeur prudente, observez, puis ajustez. Basculez le toggle <strong>ON</strong>. L'extension déclenchera votre touche toutes les X secondes, en parallèle de la rotation de buffs et des autres systèmes, que le groupe soit blessé ou non, puisqu'elle ne lit pas les barres de vie.",
@@ -418,7 +418,7 @@
   ],
   [
    "Macros, Familier, Suivre, Auto-clic",
-   "الماكرو، المرافق، المتابعة، النقر التلقائي"
+   "الماكرو، الحيوان الأليف، المتابعة، النقر التلقائي"
   ],
   [
    "En plus de la rotation de buffs et du soin, Reborn Assistant Premium offre quatre systèmes complémentaires que vous activez indépendamment selon vos besoins.",
@@ -446,15 +446,15 @@
   ],
   [
    "Si une macro arrive à échéance pendant le cycle de buffs, elle est mise en attente et relancée automatiquement une fois le cycle terminé. Comme la rotation se termine par F1, placez les touches de vos macros sur votre 1re barre.",
-   "إذا حان موعد ماكرو أثناء دورة التعزيزات، يُوضع في الانتظار ثم يُشغَّل تلقائياً بعد انتهاء الدورة. وبما أن التدوير ينتهي بـ F1، فضع مفاتيح الماكرو على شريطك الـ1."
+   "إذا حان موعد ماكرو أثناء دورة التعزيزات، يُوضع في الانتظار ثم يُشغَّل تلقائياً بعد انتهاء الدورة. وبما أن التدوير ينتهي بـ F1، فضع مفاتيح الماكرو على شريطك الأول."
   ],
   [
    "Familier automatique (Premium)",
-   "المرافق التلقائي (Premium)"
+   "الحيوان الأليف التلقائي (Premium)"
   ],
   [
    "L'extension sort et range votre familier automatiquement pendant l'automatisation, sans que vous ayez à ajouter sa touche à votre rotation. Vérifiez que la touche réglée dans le panneau est bien celle qui invoque votre familier en jeu. Pratique pour ne pas l'oublier pendant un long farm.",
-   "يستدعي الامتداد مرافقك ويخزّنه تلقائياً أثناء الأتمتة، دون أن تحتاج إلى إضافة مفتاحه إلى تدويرك. تأكد من أن المفتاح المضبوط في اللوحة هو فعلاً الذي يستدعي مرافقك في اللعبة. ميزة عملية كي لا تنساه خلال فارم طويل."
+   "يستدعي الامتداد حيوانك الأليف ويُعيده تلقائياً أثناء الأتمتة، دون أن تحتاج إلى إضافة مفتاحه إلى تدويرك. تأكد من أن المفتاح المضبوط في اللوحة هو فعلاً الذي يستدعي حيوانك الأليف في اللعبة. ميزة عملية كي لا تنساه خلال فارم طويل."
   ],
   [
    "Suivre automatique (Premium)",
@@ -510,7 +510,7 @@
   ],
   [
    "Prêt à libérer votre Ringmaster ?",
-   "هل أنت جاهز لتحرير Ringmaster الخاص بك؟"
+   "هل أنت جاهز لإطلاق العنان لـ Ringmaster الخاص بك؟"
   ],
   [
    "Installez Reborn Assistant en 30 secondes depuis le Chrome Web Store. 7 jours d'essai Premium gratuits, sans carte bancaire.",
@@ -550,7 +550,7 @@
   ],
   [
    "Préparer votre 2e barre",
-   "تجهيز شريطك الـ2"
+   "تجهيز شريطك الثاني"
   ],
   [
    "Activer la rotation dans Reborn Assistant",
@@ -571,6 +571,26 @@
   [
    "REBORN ASSISTANT",
    "REBORN ASSISTANT"
+  ],
+  [
+   "\"name\": \"Accueil\", \"item\": \"https://reborn-assistance.fr/\"",
+   "\"name\": \"الرئيسية\", \"item\": \"https://reborn-assistance.fr/ar/\""
+  ],
+  [
+   "\"name\": \"Documentation\", \"item\": \"https://reborn-assistance.fr/docs/\"",
+   "\"name\": \"التوثيق\", \"item\": \"https://reborn-assistance.fr/ar/docs/\""
+  ],
+  [
+   "\"inLanguage\": \"fr\"",
+   "\"inLanguage\": \"ar\""
+  ],
+  [
+   "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html\"",
+   "\"mainEntityOfPage\": \"https://reborn-assistance.fr/ar/docs/atmatat-ringmaster-flyff-universe.html\""
+  ],
+  [
+   "\"item\": \"https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html\"",
+   "\"item\": \"https://reborn-assistance.fr/ar/docs/atmatat-ringmaster-flyff-universe.html\""
   ]
  ],
  "tools-2026": [
@@ -588,7 +608,7 @@
   ],
   [
    "Comparatif 2026 des outils Flyff Universe : Flyffipedia, Flyffulator, Madrigal Inside, simulateur de compétences, API officielle et extension de macros.",
-   "مقارنة 2026 لأدوات Flyff Universe: Flyffipedia وFlyffulator وMadrigal Inside ومحاكي المهارات وواجهة API الرسمية وامتداد للماكرو."
+   "مقارنة بين أدوات Flyff Universe لعام 2026: Flyffipedia وFlyffulator وMadrigal Inside ومحاكي المهارات وواجهة API الرسمية وامتداد للماكرو."
   ],
   [
    "Reborn Assistant — Extension de macros clavier pour Ringmaster",
@@ -628,7 +648,7 @@
   ],
   [
    "Flyff Universe vit aussi grâce à sa communauté&nbsp;: une bonne partie des outils utiles ne vient pas de Gala Lab, le développeur du jeu, mais des joueurs eux-mêmes, et plusieurs s'appuient sur l'API publique officielle du jeu. Voici les <strong>outils qui valent vraiment le détour</strong>, avec un lien vers chacun et ce qu'ils font réellement, classés par utilité pour le joueur régulier. Cette sélection a été mise à jour en octobre 2026, après l'arrivée des 3e classes avec l'extension Muran's Awakening (v1.5.0, novembre 2025).",
-   "تعيش Flyff Universe أيضاً بفضل مجتمعها: فجزء كبير من الأدوات المفيدة لا يأتي من Gala Lab، مطوّر اللعبة، بل من اللاعبين أنفسهم، ويعتمد كثير منها على واجهة API العامة الرسمية للعبة. إليك <strong>الأدوات التي تستحق الاكتشاف فعلاً</strong>، مع رابط لكل منها وما تفعله حقاً، مرتّبة حسب فائدتها للاعب المنتظم. حُدّثت هذه القائمة في أكتوبر 2026، بعد وصول فئات الترقية الـ3 مع توسعة Muran's Awakening (v1.5.0، نوفمبر 2025)."
+   "تعيش Flyff Universe أيضاً بفضل مجتمعها: فجزء كبير من الأدوات المفيدة لا يأتي من Gala Lab، مطوّر اللعبة، بل من اللاعبين أنفسهم، ويعتمد كثير منها على واجهة API العامة الرسمية للعبة. إليك <strong>الأدوات التي تستحق الاكتشاف فعلاً</strong>، مع رابط لكل منها وما تفعله حقاً، مرتّبة حسب فائدتها للاعب المنتظم. حُدّثت هذه القائمة في أكتوبر 2026، بعد وصول فئات الترقية الثالثة مع توسعة Muran's Awakening (v1.5.0، نوفمبر 2025)."
   ],
   [
    "1. Reborn Assistant — L'extension de macros clavier pour Ringmaster",
@@ -728,7 +748,7 @@
   ],
   [
    "Vous croiserez aussi Skillulator (skillulator.lol), pratique pour partager un build de compétences par simple lien. Attention&nbsp;: il n'a plus été mis à jour depuis juillet 2025, avant l'arrivée des 3e classes.",
-   "ستصادف أيضاً Skillulator (skillulator.lol)، وهو عملي لمشاركة بناء مهارات عبر رابط بسيط. انتبه: لم يُحدَّث منذ يوليو 2025، أي قبل وصول فئات الترقية الـ3."
+   "ستصادف أيضاً Skillulator (skillulator.lol)، وهو عملي لمشاركة بناء مهارات عبر رابط بسيط. انتبه: لم يُحدَّث منذ يوليو 2025، أي قبل وصول فئات الترقية الثالثة."
   ],
   [
    "6. L'API officielle Flyff Universe — Les données à la source",
@@ -780,7 +800,7 @@
   ],
   [
    "<strong>Vous jouez Ringmaster (ou Seraph, sa 3e classe)</strong> → Reborn Assistant pour les séquences de touches répétitives, les guides Ringmaster de Madrigal Inside, et Flyffipedia pour vérifier une compétence ou un objet.",
-   "<strong>تلعب Ringmaster (أو Seraph، فئته الـ3)</strong> ← Reborn Assistant لتسلسلات المفاتيح المتكررة، وأدلة Ringmaster في Madrigal Inside، وFlyffipedia للتحقق من مهارة أو عنصر."
+   "<strong>تلعب Ringmaster (أو Seraph، فئته الثالثة)</strong> ← Reborn Assistant لتسلسلات المفاتيح المتكررة، وأدلة Ringmaster في Madrigal Inside، وFlyffipedia للتحقق من مهارة أو عنصر."
   ],
   [
    "<strong>Vous préparez un build ou comparez deux équipements</strong> → Flyffulator pour les dégâts, les dégâts reçus et les soins, puis Flyff Skill Simulator pour répartir vos points de compétence.",
@@ -868,7 +888,7 @@
   ],
   [
    "★ Rang I · Notre extension",
-   "★ المرتبة I · امتدادنا"
+   "★ المرتبة الأولى · امتدادنا"
   ],
   [
    "→ Tester Reborn Assistant",
@@ -876,7 +896,7 @@
   ],
   [
    "★ Rang II",
-   "★ المرتبة II"
+   "★ المرتبة الثانية"
   ],
   [
    "→ Ouvrir Flyffipedia",
@@ -884,7 +904,7 @@
   ],
   [
    "★ Rang III",
-   "★ المرتبة III"
+   "★ المرتبة الثالثة"
   ],
   [
    "→ Ouvrir Flyffulator",
@@ -892,7 +912,7 @@
   ],
   [
    "★ Rang IV",
-   "★ المرتبة IV"
+   "★ المرتبة الرابعة"
   ],
   [
    "→ Ouvrir Madrigal Inside",
@@ -900,7 +920,7 @@
   ],
   [
    "★ Rang V",
-   "★ المرتبة V"
+   "★ المرتبة الخامسة"
   ],
   [
    "→ Ouvrir Flyff Skill Simulator",
@@ -908,7 +928,7 @@
   ],
   [
    "★ Rang VI",
-   "★ المرتبة VI"
+   "★ المرتبة السادسة"
   ],
   [
    "→ Ouvrir api.flyff.com",
@@ -917,6 +937,26 @@
   [
    "REBORN ASSISTANT",
    "REBORN ASSISTANT"
+  ],
+  [
+   "\"name\": \"Accueil\", \"item\": \"https://reborn-assistance.fr/\"",
+   "\"name\": \"الرئيسية\", \"item\": \"https://reborn-assistance.fr/ar/\""
+  ],
+  [
+   "\"name\": \"Documentation\", \"item\": \"https://reborn-assistance.fr/docs/\"",
+   "\"name\": \"التوثيق\", \"item\": \"https://reborn-assistance.fr/ar/docs/\""
+  ],
+  [
+   "\"inLanguage\": \"fr\"",
+   "\"inLanguage\": \"ar\""
+  ],
+  [
+   "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/meilleurs-outils-flyff-universe-2026.html\"",
+   "\"mainEntityOfPage\": \"https://reborn-assistance.fr/ar/docs/afdal-adawat-flyff-universe-2026.html\""
+  ],
+  [
+   "\"item\": \"https://reborn-assistance.fr/docs/meilleurs-outils-flyff-universe-2026.html\"",
+   "\"item\": \"https://reborn-assistance.fr/ar/docs/afdal-adawat-flyff-universe-2026.html\""
   ]
  ],
  "guide-rm": [
@@ -994,7 +1034,7 @@
   ],
   [
    "Le <strong>Ringmaster</strong> (RM) est l'une des deux classes de 2e niveau de l'Assist sur Flyff Universe, avec le Billposter. C'est <strong>la branche soins et buffs</strong>&nbsp;: son rôle principal est de <em>maintenir un groupe en vie et de le rendre plus fort</em>. Ce n'est pas pour autant un simple soigneur&nbsp;: les guides communautaires décrivent aussi des builds AoE et Hit-and-Run qui lui permettent de leveler seul. Ses neuf skills de Ringmaster se lancent tous avec un stick et consomment des MP, jamais de FP.",
-   "<strong>Ringmaster</strong> (RM) هو إحدى فئتَي الترقية الـ2 لفئة Assist في Flyff Universe، إلى جانب Billposter. إنه <strong>فرع الشفاء والتعزيزات</strong>: دوره الأساسي هو <em>إبقاء الفريق على قيد الحياة وجعله أقوى</em>. لكنه ليس مجرد معالج: إذ تصف الأدلة المجتمعية أيضاً بناءات AoE وHit-and-Run تتيح له رفع المستوى منفرداً. وتُلقى مهاراته التسع الخاصة بـ Ringmaster كلها بسلاح Stick وتستهلك MP، ولا تستهلك FP أبداً."
+   "<strong>Ringmaster</strong> (RM) هو إحدى فئتَي الترقية الثانية لفئة Assist في Flyff Universe، إلى جانب Billposter. إنه <strong>فرع الشفاء والتعزيزات</strong>: دوره الأساسي هو <em>إبقاء الفريق على قيد الحياة وجعله أقوى</em>. لكنه ليس مجرد معالج: إذ تصف الأدلة المجتمعية أيضاً بناءات AoE وHit-and-Run تتيح له رفع المستوى منفرداً. وتُلقى مهاراته التسع الخاصة بـ Ringmaster كلها بسلاح Stick وتستهلك MP، ولا تستهلك FP أبداً."
   ],
   [
    "Le parcours de classe",
@@ -1006,7 +1046,7 @@
   ],
   [
    "<strong>Niveau 15&nbsp;: Assist</strong> (1er changement de classe, niveaux 15 à 60). Vous y apprenez les soins et les buffs que le Ringmaster gardera.",
-   "<strong>المستوى 15: Assist</strong> (الترقية الـ1، المستويات 15 إلى 60). تتعلّم فيها مهارات الشفاء والتعزيزات التي سيحتفظ بها Ringmaster."
+   "<strong>المستوى 15: Assist</strong> (الترقية الأولى، المستويات 15 إلى 60). تتعلّم فيها مهارات الشفاء والتعزيزات التي سيحتفظ بها Ringmaster."
   ],
   [
    "<strong>Niveau 60&nbsp;: Ringmaster</strong> (niveaux 60 à 165), ou Billposter si vous préférez le combat au poing.",
@@ -1014,7 +1054,7 @@
   ],
   [
    "<strong>Niveau 165&nbsp;: Seraph</strong>, la 3e classe ajoutée par l'extension Muran's Awakening (v1.5.0, 27 novembre 2025), jusqu'au niveau maximum, désormais 190. Ses propres skills s'apprennent à partir du niveau 166&nbsp;: Kyrie Eleison, Gloria Patri, Divinecross, Hammer of Judgement…",
-   "<strong>المستوى 165: Seraph</strong>، الفئة الـ3 التي أضافتها توسعة Muran's Awakening (v1.5.0، 27 نوفمبر 2025)، حتى المستوى الأقصى الذي أصبح الآن 190. وتُتعلَّم مهاراته الخاصة بدءاً من المستوى 166: Kyrie Eleison، Gloria Patri، Divinecross، Hammer of Judgement…"
+   "<strong>المستوى 165: Seraph</strong>، الفئة الثالثة التي أضافتها توسعة Muran's Awakening (v1.5.0، 27 نوفمبر 2025)، حتى المستوى الأقصى الذي أصبح الآن 190. وتُتعلَّم مهاراته الخاصة بدءاً من المستوى 166: Kyrie Eleison، Gloria Patri، Divinecross، Hammer of Judgement…"
   ],
   [
    "Ce que fait un Ringmaster",
@@ -1058,7 +1098,7 @@
   ],
   [
    "Les donjons d'instance s'ouvrent par paliers de difficulté&nbsp;: Leren Chasm (Flaris, dès Easy), Rhisis Catacombs (Garden of Rhisis, dès Medium), Envy Depths (Darkon 1 et 2, dès Hard), Guardiane Sanctuary (Darkon 3, dès Extra Hard), Storm Peak (Azria, dès Nightmare), The Wilds (Coral Island, dès Cursed) et Ankou's Asylum (Kaillun, en Infernal). Face à des boss comme le Caveman Chief, le Crystal Demon Lord ou Ankou, le rythme change&nbsp;: plus de soins ciblés, des skills défensifs à placer au bon moment (Holyguard, Barrier of Life, Gvur Tialla) et parfois une Resurrection à anticiper. Gardez la main sur les soins.",
-   "تُفتح زنزانات الـ instance على مراحل صعوبة: Leren Chasm (Flaris، بدءاً من Easy)، وRhisis Catacombs (Garden of Rhisis، بدءاً من Medium)، وEnvy Depths (Darkon 1 و2، بدءاً من Hard)، وGuardiane Sanctuary (Darkon 3، بدءاً من Extra Hard)، وStorm Peak (Azria، بدءاً من Nightmare)، وThe Wilds (Coral Island، بدءاً من Cursed)، وAnkou's Asylum (Kaillun، في Infernal). وأمام زعماء مثل Caveman Chief أو Crystal Demon Lord أو Ankou، يتغيّر الإيقاع: مزيد من الشفاء الموجَّه، ومهارات دفاعية يجب استخدامها في اللحظة المناسبة (Holyguard، Barrier of Life، Gvur Tialla)، وأحياناً Resurrection يجب التحسّب لها. أبقِ الشفاء تحت سيطرتك."
+   "تُفتح زنزانات Instance حسب مستويات الصعوبة: Leren Chasm (Flaris، بدءاً من Easy)، وRhisis Catacombs (Garden of Rhisis، بدءاً من Medium)، وEnvy Depths (Darkon 1 و2، بدءاً من Hard)، وGuardiane Sanctuary (Darkon 3، بدءاً من Extra Hard)، وStorm Peak (Azria، بدءاً من Nightmare)، وThe Wilds (Coral Island، بدءاً من Cursed)، وAnkou's Asylum (Kaillun، في Infernal). وأمام زعماء مثل Caveman Chief أو Crystal Demon Lord أو Ankou، يتغيّر الإيقاع: مزيد من الشفاء الموجَّه، ومهارات دفاعية يجب استخدامها في اللحظة المناسبة (Holyguard، Barrier of Life، Gvur Tialla)، وأحياناً Resurrection يجب التحسّب لها. أبقِ الشفاء تحت سيطرتك."
   ],
   [
    "Guild Siege et FWC",
@@ -1066,7 +1106,7 @@
   ],
   [
    "Les Guild Sieges se disputent par tranches de niveau&nbsp;: la tranche 60 est réservée aux personnages qui n'ont pas fait leur 2e changement de classe (un Ringmaster n'y entre donc pas), la tranche 80 aux joueurs jusqu'au niveau 80, et les textes du jeu prévoient aussi une tranche 165. Le Flyff World Championship (FWC), lui, a lieu chaque année depuis 2023&nbsp;; l'édition 2026 a débuté le 23 avril 2026.",
-   "تُخاض معارك Guild Siege حسب شرائح المستوى: الشريحة 60 مخصصة للشخصيات التي لم تُجرِ ترقيتها الـ2 (لذا لا يدخلها Ringmaster)، والشريحة 80 للاعبين حتى المستوى 80، كما تتضمن نصوص اللعبة شريحة 165. أما Flyff World Championship (FWC) فيُقام سنوياً منذ 2023؛ وقد انطلقت نسخة 2026 في 23 أبريل 2026."
+   "تُخاض معارك Guild Siege حسب شرائح المستوى: الشريحة 60 مخصصة للشخصيات التي لم تُجرِ ترقيتها الثانية (لذا لا يدخلها Ringmaster)، والشريحة 80 للاعبين حتى المستوى 80، كما تتضمن نصوص اللعبة شريحة 165. أما Flyff World Championship (FWC) فيُقام سنوياً منذ 2023؛ وقد انطلقت نسخة 2026 في 23 أبريل 2026."
   ],
   [
    "Les skills du Ringmaster",
@@ -1546,7 +1586,7 @@
   ],
   [
    "réduction des dégâts PvE à chaque palier, blocage, incantation -10&nbsp;% · à 4 pièces&nbsp;: HP max +25&nbsp;%, dégâts PvE +15&nbsp;%, soins +10&nbsp;%",
-   "تقليل ضرر PvE في كل مرحلة، الصدّ، الإلقاء -10% · عند 4 قطع: HP الأقصى +25%، ضرر PvE +15%، الشفاء +10%"
+   "تقليل ضرر PvE مع كل مكافأة من مكافآت الطقم، الصدّ، الإلقاء -10% · عند 4 قطع: HP الأقصى +25%، ضرر PvE +15%، الشفاء +10%"
   ],
   [
    "<strong>135</strong>",
@@ -1578,7 +1618,7 @@
   ],
   [
    "réduction des dégâts PvE à chaque palier, incantation -15&nbsp;% · à 4 pièces&nbsp;: HP max +30&nbsp;%, dégâts PvE +20&nbsp;%, blocage +10&nbsp;%, résistance aux critiques +10&nbsp;%, soins +15&nbsp;%",
-   "تقليل ضرر PvE في كل مرحلة، الإلقاء -15% · عند 4 قطع: HP الأقصى +30%، ضرر PvE +20%، الصدّ +10%، مقاومة الضربات الحرجة +10%، الشفاء +15%"
+   "تقليل ضرر PvE مع كل مكافأة من مكافآت الطقم، الإلقاء -15% · عند 4 قطع: HP الأقصى +30%، ضرر PvE +20%، الصدّ +10%، مقاومة الضربات الحرجة +10%، الشفاء +15%"
   ],
   [
    "<strong>175</strong>",
@@ -1658,15 +1698,15 @@
   ],
   [
    "<strong>Ringmaster</strong> = soins et buffs au stick&nbsp;; ses neuf skills consomment des MP, et chaque point d'INT lui rapporte deux fois plus de MP max qu'à un Billposter (16,2 contre 8,1). Il peut aussi leveler seul en build AoE ou Hit-and-Run. 3e classe&nbsp;: Seraph.",
-   "<strong>Ringmaster</strong> = الشفاء والتعزيزات بسلاح Stick؛ تستهلك مهاراته التسع MP، وكل نقطة INT تمنحه ضعف ما تمنحه لـ Billposter من الحد الأقصى لـ MP (16.2 مقابل 8.1). ويمكنه أيضاً رفع المستوى منفرداً ببناء AoE أو Hit-and-Run. الفئة الـ3: Seraph."
+   "<strong>Ringmaster</strong> = الشفاء والتعزيزات بسلاح Stick؛ تستهلك مهاراته التسع MP، وكل نقطة INT تمنحه ضعف ما تمنحه لـ Billposter من الحد الأقصى لـ MP (16.2 مقابل 8.1). ويمكنه أيضاً رفع المستوى منفرداً ببناء AoE أو Hit-and-Run. الفئة الثالثة: Seraph."
   ],
   [
    "<strong>Billposter</strong> = combat au corps à corps avec des knuckles (Asmodeus renforce l'arme équipée)&nbsp;; ses attaques comme Belial Smashing, Blood Fist ou Sonichand consomment des FP. 3e classe&nbsp;: Forcemaster.",
-   "<strong>Billposter</strong> = قتال متلاحم بأسلحة Knuckles (يقوّي Asmodeus السلاح المجهَّز)؛ وتستهلك هجماته مثل Belial Smashing أو Blood Fist أو Sonichand نقاط FP. الفئة الـ3: Forcemaster."
+   "<strong>Billposter</strong> = قتال متلاحم بأسلحة Knuckles (يقوّي Asmodeus السلاح المجهَّز)؛ وتستهلك هجماته مثل Belial Smashing أو Blood Fist أو Sonichand نقاط FP. الفئة الثالثة: Forcemaster."
   ],
   [
    "Le Mentalist, parfois cité à sa place, est en réalité la 3e classe du Psykeeper, sur la branche Magicien&nbsp;: il n'a aucun lien avec l'Assist. Si vous voulez soigner et renforcer les autres → Ringmaster. Si vous préférez frapper au poing → Billposter.",
-   "أما Mentalist، الذي يُذكر أحياناً بدلاً منه، فهو في الواقع الفئة الـ3 لـ Psykeeper، في فرع Magician: ولا علاقة له بـ Assist. إذا أردت شفاء الآخرين وتقويتهم ← Ringmaster. وإذا كنت تفضّل الضرب بالقبضات ← Billposter."
+   "أما Mentalist، الذي يُذكر أحياناً بدلاً منه، فهو في الواقع الفئة الثالثة لـ Psykeeper، في فرع Magician: ولا علاقة له بـ Assist. إذا أردت شفاء الآخرين وتقويتهم ← Ringmaster. وإذا كنت تفضّل الضرب بالقبضات ← Billposter."
   ],
   [
    "Erreurs courantes de débutant Ringmaster",
@@ -1775,6 +1815,26 @@
   [
    "REBORN ASSISTANT",
    "REBORN ASSISTANT"
+  ],
+  [
+   "\"name\": \"Accueil\", \"item\": \"https://reborn-assistance.fr/\"",
+   "\"name\": \"الرئيسية\", \"item\": \"https://reborn-assistance.fr/ar/\""
+  ],
+  [
+   "\"name\": \"Documentation\", \"item\": \"https://reborn-assistance.fr/docs/\"",
+   "\"name\": \"التوثيق\", \"item\": \"https://reborn-assistance.fr/ar/docs/\""
+  ],
+  [
+   "\"inLanguage\": \"fr\"",
+   "\"inLanguage\": \"ar\""
+  ],
+  [
+   "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html\"",
+   "\"mainEntityOfPage\": \"https://reborn-assistance.fr/ar/docs/dalil-ringmaster-flyff-universe.html\""
+  ],
+  [
+   "\"item\": \"https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html\"",
+   "\"item\": \"https://reborn-assistance.fr/ar/docs/dalil-ringmaster-flyff-universe.html\""
   ]
  ]
 }
