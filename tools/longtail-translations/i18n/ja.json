@@ -2,7 +2,7 @@
   "automate-rm": [
     [
       "automatiser Ringmaster, RM Flyff Universe, macro Ringmaster, auto buff Flyff, séquences RM, support Flyff, Reborn Assistant Ringmaster",
-      "Ringmaster 自動化, リングマスター 自動化, Flyff Universe RM, Ringmaster マクロ, Flyff 自動バフ, RM シーケンス, Flyff サポート, Reborn Assistant Ringmaster"
+      "Ringmaster 自動化, リングマスター 自動化, Flyff Universe 自動化, Flyff Universe マクロ, Flyff Universe RM, Ringmaster マクロ, Flyff 自動バフ, Reborn Assistant Ringmaster"
     ],
     [
       "Reborn Assistant",
@@ -146,7 +146,7 @@
     ],
     [
       "L'automatisation ne remplace pas votre jugement. Elle décharge votre clavier des routines mécaniques&nbsp;: le cycle de rebuff complet, Geburah Tiphreth, le Heal Rain périodique, les potions de MP. Reborn Assistant ne voit ni l'écran ni les barres de vie&nbsp;: il appuie sur les touches que vous avez configurées, au rythme que vous avez choisi. Vous gardez les mains libres pour les <strong>moments où ça compte vraiment</strong>&nbsp;: un membre qui tombe, un pack de monstres qui dérape, un boss qui cible le RM en premier.",
-      "自動化はあなたの判断に取って代わるものではありません。バフのかけ直しサイクル全体、Geburah Tiphreth、定期的なHeal Rain、MPポーションといった機械的な作業を、キーボードから肩代わりするものです。Reborn Assistantは画面もHPバーも見ていません。設定したキーを、選んだペースで押すだけです。その分、両手を<strong>本当に重要な場面</strong>のために空けておけます：メンバーが倒れたとき、モンスターの群れが手に負えなくなったとき、ボスが真っ先にRMを狙ってきたとき。"
+      "自動化はあなたの判断に取って代わるものではありません。バフのかけ直しサイクル全体、Geburah Tiphreth、定期的なHeal Rain、MPポーションといった機械的なキー操作を、あなたに代わって引き受けるものです。Reborn Assistantは画面もHPバーも見ていません。設定したキーを、選んだペースで押すだけです。その分、両手を<strong>本当に重要な場面</strong>のために空けておけます：メンバーが倒れたとき、モンスターの群れが手に負えなくなったとき、ボスが真っ先にRMを狙ってきたとき。"
     ],
     [
       "Prérequis avant d'automatiser",
@@ -510,7 +510,7 @@
     ],
     [
       "Prêt à libérer votre Ringmaster ?",
-      "Ringmasterを解放する準備はできましたか？"
+      "Ringmasterの単調な作業から解放されませんか？"
     ],
     [
       "Installez Reborn Assistant en 30 secondes depuis le Chrome Web Store. 7 jours d'essai Premium gratuits, sans carte bancaire.",
@@ -571,6 +571,34 @@
     [
       "REBORN ASSISTANT",
       "REBORN ASSISTANT"
+    ],
+    [
+      "\"name\": \"Accueil\"",
+      "\"name\": \"ホーム\""
+    ],
+    [
+      "\"name\": \"Documentation\"",
+      "\"name\": \"ドキュメント\""
+    ],
+    [
+      "\"inLanguage\": \"fr\"",
+      "\"inLanguage\": \"ja\""
+    ],
+    [
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html\"",
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/ja/docs/ringmaster-jidoka-flyff-universe.html\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/\"",
+      "\"item\": \"https://reborn-assistance.fr/ja/\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/\"",
+      "\"item\": \"https://reborn-assistance.fr/ja/docs/\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html\"",
+      "\"item\": \"https://reborn-assistance.fr/ja/docs/ringmaster-jidoka-flyff-universe.html\""
     ]
   ],
   "tools-2026": [
@@ -700,7 +728,7 @@
     ],
     [
       "Flyffulator (flyffulator.com) est un simulateur de personnage open source créé par Frostiae. Vous y reconstituez votre personnage — équipement, bijoux (deux anneaux, deux boucles d'oreilles, un collier) et buffs actifs, dont ceux du Ringmaster et du groupe — et il calcule les dégâts de vos attaques et de vos compétences, les dégâts que vous recevez des monstres et les soins de vos compétences de soin. Particulièrement utile lors d'un changement de build ou pour comparer deux bijoux.",
-      "Flyffulator（flyffulator.com）は、Frostiaeが開発したオープンソースのキャラクターシミュレーターです。装備、アクセサリー（指輪二つ、イヤリング二つ、ネックレス一つ）、Ringmasterやパーティのバフを含む有効なバフを入力してキャラクターを再現すると、通常攻撃とスキルのダメージ、モンスターから受けるダメージ、回復スキルの回復量を計算してくれます。ビルドを変更するときや、二つのアクセサリーを比較するときに特に便利です。"
+      "Flyffulator（flyffulator.com）は、Frostiaeが開発したオープンソースのキャラクターシミュレーターです。装備、アクセサリー（指輪二つ、イヤリング二つ、ネックレス一つ）、そしてRingmasterやパーティのバフを含む、かかっているバフを入力してキャラクターを再現すると、通常攻撃とスキルのダメージ、モンスターから受けるダメージ、回復スキルの回復量を計算してくれます。ビルドを変更するときや、二つのアクセサリーを比較するときに特に便利です。"
     ],
     [
       "Ses données viennent de l'API officielle du jeu, et le projet est activement maintenu&nbsp;: données de jeu rafraîchies le 13 août 2026, dernière mise à jour du code le 27 août 2026. Comme il le précise lui-même, il n'est pas officiellement affilié à Gala Lab.",
@@ -772,7 +800,7 @@
     ],
     [
       "Comment choisir&nbsp;?",
-      "どう選ぶか？"
+      "ツールの選び方"
     ],
     [
       "L'ordre ci-dessus reste un classement subjectif, fondé sur l'utilité pour un joueur régulier. Voici trois profils types pour orienter votre choix&nbsp;:",
@@ -917,6 +945,34 @@
     [
       "REBORN ASSISTANT",
       "REBORN ASSISTANT"
+    ],
+    [
+      "\"name\": \"Accueil\"",
+      "\"name\": \"ホーム\""
+    ],
+    [
+      "\"name\": \"Documentation\"",
+      "\"name\": \"ドキュメント\""
+    ],
+    [
+      "\"inLanguage\": \"fr\"",
+      "\"inLanguage\": \"ja\""
+    ],
+    [
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/meilleurs-outils-flyff-universe-2026.html\"",
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/ja/docs/saikou-no-flyff-universe-tools-2026.html\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/\"",
+      "\"item\": \"https://reborn-assistance.fr/ja/\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/\"",
+      "\"item\": \"https://reborn-assistance.fr/ja/docs/\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/meilleurs-outils-flyff-universe-2026.html\"",
+      "\"item\": \"https://reborn-assistance.fr/ja/docs/saikou-no-flyff-universe-tools-2026.html\""
     ]
   ],
   "guide-rm": [
@@ -950,7 +1006,7 @@
     ],
     [
       "Parcours de classe, skills, buffs et leurs vraies durées, builds, équipement, rotation&nbsp;: le Ringmaster de Flyff Universe tel qu'il se joue en 2026, du niveau 60 jusqu'au Seraph.",
-      "転職ルート、スキル、バフとその本当の持続時間、ビルド、装備、ローテーション。2026年現在のFlyff UniverseにおけるRingmasterの遊び方を、レベル60からSeraphまで解説します。"
+      "転職ルート、スキル、バフとその実際の持続時間、ビルド、装備、ローテーション。2026年現在のFlyff UniverseにおけるRingmasterの遊び方を、レベル60からSeraphまで解説します。"
     ],
     [
       "<a href=\"#ringmaster\">Qu'est-ce qu'un Ringmaster&nbsp;?</a>",
@@ -1050,7 +1106,7 @@
     ],
     [
       "Vous accompagnez un ou plusieurs joueurs qui tapent. Votre travail&nbsp;: renouveler les buffs avant leur expiration, relancer Geburah Tiphreth, qui dure bien moins longtemps que les autres, soigner avec Heal Rain et Heal, et surveiller vos MP. Restez à moins de 13&nbsp;m&nbsp;: c'est la portée de Heal Rain et de Geburah Tiphreth. La partie rebuff est très répétitive — c'est là que l'automatisation prend tout son sens.",
-      "アタッカー一人または複数に同行します。やることは、バフが切れる前に更新し、他のバフよりずっと持続時間の短いGeburah Tiphrethをかけ直し、Heal RainとHealで回復し、MPに気を配ることです。13m以内にとどまりましょう：これがHeal RainとGeburah Tiphrethの射程です。バフのかけ直しは非常に単調な作業で、まさに自動化が真価を発揮するところです。"
+      "アタッカー一人または複数に同行します。やることは、バフが切れる前に更新し、他のバフよりずっと持続時間の短いGeburah Tiphrethをかけ直し、Heal RainとHealで回復し、MPに気を配ることです。13m以内にとどまりましょう。これがHeal RainとGeburah Tiphrethの効果範囲です。バフのかけ直しは非常に単調な作業で、まさに自動化が真価を発揮するところです。"
     ],
     [
       "Donjons et boss",
@@ -1094,7 +1150,7 @@
     ],
     [
       "Debuff sur un ennemi&nbsp;: le prochain coup qu'il reçoit inflige le double de dégâts (5&nbsp;s). Un seul niveau.",
-      "敵へのデバフ：次に受ける攻撃のダメージが倍になる（5秒）。スキルレベルは一段階のみ。"
+      "敵へのデバフ：次に受ける攻撃のダメージが倍になる（5秒）。最大レベル1。"
     ],
     [
       "<strong>Merkaba Hanzelrusha</strong> (60)",
@@ -1178,7 +1234,7 @@
     ],
     [
       "Retire tous les debuffs d'un allié et lui donne Ténacité +30&nbsp;% pendant 1&nbsp;s&nbsp;; recharge 2&nbsp;s. Trois niveaux.",
-      "味方一人のデバフをすべて解除し、1秒間テナシティ+30%を付与。クールタイム2秒。スキルレベルは三段階。"
+      "味方一人のデバフをすべて解除し、1秒間テナシティ+30%を付与。クールタイム2秒。最大レベル3。"
     ],
     [
       "<strong>Barrier of Life</strong> (100)",
@@ -1190,7 +1246,7 @@
     ],
     [
       "Pendant 2&nbsp;s, la cible bloque tous les coups reçus&nbsp;; recharge 18&nbsp;s. Cinq niveaux.",
-      "2秒間、対象は受けるすべての攻撃をブロック。クールタイム18秒。スキルレベルは五段階。"
+      "2秒間、対象は受けるすべての攻撃をブロック。クールタイム18秒。最大レベル5。"
     ],
     [
       "Attention à la chaîne de prérequis de Heal Rain&nbsp;: il demande Merkaba Hanzelrusha 3, qui demande lui-même Prevention 4, au bout de la chaîne Heal 3 → Patience 4 → Resurrection 4 → Circle Healing 4. Même un Full Support passe donc par Merkaba. Holycross, lui, ne coûte que 3 points et ouvre Spirit Fortune.",
@@ -1390,7 +1446,7 @@
     ],
     [
       "<strong>Full Support</strong>&nbsp;: Holycross d'abord (un seul point, prérequis de Spirit Fortune), puis Protect, Spirit Fortune et Geburah Tiphreth au maximum. Geburah Tiphreth demande aussi Holyguard 4&nbsp;; au-delà, Holyguard sert surtout quand vous accompagnez un AoE. Heal au niveau 3 suffit pour soutenir un seul joueur, grâce à l'INT.",
-      "<strong>Full Support</strong>：まずHolycross（ポイントは一つだけでよく、Spirit Fortuneの前提条件）、次にProtect、Spirit Fortune、Geburah Tiphrethを最大まで。Geburah TiphrethにはHolyguard 4も必要です。それ以上のHolyguardは、主にAoE型のプレイヤーに同行するときに役立ちます。INTのおかげで、プレイヤー一人をサポートするならHealはレベル3で十分です。"
+      "<strong>Full Support</strong>：まずHolycross（習得するだけでよく、Spirit Fortuneの前提条件）、次にProtect、Spirit Fortune、Geburah Tiphrethを最大まで。Geburah TiphrethにはHolyguard 4も必要です。それ以上のHolyguardは、主にAoE型のプレイヤーに同行するときに役立ちます。INTのおかげで、プレイヤー一人をサポートするならHealはレベル3で十分です。"
     ],
     [
       "<strong>AoE</strong>&nbsp;: Merkaba Hanzelrusha au maximum dès le niveau 60&nbsp;; Prevention (soin automatique quand vos HP passent sous 15&nbsp;% en PvE) et Stonehand (chance d'étourdir à chaque attaque, 12&nbsp;% en PvE au niveau 20) au maximum&nbsp;; Protect tôt&nbsp;; Heal vers le niveau 3. Gardez actifs Geburah Tiphreth, Heap Up, Patience et Cat's Reflex, et réservez Holyguard aux gros regroupements de monstres. À partir du niveau 105, les guides citent le désert de Darkon 3 avec le set Rimyth.",
@@ -1775,6 +1831,34 @@
     [
       "REBORN ASSISTANT",
       "REBORN ASSISTANT"
+    ],
+    [
+      "\"name\": \"Accueil\"",
+      "\"name\": \"ホーム\""
+    ],
+    [
+      "\"name\": \"Documentation\"",
+      "\"name\": \"ドキュメント\""
+    ],
+    [
+      "\"inLanguage\": \"fr\"",
+      "\"inLanguage\": \"ja\""
+    ],
+    [
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html\"",
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/ja/docs/ringmaster-class-guide-flyff-universe.html\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/\"",
+      "\"item\": \"https://reborn-assistance.fr/ja/\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/\"",
+      "\"item\": \"https://reborn-assistance.fr/ja/docs/\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html\"",
+      "\"item\": \"https://reborn-assistance.fr/ja/docs/ringmaster-class-guide-flyff-universe.html\""
     ]
   ]
 }
