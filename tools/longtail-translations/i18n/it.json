@@ -186,7 +186,7 @@
     ],
     [
       "Tous les buffs ne s'automatisent pas de la même façon. Ce qui compte pour Reborn Assistant, c'est leur durée&nbsp;: l'extension ne voit pas quand un buff expire, elle suit seulement l'intervalle que vous lui donnez. La plupart des buffs de l'Assist et du Ringmaster durent de 2&nbsp;min&nbsp;30 à 4&nbsp;min&nbsp;10 de base selon le niveau de la compétence, plus 2 secondes par point d'INT du lanceur, sans plafond. Geburah Tiphreth fait exception&nbsp;: 30 secondes plus 0,15 seconde par point d'INT. Presque tous sont mono-cible&nbsp;: ils s'appliquent au personnage sélectionné. Les guides Flyff Universe pour Ringmaster full support conseillent de monter en priorité Protect, Spirit Fortune et Geburah Tiphreth.",
-      "Non tutti i buff si automatizzano allo stesso modo. Per Reborn Assistant conta la loro durata: l'estensione non vede quando un buff scade, segue solo l'intervallo che le dai. La maggior parte dei buff dell'Assist e del Ringmaster dura di base da 2&nbsp;min&nbsp;30&nbsp;s a 4&nbsp;min&nbsp;10&nbsp;s a seconda del livello dell'abilità, più 2 secondi per punto di INT di chi lo lancia, senza limite massimo. Geburah Tiphreth fa eccezione: 30 secondi più 0,15 secondi per punto di INT. Quasi tutti sono a bersaglio singolo: si applicano al personaggio selezionato. Le guide di Flyff Universe per il Ringmaster full support consigliano di portare al massimo per primi Protect, Spirit Fortune e Geburah Tiphreth."
+      "Non tutti i buff si automatizzano allo stesso modo. Per Reborn Assistant conta la loro durata: l'estensione non vede quando un buff scade, segue solo l'intervallo che le dai. La maggior parte dei buff dell'Assist e del Ringmaster dura di base da 2&nbsp;min&nbsp;30&nbsp;s a 4&nbsp;min&nbsp;10&nbsp;s a seconda del livello della skill, più 2 secondi per punto di INT di chi lo lancia, senza limite massimo. Geburah Tiphreth fa eccezione: 30 secondi più 0,15 secondi per punto di INT. Quasi tutti sono a bersaglio singolo: si applicano al personaggio selezionato. Le guide di Flyff Universe per il Ringmaster full support consigliano di portare al massimo per primi Protect, Spirit Fortune e Geburah Tiphreth."
     ],
     [
       "Buffs à entretenir en rotation (mono-cible)",
@@ -226,7 +226,7 @@
     ],
     [
       "Chacun de ces buffs gagne aussi en puissance avec votre INT (par exemple +0,04 STA par point d'INT pour Heap Up), jusqu'à un plafond atteint à 500 d'INT. Leur durée, elle, continue d'augmenter. Au niveau maximum de la compétence, elle vaut 250 secondes plus 2 secondes par point d'INT&nbsp;:",
-      "Ognuno di questi buff diventa anche più potente con la tua INT (per esempio +0,04 STA per punto di INT per Heap Up), fino a un limite raggiunto a 500 di INT. La loro durata, invece, continua ad aumentare. Al livello massimo dell'abilità è di 250 secondi più 2 secondi per punto di INT:"
+      "Ognuno di questi buff diventa anche più potente con la tua INT (per esempio +0,04 STA per punto di INT per Heap Up), fino a un limite raggiunto a 500 di INT. La loro durata, invece, continua ad aumentare. Al livello massimo della skill è di 250 secondi più 2 secondi per punto di INT:"
     ],
     [
       "INT du lanceur",
@@ -310,11 +310,11 @@
     ],
     [
       "Compétences à garder en manuel",
-      "Abilità da gestire a mano"
+      "Skill da gestire a mano"
     ],
     [
       "Ces compétences répondent à une situation précise. Comme Reborn Assistant ne voit pas ce qui se passe à l'écran, gardez-les sous vos doigts&nbsp;:",
-      "Queste abilità rispondono a una situazione precisa. Poiché Reborn Assistant non vede cosa succede sullo schermo, tienile sempre a portata di mano:"
+      "Queste skill rispondono a una situazione precisa. Poiché Reborn Assistant non vede cosa succede sullo schermo, tienile sempre a portata di mano:"
     ],
     [
       "<strong>Resurrection</strong> — ressuscite un joueur mort&nbsp;; jamais en automatique, une minuterie ne sait pas qui est tombé",
@@ -346,7 +346,7 @@
     ],
     [
       "Ouvrez la fenêtre des compétences (touche <code>K</code>), affichez votre 2e barre avec <code>F2</code> et glissez-y vos buffs dans cet ordre&nbsp;:",
-      "Apri la finestra delle abilità (tasto <code>K</code>), mostra la 2ª barra con <code>F2</code> e trascinaci i tuoi buff in quest'ordine:"
+      "Apri la finestra delle skill (tasto <code>K</code>), mostra la 2ª barra con <code>F2</code> e trascinaci i tuoi buff in quest'ordine:"
     ],
     [
       "Touche 1 → Protect",
@@ -490,7 +490,7 @@
     ],
     [
       "<strong>Membres du groupe hors de portée</strong> — le heal périodique ne soigne que les membres de votre groupe situés à moins de 13 mètres de vous, et Geburah Tiphreth a la même portée. Communiquez avec le groupe&nbsp;: ils doivent rester à portée.",
-      "<strong>Membri del gruppo fuori portata</strong> — la cura periodica cura solo i membri del tuo gruppo che si trovano entro 13 metri da te, e Geburah Tiphreth ha la stessa portata. Comunica con il gruppo: devono restare a portata."
+      "<strong>Membri del gruppo fuori portata</strong> — la cura periodica raggiunge solo i membri del tuo gruppo che si trovano entro 13 metri da te, e Geburah Tiphreth ha la stessa portata. Comunica con il gruppo: devono restare a portata."
     ],
     [
       "<strong>Mauvaise cible au moment du cycle</strong> — presque tous vos buffs (Protect, Spirit Fortune, Heap Up, Haste…) sont mono-cible et partent sur le personnage sélectionné quand la rotation se déclenche. Vérifiez votre cible avant chaque cycle.",
@@ -571,6 +571,26 @@
     [
       "REBORN ASSISTANT",
       "REBORN ASSISTANT"
+    ],
+    [
+      "\"inLanguage\": \"fr\"",
+      "\"inLanguage\": \"it\""
+    ],
+    [
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html\"",
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/it/docs/automatizzare-ringmaster-flyff-universe.html\""
+    ],
+    [
+      "\"name\": \"Accueil\", \"item\": \"https://reborn-assistance.fr/\"",
+      "\"name\": \"Home\", \"item\": \"https://reborn-assistance.fr/it/\""
+    ],
+    [
+      "\"name\": \"Documentation\", \"item\": \"https://reborn-assistance.fr/docs/\"",
+      "\"name\": \"Documentazione\", \"item\": \"https://reborn-assistance.fr/it/docs/\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html\"",
+      "\"item\": \"https://reborn-assistance.fr/it/docs/automatizzare-ringmaster-flyff-universe.html\""
     ]
   ],
   "tools-2026": [
@@ -624,11 +644,11 @@
     ],
     [
       "Bases de données, simulateurs, API officielle et extension de macros&nbsp;: les outils qui servent vraiment au joueur Flyff Universe en 2026, avec ce qu'ils font et leurs limites.",
-      "Database, simulatori, API ufficiale ed estensione di macro: gli strumenti davvero utili ai giocatori di Flyff Universe nel 2026, con cosa fanno e quali sono i loro limiti."
+      "Database, simulatori, API ufficiale ed estensione di macro: gli strumenti davvero utili ai giocatori di Flyff Universe nel 2026, cosa fanno e quali limiti hanno."
     ],
     [
       "Flyff Universe vit aussi grâce à sa communauté&nbsp;: une bonne partie des outils utiles ne vient pas de Gala Lab, le développeur du jeu, mais des joueurs eux-mêmes, et plusieurs s'appuient sur l'API publique officielle du jeu. Voici les <strong>outils qui valent vraiment le détour</strong>, avec un lien vers chacun et ce qu'ils font réellement, classés par utilité pour le joueur régulier. Cette sélection a été mise à jour en octobre 2026, après l'arrivée des 3e classes avec l'extension Muran's Awakening (v1.5.0, novembre 2025).",
-      "Flyff Universe vive anche grazie alla sua community: buona parte degli strumenti utili non viene da Gala Lab, lo sviluppatore del gioco, ma dai giocatori stessi, e diversi si basano sull'API pubblica ufficiale del gioco. Ecco gli <strong>strumenti che valgono davvero la pena</strong>, con un link a ciascuno e cosa fanno realmente, ordinati per utilità per il giocatore abituale. Questa selezione è stata aggiornata a ottobre 2026, dopo l'arrivo delle 3e classi con l'espansione Muran's Awakening (v1.5.0, novembre 2025)."
+      "Flyff Universe vive anche grazie alla sua community: buona parte degli strumenti utili non viene da Gala Lab, lo sviluppatore del gioco, ma dai giocatori stessi, e diversi si basano sull'API pubblica ufficiale del gioco. Ecco gli <strong>strumenti che meritano davvero</strong>, con un link a ciascuno e ciò che fanno realmente, in ordine di utilità per il giocatore abituale. Questa selezione è stata aggiornata a ottobre 2026, dopo l'arrivo del 3º cambio di classe con l'espansione Muran's Awakening (v1.5.0, novembre 2025)."
     ],
     [
       "1. Reborn Assistant — L'extension de macros clavier pour Ringmaster",
@@ -688,7 +708,7 @@
     ],
     [
       "Flyffipedia (flyffipedia.com) est une base de données Flyff Universe alimentée par les données du jeu et tenue par un mainteneur, swaight. C'est une référence très citée par les ressources communautaires, qui renvoient vers ses fiches détaillées d'objets, de monstres, de compétences, de quêtes et de PNJ.",
-      "Flyffipedia (flyffipedia.com) è un database di Flyff Universe alimentato dai dati del gioco e curato da un manutentore, swaight. È un riferimento molto citato dalle risorse della community, che rimandano alle sue schede dettagliate di oggetti, mostri, abilità, quest e NPC."
+      "Flyffipedia (flyffipedia.com) è un database di Flyff Universe alimentato dai dati del gioco e curato da swaight. È un riferimento molto citato dalle risorse della community, che rimandano alle sue schede dettagliate di oggetti, mostri, abilità, quest e NPC."
     ],
     [
       "Le bon réflexe pour vérifier une compétence, retrouver un objet ou préparer une quête. À garder en favori.",
@@ -700,7 +720,7 @@
     ],
     [
       "Flyffulator (flyffulator.com) est un simulateur de personnage open source créé par Frostiae. Vous y reconstituez votre personnage — équipement, bijoux (deux anneaux, deux boucles d'oreilles, un collier) et buffs actifs, dont ceux du Ringmaster et du groupe — et il calcule les dégâts de vos attaques et de vos compétences, les dégâts que vous recevez des monstres et les soins de vos compétences de soin. Particulièrement utile lors d'un changement de build ou pour comparer deux bijoux.",
-      "Flyffulator (flyffulator.com) è un simulatore di personaggio open source creato da Frostiae. Ci ricostruisci il tuo personaggio — equipaggiamento, gioielli (due anelli, due orecchini, una collana) e buff attivi, compresi quelli del Ringmaster e del gruppo — e lui calcola i danni dei tuoi attacchi e delle tue abilità, i danni che ricevi dai mostri e le cure delle tue abilità di cura. Particolarmente utile quando cambi build o per confrontare due gioielli."
+      "Flyffulator (flyffulator.com) è un simulatore di personaggio open source creato da Frostiae. Permette di ricostruire il tuo personaggio — equipaggiamento, gioielli (due anelli, due orecchini, una collana) e buff attivi, compresi quelli del Ringmaster e del gruppo — e calcola i danni dei tuoi attacchi e delle tue abilità, i danni che ricevi dai mostri e le cure delle tue abilità di cura. Particolarmente utile quando cambi build o per confrontare due gioielli."
     ],
     [
       "Ses données viennent de l'API officielle du jeu, et le projet est activement maintenu&nbsp;: données de jeu rafraîchies le 13 août 2026, dernière mise à jour du code le 27 août 2026. Comme il le précise lui-même, il n'est pas officiellement affilié à Gala Lab.",
@@ -720,15 +740,15 @@
     ],
     [
       "5. Flyff Skill Simulator — Planifier vos points de compétence",
-      "5. Flyff Skill Simulator — Pianifica i tuoi punti abilità"
+      "5. Flyff Skill Simulator — Pianifica i tuoi punti skill"
     ],
     [
       "Flyff Skill Simulator (flyff-skill-simulator.vercel.app) est un simulateur de compétences open source, créé par guysuvijak à partir des données de l'API officielle. Il sert à planifier la répartition de vos points de compétence avant de les dépenser en jeu. Il est disponible en 12 langues et maintenu&nbsp;: sa version 1.6.1 est sortie le 26 août 2026.",
-      "Flyff Skill Simulator (flyff-skill-simulator.vercel.app) è un simulatore di abilità open source, creato da guysuvijak a partire dai dati dell'API ufficiale. Serve a pianificare la distribuzione dei tuoi punti abilità prima di spenderli nel gioco. È disponibile in 12 lingue ed è mantenuto: la versione 1.6.1 è uscita il 26 agosto 2026."
+      "Flyff Skill Simulator (flyff-skill-simulator.vercel.app) è un simulatore di abilità open source, creato da guysuvijak a partire dai dati dell'API ufficiale. Serve a pianificare la distribuzione dei tuoi punti skill prima di spenderli nel gioco. È disponibile in 12 lingue ed è tuttora aggiornato: la versione 1.6.1 è uscita il 26 agosto 2026."
     ],
     [
       "Vous croiserez aussi Skillulator (skillulator.lol), pratique pour partager un build de compétences par simple lien. Attention&nbsp;: il n'a plus été mis à jour depuis juillet 2025, avant l'arrivée des 3e classes.",
-      "Incontrerai anche Skillulator (skillulator.lol), comodo per condividere una build di abilità con un semplice link. Attenzione: non è più stato aggiornato da luglio 2025, prima dell'arrivo delle 3e classi."
+      "Incontrerai anche Skillulator (skillulator.lol), comodo per condividere una build di abilità con un semplice link. Attenzione: non viene più aggiornato da luglio 2025, prima dell'arrivo del 3º cambio di classe."
     ],
     [
       "6. L'API officielle Flyff Universe — Les données à la source",
@@ -740,7 +760,7 @@
     ],
     [
       "Elle intéressera surtout les curieux qui veulent vérifier une valeur à la source et les joueurs qui codent leur propre outil. Attention, les bibliothèques communautaires qui facilitent son usage sont anciennes&nbsp;: flyff.js (TypeScript) n'a pas été publiée depuis mars 2024, et Pyff (Python) n'a plus été modifiée depuis mars 2023.",
-      "Interesserà soprattutto ai curiosi che vogliono verificare un valore alla fonte e ai giocatori che programmano un proprio strumento. Attenzione: le librerie della community che ne semplificano l'uso sono datate: flyff.js (TypeScript) non ha più avuto nuove versioni da marzo 2024, e Pyff (Python) non è più stata modificata da marzo 2023."
+      "Interesserà soprattutto ai curiosi che vogliono verificare un valore alla fonte e ai giocatori che programmano un proprio strumento. Attenzione, le librerie della community che ne semplificano l'uso sono datate: flyff.js (TypeScript) non ha più avuto nuove versioni da marzo 2024, e Pyff (Python) non è più stata modificata da marzo 2023."
     ],
     [
       "Autres ressources utiles",
@@ -784,7 +804,7 @@
     ],
     [
       "<strong>Vous préparez un build ou comparez deux équipements</strong> → Flyffulator pour les dégâts, les dégâts reçus et les soins, puis Flyff Skill Simulator pour répartir vos points de compétence.",
-      "<strong>Stai preparando una build o confrontando due equipaggiamenti</strong> → Flyffulator per i danni, i danni subiti e le cure, poi Flyff Skill Simulator per distribuire i tuoi punti abilità."
+      "<strong>Stai preparando una build o confrontando due equipaggiamenti</strong> → Flyffulator per i danni, i danni subiti e le cure, poi Flyff Skill Simulator per distribuire i tuoi punti skill."
     ],
     [
       "<strong>Vous cherchez une information précise</strong> → Flyffipedia ou Madrigal Inside pour un objet, une compétence ou une quête, et l'API officielle si vous voulez la valeur à la source.",
@@ -917,6 +937,26 @@
     [
       "REBORN ASSISTANT",
       "REBORN ASSISTANT"
+    ],
+    [
+      "\"inLanguage\": \"fr\"",
+      "\"inLanguage\": \"it\""
+    ],
+    [
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/meilleurs-outils-flyff-universe-2026.html\"",
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/it/docs/migliori-strumenti-flyff-universe-2026.html\""
+    ],
+    [
+      "\"name\": \"Accueil\", \"item\": \"https://reborn-assistance.fr/\"",
+      "\"name\": \"Home\", \"item\": \"https://reborn-assistance.fr/it/\""
+    ],
+    [
+      "\"name\": \"Documentation\", \"item\": \"https://reborn-assistance.fr/docs/\"",
+      "\"name\": \"Documentazione\", \"item\": \"https://reborn-assistance.fr/it/docs/\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/meilleurs-outils-flyff-universe-2026.html\"",
+      "\"item\": \"https://reborn-assistance.fr/it/docs/migliori-strumenti-flyff-universe-2026.html\""
     ]
   ],
   "guide-rm": [
@@ -994,7 +1034,7 @@
     ],
     [
       "Le <strong>Ringmaster</strong> (RM) est l'une des deux classes de 2e niveau de l'Assist sur Flyff Universe, avec le Billposter. C'est <strong>la branche soins et buffs</strong>&nbsp;: son rôle principal est de <em>maintenir un groupe en vie et de le rendre plus fort</em>. Ce n'est pas pour autant un simple soigneur&nbsp;: les guides communautaires décrivent aussi des builds AoE et Hit-and-Run qui lui permettent de leveler seul. Ses neuf skills de Ringmaster se lancent tous avec un stick et consomment des MP, jamais de FP.",
-      "Il <strong>Ringmaster</strong> (RM) è una delle due classi di 2º livello dell'Assist su Flyff Universe, insieme al Billposter. È <strong>il ramo cure e buff</strong>: il suo ruolo principale è <em>tenere in vita un gruppo e renderlo più forte</em>. Non per questo è un semplice guaritore: le guide della community descrivono anche build AoE e Hit-and-Run che gli permettono di livellare da solo. Le sue nove skill da Ringmaster si lanciano tutte con uno stick e consumano MP, mai FP."
+      "Il <strong>Ringmaster</strong> (RM) è una delle due specializzazioni dell'Assist (2º cambio di classe) su Flyff Universe, insieme al Billposter. È <strong>il ramo cure e buff</strong>: il suo ruolo principale è <em>tenere in vita un gruppo e renderlo più forte</em>. Non per questo è un semplice guaritore: le guide della community descrivono anche build AoE e Hit-and-Run che gli permettono di livellare da solo. Le sue nove skill da Ringmaster si lanciano tutte con uno stick e consumano MP, mai FP."
     ],
     [
       "Le parcours de classe",
@@ -1362,7 +1402,7 @@
     ],
     [
       "Surtout de l'INT, avec environ 50 STA (Madrigal Inside, 80 au plus) à 100-120 STA (Flyff Universe Wiki)",
-      "Soprattutto INT, con circa 50 STA (Madrigal Inside, 80 al massimo) fino a 100-120 STA (Flyff Universe Wiki)"
+      "Soprattutto INT, con una STA che va da circa 50 (Madrigal Inside, 80 al massimo) a 100-120 (Flyff Universe Wiki)"
     ],
     [
       "Leveler seul en regroupant les monstres autour de vous, avec Merkaba, Stonehand et Prevention.",
@@ -1382,7 +1422,7 @@
     ],
     [
       "Point commun des trois&nbsp;: l'INT. Vos soins, la puissance et la durée de vos buffs, les dégâts de chaque coup de Merkaba Hanzelrusha (INT × 4 à 4,18) et votre réserve de MP en dépendent — chaque point d'INT donne 16,2 MP max à un Ringmaster. Le chiffre de <strong>500 INT</strong> revient souvent&nbsp;: c'est là que tous les bonus de buffs liés à l'INT atteignent leur plafond (Heap Up&nbsp;: 0,04 × 500 = +20 STA de plus&nbsp;; Spirit Fortune&nbsp;: 0,4 × 500 = +200 dégâts de plus&nbsp;; Geburah Tiphreth&nbsp;: attaque +20&nbsp;% au total). Au-delà, l'INT continue d'augmenter vos soins, vos MP et la durée de vos buffs.",
-      "Il punto in comune tra le tre build: l'INT. Le tue cure, la potenza e la durata dei tuoi buff, i danni di ogni colpo di Merkaba Hanzelrusha (INT × da 4 a 4,18) e la tua riserva di MP dipendono da essa — ogni punto di INT dà 16,2 MP max a un Ringmaster. La cifra di <strong>500 di INT</strong> ricorre spesso: è lì che tutti i bonus dei buff legati all'INT raggiungono il loro limite (Heap Up: 0,04 × 500 = +20 STA in più; Spirit Fortune: 0,4 × 500 = +200 danni in più; Geburah Tiphreth: attacco +20% in totale). Oltre quella soglia, l'INT continua ad aumentare le tue cure, i tuoi MP e la durata dei tuoi buff."
+      "Il punto in comune tra le tre build: l'INT. Le tue cure, la potenza e la durata dei tuoi buff, i danni di ogni colpo di Merkaba Hanzelrusha (da INT × 4 a INT × 4,18) e la tua riserva di MP dipendono da essa — ogni punto di INT dà 16,2 MP max a un Ringmaster. La cifra di <strong>500 di INT</strong> ricorre spesso: è lì che tutti i bonus dei buff legati all'INT raggiungono il loro limite (Heap Up: 0,04 × 500 = +20 STA in più; Spirit Fortune: 0,4 × 500 = +200 danni in più; Geburah Tiphreth: attacco +20% in totale). Oltre quella soglia, l'INT continua ad aumentare le tue cure, i tuoi MP e la durata dei tuoi buff."
     ],
     [
       "Ordre de montée des skills",
@@ -1466,7 +1506,7 @@
     ],
     [
       "Les sets d'armure de Flyff Universe comptent 4 pièces, avec un bonus à 2, 3 et 4 pièces. Avant 60, l'Assist porte Sardine/Curus (15), Talin/Sayram (30) puis Wedge/Flury (45&nbsp;: INT +7, consommation de MP -20&nbsp;%, incantation -20&nbsp;%), que Madrigal Inside conseille de garder jusqu'au set Shupon du niveau 90. Les sets suivants&nbsp;:",
-      "I set di armatura di Flyff Universe contano 4 pezzi, con un bonus a 2, 3 e 4 pezzi. Prima del livello 60, l'Assist indossa Sardine/Curus (15), Talin/Sayram (30) e poi Wedge/Flury (45: INT +7, consumo di MP -20%, tempo di lancio -20%), che Madrigal Inside consiglia di tenere fino al set Shupon del livello 90. I set successivi:"
+      "I set di armatura di Flyff Universe sono composti da 4 pezzi, con un bonus a 2, 3 e 4 pezzi. Prima del livello 60, l'Assist indossa Sardine/Curus (15), Talin/Sayram (30) e poi Wedge/Flury (45: INT +7, consumo di MP -20%, tempo di lancio -20%), che Madrigal Inside consiglia di tenere fino al set Shupon del livello 90. I set successivi:"
     ],
     [
       "Niveau",
@@ -1638,7 +1678,7 @@
     ],
     [
       "<strong>En réaction</strong> — Gvur Tialla contre un debuff, Holyguard ou Barrier of Life sur un allié qui va encaisser, Resurrection si quelqu'un tombe.",
-      "<strong>Di riflesso</strong> — Gvur Tialla contro un debuff, Holyguard o Barrier of Life su un alleato che sta per incassare, Resurrection se qualcuno cade."
+      "<strong>In risposta agli imprevisti</strong> — Gvur Tialla contro un debuff, Holyguard o Barrier of Life su un alleato che sta per incassare, Resurrection se qualcuno cade."
     ],
     [
       "Pour la série de buffs, Madrigal Inside conseille de lancer Mental Sign sur vous en premier, pour que l'INT gagnée profite aux buffs suivants. Gardez Geburah Tiphreth pour la fin, juste avant le combat&nbsp;: il dure bien moins longtemps que les autres buffs.",
@@ -1690,7 +1730,7 @@
     ],
     [
       "<strong>Rester trop loin du groupe</strong> — Heal Rain et Geburah Tiphreth visent les membres du groupe à moins de 13&nbsp;m&nbsp;: invitez vos alliés dans le groupe et restez près d'eux.",
-      "<strong>Restare troppo lontano dal gruppo</strong> — Heal Rain e Geburah Tiphreth colpiscono i membri del gruppo entro 13&nbsp;m: invita i tuoi alleati nel gruppo e resta vicino a loro."
+      "<strong>Restare troppo lontano dal gruppo</strong> — Heal Rain e Geburah Tiphreth raggiungono i membri del gruppo entro 13&nbsp;m: invita i tuoi alleati nel gruppo e resta vicino a loro."
     ],
     [
       "<strong>Chercher un bouclier ou un staff</strong> — tous les sticks sont à deux mains et les staffs sont réservés aux Magiciens.",
@@ -1775,6 +1815,26 @@
     [
       "REBORN ASSISTANT",
       "REBORN ASSISTANT"
+    ],
+    [
+      "\"inLanguage\": \"fr\"",
+      "\"inLanguage\": \"it\""
+    ],
+    [
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html\"",
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/it/docs/guida-ringmaster-flyff-universe.html\""
+    ],
+    [
+      "\"name\": \"Accueil\", \"item\": \"https://reborn-assistance.fr/\"",
+      "\"name\": \"Home\", \"item\": \"https://reborn-assistance.fr/it/\""
+    ],
+    [
+      "\"name\": \"Documentation\", \"item\": \"https://reborn-assistance.fr/docs/\"",
+      "\"name\": \"Documentazione\", \"item\": \"https://reborn-assistance.fr/it/docs/\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html\"",
+      "\"item\": \"https://reborn-assistance.fr/it/docs/guida-ringmaster-flyff-universe.html\""
     ]
   ]
 }
