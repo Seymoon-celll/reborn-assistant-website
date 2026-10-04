@@ -114,7 +114,7 @@
         <h3>What a Ringmaster does</h3>
         <ul>
             <li><strong>Heal</strong>: Heal (one ally, 650 + INT × 5.88 HP at level 20, 0.15 s cast), Circle Healing (party members within 15 m) and Heal Rain (party members within 13 m, from level 70). All of these heals grow with INT.</li>
-            <li><strong>Buff</strong>: the Assist's nine buffs (STR, STA, DEX, INT, max HP, attack speed, movement speed, block, hit rate) plus the Ringmaster's own: Protect (defense), Spirit Fortune (damage), Holyguard (crit immunity) and Geburah Tiphreth, the party buff.</li>
+            <li><strong>Buff</strong>: the Assist's nine stat buffs (STR, STA, DEX, INT, max HP, attack speed, movement speed, block, hit rate) plus the Ringmaster's own: Protect (defense), Spirit Fortune (damage), Holyguard (crit immunity) and Geburah Tiphreth, the party buff.</li>
             <li><strong>Revive</strong>: Resurrection, an Assist skill, brings a dead player back and reduces their EXP loss.</li>
             <li><strong>React</strong>: Gvur Tialla removes every debuff from an ally, Barrier of Life makes them block every hit for 1.2 to 2 s, and Holycross makes an enemy take double damage from the next hit it receives.</li>
         </ul>
@@ -150,9 +150,9 @@
                 </thead>
                 <tbody>
                     <tr><td><strong>Holycross</strong> (60)</td><td>—</td><td>Debuff on an enemy: the next hit it takes deals double damage (5 s). Single level.</td></tr>
-                    <tr><td><strong>Merkaba Hanzelrusha</strong> (60)</td><td>Prevention 4</td><td>Magic damage for 10 s in a 5 m radius around you (INT × 4.18); 7 s cooldown.</td></tr>
+                    <tr><td><strong>Merkaba Hanzelrusha</strong> (60)</td><td>Prevention 4</td><td>Magic damage every 0.75 s for 10 s in a 5 m radius around you (each tick scales with INT × 4.18); 7 s cooldown.</td></tr>
                     <tr><td><strong>Protect</strong> (60)</td><td>Heap Up 6</td><td>Defense and magic defense +10% on one ally.</td></tr>
-                    <tr><td><strong>Holyguard</strong> (65)</td><td>Protect 3</td><td>Critical resistance +100%: the target takes no critical hits for 5 s, plus 0.02 to 0.03 s per INT point; 45 s cooldown.</td></tr>
+                    <tr><td><strong>Holyguard</strong> (65)</td><td>Protect 3</td><td>Critical resistance +100%: the target takes no critical hits for 5 s, plus 0.03 s per INT point; 45 s cooldown.</td></tr>
                     <tr><td><strong>Spirit Fortune</strong> (65)</td><td>Holycross 1</td><td>Damage +150 on one ally.</td></tr>
                     <tr><td><strong>Heal Rain</strong> (70)</td><td>Merkaba 3</td><td>Heals party members within 13 m: 650 + INT × 8.18 HP, 0.5 s cast.</td></tr>
                     <tr><td><strong>Geburah Tiphreth</strong> (75)</td><td>Holyguard 4, Spirit Fortune 7</td><td>You and party members within 13 m: attack +10%, attack speed +15%, casting time -10%.</td></tr>
@@ -165,8 +165,8 @@
         <p>Mind Heal Rain's prerequisite chain: it needs Merkaba Hanzelrusha 3, which itself needs Prevention 4, at the end of the Heal 3 → Patience 4 → Resurrection 4 → Circle Healing 4 chain. So even a Full Support goes through Merkaba. Holycross, on the other hand, costs only 3 points and unlocks Spirit Fortune.</p>
 
         <h2 id="buffs">Buffs: what they really raise</h2>
-        <p>The Ringmaster keeps the Assist's buffs and adds its own. Every buff below targets a single player, except Geburah Tiphreth, which hits the whole party within 13 m. The Assist's nine buffs last 150 s (2:30) at level 1 and 250 s (4:10) at level 20; Protect and Spirit Fortune last 160 to 250 s. In every case, add <strong>2 s per point of the caster's INT</strong>, with no cap. Example: at 300 INT, a max-level buff lasts 250 + 300 × 2 = 850 s, a little over 14 minutes. Geburah Tiphreth is the exception: 30 s + 0.15 s per INT point, whatever its level (75 s at 300 INT).</p>
-        <p>Support guides recommend maxing the Ringmaster's own three buffs first:</p>
+        <p>The Ringmaster keeps the Assist's buffs and adds its own. Every buff below targets a single player, except Geburah Tiphreth, which hits the whole party within 13 m. The Assist's nine stat buffs last 150 s (2:30) at level 1 and 250 s (4:10) at level 20; Protect and Spirit Fortune last 160 to 250 s. In every case, add <strong>2 s per point of the caster's INT</strong>, with no cap. Example: at 300 INT, a max-level buff lasts 250 + 300 × 2 = 850 s, a little over 14 minutes. Geburah Tiphreth is the exception: 30 s + 0.15 s per INT point, whatever its level (75 s at 300 INT).</p>
+        <p>Support guides recommend maxing three of the Ringmaster's own buffs first:</p>
 
         <div class="buff-grid">
             <div class="buff-card priority">
@@ -186,7 +186,7 @@
             </div>
         </div>
 
-        <p>The Ringmaster also keeps the Assist's nine buffs, all single-target:</p>
+        <p>The Ringmaster also keeps the Assist's nine stat buffs, all single-target:</p>
 
         <div class="table-scroll">
             <table class="stats-table">
@@ -218,22 +218,22 @@
                 <tbody>
                     <tr><td><strong>Full Support</strong></td><td>15 STR / 15 STA / 15 DEX, everything else in INT</td><td>Buffing and healing a group or a leveling partner, with buffs and heals at their strongest.</td></tr>
                     <tr><td><strong>AoE</strong> (facetank)</td><td>Mostly INT, with about 50 STA (Madrigal Inside, 80 at most) to 100-120 STA (Flyff Universe Wiki)</td><td>Leveling solo by gathering monsters around you, with Merkaba, Stonehand and Prevention.</td></tr>
-                    <tr><td><strong>Hit-and-Run</strong> (HnR)</td><td>Full INT</td><td>The most flexible: the same stats work for support, dungeons and solo leveling, with no reset. Effective up to around level 120 according to Madrigal Inside.</td></tr>
+                    <tr><td><strong>Hit-and-Run</strong> (HnR)</td><td>Full INT</td><td>Flexible: the same stats work for support, dungeons and solo leveling, with no reset. Effective up to around level 120 according to Madrigal Inside.</td></tr>
                 </tbody>
             </table>
         </div>
 
-        <p>What all three share: INT. Your heals, the strength and duration of your buffs, Merkaba Hanzelrusha's damage (INT × 4 to 4.18) and your MP pool all depend on it — each INT point gives a Ringmaster 16.2 max MP. The <strong>500 INT</strong> figure comes up a lot: that's where every INT-based buff bonus hits its cap (Heap Up: 0.04 × 500 = +20 extra STA; Spirit Fortune: 0.4 × 500 = +200 extra damage; Geburah Tiphreth: attack +20% in total). Beyond that, INT keeps raising your heals, your MP and your buff durations.</p>
+        <p>What all three share: INT. Your heals, the strength and duration of your buffs, the damage of each Merkaba Hanzelrusha tick (INT × 4 to 4.18) and your MP pool all depend on it — each INT point gives a Ringmaster 16.2 max MP. The <strong>500 INT</strong> figure comes up a lot: that's where every INT-based buff bonus hits its cap (Heap Up: 0.04 × 500 = +20 extra STA; Spirit Fortune: 0.4 × 500 = +200 extra damage; Geburah Tiphreth: attack +20% in total). Beyond that, INT keeps raising your heals, your MP and your buff durations.</p>
 
         <h3>Skill order</h3>
         <ul>
-            <li><strong>Full Support</strong>: max Protect, Spirit Fortune and Geburah Tiphreth first, then Holycross. Heal at level 3 is enough to support a single player, thanks to INT. Holyguard matters mostly when you support an AoE player.</li>
-            <li><strong>AoE</strong>: max Merkaba Hanzelrusha from level 60; keep Prevention (an automatic heal when your HP drops below 15% in PvE) and Stonehand (a stun chance on every attack, 12% in PvE at level 20) maxed; Protect early; Heal around level 3. Keep Geburah Tiphreth, Holyguard, Heap Up, Patience and Cat's Reflex up. From level 105, guides point to the Darkon 3 desert with the Rimyth set.</li>
+            <li><strong>Full Support</strong>: Holycross first (a single point, required for Spirit Fortune), then max Protect, Spirit Fortune and Geburah Tiphreth. Geburah Tiphreth also requires Holyguard 4; beyond that, Holyguard matters mostly when you support an AoE player. Heal at level 3 is enough to support a single player, thanks to INT.</li>
+            <li><strong>AoE</strong>: max Merkaba Hanzelrusha from level 60; keep Prevention (an automatic heal when your HP drops below 15% in PvE) and Stonehand (a stun chance on every attack, 12% in PvE at level 20) maxed; Protect early; Heal around level 3. Keep Geburah Tiphreth, Heap Up, Patience and Cat's Reflex up, and save Holyguard for big pulls. From level 105, guides point to the Darkon 3 desert with the Rimyth set.</li>
             <li><strong>Hit-and-Run</strong> (per Madrigal Inside): Merkaba Hanzelrusha for damage, Moon Beam maxed, Barrier of Life for safety and Geburah Tiphreth as the key buff.</li>
         </ul>
 
         <h3>Before level 60: the Assist</h3>
-        <p>According to community guides, an Assist levels one of two ways: Hit-and-Run with Moon Beam (full INT, stick; available from level 15, it deals damage over time and makes the target take up to 8% more damage), or STR AoE with a knuckle and a shield (Temping Hole, then Burst Crack at level 28). If you're heading for Ringmaster, the Moon Beam style is already full INT, like all three builds above.</p>
+        <p>According to Madrigal Inside, an Assist levels one of two ways: Hit-and-Run with Moon Beam (full INT, stick; available from level 15, it deals damage over time and makes the target take up to 8% more damage), or STR AoE with a knuckle and a shield (Temping Hole, then Burst Crack at level 28). If you're heading for Ringmaster, the Moon Beam style is already full INT, like the Hit-and-Run build (and INT stays the main stat in all three builds).</p>
 
         <h2 id="gear">Recommended gear</h2>
         <h3>Weapons</h3>
@@ -271,14 +271,14 @@
                     <tr><td><strong>120</strong></td><td>Revenio / Revenis (PvE)</td><td>PvE damage reduction at every tier, block, casting time -10% · at 4 pieces: max HP +25%, PvE damage +15%, healing +10%</td></tr>
                     <tr><td><strong>135</strong></td><td>Keinos / Keisan</td><td>INT +15 · INT +5 and healing +15% · casting time -35% and attack +10%</td></tr>
                     <tr><td><strong>150</strong></td><td>Luminia / Luminis (support)</td><td>INT +15 · INT +20 and healing +20% · casting time -40% and attack +15%</td></tr>
-                    <tr><td><strong>150</strong></td><td>Reine / Rayne (AoE)</td><td>PvE damage reduction at every tier, casting time -15% · at 4 pieces: max HP +30%, PvE damage +20%, block +10%, critical resistance +10%, healing +15%</td></tr>
+                    <tr><td><strong>150</strong></td><td>Reine / Rayne (defensive)</td><td>PvE damage reduction at every tier, casting time -15% · at 4 pieces: max HP +30%, PvE damage +20%, block +10%, critical resistance +10%, healing +15%</td></tr>
                     <tr><td><strong>175</strong></td><td>Lorvenic / Lorvenicar (Seraph)</td><td>INT +30 · INT +30 and healing +25% · casting time -45% and attack +20%</td></tr>
                     <tr><td><strong>180</strong></td><td>Etranar / Etranor (Seraph, PvE)</td><td>at 4 pieces: all stats +10, max HP +35%, PvE damage +25%, PvE damage reduction +12%, block +14%, critical resistance +14%, healing +20%</td></tr>
                 </tbody>
             </table>
         </div>
 
-        <p>For support, guides often combine two 2-piece bonuses to stack INT: for example 2 Shurand pieces (+5) and 2 Navil pieces (+15) for INT +20 at level 105, or 2 Keinos and 2 Navil for INT +30 at level 135. PvP versions (Obsidian Revenio, Primordial Etranar) and FWC variants exist too.</p>
+        <p>For support, Madrigal Inside suggests combining two 2-piece bonuses to stack INT: for example 2 Shurand pieces (+5) and 2 Navil pieces (+15) for INT +20 at level 105, or 2 Keinos and 2 Navil for INT +30 at level 135. PvP versions (Obsidian Revenio, Primordial Etranar) and FWC variants exist too.</p>
 
         <h3>Jewelry</h3>
         <p>For support, Madrigal Inside recommends Intiret rings (INT +10 at +1, up to INT +50 at +5), Penzeru earrings (DEF and magic DEF +150 at +1, up to +250 at +5), an MP or HP necklace and the Cloak of Wisdom (INT +8); for AoE, Cloak of Wisdom or Cloak of Endurance (STA +8) depending on your INT/STA balance. To try out combinations, a character simulator such as Flyffulator helps (see also <a href="best-flyff-universe-tools-2026.html">our tool comparison</a>).</p>
@@ -292,7 +292,7 @@
             <li><strong>In reaction</strong> — Gvur Tialla against a debuff, Holyguard or Barrier of Life on an ally about to take a beating, Resurrection if someone goes down.</li>
         </ul>
 
-        <p>For your buff set, community guides advise casting Mental Sign on yourself first, so the INT you gain benefits the buffs that follow. Save Geburah Tiphreth for last, right before the fight: it lasts far less than the other buffs.</p>
+        <p>For your buff set, Madrigal Inside advises casting Mental Sign on yourself first, so the INT you gain benefits the buffs that follow. Save Geburah Tiphreth for last, right before the fight: it lasts far less than the other buffs.</p>
 
         <p>The first two timings are mechanical and lend themselves to <strong>automation</strong>; the other two need your attention. Reborn Assistant replays the key sequences you've configured, at the interval you choose: it doesn't read the game and can't see your buffs. So set the interval from the real duration worked out above, recalculate it when your INT changes, and <strong>keep emergency heals in your own hands</strong>.</p>
 
@@ -303,7 +303,7 @@
 
         <div class="callout callout--gl">
             <strong>💡 Hands-on tutorial available</strong>
-            We've written a <a href="automate-ringmaster-flyff-universe.html" style="color:var(--gold);">step-by-step tutorial to automate your Ringmaster</a> with Reborn Assistant: rotation configuration, intervals, Heal Rain macro, and mistakes to avoid.
+            We've written a <a href="automate-ringmaster-flyff-universe.html" style="color:var(--gold);">step-by-step tutorial to automate your Ringmaster</a> with Reborn Assistant: rotation configuration, intervals, macros, and mistakes to avoid.
         </div>
 
         <h2 id="billposter">Ringmaster vs Billposter — What's the difference?</h2>
@@ -319,7 +319,7 @@
             <li><strong>Managing FP instead of MP</strong> — every Ringmaster skill costs MP (Heal Rain costs 80 to 170 MP, Geburah Tiphreth 155 to 250 depending on level): carry MP potions (Refreshers), not Vital Drinks.</li>
             <li><strong>Relying on a fixed buff duration</strong> — it depends on the skill level and your INT; recalculate your rebuff interval when your INT changes, and remember that Geburah Tiphreth runs out long before the others.</li>
             <li><strong>Mixing up buffs</strong> — Beef Up gives STR, not HP (that's Patience); Cat's Reflex gives block, not dodge.</li>
-            <li><strong>Neglecting INT</strong> — heals, buffs, Merkaba damage and your MP pool all depend on it; only the AoE build keeps some STA (50 to 120 depending on the guide).</li>
+            <li><strong>Neglecting INT</strong> — heals, buffs, Merkaba damage and your MP pool all depend on it; only the AoE build raises its STA a little (50 to 120 depending on the guide).</li>
             <li><strong>Staying too far from the party</strong> — Heal Rain and Geburah Tiphreth target party members within 13 m: invite your allies to the party and stay close to them.</li>
             <li><strong>Looking for a shield or a staff</strong> — every stick is two-handed and staffs are Magician-only.</li>
             <li><strong>Thinking the Ringmaster can't kill</strong> — with an AoE or Hit-and-Run build, Merkaba Hanzelrusha (made about 28% stronger by patch 1.5.2 in April 2026) lets you level solo.</li>
@@ -332,7 +332,7 @@
 
         <div class="cta-box">
             <h3>Optimize your Ringmaster with Reborn Assistant</h3>
-            <p>The Premium extension to automate buff rotation, periodic Heal Rain and your custom macros, using key sequences you configure. 7-day free trial, no credit card.</p>
+            <p>The Premium extension to automate buff rotation and your custom macros, using key sequences you configure. 7-day free trial, no credit card.</p>
             <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" rel="noopener" class="btn-cta">Install Reborn Assistant</a>
         </div>
 

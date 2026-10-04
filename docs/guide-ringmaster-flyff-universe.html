@@ -136,7 +136,7 @@
         <h3>Ce que fait un Ringmaster</h3>
         <ul>
             <li><strong>Soigner</strong>&nbsp;: Heal (un allié, 650 + INT × 5,88 HP au niveau 20, 0,15&nbsp;s d'incantation), Circle Healing (le groupe à moins de 15&nbsp;m) et Heal Rain (le groupe à moins de 13&nbsp;m, dès le niveau 70). Tous ces soins augmentent avec l'INT.</li>
-            <li><strong>Buffer</strong>&nbsp;: les neuf buffs de l'Assist (STR, STA, DEX, INT, HP max, vitesse d'attaque, vitesse de déplacement, blocage, précision) et ceux du Ringmaster&nbsp;: Protect (défense), Spirit Fortune (dégâts), Holyguard (anti-critiques) et Geburah Tiphreth, le buff de groupe.</li>
+            <li><strong>Buffer</strong>&nbsp;: les neuf buffs de stats de l'Assist (STR, STA, DEX, INT, HP max, vitesse d'attaque, vitesse de déplacement, blocage, précision) et ceux du Ringmaster&nbsp;: Protect (défense), Spirit Fortune (dégâts), Holyguard (anti-critiques) et Geburah Tiphreth, le buff de groupe.</li>
             <li><strong>Ranimer</strong>&nbsp;: Resurrection, un skill de l'Assist, ranime un joueur mort et réduit sa perte d'EXP.</li>
             <li><strong>Réagir</strong>&nbsp;: Gvur Tialla retire tous les debuffs d'un allié, Barrier of Life lui fait bloquer tous les coups pendant 1,2 à 2&nbsp;s, et Holycross fait subir à un ennemi le double de dégâts sur le prochain coup qu'il reçoit.</li>
         </ul>
@@ -183,7 +183,7 @@
                     <tr>
                         <td><strong>Merkaba Hanzelrusha</strong> (60)</td>
                         <td>Prevention 4</td>
-                        <td>Dégâts magiques pendant 10&nbsp;s dans un rayon de 5&nbsp;m autour de vous (INT × 4,18)&nbsp;; recharge 7&nbsp;s.</td>
+                        <td>Dégâts magiques toutes les 0,75&nbsp;s pendant 10&nbsp;s dans un rayon de 5&nbsp;m autour de vous (chaque coup augmente avec l'INT, × 4,18)&nbsp;; recharge 7&nbsp;s.</td>
                     </tr>
                     <tr>
                         <td><strong>Protect</strong> (60)</td>
@@ -193,7 +193,7 @@
                     <tr>
                         <td><strong>Holyguard</strong> (65)</td>
                         <td>Protect 3</td>
-                        <td>Résistance aux critiques +100&nbsp;%&nbsp;: la cible ne subit plus de coups critiques pendant 5&nbsp;s, plus 0,02 à 0,03&nbsp;s par point d'INT&nbsp;; recharge 45&nbsp;s.</td>
+                        <td>Résistance aux critiques +100&nbsp;%&nbsp;: la cible ne subit plus de coups critiques pendant 5&nbsp;s, plus 0,03&nbsp;s par point d'INT&nbsp;; recharge 45&nbsp;s.</td>
                     </tr>
                     <tr>
                         <td><strong>Spirit Fortune</strong> (65)</td>
@@ -227,8 +227,8 @@
         <p>Attention à la chaîne de prérequis de Heal Rain&nbsp;: il demande Merkaba Hanzelrusha 3, qui demande lui-même Prevention 4, au bout de la chaîne Heal 3 → Patience 4 → Resurrection 4 → Circle Healing 4. Même un Full Support passe donc par Merkaba. Holycross, lui, ne coûte que 3 points et ouvre Spirit Fortune.</p>
 
         <h2 id="buffs">Les buffs&nbsp;: ce qu'ils augmentent vraiment</h2>
-        <p>Le Ringmaster garde les buffs de l'Assist et y ajoute les siens. Tous ceux présentés ci-dessous ciblent un seul joueur, sauf Geburah Tiphreth qui touche tout le groupe à moins de 13&nbsp;m. Les neuf buffs de l'Assist durent 150&nbsp;s (2 min 30) au niveau 1 et 250&nbsp;s (4 min 10) au niveau 20&nbsp;; Protect et Spirit Fortune, de 160 à 250&nbsp;s. Dans tous les cas, ajoutez <strong>2&nbsp;s par point d'INT du lanceur</strong>, sans plafond. Exemple&nbsp;: à 300 INT, un buff de niveau max dure 250 + 300 × 2 = 850&nbsp;s, soit un peu plus de 14 minutes. Geburah Tiphreth fait exception&nbsp;: 30&nbsp;s + 0,15&nbsp;s par point d'INT, quel que soit son niveau (75&nbsp;s à 300 INT).</p>
-        <p>Les guides support conseillent de monter en priorité les trois buffs propres au Ringmaster&nbsp;:</p>
+        <p>Le Ringmaster garde les buffs de l'Assist et y ajoute les siens. Tous ceux présentés ci-dessous ciblent un seul joueur, sauf Geburah Tiphreth qui touche tout le groupe à moins de 13&nbsp;m. Les neuf buffs de stats de l'Assist durent 150&nbsp;s (2 min 30) au niveau 1 et 250&nbsp;s (4 min 10) au niveau 20&nbsp;; Protect et Spirit Fortune, de 160 à 250&nbsp;s. Dans tous les cas, ajoutez <strong>2&nbsp;s par point d'INT du lanceur</strong>, sans plafond. Exemple&nbsp;: à 300 INT, un buff de niveau max dure 250 + 300 × 2 = 850&nbsp;s, soit un peu plus de 14 minutes. Geburah Tiphreth fait exception&nbsp;: 30&nbsp;s + 0,15&nbsp;s par point d'INT, quel que soit son niveau (75&nbsp;s à 300 INT).</p>
+        <p>Les guides support conseillent de monter en priorité trois des buffs propres au Ringmaster&nbsp;:</p>
 
         <div class="buff-grid">
             <div class="buff-card priority">
@@ -250,7 +250,7 @@
             </div>
         </div>
 
-        <p>Le Ringmaster garde aussi les neuf buffs de l'Assist, tous à cible unique&nbsp;:</p>
+        <p>Le Ringmaster garde aussi les neuf buffs de stats de l'Assist, tous à cible unique&nbsp;:</p>
 
         <div class="table-scroll">
             <table class="stats-table">
@@ -337,23 +337,23 @@
                     <tr>
                         <td><strong>Hit-and-Run</strong> (HnR)</td>
                         <td>Full INT</td>
-                        <td>Le plus polyvalent&nbsp;: les mêmes stats servent au support, aux donjons et au leveling solo, sans reset. Efficace jusqu'au niveau 120 environ selon Madrigal Inside.</td>
+                        <td>Polyvalent&nbsp;: les mêmes stats servent au support, aux donjons et au leveling solo, sans reset. Efficace jusqu'au niveau 120 environ selon Madrigal Inside.</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <p>Point commun des trois&nbsp;: l'INT. Vos soins, la puissance et la durée de vos buffs, les dégâts de Merkaba Hanzelrusha (INT × 4 à 4,18) et votre réserve de MP en dépendent — chaque point d'INT donne 16,2 MP max à un Ringmaster. Le chiffre de <strong>500 INT</strong> revient souvent&nbsp;: c'est là que tous les bonus de buffs liés à l'INT atteignent leur plafond (Heap Up&nbsp;: 0,04 × 500 = +20 STA de plus&nbsp;; Spirit Fortune&nbsp;: 0,4 × 500 = +200 dégâts de plus&nbsp;; Geburah Tiphreth&nbsp;: attaque +20&nbsp;% au total). Au-delà, l'INT continue d'augmenter vos soins, vos MP et la durée de vos buffs.</p>
+        <p>Point commun des trois&nbsp;: l'INT. Vos soins, la puissance et la durée de vos buffs, les dégâts de chaque coup de Merkaba Hanzelrusha (INT × 4 à 4,18) et votre réserve de MP en dépendent — chaque point d'INT donne 16,2 MP max à un Ringmaster. Le chiffre de <strong>500 INT</strong> revient souvent&nbsp;: c'est là que tous les bonus de buffs liés à l'INT atteignent leur plafond (Heap Up&nbsp;: 0,04 × 500 = +20 STA de plus&nbsp;; Spirit Fortune&nbsp;: 0,4 × 500 = +200 dégâts de plus&nbsp;; Geburah Tiphreth&nbsp;: attaque +20&nbsp;% au total). Au-delà, l'INT continue d'augmenter vos soins, vos MP et la durée de vos buffs.</p>
 
         <h3>Ordre de montée des skills</h3>
         <ul>
-            <li><strong>Full Support</strong>&nbsp;: Protect, Spirit Fortune et Geburah Tiphreth au maximum d'abord, puis Holycross. Heal au niveau 3 suffit pour soutenir un seul joueur, grâce à l'INT. Holyguard sert surtout quand vous accompagnez un AoE.</li>
-            <li><strong>AoE</strong>&nbsp;: Merkaba Hanzelrusha au maximum dès le niveau 60&nbsp;; Prevention (soin automatique quand vos HP passent sous 15&nbsp;% en PvE) et Stonehand (chance d'étourdir à chaque attaque, 12&nbsp;% en PvE au niveau 20) au maximum&nbsp;; Protect tôt&nbsp;; Heal vers le niveau 3. Gardez actifs Geburah Tiphreth, Holyguard, Heap Up, Patience et Cat's Reflex. À partir du niveau 105, les guides citent le désert de Darkon 3 avec le set Rimyth.</li>
+            <li><strong>Full Support</strong>&nbsp;: Holycross d'abord (un seul point, prérequis de Spirit Fortune), puis Protect, Spirit Fortune et Geburah Tiphreth au maximum. Geburah Tiphreth demande aussi Holyguard 4&nbsp;; au-delà, Holyguard sert surtout quand vous accompagnez un AoE. Heal au niveau 3 suffit pour soutenir un seul joueur, grâce à l'INT.</li>
+            <li><strong>AoE</strong>&nbsp;: Merkaba Hanzelrusha au maximum dès le niveau 60&nbsp;; Prevention (soin automatique quand vos HP passent sous 15&nbsp;% en PvE) et Stonehand (chance d'étourdir à chaque attaque, 12&nbsp;% en PvE au niveau 20) au maximum&nbsp;; Protect tôt&nbsp;; Heal vers le niveau 3. Gardez actifs Geburah Tiphreth, Heap Up, Patience et Cat's Reflex, et réservez Holyguard aux gros regroupements de monstres. À partir du niveau 105, les guides citent le désert de Darkon 3 avec le set Rimyth.</li>
             <li><strong>Hit-and-Run</strong> (selon Madrigal Inside)&nbsp;: Merkaba Hanzelrusha pour les dégâts, Moon Beam au maximum, Barrier of Life pour la sécurité et Geburah Tiphreth comme buff clé.</li>
         </ul>
 
         <h3>Avant le niveau 60&nbsp;: l'Assist</h3>
-        <p>Selon les guides communautaires, un Assist monte de deux façons&nbsp;: en Hit-and-Run avec Moon Beam (full INT, stick&nbsp;; disponible dès le niveau 15, il inflige des dégâts sur la durée et fait subir jusqu'à 8&nbsp;% de dégâts en plus à la cible), ou en AoE STR avec knuckle et bouclier (Temping Hole, puis Burst Crack au niveau 28). Si vous visez un Ringmaster, le style Moon Beam est déjà full INT, comme les trois builds ci-dessus.</p>
+        <p>Selon Madrigal Inside, un Assist monte de deux façons&nbsp;: en Hit-and-Run avec Moon Beam (full INT, stick&nbsp;; disponible dès le niveau 15, il inflige des dégâts sur la durée et fait subir jusqu'à 8&nbsp;% de dégâts en plus à la cible), ou en AoE STR avec knuckle et bouclier (Temping Hole, puis Burst Crack au niveau 28). Si vous visez un Ringmaster, le style Moon Beam est déjà full INT, comme le build Hit-and-Run (et l'INT reste la stat principale des trois builds).</p>
 
         <h2 id="equipement">Équipement recommandé</h2>
         <h3>Armes</h3>
@@ -429,7 +429,7 @@
                     </tr>
                     <tr>
                         <td><strong>150</strong></td>
-                        <td>Reine / Rayne (AoE)</td>
+                        <td>Reine / Rayne (défensif)</td>
                         <td>réduction des dégâts PvE à chaque palier, incantation -15&nbsp;% · à 4 pièces&nbsp;: HP max +30&nbsp;%, dégâts PvE +20&nbsp;%, blocage +10&nbsp;%, résistance aux critiques +10&nbsp;%, soins +15&nbsp;%</td>
                     </tr>
                     <tr>
@@ -446,7 +446,7 @@
             </table>
         </div>
 
-        <p>En support, les guides combinent souvent deux bonus 2 pièces pour cumuler l'INT&nbsp;: par exemple 2 pièces Shurand (+5) et 2 pièces Navil (+15), soit INT +20 au niveau 105, ou 2 Keinos et 2 Navil, soit INT +30 au niveau 135. Les versions PvP (Obsidian Revenio, Primordial Etranar) et les variantes FWC existent aussi.</p>
+        <p>En support, Madrigal Inside conseille de combiner deux bonus 2 pièces pour cumuler l'INT&nbsp;: par exemple 2 pièces Shurand (+5) et 2 pièces Navil (+15), soit INT +20 au niveau 105, ou 2 Keinos et 2 Navil, soit INT +30 au niveau 135. Les versions PvP (Obsidian Revenio, Primordial Etranar) et les variantes FWC existent aussi.</p>
 
         <h3>Bijoux (jewelry)</h3>
         <p>Madrigal Inside conseille, en support, des anneaux Intiret (INT +10 en +1, jusqu'à INT +50 en +5), des boucles d'oreilles Penzeru (DEF et DEF magique +150 en +1, jusqu'à +250 en +5), un collier MP ou HP et la cape Cloak of Wisdom (INT +8)&nbsp;; en AoE, Cloak of Wisdom ou Cloak of Endurance (STA +8) selon votre équilibre INT/STA. Pour tester vos combinaisons, un simulateur de personnage comme Flyffulator est utile (voir aussi <a href="meilleurs-outils-flyff-universe-2026.html">notre comparatif d'outils</a>).</p>
@@ -460,7 +460,7 @@
             <li><strong>En réaction</strong> — Gvur Tialla contre un debuff, Holyguard ou Barrier of Life sur un allié qui va encaisser, Resurrection si quelqu'un tombe.</li>
         </ul>
 
-        <p>Pour la série de buffs, les guides communautaires conseillent de lancer Mental Sign sur vous en premier, pour que l'INT gagnée profite aux buffs suivants. Gardez Geburah Tiphreth pour la fin, juste avant le combat&nbsp;: il dure bien moins longtemps que les autres buffs.</p>
+        <p>Pour la série de buffs, Madrigal Inside conseille de lancer Mental Sign sur vous en premier, pour que l'INT gagnée profite aux buffs suivants. Gardez Geburah Tiphreth pour la fin, juste avant le combat&nbsp;: il dure bien moins longtemps que les autres buffs.</p>
 
         <p>Les deux premiers timings sont mécaniques et se prêtent à <strong>l'automatisation</strong>&nbsp;; les deux autres demandent votre attention. Reborn Assistant rejoue, à l'intervalle que vous choisissez, les séquences de touches que vous avez configurées&nbsp;: il ne lit pas le jeu et ne voit pas vos buffs. Réglez donc l'intervalle d'après la durée réelle calculée ci-dessus, recalculez-le quand votre INT change, et <strong>gardez les soins d'urgence en main</strong>.</p>
 
@@ -471,7 +471,7 @@
 
         <div class="callout callout--gl">
             <strong>💡 Tutoriel pratique disponible</strong>
-            Nous avons rédigé un <a href="automatiser-ringmaster-flyff-universe.html" style="color:var(--gold);">tutoriel pas à pas pour automatiser votre Ringmaster</a> avec Reborn Assistant&nbsp;: configuration des rotations, intervalle entre cycles, macro Heal Rain et erreurs à éviter.
+            Nous avons rédigé un <a href="automatiser-ringmaster-flyff-universe.html" style="color:var(--gold);">tutoriel pas à pas pour automatiser votre Ringmaster</a> avec Reborn Assistant&nbsp;: configuration de la rotation, intervalle entre cycles, macros et erreurs à éviter.
         </div>
 
         <h2 id="billposter">Ringmaster vs Billposter — Quelle différence&nbsp;?</h2>
@@ -487,7 +487,7 @@
             <li><strong>Gérer des FP au lieu des MP</strong> — tous les skills du Ringmaster consomment des MP (Heal Rain coûte 80 à 170 MP, Geburah Tiphreth 155 à 250 selon le niveau)&nbsp;: emportez des potions de MP (Refreshers), pas des Vital Drinks.</li>
             <li><strong>Compter sur une durée de buff fixe</strong> — elle dépend du niveau du skill et de votre INT&nbsp;; recalculez votre intervalle de rebuff quand votre INT change, et n'oubliez pas que Geburah Tiphreth expire bien avant les autres.</li>
             <li><strong>Se tromper de buff</strong> — Beef Up donne de la STR, pas des HP (c'est Patience)&nbsp;; Cat's Reflex donne du blocage, pas de l'esquive.</li>
-            <li><strong>Négliger l'INT</strong> — soins, buffs, dégâts de Merkaba et réserve de MP en dépendent&nbsp;; seul le build AoE garde un peu de STA (50 à 120 selon les guides).</li>
+            <li><strong>Négliger l'INT</strong> — soins, buffs, dégâts de Merkaba et réserve de MP en dépendent&nbsp;; seul le build AoE monte un peu sa STA (50 à 120 selon les guides).</li>
             <li><strong>Rester trop loin du groupe</strong> — Heal Rain et Geburah Tiphreth visent les membres du groupe à moins de 13&nbsp;m&nbsp;: invitez vos alliés dans le groupe et restez près d'eux.</li>
             <li><strong>Chercher un bouclier ou un staff</strong> — tous les sticks sont à deux mains et les staffs sont réservés aux Magiciens.</li>
             <li><strong>Croire que le Ringmaster ne peut pas tuer</strong> — en AoE ou en Hit-and-Run, Merkaba Hanzelrusha (renforcé d'environ 28&nbsp;% par le patch 1.5.2 d'avril 2026) permet de leveler seul.</li>
@@ -500,7 +500,7 @@
 
         <div class="cta-box">
             <h3>Optimisez votre Ringmaster avec Reborn Assistant</h3>
-            <p>L'extension premium pour automatiser la rotation de buffs, le Heal Rain périodique et vos macros personnalisées, avec les séquences de touches que vous configurez. 7 jours d'essai gratuit sans carte bancaire.</p>
+            <p>L'extension premium pour automatiser la rotation de buffs et vos macros personnalisées, avec les séquences de touches que vous configurez. 7 jours d'essai gratuit sans carte bancaire.</p>
             <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" rel="noopener" class="btn-cta">Installer Reborn Assistant</a>
         </div>
 
