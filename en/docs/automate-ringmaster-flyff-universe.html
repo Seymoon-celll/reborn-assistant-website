@@ -7,7 +7,7 @@
 
     <!-- ── SEO Primary ─────────────────────────────────────────── -->
     <title>How to Automate Your Ringmaster on Flyff Universe — 2026 Guide</title>
-    <meta name="description" content="Complete tutorial to automate your Ringmaster on Flyff Universe: auto-buff, rotations, AOE heal, HP/FP management. Step-by-step with Reborn Assistant.">
+    <meta name="description" content="Step-by-step tutorial to automate your Flyff Universe Ringmaster with Reborn Assistant: buff rotation, Heal Rain, MP potions and intervals based on your INT.">
     <meta name="keywords" content="automate Ringmaster, RM Flyff Universe, Ringmaster macro, auto buff Flyff, RM rotation, Flyff support, Reborn Assistant Ringmaster">
     <meta name="author" content="Seymoon">
     <meta name="robots" content="index, follow, max-image-preview:large">
@@ -18,7 +18,7 @@
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Reborn Assistant">
     <meta property="og:title" content="How to Automate Your Ringmaster on Flyff Universe — 2026 Guide">
-    <meta property="og:description" content="Step-by-step tutorial to automate your Ringmaster on Flyff Universe: auto-buff, rotations, AOE heal.">
+    <meta property="og:description" content="Step-by-step tutorial to automate your Ringmaster on Flyff Universe: buff rotation, Geburah Tiphreth, Heal Rain, MP potions.">
     <meta property="og:url" content="https://reborn-assistance.fr/en/docs/automate-ringmaster-flyff-universe.html">
     <meta property="og:image" content="https://reborn-assistance.fr/og-image.jpg">
     <meta property="og:locale" content="en_US">
@@ -51,7 +51,7 @@
         {
           "@type": "Article",
           "headline": "How to Automate Your Ringmaster on Flyff Universe — 2026 Guide",
-          "description": "Complete tutorial to automate your Ringmaster on Flyff Universe: auto-buff, rotations, AOE heal, HP/FP management with Reborn Assistant.",
+          "description": "Step-by-step tutorial to automate your Ringmaster on Flyff Universe with Reborn Assistant: buff rotation, Geburah Tiphreth, Heal Rain and MP potions, with intervals based on how long the buffs really last.",
           "image": "https://reborn-assistance.fr/og-image.jpg",
           "author": { "@type": "Person", "name": "Seymoon" },
           "publisher": {
@@ -60,14 +60,14 @@
             "logo": { "@type": "ImageObject", "url": "https://reborn-assistance.fr/favicon.svg" }
           },
           "datePublished": "2026-05-16",
-          "dateModified": "2026-05-16",
+          "dateModified": "2026-10-04",
           "mainEntityOfPage": "https://reborn-assistance.fr/en/docs/automate-ringmaster-flyff-universe.html",
           "inLanguage": "en"
         },
         {
           "@type": "HowTo",
           "name": "How to automate your Ringmaster on Flyff Universe",
-          "description": "Complete method to automate the repetitive actions of a Ringmaster on Flyff Universe using Reborn Assistant.",
+          "description": "Complete method to automate the repetitive actions of a Ringmaster on Flyff Universe with Reborn Assistant, which presses the keys you configure without reading any game data.",
           "totalTime": "PT15M",
           "tool": [
             { "@type": "HowToTool", "name": "Reborn Assistant (Chrome extension)" },
@@ -75,10 +75,11 @@
           ],
           "step": [
             { "@type": "HowToStep", "name": "Install Reborn Assistant", "text": "Add the Reborn Assistant extension from the Chrome Web Store and pin it to your toolbar." },
-            { "@type": "HowToStep", "name": "Identify your Ringmaster sequences", "text": "List your key sequences: Heart of Power, Beef Up, Mental Sign, Speed Pep, and the AOE Heal Rain." },
-            { "@type": "HowToStep", "name": "Configure the rotation", "text": "In Reborn Assistant, enable the F2 → 1-9 → 0 → F1 rotation with a 5-minute interval." },
-            { "@type": "HowToStep", "name": "Program the periodic heal", "text": "Enable the periodic macro to trigger Heal Rain every 15 seconds." },
-            { "@type": "HowToStep", "name": "Launch the automation", "text": "Start with CTRL+A, monitor the activity log, adjust delays as needed." }
+            { "@type": "HowToStep", "name": "Choose your Ringmaster buffs", "text": "List your key buffs: Protect, Spirit Fortune, Geburah Tiphreth, the Assist buffs (Heap Up, Patience, Haste, Beef Up, Mental Sign…) and the party heal Heal Rain." },
+            { "@type": "HowToStep", "name": "Configure the sequence rotation", "text": "Put your single-target buffs on slots 1 to 9 of your 2nd shortcut bar, then enable the F2 → 1-9 → F1 rotation with an interval slightly below your buffs' duration (250 seconds plus 2 seconds per point of INT at max level)." },
+            { "@type": "HowToStep", "name": "Program the automatic heal", "text": "Put Heal Rain on slot 0 of your first two bars, enter key 0 in the heal section of the Reborn panel, choose the interval based on incoming damage and your MP, then switch the toggle ON." },
+            { "@type": "HowToStep", "name": "Add Geburah Tiphreth and potions as macros", "text": "Create a macro for Geburah Tiphreth (30 seconds plus 0.15 seconds per point of INT) with an interval just below its duration, and a macro for your MP potions." },
+            { "@type": "HowToStep", "name": "Launch the automation", "text": "Start with CTRL+A, monitor the activity log, adjust the delays and keep an eye on the game: the extension reads neither health bars nor MP." }
           ]
         }
       ]
@@ -109,7 +110,7 @@
             </div>
             <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-gear"/></svg></div>
             <h1>How to Automate Your Ringmaster on Flyff Universe — Complete 2026 Guide</h1>
-            <p class="subtitle">Buffs, rotations, AOE heal, HP/FP management: the step-by-step tutorial to turn your Ringmaster into a group pillar without burning your hands on the keyboard.</p>
+            <p class="subtitle">Buff rotation, Geburah Tiphreth, Heal Rain, MP management: the step-by-step tutorial to turn your Ringmaster into a group pillar without burning your hands on the keyboard.</p>
             <div class="ornament" aria-hidden="true"></div>
         </header>
 
@@ -118,65 +119,118 @@
             <ol>
                 <li><a href="#why">Why automate your Ringmaster</a></li>
                 <li><a href="#prereqs">Prerequisites</a></li>
-                <li><a href="#sequences">Identify your Ringmaster sequences</a></li>
+                <li><a href="#sequences">Choose the buffs to automate</a></li>
                 <li><a href="#rotation">Configure the buff rotation</a></li>
-                <li><a href="#heal">Program the periodic Heal Rain</a></li>
-                <li><a href="#macros">Custom macros (DPS, support, emergency)</a></li>
+                <li><a href="#heal">Program the automatic Heal Rain</a></li>
+                <li><a href="#macros">Macros, Pet, Follow, Auto-click</a></li>
                 <li><a href="#optimization">Optimization and common mistakes</a></li>
                 <li><a href="#legal">Legal aspects — what you need to know</a></li>
             </ol>
         </div>
 
         <h2 id="why">Why automate your Ringmaster</h2>
-        <p>The Ringmaster (often abbreviated <strong>RM</strong>) is the iconic support class of Flyff Universe. Its role is clear: keep the group alive through buffs (Heart of Power, Beef Up, Mental Sign…) that last between 5 and 30 minutes, and heal damage via Heal Rain in AOE. On paper, it's simple. In practice, it's one of the most exhausting classes to play during long farm sessions: you spend 80% of your time <strong>rebuffing every 5 minutes</strong>, <strong>relaunching Heal Rain every 10-15 seconds</strong>, and <strong>watching the FP bars</strong> of every group member.</p>
-        <p>Automation does not replace your judgment. It offloads mechanical routines from your keyboard: the full rebuff sequence, the periodic heal, FP potion usage. Your hands stay free for <strong>the moments that actually matter</strong>: an imminent wipe, a wave going sideways, a boss targeting the RM first.</p>
+        <p>The Ringmaster (often abbreviated <strong>RM</strong>) is the iconic support class of Flyff Universe: the healing and buffing branch of the Assist, available at level 60, whose third class, the Seraph, arrived with the Muran's Awakening expansion (v1.5.0, November 2025). Its role is clear: strengthen allies with buffs (Protect, Spirit Fortune, Geburah Tiphreth, and Assist buffs such as Heap Up, Beef Up or Mental Sign) and heal the party with Heal Rain. On paper, it's simple. In practice, it's one of the most repetitive classes to play during long farm sessions: you spend a good part of your time <strong>recasting your buffs as soon as they expire</strong>, <strong>recasting Geburah Tiphreth</strong>, which only lasts 30 seconds plus 0.15 seconds per point of INT, <strong>chaining Heal Rains</strong> and <strong>watching your MP</strong> on top of the party's HP.</p>
+        <p>Automation does not replace your judgment. It offloads mechanical routines from your keyboard: the full rebuff cycle, Geburah Tiphreth, the periodic Heal Rain, MP potions. Reborn Assistant sees neither the screen nor the health bars: it presses the keys you configured, at the pace you chose. Your hands stay free for <strong>the moments that actually matter</strong>: a party member going down, a pack of monsters getting out of hand, a boss targeting the RM first.</p>
 
         <div class="callout callout--gl">
             <strong>💡 Typical use case</strong>
-            You start a 4-hour farm on Glaphan or Asteria. Without automation: 240 minutes ÷ 5 minutes = 48 manual rebuff cycles. With Reborn Assistant configured: 1 cycle, the rest runs in the background. You only step in if the composition changes or someone dies.
+            You support a partner through a 4-hour farm, for example in Darkon 3, home of the Glaphans (levels 102 to 109). With 300 INT, your buffs at max skill level last 250 + 600 = 850 seconds, about 14 minutes. Without automation: around 17 full rebuff cycles, plus nearly 200 Geburah Tiphreth recasts (75 seconds each). With Reborn Assistant configured once, those cycles run in the background. You stay at your screen and step in if the composition changes or someone dies.
         </div>
 
         <h2 id="prereqs">Prerequisites</h2>
-        <p>Before activating anything, lay solid foundations:</p>
+        <p>Before activating anything, lay solid foundations. A useful reminder: in Flyff Universe, F1 to F9 show one of your 9 shortcut bars, and keys 1 to 0 fire the slots of the bar currently shown.</p>
         <ul>
             <li><strong>Reborn Assistant Premium</strong> installed (the free version only covers the basic heal macro). See the <a href="/en/docs/quickstart.html">installation guide</a>.</li>
-            <li><strong>Your Ringmaster buffs assigned to keys F2 → 0</strong> in logical order (Heart of Power first, AOE buffs next, single-target last).</li>
-            <li><strong>Heal Rain on the § key (or any dedicated key)</strong> — the key Reborn Assistant will loop on.</li>
-            <li><strong>A stack of FP potions</strong> in inventory — automation does not invent resources.</li>
-            <li><strong>A stable farm zone</strong> — avoid spots with forced teleports or pushing mobs.</li>
+            <li><strong>Your rotation buffs on your 2nd bar</strong> (the one <code>F2</code> shows), slots 1 to 9 — that's the bar Reborn Assistant's rotation goes through.</li>
+            <li><strong>Geburah Tiphreth and your potions on your 1st bar</strong> (<code>F1</code>), the one the rotation brings you back to at the end of each cycle.</li>
+            <li><strong>Heal Rain on slot 0 of both bars</strong>: the rotation never presses 0, so Heal Rain fires whether your 1st or 2nd bar is shown when the heal triggers. Keys can be rebound in Options › Controls; if you'd rather use a letter, avoid <code>T</code>, which opens the Status window.</li>
+            <li><strong>A supply of MP potions</strong> (Refreshers): every Ringmaster spell costs MP, not FP — automation does not invent resources.</li>
+            <li><strong>A formed party and a spot where it stays together</strong>: Heal Rain and Geburah Tiphreth only affect party members within 13 meters of you.</li>
         </ul>
 
-        <h2 id="sequences">Identify your Ringmaster sequences</h2>
-        <p>Not all sequences are equal. Here's the typical hierarchy of a full-support RM build:</p>
-        <h3>Essential sequences (rotation every 5 min)</h3>
+        <h2 id="sequences">Choose the buffs to automate</h2>
+        <p>Not all buffs are automated the same way. What matters to Reborn Assistant is how long they last: the extension cannot see when a buff expires, it only follows the interval you give it. Most Assist and Ringmaster buffs last 2&nbsp;min&nbsp;30&nbsp;s to 4&nbsp;min&nbsp;10&nbsp;s at base depending on skill level, plus 2 seconds per point of the caster's INT, with no cap (Geburah Tiphreth is the exception). Almost all of them are single-target: they apply to the selected character. Flyff Universe guides for full-support Ringmasters recommend maxing Protect, Spirit Fortune and Geburah Tiphreth first.</p>
+        <h3>Buffs to keep up in the rotation (single-target)</h3>
         <ul>
-            <li><strong>Heart of Power (HoP)</strong> — STA + attack boost, mandatory</li>
-            <li><strong>Beef Up</strong> — flat STA, increases group max HP</li>
-            <li><strong>Mental Sign</strong> — INT + magic boost for Mages / AOE Knights</li>
-            <li><strong>Speed Pep</strong> — attack speed, huge for Blades / Rangers</li>
-            <li><strong>Cat's Reflex</strong> — DODGE, useful in tough zones</li>
+            <li><strong>Protect</strong> (Ringmaster) — Defense and Magic Defense +10% at level 10</li>
+            <li><strong>Spirit Fortune</strong> (Ringmaster) — +150 damage at level 10</li>
+            <li><strong>Heap Up, Beef Up, Mental Sign, Cannon Ball</strong> (Assist) — STA, STR, INT and DEX +20 respectively at level 20</li>
+            <li><strong>Patience</strong> (Assist) — max HP +10% at level 20</li>
+            <li><strong>Haste</strong> (Assist) — attack speed +15% and casting time −10% at level 20</li>
+            <li><strong>Cat's Reflex</strong> (Assist) — block rate +10% at level 20</li>
+            <li><strong>Accuracy</strong> (Assist) — hit rate +20% at level 20</li>
+            <li><strong>Quick Step</strong> (Assist) — movement speed +20% at level 20</li>
         </ul>
-        <h3>Situational sequences (manual activation)</h3>
+        <p>Each of these buffs also gets stronger with your INT (for example +0.04 STA per point of INT for Heap Up), up to a cap reached at 500 INT. Their duration keeps growing. At max skill level, it equals 250 seconds plus 2 seconds per point of INT:</p>
+
+        <div class="table-scroll">
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>Caster INT</th>
+                        <th>Rotation buffs (max level)</th>
+                        <th>Geburah Tiphreth</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>100</strong></td>
+                        <td>450 s (7&nbsp;min&nbsp;30&nbsp;s)</td>
+                        <td>45 s</td>
+                    </tr>
+                    <tr>
+                        <td><strong>200</strong></td>
+                        <td>650 s (10&nbsp;min&nbsp;50&nbsp;s)</td>
+                        <td>60 s</td>
+                    </tr>
+                    <tr>
+                        <td><strong>300</strong></td>
+                        <td>850 s (14&nbsp;min&nbsp;10&nbsp;s)</td>
+                        <td>75 s</td>
+                    </tr>
+                    <tr>
+                        <td><strong>400</strong></td>
+                        <td>1,050 s (17&nbsp;min&nbsp;30&nbsp;s)</td>
+                        <td>90 s</td>
+                    </tr>
+                    <tr>
+                        <td><strong>500</strong></td>
+                        <td>1,250 s (20&nbsp;min&nbsp;50&nbsp;s)</td>
+                        <td>105 s</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>The odd one out: Geburah Tiphreth</h3>
+        <p>Geburah Tiphreth is the Ringmaster's only party buff: at level 10, it gives Attack +10%, attack speed +15% and casting time −10% to you and to party members within 13 meters. But it only lasts 30 seconds plus 0.15 seconds per point of INT, whatever its level, and has no cooldown. It is far too short for the rotation: give it its own macro (see below).</p>
+
+        <h3>Skills to keep on manual</h3>
+        <p>These skills answer a specific situation. Since Reborn Assistant cannot see what happens on screen, keep them under your fingers:</p>
         <ul>
-            <li><strong>Resurrection</strong> — never auto, case by case</li>
-            <li><strong>Holy Cross</strong> — elemental damage bonus, context-dependent</li>
+            <li><strong>Resurrection</strong> — revives a dead player; never automated, a timer doesn't know who went down</li>
+            <li><strong>Holycross</strong> — debuff on an enemy: the next hit it takes deals double damage (5 seconds)</li>
+            <li><strong>Holyguard</strong> — immunity to critical hits for 2 to 5 seconds at base, with a cooldown of 100 seconds at level 1 and 45 at level 10</li>
+            <li><strong>Gvur Tialla</strong> — removes all debuffs from the target</li>
+            <li><strong>Barrier of Life</strong> — the target blocks every hit for 1.2 to 2 seconds, with an 18-second cooldown</li>
         </ul>
 
         <h2 id="rotation">Configure the buff rotation</h2>
-        <p>This is the heart of the system. Reborn Assistant can press a fixed sequence <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 0 → F1</code> at regular intervals. Here's how to align it with your RM:</p>
+        <p>This is the heart of the system. Reborn Assistant can press a fixed sequence <code>F2 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → F1</code> at regular intervals. In the game, F2 shows your 2nd shortcut bar, 1 to 9 fire its slots, and F1 brings you back to your 1st bar. Here's how to align it with your RM:</p>
 
         <div class="step">
             <div class="step-number">1</div>
-            <div class="step-title">Prepare your sequence slots</div>
-            <p>Drag your sequences from the skill bar to the Flyff hotkey bar in this order:</p>
+            <div class="step-title">Prepare your 2nd bar</div>
+            <p>Open the Skill window (<code>K</code> key), show your 2nd bar with <code>F2</code> and drag your buffs onto it in this order:</p>
             <ul>
-                <li>Key 1 → Heart of Power</li>
-                <li>Key 2 → Beef Up</li>
-                <li>Key 3 → Mental Sign</li>
-                <li>Key 4 → Speed Pep</li>
-                <li>Key 5 → Cat's Reflex</li>
-                <li>Keys 6 to 0 → other available buffs or empty</li>
+                <li>Key 1 → Protect</li>
+                <li>Key 2 → Spirit Fortune</li>
+                <li>Key 3 → Heap Up</li>
+                <li>Key 4 → Patience</li>
+                <li>Key 5 → Haste</li>
+                <li>Keys 6 to 9 → four other buffs chosen for your target (Beef Up, Mental Sign, Cannon Ball, Cat's Reflex, Accuracy…)</li>
             </ul>
+            <p>These buffs are single-target: each cycle casts them on whoever is selected at that moment. Keep your partner selected while farming.</p>
         </div>
 
         <div class="step">
@@ -185,60 +239,70 @@
             <p>In the Reborn panel, Premium tab:</p>
             <ul>
                 <li>Toggle on <strong>"Sequence Rotation"</strong></li>
-                <li>Set the <strong>interval between cycles</strong> to the duration of your shortest buff (typically 5 min)</li>
-                <li>Set the <strong>delay between keys</strong> to 1 second (lets sequence animation finish)</li>
+                <li>Set the <strong>interval between cycles</strong> slightly below the duration of your shortest buff (see the table above): for example 13 minutes at 300 INT, for buffs lasting 14&nbsp;min&nbsp;10&nbsp;s. If you add Prevention, a self-only auto-heal, its base duration stays 2&nbsp;min&nbsp;30&nbsp;s at every level: it then sets the interval.</li>
+                <li>Set the <strong>delay between keys</strong> to 1 second: Assist and Ringmaster buffs have a 1-second casting time (less with Haste, Geburah Tiphreth or gear that reduces casting time)</li>
             </ul>
         </div>
 
         <div class="step">
             <div class="step-number">3</div>
             <div class="step-title">Test a full cycle</div>
-            <p>Start with <code>CTRL+A</code>. Watch the activity log: you should see <em>F2 pressed → 1 pressed → 2 pressed…</em> sequentially, with ~1 second between each. If a sequence doesn't fire, it's probably a cooldown or missing FP — check in-game visually.</p>
+            <p>Start with <code>CTRL+A</code>. Watch the activity log: you should see <em>F2 pressed → 1 pressed → 2 pressed…</em> sequentially, with ~1 second between each. If a buff doesn't fire, check in-game: most often you are out of MP or the wrong target is selected. These buffs have no cooldown (Prevention has one, but it is much shorter than your interval).</p>
         </div>
 
-        <h2 id="heal">Program the periodic Heal Rain</h2>
-        <p>Heal Rain should run in parallel with the buff rotation. Reborn Assistant offers a fixed 15-second periodic macro, perfectly calibrated for Heal Rain's AOE duration (~12-15 seconds).</p>
+        <h2 id="heal">Program the automatic Heal Rain</h2>
+        <p>Heal Rain runs in parallel with the buff rotation. It's an instant party heal: with a 0.5-second cast, it heals party members within 13 meters of you (200&nbsp;HP + 8&nbsp;×&nbsp;INT at level 1, up to 650&nbsp;HP + 8.18&nbsp;×&nbsp;INT at level 10) for 80 to 170 MP. The game data gives it no duration and no cooldown: the pace is up to you. Reborn Assistant has a dedicated <strong>heal section</strong> in the panel, with a fully configurable key and interval.</p>
 
         <div class="step">
             <div class="step-number">1</div>
-            <div class="step-title">Assign Heal Rain to the § key</div>
-            <p>By default, Reborn Assistant's periodic macro triggers the <code>§</code> key. Drag Heal Rain onto this key in Flyff.</p>
+            <div class="step-title">Assign Heal Rain to a key</div>
+            <p>Drag Heal Rain onto slot 0 of your 1st and 2nd bars (see the prerequisites). Then enter that same key, <code>0</code>, in the "Key" field of the heal section of the Reborn panel.</p>
         </div>
 
         <div class="step">
             <div class="step-number">2</div>
-            <div class="step-title">Enable the periodic macro</div>
-            <p>Toggle <strong>"Periodic Macro"</strong> in the Premium panel. The system will call Heal Rain every 15 seconds, with automatic storage.</p>
+            <div class="step-title">Set the interval, then enable</div>
+            <p>The game imposes no interval: choose it based on the damage your party takes and your MP supply. The shorter it is, the more you heal, and the more you spend: at level 10, one Heal Rain every 5 seconds costs about 2,000 MP per minute. Start with a cautious value, watch, then adjust. Switch the toggle <strong>ON</strong>. The extension will press your key every X seconds, in parallel with the buff rotation and the other systems, whether the party is hurt or not, since it doesn't read health bars.</p>
         </div>
 
         <div class="callout warning callout--gl">
             <strong>⚠️ Watch your positioning</strong>
-            Heal Rain is a self-centered AOE. If you constantly move (kite or reposition), your Heal Rain won't cover your DPS. Stay static or set a fixed rally point for the group.
+            Heal Rain instantly heals party members within 13 meters of you at the moment it fires: it is not a zone that stays on the ground. An ally too far away at that instant, or a player who isn't in your party, gets nothing. Stay within range of your allies or set a fixed rally point for the group.
         </div>
 
-        <h2 id="macros">Custom macros (DPS, support, emergency)</h2>
-        <p>Beyond rotation and heal, Reborn Assistant Premium offers <strong>3 independent macros</strong>. Here's how to leverage them for a Ringmaster:</p>
+        <h2 id="macros">Macros, Pet, Follow, Auto-click</h2>
+        <p>Beyond the buff rotation and the heal, Reborn Assistant Premium offers four complementary systems that you enable independently as needed.</p>
 
-        <h3>Macro 1 — Pet feeding</h3>
-        <p>If you have a pet that needs regular feeding, program a sequence like <code>k,h</code> every 30 seconds. Prevents your pet from dying during long farms.</p>
+        <h3>3 custom macros</h3>
+        <p>Each macro presses <strong>a single key</strong> at a <strong>configurable interval</strong> (seconds or minutes). One macro = one key, not a sequence. To combine several keys in order, use the main buff rotation.</p>
+        <p>Typical uses for a Ringmaster:</p>
+        <ul>
+            <li><strong>Macro 1</strong> — Geburah Tiphreth's key, with an interval just below its duration: for example 60 seconds at 300 INT, where it lasts 75 seconds</li>
+            <li><strong>Macro 2</strong> — an MP potion key (Refresher) every 20 to 30 seconds to keep your MP high; adjust to your consumption, as Heal Rain and Geburah Tiphreth are your most expensive spells. A Refresher Hold, a premium in-game item, gives unlimited MP for 1 hour and makes this macro unnecessary while it lasts.</li>
+            <li><strong>Macro 3</strong> — an emergency HP potion key every 60 seconds, as a backup to the main heal. It fires even when your HP is full: the extension can't see your gauge.</li>
+        </ul>
+        <p>If a macro comes due during a buff sequence, it runs automatically at the end of the buff cycle, one at a time, with the same delay as your buffs. Since the rotation ends with F1, put your macro keys on your 1st bar.</p>
 
-        <h3>Macro 2 — FP potion stack</h3>
-        <p>Configure a sequence like <code>y</code> every 20 seconds to keep FP above 80%. Adjust based on consumption and Heal Rain cadence.</p>
+        <h3>Automatic pet (Premium)</h3>
+        <p>The extension summons your pet <strong>before</strong> each buff cycle and puts it away <strong>after</strong>. Handy so you don't forget your pet during a long farm, without adding a manual key to your rotation.</p>
 
-        <h3>Macro 3 — Anti-AFK</h3>
-        <p>A sequence like <code>up,down</code> or <code>space</code> every 4-5 minutes prevents AFK disconnects during long calm periods. Use with discernment.</p>
+        <h3>Automatic follow (Premium)</h3>
+        <p>Repeated press of a dedicated key (default <code>F</code> in the extension) every 5 seconds. In Flyff Universe, the action that follows the selected target is on <code>Z</code> by default, according to the third-party tools that use it: check it in Options › Controls, especially on an AZERTY keyboard, and enter exactly the same key in the extension. Ideal for following your partner while you buff and heal: since they stay selected, they also stay the target of your buffs. Only the key is configurable; the 5-second interval is fixed.</p>
+
+        <h3>Mouse auto-click (Premium)</h3>
+        <p>Clicks at a fixed screen position every 2 seconds. Turn it on by clicking the <strong>🖱</strong> icon in the panel header, then click where you want the clicks to happen. A blinking red dot shows the active position. Click the ✕ next to the dot to stop.</p>
 
         <h2 id="optimization">Optimization and common mistakes</h2>
         <ul>
-            <li><strong>Key delay too short</strong> — if sequences skip, increase delay to 1.5-2 seconds. Better a slightly slower cycle that always completes.</li>
-            <li><strong>Don't exceed the global cooldown (GCD)</strong> — Flyff has a GCD. Too fast = sequences absorbed into the void. The default 1s respects this GCD.</li>
-            <li><strong>FP running out mid-cycle</strong> — your rotation stops silently. Enable the FP potion macro or boost your INT/MP.</li>
-            <li><strong>Group members outside AOE</strong> — periodic heal only covers players within ~12-15m. Communicate with the group.</li>
-            <li><strong>Target lost after mob death</strong> — not a problem for the RM, but watch your single-target sequences.</li>
+            <li><strong>Key delay too short</strong> — if buffs skip, raise the delay between keys to 1.5 or 2 seconds. Better a slightly slower cycle that always completes.</li>
+            <li><strong>Respect the casting time</strong> — every Assist or Ringmaster buff takes 1 second to cast before reductions. A delay of at least 1 second between two keys lets each spell finish.</li>
+            <li><strong>MP running out mid-cycle</strong> — the extension keeps pressing, but the game no longer casts anything, and Reborn Assistant can't see it. A cycle of nine buffs at max level already costs nearly 600 MP. Enable the MP potion macro or raise your INT: each point of INT gives the Ringmaster 16.2 max MP.</li>
+            <li><strong>Party members out of range</strong> — the periodic heal only heals party members within 13 meters of you, and Geburah Tiphreth has the same range. Talk to your group: they need to stay in range.</li>
+            <li><strong>Wrong target when the cycle fires</strong> — almost all your buffs (Protect, Spirit Fortune, Heap Up, Haste…) are single-target and land on whoever is selected when the rotation fires. Check your target before each cycle.</li>
         </ul>
 
         <h2 id="legal">Legal aspects — what you need to know</h2>
-        <p>Automating repetitive actions via an extension <strong>may violate the Terms of Service</strong> of some game services, including Gala Lab's for Flyff Universe. Reborn Assistant <strong>does not read game memory, does not send network packets, does not modify the client</strong>: it's strictly a simulation of keys you would press manually. You remain 100% responsible for how you use it.</p>
+        <p>Automating repetitive actions through an extension <strong>may break the Terms of Service</strong> of Flyff Universe, developed by Gala Lab. The game's report menu has a reason dedicated to bots, and the client contains a ban message aimed at cheating software that tells players to stop using any external tool. Nothing guarantees that an extension simulating key presses is tolerated: read the official Terms of Service before automating anything. Reborn Assistant <strong>does not read game memory, does not send network packets, does not modify the client</strong>: it's strictly a simulation of keys you would press manually. You remain 100% responsible for how you use it.</p>
         <p>For exactly what Reborn Assistant does (and doesn't do) technically, see the <a href="/en/#faq">FAQ on the main page</a>.</p>
 
         <div class="cta-box">
