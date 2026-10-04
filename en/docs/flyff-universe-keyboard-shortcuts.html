@@ -100,11 +100,11 @@
 
         <h2>Why learn the shortcuts</h2>
         <p>In Flyff Universe, the keyboard covers the essentials: keys <kbd>1</kbd> to <kbd>0</kbd> use the skills and items stored in your shortcut bar, <kbd>F1</kbd> to <kbd>F9</kbd> switch from one bar to another, and the main windows (inventory, skills, party…) each have their own key. Knowing them saves you from hunting for a menu with the mouse mid-fight and keeps your hands on your target and your movement.</p>
-        <p>This guide collects <strong>the default keys</strong>, verified against the game's official texts (tutorial, help, keybinding window), <strong>how to rebind them</strong> and <strong>example layouts per class</strong>. Anything that could not be verified was left out.</p>
+        <p>This guide collects <strong>the default keys</strong>, verified against the game's official texts (tutorial, help, keybinding window), <strong>how to rebind them</strong> and <strong>example layouts per class</strong>. Anything that could not be verified was left out or flagged as such.</p>
 
         <div class="callout callout--gl">
             <strong>💡 AZERTY keyboards</strong>
-            The keys listed here are the ones the game's texts give, for example <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> to move, which is the layout of a QWERTY keyboard. No official source says how the game adapts them to a French AZERTY keyboard: open Options › Controls, “Keys” window, and check the “Move Forward”, “Move Backward”, “Turn Left” and “Turn Right” actions. If you use Reborn Assistant, set exactly the same keys there as in the game.
+            The keys listed here are the ones the game's texts give, for example <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> to move, which is the layout of a QWERTY keyboard. No official source says how the game adapts them to a French AZERTY keyboard, and the French client's help still gives <kbd>W</kbd> for walking/running where the English help gives <kbd>X</kbd>: when in doubt, the “Keys” window is what counts. Open Options › Controls, “Keys” window, and check the “Move Forward”, “Move Backward”, “Turn Left”, “Turn Right”, “Follow Target” and “Toggle Run/<wbr>Walk” actions. If you use Reborn Assistant, set exactly the same keys there as in the game.
         </div>
 
         <h2>Shortcut bars &amp; combat</h2>
@@ -140,7 +140,7 @@
                     <tr><td><kbd>P</kbd></td><td>Party window</td></tr>
                     <tr><td><kbd>G</kbd></td><td>Guild window</td></tr>
                     <tr><td><kbd>O</kbd></td><td>Emotes (emoticons and expressions)</td></tr>
-                    <tr><td><kbd>Q</kbd></td><td>Quest Diary (current and completed quests)</td></tr>
+                    <tr><td><kbd>Q</kbd></td><td>Quest Diary (current and completed quests), according to the in-game tutorial; another help text says <kbd>L</kbd>, so check the “Keys” window</td></tr>
                     <tr><td><kbd>M</kbd></td><td>World map</td></tr>
                     <tr><td><kbd>N</kbd></td><td>Show / hide the Navigator (minimap, top right)</td></tr>
                     <tr><td><kbd>E</kbd></td><td>Messenger (friends list), according to the in-game help</td></tr>
@@ -204,7 +204,7 @@
                 <li><strong>F1</strong> — combat and healing: Heal Rain (party heal), Geburah Tiphreth (short party buff, recast often), Merkaba Hanzelrusha if you play AoE, HP and MP potions</li>
                 <li><strong>F2</strong> — single-target buffs: Protect, Spirit Fortune, Heap Up, Mental Sign, Beef Up, Haste, Patience, Cat's Reflex…</li>
                 <li><strong>F3</strong> — situational: Resurrection (revives a dead player), Gvur Tialla (removes all debuffs from the target), Holyguard (protects the target from critical hits for a few seconds), Holycross (debuff: the next hit the enemy takes deals double damage)</li>
-                <li><strong>Heal Rain on a dedicated slot</strong> — if you prefer a letter, rebind that slot's key in Options › Controls, avoiding <kbd>T</kbd>, which opens the Status window. Handy if you automate it with <a href="/en/">Reborn Assistant</a>.</li>
+                <li><strong>Heal Rain always in the same slot</strong> — a slot's key fires that slot on whichever bar is on screen: keep Heal Rain in the same place on every bar you use, or put it in an “Additional Taskbar”, whose slots have their own lines in the “Keys” window. If you give that slot a letter, pick one that isn't already taken (<kbd>T</kbd>, <kbd>I</kbd>, <kbd>H</kbd>, <kbd>K</kbd>, <kbd>P</kbd>… see the tables above). Handy if you automate it with <a href="/en/">Reborn Assistant</a>.</li>
             </ul>
         </div>
 
@@ -227,7 +227,7 @@
             <ul>
                 <li><strong>F1</strong> — attack spells, for example Fire Strike (Magician spell, lv.&nbsp;40, wand or staff)</li>
                 <li><strong>F2</strong> — your area spells</li>
-                <li><strong>No slot for masteries</strong> — Lightning Mastery and the other Elementor masteries are passives: they cannot be cast or placed on a bar</li>
+                <li><strong>Masteries</strong> — Lightning Mastery and the other Elementor masteries are passives: their effect is always on, so there is no need to give them a slot</li>
                 <li><strong>Space</strong> — jump</li>
             </ul>
         </div>
@@ -243,7 +243,7 @@
         </div>
 
         <h2>Automating your shortcuts</h2>
-        <p>Once your bars are set up, some actions come back again and again: recasting the same buffs, firing the same heal. That's what <a href="/en/">Reborn Assistant</a> does: the extension presses the keys you set up on your behalf, at the interval you choose. Your buff rotation (show a bar with F2, use its slots, return to F1) can run on a loop, Heal Rain can fire at a regular interval, and up to 3&nbsp;independent macros can run in parallel.</p>
+        <p>Once your bars are set up, some actions come back again and again: recasting the same buffs, firing the same heal. That's what <a href="/en/">Reborn Assistant</a> does: the extension presses keys on your behalf, at regular intervals. Its sequence rotation always presses <kbd>F2</kbd>, <kbd>1</kbd> to <kbd>9</kbd>, <kbd>0</kbd> and then <kbd>F1</kbd>, in that order, at the interval you choose: put your buffs on the F2 bar and it recasts them on a loop. Heal Rain can fire at a regular interval, and up to 3&nbsp;independent macros, with your own key sequences, can run in parallel. During each rotation cycle the F2 bar is the one on screen, which is why Heal Rain should sit in the same slot on every bar.</p>
         <p>The extension does not read game data: it sees neither health bars nor how long your buffs last. <strong>You keep your hands on targeting and emergency heals</strong>, where your attention makes the difference.</p>
 
         <div class="callout warning callout--gl">
@@ -260,7 +260,7 @@
 
         <div class="faq">
             <h3>Can I rebind F1–F9 and keys 1–0?</h3>
-            <p>Yes. In Options › Controls, the “Keys” window lists bar switching (“Taskbar&nbsp;…”) and every slot (“Taskbar Slot&nbsp;…”). You can give each of these actions a different key; “Unbind key” leaves it without one and “Reset” restores the default keys.</p>
+            <p>Yes. In Options › Controls, the “Keys” window lists bar switching (“Taskbar&nbsp;…”) and every slot (“Taskbar Slot&nbsp;…”). You can give each of these actions a different key; “Unbind key” leaves it without one and “Reset” restores the default keys. If you use Reborn Assistant's rotation, note that it always presses F2, 1 to 9, 0 and then F1: keep those keys for bar switching and slots.</p>
         </div>
 
         <div class="faq">
@@ -270,7 +270,7 @@
 
         <div class="faq">
             <h3>AZERTY or QWERTY for Flyff Universe?</h3>
-            <p>The game's official texts don't say how it handles an AZERTY keyboard. The safest approach: open the “Keys” window, check the movement actions (“Move Forward”, “Move Backward”, “Turn Left”, “Turn Right”) and give them the keys that suit you. Reborn Assistant presses the keys you tell it to: set the same ones there as in the game.</p>
+            <p>The game's official texts don't say how it handles an AZERTY keyboard, and the French client's help still gives <kbd>W</kbd> for walking/running. The safest approach: open the “Keys” window, check the movement actions (“Move Forward”, “Move Backward”, “Turn Left”, “Turn Right”), “Follow Target” and “Toggle Run/<wbr>Walk”, then give them the keys that suit you. In Reborn Assistant, then enter the same keys as in the game.</p>
         </div>
 
         <div class="faq">
@@ -280,12 +280,12 @@
 
         <div class="faq">
             <h3>Is there a key to target the nearest monster?</h3>
-            <p>No official game text describes one. You select a monster by clicking it and attack it with a double-click, or a single click with the “Single Click to Attack” option. The only targeting action in the “Keys” window is “Cycle Targets (PvP)”, meant for PvP.</p>
+            <p>No official game text describes one. You select a monster by clicking it and attack it with a double-click, or a single click with the “Single Click to Attack” option. The only action in the “Keys” window that selects a target is “Cycle Targets (PvP)”, meant for PvP; its default key is not documented.</p>
         </div>
 
         <div class="cta-box">
             <h3>Automate what can be automated</h3>
-            <p>Reborn Assistant presses the keys you configure so you don't have to: buff rotation, Heal Rain, and up to 3&nbsp;custom macros. 7-day free Premium trial, no credit card.</p>
+            <p>Reborn Assistant presses your keys for you at regular intervals: your buff rotation (F2, 1 to 0, F1), Heal Rain, and up to 3&nbsp;custom macros. 7-day free Premium trial, no credit card.</p>
             <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" rel="noopener" class="btn-cta">Install Reborn Assistant</a>
         </div>
 
