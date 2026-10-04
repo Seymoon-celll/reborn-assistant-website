@@ -89,7 +89,7 @@ const AUTOMATE_SEO = {
   tr: { title: "Flyff Universe'de Ringmaster Otomatikleştirme — 2026 Rehberi", description: "Flyff Universe'de Ringmaster'ınızı Reborn Assistant ile otomatikleştirmek için adım adım rehber: buff rotasyonu, Heal Rain, MP iksirleri ve INT'inize göre aralıklar.", ogLocale: 'tr_TR' },
   ja: { title: "Flyff UniverseでRingmasterを自動化する — 2026年完全ガイド", description: "Reborn AssistantでFlyff UniverseのRingmasterを自動化するステップバイステップガイド: バフローテーション、Heal Rain、MPポーション、INTに合わせた間隔設定。", ogLocale: 'ja_JP' },
   ko: { title: "Flyff Universe에서 Ringmaster 자동화 — 2026 완벽 가이드", description: "Reborn Assistant로 Flyff Universe의 Ringmaster를 자동화하는 단계별 튜토리얼: 버프 로테이션, Heal Rain, MP 물약, INT에 맞춘 간격 설정.", ogLocale: 'ko_KR' },
-  tl: { title: "I-automate ang Ringmaster sa Flyff Universe — 2026 Gabay", description: "Hakbang-hakbang na tutorial para i-automate ang Ringmaster mo sa Flyff Universe gamit ang Reborn Assistant: buff rotation, Heal Rain, MP potions at mga interval batay sa iyong INT.", ogLocale: 'tl_PH' },
+  tl: { title: "I-automate ang Ringmaster mo sa Flyff Universe — Gabay 2026", description: "Hakbang-hakbang na tutorial para i-automate ang Ringmaster mo sa Flyff Universe gamit ang Reborn Assistant: buff rotation, Heal Rain, MP potions at mga interval batay sa iyong INT.", ogLocale: 'tl_PH' },
   zh: { title: "在 Flyff Universe 中自动化 Ringmaster — 2026 完整指南", description: "使用 Reborn Assistant 在 Flyff Universe 中自动化 Ringmaster 的分步教程：Buff 轮换、Heal Rain、MP 药水，以及根据你的 INT 设置的间隔。", ogLocale: 'zh_CN' },
   ar: { title: "أتمتة Ringmaster في Flyff Universe — دليل 2026 الكامل", description: "دليل خطوة بخطوة لأتمتة Ringmaster في Flyff Universe باستخدام Reborn Assistant: تناوب التعزيزات، Heal Rain، جرعات MP وفواصل زمنية حسب قيمة INT لديك.", ogLocale: 'ar_SA' },
 };
@@ -125,7 +125,7 @@ const GUIDE_SEO = {
   tr: { title: "Ringmaster Flyff Universe — 2026 Tam Sınıf Rehberi", description: "Flyff Universe için tam Ringmaster rehberi: rol, skill'ler ve buff'lar, Full Support, AoE ve Hit-and-Run build'leri, ekipman, rotasyon ve Seraph'a geçiş.", ogLocale: 'tr_TR' },
   ja: { title: "Ringmaster Flyff Universe — 2026年完全クラスガイド", description: "Flyff Universeの完全Ringmasterガイド: 役割、スキルとバフ、Full Support・AoE・Hit-and-Runビルド、装備、ローテーション、Seraphへの転職まで。", ogLocale: 'ja_JP' },
   ko: { title: "Ringmaster Flyff Universe — 2026 완벽 클래스 가이드", description: "Flyff Universe Ringmaster 완전 가이드: 역할, 스킬과 버프, Full Support·AoE·Hit-and-Run 빌드, 장비, 로테이션, Seraph 전직까지.", ogLocale: 'ko_KR' },
-  tl: { title: "Ringmaster Flyff Universe — Kumpletong 2026 Class Guide", description: "Kumpletong Ringmaster guide para sa Flyff Universe: papel, skills at buffs, Full Support, AoE at Hit-and-Run builds, gear, rotation at ang daan patungong Seraph.", ogLocale: 'tl_PH' },
+  tl: { title: "Ringmaster Flyff Universe — Kumpletong Gabay 2026 (Build, Buffs, Papel)", description: "Kumpletong Ringmaster guide para sa Flyff Universe: papel, skills at buffs, Full Support, AoE at Hit-and-Run builds, gear, rotation at ang daan patungong Seraph.", ogLocale: 'tl_PH' },
   zh: { title: "Ringmaster Flyff Universe — 2026 完整职业指南", description: "Flyff Universe Ringmaster 完整指南：角色定位、技能与 Buff、Full Support / AoE / Hit-and-Run 加点、装备、循环，以及转职 Seraph。", ogLocale: 'zh_CN' },
   ar: { title: "Ringmaster Flyff Universe — دليل الفئة الكامل 2026", description: "دليل Ringmaster الكامل لـ Flyff Universe: الدور، المهارات والتعزيزات، بناءات Full Support وAoE وHit-and-Run، المعدات، التناوب، والترقية إلى Seraph.", ogLocale: 'ar_SA' },
 };

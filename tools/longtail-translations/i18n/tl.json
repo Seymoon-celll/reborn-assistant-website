@@ -2,7 +2,7 @@
   "automate-rm": [
     [
       "automatiser Ringmaster, RM Flyff Universe, macro Ringmaster, auto buff Flyff, séquences RM, support Flyff, Reborn Assistant Ringmaster",
-      "i-automate ang Ringmaster, RM Flyff Universe, Ringmaster macro, auto buff Flyff, RM sequence, support Flyff, Reborn Assistant Ringmaster"
+      "automate Ringmaster, i-automate ang Ringmaster, RM Flyff Universe, Ringmaster macro, auto buff Flyff, RM rotation, Flyff support, Reborn Assistant Ringmaster"
     ],
     [
       "Reborn Assistant",
@@ -34,7 +34,7 @@
     ],
     [
       "Méthode complète pour automatiser les actions répétitives d'un Ringmaster sur Flyff Universe avec Reborn Assistant, qui appuie sur les touches que vous configurez sans lire les données du jeu.",
-      "Kumpletong paraan para i-automate ang mga paulit-ulit na aksyon ng isang Ringmaster sa Flyff Universe gamit ang Reborn Assistant, na pumipindot sa mga key na ikaw mismo ang nag-configure nang hindi binabasa ang data ng laro."
+      "Kumpletong paraan para i-automate ang mga paulit-ulit na aksyon ng isang Ringmaster sa Flyff Universe gamit ang Reborn Assistant, na pumipindot lang sa mga key na in-configure mo at hindi nagbabasa ng data ng laro."
     ],
     [
       "Reborn Assistant (extension Chrome)",
@@ -146,7 +146,7 @@
     ],
     [
       "L'automatisation ne remplace pas votre jugement. Elle décharge votre clavier des routines mécaniques&nbsp;: le cycle de rebuff complet, Geburah Tiphreth, le Heal Rain périodique, les potions de MP. Reborn Assistant ne voit ni l'écran ni les barres de vie&nbsp;: il appuie sur les touches que vous avez configurées, au rythme que vous avez choisi. Vous gardez les mains libres pour les <strong>moments où ça compte vraiment</strong>&nbsp;: un membre qui tombe, un pack de monstres qui dérape, un boss qui cible le RM en premier.",
-      "Hindi pinapalitan ng automation ang pagpapasya mo. Inaalis lang nito sa keyboard mo ang mga mekanikal na routine: ang buong rebuff cycle, ang Geburah Tiphreth, ang periodic na Heal Rain, ang mga MP potion. Hindi nakikita ng Reborn Assistant ang screen o ang mga health bar: pinipindot lang nito ang mga key na in-configure mo, sa bilis na pinili mo. Malaya ang mga kamay mo para sa <strong>mga sandaling talagang mahalaga</strong>: isang miyembrong bumabagsak, isang pack ng monster na nawawala sa kontrol, isang boss na unang tumatarget sa RM."
+      "Hindi pinapalitan ng automation ang pagpapasya mo. Inaalis lang nito sa keyboard mo ang mga mekanikal na routine: ang buong rebuff cycle, ang Geburah Tiphreth, ang periodic na Heal Rain, ang mga MP potion. Hindi nakikita ng Reborn Assistant ang screen o ang mga health bar: pinipindot lang nito ang mga key na in-configure mo, sa dalas na pinili mo. Malaya ang mga kamay mo para sa <strong>mga sandaling talagang mahalaga</strong>: isang miyembrong bumabagsak, isang pack ng monster na hindi na makontrol, isang boss na unang tumatarget sa RM."
     ],
     [
       "Prérequis avant d'automatiser",
@@ -406,7 +406,7 @@
     ],
     [
       "Heal Rain tourne en parallèle de la rotation des buffs. C'est un soin de groupe instantané&nbsp;: en 0,5 seconde d'incantation, il soigne les membres de votre groupe situés à moins de 13 mètres de vous (200&nbsp;PV + 8&nbsp;×&nbsp;INT au niveau 1, jusqu'à 650&nbsp;PV + 8,18&nbsp;×&nbsp;INT au niveau 10), pour 80 à 170 MP. Les données du jeu ne lui donnent ni durée ni temps de recharge&nbsp;: c'est à vous de choisir le rythme. Reborn Assistant propose une section <strong>SOIN</strong> dédiée dans le panneau, avec touche et intervalle entièrement configurables.",
-      "Tumatakbo ang Heal Rain nang kasabay ng buff rotation. Isa itong instant na party heal: sa 0.5 segundong casting, hine-heal nito ang mga party member mo na nasa loob ng 13 metro mula sa iyo (200&nbsp;HP + 8&nbsp;×&nbsp;INT sa level 1, hanggang 650&nbsp;HP + 8.18&nbsp;×&nbsp;INT sa level 10), kapalit ng 80 hanggang 170 MP. Walang duration o cooldown na ibinibigay rito ang data ng laro: ikaw ang pipili ng bilis. May dedicated na <strong>HEAL</strong> section ang Reborn Assistant sa panel, na may key at interval na fully configurable."
+      "Tumatakbo ang Heal Rain nang kasabay ng buff rotation. Isa itong instant na party heal: sa 0.5 segundong casting, hine-heal nito ang mga party member mo na nasa loob ng 13 metro mula sa iyo (200&nbsp;HP + 8&nbsp;×&nbsp;INT sa level 1, hanggang 650&nbsp;HP + 8.18&nbsp;×&nbsp;INT sa level 10), kapalit ng 80 hanggang 170 MP. Walang duration o cooldown na ibinibigay rito ang data ng laro: ikaw ang bahalang magpasya kung gaano ito kadalas i-cast. May dedicated na <strong>HEAL</strong> section ang Reborn Assistant sa panel, na may key at interval na fully configurable."
     ],
     [
       "Glissez Heal Rain sur l'emplacement 0 de votre 1re et de votre 2e barre (voir les prérequis). Reportez ensuite cette même touche, <code>0</code>, dans le champ «&nbsp;Touche&nbsp;» de la section SOIN du panneau Reborn.",
@@ -482,7 +482,7 @@
     ],
     [
       "<strong>Temps d'incantation à respecter</strong> — chaque buff de votre rotation demande 1 seconde d'incantation avant réductions. Un délai d'au moins 1 seconde entre deux touches laisse chaque sort se terminer.",
-      "<strong>Igalang ang casting time</strong> — bawat buff sa rotation mo ay nangangailangan ng 1 segundong casting bago ang mga reduction. Ang delay na hindi bababa sa 1 segundo sa pagitan ng dalawang key ay nagbibigay ng oras para matapos ang bawat spell."
+      "<strong>Isaalang-alang ang casting time</strong> — bawat buff sa rotation mo ay nangangailangan ng 1 segundong casting bago ang mga reduction. Ang delay na hindi bababa sa 1 segundo sa pagitan ng dalawang key ay nagbibigay ng oras para matapos ang bawat spell."
     ],
     [
       "<strong>MP qui s'épuise au milieu d'un cycle</strong> — l'extension continue d'appuyer, mais le jeu ne lance plus rien, et Reborn Assistant ne le voit pas. Un cycle de neuf buffs au niveau maximum coûte déjà près de 600 MP. Activez la macro de potion de MP ou augmentez votre INT&nbsp;: chaque point d'INT donne 16,2 MP max au Ringmaster.",
@@ -542,7 +542,7 @@
     ],
     [
       "← Retour aux docs",
-      "← Bumalik sa docs"
+      "← Bumalik sa Dokumentasyon"
     ],
     [
       "◆ Sommaire",
@@ -571,6 +571,34 @@
     [
       "REBORN ASSISTANT",
       "REBORN ASSISTANT"
+    ],
+    [
+      "\"name\": \"Accueil\"",
+      "\"name\": \"Home\""
+    ],
+    [
+      "\"name\": \"Documentation\"",
+      "\"name\": \"Dokumentasyon\""
+    ],
+    [
+      "\"inLanguage\": \"fr\"",
+      "\"inLanguage\": \"tl\""
+    ],
+    [
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html\"",
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/tl/docs/i-automate-ang-ringmaster-flyff-universe.html\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/\"",
+      "\"item\": \"https://reborn-assistance.fr/tl/\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/\"",
+      "\"item\": \"https://reborn-assistance.fr/tl/docs/\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html\"",
+      "\"item\": \"https://reborn-assistance.fr/tl/docs/i-automate-ang-ringmaster-flyff-universe.html\""
     ]
   ],
   "tools-2026": [
@@ -688,7 +716,7 @@
     ],
     [
       "Flyffipedia (flyffipedia.com) est une base de données Flyff Universe alimentée par les données du jeu et tenue par un mainteneur, swaight. C'est une référence très citée par les ressources communautaires, qui renvoient vers ses fiches détaillées d'objets, de monstres, de compétences, de quêtes et de PNJ.",
-      "Ang Flyffipedia (flyffipedia.com) ay isang Flyff Universe database na binuo mula sa data ng laro at mina-maintain ng isang maintainer, si swaight. Isa itong reference na madalas banggitin ng mga community resource, na nagli-link sa mga detalyadong page nito para sa mga item, monster, skill, quest at NPC."
+      "Ang Flyffipedia (flyffipedia.com) ay isang Flyff Universe database na binuo mula sa data ng laro at mina-maintain ni swaight. Isa itong reference na madalas banggitin ng mga community resource, na nagli-link sa mga detalyadong page nito para sa mga item, monster, skill, quest at NPC."
     ],
     [
       "Le bon réflexe pour vérifier une compétence, retrouver un objet ou préparer une quête. À garder en favori.",
@@ -728,7 +756,7 @@
     ],
     [
       "Vous croiserez aussi Skillulator (skillulator.lol), pratique pour partager un build de compétences par simple lien. Attention&nbsp;: il n'a plus été mis à jour depuis juillet 2025, avant l'arrivée des 3e classes.",
-      "Makakatagpo mo rin ang Skillulator (skillulator.lol), na praktikal para mag-share ng skill build gamit lang ang isang link. Mag-ingat: hindi na ito na-update mula Hulyo 2025, bago dumating ang mga 3rd class."
+      "Makikita mo rin ang Skillulator (skillulator.lol), na praktikal para mag-share ng skill build gamit lang ang isang link. Mag-ingat: hindi na ito na-update mula Hulyo 2025, bago dumating ang mga 3rd class."
     ],
     [
       "6. L'API officielle Flyff Universe — Les données à la source",
@@ -864,7 +892,7 @@
     ],
     [
       "← Retour aux docs",
-      "← Bumalik sa docs"
+      "← Bumalik sa Dokumentasyon"
     ],
     [
       "★ Rang I · Notre extension",
@@ -917,6 +945,34 @@
     [
       "REBORN ASSISTANT",
       "REBORN ASSISTANT"
+    ],
+    [
+      "\"name\": \"Accueil\"",
+      "\"name\": \"Home\""
+    ],
+    [
+      "\"name\": \"Documentation\"",
+      "\"name\": \"Dokumentasyon\""
+    ],
+    [
+      "\"inLanguage\": \"fr\"",
+      "\"inLanguage\": \"tl\""
+    ],
+    [
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/meilleurs-outils-flyff-universe-2026.html\"",
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/tl/docs/pinakamahusay-flyff-universe-tools-2026.html\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/\"",
+      "\"item\": \"https://reborn-assistance.fr/tl/\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/\"",
+      "\"item\": \"https://reborn-assistance.fr/tl/docs/\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/meilleurs-outils-flyff-universe-2026.html\"",
+      "\"item\": \"https://reborn-assistance.fr/tl/docs/pinakamahusay-flyff-universe-tools-2026.html\""
     ]
   ],
   "guide-rm": [
@@ -1682,7 +1738,7 @@
     ],
     [
       "<strong>Se tromper de buff</strong> — Beef Up donne de la STR, pas des HP (c'est Patience)&nbsp;; Cat's Reflex donne du blocage, pas de l'esquive.",
-      "<strong>Pagkakamali sa buff</strong> — STR ang ibinibigay ng Beef Up, hindi HP (Patience iyon); block ang ibinibigay ng Cat's Reflex, hindi dodge."
+      "<strong>Pagkalito sa mga buff</strong> — STR ang ibinibigay ng Beef Up, hindi HP (Patience iyon); block ang ibinibigay ng Cat's Reflex, hindi dodge."
     ],
     [
       "<strong>Négliger l'INT</strong> — soins, buffs, dégâts de Merkaba et réserve de MP en dépendent&nbsp;; seul le build AoE monte un peu sa STA (50 à 120 selon les guides).",
@@ -1738,7 +1794,7 @@
     ],
     [
       "← Retour aux docs",
-      "← Bumalik sa docs"
+      "← Bumalik sa Dokumentasyon"
     ],
     [
       "◆ Sommaire",
@@ -1775,6 +1831,34 @@
     [
       "REBORN ASSISTANT",
       "REBORN ASSISTANT"
+    ],
+    [
+      "\"name\": \"Accueil\"",
+      "\"name\": \"Home\""
+    ],
+    [
+      "\"name\": \"Documentation\"",
+      "\"name\": \"Dokumentasyon\""
+    ],
+    [
+      "\"inLanguage\": \"fr\"",
+      "\"inLanguage\": \"tl\""
+    ],
+    [
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html\"",
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/tl/docs/gabay-sa-ringmaster-flyff-universe.html\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/\"",
+      "\"item\": \"https://reborn-assistance.fr/tl/\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/\"",
+      "\"item\": \"https://reborn-assistance.fr/tl/docs/\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html\"",
+      "\"item\": \"https://reborn-assistance.fr/tl/docs/gabay-sa-ringmaster-flyff-universe.html\""
     ]
   ]
 }
