@@ -1,0 +1,1780 @@
+{
+  "automate-rm": [
+    [
+      "automatiser Ringmaster, RM Flyff Universe, macro Ringmaster, auto buff Flyff, séquences RM, support Flyff, Reborn Assistant Ringmaster",
+      "Ringmaster 自動化, リングマスター 自動化, Flyff Universe RM, Ringmaster マクロ, Flyff 自動バフ, RM シーケンス, Flyff サポート, Reborn Assistant Ringmaster"
+    ],
+    [
+      "Reborn Assistant",
+      "Reborn Assistant"
+    ],
+    [
+      "Automatiser son Ringmaster sur Flyff Universe — Guide 2026",
+      "Flyff UniverseでRingmasterを自動化する — 2026年ガイド"
+    ],
+    [
+      "Tutoriel pas à pas pour automatiser votre Ringmaster sur Flyff Universe avec Reborn Assistant : rotation de buffs, Geburah Tiphreth, Heal Rain et potions de MP, avec des intervalles à régler vous-même d'après la durée réelle des buffs.",
+      "Reborn AssistantでFlyff UniverseのRingmasterを自動化するステップバイステップのチュートリアル：バフローテーション、Geburah Tiphreth、Heal Rain、MPポーション。間隔はバフの実際の持続時間をもとに自分で設定します。"
+    ],
+    [
+      "Flyff Universe",
+      "Flyff Universe"
+    ],
+    [
+      "Game automation",
+      "ゲームの自動化"
+    ],
+    [
+      "Browser extension",
+      "ブラウザ拡張機能"
+    ],
+    [
+      "Automatiser son Ringmaster sur Flyff Universe",
+      "Flyff UniverseでRingmasterを自動化する"
+    ],
+    [
+      "Méthode complète pour automatiser les actions répétitives d'un Ringmaster sur Flyff Universe avec Reborn Assistant, qui appuie sur les touches que vous configurez sans lire les données du jeu.",
+      "Reborn Assistantを使って、Flyff UniverseでRingmasterの繰り返し操作を自動化するための完全ガイド。Reborn Assistantは設定したキーを押すだけで、ゲームのデータは読み取りません。"
+    ],
+    [
+      "Reborn Assistant (extension Chrome)",
+      "Reborn Assistant（Chrome拡張機能）"
+    ],
+    [
+      "Navigateur Chromium (Chrome, Edge, Brave)",
+      "Chromium系ブラウザ（Chrome、Edge、Brave）"
+    ],
+    [
+      "Installer Reborn Assistant",
+      "Reborn Assistantをインストール"
+    ],
+    [
+      "Ajoutez l'extension Reborn Assistant depuis le Chrome Web Store et épinglez-la dans la barre d'outils.",
+      "Chrome Web StoreからReborn Assistant拡張機能を追加し、ツールバーにピン留めします。"
+    ],
+    [
+      "Choisir vos buffs Ringmaster",
+      "Ringmasterのバフを選択"
+    ],
+    [
+      "Recensez vos buffs clés : Protect, Spirit Fortune, Geburah Tiphreth, les buffs d'Assist (Heap Up, Patience, Haste, Beef Up, Mental Sign…) et le soin de groupe Heal Rain.",
+      "主要なバフを洗い出します：Protect、Spirit Fortune、Geburah Tiphreth、Assistのバフ（Heap Up、Patience、Haste、Beef Up、Mental Sign…）、そしてパーティ回復のHeal Rain。"
+    ],
+    [
+      "Configurer la rotation de séquences",
+      "シーケンスローテーションを設定"
+    ],
+    [
+      "Placez vos buffs mono-cible sur les emplacements 1 à 9 de votre 2e barre de raccourcis, puis activez la rotation de séquences (F2, les emplacements de cette barre dans l'ordre, puis F1) avec un intervalle un peu inférieur à la durée de vos buffs (250 secondes plus 2 secondes par point d'INT au niveau maximum).",
+      "単体バフを2番目のショートカットバーのスロット1〜9に置き、シーケンスローテーション（F2、このバーのスロットを順番に、最後にF1）を有効にします。間隔はバフの持続時間（スキル最大レベルで250秒+INT×2秒）より少し短く設定します。"
+    ],
+    [
+      "Programmer le Heal automatique",
+      "自動ヒールを設定"
+    ],
+    [
+      "Placez Heal Rain sur l'emplacement 0 de vos deux premières barres, reportez la touche 0 dans la section SOIN du panneau Reborn, choisissez l'intervalle selon les dégâts subis et votre MP, puis activez le toggle ON.",
+      "最初の二つのバーのスロット0にHeal Rainを置き、Rebornパネルのヒールセクションにキー0を入力します。受けるダメージとMPに応じて間隔を選び、トグルをONにします。"
+    ],
+    [
+      "Ajouter Geburah Tiphreth et les potions en macros",
+      "Geburah Tiphrethとポーションをマクロに追加"
+    ],
+    [
+      "Créez une macro pour Geburah Tiphreth (30 secondes plus 0,15 seconde par point d'INT) avec un intervalle juste inférieur à sa durée, et une macro pour vos potions de MP.",
+      "Geburah Tiphreth用のマクロ（持続時間は30秒+INT×0.15秒）を持続時間よりわずかに短い間隔で作成し、MPポーション用のマクロも作成します。"
+    ],
+    [
+      "Lancer l'automatisation",
+      "自動化を開始"
+    ],
+    [
+      "Démarrez avec CTRL+A, surveillez le log d'activité, ajustez les délais et gardez un œil sur le jeu : l'extension ne lit ni les barres de vie ni le MP.",
+      "CTRL+Aで開始し、アクティビティログを確認しながら遅延を調整します。ゲーム画面からも目を離さないでください：拡張機能はHPバーもMPも読み取りません。"
+    ],
+    [
+      "Automatiser son Ringmaster",
+      "Ringmasterを自動化する"
+    ],
+    [
+      "Automatiser son Ringmaster sur Flyff Universe — Guide complet 2026",
+      "Flyff UniverseでRingmasterを自動化する — 2026年完全ガイド"
+    ],
+    [
+      "Rotation de buffs, Geburah Tiphreth, Heal Rain, gestion du MP&nbsp;: le tutoriel pas à pas pour transformer votre Ringmaster en pilier de groupe sans y laisser la main.",
+      "バフローテーション、Geburah Tiphreth、Heal Rain、MP管理。手を酷使することなく、Ringmasterをパーティの要に変えるためのステップバイステップのチュートリアルです。"
+    ],
+    [
+      "<a href=\"#pourquoi\">Pourquoi automatiser son Ringmaster</a>",
+      "<a href=\"#pourquoi\">なぜRingmasterを自動化するのか</a>"
+    ],
+    [
+      "<a href=\"#prerequis\">Prérequis avant d'automatiser</a>",
+      "<a href=\"#prerequis\">自動化の前に必要なもの</a>"
+    ],
+    [
+      "<a href=\"#sequences\">Choisir les buffs à automatiser</a>",
+      "<a href=\"#sequences\">自動化するバフを選ぶ</a>"
+    ],
+    [
+      "<a href=\"#rotation\">Configurer la rotation de buffs</a>",
+      "<a href=\"#rotation\">バフローテーションを設定する</a>"
+    ],
+    [
+      "<a href=\"#heal\">Programmer le Heal Rain automatique</a>",
+      "<a href=\"#heal\">Heal Rainの自動化を設定する</a>"
+    ],
+    [
+      "<a href=\"#macros\">Macros, Familier, Suivre, Auto-clic</a>",
+      "<a href=\"#macros\">マクロ、ペット、追従、オートクリック</a>"
+    ],
+    [
+      "<a href=\"#optimisation\">Optimisation et erreurs courantes</a>",
+      "<a href=\"#optimisation\">最適化とよくある失敗</a>"
+    ],
+    [
+      "<a href=\"#legal\">Aspect légal — ce qu'il faut savoir</a>",
+      "<a href=\"#legal\">法的側面 — 知っておくべきこと</a>"
+    ],
+    [
+      "Pourquoi automatiser son Ringmaster",
+      "なぜRingmasterを自動化するのか"
+    ],
+    [
+      "Le Ringmaster (souvent abrégé <strong>RM</strong>) est la classe support emblématique de Flyff Universe&nbsp;: c'est la branche soins et buffs de l'Assist, accessible au niveau 60, dont la 3e classe, le Seraph, est arrivée avec l'extension Muran's Awakening (v1.5.0, novembre 2025). Son rôle est clair&nbsp;: renforcer ses alliés avec des buffs (Protect, Spirit Fortune, Geburah Tiphreth, et les buffs d'Assist comme Heap Up, Beef Up ou Mental Sign) et soigner le groupe avec Heal Rain. Sur le papier, c'est limpide. En pratique, c'est l'une des classes les plus répétitives à jouer en farm prolongé&nbsp;: vous passez une bonne partie de votre temps à <strong>relancer vos buffs dès qu'ils expirent</strong>, à <strong>relancer Geburah Tiphreth</strong>, qui ne dure que 30 secondes plus 0,15 seconde par point d'INT, à <strong>enchaîner les Heal Rain</strong> et à <strong>surveiller votre MP</strong> en plus des PV du groupe.",
+      "Ringmaster（<strong>RM</strong>と略されることが多い）は、Flyff Universeを代表するサポートクラスです。Assistから分かれる回復・バフ担当の系統で、レベル60で転職でき、その3次職であるSeraphは大型アップデート「Muran's Awakening」（v1.5.0、2025年11月）で実装されました。役割は明確で、バフ（Protect、Spirit Fortune、Geburah Tiphreth、そしてHeap Up、Beef Up、Mental SignなどのAssistのバフ）で味方を強化し、Heal Rainでパーティを回復することです。理屈の上では単純明快です。しかし実際には、長時間の狩りでは最も繰り返し作業の多いクラスの一つです。<strong>バフが切れるたびにかけ直し</strong>、持続時間がわずか30秒+INT×0.15秒しかない<strong>Geburah Tiphrethをかけ直し</strong>、<strong>Heal Rainを連発し</strong>、パーティのHPに加えて<strong>自分のMPにも目を配る</strong>ことに、多くの時間を費やすことになります。"
+    ],
+    [
+      "L'automatisation ne remplace pas votre jugement. Elle décharge votre clavier des routines mécaniques&nbsp;: le cycle de rebuff complet, Geburah Tiphreth, le Heal Rain périodique, les potions de MP. Reborn Assistant ne voit ni l'écran ni les barres de vie&nbsp;: il appuie sur les touches que vous avez configurées, au rythme que vous avez choisi. Vous gardez les mains libres pour les <strong>moments où ça compte vraiment</strong>&nbsp;: un membre qui tombe, un pack de monstres qui dérape, un boss qui cible le RM en premier.",
+      "自動化はあなたの判断に取って代わるものではありません。バフのかけ直しサイクル全体、Geburah Tiphreth、定期的なHeal Rain、MPポーションといった機械的な作業を、キーボードから肩代わりするものです。Reborn Assistantは画面もHPバーも見ていません。設定したキーを、選んだペースで押すだけです。その分、両手を<strong>本当に重要な場面</strong>のために空けておけます：メンバーが倒れたとき、モンスターの群れが手に負えなくなったとき、ボスが真っ先にRMを狙ってきたとき。"
+    ],
+    [
+      "Prérequis avant d'automatiser",
+      "自動化の前に必要なもの"
+    ],
+    [
+      "Avant d'activer quoi que ce soit, posez les bases solides. Rappel utile&nbsp;: dans Flyff Universe, les touches F1 à F9 affichent l'une de vos 9 barres de raccourcis, et les touches 1 à 0 déclenchent les emplacements de la barre affichée.",
+      "何かを有効にする前に、しっかりと土台を固めましょう。覚えておきたいポイント：Flyff Universeでは、F1〜F9キーで9本あるショートカットバーのいずれかを表示し、1〜0キーで表示中のバーのスロットを使用します。"
+    ],
+    [
+      "<strong>Reborn Assistant Premium</strong> installé (la version gratuite ne couvre que la macro soin de base). Voir le <a href=\"quickstart.html\">guide d'installation</a>.",
+      "<strong>Reborn Assistant Premium</strong>がインストール済みであること（無料版は基本のヒールマクロにしか対応していません）。<a href=\"quickstart.html\">インストールガイド</a>を参照してください。"
+    ],
+    [
+      "<strong>Vos buffs de rotation sur votre 2e barre</strong> (celle qu'affiche <code>F2</code>), emplacements 1 à 9 — c'est elle que la rotation de Reborn Assistant parcourt.",
+      "<strong>ローテーション用のバフは2番目のバーに</strong>（<code>F2</code>で表示されるバー）、スロット1〜9に配置 — Reborn Assistantのローテーションが巡回するのはこのバーです。"
+    ],
+    [
+      "<strong>Geburah Tiphreth et vos potions sur votre 1re barre</strong> (<code>F1</code>), celle sur laquelle la rotation vous ramène à la fin de chaque cycle.",
+      "<strong>Geburah Tiphrethとポーションは1番目のバーに</strong>（<code>F1</code>）。各サイクルの最後にローテーションが戻ってくるバーです。"
+    ],
+    [
+      "<strong>Heal Rain sur l'emplacement 0 de vos deux barres</strong>, et aucun buff sur l'emplacement 0 de la 2e barre&nbsp;: la touche 0 lance ainsi Heal Rain, que la 1re ou la 2e barre soit affichée au moment du soin. Les touches se réassignent dans Options › Raccourcis&nbsp;; si vous préférez une lettre, évitez <code>T</code>, qui ouvre la fenêtre de statut.",
+      "<strong>Heal Rainは両方のバーのスロット0に</strong>置き、2番目のバーのスロット0にはバフを置かないこと。こうすれば、回復のタイミングで1番目と2番目のどちらのバーが表示されていても、キー0でHeal Rainが発動します。キーはオプション › ショートカットで変更できます。文字キーを使いたい場合、<code>T</code>はステータスウィンドウを開くキーなので避けてください。"
+    ],
+    [
+      "<strong>Une réserve de potions de MP</strong> (Refreshers)&nbsp;: tous les sorts du Ringmaster consomment du MP, pas de FP — l'automatisation n'invente pas les ressources.",
+      "<strong>MPポーションの備蓄</strong>（Refresher）：Ringmasterのスキルはすべて、FPではなくMPを消費します — 自動化してもリソースが湧いてくるわけではありません。"
+    ],
+    [
+      "<strong>Un groupe formé et un spot où il reste regroupé</strong>&nbsp;: Heal Rain et Geburah Tiphreth ne touchent que les membres de votre groupe situés à moins de 13 mètres de vous.",
+      "<strong>パーティを組み、メンバーがまとまっていられる狩場</strong>：Heal RainとGeburah Tiphrethの効果は、自分から13メートル以内にいるパーティメンバーにしか届きません。"
+    ],
+    [
+      "Choisir les buffs à automatiser",
+      "自動化するバフを選ぶ"
+    ],
+    [
+      "Tous les buffs ne s'automatisent pas de la même façon. Ce qui compte pour Reborn Assistant, c'est leur durée&nbsp;: l'extension ne voit pas quand un buff expire, elle suit seulement l'intervalle que vous lui donnez. La plupart des buffs de l'Assist et du Ringmaster durent de 2&nbsp;min&nbsp;30 à 4&nbsp;min&nbsp;10 de base selon le niveau de la compétence, plus 2 secondes par point d'INT du lanceur, sans plafond. Geburah Tiphreth fait exception&nbsp;: 30 secondes plus 0,15 seconde par point d'INT. Presque tous sont mono-cible&nbsp;: ils s'appliquent au personnage sélectionné. Les guides Flyff Universe pour Ringmaster full support conseillent de monter en priorité Protect, Spirit Fortune et Geburah Tiphreth.",
+      "すべてのバフが同じように自動化できるわけではありません。Reborn Assistantにとって重要なのは持続時間です。拡張機能はバフが切れたことを検知できず、指定された間隔に従うだけだからです。AssistとRingmasterのバフの多くは、スキルレベルに応じて基本2分30秒〜4分10秒持続し、さらに術者のINT×2秒が上限なしで加算されます。例外はGeburah Tiphrethで、30秒+INT×0.15秒です。ほぼすべてが単体バフで、選択中のキャラクターにかかります。Full Support型Ringmaster向けのFlyff Universeガイドでは、Protect、Spirit Fortune、Geburah Tiphrethを優先して上げることが推奨されています。"
+    ],
+    [
+      "Buffs à entretenir en rotation (mono-cible)",
+      "ローテーションで維持するバフ（単体）"
+    ],
+    [
+      "<strong>Protect</strong> (Ringmaster) — Défense et Défense magique +10% au niveau 10",
+      "<strong>Protect</strong>（Ringmaster）— レベル10で防御力と魔法防御力+10%"
+    ],
+    [
+      "<strong>Spirit Fortune</strong> (Ringmaster) — +150 aux dégâts au niveau 10",
+      "<strong>Spirit Fortune</strong>（Ringmaster）— レベル10でダメージ+150"
+    ],
+    [
+      "<strong>Heap Up, Beef Up, Mental Sign, Cannon Ball</strong> (Assist) — respectivement STA, STR, INT et DEX +20 au niveau 20",
+      "<strong>Heap Up、Beef Up、Mental Sign、Cannon Ball</strong>（Assist）— レベル20でそれぞれSTA、STR、INT、DEX +20"
+    ],
+    [
+      "<strong>Patience</strong> (Assist) — PV max +10% au niveau 20",
+      "<strong>Patience</strong>（Assist）— レベル20で最大HP +10%"
+    ],
+    [
+      "<strong>Haste</strong> (Assist) — vitesse d'attaque +15% et temps d'incantation −10% au niveau 20",
+      "<strong>Haste</strong>（Assist）— レベル20で攻撃速度+15%、詠唱時間−10%"
+    ],
+    [
+      "<strong>Cat's Reflex</strong> (Assist) — taux de blocage +10% au niveau 20",
+      "<strong>Cat's Reflex</strong>（Assist）— レベル20でブロック率+10%"
+    ],
+    [
+      "<strong>Accuracy</strong> (Assist) — taux de toucher +20% au niveau 20",
+      "<strong>Accuracy</strong>（Assist）— レベル20で命中率+20%"
+    ],
+    [
+      "<strong>Quick Step</strong> (Assist) — vitesse de déplacement +20% au niveau 20",
+      "<strong>Quick Step</strong>（Assist）— レベル20で移動速度+20%"
+    ],
+    [
+      "Chacun de ces buffs gagne aussi en puissance avec votre INT (par exemple +0,04 STA par point d'INT pour Heap Up), jusqu'à un plafond atteint à 500 d'INT. Leur durée, elle, continue d'augmenter. Au niveau maximum de la compétence, elle vaut 250 secondes plus 2 secondes par point d'INT&nbsp;:",
+      "これらのバフはいずれもINTによって効果も強化され（例：Heap UpならSTAがさらにINT×0.04増加）、INT 500で上限に達します。一方、持続時間はその後も伸び続けます。スキル最大レベルでの持続時間は250秒+INT×2秒です："
+    ],
+    [
+      "INT du lanceur",
+      "術者のINT"
+    ],
+    [
+      "Buffs de rotation (niveau max)",
+      "ローテーション用バフ（最大レベル）"
+    ],
+    [
+      "Geburah Tiphreth",
+      "Geburah Tiphreth"
+    ],
+    [
+      "<strong>100</strong>",
+      "<strong>100</strong>"
+    ],
+    [
+      "450 s (7&nbsp;min&nbsp;30)",
+      "450秒（7分30秒）"
+    ],
+    [
+      "45 s",
+      "45秒"
+    ],
+    [
+      "<strong>200</strong>",
+      "<strong>200</strong>"
+    ],
+    [
+      "650 s (10&nbsp;min&nbsp;50)",
+      "650秒（10分50秒）"
+    ],
+    [
+      "60 s",
+      "60秒"
+    ],
+    [
+      "<strong>300</strong>",
+      "<strong>300</strong>"
+    ],
+    [
+      "850 s (14&nbsp;min&nbsp;10)",
+      "850秒（14分10秒）"
+    ],
+    [
+      "75 s",
+      "75秒"
+    ],
+    [
+      "<strong>400</strong>",
+      "<strong>400</strong>"
+    ],
+    [
+      "1050 s (17&nbsp;min&nbsp;30)",
+      "1050秒（17分30秒）"
+    ],
+    [
+      "90 s",
+      "90秒"
+    ],
+    [
+      "<strong>500</strong>",
+      "<strong>500</strong>"
+    ],
+    [
+      "1250 s (20&nbsp;min&nbsp;50)",
+      "1250秒（20分50秒）"
+    ],
+    [
+      "105 s",
+      "105秒"
+    ],
+    [
+      "Un buff court à part&nbsp;: Geburah Tiphreth",
+      "別枠の短いバフ：Geburah Tiphreth"
+    ],
+    [
+      "Geburah Tiphreth est le seul buff de groupe du Ringmaster&nbsp;: au niveau 10, il donne Attaque +10%, vitesse d'attaque +15% et temps d'incantation −10% à vous et aux membres du groupe situés à moins de 13 mètres. Mais il ne dure que 30 secondes plus 0,15 seconde par point d'INT, quel que soit son niveau, et n'a pas de temps de recharge. Il est bien trop court pour la rotation&nbsp;: donnez-lui sa propre macro (voir plus bas).",
+      "Geburah TiphrethはRingmaster唯一のパーティバフです。レベル10では、自分と13メートル以内のパーティメンバーに攻撃力+10%、攻撃速度+15%、詠唱時間−10%を付与します。ただし持続時間はスキルレベルに関係なく30秒+INT×0.15秒しかなく、クールタイムもありません。ローテーションに組み込むには短すぎるので、専用のマクロを用意しましょう（後述）。"
+    ],
+    [
+      "Compétences à garder en manuel",
+      "手動で使うべきスキル"
+    ],
+    [
+      "Ces compétences répondent à une situation précise. Comme Reborn Assistant ne voit pas ce qui se passe à l'écran, gardez-les sous vos doigts&nbsp;:",
+      "これらのスキルは特定の状況に対応するためのものです。Reborn Assistantは画面上で何が起きているかを見ていないので、いつでも自分で使えるようにしておきましょう："
+    ],
+    [
+      "<strong>Resurrection</strong> — ressuscite un joueur mort&nbsp;; jamais en automatique, une minuterie ne sait pas qui est tombé",
+      "<strong>Resurrection</strong> — 死亡したプレイヤーを蘇生します。タイマーには誰が倒れたかわからないので、決して自動化しないでください"
+    ],
+    [
+      "<strong>Holycross</strong> — débuff sur un ennemi&nbsp;: le prochain coup qu'il reçoit inflige des dégâts doublés (5 secondes)",
+      "<strong>Holycross</strong> — 敵にかけるデバフ。次に受ける攻撃のダメージが倍になります（5秒）"
+    ],
+    [
+      "<strong>Holyguard</strong> — immunité aux coups critiques pendant 2 à 5 secondes de base, avec un temps de recharge de 100 secondes au niveau 1 et 45 au niveau 10",
+      "<strong>Holyguard</strong> — 基本2〜5秒間、クリティカルヒットを無効化。クールタイムはレベル1で100秒、レベル10で45秒"
+    ],
+    [
+      "<strong>Gvur Tialla</strong> — retire tous les débuffs de la cible",
+      "<strong>Gvur Tialla</strong> — 対象のデバフをすべて解除"
+    ],
+    [
+      "<strong>Barrier of Life</strong> — la cible bloque tous les coups pendant 1,2 à 2 secondes, avec 18 secondes de temps de recharge",
+      "<strong>Barrier of Life</strong> — 対象が1.2〜2秒間すべての攻撃をブロック。クールタイム18秒"
+    ],
+    [
+      "Configurer la rotation de buffs",
+      "バフローテーションを設定する"
+    ],
+    [
+      "C'est le cœur du système. Reborn Assistant peut dérouler à intervalle régulier une séquence de touches fixe, qui commence par <code>F2</code>, enchaîne les touches d'emplacement dans l'ordre (<code>1</code>, <code>2</code>, <code>3</code>…) et se termine par <code>F1</code>. Dans le jeu, F2 affiche votre 2e barre de raccourcis, les touches 1 à 9 déclenchent les buffs que vous y avez placés, et F1 vous ramène à votre 1re barre. Voici comment l'aligner avec votre RM&nbsp;:",
+      "ここがシステムの核心です。Reborn Assistantは、決まったキーシーケンスを一定の間隔で実行できます。シーケンスは<code>F2</code>から始まり、スロットキーを順番に押して（<code>1</code>、<code>2</code>、<code>3</code>…）、<code>F1</code>で終わります。ゲーム内では、F2で2番目のショートカットバーが表示され、1〜9キーでそこに置いたバフが発動し、F1で1番目のバーに戻ります。RMに合わせた設定方法は次のとおりです："
+    ],
+    [
+      "Ouvrez la fenêtre des compétences (touche <code>K</code>), affichez votre 2e barre avec <code>F2</code> et glissez-y vos buffs dans cet ordre&nbsp;:",
+      "スキルウィンドウ（<code>K</code>キー）を開き、<code>F2</code>で2番目のバーを表示して、次の順番でバフをドラッグします："
+    ],
+    [
+      "Touche 1 → Protect",
+      "キー1 → Protect"
+    ],
+    [
+      "Touche 2 → Spirit Fortune",
+      "キー2 → Spirit Fortune"
+    ],
+    [
+      "Touche 3 → Heap Up",
+      "キー3 → Heap Up"
+    ],
+    [
+      "Touche 4 → Patience",
+      "キー4 → Patience"
+    ],
+    [
+      "Touche 5 → Haste",
+      "キー5 → Haste"
+    ],
+    [
+      "Touches 6 à 9 → quatre autres buffs choisis selon votre cible (Beef Up, Mental Sign, Cannon Ball, Cat's Reflex, Accuracy…)",
+      "キー6〜9 → 対象に合わせて選んだ他のバフ四つ（Beef Up、Mental Sign、Cannon Ball、Cat's Reflex、Accuracy…）"
+    ],
+    [
+      "Touche 0 → Heal Rain, comme sur votre 1re barre (voir le soin automatique plus bas)",
+      "キー0 → Heal Rain、1番目のバーと同じ（後述の自動ヒールを参照）"
+    ],
+    [
+      "Ces buffs sont mono-cible&nbsp;: chaque cycle les lance sur le personnage sélectionné à ce moment-là. Gardez votre partenaire sélectionné pendant le farm.",
+      "これらは単体バフです。各サイクルでは、その時点で選択しているキャラクターにかかります。狩りの間は相方を選択したままにしておきましょう。"
+    ],
+    [
+      "Dans le panneau Reborn&nbsp;:",
+      "Rebornパネルで："
+    ],
+    [
+      "Activez la <strong>rotation de séquences</strong>",
+      "<strong>シーケンスローテーション</strong>を有効にする"
+    ],
+    [
+      "Réglez <strong>l'intervalle entre cycles</strong> un peu en dessous de la durée de votre buff le plus court (voir le tableau ci-dessus)&nbsp;: par exemple 13 minutes à 300 d'INT, pour des buffs qui durent 14&nbsp;min&nbsp;10. Si vous ajoutez Prevention, un auto-soin qui ne s'applique qu'à vous, sa durée de base reste 2&nbsp;min&nbsp;30 à tous les niveaux&nbsp;: c'est alors elle qui fixe l'intervalle.",
+      "<strong>サイクル間の間隔</strong>を、最も短いバフの持続時間より少し短く設定する（上の表を参照）。例えばINT 300なら、持続時間14分10秒のバフに対して13分。自分にしかかからない自動回復のPreventionを加える場合、その基本持続時間はどのレベルでも2分30秒のままなので、間隔はPreventionの持続時間で決まります。"
+    ],
+    [
+      "Réglez <strong>le délai entre touches</strong> sur 1 seconde&nbsp;: les buffs de votre rotation ont un temps d'incantation de 1 seconde (moins avec Haste, Geburah Tiphreth ou un équipement qui réduit l'incantation)",
+      "<strong>キー間の遅延</strong>を1秒に設定する。ローテーションのバフは詠唱時間が1秒です（Haste、Geburah Tiphreth、詠唱時間を短縮する装備があればそれより短くなります）"
+    ],
+    [
+      "Lancez avec <code>CTRL+A</code>. Surveillez le log d'activité&nbsp;: vous devez voir <em>F2 pressed → 1 pressed → 2 pressed…</em> séquentiellement, avec ~1 seconde entre chaque. Si un buff ne part pas, vérifiez en jeu&nbsp;: le plus souvent, il vous manque du MP ou la mauvaise cible est sélectionnée. Ces buffs n'ont pas de temps de recharge (Prevention en a un, mais bien plus court que votre intervalle).",
+      "<code>CTRL+A</code>で開始します。アクティビティログを確認し、<em>F2 pressed → 1 pressed → 2 pressed…</em>と約1秒間隔で順番に表示されることを確かめてください。バフが発動しない場合はゲーム内を確認しましょう。多くの場合、MPが足りないか、間違った対象を選択しています。これらのバフにクールタイムはありません（Preventionにはありますが、設定する間隔よりずっと短いものです）。"
+    ],
+    [
+      "Programmer le Heal Rain automatique",
+      "Heal Rainの自動化を設定する"
+    ],
+    [
+      "Heal Rain tourne en parallèle de la rotation des buffs. C'est un soin de groupe instantané&nbsp;: en 0,5 seconde d'incantation, il soigne les membres de votre groupe situés à moins de 13 mètres de vous (200&nbsp;PV + 8&nbsp;×&nbsp;INT au niveau 1, jusqu'à 650&nbsp;PV + 8,18&nbsp;×&nbsp;INT au niveau 10), pour 80 à 170 MP. Les données du jeu ne lui donnent ni durée ni temps de recharge&nbsp;: c'est à vous de choisir le rythme. Reborn Assistant propose une section <strong>SOIN</strong> dédiée dans le panneau, avec touche et intervalle entièrement configurables.",
+      "Heal Rainはバフローテーションと並行して動作します。即時発動のパーティ回復スキルで、0.5秒の詠唱で自分から13メートル以内のパーティメンバーを回復します（レベル1でHP 200 + 8 × INT、レベル10でHP 650 + 8.18 × INTまで）。消費MPは80〜170です。ゲームデータ上は持続時間もクールタイムも設定されていないので、使う間隔は自分で決めます。Reborn Assistantのパネルには専用の<strong>ヒール</strong>セクションがあり、キーと間隔を自由に設定できます。"
+    ],
+    [
+      "Glissez Heal Rain sur l'emplacement 0 de votre 1re et de votre 2e barre (voir les prérequis). Reportez ensuite cette même touche, <code>0</code>, dans le champ «&nbsp;Touche&nbsp;» de la section SOIN du panneau Reborn.",
+      "Heal Rainを1番目と2番目のバーのスロット0にドラッグします（「自動化の前に必要なもの」を参照）。次に、同じキー<code>0</code>を、Rebornパネルのヒールセクションの「キー」欄に入力します。"
+    ],
+    [
+      "Aucun intervalle n'est imposé par le jeu&nbsp;: choisissez-le selon les dégâts que subit votre groupe et votre réserve de MP. Plus il est court, plus vous soignez, et plus vous consommez&nbsp;: au niveau 10, un Heal Rain toutes les 5 secondes coûte environ 2000 MP par minute. Partez d'une valeur prudente, observez, puis ajustez. Basculez le toggle <strong>ON</strong>. L'extension déclenchera votre touche toutes les X secondes, en parallèle de la rotation de buffs et des autres systèmes, que le groupe soit blessé ou non, puisqu'elle ne lit pas les barres de vie.",
+      "ゲーム側で決められた間隔はありません。パーティが受けるダメージと自分のMP残量に応じて選んでください。間隔が短いほど回復量は増えますが、消費も増えます。レベル10の場合、5秒ごとにHeal Rainを使うと毎分約2000MPを消費します。控えめな値から始めて、様子を見ながら調整しましょう。トグルを<strong>ON</strong>に切り替えます。拡張機能はHPバーを読み取らないため、パーティがダメージを受けているかどうかに関係なく、バフローテーションや他のシステムと並行して、X秒ごとにキーを押します。"
+    ],
+    [
+      "Macros, Familier, Suivre, Auto-clic",
+      "マクロ、ペット、追従、オートクリック"
+    ],
+    [
+      "En plus de la rotation de buffs et du soin, Reborn Assistant Premium offre quatre systèmes complémentaires que vous activez indépendamment selon vos besoins.",
+      "バフローテーションとヒールに加えて、Reborn Assistant Premiumには、必要に応じて個別に有効化できる四つの補助システムがあります。"
+    ],
+    [
+      "3 Macros personnalisables",
+      "カスタマイズ可能な3つのマクロ"
+    ],
+    [
+      "Chaque macro se répète à un <strong>intervalle configurable</strong> (secondes ou minutes), avec sa propre minuterie, indépendamment de la rotation. Pour un Ringmaster, une touche par macro suffit. Cas d'usage typiques&nbsp;:",
+      "各マクロは独自のタイマーで、ローテーションとは独立して<strong>設定可能な間隔</strong>（秒または分）で繰り返されます。Ringmasterなら、マクロごとにキー一つで十分です。代表的な使い方："
+    ],
+    [
+      "<strong>Macro 1</strong> — touche de Geburah Tiphreth, avec un intervalle juste en dessous de sa durée&nbsp;: par exemple 60 secondes à 300 d'INT, où il dure 75 secondes",
+      "<strong>マクロ1</strong> — Geburah Tiphrethのキー。間隔は持続時間よりわずかに短くします。例えばINT 300では持続時間が75秒なので、60秒に設定"
+    ],
+    [
+      "<strong>Macro 2</strong> — touche d'une potion de MP (Refresher) toutes les 20 à 30 secondes pour garder votre MP haut&nbsp;; ajustez selon votre consommation, Heal Rain et Geburah Tiphreth étant vos sorts les plus gourmands. Un Refresher Hold, objet premium du jeu, donne du MP illimité pendant 1 heure et rend cette macro inutile le temps de son effet.",
+      "<strong>マクロ2</strong> — MPポーション（Refresher）のキーを20〜30秒ごとに押してMPを高く保ちます。最もMPを消費するスキルはHeal RainとGeburah Tiphrethなので、消費量に合わせて調整してください。ゲーム内のプレミアムアイテムであるRefresher Holdを使うと1時間MPが無制限になり、その効果が続く間はこのマクロは不要です。"
+    ],
+    [
+      "<strong>Macro 3</strong> — touche d'une potion de PV d'urgence toutes les 60 secondes, en backup du SOIN principal. Elle part même si vos PV sont pleins&nbsp;: l'extension ne voit pas votre jauge.",
+      "<strong>マクロ3</strong> — メインのヒールの保険として、緊急用HPポーションのキーを60秒ごとに押します。拡張機能はゲージを見ていないため、HPが満タンでも発動します。"
+    ],
+    [
+      "Si une macro arrive à échéance pendant le cycle de buffs, elle est mise en attente et relancée automatiquement une fois le cycle terminé. Comme la rotation se termine par F1, placez les touches de vos macros sur votre 1re barre.",
+      "バフのサイクル中にマクロの実行タイミングが来た場合、そのマクロは待機状態になり、サイクル終了後に自動で実行されます。ローテーションはF1で終わるので、マクロのキーは1番目のバーに置いてください。"
+    ],
+    [
+      "Familier automatique (Premium)",
+      "自動ペット（Premium）"
+    ],
+    [
+      "L'extension sort et range votre familier automatiquement pendant l'automatisation, sans que vous ayez à ajouter sa touche à votre rotation. Vérifiez que la touche réglée dans le panneau est bien celle qui invoque votre familier en jeu. Pratique pour ne pas l'oublier pendant un long farm.",
+      "自動化の実行中、拡張機能がペットの召喚と収納を自動で行います。ペットのキーをローテーションに加える必要はありません。パネルで設定したキーが、ゲーム内でペットを召喚するキーと一致しているか確認してください。長時間の狩りでペットを出し忘れずに済むので便利です。"
+    ],
+    [
+      "Suivre automatique (Premium)",
+      "自動追従（Premium）"
+    ],
+    [
+      "Appui répété sur une touche dédiée (par défaut <code>F</code> dans l'extension) toutes les 5 secondes. Dans Flyff Universe, l'action qui suit la cible sélectionnée est sur <code>Z</code> par défaut d'après les outils tiers qui l'utilisent&nbsp;: vérifiez-la dans Options › Raccourcis et reportez exactement la même touche dans l'extension. Idéal pour suivre votre partenaire pendant que vous buffez et soignez&nbsp;: comme il reste sélectionné, il reste aussi la cible de vos buffs. Seule la touche est configurable, l'intervalle de 5 secondes est fixe.",
+      "専用キー（拡張機能のデフォルトは<code>F</code>）を5秒ごとに繰り返し押します。Flyff Universeでは、選択中の対象を追従するアクションは、この機能を使うサードパーティ製ツールによるとデフォルトで<code>Z</code>に割り当てられています。オプション › ショートカットで確認し、まったく同じキーを拡張機能に設定してください。バフや回復をしながら相方についていくのに最適です。相方は選択されたままなので、バフの対象にもなり続けます。設定できるのはキーだけで、5秒の間隔は固定です。"
+    ],
+    [
+      "Auto-clic souris (Premium)",
+      "マウスオートクリック（Premium）"
+    ],
+    [
+      "Clic à une position fixe de l'écran toutes les 2 secondes. Activez en cliquant sur l'icône <strong>🖱</strong> dans l'en-tête du panneau, puis cliquez sur l'endroit où vous voulez que les clics se déclenchent. Un point rouge clignotant indique la position active. Cliquez le ✕ à côté du point pour arrêter.",
+      "画面上の固定位置を2秒ごとにクリックします。パネルヘッダーの<strong>🖱</strong>アイコンをクリックして有効にし、クリックさせたい場所をクリックします。点滅する赤い点が現在の位置を示します。停止するには、点の横の✕をクリックしてください。"
+    ],
+    [
+      "Optimisation et erreurs courantes",
+      "最適化とよくある失敗"
+    ],
+    [
+      "<strong>Délai entre touches trop court</strong> — si des buffs sautent, augmentez le délai entre touches à 1,5 ou 2 secondes. Mieux vaut un cycle un peu plus lent mais qui passe à 100%.",
+      "<strong>キー間の遅延が短すぎる</strong> — バフが抜ける場合は、キー間の遅延を1.5秒または2秒に増やしてください。少し遅くても100%確実に最後まで通るサイクルのほうが良いでしょう。"
+    ],
+    [
+      "<strong>Temps d'incantation à respecter</strong> — chaque buff de votre rotation demande 1 seconde d'incantation avant réductions. Un délai d'au moins 1 seconde entre deux touches laisse chaque sort se terminer.",
+      "<strong>詠唱時間を考慮する</strong> — ローテーションの各バフは、短縮効果がない状態で1秒の詠唱が必要です。キーとキーの間に1秒以上の遅延を入れれば、各スキルの詠唱が完了します。"
+    ],
+    [
+      "<strong>MP qui s'épuise au milieu d'un cycle</strong> — l'extension continue d'appuyer, mais le jeu ne lance plus rien, et Reborn Assistant ne le voit pas. Un cycle de neuf buffs au niveau maximum coûte déjà près de 600 MP. Activez la macro de potion de MP ou augmentez votre INT&nbsp;: chaque point d'INT donne 16,2 MP max au Ringmaster.",
+      "<strong>サイクルの途中でMPが尽きる</strong> — 拡張機能はキーを押し続けますが、ゲーム内では何も発動せず、Reborn Assistantはそれに気づけません。最大レベルのバフを九つかけるサイクルだけで、すでに600MP近くを消費します。MPポーションのマクロを有効にするか、INTを上げましょう。Ringmasterの最大MPは、INTのポイントごとに16.2増加します。"
+    ],
+    [
+      "<strong>Membres du groupe hors de portée</strong> — le heal périodique ne soigne que les membres de votre groupe situés à moins de 13 mètres de vous, et Geburah Tiphreth a la même portée. Communiquez avec le groupe&nbsp;: ils doivent rester à portée.",
+      "<strong>パーティメンバーが範囲外にいる</strong> — 定期的なヒールで回復できるのは自分から13メートル以内のパーティメンバーだけで、Geburah Tiphrethも同じ範囲です。メンバーと声をかけ合い、範囲内にとどまってもらいましょう。"
+    ],
+    [
+      "<strong>Mauvaise cible au moment du cycle</strong> — presque tous vos buffs (Protect, Spirit Fortune, Heap Up, Haste…) sont mono-cible et partent sur le personnage sélectionné quand la rotation se déclenche. Vérifiez votre cible avant chaque cycle.",
+      "<strong>サイクル発動時の対象ミス</strong> — ほぼすべてのバフ（Protect、Spirit Fortune、Heap Up、Haste…）は単体バフで、ローテーションが発動した時点で選択しているキャラクターにかかります。各サイクルの前に対象を確認してください。"
+    ],
+    [
+      "Aspect légal — ce qu'il faut savoir",
+      "法的側面 — 知っておくべきこと"
+    ],
+    [
+      "L'automatisation des actions répétitives via une extension <strong>peut enfreindre les conditions d'utilisation</strong> de Flyff Universe, développé par Gala Lab. Le menu de signalement du jeu comporte un motif dédié aux bots, et le client contient un message de bannissement visant les logiciels de triche, qui demande de cesser d'utiliser tout outil externe. Rien ne garantit qu'une extension qui simule des touches soit tolérée&nbsp;: lisez les conditions d'utilisation officielles avant d'automatiser quoi que ce soit. Reborn Assistant <strong>ne lit pas la mémoire du jeu, n'envoie pas de paquets réseau, ne modifie pas le client</strong>&nbsp;: c'est strictement une simulation des touches et des clics que vous feriez manuellement. Vous restez 100% responsable de l'usage que vous en faites.",
+      "拡張機能による繰り返し操作の自動化は、Gala Labが開発するFlyff Universeの<strong>利用規約に違反する可能性があります</strong>。ゲームの通報メニューにはボット専用の通報理由があり、クライアントには不正ソフトウェアを対象としたBANメッセージが含まれていて、外部ツールの使用をすべてやめるよう求めています。キー入力をシミュレートする拡張機能が容認される保証はありません。何かを自動化する前に、公式の利用規約を読んでください。Reborn Assistantは<strong>ゲームのメモリを読み取らず、ネットワークパケットを送信せず、クライアントを改変しません</strong>。手動で行うキー入力とクリックを再現するだけのものです。使い方の責任は100%ご自身にあります。"
+    ],
+    [
+      "Pour comprendre exactement ce que fait (et ne fait pas) Reborn Assistant techniquement, consultez la <a href=\"../index.html#faq\">FAQ de la page principale</a>.",
+      "Reborn Assistantが技術的に何をしているのか（何をしていないのか）を正確に知るには、<a href=\"../index.html#faq\">メインページのFAQ</a>をご覧ください。"
+    ],
+    [
+      "Prêt à libérer votre Ringmaster ?",
+      "Ringmasterを解放する準備はできましたか？"
+    ],
+    [
+      "Installez Reborn Assistant en 30 secondes depuis le Chrome Web Store. 7 jours d'essai Premium gratuits, sans carte bancaire.",
+      "Chrome Web StoreからReborn Assistantを30秒でインストールできます。Premiumの7日間無料トライアル付き、クレジットカードは不要です。"
+    ],
+    [
+      "<a href=\"../index.html\">Accueil</a> › <a href=\"index.html\">Documentation</a> › Automatiser son Ringmaster",
+      "<a href=\"../index.html\">ホーム</a> › <a href=\"index.html\">ドキュメント</a> › Ringmasterを自動化する"
+    ],
+    [
+      "<strong>💡 Cas d'usage typique</strong>\n            Vous accompagnez un partenaire pendant 4 heures de farm, par exemple en Darkon 3, où vivent les Glaphans (niveaux 102 à 109). Avec 300 d'INT, vos buffs au niveau maximum durent 250 + 600 = 850 secondes, soit environ 14 minutes. Sans automatisation&nbsp;: environ 17 cycles de rebuff complets, plus près de 200 relances de Geburah Tiphreth (75 secondes chacune). Avec Reborn Assistant configuré une fois, ces cycles tournent en arrière-plan. Vous restez devant votre écran et reprenez la main si la composition change ou si quelqu'un meurt.",
+      "<strong>💡 典型的な使用例</strong>\n            例えばGlaphan（レベル102〜109）が生息するDarkon 3で、相方と4時間狩りをするとします。INT 300なら、最大レベルのバフの持続時間は250 + 600 = 850秒、つまり約14分です。自動化しなければ、バフのかけ直しサイクルが約17回、さらにGeburah Tiphrethのかけ直しが200回近く（各75秒）必要です。Reborn Assistantを一度設定すれば、これらのサイクルはバックグラウンドで回り続けます。あなたは画面の前にいて、パーティ構成が変わったときや誰かが倒れたときに操作を引き継ぎます。"
+    ],
+    [
+      "<strong>⚠️ Attention au positionnement</strong>\n            Heal Rain soigne instantanément les membres de votre groupe situés à moins de 13 mètres de vous au moment où il part&nbsp;: ce n'est pas une zone qui reste au sol. Un allié trop loin à cet instant, ou un joueur qui n'est pas dans votre groupe, ne reçoit rien. Restez à portée de vos alliés ou définissez un point de rallye fixe pour le groupe.",
+      "<strong>⚠️ 立ち位置に注意</strong>\n            Heal Rainは、発動した瞬間に自分から13メートル以内にいるパーティメンバーを即座に回復します。地面に残り続ける範囲回復ではありません。その瞬間に離れすぎている味方や、パーティに入っていないプレイヤーは回復されません。味方の範囲内にとどまるか、パーティの集合場所を決めておきましょう。"
+    ],
+    [
+      "<a href=\"meilleurs-outils-flyff-universe-2026.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Article lié</span>\n                <span class=\"related-title\">Les meilleurs outils & extensions Flyff Universe 2026</span>\n            </a>\n            <a href=\"guide-ringmaster-flyff-universe.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Article lié</span>\n                <span class=\"related-title\">Guide complet de la classe Ringmaster Flyff Universe</span>\n            </a>\n            <a href=\"premium.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Documentation</span>\n                <span class=\"related-title\">Guide complet des fonctionnalités Premium</span>\n            </a>",
+      "<a href=\"meilleurs-outils-flyff-universe-2026.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ 関連記事</span>\n                <span class=\"related-title\">2026年版Flyff Universeベストツール&拡張機能</span>\n            </a>\n            <a href=\"guide-ringmaster-flyff-universe.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ 関連記事</span>\n                <span class=\"related-title\">Flyff Universe Ringmasterクラス完全ガイド</span>\n            </a>\n            <a href=\"premium.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ ドキュメント</span>\n                <span class=\"related-title\">Premium機能の完全ガイド</span>\n            </a>"
+    ],
+    [
+      "R",
+      "R"
+    ],
+    [
+      "Reborn",
+      "Reborn"
+    ],
+    [
+      "← Retour aux docs",
+      "← ドキュメントに戻る"
+    ],
+    [
+      "◆ Sommaire",
+      "◆ 目次"
+    ],
+    [
+      "Préparer votre 2e barre",
+      "2番目のバーを準備"
+    ],
+    [
+      "Activer la rotation dans Reborn Assistant",
+      "Reborn Assistantでローテーションを有効化"
+    ],
+    [
+      "Tester un cycle complet",
+      "サイクル全体をテスト"
+    ],
+    [
+      "Assigner Heal Rain à une touche",
+      "Heal Rainをキーに割り当て"
+    ],
+    [
+      "Configurer l'intervalle puis activer",
+      "間隔を設定して有効化"
+    ],
+    [
+      "REBORN ASSISTANT",
+      "REBORN ASSISTANT"
+    ]
+  ],
+  "tools-2026": [
+    [
+      "outils Flyff Universe, extensions Flyff, Flyffipedia, Flyffulator, Madrigal Inside, simulateur de compétences Flyff, API Flyff Universe, base de données Flyff",
+      "Flyff Universe ツール, Flyff 拡張機能, Flyffipedia, Flyffulator, Madrigal Inside, Flyff スキルシミュレーター, Flyff Universe API, Flyff データベース"
+    ],
+    [
+      "Reborn Assistant",
+      "Reborn Assistant"
+    ],
+    [
+      "Les Meilleurs Outils & Extensions Flyff Universe 2026",
+      "2026年版Flyff Universeベストツール&拡張機能"
+    ],
+    [
+      "Comparatif 2026 des outils Flyff Universe : Flyffipedia, Flyffulator, Madrigal Inside, simulateur de compétences, API officielle et extension de macros.",
+      "2026年版Flyff Universeツール比較：Flyffipedia、Flyffulator、Madrigal Inside、スキルシミュレーター、公式API、マクロ拡張機能。"
+    ],
+    [
+      "Reborn Assistant — Extension de macros clavier pour Ringmaster",
+      "Reborn Assistant — Ringmaster向けキーボードマクロ拡張機能"
+    ],
+    [
+      "Flyffipedia — Base de données du jeu",
+      "Flyffipedia — ゲームデータベース"
+    ],
+    [
+      "Flyffulator — Simulateur de personnage et calculateur de dégâts",
+      "Flyffulator — キャラクターシミュレーター兼ダメージ計算ツール"
+    ],
+    [
+      "Madrigal Inside — Données du jeu et guides de classe",
+      "Madrigal Inside — ゲームデータとクラスガイド"
+    ],
+    [
+      "Flyff Skill Simulator — Simulateur de compétences",
+      "Flyff Skill Simulator — スキルシミュレーター"
+    ],
+    [
+      "API officielle Flyff Universe — Données du jeu",
+      "Flyff Universe公式API — ゲームデータ"
+    ],
+    [
+      "Meilleurs outils Flyff Universe",
+      "Flyff Universeベストツール"
+    ],
+    [
+      "Les Meilleurs Outils &amp; Extensions Flyff Universe en 2026",
+      "2026年版Flyff Universeベストツール&amp;拡張機能"
+    ],
+    [
+      "Bases de données, simulateurs, API officielle et extension de macros&nbsp;: les outils qui servent vraiment au joueur Flyff Universe en 2026, avec ce qu'ils font et leurs limites.",
+      "データベース、シミュレーター、公式API、マクロ拡張機能。2026年のFlyff Universeプレイヤーに本当に役立つツールを、その機能と限界とあわせて紹介します。"
+    ],
+    [
+      "Flyff Universe vit aussi grâce à sa communauté&nbsp;: une bonne partie des outils utiles ne vient pas de Gala Lab, le développeur du jeu, mais des joueurs eux-mêmes, et plusieurs s'appuient sur l'API publique officielle du jeu. Voici les <strong>outils qui valent vraiment le détour</strong>, avec un lien vers chacun et ce qu'ils font réellement, classés par utilité pour le joueur régulier. Cette sélection a été mise à jour en octobre 2026, après l'arrivée des 3e classes avec l'extension Muran's Awakening (v1.5.0, novembre 2025).",
+      "Flyff Universeはコミュニティにも支えられています。役立つツールの多くは、ゲームの開発元であるGala Labではなくプレイヤー自身が作ったもので、そのいくつかはゲームの公式公開APIを利用しています。ここでは<strong>本当に使う価値のあるツール</strong>を、それぞれへのリンクと実際の機能とともに、日常的に遊ぶプレイヤーにとっての有用性順に紹介します。このセレクションは、大型アップデート「Muran's Awakening」（v1.5.0、2025年11月）で3次職が実装された後、2026年10月に更新されました。"
+    ],
+    [
+      "1. Reborn Assistant — L'extension de macros clavier pour Ringmaster",
+      "1. Reborn Assistant — Ringmaster向けキーボードマクロ拡張機能"
+    ],
+    [
+      "Reborn Assistant est une extension de navigateur qui automatise des <strong>séquences de touches</strong>&nbsp;: une rotation de séquences qui suit un ordre fixe (F2 → 1-9 → 0 → F1) à l'intervalle que vous réglez, une macro périodique déclenchée toutes les 15&nbsp;s et jusqu'à 3 macros personnalisables avec vos propres touches. Elle vise en particulier le Ringmaster, dont les buffs doivent être relancés régulièrement&nbsp;: les buffs de stats de l'Assist (Heap Up, Haste, Cat's Reflex…) durent 150&nbsp;s au niveau 1 et 250&nbsp;s (4&nbsp;min&nbsp;10) au niveau 20, plus 2&nbsp;s par point d'INT du lanceur, et Geburah Tiphreth seulement 30&nbsp;s plus 0,15&nbsp;s par point d'INT.",
+      "Reborn Assistantは<strong>キーシーケンス</strong>を自動化するブラウザ拡張機能です。設定した間隔で固定順序（F2 → 1-9 → 0 → F1）をたどるシーケンスローテーション、15秒ごとに発動する定期マクロ、そして自分で決めたキーで動く最大3つのカスタマイズ可能なマクロを備えています。特に、バフを定期的にかけ直す必要があるRingmasterを想定しています。Assistのステータスバフ（Heap Up、Haste、Cat's Reflex…）の持続時間はレベル1で150秒、レベル20で250秒（4分10秒）で、これに術者のINT×2秒が加わります。Geburah Tiphrethはわずか30秒+INT×0.15秒です。"
+    ],
+    [
+      "L'extension ne lit ni ne modifie les données du jeu&nbsp;: elle simule seulement les touches que vous taperiez vous-même, au rythme que vous avez réglé (seule la macro périodique tourne à un intervalle fixe de 15&nbsp;s). La version gratuite inclut la macro soin, 6 thèmes, 15 langues d'interface et l'interface flottante. Premium (2,99&nbsp;€/mois, 29,99&nbsp;€/an ou 99,99&nbsp;€ à vie) ajoute notamment la rotation de séquences, les 3 macros personnalisables et la macro périodique&nbsp;; les formules mensuelle et annuelle commencent par 7 jours d'essai gratuits, sans carte bancaire. Pour la mise en place pas à pas, voyez notre tutoriel <a href=\"automatiser-ringmaster-flyff-universe.html\">Automatiser son Ringmaster</a>.",
+      "この拡張機能はゲームデータの読み取りも改変も行いません。自分で押すはずのキーを、設定したペースでシミュレートするだけです（固定間隔15秒で動くのは定期マクロのみ）。無料版にはヒールマクロ、6種類のテーマ、15のインターフェース言語、フローティングUIが含まれます。Premium（月額2.99€、年額29.99€、または生涯プラン99.99€）では、シーケンスローテーション、3つのカスタマイズ可能なマクロ、定期マクロなどが追加されます。月額・年額プランは7日間の無料トライアルから始まり、クレジットカードは不要です。設定手順は、当サイトのチュートリアル「<a href=\"automatiser-ringmaster-flyff-universe.html\">Ringmasterを自動化する</a>」をご覧ください。"
+    ],
+    [
+      "✓ Points forts",
+      "✓ 長所"
+    ],
+    [
+      "Données stockées localement, aucun tracking",
+      "データはローカルに保存、トラッキングなし"
+    ],
+    [
+      "15 langues d'interface et 6 thèmes",
+      "15のインターフェース言語と6種類のテーマ"
+    ],
+    [
+      "Rotation de séquences et 3 macros personnalisables",
+      "シーケンスローテーションと3つのカスタマイズ可能なマクロ"
+    ],
+    [
+      "Installation depuis le Chrome Web Store, mises à jour automatiques",
+      "Chrome Web Storeからインストール、自動アップデート"
+    ],
+    [
+      "✗ Points faibles",
+      "✗ 短所"
+    ],
+    [
+      "Réservée aux navigateurs basés sur Chromium (Chrome, Edge, Brave…)",
+      "Chromiumベースのブラウザ専用（Chrome、Edge、Brave…）"
+    ],
+    [
+      "Premium nécessite une connexion avec un compte Google",
+      "PremiumにはGoogleアカウントでのログインが必要"
+    ],
+    [
+      "Ne lit pas les données du jeu (PV, durée des buffs)&nbsp;: c'est à vous de régler les intervalles de la rotation, des macros et de la macro soin",
+      "ゲームデータ（HP、バフの持続時間）を読み取らないため、ローテーション、マクロ、ヒールマクロの間隔は自分で設定する必要がある"
+    ],
+    [
+      "Comme tout outil d'automatisation, rien ne garantit qu'il soit toléré par le jeu (voir plus bas)",
+      "他の自動化ツールと同様、ゲーム側に容認される保証はない（後述）"
+    ],
+    [
+      "2. Flyffipedia — La base de données du jeu",
+      "2. Flyffipedia — ゲームデータベース"
+    ],
+    [
+      "Flyffipedia (flyffipedia.com) est une base de données Flyff Universe alimentée par les données du jeu et tenue par un mainteneur, swaight. C'est une référence très citée par les ressources communautaires, qui renvoient vers ses fiches détaillées d'objets, de monstres, de compétences, de quêtes et de PNJ.",
+      "Flyffipedia（flyffipedia.com）は、ゲームデータをもとに構築され、メンテナーのswaightが管理しているFlyff Universeのデータベースです。コミュニティのリソースで頻繁に引用されるリファレンスで、アイテム、モンスター、スキル、クエスト、NPCの詳細ページへのリンクがよく貼られています。"
+    ],
+    [
+      "Le bon réflexe pour vérifier une compétence, retrouver un objet ou préparer une quête. À garder en favori.",
+      "スキルの確認、アイテム探し、クエストの準備をするなら、まずはここ。ブックマークしておきましょう。"
+    ],
+    [
+      "3. Flyffulator — Simulateur de personnage et calculateur de dégâts",
+      "3. Flyffulator — キャラクターシミュレーター兼ダメージ計算ツール"
+    ],
+    [
+      "Flyffulator (flyffulator.com) est un simulateur de personnage open source créé par Frostiae. Vous y reconstituez votre personnage — équipement, bijoux (deux anneaux, deux boucles d'oreilles, un collier) et buffs actifs, dont ceux du Ringmaster et du groupe — et il calcule les dégâts de vos attaques et de vos compétences, les dégâts que vous recevez des monstres et les soins de vos compétences de soin. Particulièrement utile lors d'un changement de build ou pour comparer deux bijoux.",
+      "Flyffulator（flyffulator.com）は、Frostiaeが開発したオープンソースのキャラクターシミュレーターです。装備、アクセサリー（指輪二つ、イヤリング二つ、ネックレス一つ）、Ringmasterやパーティのバフを含む有効なバフを入力してキャラクターを再現すると、通常攻撃とスキルのダメージ、モンスターから受けるダメージ、回復スキルの回復量を計算してくれます。ビルドを変更するときや、二つのアクセサリーを比較するときに特に便利です。"
+    ],
+    [
+      "Ses données viennent de l'API officielle du jeu, et le projet est activement maintenu&nbsp;: données de jeu rafraîchies le 13 août 2026, dernière mise à jour du code le 27 août 2026. Comme il le précise lui-même, il n'est pas officiellement affilié à Gala Lab.",
+      "データはゲームの公式APIから取得されており、プロジェクトは活発にメンテナンスされています。ゲームデータの更新は2026年8月13日、コードの最終更新は2026年8月27日です。Flyffulator自身が明記しているとおり、Gala Labとの公式な提携関係はありません。"
+    ],
+    [
+      "4. Madrigal Inside — Données du jeu et guides de classe",
+      "4. Madrigal Inside — ゲームデータとクラスガイド"
+    ],
+    [
+      "Madrigal Inside (madrigalinside.com) réunit des fiches de données du jeu (compétences, objets, quêtes) et des guides de classe. Côté Ringmaster, on y trouve notamment des guides de base Support, AoE et Hit-and-Run&nbsp;: un bon point de départ pour choisir votre orientation.",
+      "Madrigal Inside（madrigalinside.com）は、ゲームデータのページ（スキル、アイテム、クエスト）とクラスガイドをまとめたサイトです。Ringmaster向けには、Support、AoE、Hit-and-Runの基本ガイドなどがあり、育成方針を決めるための出発点として最適です。"
+    ],
+    [
+      "Comme pour tout guide, regardez sa date et, après un patch important, croisez ses chiffres avec des données à jour (Flyffipedia, Flyffulator).",
+      "どのガイドにも言えることですが、日付を確認し、大型パッチの後は最新のデータ（Flyffipedia、Flyffulator）と数値を照らし合わせてください。"
+    ],
+    [
+      "5. Flyff Skill Simulator — Planifier vos points de compétence",
+      "5. Flyff Skill Simulator — スキルポイントを計画する"
+    ],
+    [
+      "Flyff Skill Simulator (flyff-skill-simulator.vercel.app) est un simulateur de compétences open source, créé par guysuvijak à partir des données de l'API officielle. Il sert à planifier la répartition de vos points de compétence avant de les dépenser en jeu. Il est disponible en 12 langues et maintenu&nbsp;: sa version 1.6.1 est sortie le 26 août 2026.",
+      "Flyff Skill Simulator（flyff-skill-simulator.vercel.app）は、guysuvijakが公式APIのデータをもとに開発したオープンソースのスキルシミュレーターです。ゲーム内でスキルポイントを使う前に、その振り分けを計画できます。12言語に対応し、メンテナンスも続いています。バージョン1.6.1は2026年8月26日にリリースされました。"
+    ],
+    [
+      "Vous croiserez aussi Skillulator (skillulator.lol), pratique pour partager un build de compétences par simple lien. Attention&nbsp;: il n'a plus été mis à jour depuis juillet 2025, avant l'arrivée des 3e classes.",
+      "Skillulator（skillulator.lol）もよく見かけるでしょう。スキルビルドをリンク一つで共有できて便利です。ただし、3次職が実装される前の2025年7月以降、更新されていないので注意してください。"
+    ],
+    [
+      "6. L'API officielle Flyff Universe — Les données à la source",
+      "6. Flyff Universe公式API — 一次ソースのデータ"
+    ],
+    [
+      "Gala Lab met à disposition une API publique sur api.flyff.com. Elle expose les données du jeu&nbsp;: classes, compétences, monstres, objets, panoplies, PNJ, quêtes, mondes, donjons, succès, et même les images. Plusieurs outils de cette liste s'appuient dessus, dont Flyffulator et Flyff Skill Simulator.",
+      "Gala Labはapi.flyff.comで公開APIを提供しています。クラス、スキル、モンスター、アイテム、装備セット、NPC、クエスト、ワールド、ダンジョン、実績、さらには画像まで、ゲームのデータを公開しています。FlyffulatorやFlyff Skill Simulatorをはじめ、このリストのツールのいくつかがこのAPIを利用しています。"
+    ],
+    [
+      "Elle intéressera surtout les curieux qui veulent vérifier une valeur à la source et les joueurs qui codent leur propre outil. Attention, les bibliothèques communautaires qui facilitent son usage sont anciennes&nbsp;: flyff.js (TypeScript) n'a pas été publiée depuis mars 2024, et Pyff (Python) n'a plus été modifiée depuis mars 2023.",
+      "主に、数値を一次ソースで確かめたい人や、自分でツールを開発するプレイヤー向けです。なお、APIを使いやすくするコミュニティ製ライブラリは古くなっています。flyff.js（TypeScript）は2024年3月以降リリースがなく、Pyff（Python）は2023年3月以降更新されていません。"
+    ],
+    [
+      "Autres ressources utiles",
+      "その他の便利なリソース"
+    ],
+    [
+      "D'autres outils, listés comme actifs par universe-doc en août 2026, rendent service dans des cas plus précis&nbsp;:",
+      "2026年8月時点でuniverse-docにアクティブとして掲載されている次のツールも、より特定の用途で役立ちます："
+    ],
+    [
+      "<strong>Flyff-Universe-Translations</strong> (<a href=\"https://github.com/Gala-Lab/Flyff-Universe-Translations\" target=\"_blank\" rel=\"noopener\">dépôt GitHub</a>) — le dépôt officiel des traductions du jeu, tenu par Gala Lab. Il accepte les propositions de la communauté&nbsp;: si une traduction française vous semble fausse, c'est là que vous pouvez suggérer une correction. Il couvre près de vingt langues et suit les versions du jeu (version 1.5.6-5 au 1er octobre 2026).",
+      "<strong>Flyff-Universe-Translations</strong>（<a href=\"https://github.com/Gala-Lab/Flyff-Universe-Translations\" target=\"_blank\" rel=\"noopener\">GitHubリポジトリ</a>）— Gala Labが管理する、ゲームの公式翻訳リポジトリです。コミュニティからの提案を受け付けているので、お使いの言語の翻訳がおかしいと感じたら、ここで修正を提案できます。二十近くの言語をカバーし、ゲームのバージョンに追従しています（2026年10月1日時点でバージョン1.5.6-5）。"
+    ],
+    [
+      "<strong>Gothante</strong> (<a href=\"https://gothante.wiki/\" target=\"_blank\" rel=\"noopener\">gothante.wiki</a>) — présenté comme un outil de recherche généraliste sur Flyff Universe.",
+      "<strong>Gothante</strong>（<a href=\"https://gothante.wiki/\" target=\"_blank\" rel=\"noopener\">gothante.wiki</a>）— Flyff Universeの汎用検索ツールとして紹介されています。"
+    ],
+    [
+      "<strong>Flyff Calculators</strong> (<a href=\"https://flyff-calculators.com/\" target=\"_blank\" rel=\"noopener\">flyff-calculators.com</a>) — décrit comme un calculateur du coût des améliorations&nbsp;: équipement, bijoux, piercing, ultimate…",
+      "<strong>Flyff Calculators</strong>（<a href=\"https://flyff-calculators.com/\" target=\"_blank\" rel=\"noopener\">flyff-calculators.com</a>）— 強化コストの計算ツールとされています：装備、アクセサリー、ピアッシング、アルティメット…"
+    ],
+    [
+      "<strong>SiegeStats</strong> (<a href=\"https://siegestats.cc/\" target=\"_blank\" rel=\"noopener\">siegestats.cc</a>) — pour les joueurs PvP&nbsp;: il se donne pour but d'organiser et de visualiser les journaux de combat (battle logs) du jeu pour les analyser.",
+      "<strong>SiegeStats</strong>（<a href=\"https://siegestats.cc/\" target=\"_blank\" rel=\"noopener\">siegestats.cc</a>）— PvPプレイヤー向け。ゲームの戦闘ログ（battle logs）を整理・可視化し、分析できるようにすることを目指しています。"
+    ],
+    [
+      "Côté cartes, Madrigalmaps, l'ancienne carte interactive du monde, est désormais listée comme fermée.",
+      "マップについては、かつてのインタラクティブなワールドマップ「Madrigalmaps」が、現在はサービス終了として掲載されています。"
+    ],
+    [
+      "Comment choisir&nbsp;?",
+      "どう選ぶか？"
+    ],
+    [
+      "L'ordre ci-dessus reste un classement subjectif, fondé sur l'utilité pour un joueur régulier. Voici trois profils types pour orienter votre choix&nbsp;:",
+      "上記の順位は、日常的に遊ぶプレイヤーにとっての有用性に基づく主観的なランキングです。選ぶ際の目安として、典型的なプレイヤー像を三つ紹介します："
+    ],
+    [
+      "<strong>Vous jouez Ringmaster (ou Seraph, sa 3e classe)</strong> → Reborn Assistant pour les séquences de touches répétitives, les guides Ringmaster de Madrigal Inside, et Flyffipedia pour vérifier une compétence ou un objet.",
+      "<strong>Ringmaster（または3次職のSeraph）をプレイしている</strong> → 繰り返しのキーシーケンスにはReborn Assistant、Madrigal InsideのRingmasterガイド、スキルやアイテムの確認にはFlyffipedia。"
+    ],
+    [
+      "<strong>Vous préparez un build ou comparez deux équipements</strong> → Flyffulator pour les dégâts, les dégâts reçus et les soins, puis Flyff Skill Simulator pour répartir vos points de compétence.",
+      "<strong>ビルドを考えている、または二つの装備を比較したい</strong> → 与ダメージ、被ダメージ、回復量はFlyffulatorで、スキルポイントの振り分けはFlyff Skill Simulatorで。"
+    ],
+    [
+      "<strong>Vous cherchez une information précise</strong> → Flyffipedia ou Madrigal Inside pour un objet, une compétence ou une quête, et l'API officielle si vous voulez la valeur à la source.",
+      "<strong>特定の情報を探している</strong> → アイテム、スキル、クエストならFlyffipediaかMadrigal Inside、一次ソースの数値が欲しいなら公式API。"
+    ],
+    [
+      "Outils à éviter",
+      "避けるべきツール"
+    ],
+    [
+      "Tous les outils vendus comme «&nbsp;Flyff Universe&nbsp;» ne sont pas légitimes. Méfiez-vous des programmes qui&nbsp;:",
+      "「Flyff Universe」用をうたうツールが、すべて正規のものとは限りません。次のようなプログラムには注意してください："
+    ],
+    [
+      "<strong>Demandent vos identifiants Flyff Universe</strong> (e-mail ou nom d'utilisateur, et mot de passe) — aucun outil légitime n'en a besoin. Ne les communiquez jamais.",
+      "<strong>Flyff Universeのログイン情報を要求する</strong>（メールアドレスまたはユーザー名と、パスワード）— 正規のツールでそれが必要なものはありません。絶対に教えないでください。"
+    ],
+    [
+      "<strong>S'installent en tant qu'exécutable .exe Windows</strong> sans page de présentation claire. Risque de keylogger ou de malware.",
+      "<strong>Windowsの.exe実行ファイルとしてインストールされる</strong>のに、明確な紹介ページがない。キーロガーやマルウェアの危険があります。"
+    ],
+    [
+      "<strong>Promettent des Penya gratuits, du level boost ou des objets</strong>. Ce sont des arnaques ou des logiciels de triche, et le client officiel prévient qu'un logiciel de triche détecté entraîne le bannissement du personnage.",
+      "<strong>無料のPenya、レベルブースト、アイテムを約束する</strong>。これらは詐欺か不正ソフトウェアで、公式クライアントは、不正ソフトウェアが検出されるとキャラクターがBANされると警告しています。"
+    ],
+    [
+      "<strong>Jouent à votre place</strong>, comme les bots de farm. Le menu de signalement du jeu a un motif dédié au botting.",
+      "<strong>代わりにプレイしてくれる</strong>（狩りボットなど）。ゲームの通報メニューには、ボット行為専用の通報理由があります。"
+    ],
+    [
+      "<strong>N'ont aucune page officielle</strong>&nbsp;: ni fiche Chrome Web Store, ni dépôt GitHub, ni site avec mentions légales claires.",
+      "<strong>公式ページがない</strong>：Chrome Web Storeの掲載ページも、GitHubリポジトリも、明確な法的表記のあるサイトもない。"
+    ],
+    [
+      "Article mis à jour le 4 octobre 2026.",
+      "記事更新日：2026年10月4日。"
+    ],
+    [
+      "<a href=\"../index.html\">Accueil</a> › <a href=\"index.html\">Documentation</a> › Meilleurs outils Flyff Universe",
+      "<a href=\"../index.html\">ホーム</a> › <a href=\"index.html\">ドキュメント</a> › Flyff Universeベストツール"
+    ],
+    [
+      "<strong>📌 Méthodologie</strong>\n            Hormis Reborn Assistant, chaque outil retenu figure parmi les ressources actives recensées en août 2026 par <a href=\"https://github.com/muzsor/universe-doc\" target=\"_blank\" rel=\"noopener\">universe-doc</a>, un index communautaire de Flyff Universe tenu sur GitHub. Pour les projets open source, les dates de mise à jour citées viennent de leur dépôt public (GitHub ou npm). Le classement, lui, reste subjectif&nbsp;: il suit l'utilité pour un joueur régulier. Aucun partenariat commercial. Transparence&nbsp;: Reborn Assistant, en tête de liste, est l'extension éditée par l'auteur de ce site.",
+      "<strong>📌 選定方法</strong>\n            Reborn Assistantを除き、掲載したツールはすべて、GitHub上で管理されているFlyff Universeのコミュニティインデックス<a href=\"https://github.com/muzsor/universe-doc\" target=\"_blank\" rel=\"noopener\">universe-doc</a>に、2026年8月時点でアクティブなリソースとして掲載されています。オープンソースプロジェクトの更新日は、それぞれの公開リポジトリ（GitHubまたはnpm）に基づいています。一方、ランキングは主観的なもので、日常的に遊ぶプレイヤーにとっての有用性に従っています。商業的な提携は一切ありません。情報開示：リストの先頭にあるReborn Assistantは、このサイトの運営者が提供している拡張機能です。"
+    ],
+    [
+      "<span class=\"tool-tag free\">Version gratuite</span>\n                    <span class=\"tool-tag paid\">Premium 2,99&nbsp;€/mois</span>\n                    <span class=\"tool-tag\">Chrome / Edge / Brave</span>",
+      "<span class=\"tool-tag free\">無料版</span>\n                    <span class=\"tool-tag paid\">Premium 月額2.99€</span>\n                    <span class=\"tool-tag\">Chrome / Edge / Brave</span>"
+    ],
+    [
+      "<span class=\"tool-tag free\">Gratuit</span>\n                    <span class=\"tool-tag\">Site web</span>",
+      "<span class=\"tool-tag free\">無料</span>\n                    <span class=\"tool-tag\">Webサイト</span>"
+    ],
+    [
+      "<span class=\"tool-tag free\">Gratuit</span>\n                    <span class=\"tool-tag\">Site web</span>\n                    <span class=\"tool-tag\">Open source</span>",
+      "<span class=\"tool-tag free\">無料</span>\n                    <span class=\"tool-tag\">Webサイト</span>\n                    <span class=\"tool-tag\">オープンソース</span>"
+    ],
+    [
+      "<span class=\"tool-tag free\">Accès public</span>\n                    <span class=\"tool-tag\">Officiel</span>\n                    <span class=\"tool-tag\">Développeurs</span>",
+      "<span class=\"tool-tag free\">誰でも利用可</span>\n                    <span class=\"tool-tag\">公式</span>\n                    <span class=\"tool-tag\">開発者向け</span>"
+    ],
+    [
+      "<strong>⚠️ Automatisation&nbsp;: lisez les règles du jeu</strong>\n            Le client officiel de Flyff Universe contient un message de bannissement visant les logiciels de triche détectés, qui invite à cesser d'utiliser tout outil externe. Ce message ne dit pas si une simple macro de touches est tolérée, et rien ne le garantit, Reborn Assistant compris. Lisez les conditions d'utilisation officielles avant d'utiliser un outil d'automatisation et restez devant votre écran&nbsp;: vous êtes responsable de l'usage que vous en faites.",
+      "<strong>⚠️ 自動化：ゲームのルールを確認しましょう</strong>\n            Flyff Universeの公式クライアントには、検出された不正ソフトウェアを対象とするBANメッセージがあり、外部ツールの使用をすべてやめるよう促しています。このメッセージは単純なキーマクロが容認されるかどうかには触れておらず、Reborn Assistantを含め、容認される保証はありません。自動化ツールを使う前に公式の利用規約を読み、画面の前から離れないでください。使い方の責任はご自身にあります。"
+    ],
+    [
+      "<strong>💡 Les signes d'un outil sérieux</strong>\n            Un outil sérieux affiche une politique de confidentialité, un moyen de contact actif (e-mail, Discord) et une page officielle&nbsp;: fiche Chrome Web Store ou dépôt GitHub public. Reborn Assistant coche ces trois cases. Ces critères aident à repérer les arnaques, mais ils ne garantissent pas qu'un outil respecte les règles du jeu&nbsp;: des logiciels de bot pour Flyff Universe ont eux aussi un dépôt GitHub public.",
+      "<strong>💡 信頼できるツールの見分け方</strong>\n            信頼できるツールは、プライバシーポリシー、有効な連絡手段（メール、Discord）、公式ページ（Chrome Web Storeの掲載ページまたは公開GitHubリポジトリ）を備えています。Reborn Assistantはこの三つをすべて満たしています。これらの基準は詐欺を見抜くのに役立ちますが、ツールがゲームのルールを守っていることまでは保証しません。Flyff Universe用のボットソフトにも、公開GitHubリポジトリを持つものがあります。"
+    ],
+    [
+      "R",
+      "R"
+    ],
+    [
+      "Reborn",
+      "Reborn"
+    ],
+    [
+      "← Retour aux docs",
+      "← ドキュメントに戻る"
+    ],
+    [
+      "★ Rang I · Notre extension",
+      "★ ランク I · 当サイトの拡張機能"
+    ],
+    [
+      "→ Tester Reborn Assistant",
+      "→ Reborn Assistantを試す"
+    ],
+    [
+      "★ Rang II",
+      "★ ランク II"
+    ],
+    [
+      "→ Ouvrir Flyffipedia",
+      "→ Flyffipediaを開く"
+    ],
+    [
+      "★ Rang III",
+      "★ ランク III"
+    ],
+    [
+      "→ Ouvrir Flyffulator",
+      "→ Flyffulatorを開く"
+    ],
+    [
+      "★ Rang IV",
+      "★ ランク IV"
+    ],
+    [
+      "→ Ouvrir Madrigal Inside",
+      "→ Madrigal Insideを開く"
+    ],
+    [
+      "★ Rang V",
+      "★ ランク V"
+    ],
+    [
+      "→ Ouvrir Flyff Skill Simulator",
+      "→ Flyff Skill Simulatorを開く"
+    ],
+    [
+      "★ Rang VI",
+      "★ ランク VI"
+    ],
+    [
+      "→ Ouvrir api.flyff.com",
+      "→ api.flyff.comを開く"
+    ],
+    [
+      "REBORN ASSISTANT",
+      "REBORN ASSISTANT"
+    ]
+  ],
+  "guide-rm": [
+    [
+      "Ringmaster guide, RM Flyff Universe, classe support Flyff, build Ringmaster, buffs RM, Ringmaster vs Billposter, Seraph Flyff Universe, Geburah Tiphreth",
+      "Ringmaster ガイド, リングマスター ガイド, Flyff Universe RM, Flyff サポートクラス, Ringmaster ビルド, RM バフ, Ringmaster Billposter 比較, Seraph Flyff Universe, Geburah Tiphreth"
+    ],
+    [
+      "Reborn Assistant",
+      "Reborn Assistant"
+    ],
+    [
+      "Ringmaster Flyff Universe — Guide Complet 2026",
+      "Flyff Universe Ringmaster — 2026年完全ガイド"
+    ],
+    [
+      "Guide complet du Ringmaster sur Flyff Universe : parcours de classe jusqu'au Seraph, skills et buffs (effets et durées réels), builds Full Support, AoE et Hit-and-Run, sticks et sets d'armure par palier, rotation.",
+      "Flyff UniverseのRingmaster完全ガイド：Seraphまでの転職ルート、スキルとバフ（実際の効果と持続時間）、Full Support・AoE・Hit-and-Runビルド、レベル帯別のスティックと防具セット、ローテーション。"
+    ],
+    [
+      "Flyff Universe",
+      "Flyff Universe"
+    ],
+    [
+      "MMORPG class guide",
+      "MMORPGクラスガイド"
+    ],
+    [
+      "Guide Ringmaster",
+      "Ringmasterガイド"
+    ],
+    [
+      "Parcours de classe, skills, buffs et leurs vraies durées, builds, équipement, rotation&nbsp;: le Ringmaster de Flyff Universe tel qu'il se joue en 2026, du niveau 60 jusqu'au Seraph.",
+      "転職ルート、スキル、バフとその本当の持続時間、ビルド、装備、ローテーション。2026年現在のFlyff UniverseにおけるRingmasterの遊び方を、レベル60からSeraphまで解説します。"
+    ],
+    [
+      "<a href=\"#ringmaster\">Qu'est-ce qu'un Ringmaster&nbsp;?</a>",
+      "<a href=\"#ringmaster\">Ringmasterとは？</a>"
+    ],
+    [
+      "<a href=\"#role\">Le rôle du Ringmaster en groupe</a>",
+      "<a href=\"#role\">パーティ内でのRingmasterの役割</a>"
+    ],
+    [
+      "<a href=\"#skills\">Les skills du Ringmaster</a>",
+      "<a href=\"#skills\">Ringmasterのスキル</a>"
+    ],
+    [
+      "<a href=\"#buffs\">Les buffs&nbsp;: ce qu'ils augmentent vraiment</a>",
+      "<a href=\"#buffs\">バフ：実際に何が上がるのか</a>"
+    ],
+    [
+      "<a href=\"#builds\">Full Support, AoE ou Hit-and-Run</a>",
+      "<a href=\"#builds\">Full Support、AoE、Hit-and-Run</a>"
+    ],
+    [
+      "<a href=\"#equipement\">Équipement recommandé</a>",
+      "<a href=\"#equipement\">推奨装備</a>"
+    ],
+    [
+      "<a href=\"#rotation\">Rotation et gestion du rythme</a>",
+      "<a href=\"#rotation\">ローテーションとリズム管理</a>"
+    ],
+    [
+      "<a href=\"#billposter\">Ringmaster vs Billposter</a>",
+      "<a href=\"#billposter\">Ringmaster vs Billposter</a>"
+    ],
+    [
+      "<a href=\"#erreurs\">Erreurs courantes</a>",
+      "<a href=\"#erreurs\">よくあるミス</a>"
+    ],
+    [
+      "Qu'est-ce qu'un Ringmaster&nbsp;?",
+      "Ringmasterとは？"
+    ],
+    [
+      "Le <strong>Ringmaster</strong> (RM) est l'une des deux classes de 2e niveau de l'Assist sur Flyff Universe, avec le Billposter. C'est <strong>la branche soins et buffs</strong>&nbsp;: son rôle principal est de <em>maintenir un groupe en vie et de le rendre plus fort</em>. Ce n'est pas pour autant un simple soigneur&nbsp;: les guides communautaires décrivent aussi des builds AoE et Hit-and-Run qui lui permettent de leveler seul. Ses neuf skills de Ringmaster se lancent tous avec un stick et consomment des MP, jamais de FP.",
+      "<strong>Ringmaster</strong>（RM）は、Flyff UniverseにおけるAssistの2次職の一つで、もう一つはBillposterです。<strong>回復とバフを担う系統</strong>で、主な役割は<em>パーティを生かし続け、より強くすること</em>です。とはいえ、単なるヒーラーではありません。コミュニティのガイドでは、ソロでレベル上げができるAoEビルドやHit-and-Runビルドも紹介されています。Ringmasterの九つのスキルはすべてスティックで使用し、消費するのは常にMPで、FPは使いません。"
+    ],
+    [
+      "Le parcours de classe",
+      "転職ルート"
+    ],
+    [
+      "<strong>Niveaux 1 à 15&nbsp;: Vagrant</strong>, la classe de départ de tous les personnages.",
+      "<strong>レベル1〜15：Vagrant</strong>。すべてのキャラクターの初期クラスです。"
+    ],
+    [
+      "<strong>Niveau 15&nbsp;: Assist</strong> (1er changement de classe, niveaux 15 à 60). Vous y apprenez les soins et les buffs que le Ringmaster gardera.",
+      "<strong>レベル15：Assist</strong>（1次転職、レベル15〜60）。Ringmasterになっても使い続ける回復スキルとバフをここで習得します。"
+    ],
+    [
+      "<strong>Niveau 60&nbsp;: Ringmaster</strong> (niveaux 60 à 165), ou Billposter si vous préférez le combat au poing.",
+      "<strong>レベル60：Ringmaster</strong>（レベル60〜165）。拳で戦いたいならBillposterを選びます。"
+    ],
+    [
+      "<strong>Niveau 165&nbsp;: Seraph</strong>, la 3e classe ajoutée par l'extension Muran's Awakening (v1.5.0, 27 novembre 2025), jusqu'au niveau maximum, désormais 190. Ses propres skills s'apprennent à partir du niveau 166&nbsp;: Kyrie Eleison, Gloria Patri, Divinecross, Hammer of Judgement…",
+      "<strong>レベル165：Seraph</strong>。大型アップデート「Muran's Awakening」（v1.5.0、2025年11月27日）で追加された3次職で、現在の最高レベルである190まで続きます。専用スキルはレベル166から習得できます：Kyrie Eleison、Gloria Patri、Divinecross、Hammer of Judgement…"
+    ],
+    [
+      "Ce que fait un Ringmaster",
+      "Ringmasterにできること"
+    ],
+    [
+      "<strong>Soigner</strong>&nbsp;: Heal (un allié, 650 + INT × 5,88 HP au niveau 20, 0,15&nbsp;s d'incantation), Circle Healing (le groupe à moins de 15&nbsp;m) et Heal Rain (le groupe à moins de 13&nbsp;m, dès le niveau 70). Tous ces soins augmentent avec l'INT.",
+      "<strong>回復</strong>：Heal（味方一人、レベル20でHP 650 + INT × 5.88、詠唱0.15秒）、Circle Healing（15m以内のパーティメンバー）、Heal Rain（13m以内のパーティメンバー、レベル70から）。いずれの回復量もINTに応じて増加します。"
+    ],
+    [
+      "<strong>Buffer</strong>&nbsp;: les neuf buffs de stats de l'Assist (STR, STA, DEX, INT, HP max, vitesse d'attaque, vitesse de déplacement, blocage, précision) et ceux du Ringmaster&nbsp;: Protect (défense), Spirit Fortune (dégâts), Holyguard (anti-critiques) et Geburah Tiphreth, le buff de groupe.",
+      "<strong>バフ</strong>：Assistの九つのステータスバフ（STR、STA、DEX、INT、最大HP、攻撃速度、移動速度、ブロック、命中率）と、Ringmaster独自のバフ：Protect（防御）、Spirit Fortune（ダメージ）、Holyguard（クリティカル無効）、そしてパーティバフのGeburah Tiphreth。"
+    ],
+    [
+      "<strong>Ranimer</strong>&nbsp;: Resurrection, un skill de l'Assist, ranime un joueur mort et réduit sa perte d'EXP.",
+      "<strong>蘇生</strong>：AssistのスキルであるResurrectionで、死亡したプレイヤーを蘇生し、EXPロスを軽減します。"
+    ],
+    [
+      "<strong>Réagir</strong>&nbsp;: Gvur Tialla retire tous les debuffs d'un allié, Barrier of Life lui fait bloquer tous les coups pendant 1,2 à 2&nbsp;s, et Holycross fait subir à un ennemi le double de dégâts sur le prochain coup qu'il reçoit.",
+      "<strong>状況への対応</strong>：Gvur Tiallaは味方のデバフをすべて解除し、Barrier of Lifeは味方に1.2〜2秒間すべての攻撃をブロックさせます。Holycrossは、敵が次に受ける攻撃のダメージを倍にします。"
+    ],
+    [
+      "Le rôle du Ringmaster en groupe",
+      "パーティ内でのRingmasterの役割"
+    ],
+    [
+      "Trois rôles principaux selon le contexte de jeu&nbsp;:",
+      "プレイ状況に応じて、主な役割は三つあります："
+    ],
+    [
+      "Leveling et farm en groupe",
+      "パーティでのレベル上げと狩り"
+    ],
+    [
+      "Vous accompagnez un ou plusieurs joueurs qui tapent. Votre travail&nbsp;: renouveler les buffs avant leur expiration, relancer Geburah Tiphreth, qui dure bien moins longtemps que les autres, soigner avec Heal Rain et Heal, et surveiller vos MP. Restez à moins de 13&nbsp;m&nbsp;: c'est la portée de Heal Rain et de Geburah Tiphreth. La partie rebuff est très répétitive — c'est là que l'automatisation prend tout son sens.",
+      "アタッカー一人または複数に同行します。やることは、バフが切れる前に更新し、他のバフよりずっと持続時間の短いGeburah Tiphrethをかけ直し、Heal RainとHealで回復し、MPに気を配ることです。13m以内にとどまりましょう：これがHeal RainとGeburah Tiphrethの射程です。バフのかけ直しは非常に単調な作業で、まさに自動化が真価を発揮するところです。"
+    ],
+    [
+      "Donjons et boss",
+      "ダンジョンとボス"
+    ],
+    [
+      "Les donjons d'instance s'ouvrent par paliers de difficulté&nbsp;: Leren Chasm (Flaris, dès Easy), Rhisis Catacombs (Garden of Rhisis, dès Medium), Envy Depths (Darkon 1 et 2, dès Hard), Guardiane Sanctuary (Darkon 3, dès Extra Hard), Storm Peak (Azria, dès Nightmare), The Wilds (Coral Island, dès Cursed) et Ankou's Asylum (Kaillun, en Infernal). Face à des boss comme le Caveman Chief, le Crystal Demon Lord ou Ankou, le rythme change&nbsp;: plus de soins ciblés, des skills défensifs à placer au bon moment (Holyguard, Barrier of Life, Gvur Tialla) et parfois une Resurrection à anticiper. Gardez la main sur les soins.",
+      "インスタンスダンジョンは難易度の段階ごとに開放されます：Leren Chasm（Flaris、Easyから）、Rhisis Catacombs（Garden of Rhisis、Mediumから）、Envy Depths（Darkon 1・2、Hardから）、Guardiane Sanctuary（Darkon 3、Extra Hardから）、Storm Peak（Azria、Nightmareから）、The Wilds（Coral Island、Cursedから）、Ankou's Asylum（Kaillun、Infernal）。Caveman Chief、Crystal Demon Lord、Ankouといったボスが相手になると、リズムが変わります。単体回復が増え、防御スキル（Holyguard、Barrier of Life、Gvur Tialla）を適切なタイミングで使う必要があり、ときにはResurrectionの準備もしておかなければなりません。回復は自分の手で行いましょう。"
+    ],
+    [
+      "Guild Siege et FWC",
+      "Guild SiegeとFWC"
+    ],
+    [
+      "Les Guild Sieges se disputent par tranches de niveau&nbsp;: la tranche 60 est réservée aux personnages qui n'ont pas fait leur 2e changement de classe (un Ringmaster n'y entre donc pas), la tranche 80 aux joueurs jusqu'au niveau 80, et les textes du jeu prévoient aussi une tranche 165. Le Flyff World Championship (FWC), lui, a lieu chaque année depuis 2023&nbsp;; l'édition 2026 a débuté le 23 avril 2026.",
+      "Guild Siegeはレベル帯ごとに行われます。60帯は2次転職をしていないキャラクター専用（そのためRingmasterは参加できません）、80帯はレベル80までのプレイヤー向けで、ゲーム内のテキストには165帯も用意されています。Flyff World Championship（FWC）は2023年から毎年開催されており、2026年大会は2026年4月23日に開幕しました。"
+    ],
+    [
+      "Les skills du Ringmaster",
+      "Ringmasterのスキル"
+    ],
+    [
+      "Le Ringmaster apprend neuf skills entre les niveaux 60 et 100. Chaque niveau de skill coûte 3 points (2 pour ceux de l'Assist), tous demandent un stick et tous consomment des MP. Valeurs au niveau maximum du skill&nbsp;:",
+      "Ringmasterはレベル60〜100の間に九つのスキルを習得します。スキルレベルごとに3ポイント（Assistのスキルは2ポイント）かかり、すべてスティックが必要で、すべてMPを消費します。スキル最大レベル時の数値："
+    ],
+    [
+      "Skill (niveau)",
+      "スキル（習得レベル）"
+    ],
+    [
+      "Prérequis",
+      "前提条件"
+    ],
+    [
+      "Effet au niveau max",
+      "最大レベル時の効果"
+    ],
+    [
+      "<strong>Holycross</strong> (60)",
+      "<strong>Holycross</strong>（60）"
+    ],
+    [
+      "Debuff sur un ennemi&nbsp;: le prochain coup qu'il reçoit inflige le double de dégâts (5&nbsp;s). Un seul niveau.",
+      "敵へのデバフ：次に受ける攻撃のダメージが倍になる（5秒）。スキルレベルは一段階のみ。"
+    ],
+    [
+      "<strong>Merkaba Hanzelrusha</strong> (60)",
+      "<strong>Merkaba Hanzelrusha</strong>（60）"
+    ],
+    [
+      "Prevention 4",
+      "Prevention 4"
+    ],
+    [
+      "Dégâts magiques toutes les 0,75&nbsp;s pendant 10&nbsp;s dans un rayon de 5&nbsp;m autour de vous (chaque coup augmente avec l'INT, × 4,18)&nbsp;; recharge 7&nbsp;s.",
+      "自分の周囲半径5m内に、10秒間、0.75秒ごとに魔法ダメージ（各ヒットはINTに応じて増加、× 4.18）。クールタイム7秒。"
+    ],
+    [
+      "<strong>Protect</strong> (60)",
+      "<strong>Protect</strong>（60）"
+    ],
+    [
+      "Heap Up 6",
+      "Heap Up 6"
+    ],
+    [
+      "Défense et défense magique +10&nbsp;% sur un allié.",
+      "味方一人の防御力と魔法防御力+10%。"
+    ],
+    [
+      "<strong>Holyguard</strong> (65)",
+      "<strong>Holyguard</strong>（65）"
+    ],
+    [
+      "Protect 3",
+      "Protect 3"
+    ],
+    [
+      "Résistance aux critiques +100&nbsp;%&nbsp;: la cible ne subit plus de coups critiques pendant 5&nbsp;s, plus 0,03&nbsp;s par point d'INT&nbsp;; recharge 45&nbsp;s.",
+      "クリティカル耐性+100%：対象は5秒+INT×0.03秒の間、クリティカルヒットを受けなくなる。クールタイム45秒。"
+    ],
+    [
+      "<strong>Spirit Fortune</strong> (65)",
+      "<strong>Spirit Fortune</strong>（65）"
+    ],
+    [
+      "Holycross 1",
+      "Holycross 1"
+    ],
+    [
+      "Dégâts +150 sur un allié.",
+      "味方一人のダメージ+150。"
+    ],
+    [
+      "<strong>Heal Rain</strong> (70)",
+      "<strong>Heal Rain</strong>（70）"
+    ],
+    [
+      "Merkaba 3",
+      "Merkaba 3"
+    ],
+    [
+      "Soigne les membres du groupe à moins de 13&nbsp;m&nbsp;: 650 + INT × 8,18 HP, incantation 0,5&nbsp;s.",
+      "13m以内のパーティメンバーを回復：HP 650 + INT × 8.18、詠唱0.5秒。"
+    ],
+    [
+      "<strong>Geburah Tiphreth</strong> (75)",
+      "<strong>Geburah Tiphreth</strong>（75）"
+    ],
+    [
+      "Holyguard 4, Spirit Fortune 7",
+      "Holyguard 4、Spirit Fortune 7"
+    ],
+    [
+      "Vous et le groupe à moins de 13&nbsp;m&nbsp;: attaque +10&nbsp;%, vitesse d'attaque +15&nbsp;%, temps d'incantation -10&nbsp;%.",
+      "自分と13m以内のパーティ：攻撃力+10%、攻撃速度+15%、詠唱時間-10%。"
+    ],
+    [
+      "<strong>Gvur Tialla</strong> (80)",
+      "<strong>Gvur Tialla</strong>（80）"
+    ],
+    [
+      "Heal Rain 4",
+      "Heal Rain 4"
+    ],
+    [
+      "Retire tous les debuffs d'un allié et lui donne Ténacité +30&nbsp;% pendant 1&nbsp;s&nbsp;; recharge 2&nbsp;s. Trois niveaux.",
+      "味方一人のデバフをすべて解除し、1秒間テナシティ+30%を付与。クールタイム2秒。スキルレベルは三段階。"
+    ],
+    [
+      "<strong>Barrier of Life</strong> (100)",
+      "<strong>Barrier of Life</strong>（100）"
+    ],
+    [
+      "Gvur Tialla 2",
+      "Gvur Tialla 2"
+    ],
+    [
+      "Pendant 2&nbsp;s, la cible bloque tous les coups reçus&nbsp;; recharge 18&nbsp;s. Cinq niveaux.",
+      "2秒間、対象は受けるすべての攻撃をブロック。クールタイム18秒。スキルレベルは五段階。"
+    ],
+    [
+      "Attention à la chaîne de prérequis de Heal Rain&nbsp;: il demande Merkaba Hanzelrusha 3, qui demande lui-même Prevention 4, au bout de la chaîne Heal 3 → Patience 4 → Resurrection 4 → Circle Healing 4. Même un Full Support passe donc par Merkaba. Holycross, lui, ne coûte que 3 points et ouvre Spirit Fortune.",
+      "Heal Rainの前提条件のつながりに注意してください。Heal RainにはMerkaba Hanzelrusha 3が必要で、そのMerkaba自体にはPrevention 4が必要です。そしてこのPreventionは、Heal 3 → Patience 4 → Resurrection 4 → Circle Healing 4という流れの先にあります。つまりFull SupportでもMerkabaは避けて通れません。一方、Holycrossはわずか3ポイントで済み、Spirit Fortuneを解放します。"
+    ],
+    [
+      "Les buffs&nbsp;: ce qu'ils augmentent vraiment",
+      "バフ：実際に何が上がるのか"
+    ],
+    [
+      "Le Ringmaster garde les buffs de l'Assist et y ajoute les siens. Tous ceux présentés ci-dessous ciblent un seul joueur, sauf Geburah Tiphreth qui touche tout le groupe à moins de 13&nbsp;m. Les neuf buffs de stats de l'Assist durent 150&nbsp;s (2 min 30) au niveau 1 et 250&nbsp;s (4 min 10) au niveau 20&nbsp;; Protect et Spirit Fortune, de 160 à 250&nbsp;s. Dans tous les cas, ajoutez <strong>2&nbsp;s par point d'INT du lanceur</strong>, sans plafond. Exemple&nbsp;: à 300 INT, un buff de niveau max dure 250 + 300 × 2 = 850&nbsp;s, soit un peu plus de 14 minutes. Geburah Tiphreth fait exception&nbsp;: 30&nbsp;s + 0,15&nbsp;s par point d'INT, quel que soit son niveau (75&nbsp;s à 300 INT).",
+      "RingmasterはAssistのバフを引き継ぎ、さらに独自のバフを加えます。以下で紹介するバフはすべて単体対象ですが、Geburah Tiphrethだけは13m以内のパーティ全体にかかります。Assistの九つのステータスバフの持続時間はレベル1で150秒（2分30秒）、レベル20で250秒（4分10秒）、ProtectとSpirit Fortuneは160〜250秒です。いずれの場合も、上限なしで<strong>術者のINT×2秒</strong>が加算されます。例：INT 300なら、最大レベルのバフは250 + 300 × 2 = 850秒、つまり14分強持続します。例外はGeburah Tiphrethで、スキルレベルに関係なく30秒+INT×0.15秒です（INT 300で75秒）。"
+    ],
+    [
+      "Les guides support conseillent de monter en priorité trois des buffs propres au Ringmaster&nbsp;:",
+      "サポート向けのガイドでは、Ringmaster独自のバフのうち、次の三つを優先して上げることが推奨されています："
+    ],
+    [
+      "Vous et les membres du groupe à moins de 13&nbsp;m&nbsp;: attaque +10&nbsp;%, vitesse d'attaque +15&nbsp;%, temps d'incantation -10&nbsp;%. Seule l'attaque augmente avec l'INT (jusqu'à +20&nbsp;% au total à 500 INT). Dure 30&nbsp;s + 0,15&nbsp;s par point d'INT, sans recharge.",
+      "自分と13m以内のパーティメンバー：攻撃力+10%、攻撃速度+15%、詠唱時間-10%。INTで上昇するのは攻撃力のみです（INT 500で合計最大+20%）。持続時間は30秒+INT×0.15秒、クールタイムなし。"
+    ],
+    [
+      "Défense et défense magique +10&nbsp;% chacune au niveau 10, plus 0,02&nbsp;% par point d'INT du lanceur (jusqu'à +10&nbsp;%). Dure 160 à 250&nbsp;s selon le niveau, plus 2&nbsp;s par point d'INT.",
+      "レベル10で防御力と魔法防御力がそれぞれ+10%、さらに術者のINT×0.02%（最大+10%）。持続時間はレベルに応じて160〜250秒+INT×2秒。"
+    ],
+    [
+      "Dégâts +150 au niveau 10 (+50 au niveau 1), plus 0,4 par point d'INT du lanceur (bonus plafonné à +200, atteint à 500 INT). Dure 160 à 250&nbsp;s selon le niveau, plus 2&nbsp;s par point d'INT.",
+      "レベル10でダメージ+150（レベル1では+50）、さらに術者のINT×0.4（このボーナスの上限は+200で、INT 500で到達）。持続時間はレベルに応じて160〜250秒+INT×2秒。"
+    ],
+    [
+      "Le Ringmaster garde aussi les neuf buffs de stats de l'Assist, tous à cible unique&nbsp;:",
+      "RingmasterはAssistの九つのステータスバフも引き続き使えます。いずれも単体対象です："
+    ],
+    [
+      "Buff (niveau)",
+      "バフ（習得レベル）"
+    ],
+    [
+      "Effet au niveau 20",
+      "レベル20時の効果"
+    ],
+    [
+      "Bonus d'INT du lanceur",
+      "術者のINTによるボーナス"
+    ],
+    [
+      "<strong>Mental Sign</strong> (18)",
+      "<strong>Mental Sign</strong>（18）"
+    ],
+    [
+      "INT +20",
+      "INT +20"
+    ],
+    [
+      "+0,04 par point (jusqu'à +20)",
+      "ポイントあたり+0.04（最大+20）"
+    ],
+    [
+      "<strong>Patience</strong> (18)",
+      "<strong>Patience</strong>（18）"
+    ],
+    [
+      "HP max +10&nbsp;%",
+      "最大HP +10%"
+    ],
+    [
+      "+0,02&nbsp;% par point (jusqu'à +10&nbsp;%)",
+      "ポイントあたり+0.02%（最大+10%）"
+    ],
+    [
+      "<strong>Heap Up</strong> (20)",
+      "<strong>Heap Up</strong>（20）"
+    ],
+    [
+      "STA +20",
+      "STA +20"
+    ],
+    [
+      "<strong>Quick Step</strong> (20)",
+      "<strong>Quick Step</strong>（20）"
+    ],
+    [
+      "Vitesse de déplacement +20&nbsp;%",
+      "移動速度+20%"
+    ],
+    [
+      "+0,04&nbsp;% par point (jusqu'à +20&nbsp;%)",
+      "ポイントあたり+0.04%（最大+20%）"
+    ],
+    [
+      "<strong>Beef Up</strong> (25)",
+      "<strong>Beef Up</strong>（25）"
+    ],
+    [
+      "STR +20",
+      "STR +20"
+    ],
+    [
+      "<strong>Haste</strong> (25)",
+      "<strong>Haste</strong>（25）"
+    ],
+    [
+      "Vitesse d'attaque +15&nbsp;%, temps d'incantation -10&nbsp;%",
+      "攻撃速度+15%、詠唱時間-10%"
+    ],
+    [
+      "+0,02&nbsp;% par point sur chacun (jusqu'à +10&nbsp;%)",
+      "それぞれポイントあたり+0.02%（最大+10%）"
+    ],
+    [
+      "<strong>Cat's Reflex</strong> (28)",
+      "<strong>Cat's Reflex</strong>（28）"
+    ],
+    [
+      "Taux de blocage +10&nbsp;%",
+      "ブロック率+10%"
+    ],
+    [
+      "<strong>Accuracy</strong> (30)",
+      "<strong>Accuracy</strong>（30）"
+    ],
+    [
+      "Précision +20&nbsp;%",
+      "命中率+20%"
+    ],
+    [
+      "<strong>Cannon Ball</strong> (35)",
+      "<strong>Cannon Ball</strong>（35）"
+    ],
+    [
+      "DEX +20",
+      "DEX +20"
+    ],
+    [
+      "Full Support, AoE ou Hit-and-Run — Quel build choisir&nbsp;?",
+      "Full Support、AoE、Hit-and-Run — どのビルドを選ぶ？"
+    ],
+    [
+      "Les guides Flyff Universe décrivent trois builds&nbsp;:",
+      "Flyff Universeのガイドでは、三つのビルドが紹介されています："
+    ],
+    [
+      "Build",
+      "ビルド"
+    ],
+    [
+      "Répartition des stats",
+      "ステータス配分"
+    ],
+    [
+      "Pour quoi faire",
+      "用途"
+    ],
+    [
+      "<strong>Full Support</strong>",
+      "<strong>Full Support</strong>"
+    ],
+    [
+      "15 STR / 15 STA / 15 DEX, tout le reste en INT",
+      "STR 15 / STA 15 / DEX 15、残りはすべてINT"
+    ],
+    [
+      "Buffer et soigner un groupe ou un partenaire de leveling, avec des buffs et des soins au maximum.",
+      "パーティやレベル上げの相方にバフをかけ、回復する。バフも回復も最大限の効果を発揮できる。"
+    ],
+    [
+      "<strong>AoE</strong> (facetank)",
+      "<strong>AoE</strong>（被弾前提）"
+    ],
+    [
+      "Surtout de l'INT, avec environ 50 STA (Madrigal Inside, 80 au plus) à 100-120 STA (Flyff Universe Wiki)",
+      "主にINT。STAは約50（Madrigal Inside、最大80）〜100-120（Flyff Universe Wiki）"
+    ],
+    [
+      "Leveler seul en regroupant les monstres autour de vous, avec Merkaba, Stonehand et Prevention.",
+      "Merkaba、Stonehand、Preventionを使い、周囲にモンスターを集めてソロでレベル上げ。"
+    ],
+    [
+      "<strong>Hit-and-Run</strong> (HnR)",
+      "<strong>Hit-and-Run</strong>（HnR）"
+    ],
+    [
+      "Full INT",
+      "INT極振り"
+    ],
+    [
+      "Polyvalent&nbsp;: les mêmes stats servent au support, aux donjons et au leveling solo, sans reset. Efficace jusqu'au niveau 120 environ selon Madrigal Inside.",
+      "万能型：同じステータスのまま、リセットなしでサポート、ダンジョン、ソロでのレベル上げをこなせる。Madrigal Insideによればレベル120前後まで有効。"
+    ],
+    [
+      "Point commun des trois&nbsp;: l'INT. Vos soins, la puissance et la durée de vos buffs, les dégâts de chaque coup de Merkaba Hanzelrusha (INT × 4 à 4,18) et votre réserve de MP en dépendent — chaque point d'INT donne 16,2 MP max à un Ringmaster. Le chiffre de <strong>500 INT</strong> revient souvent&nbsp;: c'est là que tous les bonus de buffs liés à l'INT atteignent leur plafond (Heap Up&nbsp;: 0,04 × 500 = +20 STA de plus&nbsp;; Spirit Fortune&nbsp;: 0,4 × 500 = +200 dégâts de plus&nbsp;; Geburah Tiphreth&nbsp;: attaque +20&nbsp;% au total). Au-delà, l'INT continue d'augmenter vos soins, vos MP et la durée de vos buffs.",
+      "三つに共通するのはINTです。回復量、バフの効果と持続時間、Merkaba Hanzelrushaの各ヒットのダメージ（INT × 4〜4.18）、MPの最大値はすべてINTで決まります。RingmasterはINTのポイントごとに最大MPが16.2増えます。<strong>INT 500</strong>という数字がよく出てきますが、これはINTに連動するバフのボーナスがすべて上限に達する値です（Heap Up：0.04 × 500 = STA +20の上乗せ、Spirit Fortune：0.4 × 500 = ダメージ+200の上乗せ、Geburah Tiphreth：攻撃力が合計+20%）。それ以上でも、INTは回復量、MP、バフの持続時間を伸ばし続けます。"
+    ],
+    [
+      "Ordre de montée des skills",
+      "スキルの習得順"
+    ],
+    [
+      "<strong>Full Support</strong>&nbsp;: Holycross d'abord (un seul point, prérequis de Spirit Fortune), puis Protect, Spirit Fortune et Geburah Tiphreth au maximum. Geburah Tiphreth demande aussi Holyguard 4&nbsp;; au-delà, Holyguard sert surtout quand vous accompagnez un AoE. Heal au niveau 3 suffit pour soutenir un seul joueur, grâce à l'INT.",
+      "<strong>Full Support</strong>：まずHolycross（ポイントは一つだけでよく、Spirit Fortuneの前提条件）、次にProtect、Spirit Fortune、Geburah Tiphrethを最大まで。Geburah TiphrethにはHolyguard 4も必要です。それ以上のHolyguardは、主にAoE型のプレイヤーに同行するときに役立ちます。INTのおかげで、プレイヤー一人をサポートするならHealはレベル3で十分です。"
+    ],
+    [
+      "<strong>AoE</strong>&nbsp;: Merkaba Hanzelrusha au maximum dès le niveau 60&nbsp;; Prevention (soin automatique quand vos HP passent sous 15&nbsp;% en PvE) et Stonehand (chance d'étourdir à chaque attaque, 12&nbsp;% en PvE au niveau 20) au maximum&nbsp;; Protect tôt&nbsp;; Heal vers le niveau 3. Gardez actifs Geburah Tiphreth, Heap Up, Patience et Cat's Reflex, et réservez Holyguard aux gros regroupements de monstres. À partir du niveau 105, les guides citent le désert de Darkon 3 avec le set Rimyth.",
+      "<strong>AoE</strong>：レベル60からMerkaba Hanzelrushaを最大まで。Prevention（PvEでHPが15%を下回ると自動回復）とStonehand（攻撃のたびに一定確率でスタン、レベル20のPvEで12%）も最大まで。Protectは早めに、Healはレベル3程度。Geburah Tiphreth、Heap Up、Patience、Cat's Reflexを維持し、Holyguardはモンスターを大量にまとめたときのために取っておきます。レベル105以降の狩場としては、ガイドではRimythセットを装備したうえでのDarkon 3の砂漠が挙げられています。"
+    ],
+    [
+      "<strong>Hit-and-Run</strong> (selon Madrigal Inside)&nbsp;: Merkaba Hanzelrusha pour les dégâts, Moon Beam au maximum, Barrier of Life pour la sécurité et Geburah Tiphreth comme buff clé.",
+      "<strong>Hit-and-Run</strong>（Madrigal Insideによる）：ダメージ源としてMerkaba Hanzelrusha、Moon Beamは最大まで、安全確保にBarrier of Life、重要なバフとしてGeburah Tiphreth。"
+    ],
+    [
+      "Avant le niveau 60&nbsp;: l'Assist",
+      "レベル60まで：Assist時代"
+    ],
+    [
+      "Selon Madrigal Inside, un Assist monte de deux façons&nbsp;: en Hit-and-Run avec Moon Beam (full INT, stick&nbsp;; disponible dès le niveau 15, il inflige des dégâts sur la durée et fait subir jusqu'à 8&nbsp;% de dégâts en plus à la cible), ou en AoE STR avec knuckle et bouclier (Temping Hole, puis Burst Crack au niveau 28). Si vous visez un Ringmaster, le style Moon Beam est déjà full INT, comme le build Hit-and-Run (et l'INT reste la stat principale des trois builds).",
+      "Madrigal Insideによると、Assistの育て方は二通りあります。Moon BeamによるHit-and-Run（INT極振り、スティック。Moon Beamはレベル15から使え、継続ダメージを与え、対象が受けるダメージを最大8%増加させます）か、ナックルと盾によるSTR型AoE（Temping Hole、レベル28からはBurst Crack）です。Ringmasterを目指すなら、Moon Beamスタイルは最初からHit-and-Runビルドと同じINT極振りです（INTは三つのビルドすべてで主要ステータスでもあります）。"
+    ],
+    [
+      "Équipement recommandé",
+      "推奨装備"
+    ],
+    [
+      "Armes",
+      "武器"
+    ],
+    [
+      "<strong>Stick (canne)</strong> — l'arme du Ringmaster&nbsp;: tous ses skills de classe en demandent un. Dans Flyff Universe, tous les sticks se tiennent à deux mains, jusqu'au niveau 190&nbsp;: pas de bouclier.",
+      "<strong>Stick（スティック）</strong> — Ringmasterの武器で、クラススキルはすべてスティックが必要です。Flyff Universeではレベル190まで、すべてのスティックが両手持ちなので、盾は持てません。"
+    ],
+    [
+      "<strong>Knuckles</strong> — à une main et réservés à l'Assist et à ses classes (bouclier possible), pour les attaques au poing de l'Assist&nbsp;: Temping Hole, Burst Crack, Power Fist. Ils ne permettent pas de lancer les skills du Ringmaster.",
+      "<strong>Knuckles（ナックル）</strong> — 片手持ちで、Assistとその上位クラス専用（盾も装備可能）。Assistの拳攻撃（Temping Hole、Burst Crack、Power Fist）に使います。ナックルではRingmasterのスキルは使えません。"
+    ],
+    [
+      "<strong>Staff (bâton)</strong> — réservé aux Magiciens&nbsp;: un Ringmaster ne peut pas l'équiper.",
+      "<strong>Staff（スタッフ）</strong> — Magician専用で、Ringmasterは装備できません。"
+    ],
+    [
+      "Progression des sticks&nbsp;:",
+      "スティックの更新順："
+    ],
+    [
+      "<strong>Niveau 60</strong> — Guardian Stick (INT +7, HP max +15&nbsp;%)",
+      "<strong>レベル60</strong> — Guardian Stick（INT +7、最大HP +15%）"
+    ],
+    [
+      "<strong>Niveau 75</strong> — Historic Stick (MP max +30&nbsp;%, temps d'incantation -15&nbsp;%)",
+      "<strong>レベル75</strong> — Historic Stick（最大MP +30%、詠唱時間-15%）"
+    ],
+    [
+      "<strong>Niveau 90</strong> — Angel Stick (INT +15, HP max +20&nbsp;%)",
+      "<strong>レベル90</strong> — Angel Stick（INT +15、最大HP +20%）"
+    ],
+    [
+      "<strong>Niveau 105</strong> — Legendary Golden Stick en support (INT +15, incantation -20&nbsp;%, soins +10&nbsp;%) ou Mythical Silver Stick en AoE (HP max +20&nbsp;%, STA +15, blocage +10&nbsp;%)",
+      "<strong>レベル105</strong> — サポートならLegendary Golden Stick（INT +15、詠唱時間-20%、回復量+10%）、AoEならMythical Silver Stick（最大HP +20%、STA +15、ブロック+10%）"
+    ],
+    [
+      "<strong>Niveau 120</strong> — Bloody Stick (attaque +10&nbsp;%, soins +10&nbsp;%, incantation -25&nbsp;%, vol de HP +1&nbsp;%) ou Bloody Obsidian Stick pour encaisser (HP max +25&nbsp;%, STA +20, dégâts reçus -8&nbsp;%)",
+      "<strong>レベル120</strong> — Bloody Stick（攻撃力+10%、回復量+10%、詠唱時間-25%、HP吸収+1%）、または耐久重視ならBloody Obsidian Stick（最大HP +25%、STA +20、被ダメージ-8%）"
+    ],
+    [
+      "<strong>Niveau 150</strong> — Lusaka's Crystal Stick (attaque et soins +12 à 17&nbsp;%, incantation -28 à 33&nbsp;%, INT +25 à 30) ou Song of Sirens (attaque et soins +10 à 15&nbsp;%, incantation -26 à 30&nbsp;%)&nbsp;; Lusaka's Stick pour le tank",
+      "<strong>レベル150</strong> — Lusaka's Crystal Stick（攻撃力・回復量+12〜17%、詠唱時間-28〜33%、INT +25〜30）またはSong of Sirens（攻撃力・回復量+10〜15%、詠唱時間-26〜30%）。タンク向けにはLusaka's Stick"
+    ],
+    [
+      "<strong>Niveau 180</strong> — Oracle (attaque et soins +17 à 22&nbsp;%, incantation -33 à 42&nbsp;%, INT +30 à 39)&nbsp;; Mirage pour le tank et le PvP",
+      "<strong>レベル180</strong> — Oracle（攻撃力・回復量+17〜22%、詠唱時間-33〜42%、INT +30〜39）。タンクとPvPにはMirage"
+    ],
+    [
+      "Armure",
+      "防具"
+    ],
+    [
+      "Les sets d'armure de Flyff Universe comptent 4 pièces, avec un bonus à 2, 3 et 4 pièces. Avant 60, l'Assist porte Sardine/Curus (15), Talin/Sayram (30) puis Wedge/Flury (45&nbsp;: INT +7, consommation de MP -20&nbsp;%, incantation -20&nbsp;%), que Madrigal Inside conseille de garder jusqu'au set Shupon du niveau 90. Les sets suivants&nbsp;:",
+      "Flyff Universeの防具セットは4部位で構成され、2・3・4部位でセットボーナスが発生します。レベル60までのAssistは、Sardine/Curus（15）、Talin/Sayram（30）、続いてWedge/Flury（45：INT +7、MP消費-20%、詠唱時間-20%）を装備します。Madrigal Insideでは、Wedge/Fluryをレベル90のShuponセットまで使い続けることを勧めています。その後のセットは次のとおりです："
+    ],
+    [
+      "Niveau",
+      "レベル"
+    ],
+    [
+      "Set",
+      "セット"
+    ],
+    [
+      "Bonus principaux (2&nbsp;·&nbsp;3&nbsp;·&nbsp;4 pièces)",
+      "主なボーナス（2&nbsp;·&nbsp;3&nbsp;·&nbsp;4部位）"
+    ],
+    [
+      "<strong>60</strong>",
+      "<strong>60</strong>"
+    ],
+    [
+      "Shurand / Shuran",
+      "Shurand / Shuran"
+    ],
+    [
+      "STR +5 et INT +5 · incantation -8&nbsp;% · HP max +15&nbsp;%",
+      "STR +5、INT +5 · 詠唱時間-8% · 最大HP +15%"
+    ],
+    [
+      "<strong>75</strong>",
+      "<strong>75</strong>"
+    ],
+    [
+      "Pact / Paxt",
+      "Pact / Paxt"
+    ],
+    [
+      "incantation -10&nbsp;% · dégâts des skills +10&nbsp;% · HP max +15&nbsp;%",
+      "詠唱時間-10% · スキルダメージ+10% · 最大HP +15%"
+    ],
+    [
+      "<strong>90</strong>",
+      "<strong>90</strong>"
+    ],
+    [
+      "Shupon / Shrian",
+      "Shupon / Shrian"
+    ],
+    [
+      "INT +10 · soins +10&nbsp;% · incantation -20&nbsp;%",
+      "INT +10 · 回復量+10% · 詠唱時間-20%"
+    ],
+    [
+      "<strong>105</strong>",
+      "<strong>105</strong>"
+    ],
+    [
+      "Navil / Neclus (support)",
+      "Navil / Neclus（サポート）"
+    ],
+    [
+      "INT +15 · soins +15&nbsp;% · incantation -30&nbsp;%",
+      "INT +15 · 回復量+15% · 詠唱時間-30%"
+    ],
+    [
+      "Rimyth / Remingster (AoE)",
+      "Rimyth / Remingster（AoE）"
+    ],
+    [
+      "DEF +7&nbsp;% · incantation -10&nbsp;%, blocage +5&nbsp;%, DEF magique +7&nbsp;% · HP max +15&nbsp;%, résistance aux critiques +10&nbsp;%, blocage +5&nbsp;%",
+      "DEF +7% · 詠唱時間-10%、ブロック+5%、魔法DEF +7% · 最大HP +15%、クリティカル耐性+10%、ブロック+5%"
+    ],
+    [
+      "<strong>120</strong>",
+      "<strong>120</strong>"
+    ],
+    [
+      "Revenio / Revenis (PvE)",
+      "Revenio / Revenis（PvE）"
+    ],
+    [
+      "réduction des dégâts PvE à chaque palier, blocage, incantation -10&nbsp;% · à 4 pièces&nbsp;: HP max +25&nbsp;%, dégâts PvE +15&nbsp;%, soins +10&nbsp;%",
+      "各段階でPvEダメージ軽減、ブロック、詠唱時間-10% · 4部位：最大HP +25%、PvEダメージ+15%、回復量+10%"
+    ],
+    [
+      "<strong>135</strong>",
+      "<strong>135</strong>"
+    ],
+    [
+      "Keinos / Keisan",
+      "Keinos / Keisan"
+    ],
+    [
+      "INT +15 · INT +5 et soins +15&nbsp;% · incantation -35&nbsp;% et attaque +10&nbsp;%",
+      "INT +15 · INT +5、回復量+15% · 詠唱時間-35%、攻撃力+10%"
+    ],
+    [
+      "<strong>150</strong>",
+      "<strong>150</strong>"
+    ],
+    [
+      "Luminia / Luminis (support)",
+      "Luminia / Luminis（サポート）"
+    ],
+    [
+      "INT +15 · INT +20 et soins +20&nbsp;% · incantation -40&nbsp;% et attaque +15&nbsp;%",
+      "INT +15 · INT +20、回復量+20% · 詠唱時間-40%、攻撃力+15%"
+    ],
+    [
+      "Reine / Rayne (défensif)",
+      "Reine / Rayne（防御型）"
+    ],
+    [
+      "réduction des dégâts PvE à chaque palier, incantation -15&nbsp;% · à 4 pièces&nbsp;: HP max +30&nbsp;%, dégâts PvE +20&nbsp;%, blocage +10&nbsp;%, résistance aux critiques +10&nbsp;%, soins +15&nbsp;%",
+      "各段階でPvEダメージ軽減、詠唱時間-15% · 4部位：最大HP +30%、PvEダメージ+20%、ブロック+10%、クリティカル耐性+10%、回復量+15%"
+    ],
+    [
+      "<strong>175</strong>",
+      "<strong>175</strong>"
+    ],
+    [
+      "Lorvenic / Lorvenicar (Seraph)",
+      "Lorvenic / Lorvenicar（Seraph）"
+    ],
+    [
+      "INT +30 · INT +30 et soins +25&nbsp;% · incantation -45&nbsp;% et attaque +20&nbsp;%",
+      "INT +30 · INT +30、回復量+25% · 詠唱時間-45%、攻撃力+20%"
+    ],
+    [
+      "<strong>180</strong>",
+      "<strong>180</strong>"
+    ],
+    [
+      "Etranar / Etranor (Seraph, PvE)",
+      "Etranar / Etranor（Seraph、PvE）"
+    ],
+    [
+      "à 4 pièces&nbsp;: toutes les stats +10, HP max +35&nbsp;%, dégâts PvE +25&nbsp;%, réduction des dégâts PvE +12&nbsp;%, blocage +14&nbsp;%, résistance aux critiques +14&nbsp;%, soins +20&nbsp;%",
+      "4部位：全ステータス+10、最大HP +35%、PvEダメージ+25%、PvEダメージ軽減+12%、ブロック+14%、クリティカル耐性+14%、回復量+20%"
+    ],
+    [
+      "En support, Madrigal Inside conseille de combiner deux bonus 2 pièces pour cumuler l'INT&nbsp;: par exemple 2 pièces Shurand (+5) et 2 pièces Navil (+15), soit INT +20 au niveau 105, ou 2 Keinos et 2 Navil, soit INT +30 au niveau 135. Les versions PvP (Obsidian Revenio, Primordial Etranar) et les variantes FWC existent aussi.",
+      "サポートの場合、Madrigal Insideでは2部位ボーナスを二つ組み合わせてINTを重ねることを勧めています。例えば、Shurand 2部位（+5）とNavil 2部位（+15）でレベル105時にINT +20、またはKeinos 2部位とNavil 2部位でレベル135時にINT +30になります。PvP版（Obsidian Revenio、Primordial Etranar）やFWC版も存在します。"
+    ],
+    [
+      "Bijoux (jewelry)",
+      "アクセサリー（jewelry）"
+    ],
+    [
+      "Madrigal Inside conseille, en support, des anneaux Intiret (INT +10 en +1, jusqu'à INT +50 en +5), des boucles d'oreilles Penzeru (DEF et DEF magique +150 en +1, jusqu'à +250 en +5), un collier MP ou HP et la cape Cloak of Wisdom (INT +8)&nbsp;; en AoE, Cloak of Wisdom ou Cloak of Endurance (STA +8) selon votre équilibre INT/STA. Pour tester vos combinaisons, un simulateur de personnage comme Flyffulator est utile (voir aussi <a href=\"meilleurs-outils-flyff-universe-2026.html\">notre comparatif d'outils</a>).",
+      "Madrigal Insideでは、サポート向けに、Intiretの指輪（+1でINT +10、+5で最大INT +50）、Penzeruのイヤリング（+1でDEFと魔法DEF +150、+5で最大+250）、MPまたはHPのネックレス、そしてマントのCloak of Wisdom（INT +8）を推奨しています。AoEなら、INTとSTAのバランスに応じてCloak of WisdomかCloak of Endurance（STA +8）を選びます。組み合わせを試すには、Flyffulatorのようなキャラクターシミュレーターが便利です（<a href=\"meilleurs-outils-flyff-universe-2026.html\">ツール比較記事</a>も参照）。"
+    ],
+    [
+      "Rotation et gestion du rythme",
+      "ローテーションとリズム管理"
+    ],
+    [
+      "Une fois les buffs posés, le rythme d'un Ringmaster tient en quatre timings&nbsp;:",
+      "バフをかけ終えたら、Ringmasterのリズムは四つのタイミングに集約されます："
+    ],
+    [
+      "<strong>Avant l'expiration des buffs longs</strong> — 250&nbsp;s au niveau max + 2&nbsp;s par point d'INT (un peu plus de 14 minutes à 300 INT)&nbsp;: relancez la série complète sur chaque joueur.",
+      "<strong>長時間バフが切れる前</strong> — 最大レベルで250秒+INT×2秒（INT 300で14分強）。各プレイヤーにバフ一式をかけ直します。"
+    ],
+    [
+      "<strong>Toutes les 30&nbsp;s + 0,15&nbsp;s par point d'INT</strong> — Geburah Tiphreth, le seul buff de groupe (75&nbsp;s à 300 INT, 105&nbsp;s à 500 INT).",
+      "<strong>30秒+INT×0.15秒ごと</strong> — 唯一のパーティバフであるGeburah Tiphreth（INT 300で75秒、INT 500で105秒）。"
+    ],
+    [
+      "<strong>Selon les dégâts</strong> — Heal Rain pour le groupe (0,5&nbsp;s d'incantation, aucun temps de recharge dans les données du jeu), Heal pour un joueur en danger.",
+      "<strong>ダメージに応じて</strong> — パーティにはHeal Rain（詠唱0.5秒、ゲームデータ上クールタイムなし）、危険な状態のプレイヤーにはHeal。"
+    ],
+    [
+      "<strong>En réaction</strong> — Gvur Tialla contre un debuff, Holyguard ou Barrier of Life sur un allié qui va encaisser, Resurrection si quelqu'un tombe.",
+      "<strong>状況に応じて</strong> — デバフにはGvur Tialla、大ダメージを受けそうな味方にはHolyguardかBarrier of Life、誰かが倒れたらResurrection。"
+    ],
+    [
+      "Pour la série de buffs, Madrigal Inside conseille de lancer Mental Sign sur vous en premier, pour que l'INT gagnée profite aux buffs suivants. Gardez Geburah Tiphreth pour la fin, juste avant le combat&nbsp;: il dure bien moins longtemps que les autres buffs.",
+      "バフをかける順番について、Madrigal Insideでは、最初に自分へMental Signをかけ、上がったINTを後のバフに活かすことを勧めています。Geburah Tiphrethは他のバフよりずっと持続時間が短いので、最後、戦闘の直前にかけましょう。"
+    ],
+    [
+      "Les deux premiers timings sont mécaniques et se prêtent à <strong>l'automatisation</strong> (les buffs mono-cible partent sur la cible sélectionnée au moment du cycle&nbsp;: changer de cible entre les joueurs reste à faire vous-même)&nbsp;; les deux autres demandent votre attention. Reborn Assistant rejoue, à l'intervalle que vous choisissez, les séquences de touches que vous avez configurées&nbsp;: il ne lit pas le jeu et ne voit pas vos buffs. Réglez donc l'intervalle d'après la durée réelle calculée ci-dessus, recalculez-le quand votre INT change, et <strong>gardez les soins d'urgence en main</strong>.",
+      "最初の二つのタイミングは機械的な作業なので、<strong>自動化</strong>に向いています（単体バフはサイクル時点で選択している対象にかかるため、プレイヤー間の対象の切り替えは自分で行う必要があります）。残りの二つには注意力が必要です。Reborn Assistantは、設定したキーシーケンスを選んだ間隔で再実行するだけで、ゲームを読み取ることも、バフを見ることもできません。そのため、上で計算した実際の持続時間をもとに間隔を設定し、INTが変わったら計算し直し、<strong>緊急時の回復は自分の手で</strong>行いましょう。"
+    ],
+    [
+      "Ringmaster vs Billposter — Quelle différence&nbsp;?",
+      "Ringmaster vs Billposter — 何が違う？"
+    ],
+    [
+      "Au niveau 60, l'Assist choisit entre deux classes&nbsp;:",
+      "レベル60で、Assistは二つのクラスのどちらかに転職します："
+    ],
+    [
+      "<strong>Ringmaster</strong> = soins et buffs au stick&nbsp;; ses neuf skills consomment des MP, et chaque point d'INT lui rapporte deux fois plus de MP max qu'à un Billposter (16,2 contre 8,1). Il peut aussi leveler seul en build AoE ou Hit-and-Run. 3e classe&nbsp;: Seraph.",
+      "<strong>Ringmaster</strong> = スティックで回復とバフ。九つのスキルはMPを消費し、INTのポイントごとに得られる最大MPはBillposterの二倍（16.2対8.1）。AoEビルドやHit-and-Runビルドならソロでのレベル上げも可能。3次職：Seraph。"
+    ],
+    [
+      "<strong>Billposter</strong> = combat au corps à corps avec des knuckles (Asmodeus renforce l'arme équipée)&nbsp;; ses attaques comme Belial Smashing, Blood Fist ou Sonichand consomment des FP. 3e classe&nbsp;: Forcemaster.",
+      "<strong>Billposter</strong> = ナックルでの近接戦闘（Asmodeusで装備中の武器を強化）。Belial Smashing、Blood Fist、Sonichandなどの攻撃はFPを消費。3次職：Forcemaster。"
+    ],
+    [
+      "Le Mentalist, parfois cité à sa place, est en réalité la 3e classe du Psykeeper, sur la branche Magicien&nbsp;: il n'a aucun lien avec l'Assist. Si vous voulez soigner et renforcer les autres → Ringmaster. Si vous préférez frapper au poing → Billposter.",
+      "代わりに名前が挙がることもあるMentalistは、実際にはMagician系統のPsykeeperの3次職で、Assistとは無関係です。仲間を回復・強化したいなら → Ringmaster。拳で殴りたいなら → Billposter。"
+    ],
+    [
+      "Erreurs courantes de débutant Ringmaster",
+      "Ringmaster初心者によくあるミス"
+    ],
+    [
+      "<strong>Gérer des FP au lieu des MP</strong> — tous les skills du Ringmaster consomment des MP (Heal Rain coûte 80 à 170 MP, Geburah Tiphreth 155 à 250 selon le niveau)&nbsp;: emportez des potions de MP (Refreshers), pas des Vital Drinks.",
+      "<strong>MPではなくFPを管理してしまう</strong> — RingmasterのスキルはすべてMPを消費します（レベルに応じてHeal Rainは80〜170 MP、Geburah Tiphrethは155〜250 MP）。Vital DrinkではなくMPポーション（Refresher）を持っていきましょう。"
+    ],
+    [
+      "<strong>Compter sur une durée de buff fixe</strong> — elle dépend du niveau du skill et de votre INT&nbsp;; recalculez votre intervalle de rebuff quand votre INT change, et n'oubliez pas que Geburah Tiphreth expire bien avant les autres.",
+      "<strong>バフの持続時間を固定だと思い込む</strong> — 持続時間はスキルレベルとINTによって変わります。INTが変わったらバフのかけ直し間隔を計算し直し、Geburah Tiphrethは他のバフよりずっと早く切れることを忘れないでください。"
+    ],
+    [
+      "<strong>Se tromper de buff</strong> — Beef Up donne de la STR, pas des HP (c'est Patience)&nbsp;; Cat's Reflex donne du blocage, pas de l'esquive.",
+      "<strong>バフの効果を取り違える</strong> — Beef Upで上がるのはHPではなくSTR（HPはPatience）。Cat's Reflexで上がるのは回避ではなくブロック。"
+    ],
+    [
+      "<strong>Négliger l'INT</strong> — soins, buffs, dégâts de Merkaba et réserve de MP en dépendent&nbsp;; seul le build AoE monte un peu sa STA (50 à 120 selon les guides).",
+      "<strong>INTを軽視する</strong> — 回復、バフ、Merkabaのダメージ、MPの最大値はすべてINT次第です。STAを多少上げるのはAoEビルドだけです（ガイドにより50〜120）。"
+    ],
+    [
+      "<strong>Rester trop loin du groupe</strong> — Heal Rain et Geburah Tiphreth visent les membres du groupe à moins de 13&nbsp;m&nbsp;: invitez vos alliés dans le groupe et restez près d'eux.",
+      "<strong>パーティから離れすぎる</strong> — Heal RainとGeburah Tiphrethの対象は13m以内のパーティメンバーです。味方をパーティに招待し、近くにいましょう。"
+    ],
+    [
+      "<strong>Chercher un bouclier ou un staff</strong> — tous les sticks sont à deux mains et les staffs sont réservés aux Magiciens.",
+      "<strong>盾やスタッフを探す</strong> — スティックはすべて両手持ちで、スタッフはMagician専用です。"
+    ],
+    [
+      "<strong>Croire que le Ringmaster ne peut pas tuer</strong> — en AoE ou en Hit-and-Run, Merkaba Hanzelrusha (renforcé d'environ 28&nbsp;% par le patch 1.5.2 d'avril 2026) permet de leveler seul.",
+      "<strong>Ringmasterは敵を倒せないと思い込む</strong> — AoEやHit-and-Runなら、Merkaba Hanzelrusha（2026年4月のパッチ1.5.2で約28%強化）でソロでもレベル上げができます。"
+    ],
+    [
+      "Optimisez votre Ringmaster avec Reborn Assistant",
+      "Reborn AssistantでRingmasterを最適化"
+    ],
+    [
+      "L'extension premium pour automatiser la rotation de buffs et vos macros personnalisées, avec les séquences de touches que vous configurez. 7 jours d'essai gratuit sans carte bancaire.",
+      "設定したキーシーケンスで、バフローテーションとカスタムマクロを自動化するPremium拡張機能。7日間無料トライアル、クレジットカード不要。"
+    ],
+    [
+      "Guide mis à jour le 4 octobre 2026 — Flyff Universe (Gala Lab).",
+      "ガイド更新日：2026年10月4日 — Flyff Universe（Gala Lab）。"
+    ],
+    [
+      "<a href=\"../index.html\">Accueil</a> › <a href=\"index.html\">Documentation</a> › Guide Ringmaster",
+      "<a href=\"../index.html\">ホーム</a> › <a href=\"index.html\">ドキュメント</a> › Ringmasterガイド"
+    ],
+    [
+      "<strong>⚠️ Automatisation et règles du jeu</strong>\n            Le client officiel affiche un message de bannissement lorsqu'il détecte un logiciel de triche, et demande de ne plus utiliser aucun outil externe. Cela vaut partout, pas seulement en compétition&nbsp;: lisez les conditions d'utilisation de Flyff Universe avant d'automatiser quoi que ce soit.",
+      "<strong>⚠️ 自動化とゲームのルール</strong>\n            公式クライアントは不正ソフトウェアを検出するとBANメッセージを表示し、外部ツールを一切使用しないよう求めます。これは大会に限らず、あらゆる場面に当てはまります。何かを自動化する前に、Flyff Universeの利用規約を読んでください。"
+    ],
+    [
+      "<strong>💡 Tutoriel pratique disponible</strong>\n            Nous avons rédigé un <a href=\"automatiser-ringmaster-flyff-universe.html\" style=\"color:var(--gold);\">tutoriel pas à pas pour automatiser votre Ringmaster</a> avec Reborn Assistant&nbsp;: configuration de la rotation, intervalle entre cycles, macros et erreurs à éviter.",
+      "<strong>💡 実践チュートリアルあり</strong>\n            Reborn Assistantで<a href=\"automatiser-ringmaster-flyff-universe.html\" style=\"color:var(--gold);\">Ringmasterを自動化するステップバイステップのチュートリアル</a>を用意しました：ローテーションの設定、サイクル間の間隔、マクロ、避けるべきミスを解説しています。"
+    ],
+    [
+      "<strong>📌 Sources et méthode</strong>\n            Les valeurs des skills, des objets et des sets viennent des données de l'API officielle de Flyff Universe (relevé d'août 2026 publié par le projet open source Flyffulator). Les répartitions de stats, ordres de skills et choix de bijoux viennent des guides communautaires (Madrigal Inside, Flyff Universe Wiki)&nbsp;: ce sont des recommandations de joueurs, pas des règles du jeu. Un patch peut modifier ces chiffres.",
+      "<strong>📌 出典と方法</strong>\n            スキル、アイテム、セットの数値は、Flyff Universe公式APIのデータ（オープンソースプロジェクトFlyffulatorが公開した2026年8月時点のデータ）に基づいています。ステータス配分、スキルの習得順、アクセサリーの選択はコミュニティガイド（Madrigal Inside、Flyff Universe Wiki）に基づくもので、ゲームのルールではなくプレイヤーによる推奨です。パッチによってこれらの数値が変わる可能性があります。"
+    ],
+    [
+      "R",
+      "R"
+    ],
+    [
+      "Reborn",
+      "Reborn"
+    ],
+    [
+      "← Retour aux docs",
+      "← ドキュメントに戻る"
+    ],
+    [
+      "◆ Sommaire",
+      "◆ 目次"
+    ],
+    [
+      "Geburah Tiphreth (GT)",
+      "Geburah Tiphreth (GT)"
+    ],
+    [
+      "★ Ringmaster 75 · groupe",
+      "★ Ringmaster 75 · パーティ"
+    ],
+    [
+      "Protect",
+      "Protect"
+    ],
+    [
+      "★ Ringmaster 60 · allié",
+      "★ Ringmaster 60 · 味方"
+    ],
+    [
+      "Spirit Fortune",
+      "Spirit Fortune"
+    ],
+    [
+      "★ Ringmaster 65 · allié",
+      "★ Ringmaster 65 · 味方"
+    ],
+    [
+      "Installer Reborn Assistant",
+      "Reborn Assistantをインストール"
+    ],
+    [
+      "REBORN ASSISTANT",
+      "REBORN ASSISTANT"
+    ]
+  ]
+}
