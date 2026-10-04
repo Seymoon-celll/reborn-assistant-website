@@ -7,8 +7,8 @@
 
     <!-- ── SEO Primary ─────────────────────────────────────────── -->
     <title>Ringmaster Flyff Universe — Guide Complet 2026 (Build, Buffs, Rôle)</title>
-    <meta name="description" content="Guide complet du Ringmaster sur Flyff Universe : rôle, buffs essentiels, builds STA/INT, équipement, rotation, automatisation. Tout pour maîtriser la classe support.">
-    <meta name="keywords" content="Ringmaster guide, RM Flyff Universe, classe support Flyff, build Ringmaster, buffs RM, Mentalist vs Ringmaster, FWC RM">
+    <meta name="description" content="Guide complet du Ringmaster sur Flyff Universe : rôle, skills et buffs, builds Full Support, AoE et Hit-and-Run, équipement, rotation, passage en Seraph.">
+    <meta name="keywords" content="Ringmaster guide, RM Flyff Universe, classe support Flyff, build Ringmaster, buffs RM, Ringmaster vs Billposter, Seraph Flyff Universe, Geburah Tiphreth">
     <meta name="author" content="Seymoon">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="theme-color" content="#080808">
@@ -18,7 +18,7 @@
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Reborn Assistant">
     <meta property="og:title" content="Ringmaster Flyff Universe — Guide Complet 2026">
-    <meta property="og:description" content="Rôle, buffs essentiels, builds, équipement et automatisation : tout pour maîtriser le Ringmaster sur Flyff Universe.">
+    <meta property="og:description" content="Rôle, skills, buffs et leurs vraies durées, builds, équipement et rotation : tout pour maîtriser le Ringmaster sur Flyff Universe.">
     <meta property="og:url" content="https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html">
     <meta property="og:image" content="https://reborn-assistance.fr/og-image.jpg">
     <meta property="og:locale" content="fr_FR">
@@ -49,7 +49,7 @@
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Ringmaster Flyff Universe — Guide Complet 2026",
-      "description": "Guide complet du Ringmaster sur Flyff Universe : rôle, buffs essentiels, builds STA/INT, équipement, rotation, automatisation.",
+      "description": "Guide complet du Ringmaster sur Flyff Universe : parcours de classe jusqu'au Seraph, skills et buffs (effets et durées réels), builds Full Support, AoE et Hit-and-Run, sticks et sets d'armure par palier, rotation.",
       "image": "https://reborn-assistance.fr/og-image.jpg",
       "author": { "@type": "Person", "name": "Seymoon" },
       "publisher": {
@@ -58,7 +58,7 @@
         "logo": { "@type": "ImageObject", "url": "https://reborn-assistance.fr/favicon.svg" }
       },
       "datePublished": "2026-05-16",
-      "dateModified": "2026-05-16",
+      "dateModified": "2026-10-04",
       "mainEntityOfPage": "https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html",
       "inLanguage": "fr",
       "about": ["Flyff Universe", "Ringmaster", "MMORPG class guide"]
@@ -103,184 +103,409 @@
             </div>
             <div class="article-crest skill-slot" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-target"/></svg></div>
             <h1>Ringmaster Flyff Universe — Guide Complet 2026</h1>
-            <p class="subtitle">Rôle, buffs, builds, équipement, rotation : tout ce qu'il faut savoir pour jouer Ringmaster sur Flyff Universe en 2026, du palier 60 jusqu'à l'end-game.</p>
+            <p class="subtitle">Parcours de classe, skills, buffs et leurs vraies durées, builds, équipement, rotation&nbsp;: le Ringmaster de Flyff Universe tel qu'il se joue en 2026, du niveau 60 jusqu'au Seraph.</p>
             <div class="ornament" aria-hidden="true"></div>
         </header>
 
-        <h2>Qu'est-ce qu'un Ringmaster ?</h2>
-        <p>Le <strong>Ringmaster</strong> (RM) est l'avancement final de la branche Assist sur Flyff Universe. C'est <strong>la classe support du jeu</strong> : son rôle principal n'est pas d'infliger des dégâts, mais de <em>maintenir un groupe en vie et de le rendre plus puissant</em> via des buffs longue durée et un heal AOE en boucle. Sans Ringmaster, un groupe end-game prend deux à trois fois plus de temps à clear une zone — et survit beaucoup moins bien aux pulls accidentels.</p>
+        <div class="toc">
+            <div class="toc-title">◆ Sommaire</div>
+            <ol>
+                <li><a href="#ringmaster">Qu'est-ce qu'un Ringmaster&nbsp;?</a></li>
+                <li><a href="#role">Le rôle du Ringmaster en groupe</a></li>
+                <li><a href="#skills">Les skills du Ringmaster</a></li>
+                <li><a href="#buffs">Les buffs&nbsp;: ce qu'ils augmentent vraiment</a></li>
+                <li><a href="#builds">Full Support, AoE ou Hit-and-Run</a></li>
+                <li><a href="#equipement">Équipement recommandé</a></li>
+                <li><a href="#rotation">Rotation et gestion du rythme</a></li>
+                <li><a href="#billposter">Ringmaster vs Billposter</a></li>
+                <li><a href="#erreurs">Erreurs courantes</a></li>
+            </ol>
+        </div>
 
-        <p>Quelques caractéristiques qui définissent la classe :</p>
+        <h2 id="ringmaster">Qu'est-ce qu'un Ringmaster&nbsp;?</h2>
+        <p>Le <strong>Ringmaster</strong> (RM) est l'une des deux classes de 2e niveau de l'Assist sur Flyff Universe, avec le Billposter. C'est <strong>la branche soins et buffs</strong>&nbsp;: son rôle principal est de <em>maintenir un groupe en vie et de le rendre plus fort</em>. Ce n'est pas pour autant un simple soigneur&nbsp;: les guides communautaires décrivent aussi des builds AoE et Hit-and-Run qui lui permettent de leveler seul. Ses neuf skills de Ringmaster se lancent tous avec un stick et consomment des MP, jamais de FP.</p>
+
+        <h3>Le parcours de classe</h3>
         <ul>
-            <li><strong>Buffs longue durée</strong> (5 à 30 minutes) qui boostent les stats du groupe : attaque, défense, vitesse, dodge</li>
-            <li><strong>Heal Rain</strong>, une AOE qui soigne sur la durée tous les alliés dans un rayon de ~12-15m</li>
-            <li><strong>Résurrection</strong> de joueur mort sans pénalité d'expérience</li>
+            <li><strong>Niveaux 1 à 15&nbsp;: Vagrant</strong>, la classe de départ de tous les personnages.</li>
+            <li><strong>Niveau 15&nbsp;: Assist</strong> (1er changement de classe, niveaux 15 à 60). Vous y apprenez les soins et les buffs que le Ringmaster gardera.</li>
+            <li><strong>Niveau 60&nbsp;: Ringmaster</strong> (niveaux 60 à 165), ou Billposter si vous préférez le combat au poing.</li>
+            <li><strong>Niveau 165&nbsp;: Seraph</strong>, la 3e classe ajoutée par l'extension Muran's Awakening (v1.5.0, 27 novembre 2025), jusqu'au niveau maximum, désormais 190. Ses propres skills s'apprennent à partir du niveau 166&nbsp;: Kyrie Eleison, Gloria Patri, Divinecross, Hammer of Judgement…</li>
         </ul>
 
-        <h2>Le rôle du Ringmaster en groupe</h2>
-        <p>Trois rôles principaux selon le contexte de jeu :</p>
+        <h3>Ce que fait un Ringmaster</h3>
+        <ul>
+            <li><strong>Soigner</strong>&nbsp;: Heal (un allié, 650 + INT × 5,88 HP au niveau 20, 0,15&nbsp;s d'incantation), Circle Healing (le groupe à moins de 15&nbsp;m) et Heal Rain (le groupe à moins de 13&nbsp;m, dès le niveau 70). Tous ces soins augmentent avec l'INT.</li>
+            <li><strong>Buffer</strong>&nbsp;: les neuf buffs de l'Assist (STR, STA, DEX, INT, HP max, vitesse d'attaque, vitesse de déplacement, blocage, précision) et ceux du Ringmaster&nbsp;: Protect (défense), Spirit Fortune (dégâts), Holyguard (anti-critiques) et Geburah Tiphreth, le buff de groupe.</li>
+            <li><strong>Ranimer</strong>&nbsp;: Resurrection, un skill de l'Assist, ranime un joueur mort et réduit sa perte d'EXP.</li>
+            <li><strong>Réagir</strong>&nbsp;: Gvur Tialla retire tous les debuffs d'un allié, Barrier of Life lui fait bloquer tous les coups pendant 1,2 à 2&nbsp;s, et Holycross fait subir à un ennemi le double de dégâts sur le prochain coup qu'il reçoit.</li>
+        </ul>
+
+        <h2 id="role">Le rôle du Ringmaster en groupe</h2>
+        <p>Trois rôles principaux selon le contexte de jeu&nbsp;:</p>
 
         <div class="role-card">
             <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-swords"/></svg><span class="slot-src" aria-hidden="true">⚔️</span></div>
-            <h3 style="margin-top:0;">Farm rapide (PvE classique)</h3>
-            <p>Vous accompagnez un ou plusieurs DPS sur un spot de farm. Votre travail : rebuff toutes les 5 minutes, lancer Heal Rain en continu, surveiller les FP. Très répétitif — c'est exactement la situation où l'automatisation prend tout son sens.</p>
+            <h3 style="margin-top:0;">Leveling et farm en groupe</h3>
+            <p>Vous accompagnez un ou plusieurs joueurs qui tapent. Votre travail&nbsp;: renouveler les buffs avant leur expiration, relancer Geburah Tiphreth, qui dure bien moins longtemps que les autres, soigner avec Heal Rain et Heal, et surveiller vos MP. Restez à moins de 13&nbsp;m&nbsp;: c'est la portée de Heal Rain et de Geburah Tiphreth. La partie rebuff est très répétitive — c'est là que l'automatisation prend tout son sens.</p>
         </div>
 
         <div class="role-card">
             <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-boss"/></svg><span class="slot-src" aria-hidden="true">🐉</span></div>
-            <h3 style="margin-top:0;">Raids & boss</h3>
-            <p>Boss avec gros burst damage type Glaphan, Bang, Aibatt. Le rythme change : moins de heal périodique, plus de heals burst manuels, parfois Resurrection à anticiper. L'automatisation passe en second plan ici — vous devez garder la main.</p>
+            <h3 style="margin-top:0;">Donjons et boss</h3>
+            <p>Les donjons d'instance s'ouvrent par paliers de difficulté&nbsp;: Leren Chasm (Flaris, dès Easy), Rhisis Catacombs (Garden of Rhisis, dès Medium), Envy Depths (Darkon 1 et 2, dès Hard), Guardiane Sanctuary (Darkon 3, dès Extra Hard), Storm Peak (Azria, dès Nightmare), The Wilds (Coral Island, dès Cursed) et Ankou's Asylum (Kaillun, en Infernal). Face à des boss comme le Caveman Chief, le Crystal Demon Lord ou Ankou, le rythme change&nbsp;: plus de soins ciblés, des skills défensifs à placer au bon moment (Holyguard, Barrier of Life, Gvur Tialla) et parfois une Resurrection à anticiper. Gardez la main sur les soins.</p>
         </div>
 
         <div class="role-card">
             <div class="role-icon" aria-hidden="true"><svg class="slot-gl" aria-hidden="true"><use href="#g-trophy"/></svg><span class="slot-src" aria-hidden="true">🏆</span></div>
-            <h3 style="margin-top:0;">FWC (Flyff World Championships)</h3>
-            <p>Compétition organisée, métagame ultra-précis. Les RM ne sont plus juste un service utility : ils contribuent à des compos optimisées avec timings de buffs synchronisés. Connaître les rotations par cœur devient critique. L'automatisation peut être bannie selon les règles d'un tournoi — toujours vérifier.</p>
+            <h3 style="margin-top:0;">Guild Siege et FWC</h3>
+            <p>Les Guild Sieges se disputent par tranches de niveau&nbsp;: la tranche 60 est réservée aux personnages qui n'ont pas fait leur 2e changement de classe (un Ringmaster n'y entre donc pas), la tranche 80 aux joueurs jusqu'au niveau 80, et les textes du jeu prévoient aussi une tranche 165. Le Flyff World Championship (FWC), lui, a lieu chaque année depuis 2023&nbsp;; l'édition 2026 a débuté le 23 avril 2026.</p>
         </div>
 
-        <h2>Les buffs essentiels du Ringmaster</h2>
-        <p>Voici les buffs que vous devez maîtriser et inclure dans votre rotation, classés par priorité :</p>
-
-        <div class="buff-grid">
-            <div class="buff-card priority">
-                <div class="buff-name">Heart of Power (HoP)</div>
-                <div class="buff-meta">★ Priorité absolue · 30 min</div>
-                <p class="buff-desc">Boost STA + attaque pour tout le groupe. Le buff signature du Ringmaster, à activer en premier de la rotation.</p>
-            </div>
-
-            <div class="buff-card priority">
-                <div class="buff-name">Beef Up</div>
-                <div class="buff-meta">★ Priorité haute · 15 min</div>
-                <p class="buff-desc">Augmente le HP max du groupe. Critique sur les zones où un wipe est possible si un membre n'a pas son cap HP.</p>
-            </div>
-
-            <div class="buff-card priority">
-                <div class="buff-name">Mental Sign</div>
-                <div class="buff-meta">★ Priorité haute · 15 min</div>
-                <p class="buff-desc">Boost INT du groupe. Énorme pour les Mages, Knights AOE, et les Rangers qui utilisent des skills à scaling magique.</p>
-            </div>
-
-            <div class="buff-card">
-                <div class="buff-name">Speed Pep</div>
-                <div class="buff-meta">15 min</div>
-                <p class="buff-desc">Augmente l'attack speed. Game-changer pour Blades et Rangers ; moins critique pour Mages.</p>
-            </div>
-
-            <div class="buff-card">
-                <div class="buff-name">Cat's Reflex</div>
-                <div class="buff-meta">15 min</div>
-                <p class="buff-desc">Boost de dodge. Utile sur les zones où les mobs ont beaucoup d'attaques physiques rapides.</p>
-            </div>
-
-            <div class="buff-card">
-                <div class="buff-name">Heal Rain</div>
-                <div class="buff-meta">AOE · ~15 sec</div>
-                <p class="buff-desc">L'AOE soin centrée sur vous. À relancer en boucle pendant tout le farm. Couvre tous les alliés dans un rayon de 12-15m.</p>
-            </div>
-        </div>
-
-        <h2>Build STA vs INT — Quel build choisir ?</h2>
-        <p>Deux écoles principales en 2026 :</p>
+        <h2 id="skills">Les skills du Ringmaster</h2>
+        <p>Le Ringmaster apprend neuf skills entre les niveaux 60 et 100. Chaque niveau de skill coûte 3 points (2 pour ceux de l'Assist), tous demandent un stick et tous consomment des MP. Valeurs au niveau maximum du skill&nbsp;:</p>
 
         <div class="table-scroll">
             <table class="stats-table">
                 <thead>
                     <tr>
-                        <th>Critère</th>
-                        <th>Build STA Full</th>
-                        <th>Build INT Hybrid</th>
+                        <th>Skill (niveau)</th>
+                        <th>Prérequis</th>
+                        <th>Effet au niveau max</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Stats principaux</strong></td>
-                        <td>Full STA, INT minimum requis pour les buffs</td>
-                        <td>~50/50 STA/INT, parfois 30/70 selon le niveau</td>
+                        <td><strong>Holycross</strong> (60)</td>
+                        <td>—</td>
+                        <td>Debuff sur un ennemi&nbsp;: le prochain coup qu'il reçoit inflige le double de dégâts (5&nbsp;s). Un seul niveau.</td>
                     </tr>
                     <tr>
-                        <td><strong>HP / Survie</strong></td>
-                        <td>Excellent — pool énorme, survit aux pulls accidentels</td>
-                        <td>Moyen — exige plus d'attention du joueur</td>
+                        <td><strong>Merkaba Hanzelrusha</strong> (60)</td>
+                        <td>Prevention 4</td>
+                        <td>Dégâts magiques pendant 10&nbsp;s dans un rayon de 5&nbsp;m autour de vous (INT × 4,18)&nbsp;; recharge 7&nbsp;s.</td>
                     </tr>
                     <tr>
-                        <td><strong>Puissance des heals</strong></td>
-                        <td>Correct — suffit pour la plupart des situations</td>
-                        <td>Excellent — Heal Rain et autres heals scalent fort sur INT</td>
+                        <td><strong>Protect</strong> (60)</td>
+                        <td>Heap Up 6</td>
+                        <td>Défense et défense magique +10&nbsp;% sur un allié.</td>
                     </tr>
                     <tr>
-                        <td><strong>FP pool</strong></td>
-                        <td>Faible — nécessite plus de potions</td>
-                        <td>Élevé — gestion FP plus confortable</td>
+                        <td><strong>Holyguard</strong> (65)</td>
+                        <td>Protect 3</td>
+                        <td>Résistance aux critiques +100&nbsp;%&nbsp;: la cible ne subit plus de coups critiques pendant 5&nbsp;s, plus 0,02 à 0,03&nbsp;s par point d'INT&nbsp;; recharge 45&nbsp;s.</td>
                     </tr>
                     <tr>
-                        <td><strong>Recommandé pour</strong></td>
-                        <td>Joueurs débutants, farm peu dangereux, RM solo-utility</td>
-                        <td>Joueurs expérimentés, raids difficiles, FWC, end-game</td>
+                        <td><strong>Spirit Fortune</strong> (65)</td>
+                        <td>Holycross 1</td>
+                        <td>Dégâts +150 sur un allié.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Heal Rain</strong> (70)</td>
+                        <td>Merkaba 3</td>
+                        <td>Soigne les membres du groupe à moins de 13&nbsp;m&nbsp;: 650 + INT × 8,18 HP, incantation 0,5&nbsp;s.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Geburah Tiphreth</strong> (75)</td>
+                        <td>Holyguard 4, Spirit Fortune 7</td>
+                        <td>Vous et le groupe à moins de 13&nbsp;m&nbsp;: attaque +10&nbsp;%, vitesse d'attaque +15&nbsp;%, temps d'incantation -10&nbsp;%.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gvur Tialla</strong> (80)</td>
+                        <td>Heal Rain 4</td>
+                        <td>Retire tous les debuffs d'un allié et lui donne Ténacité +30&nbsp;% pendant 1&nbsp;s&nbsp;; recharge 2&nbsp;s. Trois niveaux.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Barrier of Life</strong> (100)</td>
+                        <td>Gvur Tialla 2</td>
+                        <td>Pendant 2&nbsp;s, la cible bloque tous les coups reçus&nbsp;; recharge 18&nbsp;s. Cinq niveaux.</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <p>Le build STA Full reste le plus pardonnant et le plus joué. Le build INT Hybrid est plus exigeant mais récompense par un heal output significativement supérieur — un must pour le contenu compétitif.</p>
+        <p>Attention à la chaîne de prérequis de Heal Rain&nbsp;: il demande Merkaba Hanzelrusha 3, qui demande lui-même Prevention 4, au bout de la chaîne Heal 3 → Patience 4 → Resurrection 4 → Circle Healing 4. Même un Full Support passe donc par Merkaba. Holycross, lui, ne coûte que 3 points et ouvre Spirit Fortune.</p>
 
-        <h2>Équipement recommandé</h2>
+        <h2 id="buffs">Les buffs&nbsp;: ce qu'ils augmentent vraiment</h2>
+        <p>Le Ringmaster garde les buffs de l'Assist et y ajoute les siens. Tous ceux présentés ci-dessous ciblent un seul joueur, sauf Geburah Tiphreth qui touche tout le groupe à moins de 13&nbsp;m. Les neuf buffs de l'Assist durent 150&nbsp;s (2 min 30) au niveau 1 et 250&nbsp;s (4 min 10) au niveau 20&nbsp;; Protect et Spirit Fortune, de 160 à 250&nbsp;s. Dans tous les cas, ajoutez <strong>2&nbsp;s par point d'INT du lanceur</strong>, sans plafond. Exemple&nbsp;: à 300 INT, un buff de niveau max dure 250 + 300 × 2 = 850&nbsp;s, soit un peu plus de 14 minutes. Geburah Tiphreth fait exception&nbsp;: 30&nbsp;s + 0,15&nbsp;s par point d'INT, quel que soit son niveau (75&nbsp;s à 300 INT).</p>
+        <p>Les guides support conseillent de monter en priorité les trois buffs propres au Ringmaster&nbsp;:</p>
+
+        <div class="buff-grid">
+            <div class="buff-card priority">
+                <div class="buff-name">Geburah Tiphreth (GT)</div>
+                <div class="buff-meta">★ Ringmaster 75 · groupe</div>
+                <p class="buff-desc">Vous et les membres du groupe à moins de 13&nbsp;m&nbsp;: attaque +10&nbsp;%, vitesse d'attaque +15&nbsp;%, temps d'incantation -10&nbsp;%. Seule l'attaque augmente avec l'INT (jusqu'à +20&nbsp;% au total à 500 INT). Dure 30&nbsp;s + 0,15&nbsp;s par point d'INT, sans recharge.</p>
+            </div>
+
+            <div class="buff-card priority">
+                <div class="buff-name">Protect</div>
+                <div class="buff-meta">★ Ringmaster 60 · allié</div>
+                <p class="buff-desc">Défense et défense magique +10&nbsp;% chacune au niveau 10, plus 0,02&nbsp;% par point d'INT du lanceur (jusqu'à +10&nbsp;%). Dure 160 à 250&nbsp;s selon le niveau, plus 2&nbsp;s par point d'INT.</p>
+            </div>
+
+            <div class="buff-card priority">
+                <div class="buff-name">Spirit Fortune</div>
+                <div class="buff-meta">★ Ringmaster 65 · allié</div>
+                <p class="buff-desc">Dégâts +150 au niveau 10 (+50 au niveau 1), plus 0,4 par point d'INT du lanceur (bonus plafonné à +200, atteint à 500 INT). Dure 160 à 250&nbsp;s selon le niveau, plus 2&nbsp;s par point d'INT.</p>
+            </div>
+        </div>
+
+        <p>Le Ringmaster garde aussi les neuf buffs de l'Assist, tous à cible unique&nbsp;:</p>
+
+        <div class="table-scroll">
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>Buff (niveau)</th>
+                        <th>Effet au niveau 20</th>
+                        <th>Bonus d'INT du lanceur</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Mental Sign</strong> (18)</td>
+                        <td>INT +20</td>
+                        <td>+0,04 par point (jusqu'à +20)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Patience</strong> (18)</td>
+                        <td>HP max +10&nbsp;%</td>
+                        <td>+0,02&nbsp;% par point (jusqu'à +10&nbsp;%)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Heap Up</strong> (20)</td>
+                        <td>STA +20</td>
+                        <td>+0,04 par point (jusqu'à +20)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Quick Step</strong> (20)</td>
+                        <td>Vitesse de déplacement +20&nbsp;%</td>
+                        <td>+0,04&nbsp;% par point (jusqu'à +20&nbsp;%)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Beef Up</strong> (25)</td>
+                        <td>STR +20</td>
+                        <td>+0,04 par point (jusqu'à +20)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Haste</strong> (25)</td>
+                        <td>Vitesse d'attaque +15&nbsp;%, temps d'incantation -10&nbsp;%</td>
+                        <td>+0,02&nbsp;% par point sur chacun (jusqu'à +10&nbsp;%)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cat's Reflex</strong> (28)</td>
+                        <td>Taux de blocage +10&nbsp;%</td>
+                        <td>+0,02&nbsp;% par point (jusqu'à +10&nbsp;%)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Accuracy</strong> (30)</td>
+                        <td>Précision +20&nbsp;%</td>
+                        <td>+0,02&nbsp;% par point (jusqu'à +10&nbsp;%)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cannon Ball</strong> (35)</td>
+                        <td>DEX +20</td>
+                        <td>+0,04 par point (jusqu'à +20)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 id="builds">Full Support, AoE ou Hit-and-Run — Quel build choisir&nbsp;?</h2>
+        <p>Les guides Flyff Universe décrivent trois builds&nbsp;:</p>
+
+        <div class="table-scroll">
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>Build</th>
+                        <th>Répartition des stats</th>
+                        <th>Pour quoi faire</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Full Support</strong></td>
+                        <td>15 STR / 15 STA / 15 DEX, tout le reste en INT</td>
+                        <td>Buffer et soigner un groupe ou un partenaire de leveling, avec des buffs et des soins au maximum.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AoE</strong> (facetank)</td>
+                        <td>Surtout de l'INT, avec environ 50 STA (Madrigal Inside, 80 au plus) à 100-120 STA (Flyff Universe Wiki)</td>
+                        <td>Leveler seul en regroupant les monstres autour de vous, avec Merkaba, Stonehand et Prevention.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hit-and-Run</strong> (HnR)</td>
+                        <td>Full INT</td>
+                        <td>Le plus polyvalent&nbsp;: les mêmes stats servent au support, aux donjons et au leveling solo, sans reset. Efficace jusqu'au niveau 120 environ selon Madrigal Inside.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>Point commun des trois&nbsp;: l'INT. Vos soins, la puissance et la durée de vos buffs, les dégâts de Merkaba Hanzelrusha (INT × 4 à 4,18) et votre réserve de MP en dépendent — chaque point d'INT donne 16,2 MP max à un Ringmaster. Le chiffre de <strong>500 INT</strong> revient souvent&nbsp;: c'est là que tous les bonus de buffs liés à l'INT atteignent leur plafond (Heap Up&nbsp;: 0,04 × 500 = +20 STA de plus&nbsp;; Spirit Fortune&nbsp;: 0,4 × 500 = +200 dégâts de plus&nbsp;; Geburah Tiphreth&nbsp;: attaque +20&nbsp;% au total). Au-delà, l'INT continue d'augmenter vos soins, vos MP et la durée de vos buffs.</p>
+
+        <h3>Ordre de montée des skills</h3>
+        <ul>
+            <li><strong>Full Support</strong>&nbsp;: Protect, Spirit Fortune et Geburah Tiphreth au maximum d'abord, puis Holycross. Heal au niveau 3 suffit pour soutenir un seul joueur, grâce à l'INT. Holyguard sert surtout quand vous accompagnez un AoE.</li>
+            <li><strong>AoE</strong>&nbsp;: Merkaba Hanzelrusha au maximum dès le niveau 60&nbsp;; Prevention (soin automatique quand vos HP passent sous 15&nbsp;% en PvE) et Stonehand (chance d'étourdir à chaque attaque, 12&nbsp;% en PvE au niveau 20) au maximum&nbsp;; Protect tôt&nbsp;; Heal vers le niveau 3. Gardez actifs Geburah Tiphreth, Holyguard, Heap Up, Patience et Cat's Reflex. À partir du niveau 105, les guides citent le désert de Darkon 3 avec le set Rimyth.</li>
+            <li><strong>Hit-and-Run</strong> (selon Madrigal Inside)&nbsp;: Merkaba Hanzelrusha pour les dégâts, Moon Beam au maximum, Barrier of Life pour la sécurité et Geburah Tiphreth comme buff clé.</li>
+        </ul>
+
+        <h3>Avant le niveau 60&nbsp;: l'Assist</h3>
+        <p>Selon les guides communautaires, un Assist monte de deux façons&nbsp;: en Hit-and-Run avec Moon Beam (full INT, stick&nbsp;; disponible dès le niveau 15, il inflige des dégâts sur la durée et fait subir jusqu'à 8&nbsp;% de dégâts en plus à la cible), ou en AoE STR avec knuckle et bouclier (Temping Hole, puis Burst Crack au niveau 28). Si vous visez un Ringmaster, le style Moon Beam est déjà full INT, comme les trois builds ci-dessus.</p>
+
+        <h2 id="equipement">Équipement recommandé</h2>
         <h3>Armes</h3>
         <ul>
-            <li><strong>Staff (bâton)</strong> — meilleur scaling INT, recommandé pour build INT Hybrid</li>
-            <li><strong>Stick (canne)</strong> — équilibré, polyvalent</li>
-            <li><strong>Shield (bouclier)</strong> en off-hand — gain de defense, fortement recommandé en STA Full</li>
+            <li><strong>Stick (canne)</strong> — l'arme du Ringmaster&nbsp;: tous ses skills de classe en demandent un. Dans Flyff Universe, tous les sticks se tiennent à deux mains, jusqu'au niveau 190&nbsp;: pas de bouclier.</li>
+            <li><strong>Knuckles</strong> — à une main et réservés à l'Assist et à ses classes (bouclier possible), pour les attaques au poing de l'Assist&nbsp;: Temping Hole, Burst Crack, Power Fist. Ils ne permettent pas de lancer les skills du Ringmaster.</li>
+            <li><strong>Staff (bâton)</strong> — réservé aux Magiciens&nbsp;: un Ringmaster ne peut pas l'équiper.</li>
+        </ul>
+
+        <p>Progression des sticks&nbsp;:</p>
+        <ul>
+            <li><strong>Niveau 60</strong> — Guardian Stick (INT +7, HP max +15&nbsp;%)</li>
+            <li><strong>Niveau 75</strong> — Historic Stick (MP max +30&nbsp;%, temps d'incantation -15&nbsp;%)</li>
+            <li><strong>Niveau 90</strong> — Angel Stick (INT +15, HP max +20&nbsp;%)</li>
+            <li><strong>Niveau 105</strong> — Legendary Golden Stick en support (INT +15, incantation -20&nbsp;%, soins +10&nbsp;%) ou Mythical Silver Stick en AoE (HP max +20&nbsp;%, STA +15, blocage +10&nbsp;%)</li>
+            <li><strong>Niveau 120</strong> — Bloody Stick (attaque +10&nbsp;%, soins +10&nbsp;%, incantation -25&nbsp;%, vol de HP +1&nbsp;%) ou Bloody Obsidian Stick pour encaisser (HP max +25&nbsp;%, STA +20, dégâts reçus -8&nbsp;%)</li>
+            <li><strong>Niveau 150</strong> — Lusaka's Crystal Stick (attaque et soins +12 à 17&nbsp;%, incantation -28 à 33&nbsp;%, INT +25 à 30) ou Song of Sirens (attaque et soins +10 à 15&nbsp;%, incantation -26 à 30&nbsp;%)&nbsp;; Lusaka's Stick pour le tank</li>
+            <li><strong>Niveau 180</strong> — Oracle (attaque et soins +17 à 22&nbsp;%, incantation -33 à 42&nbsp;%, INT +30 à 39)&nbsp;; Mirage pour le tank et le PvP</li>
         </ul>
 
         <h3>Armure</h3>
-        <ul>
-            <li><strong>Set jewelry STA</strong> pour le build STA Full (Tinerbol, Lord, etc. selon palier)</li>
-            <li><strong>Set jewelry INT</strong> ou hybride STA/INT pour le build Hybrid</li>
-            <li><strong>Toujours privilégier le set complet</strong> pour le bonus 2/4/6 pièces</li>
-        </ul>
+        <p>Les sets d'armure de Flyff Universe comptent 4 pièces, avec un bonus à 2, 3 et 4 pièces. Avant 60, l'Assist porte Sardine/Curus (15), Talin/Sayram (30) puis Wedge/Flury (45&nbsp;: INT +7, consommation de MP -20&nbsp;%, incantation -20&nbsp;%), que Madrigal Inside conseille de garder jusqu'au set Shupon du niveau 90. Les sets suivants&nbsp;:</p>
+
+        <div class="table-scroll">
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>Niveau</th>
+                        <th>Set</th>
+                        <th>Bonus principaux (2&nbsp;·&nbsp;3&nbsp;·&nbsp;4 pièces)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>60</strong></td>
+                        <td>Shurand / Shuran</td>
+                        <td>STR +5 et INT +5 · incantation -8&nbsp;% · HP max +15&nbsp;%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>75</strong></td>
+                        <td>Pact / Paxt</td>
+                        <td>incantation -10&nbsp;% · dégâts des skills +10&nbsp;% · HP max +15&nbsp;%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>90</strong></td>
+                        <td>Shupon / Shrian</td>
+                        <td>INT +10 · soins +10&nbsp;% · incantation -20&nbsp;%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>105</strong></td>
+                        <td>Navil / Neclus (support)</td>
+                        <td>INT +15 · soins +15&nbsp;% · incantation -30&nbsp;%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>105</strong></td>
+                        <td>Rimyth / Remingster (AoE)</td>
+                        <td>DEF +7&nbsp;% · incantation -10&nbsp;%, blocage +5&nbsp;%, DEF magique +7&nbsp;% · HP max +15&nbsp;%, résistance aux critiques +10&nbsp;%, blocage +5&nbsp;%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>120</strong></td>
+                        <td>Revenio / Revenis (PvE)</td>
+                        <td>réduction des dégâts PvE à chaque palier, blocage, incantation -10&nbsp;% · à 4 pièces&nbsp;: HP max +25&nbsp;%, dégâts PvE +15&nbsp;%, soins +10&nbsp;%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>135</strong></td>
+                        <td>Keinos / Keisan</td>
+                        <td>INT +15 · INT +5 et soins +15&nbsp;% · incantation -35&nbsp;% et attaque +10&nbsp;%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>150</strong></td>
+                        <td>Luminia / Luminis (support)</td>
+                        <td>INT +15 · INT +20 et soins +20&nbsp;% · incantation -40&nbsp;% et attaque +15&nbsp;%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>150</strong></td>
+                        <td>Reine / Rayne (AoE)</td>
+                        <td>réduction des dégâts PvE à chaque palier, incantation -15&nbsp;% · à 4 pièces&nbsp;: HP max +30&nbsp;%, dégâts PvE +20&nbsp;%, blocage +10&nbsp;%, résistance aux critiques +10&nbsp;%, soins +15&nbsp;%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>175</strong></td>
+                        <td>Lorvenic / Lorvenicar (Seraph)</td>
+                        <td>INT +30 · INT +30 et soins +25&nbsp;% · incantation -45&nbsp;% et attaque +20&nbsp;%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>180</strong></td>
+                        <td>Etranar / Etranor (Seraph, PvE)</td>
+                        <td>à 4 pièces&nbsp;: toutes les stats +10, HP max +35&nbsp;%, dégâts PvE +25&nbsp;%, réduction des dégâts PvE +12&nbsp;%, blocage +14&nbsp;%, résistance aux critiques +14&nbsp;%, soins +20&nbsp;%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>En support, les guides combinent souvent deux bonus 2 pièces pour cumuler l'INT&nbsp;: par exemple 2 pièces Shurand (+5) et 2 pièces Navil (+15), soit INT +20 au niveau 105, ou 2 Keinos et 2 Navil, soit INT +30 au niveau 135. Les versions PvP (Obsidian Revenio, Primordial Etranar) et les variantes FWC existent aussi.</p>
 
         <h3>Bijoux (jewelry)</h3>
-        <p>L'optimisation des bijoux est où le RM passe du correct à l'excellent. Utilisez un calculateur (voir <a href="meilleurs-outils-flyff-universe-2026.html">notre comparatif d'outils</a>) pour identifier la combinaison qui maximise votre stat prioritaire selon le palier.</p>
+        <p>Madrigal Inside conseille, en support, des anneaux Intiret (INT +10 en +1, jusqu'à INT +50 en +5), des boucles d'oreilles Penzeru (DEF et DEF magique +150 en +1, jusqu'à +250 en +5), un collier MP ou HP et la cape Cloak of Wisdom (INT +8)&nbsp;; en AoE, Cloak of Wisdom ou Cloak of Endurance (STA +8) selon votre équilibre INT/STA. Pour tester vos combinaisons, un simulateur de personnage comme Flyffulator est utile (voir aussi <a href="meilleurs-outils-flyff-universe-2026.html">notre comparatif d'outils</a>).</p>
 
-        <h2>Rotation et gestion du rythme</h2>
-        <p>Une rotation efficace en farm classique tient en 3 timings :</p>
+        <h2 id="rotation">Rotation et gestion du rythme</h2>
+        <p>Une fois les buffs posés, le rythme d'un Ringmaster tient en quatre timings&nbsp;:</p>
         <ul>
-            <li><strong>Toutes les 5 minutes</strong> — rebuff complet du groupe (HoP → Beef Up → Mental Sign → Speed Pep → Cat's Reflex)</li>
-            <li><strong>Toutes les 12-15 secondes</strong> — Heal Rain</li>
-            <li><strong>Continu</strong> — surveillance des HP individuels pour heals burst d'urgence</li>
+            <li><strong>Avant l'expiration des buffs longs</strong> — 250&nbsp;s au niveau max + 2&nbsp;s par point d'INT (un peu plus de 14 minutes à 300 INT)&nbsp;: relancez la série complète sur chaque joueur.</li>
+            <li><strong>Toutes les 30&nbsp;s + 0,15&nbsp;s par point d'INT</strong> — Geburah Tiphreth, le seul buff de groupe (75&nbsp;s à 300 INT, 105&nbsp;s à 500 INT).</li>
+            <li><strong>Selon les dégâts</strong> — Heal Rain pour le groupe (0,5&nbsp;s d'incantation, aucun temps de recharge dans les données du jeu), Heal pour un joueur en danger.</li>
+            <li><strong>En réaction</strong> — Gvur Tialla contre un debuff, Holyguard ou Barrier of Life sur un allié qui va encaisser, Resurrection si quelqu'un tombe.</li>
         </ul>
 
-        <p>Les deux premiers timings sont mécaniques et parfaits pour <strong>l'automatisation</strong>. Le troisième demande votre attention humaine. C'est l'arbitrage clé du Ringmaster moderne : automatiser ce qui est répétitif pour <strong>garder votre énergie pour les moments décisifs</strong>.</p>
+        <p>Pour la série de buffs, les guides communautaires conseillent de lancer Mental Sign sur vous en premier, pour que l'INT gagnée profite aux buffs suivants. Gardez Geburah Tiphreth pour la fin, juste avant le combat&nbsp;: il dure bien moins longtemps que les autres buffs.</p>
+
+        <p>Les deux premiers timings sont mécaniques et se prêtent à <strong>l'automatisation</strong>&nbsp;; les deux autres demandent votre attention. Reborn Assistant rejoue, à l'intervalle que vous choisissez, les séquences de touches que vous avez configurées&nbsp;: il ne lit pas le jeu et ne voit pas vos buffs. Réglez donc l'intervalle d'après la durée réelle calculée ci-dessus, recalculez-le quand votre INT change, et <strong>gardez les soins d'urgence en main</strong>.</p>
+
+        <div class="callout warning callout--gl">
+            <strong>⚠️ Automatisation et règles du jeu</strong>
+            Le client officiel affiche un message de bannissement lorsqu'il détecte un logiciel de triche, et demande de ne plus utiliser aucun outil externe. Cela vaut partout, pas seulement en compétition&nbsp;: lisez les conditions d'utilisation de Flyff Universe avant d'automatiser quoi que ce soit.
+        </div>
 
         <div class="callout callout--gl">
             <strong>💡 Tutoriel pratique disponible</strong>
-            Nous avons rédigé un <a href="automatiser-ringmaster-flyff-universe.html" style="color:var(--gold);">tutoriel pas à pas pour automatiser votre Ringmaster</a> avec Reborn Assistant : configuration des rotations, intervalle entre cycles, macro Heal Rain et erreurs à éviter.
+            Nous avons rédigé un <a href="automatiser-ringmaster-flyff-universe.html" style="color:var(--gold);">tutoriel pas à pas pour automatiser votre Ringmaster</a> avec Reborn Assistant&nbsp;: configuration des rotations, intervalle entre cycles, macro Heal Rain et erreurs à éviter.
         </div>
 
-        <h2>Ringmaster vs Mentalist — Quelle différence ?</h2>
-        <p>Deux classes de la branche Assist, souvent confondues par les débutants :</p>
+        <h2 id="billposter">Ringmaster vs Billposter — Quelle différence&nbsp;?</h2>
+        <p>Au niveau 60, l'Assist choisit entre deux classes&nbsp;:</p>
         <ul>
-            <li><strong>Ringmaster</strong> = full support, faible damage personnel, indispensable en groupe, peu efficace en solo</li>
-            <li><strong>Mentalist</strong> = orientation DPS magique, peut farmer en solo, perd une partie des buffs longue durée du RM</li>
+            <li><strong>Ringmaster</strong> = soins et buffs au stick&nbsp;; ses neuf skills consomment des MP, et chaque point d'INT lui rapporte deux fois plus de MP max qu'à un Billposter (16,2 contre 8,1). Il peut aussi leveler seul en build AoE ou Hit-and-Run. 3e classe&nbsp;: Seraph.</li>
+            <li><strong>Billposter</strong> = combat au corps à corps avec des knuckles (Asmodeus renforce l'arme équipée)&nbsp;; ses attaques comme Belial Smashing, Blood Fist ou Sonichand consomment des FP. 3e classe&nbsp;: Forcemaster.</li>
         </ul>
-        <p>Si votre intent est de jouer en groupe, jouer FWC, ou être le "pilier" d'une guilde → Ringmaster. Si vous voulez une classe Assist plus autonome en solo → Mentalist.</p>
+        <p>Le Mentalist, parfois cité à sa place, est en réalité la 3e classe du Psykeeper, sur la branche Magicien&nbsp;: il n'a aucun lien avec l'Assist. Si vous voulez soigner et renforcer les autres → Ringmaster. Si vous préférez frapper au poing → Billposter.</p>
 
-        <h2>Erreurs courantes de débutant Ringmaster</h2>
+        <h2 id="erreurs">Erreurs courantes de débutant Ringmaster</h2>
         <ul>
-            <li><strong>Ne pas rebuff régulièrement</strong> — un buff manquant après 5 minutes coûte parfois plus que la vie entière du DPS</li>
-            <li><strong>Bouger pendant Heal Rain</strong> — l'AOE ne suit pas, les alliés sortent du rayon</li>
-            <li><strong>Build full INT trop tôt</strong> — sans pool HP suffisant, vous mourez avant d'avoir lancé Heal Rain</li>
-            <li><strong>Ignorer les potions FP</strong> — un RM sans FP est un RM inutile</li>
-            <li><strong>Tenter de DPS</strong> — vous perdez du temps mieux investi dans le heal et les buffs</li>
+            <li><strong>Gérer des FP au lieu des MP</strong> — tous les skills du Ringmaster consomment des MP (Heal Rain coûte 80 à 170 MP, Geburah Tiphreth 155 à 250 selon le niveau)&nbsp;: emportez des potions de MP (Refreshers), pas des Vital Drinks.</li>
+            <li><strong>Compter sur une durée de buff fixe</strong> — elle dépend du niveau du skill et de votre INT&nbsp;; recalculez votre intervalle de rebuff quand votre INT change, et n'oubliez pas que Geburah Tiphreth expire bien avant les autres.</li>
+            <li><strong>Se tromper de buff</strong> — Beef Up donne de la STR, pas des HP (c'est Patience)&nbsp;; Cat's Reflex donne du blocage, pas de l'esquive.</li>
+            <li><strong>Négliger l'INT</strong> — soins, buffs, dégâts de Merkaba et réserve de MP en dépendent&nbsp;; seul le build AoE garde un peu de STA (50 à 120 selon les guides).</li>
+            <li><strong>Rester trop loin du groupe</strong> — Heal Rain et Geburah Tiphreth visent les membres du groupe à moins de 13&nbsp;m&nbsp;: invitez vos alliés dans le groupe et restez près d'eux.</li>
+            <li><strong>Chercher un bouclier ou un staff</strong> — tous les sticks sont à deux mains et les staffs sont réservés aux Magiciens.</li>
+            <li><strong>Croire que le Ringmaster ne peut pas tuer</strong> — en AoE ou en Hit-and-Run, Merkaba Hanzelrusha (renforcé d'environ 28&nbsp;% par le patch 1.5.2 d'avril 2026) permet de leveler seul.</li>
         </ul>
+
+        <div class="callout callout--gl gl-scales">
+            <strong>📌 Sources et méthode</strong>
+            Les valeurs des skills, des objets et des sets viennent des données de l'API officielle de Flyff Universe (relevé d'août 2026 publié par le projet open source Flyffulator). Les répartitions de stats, ordres de skills et choix de bijoux viennent des guides communautaires (Madrigal Inside, Flyff Universe Wiki)&nbsp;: ce sont des recommandations de joueurs, pas des règles du jeu. Un patch peut modifier ces chiffres.
+        </div>
 
         <div class="cta-box">
             <h3>Optimisez votre Ringmaster avec Reborn Assistant</h3>
-            <p>L'extension premium pour automatiser la rotation de buffs, le Heal Rain périodique et vos macros personnalisées. 7 jours d'essai gratuit sans carte bancaire.</p>
+            <p>L'extension premium pour automatiser la rotation de buffs, le Heal Rain périodique et vos macros personnalisées, avec les séquences de touches que vous configurez. 7 jours d'essai gratuit sans carte bancaire.</p>
             <a href="https://chromewebstore.google.com/detail/reborn-assistant-premium/ammakeedbimichmpipeaacgajcblnnme" target="_blank" rel="noopener" class="btn-cta">Installer Reborn Assistant</a>
         </div>
 
         <p style="margin-top:48px;text-align:center;color:var(--text-dim);font-size:14px;">
-            Guide mis à jour le 16 mai 2026 — Flyff Universe (Gala Lab).
+            Guide mis à jour le 4 octobre 2026 — Flyff Universe (Gala Lab).
         </p>
     </main>
 
