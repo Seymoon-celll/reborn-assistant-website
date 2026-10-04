@@ -2,7 +2,7 @@
   "automate-rm": [
     [
       "automatiser Ringmaster, RM Flyff Universe, macro Ringmaster, auto buff Flyff, séquences RM, support Flyff, Reborn Assistant Ringmaster",
-      "automatizar Ringmaster, RM Flyff Universe, macro Ringmaster, auto buff Flyff, sequências RM, suporte Flyff, Reborn Assistant Ringmaster"
+      "automatizar Ringmaster, RM Flyff Universe, macro Ringmaster, auto buff Flyff, rotação de buffs Ringmaster, suporte Flyff, Reborn Assistant Ringmaster"
     ],
     [
       "Reborn Assistant",
@@ -58,7 +58,7 @@
     ],
     [
       "Recensez vos buffs clés : Protect, Spirit Fortune, Geburah Tiphreth, les buffs d'Assist (Heap Up, Patience, Haste, Beef Up, Mental Sign…) et le soin de groupe Heal Rain.",
-      "Liste seus buffs principais: Protect, Spirit Fortune, Geburah Tiphreth, os buffs de Assist (Heap Up, Patience, Haste, Beef Up, Mental Sign…) e a cura em grupo Heal Rain."
+      "Liste seus buffs principais: Protect, Spirit Fortune, Geburah Tiphreth, os buffs do Assist (Heap Up, Patience, Haste, Beef Up, Mental Sign…) e a cura em grupo Heal Rain."
     ],
     [
       "Configurer la rotation de séquences",
@@ -126,7 +126,7 @@
     ],
     [
       "<a href=\"#macros\">Macros, Familier, Suivre, Auto-clic</a>",
-      "<a href=\"#macros\">Macros, Familiar, Seguir, Auto-clique</a>"
+      "<a href=\"#macros\">Macros, Pet, Seguir, Autoclique</a>"
     ],
     [
       "<a href=\"#optimisation\">Optimisation et erreurs courantes</a>",
@@ -142,7 +142,7 @@
     ],
     [
       "Le Ringmaster (souvent abrégé <strong>RM</strong>) est la classe support emblématique de Flyff Universe&nbsp;: c'est la branche soins et buffs de l'Assist, accessible au niveau 60, dont la 3e classe, le Seraph, est arrivée avec l'extension Muran's Awakening (v1.5.0, novembre 2025). Son rôle est clair&nbsp;: renforcer ses alliés avec des buffs (Protect, Spirit Fortune, Geburah Tiphreth, et les buffs d'Assist comme Heap Up, Beef Up ou Mental Sign) et soigner le groupe avec Heal Rain. Sur le papier, c'est limpide. En pratique, c'est l'une des classes les plus répétitives à jouer en farm prolongé&nbsp;: vous passez une bonne partie de votre temps à <strong>relancer vos buffs dès qu'ils expirent</strong>, à <strong>relancer Geburah Tiphreth</strong>, qui ne dure que 30 secondes plus 0,15 seconde par point d'INT, à <strong>enchaîner les Heal Rain</strong> et à <strong>surveiller votre MP</strong> en plus des PV du groupe.",
-      "O Ringmaster (muitas vezes abreviado como <strong>RM</strong>) é a classe de suporte emblemática do Flyff Universe: é o ramo de curas e buffs do Assist, disponível no nível 60, cuja 3ª classe, o Seraph, chegou com a expansão Muran's Awakening (v1.5.0, novembro de 2025). Seu papel é claro: fortalecer os aliados com buffs (Protect, Spirit Fortune, Geburah Tiphreth e os buffs de Assist como Heap Up, Beef Up ou Mental Sign) e curar o grupo com Heal Rain. No papel, é simples. Na prática, é uma das classes mais repetitivas de jogar em sessões longas de farm: você passa boa parte do tempo <strong>relançando seus buffs assim que expiram</strong>, <strong>relançando Geburah Tiphreth</strong>, que dura apenas 30 segundos mais 0,15 segundo por ponto de INT, <strong>encadeando Heal Rains</strong> e <strong>vigiando seu MP</strong>, além do HP do grupo."
+      "O Ringmaster (muitas vezes abreviado como <strong>RM</strong>) é a classe de suporte emblemática do Flyff Universe: é o ramo de curas e buffs do Assist, disponível no nível 60, cuja 3ª classe, o Seraph, chegou com a expansão Muran's Awakening (v1.5.0, novembro de 2025). Seu papel é claro: fortalecer os aliados com buffs (Protect, Spirit Fortune, Geburah Tiphreth e os buffs do Assist como Heap Up, Beef Up ou Mental Sign) e curar o grupo com Heal Rain. No papel, é simples. Na prática, é uma das classes mais repetitivas de jogar em sessões longas de farm: você passa boa parte do tempo <strong>relançando seus buffs assim que expiram</strong>, <strong>relançando Geburah Tiphreth</strong>, que dura apenas 30 segundos mais 0,15 segundo por ponto de INT, <strong>encadeando Heal Rains</strong> e <strong>vigiando seu MP</strong>, além do HP do grupo."
     ],
     [
       "L'automatisation ne remplace pas votre jugement. Elle décharge votre clavier des routines mécaniques&nbsp;: le cycle de rebuff complet, Geburah Tiphreth, le Heal Rain périodique, les potions de MP. Reborn Assistant ne voit ni l'écran ni les barres de vie&nbsp;: il appuie sur les touches que vous avez configurées, au rythme que vous avez choisi. Vous gardez les mains libres pour les <strong>moments où ça compte vraiment</strong>&nbsp;: un membre qui tombe, un pack de monstres qui dérape, un boss qui cible le RM en premier.",
@@ -310,7 +310,7 @@
     ],
     [
       "Compétences à garder en manuel",
-      "Habilidades para manter no manual"
+      "Habilidades para usar no modo manual"
     ],
     [
       "Ces compétences répondent à une situation précise. Comme Reborn Assistant ne voit pas ce qui se passe à l'écran, gardez-les sous vos doigts&nbsp;:",
@@ -418,7 +418,7 @@
     ],
     [
       "Macros, Familier, Suivre, Auto-clic",
-      "Macros, Familiar, Seguir, Auto-clique"
+      "Macros, Pet, Seguir, Autoclique"
     ],
     [
       "En plus de la rotation de buffs et du soin, Reborn Assistant Premium offre quatre systèmes complémentaires que vous activez indépendamment selon vos besoins.",
@@ -450,11 +450,11 @@
     ],
     [
       "Familier automatique (Premium)",
-      "Familiar automático (Premium)"
+      "Pet automático (Premium)"
     ],
     [
       "L'extension sort et range votre familier automatiquement pendant l'automatisation, sans que vous ayez à ajouter sa touche à votre rotation. Vérifiez que la touche réglée dans le panneau est bien celle qui invoque votre familier en jeu. Pratique pour ne pas l'oublier pendant un long farm.",
-      "A extensão invoca e guarda seu familiar automaticamente durante a automação, sem que você precise adicionar a tecla dele à rotação. Verifique se a tecla definida no painel é mesmo a que invoca seu familiar no jogo. Prático para não esquecê-lo durante um farm longo."
+      "A extensão invoca e guarda seu pet automaticamente durante a automação, sem que você precise adicionar a tecla dele à rotação. Verifique se a tecla definida no painel é mesmo a que invoca seu pet no jogo. Prático para não esquecê-lo durante um farm longo."
     ],
     [
       "Suivre automatique (Premium)",
@@ -466,7 +466,7 @@
     ],
     [
       "Auto-clic souris (Premium)",
-      "Auto-clique do mouse (Premium)"
+      "Autoclique do mouse (Premium)"
     ],
     [
       "Clic à une position fixe de l'écran toutes les 2 secondes. Activez en cliquant sur l'icône <strong>🖱</strong> dans l'en-tête du panneau, puis cliquez sur l'endroit où vous voulez que les clics se déclenchent. Un point rouge clignotant indique la position active. Cliquez le ✕ à côté du point pour arrêter.",
@@ -530,7 +530,7 @@
     ],
     [
       "<a href=\"meilleurs-outils-flyff-universe-2026.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Article lié</span>\n                <span class=\"related-title\">Les meilleurs outils & extensions Flyff Universe 2026</span>\n            </a>\n            <a href=\"guide-ringmaster-flyff-universe.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Article lié</span>\n                <span class=\"related-title\">Guide complet de la classe Ringmaster Flyff Universe</span>\n            </a>\n            <a href=\"premium.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Documentation</span>\n                <span class=\"related-title\">Guide complet des fonctionnalités Premium</span>\n            </a>",
-      "<a href=\"meilleurs-outils-flyff-universe-2026.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Artigo relacionado</span>\n                <span class=\"related-title\">As melhores ferramentas e extensões para Flyff Universe 2026</span>\n            </a>\n            <a href=\"guide-ringmaster-flyff-universe.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Artigo relacionado</span>\n                <span class=\"related-title\">Guia completo da classe Ringmaster no Flyff Universe</span>\n            </a>\n            <a href=\"premium.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Documentação</span>\n                <span class=\"related-title\">Guia completo das funções Premium</span>\n            </a>"
+      "<a href=\"meilleurs-outils-flyff-universe-2026.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Artigo relacionado</span>\n                <span class=\"related-title\">As melhores ferramentas e extensões para Flyff Universe em 2026</span>\n            </a>\n            <a href=\"guide-ringmaster-flyff-universe.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Artigo relacionado</span>\n                <span class=\"related-title\">Guia completo da classe Ringmaster no Flyff Universe</span>\n            </a>\n            <a href=\"premium.html\" class=\"related-card\">\n                <span class=\"related-tag\">◆ Documentação</span>\n                <span class=\"related-title\">Guia completo das funções Premium</span>\n            </a>"
     ],
     [
       "R",
@@ -571,6 +571,26 @@
     [
       "REBORN ASSISTANT",
       "REBORN ASSISTANT"
+    ],
+    [
+      "\"inLanguage\": \"fr\"",
+      "\"inLanguage\": \"pt-BR\""
+    ],
+    [
+      "{ \"@type\": \"ListItem\", \"position\": 1, \"name\": \"Accueil\", \"item\": \"https://reborn-assistance.fr/\" }",
+      "{ \"@type\": \"ListItem\", \"position\": 1, \"name\": \"Início\", \"item\": \"https://reborn-assistance.fr/pt/\" }"
+    ],
+    [
+      "{ \"@type\": \"ListItem\", \"position\": 2, \"name\": \"Documentation\", \"item\": \"https://reborn-assistance.fr/docs/\" }",
+      "{ \"@type\": \"ListItem\", \"position\": 2, \"name\": \"Documentação\", \"item\": \"https://reborn-assistance.fr/pt/docs/\" }"
+    ],
+    [
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html\"",
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/pt/docs/automatizar-ringmaster-flyff-universe.html\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/automatiser-ringmaster-flyff-universe.html\"",
+      "\"item\": \"https://reborn-assistance.fr/pt/docs/automatizar-ringmaster-flyff-universe.html\""
     ]
   ],
   "tools-2026": [
@@ -584,7 +604,7 @@
     ],
     [
       "Les Meilleurs Outils & Extensions Flyff Universe 2026",
-      "As Melhores Ferramentas e Extensões para Flyff Universe 2026"
+      "As Melhores Ferramentas e Extensões para Flyff Universe em 2026"
     ],
     [
       "Comparatif 2026 des outils Flyff Universe : Flyffipedia, Flyffulator, Madrigal Inside, simulateur de compétences, API officielle et extension de macros.",
@@ -628,7 +648,7 @@
     ],
     [
       "Flyff Universe vit aussi grâce à sa communauté&nbsp;: une bonne partie des outils utiles ne vient pas de Gala Lab, le développeur du jeu, mais des joueurs eux-mêmes, et plusieurs s'appuient sur l'API publique officielle du jeu. Voici les <strong>outils qui valent vraiment le détour</strong>, avec un lien vers chacun et ce qu'ils font réellement, classés par utilité pour le joueur régulier. Cette sélection a été mise à jour en octobre 2026, après l'arrivée des 3e classes avec l'extension Muran's Awakening (v1.5.0, novembre 2025).",
-      "O Flyff Universe também vive graças à sua comunidade: boa parte das ferramentas úteis não vem da Gala Lab, a desenvolvedora do jogo, mas dos próprios jogadores, e várias delas se apoiam na API pública oficial do jogo. Aqui estão as <strong>ferramentas que realmente valem a pena</strong>, com um link para cada uma e o que elas fazem de verdade, classificadas por utilidade para o jogador assíduo. Esta seleção foi atualizada em outubro de 2026, após a chegada das 3ªs classes com a expansão Muran's Awakening (v1.5.0, novembro de 2025)."
+      "O Flyff Universe também vive graças à sua comunidade: boa parte das ferramentas úteis não vem da Gala Lab, a desenvolvedora do jogo, mas dos próprios jogadores, e várias delas se apoiam na API pública oficial do jogo. Aqui estão as <strong>ferramentas que realmente valem a pena</strong>, com um link para cada uma e o que elas fazem de verdade, classificadas por utilidade para o jogador assíduo. Esta seleção foi atualizada em outubro de 2026, após a chegada da 3ª classe com a expansão Muran's Awakening (v1.5.0, novembro de 2025)."
     ],
     [
       "1. Reborn Assistant — L'extension de macros clavier pour Ringmaster",
@@ -688,7 +708,7 @@
     ],
     [
       "Flyffipedia (flyffipedia.com) est une base de données Flyff Universe alimentée par les données du jeu et tenue par un mainteneur, swaight. C'est une référence très citée par les ressources communautaires, qui renvoient vers ses fiches détaillées d'objets, de monstres, de compétences, de quêtes et de PNJ.",
-      "O Flyffipedia (flyffipedia.com) é um banco de dados de Flyff Universe alimentado pelos dados do jogo e mantido por swaight, seu mantenedor. É uma referência muito citada pelos recursos da comunidade, que apontam para suas páginas detalhadas de itens, monstros, habilidades, missões e NPCs."
+      "A Flyffipedia (flyffipedia.com) é um banco de dados de Flyff Universe alimentado pelos dados do jogo e mantido por swaight, seu mantenedor. É uma referência muito citada pelos recursos da comunidade, que apontam para suas páginas detalhadas de itens, monstros, habilidades, missões e NPCs."
     ],
     [
       "Le bon réflexe pour vérifier une compétence, retrouver un objet ou préparer une quête. À garder en favori.",
@@ -728,7 +748,7 @@
     ],
     [
       "Vous croiserez aussi Skillulator (skillulator.lol), pratique pour partager un build de compétences par simple lien. Attention&nbsp;: il n'a plus été mis à jour depuis juillet 2025, avant l'arrivée des 3e classes.",
-      "Você também vai encontrar o Skillulator (skillulator.lol), prático para compartilhar uma build de habilidades com um simples link. Atenção: ele não é atualizado desde julho de 2025, antes da chegada das 3ªs classes."
+      "Você também vai encontrar o Skillulator (skillulator.lol), prático para compartilhar uma build de habilidades com um simples link. Atenção: ele não é atualizado desde julho de 2025, antes da chegada da 3ª classe."
     ],
     [
       "6. L'API officielle Flyff Universe — Les données à la source",
@@ -780,7 +800,7 @@
     ],
     [
       "<strong>Vous jouez Ringmaster (ou Seraph, sa 3e classe)</strong> → Reborn Assistant pour les séquences de touches répétitives, les guides Ringmaster de Madrigal Inside, et Flyffipedia pour vérifier une compétence ou un objet.",
-      "<strong>Você joga de Ringmaster (ou de Seraph, a 3ª classe dele)</strong> → Reborn Assistant para as sequências de teclas repetitivas, os guias de Ringmaster do Madrigal Inside e o Flyffipedia para conferir uma habilidade ou um item."
+      "<strong>Você joga de Ringmaster (ou de Seraph, a 3ª classe dele)</strong> → Reborn Assistant para as sequências de teclas repetitivas, os guias de Ringmaster do Madrigal Inside e a Flyffipedia para conferir uma habilidade ou um item."
     ],
     [
       "<strong>Vous préparez un build ou comparez deux équipements</strong> → Flyffulator pour les dégâts, les dégâts reçus et les soins, puis Flyff Skill Simulator pour répartir vos points de compétence.",
@@ -868,7 +888,7 @@
     ],
     [
       "★ Rang I · Notre extension",
-      "★ Posição I · Nossa extensão"
+      "★ Rank I · Nossa extensão"
     ],
     [
       "→ Tester Reborn Assistant",
@@ -876,15 +896,15 @@
     ],
     [
       "★ Rang II",
-      "★ Posição II"
+      "★ Rank II"
     ],
     [
       "→ Ouvrir Flyffipedia",
-      "→ Abrir o Flyffipedia"
+      "→ Abrir a Flyffipedia"
     ],
     [
       "★ Rang III",
-      "★ Posição III"
+      "★ Rank III"
     ],
     [
       "→ Ouvrir Flyffulator",
@@ -892,7 +912,7 @@
     ],
     [
       "★ Rang IV",
-      "★ Posição IV"
+      "★ Rank IV"
     ],
     [
       "→ Ouvrir Madrigal Inside",
@@ -900,7 +920,7 @@
     ],
     [
       "★ Rang V",
-      "★ Posição V"
+      "★ Rank V"
     ],
     [
       "→ Ouvrir Flyff Skill Simulator",
@@ -908,7 +928,7 @@
     ],
     [
       "★ Rang VI",
-      "★ Posição VI"
+      "★ Rank VI"
     ],
     [
       "→ Ouvrir api.flyff.com",
@@ -917,6 +937,26 @@
     [
       "REBORN ASSISTANT",
       "REBORN ASSISTANT"
+    ],
+    [
+      "\"inLanguage\": \"fr\"",
+      "\"inLanguage\": \"pt-BR\""
+    ],
+    [
+      "{ \"@type\": \"ListItem\", \"position\": 1, \"name\": \"Accueil\", \"item\": \"https://reborn-assistance.fr/\" }",
+      "{ \"@type\": \"ListItem\", \"position\": 1, \"name\": \"Início\", \"item\": \"https://reborn-assistance.fr/pt/\" }"
+    ],
+    [
+      "{ \"@type\": \"ListItem\", \"position\": 2, \"name\": \"Documentation\", \"item\": \"https://reborn-assistance.fr/docs/\" }",
+      "{ \"@type\": \"ListItem\", \"position\": 2, \"name\": \"Documentação\", \"item\": \"https://reborn-assistance.fr/pt/docs/\" }"
+    ],
+    [
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/meilleurs-outils-flyff-universe-2026.html\"",
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/pt/docs/melhores-ferramentas-flyff-universe-2026.html\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/meilleurs-outils-flyff-universe-2026.html\"",
+      "\"item\": \"https://reborn-assistance.fr/pt/docs/melhores-ferramentas-flyff-universe-2026.html\""
     ]
   ],
   "guide-rm": [
@@ -994,7 +1034,7 @@
     ],
     [
       "Le <strong>Ringmaster</strong> (RM) est l'une des deux classes de 2e niveau de l'Assist sur Flyff Universe, avec le Billposter. C'est <strong>la branche soins et buffs</strong>&nbsp;: son rôle principal est de <em>maintenir un groupe en vie et de le rendre plus fort</em>. Ce n'est pas pour autant un simple soigneur&nbsp;: les guides communautaires décrivent aussi des builds AoE et Hit-and-Run qui lui permettent de leveler seul. Ses neuf skills de Ringmaster se lancent tous avec un stick et consomment des MP, jamais de FP.",
-      "O <strong>Ringmaster</strong> (RM) é uma das duas classes de 2º nível do Assist no Flyff Universe, ao lado do Billposter. É <strong>o ramo de curas e buffs</strong>: seu papel principal é <em>manter um grupo vivo e torná-lo mais forte</em>. Mas isso não faz dele um simples curandeiro: os guias da comunidade também descrevem builds AoE e Hit-and-Run que permitem a ele upar sozinho. Suas nove skills de Ringmaster são todas lançadas com um stick e consomem MP, nunca FP."
+      "O <strong>Ringmaster</strong> (RM) é uma das duas classes que o Assist pode escolher na 2ª mudança de classe do Flyff Universe, ao lado do Billposter. É <strong>o ramo de curas e buffs</strong>: seu papel principal é <em>manter um grupo vivo e torná-lo mais forte</em>. Mas isso não faz dele um simples curandeiro: os guias da comunidade também descrevem builds AoE e Hit-and-Run que permitem a ele upar sozinho. Suas nove skills de Ringmaster são todas lançadas com um stick e consomem MP, nunca FP."
     ],
     [
       "Le parcours de classe",
@@ -1026,7 +1066,7 @@
     ],
     [
       "<strong>Buffer</strong>&nbsp;: les neuf buffs de stats de l'Assist (STR, STA, DEX, INT, HP max, vitesse d'attaque, vitesse de déplacement, blocage, précision) et ceux du Ringmaster&nbsp;: Protect (défense), Spirit Fortune (dégâts), Holyguard (anti-critiques) et Geburah Tiphreth, le buff de groupe.",
-      "<strong>Buffar</strong>: os nove buffs de atributos do Assist (STR, STA, DEX, INT, HP máx., velocidade de ataque, velocidade de movimento, bloqueio, precisão) e os do Ringmaster: Protect (defesa), Spirit Fortune (dano), Holyguard (anticrítico) e Geburah Tiphreth, o buff de grupo."
+      "<strong>Buffar</strong>: os nove buffs de atributos do Assist (STR, STA, DEX, INT, HP máx., velocidade de ataque, velocidade de movimento, bloqueio, taxa de acerto) e os do Ringmaster: Protect (defesa), Spirit Fortune (dano), Holyguard (anticrítico) e Geburah Tiphreth, o buff de grupo."
     ],
     [
       "<strong>Ranimer</strong>&nbsp;: Resurrection, un skill de l'Assist, ranime un joueur mort et réduit sa perte d'EXP.",
@@ -1314,7 +1354,7 @@
     ],
     [
       "Précision +20&nbsp;%",
-      "Precisão +20%"
+      "Taxa de acerto +20%"
     ],
     [
       "<strong>Cannon Ball</strong> (35)",
@@ -1406,7 +1446,7 @@
     ],
     [
       "Selon Madrigal Inside, un Assist monte de deux façons&nbsp;: en Hit-and-Run avec Moon Beam (full INT, stick&nbsp;; disponible dès le niveau 15, il inflige des dégâts sur la durée et fait subir jusqu'à 8&nbsp;% de dégâts en plus à la cible), ou en AoE STR avec knuckle et bouclier (Temping Hole, puis Burst Crack au niveau 28). Si vous visez un Ringmaster, le style Moon Beam est déjà full INT, comme le build Hit-and-Run (et l'INT reste la stat principale des trois builds).",
-      "Segundo o Madrigal Inside, um Assist pode upar de duas formas: em Hit-and-Run com Moon Beam (full INT, stick; disponível a partir do nível 15, ele causa dano ao longo do tempo e faz o alvo sofrer até 8% de dano a mais), ou em AoE STR com knuckle e escudo (Temping Hole, depois Burst Crack no nível 28). Se você mira o Ringmaster, o estilo Moon Beam já é full INT, como a build Hit-and-Run (e a INT continua sendo o atributo principal das três builds)."
+      "Segundo o Madrigal Inside, um Assist pode upar de duas formas: em Hit-and-Run com Moon Beam (full INT, stick; disponível a partir do nível 15, ele causa dano ao longo do tempo e faz o alvo sofrer até 8% de dano a mais), ou em AoE STR com knuckle e escudo (Temping Hole, depois Burst Crack no nível 28). Se o seu objetivo é virar Ringmaster, o estilo Moon Beam já é full INT, como a build Hit-and-Run (e a INT continua sendo o atributo principal das três builds)."
     ],
     [
       "Équipement recommandé",
@@ -1422,7 +1462,7 @@
     ],
     [
       "<strong>Knuckles</strong> — à une main et réservés à l'Assist et à ses classes (bouclier possible), pour les attaques au poing de l'Assist&nbsp;: Temping Hole, Burst Crack, Power Fist. Ils ne permettent pas de lancer les skills du Ringmaster.",
-      "<strong>Knuckles</strong> — de uma mão e exclusivos do Assist e das suas classes (escudo possível), para os ataques com os punhos do Assist: Temping Hole, Burst Crack, Power Fist. Eles não permitem lançar as skills do Ringmaster."
+      "<strong>Knuckles</strong> — de uma mão e exclusivos do Assist e das suas classes (dá para usar escudo junto), para os ataques com os punhos do Assist: Temping Hole, Burst Crack, Power Fist. Eles não permitem lançar as skills do Ringmaster."
     ],
     [
       "<strong>Staff (bâton)</strong> — réservé aux Magiciens&nbsp;: un Ringmaster ne peut pas l'équiper.",
@@ -1466,7 +1506,7 @@
     ],
     [
       "Les sets d'armure de Flyff Universe comptent 4 pièces, avec un bonus à 2, 3 et 4 pièces. Avant 60, l'Assist porte Sardine/Curus (15), Talin/Sayram (30) puis Wedge/Flury (45&nbsp;: INT +7, consommation de MP -20&nbsp;%, incantation -20&nbsp;%), que Madrigal Inside conseille de garder jusqu'au set Shupon du niveau 90. Les sets suivants&nbsp;:",
-      "Os sets de armadura do Flyff Universe têm 4 peças, com bônus com 2, 3 e 4 peças. Antes do 60, o Assist usa Sardine/Curus (15), Talin/Sayram (30) e depois Wedge/Flury (45: INT +7, consumo de MP -20%, conjuração -20%), que o Madrigal Inside recomenda manter até o set Shupon do nível 90. Os sets seguintes:"
+      "Os sets de armadura do Flyff Universe têm 4 peças, com bônus de 2, 3 e 4 peças. Antes do nível 60, o Assist usa Sardine/Curus (15), Talin/Sayram (30) e depois Wedge/Flury (45: INT +7, consumo de MP -20%, conjuração -20%), que o Madrigal Inside recomenda manter até o set Shupon do nível 90. Os sets seguintes:"
     ],
     [
       "Niveau",
@@ -1775,6 +1815,26 @@
     [
       "REBORN ASSISTANT",
       "REBORN ASSISTANT"
+    ],
+    [
+      "\"inLanguage\": \"fr\"",
+      "\"inLanguage\": \"pt-BR\""
+    ],
+    [
+      "{ \"@type\": \"ListItem\", \"position\": 1, \"name\": \"Accueil\", \"item\": \"https://reborn-assistance.fr/\" }",
+      "{ \"@type\": \"ListItem\", \"position\": 1, \"name\": \"Início\", \"item\": \"https://reborn-assistance.fr/pt/\" }"
+    ],
+    [
+      "{ \"@type\": \"ListItem\", \"position\": 2, \"name\": \"Documentation\", \"item\": \"https://reborn-assistance.fr/docs/\" }",
+      "{ \"@type\": \"ListItem\", \"position\": 2, \"name\": \"Documentação\", \"item\": \"https://reborn-assistance.fr/pt/docs/\" }"
+    ],
+    [
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html\"",
+      "\"mainEntityOfPage\": \"https://reborn-assistance.fr/pt/docs/guia-ringmaster-flyff-universe.html\""
+    ],
+    [
+      "\"item\": \"https://reborn-assistance.fr/docs/guide-ringmaster-flyff-universe.html\"",
+      "\"item\": \"https://reborn-assistance.fr/pt/docs/guia-ringmaster-flyff-universe.html\""
     ]
   ]
 }
