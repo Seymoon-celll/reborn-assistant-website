@@ -334,10 +334,6 @@ export const guideRmTr = {
     '<strong>Heal Rain</strong>, ~12-15m yarıçaptaki tüm müttefikleri sürekli iyileştiren bir AOE',
   '<strong>Résurrection</strong> de joueur mort sans pénalité d\'expérience':
     'Deneyim cezası olmadan ölü oyuncuyu <strong>diriltme</strong>',
-  '<strong>Très faible burst damage personnel</strong> — le RM ne tue rien tout seul efficacement':
-    '<strong>Çok düşük kişisel burst hasarı</strong> — RM tek başına hiçbir şeyi verimli öldüremez',
-  '<strong>Demande presque toujours d\'être en groupe</strong> ou bien d\'avoir un alt à buffer/soigner':
-    '<strong>Neredeyse her zaman grupta olmayı</strong> veya buff/heal yapılacak bir alt karakter gerektirir',
 
   // Le rôle du Ringmaster en groupe
   'Le rôle du Ringmaster en groupe': 'Grupta Ringmaster\'ın rolü',

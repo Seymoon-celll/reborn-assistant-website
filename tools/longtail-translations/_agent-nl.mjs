@@ -340,10 +340,6 @@ export const guideRmNl = {
     '<strong>Heal Rain</strong>, een AOE die alle bondgenoten in een straal van ~12-15m geneest gedurende de tijd',
   '<strong>Résurrection</strong> de joueur mort sans pénalité d\'expérience':
     '<strong>Resurrection</strong> van een gestorven speler zonder ervaringspunten-penalty',
-  '<strong>Très faible burst damage personnel</strong> — le RM ne tue rien tout seul efficacement':
-    '<strong>Zeer lage persoonlijke burst damage</strong> — de RM doodt in z\'n eentje niets efficiënt',
-  '<strong>Demande presque toujours d\'être en groupe</strong> ou bien d\'avoir un alt à buffer/soigner':
-    '<strong>Vereist bijna altijd dat je in een groep speelt</strong>, of dat je een alt hebt om te buffen/genezen',
 
   // Roles
   'Trois rôles principaux selon le contexte de jeu :':

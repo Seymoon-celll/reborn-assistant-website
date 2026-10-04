@@ -54,10 +54,6 @@ const es = {
     '<strong>Heal Rain</strong>, un AOE que cura con el tiempo a todos los aliados en un radio de ~12-15m',
   '<strong>Résurrection</strong> de joueur mort sans pénalité d\'expérience':
     '<strong>Resurrection</strong> de jugador muerto sin penalización de experiencia',
-  '<strong>Très faible burst damage personnel</strong> — le RM ne tue rien tout seul efficacement':
-    '<strong>Daño burst personal muy bajo</strong> — el RM no mata nada solo de forma eficaz',
-  '<strong>Demande presque toujours d\'être en groupe</strong> ou bien d\'avoir un alt à buffer/soigner':
-    '<strong>Requiere casi siempre estar en grupo</strong> o tener un alt al que buffear/curar',
 
   // ─── Section : Le rôle ───────────────────────────────────────────────────
   'Le rôle du Ringmaster en groupe': 'El rol del Ringmaster en grupo',
@@ -230,10 +226,6 @@ const de = {
     '<strong>Heal Rain</strong>, ein AOE, das alle Verbündeten im Radius von ~12-15m über Zeit heilt',
   '<strong>Résurrection</strong> de joueur mort sans pénalité d\'expérience':
     '<strong>Resurrection</strong> eines toten Spielers ohne Erfahrungsabzug',
-  '<strong>Très faible burst damage personnel</strong> — le RM ne tue rien tout seul efficacement':
-    '<strong>Sehr geringer persönlicher Burst-Damage</strong> — der RM tötet allein nichts effizient',
-  '<strong>Demande presque toujours d\'être en groupe</strong> ou bien d\'avoir un alt à buffer/soigner':
-    '<strong>Erfordert fast immer eine Gruppe</strong> oder einen Alt zum Buffen/Heilen',
 
   // ─── Section : Le rôle ───────────────────────────────────────────────────
   'Le rôle du Ringmaster en groupe': 'Die Rolle des Ringmaster in der Gruppe',

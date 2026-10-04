@@ -336,10 +336,6 @@ export const guideRmKo = {
     '약 12~15m 반경 내 모든 아군을 지속 회복하는 AOE <strong>Heal Rain</strong>',
   '<strong>Résurrection</strong> de joueur mort sans pénalité d\'expérience':
     '경험치 페널티 없이 사망한 플레이어를 되살리는 <strong>Resurrection</strong>',
-  '<strong>Très faible burst damage personnel</strong> — le RM ne tue rien tout seul efficacement':
-    '<strong>매우 낮은 개인 순간 화력</strong> — RM은 혼자서는 효율적으로 아무것도 잡지 못합니다',
-  '<strong>Demande presque toujours d\'être en groupe</strong> ou bien d\'avoir un alt à buffer/soigner':
-    '<strong>거의 항상 파티 플레이가 필요</strong>하며, 혹은 버프와 힐을 줄 부캐가 있어야 합니다',
 
   // Rôle en groupe
   'Le rôle du Ringmaster en groupe': '파티에서의 Ringmaster 역할',

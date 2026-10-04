@@ -331,10 +331,6 @@ export const guideRmTl = {
     '<strong>Heal Rain</strong>, isang AOE na nag-he-heal over time sa lahat ng allies sa loob ng ~12-15m radius',
   '<strong>Résurrection</strong> de joueur mort sans pénalité d\'expérience':
     '<strong>Resurrection</strong> ng namatay na player nang walang experience penalty',
-  '<strong>Très faible burst damage personnel</strong> — le RM ne tue rien tout seul efficacement':
-    '<strong>Sobrang baba ng personal burst damage</strong> — walang mapapatay nang mag-isa ang RM nang epektibo',
-  '<strong>Demande presque toujours d\'être en groupe</strong> ou bien d\'avoir un alt à buffer/soigner':
-    '<strong>Halos palagi kailangang nasa party</strong> o kaya may alt na bu-buffer/he-healin',
 
   // H2: Le rôle du Ringmaster en groupe
   'Le rôle du Ringmaster en groupe': 'Ang papel ng Ringmaster sa party',

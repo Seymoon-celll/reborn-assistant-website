@@ -335,10 +335,6 @@ export const guideRmZh = {
     '<strong>Heal Rain</strong>,持续治疗半径约 12-15 米内所有友军的 AOE',
   '<strong>Résurrection</strong> de joueur mort sans pénalité d\'expérience':
     '<strong>复活</strong> 死亡玩家且不损失经验',
-  '<strong>Très faible burst damage personnel</strong> — le RM ne tue rien tout seul efficacement':
-    '<strong>个人爆发伤害极低</strong> — RM 单独杀怪效率很差',
-  '<strong>Demande presque toujours d\'être en groupe</strong> ou bien d\'avoir un alt à buffer/soigner':
-    '<strong>几乎必须组队</strong>,或者有个小号给你 buff 和治疗',
 
   // Section 2: rôle
   'Le rôle du Ringmaster en groupe': 'Ringmaster 在队伍中的定位',

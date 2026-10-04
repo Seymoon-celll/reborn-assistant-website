@@ -350,10 +350,6 @@ export const guideRmRu = {
     '<strong>Heal Rain</strong> — AOE, который лечит всех союзников в радиусе ~12-15 м на протяжении длительности',
   '<strong>Résurrection</strong> de joueur mort sans pénalité d\'expérience':
     '<strong>Воскрешение</strong> погибшего игрока без потери опыта',
-  '<strong>Très faible burst damage personnel</strong> — le RM ne tue rien tout seul efficacement':
-    '<strong>Крайне слабый личный burst damage</strong> — RM в одиночку никого толком не убивает',
-  '<strong>Demande presque toujours d\'être en groupe</strong> ou bien d\'avoir un alt à buffer/soigner':
-    '<strong>Почти всегда требует быть в пати</strong> или иметь альта под баффы/хил',
 
   // H2: Rôle en groupe
   'Le rôle du Ringmaster en groupe': 'Роль Ringmaster в пати',

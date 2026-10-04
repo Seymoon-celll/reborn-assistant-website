@@ -324,10 +324,6 @@ export const guideRmIt = {
     '<strong>Heal Rain</strong>, un AOE che cura nel tempo tutti gli alleati in un raggio di ~12-15m',
   '<strong>Résurrection</strong> de joueur mort sans pénalité d\'expérience':
     '<strong>Resurrezione</strong> di un giocatore morto senza penalità di esperienza',
-  '<strong>Très faible burst damage personnel</strong> — le RM ne tue rien tout seul efficacement':
-    '<strong>Burst damage personale molto debole</strong> — il RM non uccide nulla da solo in modo efficace',
-  '<strong>Demande presque toujours d\'être en groupe</strong> ou bien d\'avoir un alt à buffer/soigner':
-    '<strong>Richiede quasi sempre di essere in gruppo</strong> oppure di avere un alt da buffare/curare',
 
   // H2: Le rôle du Ringmaster en groupe
   'Le rôle du Ringmaster en groupe': 'Il ruolo del Ringmaster in gruppo',

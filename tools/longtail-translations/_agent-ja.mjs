@@ -335,10 +335,6 @@ export const guideRmJa = {
     '<strong>Heal Rain</strong>、半径約12〜15m 内のすべての味方を継続回復する AOE',
   '<strong>Résurrection</strong> de joueur mort sans pénalité d\'expérience':
     '経験値ペナルティなしで死亡プレイヤーを <strong>Resurrection</strong>',
-  '<strong>Très faible burst damage personnel</strong> — le RM ne tue rien tout seul efficacement':
-    '<strong>個人のバーストダメージは非常に低い</strong> — RM 単独では効率よく敵を倒せません',
-  '<strong>Demande presque toujours d\'être en groupe</strong> ou bien d\'avoir un alt à buffer/soigner':
-    '<strong>ほぼ常にパーティでのプレイが前提</strong>、もしくはバフ・回復対象のサブキャラが必要',
 
   'Le rôle du Ringmaster en groupe': 'パーティ内での Ringmaster の役割',
   'Trois rôles principaux selon le contexte de jeu :': 'プレイ状況に応じた3つの主な役割。',

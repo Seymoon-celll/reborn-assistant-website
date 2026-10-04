@@ -326,10 +326,6 @@ export const guideRmAr = {
     '<strong>Heal Rain</strong>، AOE يشفي بمرور الوقت كل الحلفاء ضمن نصف قطر ~12-15م',
   '<strong>Résurrection</strong> de joueur mort sans pénalité d\'expérience':
     '<strong>Resurrection</strong> لإعادة لاعب ميت دون عقوبة خبرة',
-  '<strong>Très faible burst damage personnel</strong> — le RM ne tue rien tout seul efficacement':
-    '<strong>burst damage شخصي ضعيف جداً</strong> — الـ RM لا يقتل بمفرده بكفاءة',
-  '<strong>Demande presque toujours d\'être en groupe</strong> ou bien d\'avoir un alt à buffer/soigner':
-    '<strong>يكاد يتطلب دائماً اللعب في فريق</strong> أو وجود حساب alt تُعزّزه وتشفيه',
 
   // Le rôle du Ringmaster en groupe
   'Le rôle du Ringmaster en groupe': 'دور الـ Ringmaster داخل الفريق',

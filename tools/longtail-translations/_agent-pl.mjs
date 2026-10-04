@@ -342,10 +342,6 @@ export const guideRmPl = {
     '<strong>Heal Rain</strong>, AOE leczące w czasie wszystkich sojuszników w promieniu ~12-15 m',
   '<strong>Résurrection</strong> de joueur mort sans pénalité d\'expérience':
     '<strong>Resurrection</strong> martwego gracza bez kary za utratę doświadczenia',
-  '<strong>Très faible burst damage personnel</strong> — le RM ne tue rien tout seul efficacement':
-    '<strong>Bardzo niski własny burst damage</strong> — RM samodzielnie nikogo skutecznie nie ubije',
-  '<strong>Demande presque toujours d\'être en groupe</strong> ou bien d\'avoir un alt à buffer/soigner':
-    '<strong>Niemal zawsze wymaga grania w drużynie</strong> albo posiadania alta do buffowania/leczenia',
 
   // Roles
   'Trois rôles principaux selon le contexte de jeu :': 'Trzy główne role w zależności od kontekstu gry:',
